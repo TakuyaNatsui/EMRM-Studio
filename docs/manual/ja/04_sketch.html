@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="generator" content="tools/build_manual.py">
+<title>第 4 章 スケッチ - EMRM-Studio ユーザーマニュアル</title>
+<link rel="stylesheet" href="assets/manual.css">
+<script src="assets/search_index.js" charset="utf-8" defer></script>
+<script src="assets/manual.js" charset="utf-8" defer></script>
+</head>
+<body class="page">
+<header class="topbar">
+<a class="brand" href="index.html">EMRM-Studio ユーザーマニュアル</a>
+<button class="toc-toggle" type="button" aria-controls="toc" aria-expanded="false">目次</button>
+<form class="search" role="search" action="#" onsubmit="return false">
+<input id="q" type="search" placeholder="マニュアルを検索（/）" aria-label="マニュアルを検索" autocomplete="off">
+</form>
+</header>
+<div id="search-results" class="search-results" hidden></div>
+<div class="layout">
+<nav id="toc" class="toc" aria-label="目次">
+<details class="toc-box">
+<summary>目次</summary>
+<ol class="toc-chapters">
+<li class="toc-home"><a href="index.html">表紙・目次</a></li>
+<li><a href="00_intro.html">はじめに</a></li>
+<li class="toc-part" role="presentation">第 I 部　形状を作る（CAD）</li>
+<li><a href="01_screen.html"><span class="chno">第 1 章</span> 画面の構成</a></li>
+<li><a href="02_view.html"><span class="chno">第 2 章</span> 視点の操作</a></li>
+<li><a href="03_first_part.html"><span class="chno">第 3 章</span> はじめての部品</a></li>
+<li class="current"><a href="04_sketch.html" aria-current="page"><span class="chno">第 4 章</span> スケッチ</a><ol class="toc-sections"><li><a href="04_sketch.html#overview"><span class="secno">4.1</span> スケッチの基本</a></li><li><a href="04_sketch.html#start"><span class="secno">4.2</span> スケッチを始める・終える</a></li><li><a href="04_sketch.html#draw"><span class="secno">4.3</span> 作図ツール</a></li><li><a href="04_sketch.html#numeric"><span class="secno">4.4</span> 数値を入力する</a></li><li><a href="04_sketch.html#constraints"><span class="secno">4.5</span> 拘束</a></li><li><a href="04_sketch.html#dimensions"><span class="secno">4.6</span> 寸法</a></li><li><a href="04_sketch.html#modify"><span class="secno">4.7</span> 編集</a></li><li><a href="04_sketch.html#project"><span class="secno">4.8</span> ジオメトリの投影</a></li><li><a href="04_sketch.html#redefine"><span class="secno">4.9</span> スケッチ平面の再定義</a></li><li><a href="04_sketch.html#copy"><span class="secno">4.10</span> コピーと貼り付け</a></li><li><a href="04_sketch.html#repair"><span class="secno">4.11</span> スケッチの修復</a></li><li><a href="04_sketch.html#construction"><span class="secno">4.12</span> 構築線と中心線</a></li><li><a href="04_sketch.html#profile"><span class="secno">4.13</span> 閉じた領域（プロファイル）</a></li><li><a href="04_sketch.html#settings"><span class="secno">4.14</span> スケッチの設定</a></li><li><a href="04_sketch.html#try"><span class="secno">4.15</span> この機能を試す</a></li></ol></li>
+<li><a href="05_work_features.html"><span class="chno">第 5 章</span> 作業フィーチャ</a></li>
+<li><a href="06_features_basic.html"><span class="chno">第 6 章</span> フィーチャ（押し出し・回転・穴・フィレットなど）</a></li>
+<li><a href="07_features_advanced.html"><span class="chno">第 7 章</span> フィーチャ（スイープ・ロフト・コイル・パターンなど）</a></li>
+<li><a href="08_bodies.html"><span class="chno">第 8 章</span> ボディの操作</a></li>
+<li><a href="09_browser.html"><span class="chno">第 9 章</span> ブラウザとフィーチャの管理</a></li>
+<li><a href="10_parameters.html"><span class="chno">第 10 章</span> パラメータと式</a></li>
+<li><a href="11_configurations.html"><span class="chno">第 11 章</span> 構成</a></li>
+<li><a href="12_inspect.html"><span class="chno">第 12 章</span> 検査</a></li>
+<li><a href="13_files.html"><span class="chno">第 13 章</span> ファイル</a></li>
+<li class="toc-part" role="presentation">第 II 部　電磁場解析</li>
+<li><a href="14_em_intro.html"><span class="chno">第 14 章</span> 電磁場解析のはじめに</a></li>
+<li><a href="15_em_first.html"><span class="chno">第 15 章</span> はじめての電磁場解析（ソレノイド）</a></li>
+<li><a href="16_em_setup.html"><span class="chno">第 16 章</span> スタディの共通の設定</a></li>
+<li><a href="17_em_results.html"><span class="chno">第 17 章</span> 結果の見方</a></li>
+<li><a href="18_em_magnetostatic.html"><span class="chno">第 18 章</span> 静磁場解析</a></li>
+<li><a href="19_em_coils.html"><span class="chno">第 19 章</span> 静磁場解析: コイル</a></li>
+<li><a href="20_em_dipole.html"><span class="chno">第 20 章</span> 静磁場解析の例題: H 型双極電磁石</a></li>
+<li><a href="21_em_eigenmode.html"><span class="chno">第 21 章</span> 共振モード解析</a></li>
+<li><a href="22_em_driven.html"><span class="chno">第 22 章</span> ポート解析</a></li>
+<li><a href="23_em_electrostatic.html"><span class="chno">第 23 章</span> 静電場解析</a></li>
+<li><a href="24_em_gun.html"><span class="chno">第 24 章</span> 電子銃解析</a></li>
+<li><a href="25_em_troubleshooting.html"><span class="chno">第 25 章</span> 電磁場解析で困ったとき</a></li>
+<li class="toc-part" role="presentation">第 III 部　連携・カスタマイズ・自動化</li>
+<li><a href="26_step_export.html"><span class="chno">第 26 章</span> 他の解析プログラムに形を渡す</a></li>
+<li><a href="27_customize.html"><span class="chno">第 27 章</span> カスタマイズ</a></li>
+<li><a href="28_automation.html"><span class="chno">第 28 章</span> 自動化</a></li>
+<li><a href="29_troubleshooting.html"><span class="chno">第 29 章</span> 困ったとき</a></li>
+<li class="toc-part" role="presentation">付録</li>
+<li class="appendix"><a href="appendix_a_commands.html"><span class="chno">付録 A</span> コマンド一覧</a></li>
+<li class="appendix"><a href="appendix_b_shortcuts.html"><span class="chno">付録 B</span> ショートカット一覧</a></li>
+<li class="appendix"><a href="appendix_c_feature_params.html"><span class="chno">付録 C</span> フィーチャのパラメータ一覧</a></li>
+<li class="appendix"><a href="appendix_d_glossary.html"><span class="chno">付録 D</span> 用語の対応表</a></li>
+</ol>
+</details>
+</nav>
+<main class="content" id="main">
+<article class="chapter ">
+<p class="chapter-label">第 4 章</p>
+<h1>スケッチ</h1>
+<nav class="pagetoc" aria-label="この章の内容">
+<p class="pagetoc-title">この章の内容</p>
+<ol>
+<li><a href="#overview"><span class="secno">4.1</span> スケッチの基本</a></li>
+<li><a href="#start"><span class="secno">4.2</span> スケッチを始める・終える</a></li>
+<li class="sub"><a href="#start-plane">平面を選んで始める</a></li>
+<li class="sub"><a href="#start-options">X 方向と法線の反転</a></li>
+<li class="sub"><a href="#start-face">平らな面に始める</a></li>
+<li class="sub"><a href="#finish">スケッチを終了する</a></li>
+<li class="sub"><a href="#edit-again">描いたスケッチを編集し直す</a></li>
+<li><a href="#draw"><span class="secno">4.3</span> 作図ツール</a></li>
+<li class="sub"><a href="#draw-basic">作図の基本操作</a></li>
+<li class="sub"><a href="#draw-line">線・連続線</a></li>
+<li class="sub"><a href="#draw-circle">円・円弧</a></li>
+<li class="sub"><a href="#draw-rect">長方形・スロット・ポリゴン</a></li>
+<li class="sub"><a href="#draw-curve">スプライン・楕円・楕円弧</a></li>
+<li class="sub"><a href="#draw-point-text">点・文字</a></li>
+<li class="sub"><a href="#draw-fillet">フィレット・面取り</a></li>
+<li><a href="#numeric"><span class="secno">4.4</span> 数値を入力する</a></li>
+<li><a href="#constraints"><span class="secno">4.5</span> 拘束</a></li>
+<li class="sub"><a href="#constraint-list">拘束の種類</a></li>
+<li class="sub"><a href="#constraint-add">拘束を付ける</a></li>
+<li class="sub"><a href="#constraint-infer">自動で付く拘束・スナップ・推論線・グリッド</a></li>
+<li class="sub"><a href="#constraint-show">拘束の表示と拘束マネージャ</a></li>
+<li class="sub"><a href="#constraint-dof">自由度と状態の診断</a></li>
+<li class="sub"><a href="#constraint-conflict">競合と冗長</a></li>
+<li><a href="#dimensions"><span class="secno">4.6</span> 寸法</a></li>
+<li class="sub"><a href="#dim-kinds">寸法の種類</a></li>
+<li class="sub"><a href="#dim-fx">式とパラメータの寸法</a></li>
+<li class="sub"><a href="#dim-driven">駆動寸法と従動寸法</a></li>
+<li><a href="#modify"><span class="secno">4.7</span> 編集</a></li>
+<li class="sub"><a href="#select">要素を選ぶ・消す</a></li>
+<li class="sub"><a href="#modify-cut">トリム・延長・分割</a></li>
+<li class="sub"><a href="#modify-move">移動・コピー・回転・尺度・ストレッチ</a></li>
+<li class="sub"><a href="#modify-offset">オフセット</a></li>
+<li class="sub"><a href="#modify-mirror">ミラー</a></li>
+<li class="sub"><a href="#modify-pattern">パターン</a></li>
+<li class="sub"><a href="#modify-param">パラメータの寸法を緩めるときの確認</a></li>
+<li class="sub"><a href="#modify-projected">投影した辺は動かせない</a></li>
+<li><a href="#project"><span class="secno">4.8</span> ジオメトリの投影</a></li>
+<li class="sub"><a href="#project-auto">面に置いたスケッチ</a></li>
+<li class="sub"><a href="#project-tool">投影のツール</a></li>
+<li class="sub"><a href="#project-slice">断面の線を選んで投影する（スライス表示）</a></li>
+<li class="sub"><a href="#project-lost">投影元がなくなったとき</a></li>
+<li><a href="#redefine"><span class="secno">4.9</span> スケッチ平面の再定義</a></li>
+<li><a href="#copy"><span class="secno">4.10</span> コピーと貼り付け</a></li>
+<li><a href="#repair"><span class="secno">4.11</span> スケッチの修復</a></li>
+<li><a href="#construction"><span class="secno">4.12</span> 構築線と中心線</a></li>
+<li><a href="#profile"><span class="secno">4.13</span> 閉じた領域（プロファイル）</a></li>
+<li><a href="#settings"><span class="secno">4.14</span> スケッチの設定</a></li>
+<li><a href="#try"><span class="secno">4.15</span> この機能を試す</a></li>
+</ol>
+</nav>
+<p>この章では、スケッチの描き方を説明します。平面や面の上に図形を描き、拘束と寸法で形を決め、編集・投影・コピーで形を整えるところまでを順に操作します。読み終えると、押し出しや回転に使える、形の決まった（完全定義の）スケッチを自分で作れるようになります。</p>
+
+<h2 id="overview"><span class="secno">4.1</span> スケッチの基本</h2>
+<p>スケッチは、部品の元になる 2D の図形です。平面（または平らな面）の上に、線・円・円弧などの曲線を描き、その<strong>閉じた領域</strong>（<a href="#profile">プロファイル</a>）を押し出しや回転に使います。スケッチを編集している間は、リボンに緑色の<span class="ui">［スケッチ］</span>タブが出て、ビューが平面に正対します。</p>
+<figure id="fig-04_sketch_screen"><a class="zoom" href="images/04_sketch_screen.png"><img src="images/04_sketch_screen.png" alt="スケッチのモード。① 緑色の［スケッチ］タブ、② 平面に正対したビュー（グリッドと原点が出ます）、③ 右のドックの［スケッチの診断］と［拘束マネージャ］、④ ブラウザの［スケッチ1］。ビューの右上の［OK］・［キャンセル］でスケッチを終えます。" width="1000" height="643" loading="lazy"></a><figcaption><span class="figno">図 4-1</span> スケッチのモード。① 緑色の<span class="ui">［スケッチ］</span>タブ、② 平面に正対したビュー（グリッドと原点が出ます）、③ 右のドックの<span class="ui">［スケッチの診断］</span>と<span class="ui">［拘束マネージャ］</span>、④ ブラウザの<span class="ui">［スケッチ1］</span>。ビューの右上の<span class="ui">［OK］</span>・<span class="ui">［キャンセル］</span>でスケッチを終えます。</figcaption></figure>
+<p>線の色と太さで、形がどこまで決まっているかが分かります。</p>
+<div class="table-wrap"><table>
+  <caption>スケッチの線の色と、その意味</caption>
+  <thead><tr><th>表示</th><th>意味</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">青い細い線</th><td>寸法や拘束がまだ足りず、動かせる（未定義）</td></tr>
+    <tr><th scope="row">黒い太い線</th><td>形が全部決まっている（完全定義）</td></tr>
+    <tr><th scope="row">赤い線と × の印</th><td>拘束が多すぎる（過剰定義）、または競合している</td></tr>
+    <tr><th scope="row">青緑の線</th><td>モデルから投影した線（<a href="#project">ジオメトリの投影</a>）。動かせません</td></tr>
+    <tr><th scope="row">茶色の破線</th><td>投影元をなくした投影の線（宙に浮いた線）</td></tr>
+    <tr><th scope="row">橙の大きな点</th><td>他の線につながっていない端点（開いた端点）</td></tr>
+    <tr><th scope="row">淡い青の網掛け</th><td>閉じた領域（押し出しに使えるプロファイル）</td></tr>
+  </tbody>
+</table></div>
+<p>ステータスバーにも、<code>未定義（自由度 3）</code>・<code>完全定義</code>のように状態が出ます。自由度は、あと何か所を決めれば形が決まるかを表します。</p>
+
+<h2 id="start"><span class="secno">4.2</span> スケッチを始める・終える</h2>
+<h3 id="start-plane">平面を選んで始める</h3>
+<p>スケッチは、原点の平面・作業平面・UCS・パーツの平らな面のどれかの上に置きます。平面を選ぶとすぐにスケッチのモードに入ります。</p>
+<ol class="steps">
+  <li><p><span class="path">リボンの<span class="ui">［3D モデル］</span>タブ → <span class="ui">［スケッチ］</span>パネル → <span class="ui">［スケッチ］</span></span>をクリックします（<kbd>S</kbd> でも始められます）。プロパティ パネルに<span class="ui">［スケッチ］</span>のフォームが出ます。</p>
+    <figure id="fig-04_ribbon_sketch_start"><a class="zoom" href="images/04_ribbon_sketch_start.png"><img src="images/04_ribbon_sketch_start.png" alt="［3D モデル］タブの［スケッチ］パネル。" width="60" height="90" loading="lazy"></a><figcaption><span class="figno">図 4-2</span> ［3D モデル］タブの［スケッチ］パネル。</figcaption></figure>
+    <figure id="fig-04_new_sketch_form"><a class="zoom" href="images/04_new_sketch_form.png"><img src="images/04_new_sketch_form.png" alt="スケッチのフォーム。［平面］の欄が、置く平面の選択を待っています。［X 方向］と［法線を反転］は、必要なときだけ使います。" width="360" height="262" loading="lazy"></a><figcaption><span class="figno">図 4-3</span> スケッチのフォーム。<span class="ui">［平面］</span>の欄が、置く平面の選択を待っています。<span class="ui">［X 方向］</span>と<span class="ui">［法線を反転］</span>は、必要なときだけ使います。</figcaption></figure></li>
+  <li><p>ビューに半透明の原点の平面が出ます。ブラウザの<span class="ui">［原点］</span>の<span class="ui">［XY 平面（上面）］</span>などをクリックするか、ビューの平面をクリックします。</p>
+    <figure id="fig-04_pick_face"><a class="zoom" href="images/04_pick_face.png"><img src="images/04_pick_face.png" alt="平面を選ぶ途中。非表示の原点の平面も、選ぶ間だけ出ます。パーツの面にカーソルを重ねると、その面が橙で強調されます。" width="700" height="520" loading="lazy"></a><figcaption><span class="figno">図 4-4</span> 平面を選ぶ途中。非表示の原点の平面も、選ぶ間だけ出ます。パーツの面にカーソルを重ねると、その面が橙で強調されます。</figcaption></figure></li>
+  <li><p>スケッチのモードに入ります。ビューが平面に正対し（平行投影）、グリッドが出ます。ほかのボディは半透明になります。</p></li>
+</ol>
+<p>先に平面を選んでから<span class="ui">［スケッチ］</span>を押しても、同じようにすぐ始まります。</p>
+<p>右クリックからも始められます。ブラウザの<span class="ui">［原点］</span>の平面（<span class="ui">［XY 平面（上面）］</span>・<span class="ui">［XZ 平面（正面）］</span>・<span class="ui">［YZ 平面（右側面）］</span>）や作業平面の行を右クリックすると、メニューの先頭に<span class="ui">［新しいスケッチ］</span>があります。選ぶと、その平面にすぐスケッチが始まります。ビューの作業平面・平らな面を右クリックしたメニューにもあります（<a href="#start-face">平らな面に始める</a>）。</p>
+<figure id="fig-04_menu_new_sketch"><a class="zoom" href="images/04_menu_new_sketch.png"><img src="images/04_menu_new_sketch.png" alt="ブラウザの［XZ 平面（正面）］を右クリックしたところ。先頭の［新しいスケッチ］を選ぶと、その平面にスケッチが始まります。" width="156" height="126" loading="lazy"></a><figcaption><span class="figno">図 4-5</span> ブラウザの<span class="ui">［XZ 平面（正面）］</span>を右クリックしたところ。先頭の<span class="ui">［新しいスケッチ］</span>を選ぶと、その平面にスケッチが始まります。</figcaption></figure>
+<aside class="inventor" role="note"><p class="callout-title">Inventor との違い</p><p>Inventor で平面を右クリックして<span class="ui">［新しいスケッチ］</span>を選ぶのと同じです。軸・点・曲面・複数の選択では出ません。</p></aside>
+
+<h3 id="start-options">X 方向と法線の反転</h3>
+<p>スケッチの横軸（X 軸）の向きや、見る側を、平面を選ぶ前にフォームで決められます。平面を選ぶとすぐ始まるので、先にこの 2 つを決めます。</p>
+<ul>
+  <li><p><span class="ui">［X 方向］</span>: 欄をクリックして、ビューの辺か軸を選びます。選んだ線の向きが、スケッチの X 軸になります。</p></li>
+  <li><p><span class="ui">［法線を反転］</span>: チェックを入れると、平面の裏側から見る向きになります。</p></li>
+</ul>
+<p>平面を選ばずに<span class="ui">［OK］</span>（<kbd>Enter</kbd>）を押すと、XY 平面にスケッチが始まります。</p>
+
+<h3 id="start-face">平らな面に始める</h3>
+<p>パーツの平らな面の上にもスケッチを置けます。<span class="ui">［スケッチ］</span>を押して、ビューで面をクリックします（面にカーソルを重ねると、選べる面が橙で強調されます）。面を右クリックして始める方法もあります。</p>
+<ol class="steps">
+  <li><p>ビューで、スケッチを置く平らな面を右クリックします。何も選んでいなくてかまいません。右クリックした面が選ばれ（青くなり）、その面のメニューが出ます。</p>
+    <div class="figrow">
+      <figure id="fig-04_face_right_click"><a class="zoom" href="images/04_face_right_click.png"><img src="images/04_face_right_click.png" alt="上面を右クリックしたところ。面が青く選ばれています。" width="460" height="342" loading="lazy"></a><figcaption><span class="figno">図 4-6</span> 上面を右クリックしたところ。面が青く選ばれています。</figcaption></figure>
+      <figure id="fig-04_menu_face_new_sketch"><a class="zoom" href="images/04_menu_face_new_sketch.png"><img src="images/04_menu_face_new_sketch.png" alt="その面のメニュー。［新しいスケッチ］は、面を作ったフィーチャとスケッチの編集の次にあります。" width="174" height="224" loading="lazy"></a><figcaption><span class="figno">図 4-7</span> その面のメニュー。<span class="ui">［新しいスケッチ］</span>は、面を作ったフィーチャとスケッチの編集の次にあります。</figcaption></figure>
+    </div></li>
+  <li><p>メニューの<span class="ui">［新しいスケッチ］</span>を選びます。その面にスケッチが始まります。</p></li>
+</ol>
+<p>ほかの要素を選んでいるときに別の面を右クリックすると、選択はその面だけに替わります。選んでいる面を右クリックしたときは、選択はそのままです。作業平面も、ビューで右クリックするだけで同じように始められます。</p>
+<p>面に置いたスケッチでは、面の外周が自動で投影されます（<a href="#project">ジオメトリの投影</a>）。自動の投影は、<span class="ui">［オプション］</span>ダイアログの<span class="ui">［スケッチ］</span>ページで切れます。置き場所は、あとから<a href="#redefine">平面を付け替え</a>られます。</p>
+<aside class="note" role="note"><p class="callout-title">注意</p><p>曲面（円筒など）はスケッチの平面になりません。クリックしても平面にならず、案内の欄は <code>選択: 平面</code> のままです。曲面を右クリックすると、その面は選ばれますが、メニューに<span class="ui">［新しいスケッチ］</span>は出ません。</p></aside>
+
+<h3 id="finish">スケッチを終了する</h3>
+<ol class="steps">
+  <li><p>リボンの<span class="ui">［スケッチ］</span>タブ →<span class="ui">［終了］</span>パネル →<span class="ui">［2D スケッチを終了］</span>をクリックします。ビューの右上の<span class="ui">［OK］</span>でも終わります。</p>
+    <figure id="fig-04_ribbon_exit"><a class="zoom" href="images/04_ribbon_exit.png"><img src="images/04_ribbon_exit.png" alt="［スケッチ］タブの［終了］パネル。右の × は［スケッチの変更を破棄］です。" width="115" height="90" loading="lazy"></a><figcaption><span class="figno">図 4-8</span> ［スケッチ］タブの［終了］パネル。右の × は<span class="ui">［スケッチの変更を破棄］</span>です。</figcaption></figure></li>
+  <li><p>パーツのモードに戻り、ビューのカメラも入る前の向きに戻ります。ブラウザに<span class="ui">［スケッチ1］</span>ができ、後ろのフィーチャが再計算されます。</p></li>
+</ol>
+<figure id="fig-04_exit_corner"><a class="zoom" href="images/04_exit_corner.png"><img src="images/04_exit_corner.png" alt="ビューの右上の確認コーナー。［OK］で終了（変更を残す）、［キャンセル］で変更を捨てて終了します。" width="138" height="27" loading="lazy"></a><figcaption><span class="figno">図 4-9</span> ビューの右上の確認コーナー。<span class="ui">［OK］</span>で終了（変更を残す）、<span class="ui">［キャンセル］</span>で変更を捨てて終了します。</figcaption></figure>
+<p>ビューの空白を右クリックして、メニューの<span class="ui">［2D スケッチを終了］</span>を選んでも終えられます。変更を捨てるには、<span class="ui">［キャンセル］</span>（またはリボンの<span class="ui">［スケッチの変更を破棄］</span>、右クリックのメニュー）を押します。新しく作ったスケッチは、スケッチごと消えます。</p>
+<p>スケッチを始めてから終えるまでの変更は、元に戻す（<kbd>Ctrl</kbd>+<kbd>Z</kbd>）で 1 つずつ戻せます。ただし、スケッチを始める前の状態までは戻りません。スケッチを終えると、全体が 1 つの変更として履歴に入ります。</p>
+
+<h3 id="edit-again">描いたスケッチを編集し直す</h3>
+<ul>
+  <li><p>ブラウザの<span class="ui">［スケッチ1］</span>などの行をダブルクリックします。</p></li>
+  <li><p>ブラウザのスケッチの行を右クリックして、<span class="ui">［スケッチを編集］</span>を選びます。</p></li>
+  <li><p>ビューのパーツの面やエッジを右クリックして、<span class="ui">［スケッチを編集］</span>を選ぶと、その面を作ったフィーチャのスケッチが開きます。</p></li>
+</ul>
+<p>編集の間は、ほかのフィーチャの編集や削除はできません（<span class="ui">［このフィーチャを変えるにはスケッチを終了してください］</span>と出ます）。押し出しなどに使われたスケッチは、既定で非表示です。ブラウザの行の左のチェックで、表示を切り替えられます。</p>
+
+<h2 id="draw"><span class="secno">4.3</span> 作図ツール</h2>
+<h3 id="draw-basic">作図の基本操作</h3>
+<p>作図のツールは、リボンの<span class="ui">［スケッチ］</span>タブ →<span class="ui">［作成］</span>パネルにあります。▼ の付いたボタンは、押すと同じ仲間のツールの一覧が出ます。最後に使ったツールがボタンの表に残ります。</p>
+<figure id="fig-04_ribbon_create"><a class="zoom" href="images/04_ribbon_create.png"><img src="images/04_ribbon_create.png" alt="［作成］パネル。線・円・円弧・長方形のボタンの右の ▼ から、仲間のツールを選びます。" width="648" height="90" loading="lazy"></a><figcaption><span class="figno">図 4-10</span> ［作成］パネル。線・円・円弧・長方形のボタンの右の ▼ から、仲間のツールを選びます。</figcaption></figure>
+<figure id="fig-04_menu_rect"><a class="zoom" href="images/04_menu_rect.png"><img src="images/04_menu_rect.png" alt="［長方形］の ▼ の一覧。長方形・スロット・ポリゴンがここにあります。" width="153" height="288" loading="lazy"></a><figcaption><span class="figno">図 4-11</span> ［長方形］の ▼ の一覧。長方形・スロット・ポリゴンがここにあります。</figcaption></figure>
+<ol class="steps">
+  <li><p>作成パネルでツールを選びます。ステータスバーに、次の操作が案内されます。</p></li>
+  <li><p>ビューをクリックして、点を順に決めます。既存の点・線の近くをクリックすると、端点・中心・中点・交点などに吸い付きます（<a href="#constraint-infer">自動で付く拘束</a>）。</p></li>
+  <li><p>図形ができたら、続けて次の図形を描けます。<kbd>Esc</kbd> でツールを終え、選択に戻ります。</p></li>
+</ol>
+<p>描いた要素どうしは、端点が一致の拘束でつながります。ツールによっては、水平・垂直・正接などの拘束も、形に合わせて自動で付きます。</p>
+<div class="table-wrap"><table>
+  <caption>よく使う作図ツールのキー</caption>
+  <thead><tr><th>ツール</th><th>キー</th></tr></thead>
+  <tbody>
+    <tr><th scope="row"><span class="ui">［線］</span></th><td><kbd>L</kbd></td></tr>
+    <tr><th scope="row"><span class="ui">［中心点円］</span></th><td><kbd>C</kbd></td></tr>
+    <tr><th scope="row"><span class="ui">［テキスト］</span></th><td><kbd>T</kbd></td></tr>
+    <tr><th scope="row"><span class="ui">［寸法］</span></th><td><kbd>D</kbd></td></tr>
+    <tr><th scope="row"><span class="ui">［ジオメトリを投影］</span></th><td><kbd>P</kbd></td></tr>
+  </tbody>
+</table></div>
+
+<h3 id="draw-line">線・連続線</h3>
+<ol class="steps">
+  <li><p><span class="path">リボンの<span class="ui">［スケッチ］</span>タブ → <span class="ui">［作成］</span>パネル → <span class="ui">［線］</span></span>をクリックします。</p></li>
+  <li><p>始点をクリックし、続けて次の点をクリックします。クリックのたびに線が 1 本できて、その終点から次の線が伸びます（連続線）。</p>
+    <figure id="fig-04_line_hud"><a class="zoom" href="images/04_line_hud.png"><img src="images/04_line_hud.png" alt="始点をクリックしたあとの線。［長さ］と［角度］の入力ウィンドウ（HUD）が出ます（写真では、線と一緒に写るよう、ビューの左上から動かしています）。［確定］・［終了］のボタンがあります。" width="560" height="400" loading="lazy"></a><figcaption><span class="figno">図 4-12</span> 始点をクリックしたあとの線。<span class="ui">［長さ］</span>と<span class="ui">［角度］</span>の入力ウィンドウ（HUD）が出ます（写真では、線と一緒に写るよう、ビューの左上から動かしています）。<span class="ui">［確定］</span>・<span class="ui">［終了］</span>のボタンがあります。</figcaption></figure></li>
+  <li><p>連続線を終えるには、ダブルクリックか <kbd>Enter</kbd> を押します。最初の点をクリックして閉じたときも、そこで連続線が終わります。<kbd>Esc</kbd> でツールを終えます。</p></li>
+</ol>
+<p>水平・垂直に近い向きで引くと、水平・垂直の拘束が付きます（<a href="#constraint-infer">自動で付く拘束</a>）。</p>
+<p>回転の軸にする線は、<span class="ui">［中心線］</span>で描きます。破線で描く補助の線は、<span class="ui">［線（構築線）］</span>です（<a href="#construction">構築線と中心線</a>）。</p>
+
+<h3 id="draw-circle">円・円弧</h3>
+<p>円と円弧は、それぞれ 3 種類のツールがあります。</p>
+<div class="table-wrap"><table>
+  <caption>円と円弧のツール（▼ の一覧の中）</caption>
+  <thead><tr><th>ツール</th><th>操作</th></tr></thead>
+  <tbody>
+    <tr><th scope="row"><span class="ui">［中心点円］</span></th><td>中心をクリックし、円周上の点をクリックします。</td></tr>
+    <tr><th scope="row"><span class="ui">［3 点円］</span></th><td>円周上の 3 点をクリックします。</td></tr>
+    <tr><th scope="row"><span class="ui">［接線円］</span></th><td>3 本の線を順にクリックします。3 本に接する円ができます。最後のクリックに近い側（内接円か傍接円）が選ばれます。</td></tr>
+    <tr><th scope="row"><span class="ui">［中心点円弧］</span></th><td>中心・始点・終点の順にクリックします。カーソルを回した向きに円弧ができます。</td></tr>
+    <tr><th scope="row"><span class="ui">［3 点円弧］</span></th><td>始点・終点・円弧の上の点の順にクリックします。</td></tr>
+    <tr><th scope="row"><span class="ui">［接線円弧］</span></th><td>線か円弧の端点をクリックし、そこから接して伸びる円弧の終点をクリックします。</td></tr>
+  </tbody>
+</table></div>
+<figure id="fig-04_draw_circles_arcs"><a class="zoom" href="images/04_draw_circles_arcs.png"><img src="images/04_draw_circles_arcs.png" alt="上段は円（中心点円・3 点円・接線円）、下段は円弧（中心点円弧・3 点円弧・接線円弧）。記号の T は正接、C は一致の拘束です。" width="640" height="440" loading="lazy"></a><figcaption><span class="figno">図 4-13</span> 上段は円（中心点円・3 点円・接線円）、下段は円弧（中心点円弧・3 点円弧・接線円弧）。記号の <code>T</code> は正接、<code>C</code> は一致の拘束です。</figcaption></figure>
+
+<h3 id="draw-rect">長方形・スロット・ポリゴン</h3>
+<p>長方形・スロット・ポリゴンは、リボンの<span class="ui">［長方形］</span>▼ の一覧にまとまっています。</p>
+<div class="table-wrap"><table>
+  <caption>長方形のツールと操作</caption>
+  <thead><tr><th>ツール</th><th>操作</th></tr></thead>
+  <tbody>
+    <tr><th scope="row"><span class="ui">［2 点長方形］</span></th><td>対角の 2 点をクリックします。</td></tr>
+    <tr><th scope="row"><span class="ui">［3 点長方形］</span></th><td>角、1 辺の端点（向きと長さ）、隣の辺の長さの点の順にクリックします。傾いた長方形が描けます。</td></tr>
+    <tr><th scope="row"><span class="ui">［2 点中心長方形］</span></th><td>中心と角をクリックします。</td></tr>
+    <tr><th scope="row"><span class="ui">［3 点中心長方形］</span></th><td>中心、1 辺の中点（向きと長さの半分）、隣の辺の長さの半分の点の順にクリックします。</td></tr>
+    <tr><th scope="row"><span class="ui">［平行四辺形］</span></th><td>3 つの角をクリックします。</td></tr>
+    <tr><th scope="row"><span class="ui">［角丸長方形］</span></th><td>対角の 2 点をクリックします。角が正接の円弧で丸まります（4 つの角は等しい半径）。</td></tr>
+  </tbody>
+</table></div>
+<div class="table-wrap"><table>
+  <caption>スロットとポリゴンのツールと操作</caption>
+  <thead><tr><th>ツール</th><th>操作</th></tr></thead>
+  <tbody>
+    <tr><th scope="row"><span class="ui">［中心合わせスロット］</span></th><td>両端の円弧の中心 2 点をクリックし、幅の点をクリックします。</td></tr>
+    <tr><th scope="row"><span class="ui">［全体の長さスロット］</span></th><td>全体の両端の点をクリックし、幅の点をクリックします。</td></tr>
+    <tr><th scope="row"><span class="ui">［中心点スロット］</span></th><td>スロットの中心、一方の円弧の中心、幅の点の順にクリックします。</td></tr>
+    <tr><th scope="row"><span class="ui">［3 点円弧スロット］</span></th><td>中心線の円弧の始点・終点・円弧の上の点、幅の点の順にクリックします。</td></tr>
+    <tr><th scope="row"><span class="ui">［中心点円弧スロット］</span></th><td>中心線の円弧の中心・始点・終点、幅の点の順にクリックします。</td></tr>
+    <tr><th scope="row"><span class="ui">［ポリゴン］</span></th><td>中心をクリックし、頂点（内接）か辺の中点（外接）をクリックします。</td></tr>
+  </tbody>
+</table></div>
+<figure id="fig-04_draw_rects"><a class="zoom" href="images/04_draw_rects.png"><img src="images/04_draw_rects.png" alt="長方形の 6 種類。左上から、2 点長方形・3 点長方形・2 点中心長方形、左下から、3 点中心長方形・平行四辺形・角丸長方形です。" width="640" height="440" loading="lazy"></a><figcaption><span class="figno">図 4-14</span> 長方形の 6 種類。左上から、2 点長方形・3 点長方形・2 点中心長方形、左下から、3 点中心長方形・平行四辺形・角丸長方形です。</figcaption></figure>
+<figure id="fig-04_draw_slots"><a class="zoom" href="images/04_draw_slots.png"><img src="images/04_draw_slots.png" alt="スロット。上段は中心合わせスロットと全体の長さスロット、中段は中心点スロット、下段は中心点円弧スロットと 3 点円弧スロットです。" width="640" height="440" loading="lazy"></a><figcaption><span class="figno">図 4-15</span> スロット。上段は中心合わせスロットと全体の長さスロット、中段は中心点スロット、下段は中心点円弧スロットと 3 点円弧スロットです。</figcaption></figure>
+<p>ポリゴンは、HUD の<span class="ui">［辺の数］</span>（3〜120）と<span class="ui">［種類］</span>（<span class="ui">［内接］</span>・<span class="ui">［外接］</span>）で形を変えられます。</p>
+<figure id="fig-04_polygon_hud"><a class="zoom" href="images/04_polygon_hud.png"><img src="images/04_polygon_hud.png" alt="ポリゴンの HUD。中心をクリックしたあとに［半径］・［辺の数］・［種類］の欄が出ます。" width="560" height="400" loading="lazy"></a><figcaption><span class="figno">図 4-16</span> ポリゴンの HUD。中心をクリックしたあとに<span class="ui">［半径］</span>・<span class="ui">［辺の数］</span>・<span class="ui">［種類］</span>の欄が出ます。</figcaption></figure>
+<aside class="inventor" role="note"><p class="callout-title">Inventor との違い</p><p>3 点円・平行四辺形・角丸長方形は、mcad で足したツールです。円弧のスロットは、中心の円弧を作らず、円弧の中心に点だけを置きます。</p></aside>
+
+<h3 id="draw-curve">スプライン・楕円・楕円弧</h3>
+<div class="table-wrap"><table>
+  <caption>曲線のツールと操作</caption>
+  <thead><tr><th>ツール</th><th>操作</th></tr></thead>
+  <tbody>
+    <tr><th scope="row"><span class="ui">［スプライン（補間）］</span></th><td>通る点を順にクリックします。<kbd>Enter</kbd> かダブルクリックで終わります。HUD の<span class="ui">［閉じる］</span>にチェックを入れると、閉じたスプラインになります。</td></tr>
+    <tr><th scope="row"><span class="ui">［スプライン（制御頂点）］</span></th><td>制御頂点を順にクリックします。曲線は両端の点だけを通り、途中の点は曲線を引き寄せます。</td></tr>
+    <tr><th scope="row"><span class="ui">［楕円］</span></th><td>中心、長軸の端点、短軸の半径を決める点の順にクリックします。長軸と短軸の補助線も一緒にできます。</td></tr>
+    <tr><th scope="row"><span class="ui">［楕円弧］</span></th><td>楕円と同じ 3 点のあとに、円弧の始点と終点をクリックします（反時計回り）。</td></tr>
+  </tbody>
+</table></div>
+<figure id="fig-04_draw_curves"><a class="zoom" href="images/04_draw_curves.png"><img src="images/04_draw_curves.png" alt="上段は補間スプライン（左）と制御頂点スプライン（右）、下段は楕円（左）と楕円弧（右）です。スプラインの点は、動かすと曲線が変わります。" width="640" height="440" loading="lazy"></a><figcaption><span class="figno">図 4-17</span> 上段は補間スプライン（左）と制御頂点スプライン（右）、下段は楕円（左）と楕円弧（右）です。スプラインの点は、動かすと曲線が変わります。</figcaption></figure>
+<p>通る点・制御頂点は点の要素になります。ドラッグするか寸法で位置を決めると、曲線が付いてきます。楕円の長軸・短軸の補助線は楕円に結ばれ、補助線の寸法を入れると楕円の大きさが決まります。</p>
+<aside class="note" role="note"><p class="callout-title">注意</p><p>双曲線・放物線は描けません。スプラインの接線や曲率の編集、制御点の追加・削除はできません。</p></aside>
+
+<h3 id="draw-point-text">点・文字</h3>
+<ul>
+  <li><p><span class="ui">［点］</span>は、クリックした位置にスケッチ点を置きます。穴の位置など、フィーチャの位置決めに使います。</p></li>
+  <li><p><span class="ui">［テキスト］</span>は、位置をクリックしてから、HUD の<span class="ui">［テキスト］</span>・<span class="ui">［高さ］</span>・<span class="ui">［フォント］</span>を決めて <kbd>Enter</kbd> を押します。</p></li>
+</ul>
+<figure id="fig-04_text_hud"><a class="zoom" href="images/04_text_hud.png"><img src="images/04_text_hud.png" alt="文字の HUD。日本語も入力できます。" width="560" height="400" loading="lazy"></a><figcaption><span class="figno">図 4-18</span> 文字の HUD。日本語も入力できます。</figcaption></figure>
+<figure id="fig-04_text_done"><a class="zoom" href="images/04_text_done.png"><img src="images/04_text_done.png" alt="置いた文字。文字の輪郭が閉じた領域になり、押し出しで彫刻や浮き出しに使えます。" width="560" height="400" loading="lazy"></a><figcaption><span class="figno">図 4-19</span> 置いた文字。文字の輪郭が閉じた領域になり、押し出しで彫刻や浮き出しに使えます。</figcaption></figure>
+<aside class="note" role="note"><p class="callout-title">注意</p><p>文字の字形は輪郭の曲線として保存されるので、フォントのない PC で開いても同じ形になります。置いたあとで文字列や大きさは直せません。直すときは、文字を消して置き直します。</p></aside>
+
+<h3 id="draw-fillet">フィレット・面取り</h3>
+<p>線と線の角を、スケッチの上で丸めたり切り落としたりします。<span class="ui">［フィレット］</span>▼ の中の<span class="ui">［フィレット］</span>と<span class="ui">［面取り］</span>です。</p>
+<ol class="steps">
+  <li><p><span class="path">リボンの<span class="ui">［スケッチ］</span>タブ → <span class="ui">［作成］</span>パネル → <span class="ui">［フィレット］</span>の▼ → <span class="ui">［フィレット］</span></span>をクリックし、入力ウィンドウの<span class="ui">［半径］</span>を決めます（既定は 5 mm）。ここでは、ビューで <code>8</code> と打って <kbd>Enter</kbd> を押します。打った半径は、次にクリックする角からすぐ使われます（Inventor の［2D フィレット］の小さなダイアログと同じで、ここには<span class="ui">［確定］</span>のボタンはありません）。フィレットを終えるには、入力ウィンドウの<span class="ui">［終了］</span>を押します（<kbd>Esc</kbd> でも終わります）。</p></li>
+  <li><p>角を作る 2 本の線を順にクリックします（2 本の線の共有する端点のクリックでも同じです）。角が正接の円弧で丸まり、半径の寸法が付きます。</p></li>
+  <li><p>続けて、ほかの角にも同じようにフィレットを作ります。入力ウィンドウの<span class="ui">［等しい］</span>にチェックを入れると、そのあとに作るフィレットは、半径の寸法を持たず、最初のフィレットと「半径が等しい」拘束でつながります（Inventor の 2D フィレットの <code>=</code> ボタンと同じです）。あとで最初のフィレットの半径を変えると、つながったフィレットがそろって変わります。チェックは、マウスで押すか、<kbd>Tab</kbd> で移って <kbd>Space</kbd> で入れます。<span class="ui">［等しい］</span>にカーソルを合わせると、この説明が出ます。</p>
+    <figure id="fig-04_fillet_equal_tip"><a class="zoom" href="images/04_fillet_equal_tip.png"><img src="images/04_fillet_equal_tip.png" alt="［等しい］にカーソルを合わせたときの説明（ツールチップ）。" width="164" height="102" loading="lazy"></a><figcaption><span class="figno">図 4-20</span> <span class="ui">［等しい］</span>にカーソルを合わせたときの説明（ツールチップ）。</figcaption></figure></li>
+  <li><p>面取りは<span class="path">リボンの<span class="ui">［スケッチ］</span>タブ → <span class="ui">［作成］</span>パネル → <span class="ui">［フィレット］</span>の▼ → <span class="ui">［面取り］</span></span>を選び、HUD で<span class="ui">［種類］</span>（<span class="ui">［等距離］</span>・<span class="ui">［不等距離］</span>・<span class="ui">［距離と角度］</span>）と<span class="ui">［距離］</span>を決めて、2 本の線をクリックします。<span class="ui">［寸法を作成］</span>にチェックを入れると、寸法も付きます。</p></li>
+</ol>
+<figure id="fig-04_fillet_done"><a class="zoom" href="images/04_fillet_done.png"><img src="images/04_fillet_done.png" alt="右下の角に R8 のフィレット、左上の角に面取りを入れたところ。" width="560" height="400" loading="lazy"></a><figcaption><span class="figno">図 4-21</span> 右下の角に R8 のフィレット、左上の角に面取りを入れたところ。</figcaption></figure>
+<aside class="note" role="note"><p class="callout-title">注意</p><p>フィレットと面取りは、線と線の角だけに使えます（円弧が絡む角は使えません）。</p></aside>
+
+<h2 id="numeric"><span class="secno">4.4</span> 数値を入力する</h2>
+<p>作図中は、ビューの左上に入力ウィンドウ（HUD）が出ます。マウスで位置を決める代わりに、数値を打って形を決められます。打った値は寸法として残ります。</p>
+<figure id="fig-04_hud_docked"><a class="zoom" href="images/04_hud_docked.png"><img src="images/04_hud_docked.png" alt="線を描いているところ（ビュー全体）。左上の入力ウィンドウに、［長さ］と［角度］の欄と、［確定］・［終了］のボタンがあります。" width="700" height="549" loading="lazy"></a><figcaption><span class="figno">図 4-22</span> 線を描いているところ（ビュー全体）。左上の入力ウィンドウに、<span class="ui">［長さ］</span>と<span class="ui">［角度］</span>の欄と、<span class="ui">［確定］</span>・<span class="ui">［終了］</span>のボタンがあります。</figcaption></figure>
+<p>この入力ウィンドウは、<strong>カーソルに付いて動きません</strong>。マウスを動かしても止まっているので、欄やチェックをマウスで押せます。ボタンの意味は、ツールの種類で次のように分かれます。欄やチェックにカーソルを合わせると、意味が分かりにくいもの（<span class="ui">［等しい］</span>・<span class="ui">［種類］</span>・<span class="ui">［寸法を作成］</span>など）には説明が出ます。</p>
+<p>図形に重なって邪魔なときは、上の帯（点が並んだ見出しの行）をドラッグして、ビューの中の好きな場所へ動かします。置いた場所は覚えていて、次のツールでもそこに出ます。ビューの外には出ません。ビューの大きさを変えたときも、中に収まります。</p>
+<div class="table-wrap"><table>
+  <caption>入力ウィンドウのボタン</caption>
+  <thead><tr><th>ツール</th><th>ボタン</th><th>押したときの動き</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">線・円・円弧・長方形・スロット・ポリゴン・楕円・スプライン・オフセットなどの作図</th><td><span class="ui">［確定］</span>・<span class="ui">［終了］</span></td><td><span class="ui">［確定］</span>は、欄に打った値でいま形を作ります（<kbd>Enter</kbd> と同じ。値を打つまでは押せません。スプラインは点が足りないあいだ押せません）。<span class="ui">［終了］</span>は、コマンドを終えて選択に戻ります。描きかけの形は捨てられ、作った形は残ります。値を打ってから<span class="ui">［確定］</span>を押しに行く間にマウスがビューの上を動いても、形は値を打ったときのカーソルの位置で決まります（打っていない欄の値と向きも同じです）。オフセットは、曲線を選んで距離を打つと<span class="ui">［確定］</span>が押せます</td></tr>
+    <tr><th scope="row">フィレット・面取り・等分割</th><td><span class="ui">［終了］</span>だけ</td><td>打った半径・距離・個数は、次にクリックする角や線にすぐ使われます（作るものが無いので<span class="ui">［確定］</span>は出ません）。<span class="ui">［終了］</span>でコマンドを終えます。作った形は残ります</td></tr>
+    <tr><th scope="row">回転・尺度・パターン・パターンの編集</th><td><span class="ui">［OK］</span>・<span class="ui">［キャンセル］</span></td><td><span class="ui">［OK］</span>は、欄の値で操作を適用します（回転・尺度・編集は、値を打つまで押せません。灰色のときは、ボタンにカーソルを合わせると理由が出ます）。<span class="ui">［キャンセル］</span>は、プレビューを捨て、何も変えずにコマンドを終えます</td></tr>
+    <tr><th scope="row"><span class="ui">［テキスト］</span></th><td><span class="ui">［OK］</span>・<span class="ui">［キャンセル］</span></td><td><span class="ui">［OK］</span>は、打った文字をスケッチに置きます。<span class="ui">［キャンセル］</span>は、いま打っている文字をやめるだけで、ツールは続きます（次の位置をクリックして、続けて文字を置けます）。ほかのツールのキャンセルとは違い、コマンドは終わりません</td></tr>
+    <tr><th scope="row">移動・コピー・ストレッチ</th><td><span class="ui">［キャンセル］</span>だけ</td><td>打つ値が無く、移動先のクリックで適用されます。<span class="ui">［キャンセル］</span>は、プレビューを捨ててコマンドを終えます</td></tr>
+  </tbody>
+</table></div>
+<p>ビューの <kbd>Esc</kbd> は、どのツールでも、コマンドを終えて選択に戻ります。入力ウィンドウの欄に打っているときの <kbd>Esc</kbd> は、まず描きかけを捨てます（ツールは続きます）。もう一度 <kbd>Esc</kbd> を押すと、コマンドが終わります。</p>
+<aside class="note" role="note"><p class="callout-title">注意</p><p>入力ウィンドウの上をクリックしても、スケッチに点は打たれません。ウィンドウの下にある図形をクリックしたいときは、ウィンドウを動かしてください。</p></aside>
+<aside class="inventor" role="note"><p class="callout-title">Inventor との違い</p><p>Inventor の［2D フィレット］などの小さなダイアログのように、入力ウィンドウは止まっていて、ドラッグで動かせます。Inventor の動的入力のように、<strong>カーソルに付けて動かす</strong>こともできます。<span class="path">リボンの<span class="ui">［ツール］</span>タブ → <span class="ui">［オプション］</span>パネル → <span class="ui">［オプション］</span></span>の<span class="ui">［画面］</span>ページで、<span class="ui">［スケッチの入力ウィンドウをカーソルに付けて動かす］</span>にチェックを入れます（既定はオフ。<a href="27_customize.html#options">第 27 章</a>）。カーソルに付く形では、ウィンドウが動いてボタンを押せないので、ボタンは出さず、欄の下の案内のとおり <kbd>Enter</kbd> で確定、<kbd>Esc</kbd> で描きかけを捨てます（欄が 2 つ以上あるときは「Tab: 次の欄」も出ます）。推論の記号（<code>H</code>・<code>V</code> など）はカーソルのすぐ右下にあり、カーソルに付くウィンドウはその下に出ます。</p></aside>
+<p>数値の欄だけでなく、選択肢（ポリゴンの<span class="ui">［種類］</span>、面取りの<span class="ui">［種類］</span>など）とチェック（移動・回転の<span class="ui">［コピー］</span>、フィレットの<span class="ui">［等しい］</span>、スプラインの<span class="ui">［閉じる］</span>など）も、マウスで押せるほか、キーだけでも操作できます。</p>
+<ul>
+  <li><p><kbd>Tab</kbd> は、数値の欄・選択肢・チェックを、欄の並びの順に移ります（<kbd>Shift</kbd>+<kbd>Tab</kbd> で前の欄）。フォーカスのある欄には青い枠が付きます。</p></li>
+  <li><p>選択肢は <kbd>↑</kbd>・<kbd>↓</kbd> で選びます。選ぶとすぐ形のプレビューが変わります。</p></li>
+  <li><p>チェックは <kbd>Space</kbd> で入り切りします。</p></li>
+  <li><p><kbd>Enter</kbd> は、どの欄にいても確定します（<span class="ui">［確定］</span>・<span class="ui">［OK］</span>と同じ）。<kbd>Esc</kbd> は描きかけを捨てます（もう一度押すとコマンドが終わります）。</p></li>
+</ul>
+<figure id="fig-04_hud_focus_type"><a class="zoom" href="images/04_hud_focus_type.png"><img src="images/04_hud_focus_type.png" alt="ポリゴンの HUD で、&lt;kbd&gt;Tab&lt;/kbd&gt; を 3 回押して［種類］の欄に移ったところ。枠のある欄が今のフォーカスです。&lt;kbd&gt;↓&lt;/kbd&gt; で［外接］に替わります。" width="560" height="400" loading="lazy"></a><figcaption><span class="figno">図 4-23</span> ポリゴンの HUD で、<kbd>Tab</kbd> を 3 回押して<span class="ui">［種類］</span>の欄に移ったところ。枠のある欄が今のフォーカスです。<kbd>↓</kbd> で<span class="ui">［外接］</span>に替わります。</figcaption></figure>
+<div class="table-wrap"><table>
+  <caption>おもなツールの入力欄</caption>
+  <thead><tr><th>ツール</th><th>入力欄</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">線</th><td><span class="ui">［長さ］</span>・<span class="ui">［角度］</span>（X 軸から反時計回り）</td></tr>
+    <tr><th scope="row">円</th><td><span class="ui">［直径］</span></td></tr>
+    <tr><th scope="row">円弧（中心点）</th><td><span class="ui">［半径］</span>・<span class="ui">［角度］</span></td></tr>
+    <tr><th scope="row">長方形</th><td><span class="ui">［幅］</span>・<span class="ui">［高さ］</span>（角丸長方形は<span class="ui">［半径］</span>も）</td></tr>
+    <tr><th scope="row">スロット</th><td>直線のスロットは<span class="ui">［長さ］</span>と<span class="ui">［幅］</span>、円弧のスロットは<span class="ui">［幅］</span></td></tr>
+    <tr><th scope="row">ポリゴン</th><td><span class="ui">［半径］</span>・<span class="ui">［辺の数］</span>・<span class="ui">［種類］</span></td></tr>
+  </tbody>
+</table></div>
+<ol class="steps">
+  <li><p>ツールを選び、最初の点をクリックします。HUD が出ます。</p></li>
+  <li><p>ビューで数字・小数点・マイナス・左括弧のどれかを打つと、最初の欄に入ります。続けて残りを打ちます。</p></li>
+  <li><p><kbd>Tab</kbd> で次の欄に移ります（<kbd>Shift</kbd>+<kbd>Tab</kbd> で前の欄）。数値の欄には値を打ち、選択肢は <kbd>↑</kbd>・<kbd>↓</kbd>、チェックは <kbd>Space</kbd> で決めます。</p></li>
+  <li><p><kbd>Enter</kbd> を押します。打った値（打っていない欄はカーソルの位置の値）で形が決まり、打った値が寸法になります。</p></li>
+</ol>
+<p>打った欄はカーソルを動かしても変わりません。<kbd>Esc</kbd> で、描いている形をやめます。クリックで形を決めたときも、打った値は寸法として足されます。</p>
+<p>欄には式も打てます。数値のほかに、単位（<code>25 mm</code>）、計算（<code>40 + 2 * 5</code>）、パラメータの名前（<code>W * 2</code>）が使えます。最初の文字が英字のときは、先に欄をクリックしてから入力します。</p>
+<figure id="fig-04_dim_fx_hud"><a class="zoom" href="images/04_dim_fx_hud.png"><img src="images/04_dim_fx_hud.png" alt="長方形の HUD に、パラメータ W を使った式 W * 2 を打っているところ。" width="560" height="400" loading="lazy"></a><figcaption><span class="figno">図 4-24</span> 長方形の HUD に、パラメータ <code>W</code> を使った式 <code>W * 2</code> を打っているところ。</figcaption></figure>
+<p>式を入れた寸法は、ビューの寸法に <code>fx:</code> が付きます（<a href="#dim-fx">式とパラメータの寸法</a>）。パラメータは<a href="10_parameters.html">第 10 章</a>で作ります。</p>
+
+<h2 id="constraints"><span class="secno">4.5</span> 拘束</h2>
+<p>拘束は、図形どうしの関係（水平・平行・一致など）を決めて、形を保つ決まりです。拘束を付けておくと、寸法やドラッグで形を変えても、関係が保たれます。拘束のコマンドは、リボンの<span class="ui">［スケッチ］</span>タブ →<span class="ui">［拘束］</span>パネルにあります。</p>
+<figure id="fig-04_ribbon_constrain"><a class="zoom" href="images/04_ribbon_constrain.png"><img src="images/04_ribbon_constrain.png" alt="［拘束］パネル。左の［寸法］、中央の表示の切替、右の拘束のアイコンの並びです。アイコンにカーソルを重ねると名前が出ます。" width="204" height="90" loading="lazy"></a><figcaption><span class="figno">図 4-25</span> ［拘束］パネル。左の<span class="ui">［寸法］</span>、中央の表示の切替、右の拘束のアイコンの並びです。アイコンにカーソルを重ねると名前が出ます。</figcaption></figure>
+<p>アイコンは縦に 3 つずつ、位置の拘束（一致・点を要素上に・同一直線上）、向きの拘束（水平・垂直・平行・直交）、円と形の拘束（正接・同心・等しい・中点・対称）、固定の順に並びます。水平・垂直のアイコンには H・V の文字があります。</p>
+
+<h3 id="constraint-list">拘束の種類</h3>
+<div class="table-wrap"><table>
+  <caption>幾何拘束の一覧（スケッチに出る記号つき）</caption>
+  <thead><tr><th>拘束</th><th>記号</th><th>意味</th></tr></thead>
+  <tbody>
+    <tr><th scope="row"><span class="ui">［一致］</span></th><td><code>C</code></td><td>2 点を一致させます（スケッチの原点にも付けられます）</td></tr>
+    <tr><th scope="row"><span class="ui">［点を要素上に］</span></th><td><code>On</code></td><td>点を線・円・円弧・スケッチの軸の上に置きます</td></tr>
+    <tr><th scope="row"><span class="ui">［同一直線上］</span></th><td><code>≡</code></td><td>2 本の線を同一直線上に置きます</td></tr>
+    <tr><th scope="row"><span class="ui">［水平］</span></th><td><code>H</code></td><td>線か 2 点を水平にします</td></tr>
+    <tr><th scope="row"><span class="ui">［垂直］</span></th><td><code>V</code></td><td>線か 2 点を垂直にします</td></tr>
+    <tr><th scope="row"><span class="ui">［平行］</span></th><td><code>//</code></td><td>2 本の線を平行にします</td></tr>
+    <tr><th scope="row"><span class="ui">［直交］</span></th><td><code>⊥</code></td><td>2 本の線を直交させます</td></tr>
+    <tr><th scope="row"><span class="ui">［正接］</span></th><td><code>T</code></td><td>線と円・円弧、または 2 つの円・円弧を接させます</td></tr>
+    <tr><th scope="row"><span class="ui">［同心円］</span></th><td><code>◎</code></td><td>2 つの円・円弧の中心を一致させます</td></tr>
+    <tr><th scope="row"><span class="ui">［等しい］</span></th><td><code>=</code></td><td>2 本の線の長さ、または 2 つの円・円弧の半径を等しくします</td></tr>
+    <tr><th scope="row"><span class="ui">［中点］</span></th><td><code>M</code></td><td>点を線か円弧の中点に置きます</td></tr>
+    <tr><th scope="row"><span class="ui">［対称］</span></th><td><code>][</code></td><td>2 つの点・線・円・円弧を、ある線に対して対称にします（線は最後に選びます）</td></tr>
+    <tr><th scope="row"><span class="ui">［固定］</span></th><td><code>F</code></td><td>点か要素を今の位置に固定します</td></tr>
+  </tbody>
+</table></div>
+<p>寸法も拘束の仲間です（<a href="#dimensions">寸法</a>）。</p>
+
+<h3 id="constraint-add">拘束を付ける</h3>
+<p>拘束は、次のどの順でも付けられます。</p>
+<ol class="steps">
+  <li><p>先に要素を選んで、拘束のボタンを押します。要素を 1 本ずつクリックして選び（<kbd>Ctrl</kbd> を押しながらで追加）、拘束のボタンをクリックします。</p>
+    <figure id="fig-04_parallel_before"><a class="zoom" href="images/04_parallel_before.png"><img src="images/04_parallel_before.png" alt="傾きの違う 2 本の線を選んだところ（太い青の線）。" width="560" height="400" loading="lazy"></a><figcaption><span class="figno">図 4-26</span> 傾きの違う 2 本の線を選んだところ（太い青の線）。</figcaption></figure>
+    <figure id="fig-04_parallel_after"><a class="zoom" href="images/04_parallel_after.png"><img src="images/04_parallel_after.png" alt="拘束の［平行］を押したあと。2 本の線が平行になり、// の記号が付きます。" width="560" height="400" loading="lazy"></a><figcaption><span class="figno">図 4-27</span> 拘束の<span class="ui">［平行］</span>を押したあと。2 本の線が平行になり、<code>//</code> の記号が付きます。</figcaption></figure></li>
+  <li><p>先に拘束のボタンを押して、要素を 1 つずつクリックします。拘束に必要な数がそろった時点で付き、そのまま次の組を選べます。<kbd>Esc</kbd> で終えます。</p></li>
+  <li><p>要素を選んで右クリックします。メニューには、その選択に付けられる拘束だけが出ます。</p></li>
+</ol>
+<p>3 つ以上の要素を選んだときは、まとめて付けられる拘束があります。水平・垂直・固定は 1 つずつに、一致・点を要素上に・平行・正接・同心円・等しいは、最初に選んだ要素との組で付きます。まとめて付けても、元に戻すは 1 回です。</p>
+<p>右クリックのメニューに出る拘束のコマンドは、<span class="ui">［拘束］</span>パネルの同じ名前のコマンドと同じです（一覧は<a href="appendix_a_commands.html#context">付録 A</a>の右クリックのメニューの節）。</p>
+<p>付けた拘束を調べるには、要素を選んで<span class="ui">［関連する拘束を選択］</span>（<span class="ui">［拘束］</span>パネルの ▼）を押します。逆に、拘束の記号や寸法を選んで<span class="ui">［関連する要素を選択］</span>を押すと、その拘束が使う要素が選ばれます。</p>
+
+<h3 id="constraint-infer">自動で付く拘束・スナップ・推論線・グリッド</h3>
+<p>作図中は、次の助けが自動で働きます。拘束の推論は、<kbd>Ctrl</kbd> を押しながらクリックすると、そのクリックでは付きません。</p>
+<div class="table-wrap"><table>
+  <caption>作図中の自動の助け</caption>
+  <thead><tr><th>助け</th><th>内容</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">拘束の推論</th><td>水平・垂直（2° 以内）、平行・直交（5° 以内、直前にカーソルを重ねた線との関係）、円弧の端点からの正接を、カーソルの右下の記号（<code>H</code>・<code>V</code>・<code>//</code>・<code>⊥</code>・<code>T</code>）で示し、クリックで拘束にします</td></tr>
+    <tr><th scope="row">スナップ</th><td>端点・点・原点・中心・中点・交点・四分点・接点・垂線の足・線の上・軸の上に吸い付き、一致・点を要素上に・中点などの拘束を付けます。カーソルの右下に <code>End</code>・<code>Mid</code>・<code>Ctr</code> などが出ます</td></tr>
+    <tr><th scope="row">点の位置合わせ</th><td>既存の点にカーソルを重ねてから動かすと、その点と X か Y が揃う位置に点線の推論線が出て、揃えた位置に吸い付きます。拘束は付きません</td></tr>
+    <tr><th scope="row">グリッドにスナップ</th><td>ほかに吸い付くものがないとき、グリッドの交点に吸い付きます（既定では切）</td></tr>
+  </tbody>
+</table></div>
+<figure id="fig-04_align_guide"><a class="zoom" href="images/04_align_guide.png"><img src="images/04_align_guide.png" alt="点の位置合わせ。上の点にカーソルを重ねてから真下へ動かすと、縦の点線が出ます。" width="560" height="400" loading="lazy"></a><figcaption><span class="figno">図 4-28</span> 点の位置合わせ。上の点にカーソルを重ねてから真下へ動かすと、縦の点線が出ます。</figcaption></figure>
+<p>推論した拘束が競合したり余ったりするときは、その拘束だけを外して図形を確定し、案内の欄で知らせます。</p>
+<p>これらの入り切りと、吸い付く距離は、<span class="path">リボンの<span class="ui">［ツール］</span>タブ → <span class="ui">［オプション］</span>パネル → <span class="ui">［オプション］</span></span>の<span class="ui">［スケッチ］</span>ページで決めます。</p>
+<aside class="inventor" role="note"><p class="callout-title">Inventor との違い</p><p>グリッドにスナップの既定は、Inventor では入ですが、mcad では切です。点の位置合わせは位置を揃えるだけで、拘束は付けません。</p></aside>
+
+<h3 id="constraint-show">拘束の表示と拘束マネージャ</h3>
+<p>拘束の記号や寸法が込み入って見にくいときは、表示を切り替えます。スケッチの図形は消えません。</p>
+<div class="table-wrap"><table>
+  <caption>表示の切り替え</caption>
+  <thead><tr><th>コマンド</th><th>表示するもの</th></tr></thead>
+  <tbody>
+    <tr><th scope="row"><span class="ui">［拘束を表示］</span></th><td>幾何拘束の記号</td></tr>
+    <tr><th scope="row"><span class="ui">［寸法を表示］</span></th><td>寸法</td></tr>
+    <tr><th scope="row"><span class="ui">［すべての自由度を表示］</span></th><td>まだ動ける点の矢印（自由度）</td></tr>
+    <tr><th scope="row"><span class="ui">［構築線を表示］</span></th><td>構築線と中心線</td></tr>
+    <tr><th scope="row"><span class="ui">［投影ジオメトリを表示］</span></th><td>投影したジオメトリ</td></tr>
+  </tbody>
+</table></div>
+<p>これらはリボンの<span class="ui">［スケッチ］</span>タブの<span class="ui">［拘束］</span>パネルと<span class="ui">［形式］</span>パネルにあり、<span class="ui">［オプション］</span>の<span class="ui">［スケッチ］</span>ページでも決められます。3D ビューでスケッチと寸法を出し入れするときは、<span class="ui">［表示］</span>タブの<span class="ui">［オブジェクトの表示設定］</span>で<span class="ui">［スケッチ］</span>・<span class="ui">［スケッチ寸法］</span>を切り替えます（<a href="02_view.html">第 2 章</a>）。</p>
+<p>右のドックの<span class="ui">［拘束マネージャ］</span>は、スケッチの間だけ出ます。スケッチの拘束と寸法を一覧にして、行をクリックすると、その拘束と要素がビューで強調されます。</p>
+<figure id="fig-04_manager"><a class="zoom" href="images/04_manager.png"><img src="images/04_manager.png" alt="拘束マネージャ。上の見出しに「何件中何件を表示」が出ます。" width="312" height="288" loading="lazy"></a><figcaption><span class="figno">図 4-29</span> 拘束マネージャ。上の見出しに「何件中何件を表示」が出ます。</figcaption></figure>
+<ul>
+  <li><p><span class="ui">［次の絞り込み］</span>: 一覧をすべて・幾何拘束・寸法・競合と冗長・無効の順に絞り込みます。</p></li>
+  <li><p><span class="ui">［チェックした拘束を無効にする］</span>・<span class="ui">［チェックした拘束を有効にする］</span>: チェックを付けた拘束を、削除せずに効かなくしたり、効くように戻したりします。</p></li>
+  <li><p><span class="ui">［チェックした拘束を削除］</span>: チェックを付けた拘束を消します。</p></li>
+</ul>
+
+<h3 id="constraint-dof">自由度と状態の診断</h3>
+<p>右のドックの<span class="ui">［スケッチの診断］</span>に、スケッチの状態が出ます。</p>
+<figure id="fig-04_diag_issues"><a class="zoom" href="images/04_diag_issues.png"><img src="images/04_diag_issues.png" alt="スケッチの診断。自由度の数と、検証の指摘（橙の文字の［開いた端点］）が並びます。" width="312" height="269" loading="lazy"></a><figcaption><span class="figno">図 4-30</span> スケッチの診断。自由度の数と、検証の指摘（橙の文字の<span class="ui">［開いた端点］</span>）が並びます。</figcaption></figure>
+<ul>
+  <li><p><code>未定義: 残りの自由度 3</code> のように、残りの自由度の数。</p></li>
+  <li><p><span class="ui">［完全定義］</span>: 形が全部決まっています。</p></li>
+  <li><p><span class="ui">［過剰定義］</span>・競合: 消すとよい拘束の候補。チェックを付けて<span class="ui">［チェックした拘束を削除］</span>を押します。</p></li>
+  <li><p>検証の指摘: <span class="ui">［開いた端点］</span>・<span class="ui">［重なった曲線］</span>・<span class="ui">［交差する曲線］</span>・<span class="ui">［退化した形状］</span>。行をクリックすると、その場所が強調されます。<span class="ui">［スケッチを検査］</span>で検証し直します。</p></li>
+</ul>
+<p><span class="ui">［すべての自由度を表示］</span>を入れると、まだ動かせる点に橙の矢印が出ます。矢印が全部なくなると、完全定義です。</p>
+<figure id="fig-04_dof_arrows"><a class="zoom" href="images/04_dof_arrows.png"><img src="images/04_dof_arrows.png" alt="自由度の矢印。線の両端の点と円の中心が、まだ動けます。" width="560" height="400" loading="lazy"></a><figcaption><span class="figno">図 4-31</span> 自由度の矢印。線の両端の点と円の中心が、まだ動けます。</figcaption></figure>
+
+<h3 id="constraint-conflict">競合と冗長</h3>
+<p>すでにある拘束と矛盾する拘束や寸法を付けようとすると、<span class="ui">［拘束の競合］</span>のダイアログが出て、形は変わりません。</p>
+<figure id="fig-04_conflict_dialog"><a class="zoom" href="images/04_conflict_dialog.png"><img src="images/04_conflict_dialog.png" alt="寸法の競合。新しい寸法と競合する拘束が赤の行で並びます。ビューでも、関係する線と寸法が赤く強調されます。" width="460" height="300" loading="lazy"></a><figcaption><span class="figno">図 4-32</span> 寸法の競合。新しい寸法と競合する拘束が赤の行で並びます。ビューでも、関係する線と寸法が赤く強調されます。</figcaption></figure>
+<ul>
+  <li><p><span class="ui">［取り消す］</span>: 新しい拘束を付けません。</p></li>
+  <li><p><span class="ui">［新しい寸法を従動にする］</span>: 新しい寸法を、形を決めない参照寸法として足します（寸法のときだけ）。</p></li>
+  <li><p><span class="ui">［チェックした拘束を削除して追加］</span>: チェックを付けた既存の拘束を消して、新しい拘束を足します。</p></li>
+</ul>
+<p>余分な（冗長な）拘束のときは、新しい拘束との組の中で一番新しいものが削除の候補（<span class="ui">［候補］</span>）になります。ダイアログを開いたまま、元に戻すなどでスケッチが変わると、ダイアログは取り消されて閉じます。</p>
+
+<h2 id="dimensions"><span class="secno">4.6</span> 寸法</h2>
+<p>寸法は、長さ・角度・半径などの値で形を決める拘束です。値を変えると、拘束を保ったまま形が変わります。</p>
+<ol class="steps">
+  <li><p><span class="path">リボンの<span class="ui">［スケッチ］</span>タブ → <span class="ui">［拘束］</span>パネル → <span class="ui">［寸法］</span></span>をクリックします（<kbd>D</kbd>）。</p></li>
+  <li><p>寸法を付ける線・円・点などをクリックします（2 つ選ぶときは順にクリック）。</p></li>
+  <li><p>寸法を置く位置をクリックします。ビューに HUD が出ます。</p>
+    <figure id="fig-04_dim_hud"><a class="zoom" href="images/04_dim_hud.png"><img src="images/04_dim_hud.png" alt="寸法の HUD。［値］・［種類］・［従動（参照）］があります。置いた位置に出て動かないので、［OK］・［キャンセル］のボタンをマウスで押すこともできます。" width="560" height="400" loading="lazy"></a><figcaption><span class="figno">図 4-33</span> 寸法の HUD。<span class="ui">［値］</span>・<span class="ui">［種類］</span>・<span class="ui">［従動（参照）］</span>があります。置いた位置に出て動かないので、<span class="ui">［OK］</span>・<span class="ui">［キャンセル］</span>のボタンをマウスで押すこともできます。</figcaption></figure></li>
+  <li><p><span class="ui">［値］</span>に数値（式も可）を入力して <kbd>Enter</kbd> を押します。続けて次の寸法を付けられます。<kbd>Esc</kbd> でツールを終えます。</p></li>
+</ol>
+<p><span class="ui">［種類］</span>は、選んだ要素と置く位置で自動で決まります。置く位置を動かすと、水平・垂直・平行に変わります。HUD の<span class="ui">［種類］</span>で選び直すこともできます。</p>
+
+<h3 id="dim-kinds">寸法の種類</h3>
+<div class="table-wrap"><table>
+  <caption>選んだものと寸法の種類</caption>
+  <thead><tr><th>選ぶもの</th><th>付く寸法</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">線 1 本、または 2 点</th><td><span class="ui">［平行（長さ）］</span>・<span class="ui">［水平］</span>・<span class="ui">［垂直］</span></td></tr>
+    <tr><th scope="row">点と線</th><td><span class="ui">［距離］</span>（点から線までの距離。HUD で<span class="ui">［2 倍距離］</span>にも。中心線を選ぶと<span class="ui">［2 倍距離］</span>が既定で、回転する形の直径を決められます）</td></tr>
+    <tr><th scope="row">2 本の線</th><td><span class="ui">［角度］</span>（置いた位置の側の角度。平行な線は距離）</td></tr>
+    <tr><th scope="row">3 点</th><td>3 点の角度</td></tr>
+    <tr><th scope="row">円</th><td><span class="ui">［直径］</span>（HUD で<span class="ui">［半径］</span>にも）</td></tr>
+    <tr><th scope="row">円弧</th><td><span class="ui">［半径］</span>（<span class="ui">［直径］</span>・<span class="ui">［円弧の中心角］</span>・<span class="ui">［円弧長］</span>にも）</td></tr>
+    <tr><th scope="row">円と円、円と線</th><td><span class="ui">［中心間］</span>・<span class="ui">［最小］</span>・<span class="ui">［最大］</span>の距離</td></tr>
+    <tr><th scope="row">原点と点</th><td>水平・垂直の距離（座標）</td></tr>
+  </tbody>
+</table></div>
+<figure id="fig-04_dim_kinds"><a class="zoom" href="images/04_dim_kinds.png"><img src="images/04_dim_kinds.png" alt="いろいろな寸法。底辺の長さ、立ち上がりの高さ、円の直径（Ø）、円弧の半径（R）、2 本の線の角度です。" width="640" height="440" loading="lazy"></a><figcaption><span class="figno">図 4-34</span> いろいろな寸法。底辺の長さ、立ち上がりの高さ、円の直径（<code>Ø</code>）、円弧の半径（<code>R</code>）、2 本の線の角度です。</figcaption></figure>
+<p>寸法の値を直すには、ビューの寸法の数字をダブルクリックします。HUD が出るので、新しい値（式も可）を入力して <kbd>Enter</kbd> を押します。寸法の文字をドラッグすると、表示の位置だけが動きます。</p>
+
+<h3 id="dim-fx">式とパラメータの寸法</h3>
+<p>寸法の値に、式やパラメータの名前を入れられます。式で決まる寸法には、ビューの文字に <code>fx:</code> が付きます。</p>
+<figure id="fig-04_dim_fx_done"><a class="zoom" href="images/04_dim_fx_done.png"><img src="images/04_dim_fx_done.png" alt="幅に W * 2、高さに 30 を入れた長方形。式の寸法には fx: が付きます。" width="560" height="400" loading="lazy"></a><figcaption><span class="figno">図 4-35</span> 幅に <code>W * 2</code>、高さに <code>30</code> を入れた長方形。式の寸法には <code>fx:</code> が付きます。</figcaption></figure>
+<p>寸法の表示は、リボンの<span class="ui">［スケッチ］</span>タブ →<span class="ui">［形式］</span>パネルの ▼ で切り替えます。</p>
+<figure id="fig-04_ribbon_dim_format"><a class="zoom" href="images/04_ribbon_dim_format.png"><img src="images/04_ribbon_dim_format.png" alt="［形式］パネル。構築線の切替・従動寸法の切替・表示の切替があります。" width="57" height="90" loading="lazy"></a><figcaption><span class="figno">図 4-36</span> ［形式］パネル。構築線の切替・従動寸法の切替・表示の切替があります。</figcaption></figure>
+<div class="table-wrap"><table>
+  <caption>寸法の表示方法</caption>
+  <thead><tr><th>コマンド</th><th>表示</th></tr></thead>
+  <tbody>
+    <tr><th scope="row"><span class="ui">［寸法を値で表示］</span></th><td>値（<code>80.00 mm</code>）。既定です</td></tr>
+    <tr><th scope="row"><span class="ui">［寸法を名前で表示］</span></th><td>名前（<code>d0</code> など。寸法に自動で付く名前で、パラメータの表で付け替えられます）</td></tr>
+    <tr><th scope="row"><span class="ui">［寸法を式で表示］</span></th><td>名前と式（<code>d0 = W * 2</code>）</td></tr>
+  </tbody>
+</table></div>
+<figure id="fig-04_dim_expr"><a class="zoom" href="images/04_dim_expr.png"><img src="images/04_dim_expr.png" alt="式で表示した寸法。名前の d0・d1 は、寸法に自動で付いた名前です（番号は、先に付けた寸法の数で変わります）。" width="560" height="400" loading="lazy"></a><figcaption><span class="figno">図 4-37</span> 式で表示した寸法。名前の <code>d0</code>・<code>d1</code> は、寸法に自動で付いた名前です（番号は、先に付けた寸法の数で変わります）。</figcaption></figure>
+
+<h3 id="dim-driven">駆動寸法と従動寸法</h3>
+<p>寸法には 2 つの使い方があります。</p>
+<ul>
+  <li><p><strong>駆動寸法</strong>: 値で形を決めます。既定です。</p></li>
+  <li><p><strong>従動寸法</strong>（参照寸法）: 形を決めず、今の値を測って括弧付きで表示します。ほかの寸法で決まった長さを確かめたいときに使います。</p></li>
+</ul>
+<ol class="steps">
+  <li><p>寸法を付けるとき、HUD の<span class="ui">［従動（参照）］</span>にチェックを入れます。</p>
+    <figure id="fig-04_driven_hud"><a class="zoom" href="images/04_driven_hud.png"><img src="images/04_driven_hud.png" alt="完全定義の長方形の対角に、従動の寸法を足すところ。［種類］は［平行（長さ）］です。" width="560" height="400" loading="lazy"></a><figcaption><span class="figno">図 4-38</span> 完全定義の長方形の対角に、従動の寸法を足すところ。<span class="ui">［種類］</span>は<span class="ui">［平行（長さ）］</span>です。</figcaption></figure>
+    <figure id="fig-04_driven_done"><a class="zoom" href="images/04_driven_done.png"><img src="images/04_driven_done.png" alt="完全定義の長方形の対角に、従動の寸法を足したところ。従動の寸法は括弧で表示されます。" width="560" height="400" loading="lazy"></a><figcaption><span class="figno">図 4-39</span> 完全定義の長方形の対角に、従動の寸法を足したところ。従動の寸法は括弧で表示されます。</figcaption></figure></li>
+  <li><p>付けた寸法を切り替えるには、寸法の文字をクリックして選び、リボンの<span class="ui">［スケッチ］</span>タブ →<span class="ui">［形式］</span>パネル →<span class="ui">［従動寸法の切替］</span>を押します。</p></li>
+</ol>
+<p>従動にした寸法を駆動に戻すと、そのときの値が駆動寸法の値になります（形は変わりません）。寸法を足すと拘束が多すぎる（競合する）ときは、ダイアログの<span class="ui">［新しい寸法を従動にする］</span>で足せます。</p>
+
+<h2 id="modify"><span class="secno">4.7</span> 編集</h2>
+<p>描いた図形を選んで、動かす・増やす・切るなどの編集をします。編集のコマンドは、リボンの<span class="ui">［スケッチ］</span>タブ →<span class="ui">［修正］</span>パネルと<span class="ui">［パターン］</span>パネルにあります。どの編集も、元に戻すは 1 回です。</p>
+<figure id="fig-04_ribbon_modify"><a class="zoom" href="images/04_ribbon_modify.png"><img src="images/04_ribbon_modify.png" alt="［修正］パネル。" width="224" height="90" loading="lazy"></a><figcaption><span class="figno">図 4-40</span> ［修正］パネル。</figcaption></figure>
+<figure id="fig-04_ribbon_pattern"><a class="zoom" href="images/04_ribbon_pattern.png"><img src="images/04_ribbon_pattern.png" alt="［パターン］パネル。" width="113" height="90" loading="lazy"></a><figcaption><span class="figno">図 4-41</span> ［パターン］パネル。</figcaption></figure>
+
+<h3 id="select">要素を選ぶ・消す</h3>
+<div class="table-wrap"><table>
+  <caption>スケッチの選び方</caption>
+  <thead><tr><th>操作</th><th>結果</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">クリック</th><td>点・曲線・拘束の記号・寸法を 1 つ選びます。<kbd>Ctrl</kbd> で切り替え、<kbd>Shift</kbd> で追加します</td></tr>
+    <tr><th scope="row">空白から左から右へドラッグ</th><td>枠に全体が入る要素を選びます（窓選択。実線の枠）</td></tr>
+    <tr><th scope="row">空白から右から左へドラッグ</th><td>枠に掛かる要素を選びます（交差選択。破線の枠）</td></tr>
+    <tr><th scope="row">曲線をダブルクリック</th><td>端点でつながった曲線をまとめて選びます（<span class="ui">［チェーンを選択］</span>と同じ）</td></tr>
+    <tr><th scope="row">同じ場所をもう一度クリック</th><td>重なった候補（点 → 曲線 → 軸）を順に選びます</td></tr>
+  </tbody>
+</table></div>
+<p>選んだ点や曲線は、ドラッグして動かせます。拘束を保ったまま形が追従します。原点と軸は動かせません。</p>
+<p>寸法で決めた形は、ドラッグで軸や線の反対側へ裏返りません。たとえば、左の線を縦の軸に付けて幅の寸法を入れた長方形は、右の線を軸の左へ引いても、軸の右に留まります。寸法は長さだけを決めるので、反対側の鏡の形も寸法を満たしますが、ドラッグは今の形から続けて動ける範囲だけを動きます。カーソルが反対側にある間は、今の側のまま動ける向き（この長方形なら上下）にだけ付いていきます。このとき、案内の欄に、反対側へは動かせないことが出ます。反対側へ移すには、幅の寸法を従動にしてから引き、駆動に戻して値を直します（<a href="#dim-driven">駆動寸法と従動寸法</a>）。</p>
+<ul>
+  <li><p><kbd>Delete</kbd>（<span class="ui">［スケッチ要素を削除］</span>）で、選んだ要素と、それを使う拘束・寸法を消します。消えた数が案内の欄に出ます（元に戻すで戻ります）。</p></li>
+  <li><p><span class="ui">［スケッチの全要素を削除］</span>は要素と拘束をすべて、<span class="ui">［スケッチの全拘束を削除］</span>は拘束だけをすべて消します。</p></li>
+  <li><p>後のフィーチャが使っているプロファイルや要素が消えると、知らせが出ます。</p></li>
+</ul>
+
+<h3 id="modify-cut">トリム・延長・分割</h3>
+<ul>
+  <li><p><span class="ui">［トリム］</span>: 曲線にカーソルを合わせると、消える部分（交点の間）が赤い破線で出ます。クリックで消します。曲線を横切ってドラッグすると、横切った曲線をまとめて消します。</p>
+    <figure id="fig-04_trim_preview"><a class="zoom" href="images/04_trim_preview.png"><img src="images/04_trim_preview.png" alt="トリム。右側の部分が赤い破線で示されています。" width="560" height="400" loading="lazy"></a><figcaption><span class="figno">図 4-42</span> トリム。右側の部分が赤い破線で示されています。</figcaption></figure></li>
+  <li><p><span class="ui">［延長］</span>: 延ばしたい曲線の端に近い部分をクリックすると、一番近くで交わる曲線まで延びます。横切るドラッグで複数を延ばせます。</p></li>
+  <li><p><span class="ui">［分割］</span>: 曲線をクリックすると、一番近い交点で分けます（円は 2 つの円弧になります）。</p></li>
+  <li><p><span class="ui">［等分割］</span>: HUD の<span class="ui">［分割数］</span>を入力して、線か円弧をクリックします。等しい長さに分けます。</p></li>
+</ul>
+<p>トリムで切った端には、切った相手の曲線への拘束（点を要素上に）が付きます。</p>
+
+<h3 id="modify-move">移動・コピー・回転・尺度・ストレッチ</h3>
+<ol class="steps">
+  <li><p>動かす要素を、先に選んでおくか、ツールを始めてからクリックして選びます（もう一度クリックで外れます）。先に選んでおくと、次の段へすぐ進みます。ツールを始めてから選んだときは、<kbd>Enter</kbd> かダブルクリックで進みます。</p></li>
+  <li><p>ツールの案内に従って、基準点などをクリックします。</p></li>
+</ol>
+<div class="table-wrap"><table>
+  <caption>変形のツールの操作</caption>
+  <thead><tr><th>ツール</th><th>操作</th></tr></thead>
+  <tbody>
+    <tr><th scope="row"><span class="ui">［移動］</span></th><td>基準点 → 移動先。HUD の<span class="ui">［コピー］</span>にチェックを入れると、写しを作ります</td></tr>
+    <tr><th scope="row"><span class="ui">［コピー］</span></th><td>基準点 → 置く位置</td></tr>
+    <tr><th scope="row"><span class="ui">［回転］</span></th><td>中心 → 角度の位置（または HUD の<span class="ui">［角度］</span>）</td></tr>
+    <tr><th scope="row"><span class="ui">［尺度］</span></th><td>基準点 → 倍率の位置（または HUD の<span class="ui">［尺度係数］</span>）</td></tr>
+    <tr><th scope="row"><span class="ui">［ストレッチ］</span></th><td>基準点 → 移動先。選んだ要素とつながった線の端が一緒に伸び縮みします</td></tr>
+  </tbody>
+</table></div>
+<figure id="fig-04_rotate_hud"><a class="zoom" href="images/04_rotate_hud.png"><img src="images/04_rotate_hud.png" alt="回転。長方形を選び、角の点を中心に回しているところ。HUD に［角度］と［コピー］の欄と、［OK］・［キャンセル］のボタンが出ます。" width="560" height="400" loading="lazy"></a><figcaption><span class="figno">図 4-43</span> 回転。長方形を選び、角の点を中心に回しているところ。HUD に<span class="ui">［角度］</span>と<span class="ui">［コピー］</span>の欄と、<span class="ui">［OK］</span>・<span class="ui">［キャンセル］</span>のボタンが出ます。</figcaption></figure>
+<p>移動・回転・尺度・ストレッチでは、形が変わって成り立たなくなる幾何拘束は消え、値が変わる寸法は今の長さ・角度になります。拘束を保ってほしいときは、ドラッグで形を変えるか、寸法の値を直します。</p>
+<p>この拘束の扱いに確認のダイアログは出しません（パラメータの寸法を除く。<a href="#modify-param">下記</a>）。</p>
+<aside class="note" role="note"><p class="callout-title">注意</p><p>移動・コピーに座標の数値入力はありません。ストレッチは、窓で囲んだ端点だけを動かす操作には対応していません。トリム・延長では、境界にする曲線を選べません（一番近い交点までです）。</p></aside>
+
+<h3 id="modify-offset">オフセット</h3>
+<ol class="steps">
+  <li><p><span class="path">リボンの<span class="ui">［スケッチ］</span>タブ → <span class="ui">［修正］</span>パネル → <span class="ui">［オフセット］</span></span>をクリックします。</p></li>
+  <li><p>曲線をクリックします。端点でつながった曲線の鎖（ループ）がまとめて選ばれます。先に選んでおいた曲線があれば、その鎖です。</p></li>
+  <li><p>オフセットする側にカーソルを動かし、クリックするか、<span class="ui">［距離］</span>を入力して <kbd>Enter</kbd> を押します。</p>
+    <figure id="fig-04_offset_hud"><a class="zoom" href="images/04_offset_hud.png"><img src="images/04_offset_hud.png" alt="オフセット。プレビューが紫の線で出ています。" width="560" height="400" loading="lazy"></a><figcaption><span class="figno">図 4-44</span> オフセット。プレビューが紫の線で出ています。</figcaption></figure></li>
+</ol>
+<p>オフセットでできた形は、普通のスケッチの線・円弧・円です。距離を隠れた値で固定することはありません。端点でつながる曲線どうしは、端点の<span class="ui">［一致］</span>でつながります。</p>
+<p>HUD の<span class="ui">［オフセット拘束］</span>（既定ではオン）で、元との関係を選びます。選んだ値は、次にオフセットするときにも使われます。</p>
+<ul>
+  <li><p><strong>オン</strong>: 元とオフセットが<strong>等しい間隔を保つ</strong>関係（拘束の<span class="ui">［オフセット］</span>。記号は <code>‖</code>）だけが付きます。間隔そのものは決まっていません。</p>
+    <ul>
+      <li><p>オフセットの線や円の縁をドラッグすると、間隔が全体で一様に変わります。</p></li>
+      <li><p>あとから、間隔の寸法（点と線の距離）や、外側の円の直径の寸法を付けられます。値を変えると、そのとき間隔が変わります。</p></li>
+      <li><p>元の寸法を変えると、そのときの間隔のまま付いてきます。</p></li>
+      <li><p>元の形の拘束が少ない（寸法の無い矩形など）ときにオフセットの形へ寸法を足すと、動くのは間隔ではなく拘束の少ない元の形です（Inventor と同じ考え方）。間隔を変えたいときは、元の形を寸法で決めておくか、間隔の寸法を付けます。</p></li>
+    </ul></li>
+  <li><p><strong>オフ</strong>: 端点の一致だけの、普通の形の写しです。元には付いてこず、自由に動かせます。</p></li>
+</ul>
+<p>HUD の<span class="ui">［距離］</span>に数値（式やパラメータの名前でもかまいません）を入力して <kbd>Enter</kbd> を押したときだけ、その値の駆動寸法（<span class="ui">［オフセット距離］</span>）も付きます。ダブルクリックして値を変えられ、パラメータの表にも出ます。クリックで置いたときは、寸法は付きません。</p>
+<figure id="fig-04_offset_circle"><a class="zoom" href="images/04_offset_circle.png"><img src="images/04_offset_circle.png" alt="円のオフセット。外側の円の直径に寸法を付けたところ。記号 ‖ がオフセットの拘束です。" width="560" height="400" loading="lazy"></a><figcaption><span class="figno">図 4-45</span> 円のオフセット。外側の円の直径に寸法を付けたところ。記号 <code>‖</code> がオフセットの拘束です。</figcaption></figure>
+<p>元の曲線やオフセットの曲線を、トリム・分割・延長・フィレット・面取りで形を変えると、オフセットの拘束は外れて、残りは普通の形になります。元かオフセットのどちらかを消したときも同じです。</p>
+<aside class="inventor" role="note"><p class="callout-title">Inventor との違い</p><p>オフセットの拘束は、Inventor の［オフセット拘束］と同じ考え方です。Inventor ではオフセットの実行中に右クリックで切り替えますが、mcad では HUD のチェックで切り替えます。</p></aside>
+<aside class="note" role="note"><p class="callout-title">注意</p><p>円弧の半径が 0 以下になるオフセットや、内側へ幅の半分を超えて輪郭が裏返るオフセットはできません。寸法の変更で裏返るときも、変更は受け付けません。</p></aside>
+<aside class="note" role="note"><p class="callout-title">注意</p><p>スプラインは、1 本だけを選んだときに、離した点を通る新しいスプラインを作る近似の写しになります。元には付いてこず、オフセット拘束も寸法も付きません（<span class="ui">［オフセット拘束］</span>のチェックは出ません）。通過点は普通の点なので、ドラッグで動かせます。</p></aside>
+<aside class="note" role="note"><p class="callout-title">注意</p><p>以前の版でできたオフセットは、そのまま開けて同じ形で動きます（距離は数値として保存されています）。その距離は、オフセットの曲線を選んで<span class="ui">［パターンまたはオフセットを編集］</span>で変えます。曲線を選んで右クリックの<span class="ui">［オフセットを普通の形にする］</span>を押すと、ここまでに書いた作りに変わります（形は変わりません）。</p></aside>
+
+<h3 id="modify-mirror">ミラー</h3>
+<ol class="steps">
+  <li><p>ミラーする要素を選びます。</p></li>
+  <li><p><span class="path">リボンの<span class="ui">［スケッチ］</span>タブ → <span class="ui">［パターン］</span>パネル → <span class="ui">［ミラー］</span></span>をクリックし、ミラー線（線・中心線・スケッチの軸）をクリックします。</p></li>
+</ol>
+<figure id="fig-04_mirror_done"><a class="zoom" href="images/04_mirror_done.png"><img src="images/04_mirror_done.png" alt="縦の軸でミラーした三角形。対称の記号 ][ が付き、元を変えるとミラーも付いてきます。" width="560" height="400" loading="lazy"></a><figcaption><span class="figno">図 4-46</span> 縦の軸でミラーした三角形。対称の記号 <code>][</code> が付き、元を変えるとミラーも付いてきます。</figcaption></figure>
+
+<h3 id="modify-pattern">パターン</h3>
+<ol class="steps">
+  <li><p>繰り返す要素を選びます。</p></li>
+  <li><p><span class="path">リボンの<span class="ui">［スケッチ］</span>タブ → <span class="ui">［パターン］</span>パネル → <span class="ui">［矩形状パターン］</span></span>か<span class="path">リボンの<span class="ui">［スケッチ］</span>タブ → <span class="ui">［パターン］</span>パネル → <span class="ui">［円形状パターン］</span></span>をクリックします。</p></li>
+  <li><p>矩形状パターンは、方向 1 の線をクリックします（省くと X 軸。方向 2 は Y 軸）。円形状パターンは、中心の点をクリックします（スケッチの点・端点・円の中心・原点）。</p></li>
+  <li><p>HUD の欄を入力します。プレビューが更新されます。<kbd>Enter</kbd> で確定します。</p></li>
+</ol>
+<figure id="fig-04_pattern_rect_hud"><a class="zoom" href="images/04_pattern_rect_hud.png"><img src="images/04_pattern_rect_hud.png" alt="矩形状パターンの HUD。［個数 1］・［間隔 1］・［個数 2］・［間隔 2］と、向きを逆にする［方向 1 を反転］・［方向 2 を反転］があります。" width="560" height="400" loading="lazy"></a><figcaption><span class="figno">図 4-47</span> 矩形状パターンの HUD。<span class="ui">［個数 1］</span>・<span class="ui">［間隔 1］</span>・<span class="ui">［個数 2］</span>・<span class="ui">［間隔 2］</span>と、向きを逆にする<span class="ui">［方向 1 を反転］</span>・<span class="ui">［方向 2 を反転］</span>があります。</figcaption></figure>
+<figure id="fig-04_pattern_circ_hud"><a class="zoom" href="images/04_pattern_circ_hud.png"><img src="images/04_pattern_circ_hud.png" alt="円形状パターンの HUD。［個数］・［角度］・［フィット］・［反転］があります。［フィット］にチェックを入れると、［角度］が全体の角度になり（360° なら個数で等分）、チェックを外すと、［角度］が 1 つごとの間隔になります。" width="560" height="400" loading="lazy"></a><figcaption><span class="figno">図 4-48</span> 円形状パターンの HUD。<span class="ui">［個数］</span>・<span class="ui">［角度］</span>・<span class="ui">［フィット］</span>・<span class="ui">［反転］</span>があります。<span class="ui">［フィット］</span>にチェックを入れると、<span class="ui">［角度］</span>が全体の角度になり（360° なら個数で等分）、チェックを外すと、<span class="ui">［角度］</span>が 1 つごとの間隔になります。</figcaption></figure>
+<p>パターンでできた要素は、元の要素に付いてきます。元の寸法を変えるとパターンも変わります。パターンの要素は、ドラッグ・トリム・分割では変えられず、消すとパターンごと消えます。個数や間隔を変えるには、パターンの要素（または以前の版でできたオフセットの要素）を選んで<span class="ui">［パターンまたはオフセットを編集］</span>（右クリックのメニューにもあります）を押し、HUD で値を変えて <kbd>Enter</kbd> を押します。個数を変えると、要素が増減します。</p>
+<aside class="note" role="note"><p class="callout-title">注意</p><p>パターンの要素を抑制したり、関連付けを切ったりはできません。</p></aside>
+
+<h3 id="modify-param">パラメータの寸法を緩めるときの確認</h3>
+<p>パラメータの式で決まっている寸法（<code>fx:</code> の付いた寸法）の値が、編集で変わってしまうことがあります。そのときは、確認のダイアログが出ます。</p>
+<figure id="fig-04_param_confirm"><a class="zoom" href="images/04_param_confirm.png"><img src="images/04_param_confirm.png" alt="パラメータ W で決まっている、原点からの水平距離を持つ長方形を移動したとき。寸法がパラメータに追従しなくなることを確認します。" width="460" height="300" loading="lazy"></a><figcaption><span class="figno">図 4-49</span> パラメータ <code>W</code> で決まっている、原点からの水平距離を持つ長方形を移動したとき。寸法がパラメータに追従しなくなることを確認します。</figcaption></figure>
+<ul>
+  <li><p><span class="ui">［取り消す］</span>: 編集をやめます。</p></li>
+  <li><p><span class="ui">［数に置き換える］</span>: 該当の寸法を今の数値に置き換えて編集します。以後その寸法はパラメータに追従しません。</p></li>
+</ul>
+<p>コピーでは確認しません（元の寸法は変わらないため）。</p>
+
+<h3 id="modify-projected">投影した辺は動かせない</h3>
+<p>モデルから投影した線（青緑）は固定です。移動・回転・尺度・ストレッチ・分割・等分割・トリム・延長・フィレット・面取りは使えません。コピー・ミラー・オフセットは使えます。</p>
+
+<h2 id="project"><span class="secno">4.8</span> ジオメトリの投影</h2>
+<p>投影は、パーツの面・エッジ・頂点を、スケッチの平面に写して、スケッチの線として使う機能です。投影した線は元に付いてきます。上流の寸法を変えると、投影も更新されます。</p>
+<h3 id="project-auto">面に置いたスケッチ</h3>
+<p>平らな面にスケッチを始めると、面の外周のエッジが自動で投影されます。</p>
+<figure id="fig-04_face_projected"><a class="zoom" href="images/04_face_projected.png"><img src="images/04_face_projected.png" alt="穴付きの板の上面にスケッチを始めたところ。外周の 4 辺・角のフィレットの円弧・4 つの穴の円が、青緑の線で入ります。開いた端点（橙の点）は出ず、完全定義です。" width="640" height="440" loading="lazy"></a><figcaption><span class="figno">図 4-50</span> 穴付きの板の上面にスケッチを始めたところ。外周の 4 辺・角のフィレットの円弧・4 つの穴の円が、青緑の線で入ります。開いた端点（橙の点）は出ず、完全定義です。</figcaption></figure>
+<p>フィレットで丸めた角の円弧や、穴の円も、そのまま投影されます。投影した線は、スケッチの形を決める基準になります。線の端点につなげて、図形を描けます。</p>
+<aside class="inventor" role="note"><p class="callout-title">Inventor との違い</p><p>面に置いたスケッチの自動の投影は、Inventor の既定と同じです。投影した線が固定になり、元に付いてくる点も同じです。</p></aside>
+
+<h3 id="project-tool">投影のツール</h3>
+<ol class="steps">
+  <li><p><span class="path">リボンの<span class="ui">［スケッチ］</span>タブ → <span class="ui">［作成］</span>パネル → <span class="ui">［投影］</span>の▼ → <span class="ui">［ジオメトリを投影］</span></span>をクリックします（<kbd>P</kbd>）。</p></li>
+  <li><p>3D ビューで、面・エッジ・頂点をクリックします。面をクリックすると、面の外周（フィレットの円弧を含む）と穴のエッジが全部入ります（すでに入っているエッジは入れ直しません）。続けて何度でも選べます。</p>
+    <figure id="fig-04_project_one_edge"><a class="zoom" href="images/04_project_one_edge.png"><img src="images/04_project_one_edge.png" alt="板の上面の右のエッジを 1 本クリックして投影したところ。" width="700" height="520" loading="lazy"></a><figcaption><span class="figno">図 4-51</span> 板の上面の右のエッジを 1 本クリックして投影したところ。</figcaption></figure></li>
+  <li><p><kbd>Esc</kbd> でツールを終えます。</p></li>
+</ol>
+<p><span class="ui">［切断エッジを投影］</span>は、スケッチの平面がボディを切る所の断面の線（ボディと平面の交線）を、選択なしですぐ投影します。作業平面にスケッチを置いて、その高さの断面を使うときに便利です。</p>
+<figure id="fig-04_cut_edges"><a class="zoom" href="images/04_cut_edges.png"><img src="images/04_cut_edges.png" alt="高さ 10 の作業平面に置いたスケッチへ［切断エッジを投影］した断面の長方形。背景の薄い橙の面が作業平面です。" width="640" height="440" loading="lazy"></a><figcaption><span class="figno">図 4-52</span> 高さ 10 の作業平面に置いたスケッチへ<span class="ui">［切断エッジを投影］</span>した断面の長方形。背景の薄い橙の面が作業平面です。</figcaption></figure>
+<p>投影した線を隠すには、<span class="ui">［投影ジオメトリを表示］</span>を切ります。線は消えず、見えなくなるだけです。</p>
+
+<h3 id="project-slice">断面の線を選んで投影する（スライス表示）</h3>
+<p>スケッチの平面がボディの中を通るとき（作業平面に置いたスケッチなど）、<span class="path">リボンの<span class="ui">［スケッチ］</span>タブ → <span class="ui">［形式］</span>パネル → <span class="ui">［スライス表示］</span></span>（<kbd>F7</kbd>）を入れると、スケッチの平面より手前（スケッチの法線の側）のモデルが取り去られ、平面でのボディの断面が、塗りつぶしとハッチングで見えます。ボディは半透明でなく、ふつうの色で表示されます。スケッチの背景の右クリックのメニューにもあります。</p>
+<ol class="steps">
+  <li><p><span class="ui">［形式］</span>パネルの<span class="ui">［スライス表示］</span>をクリックします（もう一度クリックすると切れます）。</p></li>
+  <li><p><span class="path">リボンの<span class="ui">［スケッチ］</span>タブ → <span class="ui">［作成］</span>パネル → <span class="ui">［投影］</span>の▼ → <span class="ui">［ジオメトリを投影］</span></span>をクリックし、断面の線（断面の塗りつぶしの縁）にカーソルを合わせます。線が橙の太線で強調されます。</p></li>
+  <li><p>クリックすると、その線 1 本だけが投影されます。<span class="ui">［切断エッジを投影］</span>と同じ、ボディと平面の交線で、上流の寸法を変えると付いてきます。投影した線は投影の色（青緑）で断面の上に表示されます。スライス表示の断面は塗りとハッチングだけで縁の線を描かないので、断面の縁に見える線は投影した線です。<span class="ui">［投影ジオメトリを表示］</span>が切れているときに投影すると、投影した線が見えるように自動で入ります（ステータスバーに知らせます）。すでに入っている線は強調されず、入れ直しません。</p></li>
+  <li><p><kbd>Esc</kbd> でツールを終えます。</p></li>
+</ol>
+<p>断面の線から離れた所をクリックすると、今までどおり面・エッジ・頂点が投影されます（残った側のエッジなど）。<span class="ui">［切断エッジを投影］</span>が断面の線を全部入れるのに対し、こちらは必要な線だけを選べます。コイルのような曲面のボディの断面（自由曲線になる線）も選べます。</p>
+<aside class="note" role="note"><p class="callout-title">注意</p><p>スライス表示は表示だけの切替です。ドキュメントには保存されず、未保存の印も、<span class="ui">［元に戻す］</span>の項目も増えません。スケッチを終える・変更を破棄すると切れ、次にスケッチを編集するときは切れた状態で始まります。<a href="02_view.html#section">断面図</a>を表示していたときは、スケッチの間はスライス表示に替わり、切ると元の断面図に戻ります。カメラをスケッチの平面の裏に回しても、取り去るのは法線の側です。面に置いたスケッチでは、面そのものは切らず、面の外周が断面の線の候補になります。断面の線の候補は、スケッチより前のフィーチャまでの形から作ります。スケッチより後のフィーチャ（そのスケッチを使ったリブや、後で付けたフィレットなど）は塗りつぶしには出ますが、候補にはなりません。</p></aside>
+<aside class="inventor" role="note"><p class="callout-title">Inventor との違い</p><p>Inventor の<span class="ui">［スライス表示］</span>（F7）と同じです。</p></aside>
+
+<h3 id="project-lost">投影元がなくなったとき</h3>
+<p>投影元の面やエッジがなくなると（元のフィーチャの抑制・削除など）、投影した線は<strong>茶色の破線</strong>になります。茶色の線は、最後に有効だった位置のまま残り、付いていた拘束は外して、ほかの要素で解きます。</p>
+<figure id="fig-04_lost_brown"><a class="zoom" href="images/04_lost_brown.png"><img src="images/04_lost_brown.png" alt="上面の手前のフィレットを抑制したため、フィレットとの境の投影元がなくなり、茶色の破線になった投影の線。両側の線の下の端は、茶色の線から離れて、橙の点（開いた端点）になります。" width="640" height="440" loading="lazy"></a><figcaption><span class="figno">図 4-53</span> 上面の手前のフィレットを抑制したため、フィレットとの境の投影元がなくなり、茶色の破線になった投影の線。両側の線の下の端は、茶色の線から離れて、橙の点（開いた端点）になります。</figcaption></figure>
+<p>投影元が戻れば（抑制を解くなど）、自動で直ります。別の元に付け直すこともできます。</p>
+<ol class="steps">
+  <li><p>茶色の線をクリックして選びます。</p></li>
+  <li><p>右クリックの<span class="ui">［投影ジオメトリの参照を付け直す］</span>（または<span class="ui">［作成］</span>パネルの ▼ の<span class="ui">［投影ジオメトリの参照を付け直す］</span>）をクリックします。</p></li>
+  <li><p>新しい元になるエッジか面を、3D ビューでクリックします。</p></li>
+</ol>
+<p>線はそのままで、付いていた拘束も変わりません。付け替えは 1 回の変更として履歴に入ります。</p>
+<aside class="note" role="note"><p class="callout-title">注意</p><p>投影元の種類が変わる（円が楕円になるなど）と、黙って別の種類にはならず、宙に浮いた線になります。名前の曖昧さによる候補の提示はありません。</p></aside>
+
+<h2 id="redefine"><span class="secno">4.9</span> スケッチ平面の再定義</h2>
+<p>描いたスケッチの置き場所（平面や面）を、別の平面や面に付け替えます。スケッチの要素と拘束はそのままで、後ろのフィーチャが再計算されます。</p>
+<ol class="steps">
+  <li><p>ブラウザでスケッチをクリックして選びます。</p></li>
+  <li><p>リボンの<span class="ui">［3D モデル］</span>タブ →<span class="ui">［スケッチ］</span>パネルの ▼ →<span class="ui">［スケッチ平面を再定義］</span>をクリックします（スケッチの右クリックでも選べます）。</p></li>
+  <li><p>プロパティ パネルの<span class="ui">［平面］</span>に、新しい平面を選びます（ブラウザの作業平面や、ビューの面をクリック）。</p>
+    <figure id="fig-04_redefine_form"><a class="zoom" href="images/04_redefine_form.png"><img src="images/04_redefine_form.png" alt="リブのスケッチの平面を、上の平面に付け替えるところ。" width="361" height="498" loading="lazy"></a><figcaption><span class="figno">図 4-54</span> リブのスケッチの平面を、<code>上の平面</code>に付け替えるところ。</figcaption></figure></li>
+  <li><p><span class="ui">［OK］</span>で確定します。</p></li>
+</ol>
+<p>投影した線は、新しい平面に投影し直されます。元に戻すで、元の平面と形に戻ります。</p>
+<aside class="note" role="note"><p class="callout-title">注意</p><p>そのスケッチより後ろにできた面や平面は選べません（循環になるため）。</p></aside>
+
+<h2 id="copy"><span class="secno">4.10</span> コピーと貼り付け</h2>
+<p>スケッチの要素を、別のスケッチ・別のドキュメントにコピーできます。</p>
+<ol class="steps">
+  <li><p>コピーする要素を選びます（窓選択が便利です）。</p>
+    <figure id="fig-04_copy_source"><a class="zoom" href="images/04_copy_source.png"><img src="images/04_copy_source.png" alt="長方形と円を窓選択したところ。" width="560" height="400" loading="lazy"></a><figcaption><span class="figno">図 4-55</span> 長方形と円を窓選択したところ。</figcaption></figure></li>
+  <li><p><span class="path">リボンの<span class="ui">［スケッチ］</span>タブ → <span class="ui">［修正］</span>パネル → <span class="ui">［コピー］</span></span>（<kbd>Ctrl</kbd>+<kbd>C</kbd>）で写し、切り取りなら<span class="ui">［切り取り］</span>（<kbd>Ctrl</kbd>+<kbd>X</kbd>）を使います。</p></li>
+  <li><p>貼り付け先のスケッチ（別のスケッチ、別のドキュメントでも可）を開き、<span class="path">リボンの<span class="ui">［スケッチ］</span>タブ → <span class="ui">［修正］</span>パネル → <span class="ui">［貼り付け］</span></span>（<kbd>Ctrl</kbd>+<kbd>V</kbd>）を押します。</p>
+    <figure id="fig-04_paste_result"><a class="zoom" href="images/04_paste_result.png"><img src="images/04_paste_result.png" alt="XY 平面のスケッチで窓選択してコピーした長方形と円を、XZ 平面の新しいスケッチに貼り付けたところ。選んだ要素の間の拘束も一緒に貼られます。" width="560" height="400" loading="lazy"></a><figcaption><span class="figno">図 4-56</span> XY 平面のスケッチで窓選択してコピーした長方形と円を、XZ 平面の新しいスケッチに貼り付けたところ。選んだ要素の間の拘束も一緒に貼られます。</figcaption></figure></li>
+</ol>
+<ul>
+  <li><p>貼り付けた図形は、少しずらした位置に置かれます。貼り付けは 1 回の変更です。</p></li>
+  <li><p>同じドキュメントの中なら、投影した線は投影のまま貼られます。別のドキュメントに貼ると、固定の線になります。</p></li>
+  <li><p>貼り付けた要素は、元の要素との関係（フィーチャからの追従）を失い、新しい要素になります。</p></li>
+  <li><p>他のアプリでコピーした文字を貼ろうとしても、何も起きず、知らせが出ます。</p></li>
+</ul>
+
+<h2 id="repair"><span class="secno">4.11</span> スケッチの修復</h2>
+<p>手で描いた線の端点がわずかにずれていると、領域が閉じません。<span class="ui">［スケッチを修復］</span>は、次の問題を直します。</p>
+<ul>
+  <li><p>長さ 0 の線や半径 0 の円などの<strong>縮退した要素</strong>を消します。</p></li>
+  <li><p>同じ位置の重なった線を 1 本だけ残します（<strong>重複</strong>）。</p></li>
+  <li><p>近くにあるのにつながっていない端点を、一致の拘束で<strong>つなぎます</strong>。近さの許容は、スケッチの大きさの 1000 分の 1（0.0001〜1 mm）です。</p></li>
+</ul>
+<ol class="steps">
+  <li><p>リボンの<span class="ui">［スケッチ］</span>タブ →<span class="ui">［修正］</span>パネルの ▼ →<span class="ui">［スケッチを修復］</span>をクリックします。</p></li>
+</ol>
+<figure id="fig-04_repair_before"><a class="zoom" href="images/04_repair_before.png"><img src="images/04_repair_before.png" alt="修復の前。左上の角に 0.03 mm の隙間があり、橙の点（開いた端点）が出ています。底辺には同じ線が 2 本重なっています。" width="560" height="400" loading="lazy"></a><figcaption><span class="figno">図 4-57</span> 修復の前。左上の角に 0.03 mm の隙間があり、橙の点（開いた端点）が出ています。底辺には同じ線が 2 本重なっています。</figcaption></figure>
+<figure id="fig-04_repair_after"><a class="zoom" href="images/04_repair_after.png"><img src="images/04_repair_after.png" alt="修復のあと。重なりが消え、隙間がつながって、領域ができました。" width="560" height="400" loading="lazy"></a><figcaption><span class="figno">図 4-58</span> 修復のあと。重なりが消え、隙間がつながって、領域ができました。</figcaption></figure>
+<p>許容より離れた端点はつなぎません。<span class="ui">［スケッチの診断］</span>の<span class="ui">［スケッチを検査］</span>で、直ったかどうかを確かめられます。</p>
+
+<h2 id="construction"><span class="secno">4.12</span> 構築線と中心線</h2>
+<p>構築線は、形を作る手助けになる線です。実線にならず、閉じた領域にも使われません。</p>
+<div class="table-wrap"><table>
+  <caption>補助の線</caption>
+  <thead><tr><th>線</th><th>作り方</th><th>用途</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">構築線（破線）</th><td><span class="ui">［線（構築線）］</span>で描く、または選んだ要素に<span class="ui">［構築線］</span>（<span class="ui">［スケッチ］</span>タブ →<span class="ui">［形式］</span>パネル）を押す</td><td>位置決めの基準。もう一度押すと実線に戻ります</td></tr>
+    <tr><th scope="row">中心線（一点鎖線）</th><td><span class="ui">［中心線］</span>で描く</td><td>回転の軸、ミラーの線、対称の基準</td></tr>
+  </tbody>
+</table></div>
+<figure id="fig-04_construction"><a class="zoom" href="images/04_construction.png"><img src="images/04_construction.png" alt="長方形、縦の中心線（一点鎖線）、対角の構築線（破線）、円。" width="560" height="400" loading="lazy"></a><figcaption><span class="figno">図 4-59</span> 長方形、縦の中心線（一点鎖線）、対角の構築線（破線）、円。</figcaption></figure>
+<p><span class="ui">［構築線を表示］</span>を切ると、構築線と中心線を隠せます（消しません）。</p>
+
+<h2 id="profile"><span class="secno">4.13</span> 閉じた領域（プロファイル）</h2>
+<p>曲線が閉じた輪郭をつくると、淡い青の網掛けの<strong>領域</strong>になります。領域は押し出し・回転などの<span class="ui">［プロファイル］</span>として使えます。</p>
+<figure id="fig-04_regions"><a class="zoom" href="images/04_regions.png"><img src="images/04_regions.png" alt="外側の長方形、中の円、縦の線で、3 つの領域ができています。" width="560" height="400" loading="lazy"></a><figcaption><span class="figno">図 4-60</span> 外側の長方形、中の円、縦の線で、3 つの領域ができています。</figcaption></figure>
+<ul>
+  <li><p>輪郭が交わる所で、領域が分かれます。内側の閉じた輪郭は、外側の領域の穴になります。</p></li>
+  <li><p>開いた線は領域になりません。端の橙の点で見つけられます。</p></li>
+  <li><p>同じ線を重ねて描くと、<span class="ui">［重なった曲線］</span>の警告が出ます。領域は 1 つにまとまります。</p></li>
+  <li><p>文字の輪郭、投影した面の外周も領域になります。構築線と中心線は領域に使われません。</p></li>
+</ul>
+<p>押し出しを始めると、領域が 1 つだけのスケッチは<span class="ui">［プロファイル］</span>に自動で入ります。領域が複数あるときは、使う領域をビューでクリックします。<span class="ui">［全部の領域］</span>で全部を選び、<span class="ui">［外す］</span>で外します。</p>
+<div class="figrow">
+  <figure id="fig-04_extrude_profile_form"><a class="zoom" href="images/04_extrude_profile_form.png"><img src="images/04_extrude_profile_form.png" alt="押し出しのパネル。［プロファイル］の欄に、選んだ領域が入ります。［全部の領域］と［外す］のボタンがあります。" width="360" height="364" loading="lazy"></a><figcaption><span class="figno">図 4-61</span> 押し出しのパネル。<span class="ui">［プロファイル］</span>の欄に、選んだ領域が入ります。<span class="ui">［全部の領域］</span>と<span class="ui">［外す］</span>のボタンがあります。</figcaption></figure>
+  <figure id="fig-04_extrude_profile"><a class="zoom" href="images/04_extrude_profile.png"><img src="images/04_extrude_profile.png" alt="ビューで穴のある領域をクリックして、緑で選ばれています（右の領域と円の領域は未選択）。" width="460" height="313" loading="lazy"></a><figcaption><span class="figno">図 4-62</span> ビューで穴のある領域をクリックして、緑で選ばれています（右の領域と円の領域は未選択）。</figcaption></figure>
+</div>
+<p>1 つのスケッチの領域を、複数のフィーチャで使えます。使われたスケッチは、ブラウザで既定は非表示です。押し出しの詳しい使い方は<a href="06_features_basic.html">第 6 章</a>にあります。</p>
+<p>領域の面積・図心・断面二次モーメントは、<span class="path">リボンの<span class="ui">［検査］</span>タブ → <span class="ui">［計測］</span>パネル → <span class="ui">［領域のプロパティ］</span></span>で調べます。</p>
+<figure id="fig-04_region_props"><a class="zoom" href="images/04_region_props.png"><img src="images/04_region_props.png" alt="領域のプロパティ。チェックを付けた領域をまとめた面積・周長・図心位置・慣性が出ます。チェックを付け替えたら［計算］を押します。" width="278" height="578" loading="lazy"></a><figcaption><span class="figno">図 4-63</span> 領域のプロパティ。チェックを付けた領域をまとめた面積・周長・図心位置・慣性が出ます。チェックを付け替えたら<span class="ui">［計算］</span>を押します。</figcaption></figure>
+<p>このダイアログは開いたまま、ビューやブラウザを操作できます。スケッチの形を変えても、開いている領域の一覧は自動では変わりません。変えたときは、開き直します。</p>
+
+<h2 id="settings"><span class="secno">4.14</span> スケッチの設定</h2>
+<p><span class="path">リボンの<span class="ui">［ツール］</span>タブ → <span class="ui">［オプション］</span>パネル → <span class="ui">［オプション］</span></span>の<span class="ui">［スケッチ］</span>ページで、スケッチの動きを決めます。</p>
+<div class="table-wrap"><table>
+  <caption>［スケッチ］ページの設定</caption>
+  <thead><tr><th>設定</th><th>内容</th></tr></thead>
+  <tbody>
+    <tr><th scope="row"><span class="ui">［スケッチの拘束を推論して付ける］</span></th><td>作図中の水平・垂直・平行・直交・正接の推論の入り切り</td></tr>
+    <tr><th scope="row"><span class="ui">［点の位置合わせ］</span></th><td>点線の推論線の入り切り</td></tr>
+    <tr><th scope="row"><span class="ui">［グリッドにスナップ］</span></th><td>グリッドの交点への吸い付き（既定は切）</td></tr>
+    <tr><th scope="row"><span class="ui">［スケッチのスナップの半径（ピクセル）］</span></th><td>点や曲線に吸い付く距離（既定 8）</td></tr>
+    <tr><th scope="row"><span class="ui">［面にスケッチを作成するとき、その面のエッジを投影する］</span></th><td>面に置いたスケッチの自動の投影（既定は入）</td></tr>
+    <tr><th scope="row"><span class="ui">［拘束の記号を表示］</span>・<span class="ui">［寸法を表示］</span>・<span class="ui">［構築線を表示］</span>・<span class="ui">［投影ジオメトリを表示］</span>・<span class="ui">［すべての自由度を表示］</span></th><td>表示の既定。リボンの切替と同じ設定です</td></tr>
+    <tr><th scope="row"><span class="ui">［寸法の表示方法］</span></th><td>値・名前・式</td></tr>
+  </tbody>
+</table></div>
+<p>ほかに、ドラッグで形を解く方法の細かい設定（<span class="ui">［その場で解くスケッチの成分の最大］</span>など）があります。通常は変えません。</p>
+
+<h2 id="try"><span class="secno">4.15</span> この機能を試す</h2>
+<aside class="try"><p class="callout-title">この機能を試す</p><p class="try-sample">題材: <code>samples/sketch_projection.mcad</code> （<a href="00_intro.html#samples">題材の一覧と開き方</a>）</p>
+  <p>ブラウザの<code>板のスケッチ</code>をダブルクリックして、幅の寸法（100）をダブルクリックし、<code>120</code> に変えます。<span class="ui">［2D スケッチを終了］</span>を押すと、板が広がり、<code>上面のスケッチ</code>の投影した線（青緑）とスプラインの両端が付いてきます。</p>
+  <p><code>上面のスケッチ</code>をダブルクリックして、楕円の長軸の寸法やスプラインの通過点の寸法を変えます。投影した線は動かせません。右の<span class="ui">［拘束マネージャ］</span>で、拘束を絞り込んで無効にしてみます。</p>
+</aside>
+<aside class="try"><p class="callout-title">この機能を試す</p><p class="try-sample">題材: <code>samples/plate_with_holes.mcad</code> （<a href="00_intro.html#samples">題材の一覧と開き方</a>）</p>
+  <p><span class="path">リボンの<span class="ui">［3D モデル］</span>タブ → <span class="ui">［スケッチ］</span>パネル → <span class="ui">［スケッチ］</span></span>をクリックし、ビューで板の上面をクリックします。外周の 4 辺・角のフィレットの円弧・4 つの穴の円が青緑の線で入り、ステータスバーが<code>完全定義</code>になります（<span class="ui">［スケッチの診断］</span>に<span class="ui">［開いた端点］</span>は出ません）。</p>
+  <p><span class="ui">［2D スケッチを終了］</span>を押し、ブラウザの<span class="ui">［フィレット1］</span>をダブルクリックして<span class="ui">［半径］</span>を <code>8</code> に変え、<span class="ui">［OK］</span>で確定します。<span class="ui">［スケッチ3］</span>をダブルクリックして開くと、投影した角の円弧が新しい半径に付いてきて、完全定義のままです。</p>
+</aside>
+<aside class="try"><p class="callout-title">この機能を試す</p><p class="try-sample">題材: <code>samples/housing.mcad</code> （<a href="00_intro.html#samples">題材の一覧と開き方</a>）</p>
+  <p><code>リブのスケッチ</code>を選んで<span class="ui">［スケッチ平面を再定義］</span>で、<code>上の平面</code>に付け替えます（ブラウザのチェックで<code>上の平面</code>を表示できます）。スケッチの要素はそのままで、リブが高くなります。</p>
+</aside>
+<aside class="try"><p class="callout-title">この機能を試す</p><p class="try-sample">題材: <code>samples/housing.mcad</code> （<a href="00_intro.html#samples">題材の一覧と開き方</a>）</p>
+  <p><code>リブのスケッチ</code>（高さ 20 の作業平面）をダブルクリックし、<span class="ui">［スライス表示］</span>（<kbd>F7</kbd>）を入れます。高さ 20 より上が取り去られ、シェルの壁の断面（枠の形）が見えます。<span class="ui">［ジオメトリを投影］</span>をクリックし、壁の断面の内側の線にカーソルを合わせると橙の太線になり、クリックでその線だけが入ります。<span class="ui">［スケッチの変更を破棄］</span>で元に戻せます。</p>
+</aside>
+<aside class="try"><p class="callout-title">この機能を試す</p><p class="try-sample">題材: <code>samples/l_bracket.mcad</code> （<a href="00_intro.html#samples">題材の一覧と開き方</a>）</p>
+  <p><code>L字のスケッチ</code>をダブルクリックします。線が黒い太線で、ステータスバーが<code>完全定義</code>になっています。ビューの底の長さの寸法（<code>60.00 mm</code>）をダブルクリックして <code>70</code> と入力し、<kbd>Enter</kbd> を押します。<span class="ui">［2D スケッチを終了］</span>を押すと、押し出し・リブ・ミラーまでが新しい長さに付いてきます。</p>
+  <p>もう一度スケッチを開き、<span class="ui">［フィレット］</span>で角を丸める、<span class="ui">［オフセット］</span>で内側に線を足すなどを試します。<kbd>Ctrl</kbd>+<kbd>Z</kbd> で戻せます。</p>
+</aside>
+
+</article>
+<nav class="pager" aria-label="前後の章"><a class="prev" rel="prev" href="03_first_part.html"><span class="dir">前の章</span>第 3 章 はじめての部品</a><a class="next" rel="next" href="05_work_features.html"><span class="dir">次の章</span>第 5 章 作業フィーチャ</a></nav>
+<footer class="footer"><p>EMRM-Studio ユーザーマニュアル（日本語）・EMRM-Studio 0.1.0 ・ <a href="#main">このページの先頭へ</a></p></footer>
+</main>
+</div>
+</body>
+</html>

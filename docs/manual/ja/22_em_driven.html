@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="generator" content="tools/build_manual.py">
+<title>第 22 章 ポート解析 - EMRM-Studio ユーザーマニュアル</title>
+<link rel="stylesheet" href="assets/manual.css">
+<script src="assets/search_index.js" charset="utf-8" defer></script>
+<script src="assets/manual.js" charset="utf-8" defer></script>
+</head>
+<body class="page">
+<header class="topbar">
+<a class="brand" href="index.html">EMRM-Studio ユーザーマニュアル</a>
+<button class="toc-toggle" type="button" aria-controls="toc" aria-expanded="false">目次</button>
+<form class="search" role="search" action="#" onsubmit="return false">
+<input id="q" type="search" placeholder="マニュアルを検索（/）" aria-label="マニュアルを検索" autocomplete="off">
+</form>
+</header>
+<div id="search-results" class="search-results" hidden></div>
+<div class="layout">
+<nav id="toc" class="toc" aria-label="目次">
+<details class="toc-box">
+<summary>目次</summary>
+<ol class="toc-chapters">
+<li class="toc-home"><a href="index.html">表紙・目次</a></li>
+<li><a href="00_intro.html">はじめに</a></li>
+<li class="toc-part" role="presentation">第 I 部　形状を作る（CAD）</li>
+<li><a href="01_screen.html"><span class="chno">第 1 章</span> 画面の構成</a></li>
+<li><a href="02_view.html"><span class="chno">第 2 章</span> 視点の操作</a></li>
+<li><a href="03_first_part.html"><span class="chno">第 3 章</span> はじめての部品</a></li>
+<li><a href="04_sketch.html"><span class="chno">第 4 章</span> スケッチ</a></li>
+<li><a href="05_work_features.html"><span class="chno">第 5 章</span> 作業フィーチャ</a></li>
+<li><a href="06_features_basic.html"><span class="chno">第 6 章</span> フィーチャ（押し出し・回転・穴・フィレットなど）</a></li>
+<li><a href="07_features_advanced.html"><span class="chno">第 7 章</span> フィーチャ（スイープ・ロフト・コイル・パターンなど）</a></li>
+<li><a href="08_bodies.html"><span class="chno">第 8 章</span> ボディの操作</a></li>
+<li><a href="09_browser.html"><span class="chno">第 9 章</span> ブラウザとフィーチャの管理</a></li>
+<li><a href="10_parameters.html"><span class="chno">第 10 章</span> パラメータと式</a></li>
+<li><a href="11_configurations.html"><span class="chno">第 11 章</span> 構成</a></li>
+<li><a href="12_inspect.html"><span class="chno">第 12 章</span> 検査</a></li>
+<li><a href="13_files.html"><span class="chno">第 13 章</span> ファイル</a></li>
+<li class="toc-part" role="presentation">第 II 部　電磁場解析</li>
+<li><a href="14_em_intro.html"><span class="chno">第 14 章</span> 電磁場解析のはじめに</a></li>
+<li><a href="15_em_first.html"><span class="chno">第 15 章</span> はじめての電磁場解析（ソレノイド）</a></li>
+<li><a href="16_em_setup.html"><span class="chno">第 16 章</span> スタディの共通の設定</a></li>
+<li><a href="17_em_results.html"><span class="chno">第 17 章</span> 結果の見方</a></li>
+<li><a href="18_em_magnetostatic.html"><span class="chno">第 18 章</span> 静磁場解析</a></li>
+<li><a href="19_em_coils.html"><span class="chno">第 19 章</span> 静磁場解析: コイル</a></li>
+<li><a href="20_em_dipole.html"><span class="chno">第 20 章</span> 静磁場解析の例題: H 型双極電磁石</a></li>
+<li><a href="21_em_eigenmode.html"><span class="chno">第 21 章</span> 共振モード解析</a></li>
+<li class="current"><a href="22_em_driven.html" aria-current="page"><span class="chno">第 22 章</span> ポート解析</a><ol class="toc-sections"><li><a href="22_em_driven.html#overview"><span class="secno">22.1</span> ポート解析のスタディ</a></li><li><a href="22_em_driven.html#ports"><span class="secno">22.2</span> ポート</a></li><li><a href="22_em_driven.html#settings"><span class="secno">22.3</span> 解析の設定</a></li><li><a href="22_em_driven.html#results"><span class="secno">22.4</span> 結果の見方</a></li><li><a href="22_em_driven.html#accuracy"><span class="secno">22.5</span> 精度の目安</a></li></ol></li>
+<li><a href="23_em_electrostatic.html"><span class="chno">第 23 章</span> 静電場解析</a></li>
+<li><a href="24_em_gun.html"><span class="chno">第 24 章</span> 電子銃解析</a></li>
+<li><a href="25_em_troubleshooting.html"><span class="chno">第 25 章</span> 電磁場解析で困ったとき</a></li>
+<li class="toc-part" role="presentation">第 III 部　連携・カスタマイズ・自動化</li>
+<li><a href="26_step_export.html"><span class="chno">第 26 章</span> 他の解析プログラムに形を渡す</a></li>
+<li><a href="27_customize.html"><span class="chno">第 27 章</span> カスタマイズ</a></li>
+<li><a href="28_automation.html"><span class="chno">第 28 章</span> 自動化</a></li>
+<li><a href="29_troubleshooting.html"><span class="chno">第 29 章</span> 困ったとき</a></li>
+<li class="toc-part" role="presentation">付録</li>
+<li class="appendix"><a href="appendix_a_commands.html"><span class="chno">付録 A</span> コマンド一覧</a></li>
+<li class="appendix"><a href="appendix_b_shortcuts.html"><span class="chno">付録 B</span> ショートカット一覧</a></li>
+<li class="appendix"><a href="appendix_c_feature_params.html"><span class="chno">付録 C</span> フィーチャのパラメータ一覧</a></li>
+<li class="appendix"><a href="appendix_d_glossary.html"><span class="chno">付録 D</span> 用語の対応表</a></li>
+</ol>
+</details>
+</nav>
+<main class="content" id="main">
+<article class="chapter ">
+<p class="chapter-label">第 22 章</p>
+<h1>ポート解析</h1>
+<nav class="pagetoc" aria-label="この章の内容">
+<p class="pagetoc-title">この章の内容</p>
+<ol>
+<li><a href="#overview"><span class="secno">22.1</span> ポート解析のスタディ</a></li>
+<li><a href="#ports"><span class="secno">22.2</span> ポート</a></li>
+<li><a href="#settings"><span class="secno">22.3</span> 解析の設定</a></li>
+<li class="sub"><a href="#resonance">共振探索の Q</a></li>
+<li><a href="#results"><span class="secno">22.4</span> 結果の見方</a></li>
+<li class="sub"><a href="#fields">場と位相</a></li>
+<li class="sub"><a href="#add-field">場を後から足す</a></li>
+<li><a href="#accuracy"><span class="secno">22.5</span> 精度の目安</a></li>
+</ol>
+</nav>
+<p><span class="badge-study study-driven">ポート解析</span> この章では、導波管・同軸のポートのある空洞・伝送路の<strong>周波数応答</strong>を求めるスタディを説明します。ポート、周波数スイープと S パラメータ、共振探索（f0・Qe・Q0・QL・β）、周波数ごとの場と位相、場の追加です。題材は <code>examples/coupler_cavity.emrm</code>（直方体の空洞にアイリスで導波管をつないだカプラー空洞）です。</p>
+
+<h2 id="overview"><span class="secno">22.1</span> ポート解析のスタディ</h2>
+<p>周波数をスイープして S パラメータを求め、空洞なら共振点の f0・ポートごとの外部 Q（Qe）・内部 Q（Q0）・負荷 Q（QL）・結合係数 β を求めます。カプラー空洞のような 1 ポートでも、入力と出力のある 2 ポート以上でも使えます。計算は Cav3D-Studio のポート解析（ポートの断面の 2D モード解析・ポートの吸収境界・周波数ごとの複素の連立方程式）と同じです。</p>
+<ul>
+  <li><p>形状は共振モードと同じく、<strong>真空（と誘電体）のボディ</strong>で作ります。ボディの外面は導体の壁です。導波管・同軸線は、ポートの面まで形状に含めます。</p></li>
+  <li><p><span class="path">リボンの<span class="ui">［物理］</span>タブ → <span class="ui">［スタディ］</span>パネル → <span class="ui">［新しいポート解析スタディ］</span></span>で作ります。共振モードのスタディの右クリックの<span class="ui">［ポート解析のスタディとして複製］</span>でも作れます（材料・壁・対称面・メッシュを写します。<a href="16_em_setup.html#duplicate">第 16 章</a>）。</p></li>
+  <li><p>電気壁・磁気壁・対称面は、共振モードと同じです（<a href="21_em_eigenmode.html#materials">第 21 章</a>）。ポートの面を対称面で切ってもかまいません（半分・1/4 のポートのまま解きます）。</p></li>
+</ul>
+
+<h2 id="ports"><span class="secno">22.2</span> ポート</h2>
+<ol class="steps">
+  <li><p>3D ビューでポートの面（導波管の端の面）を選び、<span class="path">リボンの<span class="ui">［物理］</span>タブ → <span class="ui">［励磁］</span>パネル → <span class="ui">［ポート］</span></span>をクリックします。物理タブでは、ポートの面を<strong>橙</strong>で塗ります。</p>
+    <figure id="fig-22_em_port_physics"><a class="zoom" href="images/22_em_port_physics.png"><img src="images/22_em_port_physics.png" alt="カプラー空洞。上の端の面がポート（橙）。左はポートのフォーム。" width="1000" height="671" loading="lazy"></a><figcaption><span class="figno">図 22-1</span> カプラー空洞。上の端の面がポート（橙）。左はポートのフォーム。</figcaption></figure></li>
+  <li><p>ポートを 2 つ以上作るときは、同じように足します。ポートの番号は、スタディのブラウザの並びの順（P1・P2…）です。</p></li>
+</ol>
+<p>ポートの断面を 2D で解いて、支配モードを自動で求めます。導体の境界が 1 つなら導波管の TE・TM（矩形・円形・任意の形）、2 つ（同軸）なら TEM です。同軸の S は、その線路の特性インピーダンス Z0 が基準です（ログと表に Z0 が出ます）。</p>
+
+<h2 id="settings"><span class="secno">22.3</span> 解析の設定</h2>
+<div class="table-wrap"><table>
+  <caption>ポート解析の解析の設定</caption>
+  <thead><tr><th>欄</th><th>内容</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">開始・終了の周波数</th><td>スイープの範囲（例 <code>4.3 GHz</code>）。ポートのカットオフより下の周波数は、S が振幅比になります（ログに警告）</td></tr>
+    <tr><th scope="row">スイープ</th><td>等間隔（全部の点を解く）か適応（少ない点を解いて、有理補間で全部の点の S を求める。共振の鋭い空洞に向く）</td></tr>
+    <tr><th scope="row">周波数の点の数・解く点の上限</th><td>結果の点の数と、適応スイープで解く点の上限。適応スイープは点の間を補間するので、点を増やしても時間はほとんど増えず、曲線がなめらかになります。既定は等間隔 41 点・適応 401 点</td></tr>
+    <tr><th scope="row">共振探索</th><td>励振するポートの U/P_inc（入力電力あたりの蓄積エネルギー）の最大の近くを細かく探し、f0・ポートごとの Qe・Q0・QL・β を求めます</td></tr>
+    <tr><th scope="row">壁の損失</th><td>Q0 に使います（導電率・表面抵抗（超伝導）・なし）。誘電体の tanδ も Q0 に入ります</td></tr>
+    <tr><th scope="row">場を保存する周波数</th><td>場を表示する周波数（カンマ区切り。例 <code>4.47 GHz, 4.48 GHz</code>）。空欄なら共振探索の f0、それも無ければ範囲の中央。共振探索の f0 の場はいつも足します</td></tr>
+    <tr><th scope="row">励振するポート（場・共振探索）</th><td>場の計算と共振探索で、どのポートから入射するか（入射電力 1 W）</td></tr>
+  </tbody>
+</table></div>
+
+<h3 id="resonance">共振探索の Q</h3>
+<p>結合モード理論で、次のように求めます（Cavity3D-FEM の理論メモ §13.9）。</p>
+<ul>
+  <li><p><strong>1 ポート</strong>: Qe = ω0 U_max / (4 P_inc)（ピークの高さ。採用値）。確かめとして、半値幅・S11 の位相・複素固有値からも Qe を求めて表に並べます（4 つがほぼ同じなら信頼できます）。</p></li>
+  <li><p><strong>2 ポート以上</strong>: ポート k の Qe,k = ω0 U_j / (|S_kj|² P_inc)（別のポート j から入射したとき、ポート k へ出る電力から）。ポートへの放射だけの<strong>無損失の負荷 Q</strong> は 1/Q_ext = Σ 1/Qe,k で、確かめとして半値幅・透過の位相・複素固有値からも Q_ext を、ピークの高さからも励振ポートの Qe を求めて表に並べます。</p></li>
+  <li><p>Q0 は摂動の壁損失（と誘電体損失）から求め、1/QL = 1/Q0 + 1/Q_ext、β_k = Q0/Qe,k です。</p></li>
+</ul>
+<aside class="tip" role="note"><p class="callout-title">ヒント</p><p>スイープ・共振探索・場の計算では、最初に分解した行列を前処理にした反復法（GMRES）で、ほかの周波数を解きます。解析の全体で、行列の分解はふつう 1 回です（例題で約 70 秒 → 約 27 秒）。解く周波数の選び方と結果は、Cav3D-Studio と同じです。</p></aside>
+
+<h2 id="results"><span class="secno">22.4</span> 結果の見方</h2>
+<p>解析が終わると、<strong>S パラメータ</strong>のグラフのタブが開きます。上が |S_ij| [dB]、下が位相 ∠S_ij [deg] で、マウスの位置の周波数の値を下の行に読み出します。共振探索の f0 に点線を引きます。<span class="ui">［S パラメータ］</span>でいつでも開き直せます。</p>
+<figure id="fig-22_em_sparams"><a class="zoom" href="images/22_em_sparams.png"><img src="images/22_em_sparams.png" alt="S パラメータ（上が |S11| [dB]、下が位相）。f0 に点線、下の行はマウスの位置の値。" width="700" height="549" loading="lazy"></a><figcaption><span class="figno">図 22-2</span> S パラメータ（上が |S11| [dB]、下が位相）。f0 に点線、下の行はマウスの位置の値。</figcaption></figure>
+<p><strong>U/P_inc</strong>（入射電力あたりの蓄積エネルギー、対数）のタブも並べます。適応スイープでは、蓄積エネルギーは FEM で解いた点にしか無いので、S の群遅延（無損失のエネルギー定理）から全部の点の U/P_inc を求めて線にします。FEM で解いた点との差が 5% を超えたら使わず、解いた点をつなぎます（図の左上に差を書きます）。共振探索の点も同じ線に入るので、鋭い山の形が見えます。</p>
+<figure id="fig-22_em_u_over_p"><a class="zoom" href="images/22_em_u_over_p.png"><img src="images/22_em_u_over_p.png" alt="U/P_inc（S の群遅延から求めた曲線、FEM で解いた点、共振探索の点）。凡例に f0 と Qe。" width="700" height="549" loading="lazy"></a><figcaption><span class="figno">図 22-3</span> U/P_inc（S の群遅延から求めた曲線、FEM で解いた点、共振探索の点）。凡例に f0 と Qe。</figcaption></figure>
+<ul>
+  <li><p>同軸（TEM）のポートがあると、S パラメータのタブの上に<span class="ui">［同軸ポートの S を次の基準に換算］</span>と Ω の欄が出ます。入れると、グラフと Touchstone の S をその基準（50 Ω など）に換算します（共振探索・U/P_inc は線路の S のまま）。</p></li>
+  <li><p><span class="path">リボンの<span class="ui">［結果］</span>タブ → <span class="ui">［評価］</span>パネル → <span class="ui">［Touchstone］</span></span>で、S を Touchstone（<code>.sNp</code>）に保存します。ジョブのフォルダにも <code>s_params.s&lt;N&gt;p</code> と <code>s_params.csv</code> を書きます。</p></li>
+  <li><p>右の<span class="ui">［結果］</span>のドックの表は、場を保存した周波数の一覧です（#・f・励振したポート・その周波数の |Sii|）。行を選ぶと、その周波数の場を表示します。下の表に、共振探索の値とポートの Z0・カットオフが出ます。</p></li>
+</ul>
+
+<h3 id="fields">場と位相</h3>
+<p>場は、入射電力 1 W のときの複素の振幅です。<span class="ui">［結果の表示］</span>のパネルの<span class="ui">［位相］</span>のスライダで、成分（Ex など）と矢印は瞬時値 Re[E e<sup>jφ</sup>] になります。|E|・|H|・|Js| は振幅で、位相によりません。スライダの左の ▶ で位相を回し続けます（成分と矢印が時間とともに振動します。もう一度押すか、スライダを動かすと止まります）。</p>
+<figure id="fig-22_em_js"><a class="zoom" href="images/22_em_js.png"><img src="images/22_em_js.png" alt="共振点の表面電流 |Js| と矢印（空洞は TE101。ポートの面には値がありません）。" width="700" height="549" loading="lazy"></a><figcaption><span class="figno">図 22-4</span> 共振点の表面電流 |Js| と矢印（空洞は TE101。ポートの面には値がありません）。</figcaption></figure>
+<p>表面電流・断面・表面・3D の矢印・線上のグラフ・フィールドマップは、共振モードと同じ操作です。</p>
+
+<h3 id="add-field">場を後から足す</h3>
+<ol class="steps">
+  <li><p><span class="path">リボンの<span class="ui">［結果］</span>タブ → <span class="ui">［評価］</span>パネル → <span class="ui">［場を追加］</span></span>をクリックします。</p></li>
+  <li><p>周波数（カンマ区切り）と励振するポートを入れて、<span class="ui">［OK］</span>を押します。結果のメッシュをそのまま使って場を求め、今の結果に足します（解析をやり直すより速い）。</p>
+    <figure id="fig-22_em_add_field"><a class="zoom" href="images/22_em_add_field.png"><img src="images/22_em_add_field.png" alt="場を追加のダイアログ。グラフをクリックした周波数が既定になります。" width="253" height="160" loading="lazy"></a><figcaption><span class="figno">図 22-5</span> 場を追加のダイアログ。グラフをクリックした周波数が既定になります。</figcaption></figure></li>
+  <li><p>足した場は、結果の表で選ばれます。</p></li>
+</ol>
+<p>S パラメータ・U/P_inc のグラフで右クリックすると、「4.476 GHz の場を求める（P1 を励振）」のような項目が出ます。選ぶと、その周波数の場をすぐに求めます。</p>
+
+<h2 id="accuracy"><span class="secno">22.5</span> 精度の目安</h2>
+<ul>
+  <li><p>矩形導波管（40 × 20 mm、長さ 60 mm）の素通りで |S21| = 0.99999、|S11| &lt; 10<sup>−4</sup>、S21 の位相の誤差 0.06° 以下、入射 1 W の TE10 の振幅が解析解と 0.1% で一致。</p></li>
+  <li><p>例題のカプラー空洞で、Qe の 4 つの推定が 0.5% 以内で一致。1 ポートの共振探索の値は、Cav3D-Studio の共振探索と 1e-8 以内で同じ。</p></li>
+  <li><p>対称な 2 ポートの結合空洞で、2 つの Qe から求めた |S21(f0)| = 2√(Qe1 Qe2)/(Qe1 + Qe2) が、計算の |S21(f0)| と 0.2% 以内で一致し、無損失の負荷 Q の 3 つの検算が 3% 以内で一致。</p></li>
+</ul>
+
+</article>
+<nav class="pager" aria-label="前後の章"><a class="prev" rel="prev" href="21_em_eigenmode.html"><span class="dir">前の章</span>第 21 章 共振モード解析</a><a class="next" rel="next" href="23_em_electrostatic.html"><span class="dir">次の章</span>第 23 章 静電場解析</a></nav>
+<footer class="footer"><p>EMRM-Studio ユーザーマニュアル（日本語）・EMRM-Studio 0.1.0 ・ <a href="#main">このページの先頭へ</a></p></footer>
+</main>
+</div>
+</body>
+</html>

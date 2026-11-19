@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="generator" content="tools/build_manual.py">
+<title>第 25 章 電磁場解析で困ったとき - EMRM-Studio ユーザーマニュアル</title>
+<link rel="stylesheet" href="assets/manual.css">
+<script src="assets/search_index.js" charset="utf-8" defer></script>
+<script src="assets/manual.js" charset="utf-8" defer></script>
+</head>
+<body class="page">
+<header class="topbar">
+<a class="brand" href="index.html">EMRM-Studio ユーザーマニュアル</a>
+<button class="toc-toggle" type="button" aria-controls="toc" aria-expanded="false">目次</button>
+<form class="search" role="search" action="#" onsubmit="return false">
+<input id="q" type="search" placeholder="マニュアルを検索（/）" aria-label="マニュアルを検索" autocomplete="off">
+</form>
+</header>
+<div id="search-results" class="search-results" hidden></div>
+<div class="layout">
+<nav id="toc" class="toc" aria-label="目次">
+<details class="toc-box">
+<summary>目次</summary>
+<ol class="toc-chapters">
+<li class="toc-home"><a href="index.html">表紙・目次</a></li>
+<li><a href="00_intro.html">はじめに</a></li>
+<li class="toc-part" role="presentation">第 I 部　形状を作る（CAD）</li>
+<li><a href="01_screen.html"><span class="chno">第 1 章</span> 画面の構成</a></li>
+<li><a href="02_view.html"><span class="chno">第 2 章</span> 視点の操作</a></li>
+<li><a href="03_first_part.html"><span class="chno">第 3 章</span> はじめての部品</a></li>
+<li><a href="04_sketch.html"><span class="chno">第 4 章</span> スケッチ</a></li>
+<li><a href="05_work_features.html"><span class="chno">第 5 章</span> 作業フィーチャ</a></li>
+<li><a href="06_features_basic.html"><span class="chno">第 6 章</span> フィーチャ（押し出し・回転・穴・フィレットなど）</a></li>
+<li><a href="07_features_advanced.html"><span class="chno">第 7 章</span> フィーチャ（スイープ・ロフト・コイル・パターンなど）</a></li>
+<li><a href="08_bodies.html"><span class="chno">第 8 章</span> ボディの操作</a></li>
+<li><a href="09_browser.html"><span class="chno">第 9 章</span> ブラウザとフィーチャの管理</a></li>
+<li><a href="10_parameters.html"><span class="chno">第 10 章</span> パラメータと式</a></li>
+<li><a href="11_configurations.html"><span class="chno">第 11 章</span> 構成</a></li>
+<li><a href="12_inspect.html"><span class="chno">第 12 章</span> 検査</a></li>
+<li><a href="13_files.html"><span class="chno">第 13 章</span> ファイル</a></li>
+<li class="toc-part" role="presentation">第 II 部　電磁場解析</li>
+<li><a href="14_em_intro.html"><span class="chno">第 14 章</span> 電磁場解析のはじめに</a></li>
+<li><a href="15_em_first.html"><span class="chno">第 15 章</span> はじめての電磁場解析（ソレノイド）</a></li>
+<li><a href="16_em_setup.html"><span class="chno">第 16 章</span> スタディの共通の設定</a></li>
+<li><a href="17_em_results.html"><span class="chno">第 17 章</span> 結果の見方</a></li>
+<li><a href="18_em_magnetostatic.html"><span class="chno">第 18 章</span> 静磁場解析</a></li>
+<li><a href="19_em_coils.html"><span class="chno">第 19 章</span> 静磁場解析: コイル</a></li>
+<li><a href="20_em_dipole.html"><span class="chno">第 20 章</span> 静磁場解析の例題: H 型双極電磁石</a></li>
+<li><a href="21_em_eigenmode.html"><span class="chno">第 21 章</span> 共振モード解析</a></li>
+<li><a href="22_em_driven.html"><span class="chno">第 22 章</span> ポート解析</a></li>
+<li><a href="23_em_electrostatic.html"><span class="chno">第 23 章</span> 静電場解析</a></li>
+<li><a href="24_em_gun.html"><span class="chno">第 24 章</span> 電子銃解析</a></li>
+<li class="current"><a href="25_em_troubleshooting.html" aria-current="page"><span class="chno">第 25 章</span> 電磁場解析で困ったとき</a><ol class="toc-sections"><li><a href="25_em_troubleshooting.html#where"><span class="secno">25.1</span> 理由の見つけ方</a></li><li><a href="25_em_troubleshooting.html#common"><span class="secno">25.2</span> どのスタディにも出るもの</a></li><li><a href="25_em_troubleshooting.html#magnetostatic"><span class="secno">25.3</span> 静磁場</a></li><li><a href="25_em_troubleshooting.html#rf"><span class="secno">25.4</span> 共振モード・ポート解析</a></li><li><a href="25_em_troubleshooting.html#electrostatic"><span class="secno">25.5</span> 静電場</a></li><li><a href="25_em_troubleshooting.html#gun"><span class="secno">25.6</span> 電子銃</a></li><li><a href="25_em_troubleshooting.html#limits"><span class="secno">25.7</span> 今の版でできないこと</a></li></ol></li>
+<li class="toc-part" role="presentation">第 III 部　連携・カスタマイズ・自動化</li>
+<li><a href="26_step_export.html"><span class="chno">第 26 章</span> 他の解析プログラムに形を渡す</a></li>
+<li><a href="27_customize.html"><span class="chno">第 27 章</span> カスタマイズ</a></li>
+<li><a href="28_automation.html"><span class="chno">第 28 章</span> 自動化</a></li>
+<li><a href="29_troubleshooting.html"><span class="chno">第 29 章</span> 困ったとき</a></li>
+<li class="toc-part" role="presentation">付録</li>
+<li class="appendix"><a href="appendix_a_commands.html"><span class="chno">付録 A</span> コマンド一覧</a></li>
+<li class="appendix"><a href="appendix_b_shortcuts.html"><span class="chno">付録 B</span> ショートカット一覧</a></li>
+<li class="appendix"><a href="appendix_c_feature_params.html"><span class="chno">付録 C</span> フィーチャのパラメータ一覧</a></li>
+<li class="appendix"><a href="appendix_d_glossary.html"><span class="chno">付録 D</span> 用語の対応表</a></li>
+</ol>
+</details>
+</nav>
+<main class="content" id="main">
+<article class="chapter ">
+<p class="chapter-label">第 25 章</p>
+<h1>電磁場解析で困ったとき</h1>
+<nav class="pagetoc" aria-label="この章の内容">
+<p class="pagetoc-title">この章の内容</p>
+<ol>
+<li><a href="#where"><span class="secno">25.1</span> 理由の見つけ方</a></li>
+<li><a href="#common"><span class="secno">25.2</span> どのスタディにも出るもの</a></li>
+<li><a href="#magnetostatic"><span class="secno">25.3</span> 静磁場</a></li>
+<li><a href="#rf"><span class="secno">25.4</span> 共振モード・ポート解析</a></li>
+<li><a href="#electrostatic"><span class="secno">25.5</span> 静電場</a></li>
+<li><a href="#gun"><span class="secno">25.6</span> 電子銃</a></li>
+<li><a href="#limits"><span class="secno">25.7</span> 今の版でできないこと</a></li>
+</ol>
+</nav>
+<p>この章では、電磁場解析で出るチェックの指摘・解析のエラーと、その対処を説明します。最後に、今の版でできないことをまとめます。CAD の困ったときは<a href="29_troubleshooting.html">第 29 章</a>にあります。</p>
+
+<h2 id="where"><span class="secno">25.1</span> 理由の見つけ方</h2>
+<ul>
+  <li><p>解析の前に<span class="path">リボンの<span class="ui">［物理］</span>タブ → <span class="ui">［チェック］</span>パネル → <span class="ui">［チェック］</span></span>を押すと、右の<span class="ui">［チェック］</span>に設定の誤り（エラー）と注意（警告）が出ます。行をクリックすると、当てはまる項目が開きます。</p></li>
+  <li><p>解析が失敗したときは、下の<span class="ui">［ジョブ］</span>のログに理由が出ます。ログの全体は、ジョブのフォルダの <code>log.txt</code> にあります（<a href="16_em_setup.html#storage">第 16 章</a>）。</p></li>
+  <li><p>値を変えたのに結果が変わらないときは、プロパティ パネルの<span class="ui">［適用］</span>を押していないことがほとんどです。</p></li>
+</ul>
+
+<h2 id="common"><span class="secno">25.2</span> どのスタディにも出るもの</h2>
+<div class="table-wrap"><table>
+  <caption>共通の指摘と対処</caption>
+  <thead><tr><th>メッセージ・症状</th><th>原因と対処</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">チェック: 「… はこの種類のスタディでは使えません」</th><td>静磁場の材料・条件（磁性体・コイルなど）を共振モードのスタディに入れた（または逆）。その項目を消すか、種類を直す</td></tr>
+    <tr><th scope="row">場が要素ごとに段になる・粗い</th><td>見たい所のメッシュが粗い。全体の要素の大きさを小さくするか、ボディを置いて小さいメッシュの材料を割り当てる（<a href="16_em_setup.html#mesh">第 16 章</a>）</td></tr>
+    <tr><th scope="row">対称面で切った結果がおかしい</th><td>形状か励振が、その面について対称でない。対称面を外して確かめる</td></tr>
+  </tbody>
+</table></div>
+
+<h2 id="magnetostatic"><span class="secno">25.3</span> 静磁場</h2>
+<div class="table-wrap"><table>
+  <caption>静磁場の指摘と対処</caption>
+  <thead><tr><th>メッセージ・症状</th><th>原因と対処</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">チェック: 「コイル … にボディがありません」</th><td>コイルの条件にボディが入っていない。フォームの<span class="ui">［ボディ］</span>の一覧でチェックを入れて<span class="ui">［適用］</span></td></tr>
+    <tr><th scope="row">チェック: 「コイル … に電流がありません」</th><td>1 ターンの電流が 0。値を入れて<span class="ui">［適用］</span>（検出コイルにするなら、そのままでよい）</td></tr>
+    <tr><th scope="row">チェック: 「スタディにコイルがありません」</th><td>コイルの条件が無いので、磁場は 0 になる</td></tr>
+    <tr><th scope="row">「入口と出口の面がつながっています。ループのコイルは軸のまわりに穴のある形にし…」</th><td>ループのコイルの軸が、ボディの穴を通っていない（穴の無いボディ、軸の点・向きの誤り）。形状か軸を直す（<a href="19_em_coils.html#loop">第 19 章</a>）</td></tr>
+    <tr><th scope="row">「端子付きのコイルの端子が磁束平行の面の上にありません」</th><td>端子付きのコイルの端が、磁束平行の対称面に乗っていない（<a href="19_em_coils.html#terminal">第 19 章</a>）</td></tr>
+    <tr><th scope="row">「対称面 … の bc = auto を決められません」</th><td>コイルの軸が平行でない・向きがそろわない・端子付きのコイルがある。対称面の境界を手で選ぶか、対称面を外す</td></tr>
+    <tr><th scope="row">チェック: 「材料 … の B-H の表に誤りがあります」</th><td>表の行が読めない、H・B が増えていないなど。行を直して<span class="ui">［適用］</span>（<a href="18_em_magnetostatic.html#saturation">第 18 章</a>）</td></tr>
+    <tr><th scope="row">警告: 「非線形の反復が … 回で収束しませんでした」</th><td>飽和の強い所でニュートン法が終わらなかった。解析の設定で反復の上限を増やす。B-H の表なら点の並びが滑らかか確かめる</td></tr>
+    <tr><th scope="row">チェック: 「コイル … のボディが解析から除外されています」</th><td>コイルのボディの材料が（除外）になっている。領域で材料を選び直す</td></tr>
+  </tbody>
+</table></div>
+
+<h2 id="rf"><span class="secno">25.4</span> 共振モード・ポート解析</h2>
+<div class="table-wrap"><table>
+  <caption>共振モード・ポート解析の指摘と対処</caption>
+  <thead><tr><th>メッセージ・症状</th><th>原因と対処</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">共振モード: 加速モード（TM010）が見つからない</th><td>対称面の壁の種類がモードの対称と合っていない（中央の面を磁気壁にしたなど。<a href="21_em_eigenmode.html#walls">第 21 章</a>）か、目安の周波数が高すぎる</td></tr>
+    <tr><th scope="row">共振モード: 「モードが見つかりませんでした」</th><td>解析の設定の探す周波数の目安を、求めたいモードの近くの値にする</td></tr>
+    <tr><th scope="row">ポート解析: 「スタディにポートがありません」</th><td>ポートの面を選んで<span class="ui">［ポート］</span>を押す（<a href="22_em_driven.html#ports">第 22 章</a>）</td></tr>
+    <tr><th scope="row">ポート解析: 「… はカットオフより下です」（ログ）</th><td>その周波数では、ポートのモードが伝わらない。範囲を上げるか、導波管を太くする</td></tr>
+    <tr><th scope="row">ポート解析: 「共振探索ができませんでした: 共振がスイープの端にある」</th><td>範囲を共振の両側に広げる（共振モードのスタディで周波数の目安を求めておくとよい）</td></tr>
+    <tr><th scope="row">ポート解析: 「場を足せませんでした: … model.msh と result.h5 がありません」</th><td>結果のフォルダのメッシュが無い（古い結果・消した結果）。解析をやり直す</td></tr>
+    <tr><th scope="row">ポート解析: U/P_inc の図に「S の群遅延の値が FEM の点と … % 違う（使わない）」</th><td>周波数の点が共振の線幅より粗い、近いモードが重なっている、ポートがカットオフに近い、など。解いた点をつないだ線になる（値は正しい）。適応スイープなら点の数を増やす</td></tr>
+  </tbody>
+</table></div>
+
+<h2 id="electrostatic"><span class="secno">25.5</span> 静電場</h2>
+<div class="table-wrap"><table>
+  <caption>静電場の指摘と対処</caption>
+  <thead><tr><th>メッセージ・症状</th><th>原因と対処</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">チェック: 「スタディに電極がありません。…」</th><td>電極のボディを選んで<span class="ui">［電極］</span>を押し、電位を入れる（<a href="23_em_electrostatic.html#electrodes">第 23 章</a>）</td></tr>
+    <tr><th scope="row">チェック: 「電極 … にボディも面もありません」</th><td>フォームの<span class="ui">［ボディ］</span>の一覧でチェックを入れるか、面を選んで<span class="ui">［適用］</span></td></tr>
+    <tr><th scope="row">チェック: 「電極 … の電位を入れてください」</th><td><span class="ui">［電位］</span>が空。値を入れて<span class="ui">［適用］</span>（0 V なら <code>0 V</code>）</td></tr>
+    <tr><th scope="row">チェック: 「電極 … と … の両方に入っているボディがあります」</th><td>1 つのボディは 1 つの電極にだけ入れる</td></tr>
+    <tr><th scope="row">警告: 「電極が 1 つで接地が無いので、電位はどこも同じになります（電場は 0）。…」</th><td><span class="ui">［解析の設定］</span>で外面を接地にするか、電極（0 V の電極など）を足す</td></tr>
+    <tr><th scope="row">「電極 … と … が接しています（同じ節点があります）。…」</th><td>違う電極のボディが触れている。つながった導体は 1 つの電極にまとめるか、形を離す</td></tr>
+    <tr><th scope="row">「電極 …（… V）が接地の面（外面・接地の対称面）に接しています。…」</th><td>0 V でない電極が接地の面に触れている。電極を面から離すか、外面・対称面を電荷ゼロにする</td></tr>
+    <tr><th scope="row">「領域 … の電位が決まりません（電極にも接地にもつながっていない部分があります）。…」</th><td>電極にも接地にもつながらないボディがある（解析領域を消したときに離れたボディなど）。電極を置くか、そのボディを（除外）にする</td></tr>
+    <tr><th scope="row">「電極 … に指定された面は、解析領域の外面になりません。…」</th><td>面だけの電極が、空気や別のボディの中にある。面を外して、その導体のボディを電極にする</td></tr>
+    <tr><th scope="row">「電極 …: メッシュに面の群 … がありません。」</th><td>面の電極の面が解析の外面にない（自動の空気の中の面）。ボディの電極にするか、解析領域を消して外面にする（<a href="23_em_electrostatic.html#face-electrodes">第 23 章</a>）</td></tr>
+    <tr><th scope="row">表面の最大電界がメッシュで大きく変わる</th><td>鋭い角の電界は特異で、メッシュを細かくするほど大きくなる。角を丸め、そこのメッシュを細かくする</td></tr>
+  </tbody>
+</table></div>
+
+<h2 id="gun"><span class="secno">25.6</span> 電子銃</h2>
+<div class="table-wrap"><table>
+  <caption>電子銃のチェックとエラー</caption>
+  <thead><tr><th>出たもの・症状</th><th>原因と対処</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">チェック: 「放出面がありません。…」</th><td>陰極の放出する面を選んで<span class="ui">［放出面］</span>を押す（<a href="24_em_gun.html#emitter">第 24 章</a>）</td></tr>
+    <tr><th scope="row">「放出面 …: 面が電極の上にありません。…」</th><td>放出面の面を持つボディが電極になっていない。陰極のボディを電極にする</td></tr>
+    <tr><th scope="row">「放出面 …: 面の前に真空がありません。…」</th><td>面が電極や誘電体に接している。真空に面した面を選ぶ</td></tr>
+    <tr><th scope="row">「対称面 …: 電子銃の対称面は電荷ゼロだけです。…」</th><td>接地の対称面は使えない。電荷ゼロにするか、全体で解く</td></tr>
+    <tr><th scope="row">「対称面 … の上で、外部磁場が面に沿っています。…」</th><td>ソレノイドなど、軸を含む面に沿う磁場は対称面で切れない（電子が回転する）。対称面を消して全体で解く（<a href="24_em_gun.html#symmetry">第 24 章</a>）</td></tr>
+    <tr><th scope="row">「放出が一度も起きませんでした。…」</th><td>陰極の前の電位が陰極より低い。陰極より電位の高い電極があるか、ウェーネルトの電位が負すぎないかを確かめる</td></tr>
+    <tr><th scope="row">注意: 「反復が … 回で収束しませんでした。…」</th><td><span class="ui">［緩和係数］</span>を小さくする（0.2、0.1）か、<span class="ui">［反復の上限］</span>を増やす。放出面の近くのメッシュが細かいほど小さな値が要る。注意の中の dρ だけが 1 % 前後で止まっていれば、ビームの通り道はほぼ落ち着いている</td></tr>
+    <tr><th scope="row">注意: 「電極 … の電流の …% が真空を通って閉じています。…」</th><td>電極が導体で外面につながっていないか、放出面のメッシュが粗い。その近くの自己磁場が弱くなる。正確にするなら給電の棒をボディにして外面まで伸ばすか、放出面を細かくする（<a href="24_em_gun.html#closure">第 24 章</a>）</td></tr>
+    <tr><th scope="row">「静磁場の結果がありません。…」</th><td>磁場に選んだ静磁場のスタディを解く（ふつうは<span class="ui">［実行］</span>が先に解く）</td></tr>
+  </tbody>
+</table></div>
+
+<h2 id="limits"><span class="secno">25.7</span> 今の版でできないこと</h2>
+<ul>
+  <li><p>永久磁石の材料</p></li>
+  <li><p>座標面以外の向きの断面、3D の力線（今は断面の上だけ）、等値面</p></li>
+  <li><p>対称面が本当に対称かの自動の確認</p></li>
+  <li><p>共振モード・ポート解析の周期境界（多セルの一部だけを解く）、壁ごとに違う導電率、共振モードの位相のアニメーション（ポート解析はできます）</p></li>
+  <li><p>静電場の浮いた電極・空間電荷・ボディの間の面の電極</p></li>
+  <li><p>電子銃の温度制限の放出・電子の熱速度・二次電子・回転対称の周期モデル（<a href="24_em_gun.html#limits">第 24 章</a>）</p></li>
+</ul>
+
+</article>
+<nav class="pager" aria-label="前後の章"><a class="prev" rel="prev" href="24_em_gun.html"><span class="dir">前の章</span>第 24 章 電子銃解析</a><a class="next" rel="next" href="26_step_export.html"><span class="dir">次の章</span>第 26 章 他の解析プログラムに形を渡す</a></nav>
+<footer class="footer"><p>EMRM-Studio ユーザーマニュアル（日本語）・EMRM-Studio 0.1.0 ・ <a href="#main">このページの先頭へ</a></p></footer>
+</main>
+</div>
+</body>
+</html>

@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="generator" content="tools/build_manual.py">
+<title>第 8 章 ボディの操作 - EMRM-Studio ユーザーマニュアル</title>
+<link rel="stylesheet" href="assets/manual.css">
+<script src="assets/search_index.js" charset="utf-8" defer></script>
+<script src="assets/manual.js" charset="utf-8" defer></script>
+</head>
+<body class="page">
+<header class="topbar">
+<a class="brand" href="index.html">EMRM-Studio ユーザーマニュアル</a>
+<button class="toc-toggle" type="button" aria-controls="toc" aria-expanded="false">目次</button>
+<form class="search" role="search" action="#" onsubmit="return false">
+<input id="q" type="search" placeholder="マニュアルを検索（/）" aria-label="マニュアルを検索" autocomplete="off">
+</form>
+</header>
+<div id="search-results" class="search-results" hidden></div>
+<div class="layout">
+<nav id="toc" class="toc" aria-label="目次">
+<details class="toc-box">
+<summary>目次</summary>
+<ol class="toc-chapters">
+<li class="toc-home"><a href="index.html">表紙・目次</a></li>
+<li><a href="00_intro.html">はじめに</a></li>
+<li class="toc-part" role="presentation">第 I 部　形状を作る（CAD）</li>
+<li><a href="01_screen.html"><span class="chno">第 1 章</span> 画面の構成</a></li>
+<li><a href="02_view.html"><span class="chno">第 2 章</span> 視点の操作</a></li>
+<li><a href="03_first_part.html"><span class="chno">第 3 章</span> はじめての部品</a></li>
+<li><a href="04_sketch.html"><span class="chno">第 4 章</span> スケッチ</a></li>
+<li><a href="05_work_features.html"><span class="chno">第 5 章</span> 作業フィーチャ</a></li>
+<li><a href="06_features_basic.html"><span class="chno">第 6 章</span> フィーチャ（押し出し・回転・穴・フィレットなど）</a></li>
+<li><a href="07_features_advanced.html"><span class="chno">第 7 章</span> フィーチャ（スイープ・ロフト・コイル・パターンなど）</a></li>
+<li class="current"><a href="08_bodies.html" aria-current="page"><span class="chno">第 8 章</span> ボディの操作</a><ol class="toc-sections"><li><a href="08_bodies.html#overview"><span class="secno">8.1</span> マルチボディとブラウザ</a></li><li><a href="08_bodies.html#combine"><span class="secno">8.2</span> ボディを結合する</a></li><li><a href="08_bodies.html#split"><span class="secno">8.3</span> ボディを分割する</a></li><li><a href="08_bodies.html#move"><span class="secno">8.4</span> ボディを移動する</a></li><li><a href="08_bodies.html#delete"><span class="secno">8.5</span> ボディを削除・保持する</a></li><li><a href="08_bodies.html#names"><span class="secno">8.6</span> ボディの名前</a></li><li><a href="08_bodies.html#next"><span class="secno">8.7</span> 次に読む章</a></li></ol></li>
+<li><a href="09_browser.html"><span class="chno">第 9 章</span> ブラウザとフィーチャの管理</a></li>
+<li><a href="10_parameters.html"><span class="chno">第 10 章</span> パラメータと式</a></li>
+<li><a href="11_configurations.html"><span class="chno">第 11 章</span> 構成</a></li>
+<li><a href="12_inspect.html"><span class="chno">第 12 章</span> 検査</a></li>
+<li><a href="13_files.html"><span class="chno">第 13 章</span> ファイル</a></li>
+<li class="toc-part" role="presentation">第 II 部　電磁場解析</li>
+<li><a href="14_em_intro.html"><span class="chno">第 14 章</span> 電磁場解析のはじめに</a></li>
+<li><a href="15_em_first.html"><span class="chno">第 15 章</span> はじめての電磁場解析（ソレノイド）</a></li>
+<li><a href="16_em_setup.html"><span class="chno">第 16 章</span> スタディの共通の設定</a></li>
+<li><a href="17_em_results.html"><span class="chno">第 17 章</span> 結果の見方</a></li>
+<li><a href="18_em_magnetostatic.html"><span class="chno">第 18 章</span> 静磁場解析</a></li>
+<li><a href="19_em_coils.html"><span class="chno">第 19 章</span> 静磁場解析: コイル</a></li>
+<li><a href="20_em_dipole.html"><span class="chno">第 20 章</span> 静磁場解析の例題: H 型双極電磁石</a></li>
+<li><a href="21_em_eigenmode.html"><span class="chno">第 21 章</span> 共振モード解析</a></li>
+<li><a href="22_em_driven.html"><span class="chno">第 22 章</span> ポート解析</a></li>
+<li><a href="23_em_electrostatic.html"><span class="chno">第 23 章</span> 静電場解析</a></li>
+<li><a href="24_em_gun.html"><span class="chno">第 24 章</span> 電子銃解析</a></li>
+<li><a href="25_em_troubleshooting.html"><span class="chno">第 25 章</span> 電磁場解析で困ったとき</a></li>
+<li class="toc-part" role="presentation">第 III 部　連携・カスタマイズ・自動化</li>
+<li><a href="26_step_export.html"><span class="chno">第 26 章</span> 他の解析プログラムに形を渡す</a></li>
+<li><a href="27_customize.html"><span class="chno">第 27 章</span> カスタマイズ</a></li>
+<li><a href="28_automation.html"><span class="chno">第 28 章</span> 自動化</a></li>
+<li><a href="29_troubleshooting.html"><span class="chno">第 29 章</span> 困ったとき</a></li>
+<li class="toc-part" role="presentation">付録</li>
+<li class="appendix"><a href="appendix_a_commands.html"><span class="chno">付録 A</span> コマンド一覧</a></li>
+<li class="appendix"><a href="appendix_b_shortcuts.html"><span class="chno">付録 B</span> ショートカット一覧</a></li>
+<li class="appendix"><a href="appendix_c_feature_params.html"><span class="chno">付録 C</span> フィーチャのパラメータ一覧</a></li>
+<li class="appendix"><a href="appendix_d_glossary.html"><span class="chno">付録 D</span> 用語の対応表</a></li>
+</ol>
+</details>
+</nav>
+<main class="content" id="main">
+<article class="chapter ">
+<p class="chapter-label">第 8 章</p>
+<h1>ボディの操作</h1>
+<nav class="pagetoc" aria-label="この章の内容">
+<p class="pagetoc-title">この章の内容</p>
+<ol>
+<li><a href="#overview"><span class="secno">8.1</span> マルチボディとブラウザ</a></li>
+<li><a href="#combine"><span class="secno">8.2</span> ボディを結合する</a></li>
+<li><a href="#split"><span class="secno">8.3</span> ボディを分割する</a></li>
+<li class="sub"><a href="#split-steps">分割の手順</a></li>
+<li class="sub"><a href="#split-trim">片側を捨てる（トリム）</a></li>
+<li><a href="#move"><span class="secno">8.4</span> ボディを移動する</a></li>
+<li class="sub"><a href="#move-types">移動の種類</a></li>
+<li><a href="#delete"><span class="secno">8.5</span> ボディを削除・保持する</a></li>
+<li><a href="#names"><span class="secno">8.6</span> ボディの名前</a></li>
+<li class="sub"><a href="#rename">名前を付ける</a></li>
+<li class="sub"><a href="#names-step">名前付き STEP の部品名</a></li>
+<li class="sub"><a href="#names-follow">分けた後も、名前と材料は同じ片に付く</a></li>
+<li><a href="#next"><span class="secno">8.7</span> 次に読む章</a></li>
+</ol>
+</nav>
+<p>この章では、1 つのパーツの中に複数のボディがあるときの操作を説明します。ボディどうしを結合・分割し、動かし、不要なボディを削除し、名前を付けられるようになります。金型の割り型（コアとキャビティ）のように、1 つのパーツで複数の形を扱う設計に使います。この章の写真は、すべて <code>samples/split_bodies.mcad</code> を開いて撮りました。</p>
+
+<h2 id="overview"><span class="secno">8.1</span> マルチボディとブラウザ</h2>
+<p>1 つのパーツには、ボディをいくつでも持たせられます。ボディが増えるのは、押し出しやコイルなどの<span class="ui">［出力］</span>を<span class="ui">［新規ソリッド］</span>にしたとき、インポートで複数の形を読み込んだとき、ボディを分割したときです。</p>
+<p>ブラウザのパーツの下に、ボディのフォルダが並びます。<span class="ui">［ソリッド ボディ］</span>のフォルダは、ボディが 0 個でもあります。ソリッドでないボディ（<span class="ui">［サーフェス ボディ］</span>・<span class="ui">［ワイヤ ボディ］</span>・<span class="ui">［メッシュ ボディ］</span>）は、あるときだけ別のフォルダに出ます。フォルダの名前の後ろに、ボディの数が出ます。</p>
+<figure id="fig-08_browser_bodies"><a class="zoom" href="images/08_browser_bodies.png"><img src="images/08_browser_bodies.png" alt="ブラウザの［ソリッド ボディ］に、［Cavity］・［Core］・［Coil］の 3 つのボディが並びます。行の左のチェックで、ビューへの表示を切り替えます。" width="360" height="302" loading="lazy"></a><figcaption><span class="figno">図 8-1</span> ブラウザの<span class="ui">［ソリッド ボディ］</span>に、<span class="ui doc">［Cavity］</span>・<span class="ui doc">［Core］</span>・<span class="ui doc">［Coil］</span>の 3 つのボディが並びます。行の左のチェックで、ビューへの表示を切り替えます。</figcaption></figure>
+<ul>
+  <li><p>ボディの行をクリックすると、ビューでそのボディが選ばれます。ビューでボディの面をクリックしても、ブラウザの行が強調されます。</p></li>
+  <li><p>行のチェックで、ボディの表示・非表示を切り替えます（<a href="02_view.html#visibility">第 2 章</a>）。</p></li>
+  <li><p>ボディの行を右クリックすると、この章のコマンドを含むメニューが出ます。</p></li>
+</ul>
+<figure id="fig-08_body_menu"><a class="zoom" href="images/08_body_menu.png"><img src="images/08_body_menu.png" alt="ボディの行の右クリックのメニュー。［結合］・［分割］・［ボディを移動］・［ボディを削除］・［ボディの名前を変更］があります。" width="193" height="294" loading="lazy"></a><figcaption><span class="figno">図 8-2</span> ボディの行の右クリックのメニュー。<span class="ui">［結合］</span>・<span class="ui">［分割］</span>・<span class="ui">［ボディを移動］</span>・<span class="ui">［ボディを削除］</span>・<span class="ui">［ボディの名前を変更］</span>があります。</figcaption></figure>
+<p>ボディを操作するコマンドは、リボンの<span class="ui">［3D モデル］</span>タブの<span class="ui">［修正］</span>パネルにあります。</p>
+<figure id="fig-08_ribbon_modify"><a class="zoom" href="images/08_ribbon_modify.png"><img src="images/08_ribbon_modify.png" alt="［修正］パネル。この章で説明する 4 つのコマンドが並びます。" width="554" height="90" loading="lazy"></a><figcaption><span class="figno">図 8-3</span> <span class="ui">［修正］</span>パネル。この章で説明する 4 つのコマンドが並びます。</figcaption></figure>
+<div class="table-wrap"><table>
+  <caption>ボディを操作するコマンド</caption>
+  <thead><tr><th>コマンド</th><th>できること</th><th>節</th></tr></thead>
+  <tbody>
+    <tr><th scope="row"><span class="ui">［結合］</span></th><td>ボディどうしの和・差・共通部分を作る</td><td><a href="#combine">結合する</a></td></tr>
+    <tr><th scope="row"><span class="ui">［分割］</span></th><td>平面でボディを 2 つに分ける、片側を捨てる</td><td><a href="#split">分割する</a></td></tr>
+    <tr><th scope="row"><span class="ui">［ボディを移動］</span></th><td>ボディを移動・回転する、コピーを作る</td><td><a href="#move">ボディを移動する</a></td></tr>
+    <tr><th scope="row"><span class="ui">［ボディを削除］</span></th><td>選んだボディを削除する、選んだボディだけを残す</td><td><a href="#delete">ボディを削除する</a></td></tr>
+    <tr><th scope="row"><span class="ui">［ボディの名前を変更］</span></th><td>ボディに名前を付ける</td><td><a href="#names">ボディの名前</a></td></tr>
+  </tbody>
+</table></div>
+<p>メニューの<span class="ui">［修復］</span>は、インポートした形の欠陥を直すコマンドです（<a href="13_files.html">第 13 章</a>）。<span class="ui">［非表示］</span>・<span class="ui">［表示］</span>・<span class="ui">［分離］</span>・<span class="ui">［選択範囲をズーム］</span>・<span class="ui">［全体表示］</span>・<span class="ui">［選択を解除］</span>は、表示の操作です（<a href="02_view.html">第 2 章</a>）。</p>
+<p>4 つのコマンドは、押し出しなどと同じ<strong>フィーチャ</strong>です。履歴に並び、編集・抑制・並べ替え・Undo の対象になります。フォームの使い方は共通です。</p>
+<ol class="steps">
+  <li><p>リボンのボタンを押します。プロパティ パネルにフォームが出ます。</p></li>
+  <li><p>ボディの欄が選択を待っています（欄の色の四角が、ビューでのボディの色と同じです）。ビューでボディの面をクリックするか、ブラウザのボディの行をクリックして選びます。選んだボディは、ブラウザの行と同じ名前で欄に入ります。選びなおすときは、<span class="ui">［外す］</span>を押して選びなおします。</p></li>
+  <li><p>ほかの欄を決め、<span class="ui">［OK］</span>（<kbd>Enter</kbd>）で確定します。<span class="ui">［キャンセル］</span>（<kbd>Esc</kbd>）で取り消します。</p></li>
+</ol>
+<aside class="tip" role="note"><p class="callout-title">ヒント</p><p>フィーチャを編集している間は、そのフィーチャの後ろのフィーチャがロールバックされます（ブラウザで灰色になります）。確定すると元に戻ります。</p></aside>
+
+<h2 id="combine"><span class="secno">8.2</span> ボディを結合する</h2>
+<p><span class="ui">［結合］</span>は、<strong>ベース ボディ</strong>と<strong>ツール ボディ</strong>の間で和・差・共通部分を計算します。結果はベース ボディの形になります。</p>
+<ol class="steps">
+  <li><p><span class="path">リボンの<span class="ui">［3D モデル］</span>タブ → <span class="ui">［修正］</span>パネル → <span class="ui">［結合］</span></span>をクリックします。</p></li>
+  <li><p>ベースにするボディの面をビューでクリックします。<span class="ui">［ベース ボディ］</span>の欄に入ります。</p></li>
+  <li><p><span class="ui">［ツール ボディ］</span>の欄をクリックし、ツールにするボディを選びます。ツール ボディは複数選べます。</p>
+    <figure id="fig-08_combine_form"><a class="zoom" href="images/08_combine_form.png"><img src="images/08_combine_form.png" alt="結合のフォーム。［ベース ボディ］（緑）に［Cavity］、［ツール ボディ］（赤紫）に［Coil］を選び、［演算］を［カット］にしたところです。欄には、ボディの名前が出ます。" width="360" height="285" loading="lazy"></a><figcaption><span class="figno">図 8-4</span> 結合のフォーム。<span class="ui">［ベース ボディ］</span>（緑）に<span class="ui doc">［Cavity］</span>、<span class="ui">［ツール ボディ］</span>（赤紫）に<span class="ui doc">［Coil］</span>を選び、<span class="ui">［演算］</span>を<span class="ui">［カット］</span>にしたところです。欄には、ボディの名前が出ます。</figcaption></figure></li>
+  <li><p><span class="ui">［演算］</span>を選びます。違いは次の表のとおりです。</p></li>
+  <li><p>演算に使ったツール ボディを残すときは、<span class="ui">［ツール ボディを保持］</span>にチェックを入れます。チェックを外すと、ツール ボディは演算で使われて消えます。</p></li>
+  <li><p><span class="ui">［OK］</span>で確定します。</p></li>
+</ol>
+<div class="table-wrap"><table>
+  <caption>演算の種類</caption>
+  <thead><tr><th>演算</th><th>結果</th></tr></thead>
+  <tbody>
+    <tr><th scope="row"><span class="ui">［結合］</span></th><td>ベースとツールを 1 つの形にまとめます（和）</td></tr>
+    <tr><th scope="row"><span class="ui">［カット］</span></th><td>ベースからツールの形を引きます（差）。型の溝を掘るときに使います</td></tr>
+    <tr><th scope="row"><span class="ui">［交差］</span></th><td>ベースとツールが重なる部分だけを残します（共通部分）</td></tr>
+  </tbody>
+</table></div>
+<div class="figrow">
+  <figure id="fig-08_combine_cut"><a class="zoom" href="images/08_combine_cut.png"><img src="images/08_combine_cut.png" alt="［カット］。ブロックの上面に、コイルの形の溝ができます。" width="340" height="286" loading="lazy"></a><figcaption><span class="figno">図 8-5</span> <span class="ui">［カット］</span>。ブロックの上面に、コイルの形の溝ができます。</figcaption></figure>
+  <figure id="fig-08_combine_join"><a class="zoom" href="images/08_combine_join.png"><img src="images/08_combine_join.png" alt="［結合］。コイルがブロックにつながり、1 つのボディになります。" width="340" height="286" loading="lazy"></a><figcaption><span class="figno">図 8-6</span> <span class="ui">［結合］</span>。コイルがブロックにつながり、1 つのボディになります。</figcaption></figure>
+  <figure id="fig-08_combine_intersect"><a class="zoom" href="images/08_combine_intersect.png"><img src="images/08_combine_intersect.png" alt="［交差］。コイルのうち、ブロックの中にある部分だけが残ります。" width="340" height="286" loading="lazy"></a><figcaption><span class="figno">図 8-7</span> <span class="ui">［交差］</span>。コイルのうち、ブロックの中にある部分だけが残ります。</figcaption></figure>
+</div>
+<p>3 つの写真は、<span class="ui">［ツール ボディを保持］</span>のチェックを外して撮っています。</p>
+<aside class="note" role="note"><p class="callout-title">注意</p><p>結果のボディは、ベース ボディの名前と材料を引き継ぎます。ツールがベースに触れていないときは、フィーチャが<span class="ui">［エラー］</span>になります。ブラウザのツールチップに「どのボディにも触れていません」と出ます。</p></aside>
+<aside class="note" role="note"><p class="callout-title">注意</p><p>エッジや頂点だけで接している 2 つのソリッドを<span class="ui">［結合］</span>しても、1 つにはなりません。別々のソリッドのまま、<span class="ui">［警告］</span>が出ます。</p></aside>
+<aside class="inventor" role="note"><p class="callout-title">Inventor との違い</p><p>演算は<span class="ui">［結合］</span>・<span class="ui">［カット］</span>・<span class="ui">［交差］</span>の 3 つです。Inventor の<span class="ui">［新規ソリッド］</span>に当たる演算はありません。ツールが複数のときの<span class="ui">［交差］</span>は、ツール全体の和とベースの共通部分になります。</p></aside>
+
+<h2 id="split"><span class="secno">8.3</span> ボディを分割する</h2>
+<p><span class="ui">［分割］</span>は、作業平面や平らな面でボディを切ります。切った片を別々のボディにする方法と、片側を捨てる方法があります。</p>
+<h3 id="split-steps">分割の手順</h3>
+<ol class="steps">
+  <li><p><span class="path">リボンの<span class="ui">［3D モデル］</span>タブ → <span class="ui">［修正］</span>パネル → <span class="ui">［分割］</span></span>をクリックします。</p></li>
+  <li><p><span class="ui">［方法］</span>を選びます。<span class="ui">［ソリッドを分割］</span>は片をそれぞれ別のボディにし、<span class="ui">［ソリッドをトリム］</span>は片側を捨てます。</p></li>
+  <li><p><span class="ui">［分割ツール］</span>に、切る平面を選びます。作業平面・原点の平面・平らな面が選べます。面を選んだときは、その面を平面として無限に延ばした所で切ります。</p>
+    <figure id="fig-08_split_form"><a class="zoom" href="images/08_split_form.png"><img src="images/08_split_form.png" alt="分割のフォーム。［方法］は［ソリッドを分割］です。切る平面は、題材の［分割の平面］（作業平面）で、切るボディは［Cavity］です。" width="360" height="255" loading="lazy"></a><figcaption><span class="figno">図 8-8</span> 分割のフォーム。<span class="ui">［方法］</span>は<span class="ui">［ソリッドを分割］</span>です。切る平面は、題材の<span class="ui doc">［分割の平面］</span>（作業平面）で、切るボディは<span class="ui doc">［Cavity］</span>です。</figcaption></figure></li>
+  <li><p><span class="ui">［ソリッド］</span>に、切るボディを選びます。空のままにすると、分割ツールが切るボディのすべてが対象になります。</p></li>
+  <li><p><span class="ui">［OK］</span>で確定します。</p>
+    <figure id="fig-08_split_result"><a class="zoom" href="images/08_split_result.png"><img src="images/08_split_result.png" alt="分割の結果（［分割1］の直後までロールバックしたところ）。ブロックが 2 つのボディに分かれました。青い片は［Core］です。" width="700" height="589" loading="lazy"></a><figcaption><span class="figno">図 8-9</span> 分割の結果（<span class="ui">［分割1］</span>の直後までロールバックしたところ）。ブロックが 2 つのボディに分かれました。青い片は<span class="ui doc">［Core］</span>です。</figcaption></figure></li>
+</ol>
+<p>平面の位置は、作業平面の<span class="ui">［オフセット］</span>で変えられます。位置を変えると、片の大きさが変わります。平面がボディに届かなくなると、分割は<span class="ui">［エラー］</span>になり、「分割ツールはどのボディとも交わりません」と出ます。戻すと直ります。</p>
+<h3 id="split-trim">片側を捨てる（トリム）</h3>
+<p><span class="ui">［方法］</span>を<span class="ui">［ソリッドをトリム］</span>にすると、<span class="ui">［反転］</span>の欄が出ます。平面の法線の向きにある側が、既定で捨てられます。<span class="ui">［反転］</span>にチェックを入れると、捨てる側が逆になります。</p>
+<figure id="fig-08_trim_form"><a class="zoom" href="images/08_trim_form.png"><img src="images/08_trim_form.png" alt="［方法］を［ソリッドをトリム］にしたフォーム。［反転］が増えます。" width="360" height="295" loading="lazy"></a><figcaption><span class="figno">図 8-10</span> <span class="ui">［方法］</span>を<span class="ui">［ソリッドをトリム］</span>にしたフォーム。<span class="ui">［反転］</span>が増えます。</figcaption></figure>
+<div class="figrow">
+  <figure id="fig-08_trim_result"><a class="zoom" href="images/08_trim_result.png"><img src="images/08_trim_result.png" alt="トリム。平面の法線の向きの片が捨てられました。" width="460" height="387" loading="lazy"></a><figcaption><span class="figno">図 8-11</span> トリム。平面の法線の向きの片が捨てられました。</figcaption></figure>
+  <figure id="fig-08_trim_flip"><a class="zoom" href="images/08_trim_flip.png"><img src="images/08_trim_flip.png" alt="［反転］を入れると、反対の片が捨てられます。" width="460" height="387" loading="lazy"></a><figcaption><span class="figno">図 8-12</span> <span class="ui">［反転］</span>を入れると、反対の片が捨てられます。</figcaption></figure>
+</div>
+<aside class="note" role="note"><p class="callout-title">注意</p><p>捨てた片の面を参照していた後ろのフィーチャは、参照が切れて<span class="ui">［エラー］</span>になることがあります。参照の直し方は<a href="09_browser.html#repair">第 9 章</a>にあります。</p></aside>
+<aside class="tip" role="note"><p class="callout-title">ヒント</p><p>分けた片のうち最初の片は、元のボディの名前と材料を受け継ぎます。2 つ目以降の片は新しいボディで、名前は<span class="ui doc">［押し出し1 のボディ (分割1 の 2 番目の片)］</span>のように、分割のフィーチャと片の番号が付きます。分けたあとに、片ごとに名前を付けておくと区別できます（<a href="#names">ボディの名前</a>）。</p></aside>
+
+<h2 id="move"><span class="secno">8.4</span> ボディを移動する</h2>
+<p><span class="ui">［ボディを移動］</span>は、選んだボディを形を変えずに動かします。ボディは複数選べます。同じ移動量で一緒に動きます。</p>
+<ol class="steps">
+  <li><p><span class="path">リボンの<span class="ui">［3D モデル］</span>タブ → <span class="ui">［修正］</span>パネル → <span class="ui">［ボディを移動］</span></span>をクリックします。</p></li>
+  <li><p><span class="ui">［ソリッド］</span>に、動かすボディを選びます。ビューに<strong>トライアド</strong>（3 本の矢印と 3 つの円弧）が出ます。</p></li>
+  <li><p>矢印をドラッグして動かすか、フォームの欄に数値を入力します。</p>
+    <figure id="fig-08_move_triad"><a class="zoom" href="images/08_move_triad.png"><img src="images/08_move_triad.png" alt="移動のプレビュー。緑が動かすボディの今の位置、黄色が動かした後の位置です。トライアドの横の欄に、移動量を入力できます。" width="700" height="603" loading="lazy"></a><figcaption><span class="figno">図 8-13</span> 移動のプレビュー。緑が動かすボディの今の位置、黄色が動かした後の位置です。トライアドの横の欄に、移動量を入力できます。</figcaption></figure></li>
+  <li><p><span class="ui">［OK］</span>で確定します。</p></li>
+</ol>
+<figure id="fig-08_move_form"><a class="zoom" href="images/08_move_form.png"><img src="images/08_move_form.png" alt="［種類］が［フリー ドラッグ］のフォーム。動かすボディは［Core］です。［トライアド］に移動と回転の 6 つの値があります。" width="360" height="395" loading="lazy"></a><figcaption><span class="figno">図 8-14</span> <span class="ui">［種類］</span>が<span class="ui">［フリー ドラッグ］</span>のフォーム。動かすボディは<span class="ui doc">［Core］</span>です。<span class="ui">［トライアド］</span>に移動と回転の 6 つの値があります。</figcaption></figure>
+<h3 id="move-types">移動の種類</h3>
+<div class="table-wrap"><table>
+  <caption><span class="ui">［種類］</span>ごとの欄</caption>
+  <thead><tr><th>種類</th><th>欄</th><th>動き</th></tr></thead>
+  <tbody>
+    <tr><th scope="row"><span class="ui">［フリー ドラッグ］</span></th><td><span class="ui">［X 方向に移動］</span>・<span class="ui">［Y 方向に移動］</span>・<span class="ui">［Z 方向に移動］</span>・<span class="ui">［X まわりに回転］</span>・<span class="ui">［Y まわりに回転］</span>・<span class="ui">［Z まわりに回転］</span></td><td>トライアドの 6 つの値で動かします。矢印が移動、円弧が回転です</td></tr>
+    <tr><th scope="row"><span class="ui">［光線に沿って移動］</span></th><td><span class="ui">［方向］</span>・<span class="ui">［距離］</span></td><td>選んだ方向（作業軸・直線のエッジ・スケッチの線・平面や面の法線）へ、距離だけ動かします</td></tr>
+    <tr><th scope="row"><span class="ui">［線を中心に回転］</span></th><td><span class="ui">［回転軸］</span>・<span class="ui">［角度］</span></td><td>選んだ線（作業軸・直線のエッジ・スケッチの線・円筒の面の軸）のまわりに、角度だけ回します</td></tr>
+  </tbody>
+</table></div>
+<figure id="fig-08_move_rotate_form"><a class="zoom" href="images/08_move_rotate_form.png"><img src="images/08_move_rotate_form.png" alt="［種類］を［線を中心に回転］にしたフォーム。［回転軸］に原点の［Z 軸］を選び、［角度］が 90 deg です。" width="360" height="330" loading="lazy"></a><figcaption><span class="figno">図 8-15</span> <span class="ui">［種類］</span>を<span class="ui">［線を中心に回転］</span>にしたフォーム。<span class="ui">［回転軸］</span>に原点の<span class="ui">［Z 軸］</span>を選び、<span class="ui">［角度］</span>が <code>90 deg</code> です。</figcaption></figure>
+<p><span class="ui">［コピーを作成］</span>にチェックを入れると、元のボディをそのまま残し、動かした写しが新しいボディになります。</p>
+<aside class="note" role="note"><p class="callout-title">注意</p><p>フリー ドラッグの回転の中心は、動かすボディ全体の外接箱の中心（トライアドの原点）です。X → Y → Z の順に、世界の軸と平行な軸のまわりに回してから、移動します。</p></aside>
+<aside class="note" role="note"><p class="callout-title">注意</p><p>移動量と回転量がすべて 0 のときは、フィーチャが<span class="ui">［エラー］</span>になります（「この移動ではボディの位置が変わりません」）。</p></aside>
+<aside class="tip" role="note"><p class="callout-title">ヒント</p><p>移動しても、ボディの名前と面の名前は変わりません。後ろのフィーチャの参照は、そのまま動いたボディに付きます。コピーは新しいボディで、面は元の面とは別の名前になります。</p></aside>
+
+<h2 id="delete"><span class="secno">8.5</span> ボディを削除・保持する</h2>
+<p><span class="ui">［ボディを削除］</span>は、選んだボディを消します。または、選んだボディだけを残して、ほかを消します。</p>
+<ol class="steps">
+  <li><p><span class="path">リボンの<span class="ui">［3D モデル］</span>タブ → <span class="ui">［修正］</span>パネル → <span class="ui">［ボディを削除］</span></span>をクリックします。</p></li>
+  <li><p><span class="ui">［方法］</span>を選びます。<span class="ui">［削除］</span>は選んだボディを消します。<span class="ui">［保持］</span>は選んだボディを残して、ほかのボディをすべて消します。</p></li>
+  <li><p><span class="ui">［ソリッド］</span>に、ボディを選びます。</p>
+    <figure id="fig-08_delete_form"><a class="zoom" href="images/08_delete_form.png"><img src="images/08_delete_form.png" alt="ボディを削除のフォーム。［方法］が［削除］で、［Coil］のボディを選んだところです。" width="360" height="175" loading="lazy"></a><figcaption><span class="figno">図 8-16</span> ボディを削除のフォーム。<span class="ui">［方法］</span>が<span class="ui">［削除］</span>で、<span class="ui doc">［Coil］</span>のボディを選んだところです。</figcaption></figure></li>
+  <li><p><span class="ui">［OK］</span>で確定します。</p></li>
+</ol>
+<aside class="note" role="note"><p class="callout-title">注意</p><p>ボディを削除しても、そのボディを作ったフィーチャは履歴に残ります。履歴に<span class="ui">［ボディを削除］</span>のフィーチャが 1 つ増えるだけなので、<kbd>Ctrl</kbd>+<kbd>Z</kbd> で戻せます。フィーチャを<span class="ui">［抑制］</span>すれば、削除を一時的に無効にできます（<a href="09_browser.html#suppress">第 9 章</a>）。</p></aside>
+<aside class="note" role="note"><p class="callout-title">注意</p><p>パーツのボディをすべて消すと、<span class="ui">［警告］</span>が出ます。<span class="ui">［保持］</span>で全部のボディを選ぶなど、消すボディが 1 つもないときは、<span class="ui">［エラー］</span>になります（「削除するボディがありません」）。</p></aside>
+
+<h2 id="names"><span class="secno">8.6</span> ボディの名前</h2>
+<p>ボディには、名前を付けられます。名前は、ブラウザ・結合や分割などのフォームのボディの欄・物理プロパティの表・エクスポートのダイアログに出ます。電磁場解析のソフトに渡す STEP では、ボディの名前が部品名（領域名）になります（<a href="26_step_export.html">第 26 章</a>）。</p>
+<h3 id="rename">名前を付ける</h3>
+<ol class="steps">
+  <li><p>ブラウザの<span class="ui">［ソリッド ボディ］</span>の下で、ボディの行をクリックします。</p></li>
+  <li><p><kbd>F2</kbd>（<span class="ui">［名前の変更］</span>）を押します。行がその場で編集できるようになります。右クリックのメニューの<span class="ui">［ボディの名前を変更］</span>でも同じです。</p>
+    <figure id="fig-08_rename_f2"><a class="zoom" href="images/08_rename_f2.png"><img src="images/08_rename_f2.png" alt="［Core］の行を選んで &lt;kbd&gt;F2&lt;/kbd&gt; を押したところ。名前の欄が開き、全部が選ばれています。" width="360" height="302" loading="lazy"></a><figcaption><span class="figno">図 8-17</span> <span class="ui doc">［Core］</span>の行を選んで <kbd>F2</kbd> を押したところ。名前の欄が開き、全部が選ばれています。</figcaption></figure></li>
+  <li><p>名前を入力して <kbd>Enter</kbd> で確定します。<kbd>Esc</kbd> で取り消します。</p></li>
+</ol>
+<p>名前を空にして確定すると、既定の名前（<span class="ui doc">［押し出し1 のボディ］</span>のように、作ったフィーチャの名前に基づく名前）に戻ります。分割で分けた片の 2 つ目以降は、分割のフィーチャの名前と片の番号が付いた名前（<span class="ui doc">［押し出し1 のボディ (分割1 の 2 番目の片)］</span>）になります。最初の片は、元のボディの名前のままです。名前の変更は、1 回が 1 つの Undo の項目です。</p>
+<figure id="fig-08_piece_names"><a class="zoom" href="images/08_piece_names.png"><img src="images/08_piece_names.png" alt="名前を付けていない［Cavity］と［Core］の行。最初の片は［押し出し1 のボディ］、2 番目の片は［押し出し1 のボディ (分割1 の 2 番目の片)］と出ます。長い名前が省かれないように、ブラウザを広げて撮りました。" width="480" height="302" loading="lazy"></a><figcaption><span class="figno">図 8-18</span> 名前を付けていない<span class="ui doc">［Cavity］</span>と<span class="ui doc">［Core］</span>の行。最初の片は<span class="ui doc">［押し出し1 のボディ］</span>、2 番目の片は<span class="ui doc">［押し出し1 のボディ (分割1 の 2 番目の片)］</span>と出ます。長い名前が省かれないように、ブラウザを広げて撮りました。</figcaption></figure>
+<h3 id="names-step">名前付き STEP の部品名</h3>
+<p>エクスポートのダイアログ（<span class="ui">［STEP］</span>）の<span class="ui">［名前付き STEP（部品名 = 領域名）］</span>には、書き出す部品名が並びます。名前を付けたボディは、その名前が部品名です。名前を付けていないボディは、パーツ名が部品名になります。パーツに複数のボディがあるときは、パーツ名に作成順の番号を付けた名前（<span class="ui doc">［Part1_3］</span> など）です。番号は、名前を付けたボディにも振られます。</p>
+<figure id="fig-08_export_named"><a class="zoom" href="images/08_export_named.png"><img src="images/08_export_named.png" alt="名前付き STEP の表。［Cavity］と［Coil］は名前がそのまま部品名です。名前を付けていない 2 番目の片は、［Part1_3］ になります。" width="520" height="419" loading="lazy"></a><figcaption><span class="figno">図 8-19</span> 名前付き STEP の表。<span class="ui doc">［Cavity］</span>と<span class="ui doc">［Coil］</span>は名前がそのまま部品名です。名前を付けていない 2 番目の片は、<span class="ui doc">［Part1_3］</span> になります。</figcaption></figure>
+<aside class="note" role="note"><p class="callout-title">注意</p><p>STEP の部品名は、英数字と <code>_</code>・<code>.</code>・<code>-</code> だけの 64 文字までなら、そのまま受け手に渡ります。日本語や空白を含む名前は、エクスポートのダイアログの<span class="ui">［名前付き STEP（部品名 = 領域名）］</span>に注意が出て、受け手のプログラムで別の名前に変わります。</p></aside>
+<aside class="note" role="note"><p class="callout-title">注意</p><p>同じ名前を 2 つのボディに付けられますが、STEP の部品名が重なるので避けます。</p></aside>
+<h3 id="names-follow">分けた後も、名前と材料は同じ片に付く</h3>
+<p>ボディの名前・材料・外観は、ボディの形ではなく、元のボディの<strong>どの片か</strong>に付きます。分割の平面の位置を変えても、<span class="ui doc">［Core］</span>の名前と材料は、同じ側の片に付いたままです。</p>
+<ol class="steps">
+  <li><p>ブラウザの<span class="ui doc">［Core］</span>をクリックし、プロパティ パネルの<span class="ui">［材料］</span>を<span class="ui">［銅 C11000］</span>にします。</p></li>
+  <li><p>ブラウザの<span class="ui doc">［分割の平面］</span>をダブルクリックし、<span class="ui">［オフセット］</span>に <code>25</code> と入力して、<span class="ui">［OK］</span>で確定します。</p></li>
+  <li><p>ブラウザの<span class="ui doc">［Core］</span>をクリックします。プロパティ パネルは、平面を動かした後の値になります。</p>
+    <figure id="fig-08_keep_names"><a class="zoom" href="images/08_keep_names.png"><img src="images/08_keep_names.png" alt="平面を動かした後の［Core］。名前も材料（［銅 C11000］）もそのままで、体積が 30000 mm³（25 × 60 × 20）の小さな片になっています。" width="361" height="778" loading="lazy"></a><figcaption><span class="figno">図 8-20</span> 平面を動かした後の<span class="ui doc">［Core］</span>。名前も材料（<span class="ui">［銅 C11000］</span>）もそのままで、体積が 30000 mm³（25 × 60 × 20）の小さな片になっています。</figcaption></figure></li>
+</ol>
+<figure id="fig-08_keep_names_view"><a class="zoom" href="images/08_keep_names_view.png"><img src="images/08_keep_names_view.png" alt="平面を 25 mm にした後のビュー。選んだ［Core］（青）は、元と同じ側の片です。" width="700" height="434" loading="lazy"></a><figcaption><span class="figno">図 8-21</span> 平面を 25 mm にした後のビュー。選んだ<span class="ui doc">［Core］</span>（青）は、元と同じ側の片です。</figcaption></figure>
+<aside class="tip" role="note"><p class="callout-title">ヒント</p><p>この規則は、名前付き STEP のラベルにも効きます。分割の平面や寸法を変えて形が変わっても、領域名は同じ片に付きます。解析のモデルを何度も作り直すときに役立ちます。</p></aside>
+
+<h2 id="next"><span class="secno">8.7</span> 次に読む章</h2>
+<ul>
+  <li><p>ブラウザのフィーチャを並べ替える・抑制する・参照を直すとき: <a href="09_browser.html">第 9 章 ブラウザとフィーチャの管理</a></p></li>
+  <li><p>ボディごとの材料・質量・色を確かめるとき: <a href="12_inspect.html">第 12 章 検査</a></p></li>
+  <li><p>名前付き STEP を書き出すとき: <a href="26_step_export.html">第 26 章 他の解析プログラムに形を渡す</a></p></li>
+</ul>
+<aside class="try"><p class="callout-title">この機能を試す</p><p class="try-sample">題材: <code>samples/split_bodies.mcad</code> （<a href="00_intro.html#samples">題材の一覧と開き方</a>）</p>
+  <p>ブラウザの<span class="ui">［結合1］</span>をダブルクリックし、<span class="ui">［ツール ボディを保持］</span>を外します。<span class="ui doc">［Coil］</span>が演算で使われて消えます。<span class="ui">［演算］</span>を<span class="ui">［交差］</span>にすると、<span class="ui doc">［Cavity］</span>がコイルの中の部分だけになります。<kbd>Esc</kbd> で取り消します。次に<span class="ui">［分割1］</span>をダブルクリックして<span class="ui">［方法］</span>を<span class="ui">［ソリッドをトリム］</span>にします。<span class="ui doc">［Core］</span>が無くなるので、<span class="ui">［ボディを移動1］</span>がエラーになります。<span class="ui">［反転］</span>で捨てる側が替わります。最後に<span class="ui doc">［Core］</span>の行で <kbd>F2</kbd> を押して名前を変えます。</p>
+</aside>
+
+</article>
+<nav class="pager" aria-label="前後の章"><a class="prev" rel="prev" href="07_features_advanced.html"><span class="dir">前の章</span>第 7 章 フィーチャ（スイープ・ロフト・コイル・パターンなど）</a><a class="next" rel="next" href="09_browser.html"><span class="dir">次の章</span>第 9 章 ブラウザとフィーチャの管理</a></nav>
+<footer class="footer"><p>EMRM-Studio ユーザーマニュアル（日本語）・EMRM-Studio 0.1.0 ・ <a href="#main">このページの先頭へ</a></p></footer>
+</main>
+</div>
+</body>
+</html>

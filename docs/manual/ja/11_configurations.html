@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="generator" content="tools/build_manual.py">
+<title>第 11 章 構成 - EMRM-Studio ユーザーマニュアル</title>
+<link rel="stylesheet" href="assets/manual.css">
+<script src="assets/search_index.js" charset="utf-8" defer></script>
+<script src="assets/manual.js" charset="utf-8" defer></script>
+</head>
+<body class="page">
+<header class="topbar">
+<a class="brand" href="index.html">EMRM-Studio ユーザーマニュアル</a>
+<button class="toc-toggle" type="button" aria-controls="toc" aria-expanded="false">目次</button>
+<form class="search" role="search" action="#" onsubmit="return false">
+<input id="q" type="search" placeholder="マニュアルを検索（/）" aria-label="マニュアルを検索" autocomplete="off">
+</form>
+</header>
+<div id="search-results" class="search-results" hidden></div>
+<div class="layout">
+<nav id="toc" class="toc" aria-label="目次">
+<details class="toc-box">
+<summary>目次</summary>
+<ol class="toc-chapters">
+<li class="toc-home"><a href="index.html">表紙・目次</a></li>
+<li><a href="00_intro.html">はじめに</a></li>
+<li class="toc-part" role="presentation">第 I 部　形状を作る（CAD）</li>
+<li><a href="01_screen.html"><span class="chno">第 1 章</span> 画面の構成</a></li>
+<li><a href="02_view.html"><span class="chno">第 2 章</span> 視点の操作</a></li>
+<li><a href="03_first_part.html"><span class="chno">第 3 章</span> はじめての部品</a></li>
+<li><a href="04_sketch.html"><span class="chno">第 4 章</span> スケッチ</a></li>
+<li><a href="05_work_features.html"><span class="chno">第 5 章</span> 作業フィーチャ</a></li>
+<li><a href="06_features_basic.html"><span class="chno">第 6 章</span> フィーチャ（押し出し・回転・穴・フィレットなど）</a></li>
+<li><a href="07_features_advanced.html"><span class="chno">第 7 章</span> フィーチャ（スイープ・ロフト・コイル・パターンなど）</a></li>
+<li><a href="08_bodies.html"><span class="chno">第 8 章</span> ボディの操作</a></li>
+<li><a href="09_browser.html"><span class="chno">第 9 章</span> ブラウザとフィーチャの管理</a></li>
+<li><a href="10_parameters.html"><span class="chno">第 10 章</span> パラメータと式</a></li>
+<li class="current"><a href="11_configurations.html" aria-current="page"><span class="chno">第 11 章</span> 構成</a><ol class="toc-sections"><li><a href="11_configurations.html#overview"><span class="secno">11.1</span> 構成の考え方</a></li><li><a href="11_configurations.html#table"><span class="secno">11.2</span> 構成の表</a></li><li><a href="11_configurations.html#make"><span class="secno">11.3</span> メンバーを作る</a></li><li><a href="11_configurations.html#switch"><span class="secno">11.4</span> メンバーを切り替える</a></li><li><a href="11_configurations.html#export"><span class="secno">11.5</span> 一括でエクスポートする</a></li><li><a href="11_configurations.html#cli"><span class="secno">11.6</span> コマンドラインで書き出す</a></li><li><a href="11_configurations.html#limits"><span class="secno">11.7</span> できないこと</a></li></ol></li>
+<li><a href="12_inspect.html"><span class="chno">第 12 章</span> 検査</a></li>
+<li><a href="13_files.html"><span class="chno">第 13 章</span> ファイル</a></li>
+<li class="toc-part" role="presentation">第 II 部　電磁場解析</li>
+<li><a href="14_em_intro.html"><span class="chno">第 14 章</span> 電磁場解析のはじめに</a></li>
+<li><a href="15_em_first.html"><span class="chno">第 15 章</span> はじめての電磁場解析（ソレノイド）</a></li>
+<li><a href="16_em_setup.html"><span class="chno">第 16 章</span> スタディの共通の設定</a></li>
+<li><a href="17_em_results.html"><span class="chno">第 17 章</span> 結果の見方</a></li>
+<li><a href="18_em_magnetostatic.html"><span class="chno">第 18 章</span> 静磁場解析</a></li>
+<li><a href="19_em_coils.html"><span class="chno">第 19 章</span> 静磁場解析: コイル</a></li>
+<li><a href="20_em_dipole.html"><span class="chno">第 20 章</span> 静磁場解析の例題: H 型双極電磁石</a></li>
+<li><a href="21_em_eigenmode.html"><span class="chno">第 21 章</span> 共振モード解析</a></li>
+<li><a href="22_em_driven.html"><span class="chno">第 22 章</span> ポート解析</a></li>
+<li><a href="23_em_electrostatic.html"><span class="chno">第 23 章</span> 静電場解析</a></li>
+<li><a href="24_em_gun.html"><span class="chno">第 24 章</span> 電子銃解析</a></li>
+<li><a href="25_em_troubleshooting.html"><span class="chno">第 25 章</span> 電磁場解析で困ったとき</a></li>
+<li class="toc-part" role="presentation">第 III 部　連携・カスタマイズ・自動化</li>
+<li><a href="26_step_export.html"><span class="chno">第 26 章</span> 他の解析プログラムに形を渡す</a></li>
+<li><a href="27_customize.html"><span class="chno">第 27 章</span> カスタマイズ</a></li>
+<li><a href="28_automation.html"><span class="chno">第 28 章</span> 自動化</a></li>
+<li><a href="29_troubleshooting.html"><span class="chno">第 29 章</span> 困ったとき</a></li>
+<li class="toc-part" role="presentation">付録</li>
+<li class="appendix"><a href="appendix_a_commands.html"><span class="chno">付録 A</span> コマンド一覧</a></li>
+<li class="appendix"><a href="appendix_b_shortcuts.html"><span class="chno">付録 B</span> ショートカット一覧</a></li>
+<li class="appendix"><a href="appendix_c_feature_params.html"><span class="chno">付録 C</span> フィーチャのパラメータ一覧</a></li>
+<li class="appendix"><a href="appendix_d_glossary.html"><span class="chno">付録 D</span> 用語の対応表</a></li>
+</ol>
+</details>
+</nav>
+<main class="content" id="main">
+<article class="chapter ">
+<p class="chapter-label">第 11 章</p>
+<h1>構成</h1>
+<nav class="pagetoc" aria-label="この章の内容">
+<p class="pagetoc-title">この章の内容</p>
+<ol>
+<li><a href="#overview"><span class="secno">11.1</span> 構成の考え方</a></li>
+<li><a href="#table"><span class="secno">11.2</span> 構成の表</a></li>
+<li><a href="#make"><span class="secno">11.3</span> メンバーを作る</a></li>
+<li><a href="#switch"><span class="secno">11.4</span> メンバーを切り替える</a></li>
+<li><a href="#export"><span class="secno">11.5</span> 一括でエクスポートする</a></li>
+<li class="sub"><a href="#manifest">export_manifest.json</a></li>
+<li><a href="#cli"><span class="secno">11.6</span> コマンドラインで書き出す</a></li>
+<li><a href="#limits"><span class="secno">11.7</span> できないこと</a></li>
+</ol>
+</nav>
+<p>この章では、1 つのパーツから、寸法や抑制の違う<strong>メンバー</strong>をいくつも作る機能（構成）を説明します。板の幅違いの 3 品種を 1 つのドキュメントで管理し、切り替えて確かめ、まとめて STEP に書き出せるようになります。Inventor の iPart の表に当たります。この章の写真は、<code>samples/parametric_plate.mcad</code> に 3 つのメンバーを作って撮りました。</p>
+
+<h2 id="overview"><span class="secno">11.1</span> 構成の考え方</h2>
+<p>パーツには<strong>基本</strong>（ベース モデル）と、いくつかの<strong>メンバー</strong>があります。メンバーは、基本との<strong>違いだけ</strong>を持ちます。違いにできるのは、次の 3 つです。</p>
+<div class="table-wrap"><table>
+  <caption>メンバーが持てる違い</caption>
+  <thead><tr><th>違い</th><th>例</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">パラメータの値</th><td>ユーザー パラメータ <code>W</code> を <code>160 mm</code> に。パターンの個数 <code>n</code> を <code>6</code> に。スケッチの寸法やフィーチャの数値の欄も</td></tr>
+    <tr><th scope="row">フィーチャの抑制</th><td>中央の穴を抑制する</td></tr>
+    <tr><th scope="row">プロパティの値</th><td>部品番号 <code>PLT-L</code>（<a href="10_parameters.html#iproperties">iProperties</a>）</td></tr>
+  </tbody>
+</table></div>
+<p>違いのない値は、基本のものを使います。基本の寸法を変えると、メンバーにも反映されます（メンバーが上書きしている値を除く）。メンバーの形は、1 つのドキュメントの中に定義だけが入り、使うときに計算されます。</p>
+
+<h2 id="table"><span class="secno">11.2</span> 構成の表</h2>
+<ol class="steps">
+  <li><p><span class="path">リボンの<span class="ui">［管理］</span>タブ → <span class="ui">［構成］</span>パネル → <span class="ui">［構成の表］</span></span>をクリックします。</p></li>
+  <li><p>表のダイアログが開きます。最初は<span class="ui">［ベース］</span>の行だけです。</p>
+    <figure id="fig-11_config_empty"><a class="zoom" href="images/11_config_empty.png"><img src="images/11_config_empty.png" alt="構成の表（メンバーを作る前）。［3D ビューに表示］の行に、今ビューに出ているメンバーが出ます。" width="720" height="330" loading="lazy"></a><figcaption><span class="figno">図 11-1</span> 構成の表（メンバーを作る前）。<span class="ui">［3D ビューに表示］</span>の行に、今ビューに出ているメンバーが出ます。</figcaption></figure></li>
+</ol>
+<p>表の行は、先頭が<span class="ui">［ベース］</span>（斜体。値は読み取り専用）、その下がメンバーです。列は次のとおりです。</p>
+<ul>
+  <li><p>左端の列の<strong>●</strong>は、今 3D ビューに出しているメンバーの印です。</p></li>
+  <li><p><span class="ui">［メンバー］</span>の列に、メンバーの名前が出ます。</p></li>
+  <li><p>その右には、メンバーが違いを持つ項目の列が並びます。パラメータは名前と単位（<span class="ui doc">［W (mm)］</span>）、フィーチャの抑制はチェック（<span class="ui doc">［中央の穴（抑制）］</span>）、プロパティは名前（<span class="ui doc">［part_number（プロパティ）］</span>）です。</p></li>
+</ul>
+<p>この表は、開いたまま、3D ビューとブラウザを操作できます（モードレスです）。表が開いているときに<span class="ui">［構成の表］</span>をもう一度押すと、開いている表が前に出ます。ドキュメントが変わったとき（Undo・Redo を含む）と、ビューに出すメンバーが変わったときは、表が読み直されます。</p>
+
+<h2 id="make"><span class="secno">11.3</span> メンバーを作る</h2>
+<ol class="steps">
+  <li><p>表の<span class="ui">［メンバーを追加］</span>を押します。<code>構成1</code> という行ができます。必要な数だけ繰り返します。</p></li>
+  <li><p>メンバー名のセルをダブルクリックして、名前（<code>Short</code>・<code>Long</code>・<code>Plain</code>）を入力します。</p></li>
+  <li><p><span class="ui">［列を追加］</span>を押し、メニューから、違いを持たせたい項目を選びます。<span class="ui">［パラメータ］</span>（例: <span class="ui doc">［W (mm)］</span>・<span class="ui doc">［n］</span>）・<span class="ui">［抑制］</span>（例: <span class="ui doc">［中央の穴（抑制）］</span>）・<span class="ui">［プロパティ］</span>（例: <span class="ui doc">［part_number（プロパティ）］</span>）のサブメニューにあります。</p></li>
+  <li><p>メンバーの行と列の交わるセルをダブルクリックして、値の式を入力し、<kbd>Enter</kbd> を押します。抑制の列は、チェックを入れます。</p>
+    <figure id="fig-11_config_table"><a class="zoom" href="images/11_config_table.png"><img src="images/11_config_table.png" alt="3 つのメンバーを作った表。青い太字のセルが、そのメンバーが上書きしている値です。Plainは、中央の穴を抑制しています。" width="720" height="330" loading="lazy"></a><figcaption><span class="figno">図 11-2</span> 3 つのメンバーを作った表。青い太字のセルが、そのメンバーが上書きしている値です。<code>Plain</code>は、中央の穴を抑制しています。</figcaption></figure></li>
+</ol>
+<ul>
+  <li><p>セルの式は、パラメータの式（<a href="10_parameters.html#expression">第 10 章</a>）と同じ書き方です。<code>W</code> に <code>H * 2</code> のように、ほかのパラメータを使ってもかまいません。</p></li>
+  <li><p>セルを空にして <kbd>Enter</kbd> を押すと、上書きが外れ、基本の値に戻ります。</p></li>
+  <li><p>式が誤っているとき（構文・単位の違い・知らない名前・<code>0 mm</code> の寸法・型の違い）は、表の下に理由が出て、セルは元の値に戻ります。</p></li>
+  <li><p>抑制のチェックを、基本の抑制と同じ値にすると、上書きが外れます。基本で抑制されているフィーチャを、メンバーで抑制しないときは、チェックを外します。</p></li>
+  <li><p>セルの編集は、1 回が 1 つの Undo の項目です。</p></li>
+</ul>
+<div class="table-wrap"><table>
+  <caption>表の下のボタン</caption>
+  <thead><tr><th>ボタン</th><th>動き</th></tr></thead>
+  <tbody>
+    <tr><th scope="row"><span class="ui">［メンバーを追加］</span></th><td>メンバーを足します。名前は <code>構成1</code>、<code>構成2</code>…です</td></tr>
+    <tr><th scope="row"><span class="ui">［メンバーをコピー］</span></th><td>選んだメンバーの上書きを写した、新しいメンバーを作ります</td></tr>
+    <tr><th scope="row"><span class="ui">［メンバーを削除］</span></th><td>選んだメンバーを消します（<kbd>Ctrl</kbd>+<kbd>Z</kbd> で戻せます）。今ビューに出しているメンバーを消すときは、先に基本に戻します</td></tr>
+    <tr><th scope="row"><span class="ui">［有効にする］</span></th><td>選んだ行を 3D ビューに出します（基本の行も選べます）</td></tr>
+    <tr><th scope="row"><span class="ui">［列を追加］</span></th><td>まだ表に出ていない項目の列を足します。値を入れるまで、列は文書に保存されません</td></tr>
+    <tr><th scope="row"><span class="ui">［列を削除］</span></th><td>選んでいるセルの列を外し、その列の全メンバーの上書きを消します（メンバーごとに 1 つの Undo の項目）</td></tr>
+    <tr><th scope="row"><span class="ui">［エクスポート］</span></th><td>全メンバーを選んだ状態で、エクスポートのダイアログを開きます（<a href="#export">一括でエクスポート</a>）</td></tr>
+  </tbody>
+</table></div>
+<aside class="note" role="note"><p class="callout-title">注意</p><p>メンバーの名前は、パーツの中で重ならないようにします。64 文字までで、<code>g27</code> のような内部の識別子の形と、<code>@</code> で始まる名前は使えません。</p></aside>
+
+<h2 id="switch"><span class="secno">11.4</span> メンバーを切り替える</h2>
+<p>3D ビューに出すメンバーは、表で切り替えます。表は開いたままなので、切り替えるたびに、ビューの形を見て確かめられます。</p>
+<ol class="steps">
+  <li><p>メンバーの行を選び、<span class="ui">［有効にする］</span>を押します（左端の ● の列のダブルクリックでも同じです）。</p></li>
+  <li><p>ビューの形が、そのメンバーの形になります。</p></li>
+</ol>
+<p>次の 4 枚は、同じ倍率で撮っています。板の幅の違いを比べられます。</p>
+<div class="figrow">
+  <figure id="fig-11_view_base"><a class="zoom" href="images/11_view_base.png"><img src="images/11_view_base.png" alt="［ベース］。幅 120 mm・穴 4 つ・中央の穴。" width="460" height="303" loading="lazy"></a><figcaption><span class="figno">図 11-3</span> <span class="ui">［ベース］</span>。幅 120 mm・穴 4 つ・中央の穴。</figcaption></figure>
+  <figure id="fig-11_view_short"><a class="zoom" href="images/11_view_short.png"><img src="images/11_view_short.png" alt="Short。幅 80 mm・穴 3 つ。" width="460" height="303" loading="lazy"></a><figcaption><span class="figno">図 11-4</span> <code>Short</code>。幅 80 mm・穴 3 つ。</figcaption></figure>
+</div>
+<div class="figrow">
+  <figure id="fig-11_view_long"><a class="zoom" href="images/11_view_long.png"><img src="images/11_view_long.png" alt="Long。幅 160 mm・穴 6 つ。" width="460" height="303" loading="lazy"></a><figcaption><span class="figno">図 11-5</span> <code>Long</code>。幅 160 mm・穴 6 つ。</figcaption></figure>
+  <figure id="fig-11_view_plain"><a class="zoom" href="images/11_view_plain.png"><img src="images/11_view_plain.png" alt="Plain。幅 100 mm。中央の穴が無く、穴は 4 つです。" width="460" height="303" loading="lazy"></a><figcaption><span class="figno">図 11-6</span> <code>Plain</code>。幅 100 mm。中央の穴が無く、穴は 4 つです。</figcaption></figure>
+</div>
+<ul>
+  <li><p>基本でないメンバーを出している間は、ブラウザのパーツの行に <code>[Plain]</code> のようにメンバー名が付き、抑制しているフィーチャは灰色の斜体になります。</p></li>
+  <li><p>ステータスバーに、<code>構成: Plain</code> のボタンが出ます。押すと、構成の表が開きます。基本に戻すと消えます。</p></li>
+</ul>
+<figure id="fig-11_tree_config"><a class="zoom" href="images/11_tree_config.png"><img src="images/11_tree_config.png" alt="ブラウザ。パーツの行に [Plain] が付きます。" width="360" height="302" loading="lazy"></a><figcaption><span class="figno">図 11-7</span> ブラウザ。パーツの行に <code>[Plain]</code> が付きます。</figcaption></figure>
+<figure id="fig-11_status_config"><a class="zoom" href="images/11_status_config.png"><img src="images/11_status_config.png" alt="ステータスバーの右側。構成: Plain のボタン。" width="800" height="28" loading="lazy"></a><figcaption><span class="figno">図 11-8</span> ステータスバーの右側。<code>構成: Plain</code> のボタン。</figcaption></figure>
+<ul>
+  <li><p>切り替えは<strong>表示の変更</strong>で、Undo の項目になりません。ドキュメントは変わらず、スケッチも解き直しません。メンバーの形は、初めて出すときに、基本と違う部分だけを計算します。計算した形は覚えているので、2 回目からはすぐ切り替わります。</p></li>
+  <li><p>物理プロパティ・iProperties の質量・エクスポートも、今のメンバーの値で出ます（<a href="12_inspect.html">第 12 章</a>）。</p></li>
+  <li><p>どのメンバーを出していたかは、ドキュメントに保存されます。</p></li>
+</ul>
+<aside class="note" role="note"><p class="callout-title">注意</p><p>寸法を変えるときは、<strong>全メンバー</strong>が解けるかを確かめます。解けないメンバーがあると、その変更は断られ、「<code>構成 … ではスケッチ … を解けません: …</code>」と出ます。ドキュメントは変わりません。</p></aside>
+<aside class="note" role="note"><p class="callout-title">注意</p><p>ブラウザの<span class="ui">［抑制］</span>・<span class="ui">［抑制解除］</span>（右クリック）と、プロパティ パネルの<span class="ui">［抑制］</span>のチェックは、メンバーを出している間も、<strong>基本</strong>の抑制を変えます。メンバーごとの抑制は、構成の表のチェックで決めます。</p></aside>
+<aside class="note" role="note"><p class="callout-title">注意</p><p>投影したジオメトリを持つスケッチの寸法は、メンバーでは変えられません（「<code>…投影のあるスケッチは基本の構成でだけ解きます</code>」）。そのスケッチは、基本の構成でだけ解かれます。</p></aside>
+
+<h2 id="export"><span class="secno">11.5</span> 一括でエクスポートする</h2>
+<p>メンバーを 1 つずつ STEP などのファイルに書き出します。電磁場解析のスタディ（寸法違いのモデルの一括生成）に使います。</p>
+<ol class="steps">
+  <li><p>構成の表の<span class="ui">［エクスポート］</span>を押します。エクスポートのダイアログが開き、<span class="ui">［構成ごとにエクスポート］</span>にチェックが入って、全メンバーが選ばれています（リボンの<span class="ui">［管理］</span>タブ →<span class="ui">［挿入］</span>パネル →<span class="ui">［エクスポート］</span>から開いたときは、<span class="ui">［構成ごとにエクスポート］</span>に自分でチェックを入れます）。</p>
+    <figure id="fig-11_export_dialog"><a class="zoom" href="images/11_export_dialog.png"><img src="images/11_export_dialog.png" alt="エクスポートのダイアログの下の部分。［構成ごとにエクスポート］に、メンバーの一覧と［ファイル名のテンプレート］があります。その下の［名前付き STEP（部品名 = 領域名）］は、STEP に書く部品名です。" width="520" height="478" loading="lazy"></a><figcaption><span class="figno">図 11-9</span> エクスポートのダイアログの下の部分。<span class="ui">［構成ごとにエクスポート］</span>に、メンバーの一覧と<span class="ui">［ファイル名のテンプレート］</span>があります。その下の<span class="ui">［名前付き STEP（部品名 = 領域名）］</span>は、STEP に書く部品名です。</figcaption></figure></li>
+  <li><p>出力するメンバーのチェックを確かめます。<span class="ui">［すべて選択］</span>・<span class="ui">［選択をすべて解除］</span>で一度に変えられます。基本も書き出すときは、<span class="ui">［ベースの構成を含める］</span>にチェックを入れます。</p></li>
+  <li><p><span class="ui">［ファイル］</span>に出力先（例 <code>C:\work\plate.step</code>）を入れ、<span class="ui">［エクスポート］</span>を押します。</p></li>
+</ol>
+<p>メンバーごとにファイルができます。書き出しは別のプロセスで行うので、ウィンドウは止まりません。</p>
+<div class="table-wrap"><table>
+  <caption>ファイル名の決まり</caption>
+  <thead><tr><th>ファイル名のテンプレート</th><th>出力先 <code>plate.step</code> のときのファイル名</th></tr></thead>
+  <tbody>
+    <tr><th scope="row"><code>{name}_{config}</code>（既定）</th><td><code>plate_Short.step</code>・<code>plate_Long.step</code>・<code>plate_Plain.step</code>。基本は <code>plate_Base.step</code></td></tr>
+    <tr><th scope="row"><code>{config}-{name}</code></th><td><code>Short-plate.step</code>・<code>Long-plate.step</code>…</td></tr>
+  </tbody>
+</table></div>
+<ul>
+  <li><p><code>{name}</code> は出力先のファイル名（拡張子を除く）、<code>{config}</code> はメンバーの名前です。ファイル名に使えない文字は <code>_</code> に直ります。</p></li>
+  <li><p>テンプレートには <code>{name}</code> と <code>{config}</code> だけを使えます。フォルダの区切り・<code>:</code>・そのほかの <code>{}</code> は断られます（「<code>ファイル名のテンプレート … に使えるのは {name} と {config} だけです</code>」）。2 つのメンバーが同じファイルになる名前も断られます。</p></li>
+  <li><p>メンバーを 1 つだけ選んでファイルのパスを指定したときは、そのパスのまま書きます。</p></li>
+  <li><p>出力先に同じ名前のファイルがあるときは、上書きするかを 1 回だけ尋ねます。</p></li>
+  <li><p>メンバーごとの失敗は記録して、残りの書き出しを続けます。すべて成功したときだけ、完了の知らせが出ます。</p></li>
+</ul>
+<h3 id="manifest">export_manifest.json</h3>
+<p>2 つ以上のファイルを書くと、出力先のフォルダに <code>export_manifest.json</code> も書かれます（1 つのときは書きません）。ファイルごとの内容と、再現のための記録が入っています。次は、その一部（ファイル 1 つ分の主な項目）です。</p>
+<pre><code>{
+  "format": "mcad-export-manifest",
+  "document": {"path": "C:\\work\\plate.mcad", "rev": 15},
+  "export": {"format": "step", "options": {"schema": "AP214", "unit": "mm"}},
+  "name_template": "{name}_{config}",
+  "files": [
+    {
+      "path": "plate_Long.step",
+      "ok": true,
+      "configuration": {"id": "g40", "name": "Long"},
+      "overrides": {"parameters": {"W": "160 mm", "n": "6"},
+                    "suppression": {}, "properties": {"part_number": "PLT-L"}},
+      "provenance": {"env_seed": "022f3e…", "tip_chain": "1b0e48…", "steps": {"cache": 7}},
+      "labels": [{"name": "Part1", "body": "f26#0", "solids": 1, "volume": 122470.79}],
+      "sha256": "0613c6…", "size": 50699
+    }
+  ]
+}</code></pre>
+<div class="table-wrap"><table>
+  <caption>ファイルごとの項目</caption>
+  <thead><tr><th>項目</th><th>内容</th></tr></thead>
+  <tbody>
+    <tr><th scope="row"><code>configuration</code>・<code>overrides</code></th><td>メンバーの名前と、上書きしている値（パラメータ・抑制・プロパティ）</td></tr>
+    <tr><th scope="row"><code>provenance</code></th><td>形を作った計算の記録（計算環境の識別子と、最後の形の識別子。計算したステップとキャッシュから使ったステップの数）</td></tr>
+    <tr><th scope="row"><code>labels</code></th><td>書いた部品の名前（STEP の部品名）・ボディ・ソリッドの数・体積。部品名は、名前を付けたボディはその名前、名前の無いボディはパーツ名です（<a href="26_step_export.html#names-rules">第 26 章</a>）</td></tr>
+    <tr><th scope="row"><code>sha256</code>・<code>size</code></th><td>ファイルのハッシュと大きさ</td></tr>
+  </tbody>
+</table></div>
+
+<h2 id="cli"><span class="secno">11.6</span> コマンドラインで書き出す</h2>
+<p>ウィンドウを使わずに、メンバーを書き出せます。ドキュメントは変わりません。</p>
+<pre><code>python -m mcad convert plate.mcad out.step --config Long
+python -m mcad convert plate.mcad out.step --config Long --set W=140mm
+python -m mcad convert plate.mcad out.step --all-configs</code></pre>
+<ul>
+  <li><p><code>--config</code> にメンバーの名前（か ID）を指定します。繰り返して複数指定できます。省略すると、ドキュメントに保存した、表示中のメンバーです。2 つ以上のときは、<code>out_Short.step</code>・<code>out_Long.step</code> のようにファイル名が付きます。</p></li>
+  <li><p><code>--all-configs</code> は、すべてのメンバーを書き出します。</p></li>
+  <li><p><code>--set 名前=値</code> は、この書き出しの間だけ、パラメータの値を替えます。同じパラメータをメンバーが上書きしていても、<code>--set</code> の値が優先されます。上の 2 行目では、<code>Long</code> の <code>W = 160 mm</code> でなく <code>140 mm</code> で書き出します。</p></li>
+  <li><p><code>--name-template</code> でファイル名のテンプレート、<code>--manifest</code> / <code>--no-manifest</code> で manifest の有無を決めます。</p></li>
+</ul>
+<p>すべてのオプションは<a href="28_automation.html">第 28 章</a>にあります。</p>
+
+<h2 id="limits"><span class="secno">11.7</span> できないこと</h2>
+<ul>
+  <li><p>メンバーの並べ替え、表の列の並びの保存はありません。列は、上書きのある列と、ダイアログを開いている間に足した列が出ます。</p></li>
+  <li><p>配列の中の項目（リストの欄の 1 つ 1 つ）は、上書きできません。</p></li>
+  <li><p>構成を持つパーツのコピーと、アセンブリでの構成の選択は、まだありません。</p></li>
+  <li><p>iProperties のダイアログで、メンバーごとにプロパティを編集することはできません。表の<span class="ui">［プロパティ］</span>の列で行います。</p></li>
+</ul>
+<aside class="try"><p class="callout-title">この機能を試す</p><p class="try-sample">題材: <code>samples/parametric_plate.mcad</code> （<a href="00_intro.html#samples">題材の一覧と開き方</a>）</p>
+  <p>構成の表を開き、<span class="ui">［メンバーを追加］</span>を 3 回押します。メンバー名を <code>Short</code>・<code>Long</code>・<code>Plain</code> に変え、<span class="ui">［列を追加］</span>で<span class="ui doc">［W (mm)］</span>・<span class="ui doc">［n］</span>・<span class="ui doc">［中央の穴（抑制）］</span>を足します。<code>Short</code> の <code>W</code> を <code>80 mm</code>・<code>n</code> を <code>3</code>、<code>Long</code> を <code>160 mm</code>・<code>6</code>、<code>Plain</code> の中央の穴にチェックを入れます。各行を選んで<span class="ui">［有効にする］</span>を押し、ビューの形が変わることを確かめます。<span class="ui">［エクスポート］</span>から STEP を書き出して、<code>plate_Short.step</code> などと <code>export_manifest.json</code> ができることを確かめます。保存したドキュメントなら、<code>python -m mcad convert</code> で <code>--all-configs</code> も試せます。</p>
+</aside>
+
+</article>
+<nav class="pager" aria-label="前後の章"><a class="prev" rel="prev" href="10_parameters.html"><span class="dir">前の章</span>第 10 章 パラメータと式</a><a class="next" rel="next" href="12_inspect.html"><span class="dir">次の章</span>第 12 章 検査</a></nav>
+<footer class="footer"><p>EMRM-Studio ユーザーマニュアル（日本語）・EMRM-Studio 0.1.0 ・ <a href="#main">このページの先頭へ</a></p></footer>
+</main>
+</div>
+</body>
+</html>

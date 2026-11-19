@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="generator" content="tools/build_manual.py">
+<title>第 26 章 他の解析プログラムに形を渡す - EMRM-Studio ユーザーマニュアル</title>
+<link rel="stylesheet" href="assets/manual.css">
+<script src="assets/search_index.js" charset="utf-8" defer></script>
+<script src="assets/manual.js" charset="utf-8" defer></script>
+</head>
+<body class="page">
+<header class="topbar">
+<a class="brand" href="index.html">EMRM-Studio ユーザーマニュアル</a>
+<button class="toc-toggle" type="button" aria-controls="toc" aria-expanded="false">目次</button>
+<form class="search" role="search" action="#" onsubmit="return false">
+<input id="q" type="search" placeholder="マニュアルを検索（/）" aria-label="マニュアルを検索" autocomplete="off">
+</form>
+</header>
+<div id="search-results" class="search-results" hidden></div>
+<div class="layout">
+<nav id="toc" class="toc" aria-label="目次">
+<details class="toc-box">
+<summary>目次</summary>
+<ol class="toc-chapters">
+<li class="toc-home"><a href="index.html">表紙・目次</a></li>
+<li><a href="00_intro.html">はじめに</a></li>
+<li class="toc-part" role="presentation">第 I 部　形状を作る（CAD）</li>
+<li><a href="01_screen.html"><span class="chno">第 1 章</span> 画面の構成</a></li>
+<li><a href="02_view.html"><span class="chno">第 2 章</span> 視点の操作</a></li>
+<li><a href="03_first_part.html"><span class="chno">第 3 章</span> はじめての部品</a></li>
+<li><a href="04_sketch.html"><span class="chno">第 4 章</span> スケッチ</a></li>
+<li><a href="05_work_features.html"><span class="chno">第 5 章</span> 作業フィーチャ</a></li>
+<li><a href="06_features_basic.html"><span class="chno">第 6 章</span> フィーチャ（押し出し・回転・穴・フィレットなど）</a></li>
+<li><a href="07_features_advanced.html"><span class="chno">第 7 章</span> フィーチャ（スイープ・ロフト・コイル・パターンなど）</a></li>
+<li><a href="08_bodies.html"><span class="chno">第 8 章</span> ボディの操作</a></li>
+<li><a href="09_browser.html"><span class="chno">第 9 章</span> ブラウザとフィーチャの管理</a></li>
+<li><a href="10_parameters.html"><span class="chno">第 10 章</span> パラメータと式</a></li>
+<li><a href="11_configurations.html"><span class="chno">第 11 章</span> 構成</a></li>
+<li><a href="12_inspect.html"><span class="chno">第 12 章</span> 検査</a></li>
+<li><a href="13_files.html"><span class="chno">第 13 章</span> ファイル</a></li>
+<li class="toc-part" role="presentation">第 II 部　電磁場解析</li>
+<li><a href="14_em_intro.html"><span class="chno">第 14 章</span> 電磁場解析のはじめに</a></li>
+<li><a href="15_em_first.html"><span class="chno">第 15 章</span> はじめての電磁場解析（ソレノイド）</a></li>
+<li><a href="16_em_setup.html"><span class="chno">第 16 章</span> スタディの共通の設定</a></li>
+<li><a href="17_em_results.html"><span class="chno">第 17 章</span> 結果の見方</a></li>
+<li><a href="18_em_magnetostatic.html"><span class="chno">第 18 章</span> 静磁場解析</a></li>
+<li><a href="19_em_coils.html"><span class="chno">第 19 章</span> 静磁場解析: コイル</a></li>
+<li><a href="20_em_dipole.html"><span class="chno">第 20 章</span> 静磁場解析の例題: H 型双極電磁石</a></li>
+<li><a href="21_em_eigenmode.html"><span class="chno">第 21 章</span> 共振モード解析</a></li>
+<li><a href="22_em_driven.html"><span class="chno">第 22 章</span> ポート解析</a></li>
+<li><a href="23_em_electrostatic.html"><span class="chno">第 23 章</span> 静電場解析</a></li>
+<li><a href="24_em_gun.html"><span class="chno">第 24 章</span> 電子銃解析</a></li>
+<li><a href="25_em_troubleshooting.html"><span class="chno">第 25 章</span> 電磁場解析で困ったとき</a></li>
+<li class="toc-part" role="presentation">第 III 部　連携・カスタマイズ・自動化</li>
+<li class="current"><a href="26_step_export.html" aria-current="page"><span class="chno">第 26 章</span> 他の解析プログラムに形を渡す</a><ol class="toc-sections"><li><a href="26_step_export.html#overview"><span class="secno">26.1</span> 外のプログラムに渡すときにできること</a></li><li><a href="26_step_export.html#regions"><span class="secno">26.2</span> 領域をボディで作る</a></li><li><a href="26_step_export.html#names"><span class="secno">26.3</span> ボディ名が領域名になる</a></li><li><a href="26_step_export.html#export"><span class="secno">26.4</span> 名前付き STEP を書き出す</a></li><li><a href="26_step_export.html#handoff"><span class="secno">26.5</span> Cav3D Studio に渡す</a></li><li><a href="26_step_export.html#config"><span class="secno">26.6</span> 構成で寸法違いを一括して出す</a></li><li><a href="26_step_export.html#symmetry"><span class="secno">26.7</span> 対称モデルを作る</a></li><li><a href="26_step_export.html#later"><span class="secno">26.8</span> 今後のこと</a></li></ol></li>
+<li><a href="27_customize.html"><span class="chno">第 27 章</span> カスタマイズ</a></li>
+<li><a href="28_automation.html"><span class="chno">第 28 章</span> 自動化</a></li>
+<li><a href="29_troubleshooting.html"><span class="chno">第 29 章</span> 困ったとき</a></li>
+<li class="toc-part" role="presentation">付録</li>
+<li class="appendix"><a href="appendix_a_commands.html"><span class="chno">付録 A</span> コマンド一覧</a></li>
+<li class="appendix"><a href="appendix_b_shortcuts.html"><span class="chno">付録 B</span> ショートカット一覧</a></li>
+<li class="appendix"><a href="appendix_c_feature_params.html"><span class="chno">付録 C</span> フィーチャのパラメータ一覧</a></li>
+<li class="appendix"><a href="appendix_d_glossary.html"><span class="chno">付録 D</span> 用語の対応表</a></li>
+</ol>
+</details>
+</nav>
+<main class="content" id="main">
+<article class="chapter ">
+<p class="chapter-label">第 26 章</p>
+<h1>他の解析プログラムに形を渡す</h1>
+<nav class="pagetoc" aria-label="この章の内容">
+<p class="pagetoc-title">この章の内容</p>
+<ol>
+<li><a href="#overview"><span class="secno">26.1</span> 外のプログラムに渡すときにできること</a></li>
+<li><a href="#regions"><span class="secno">26.2</span> 領域をボディで作る</a></li>
+<li><a href="#names"><span class="secno">26.3</span> ボディ名が領域名になる</a></li>
+<li class="sub"><a href="#names-rules">ラベルの規則</a></li>
+<li><a href="#export"><span class="secno">26.4</span> 名前付き STEP を書き出す</a></li>
+<li><a href="#handoff"><span class="secno">26.5</span> Cav3D Studio に渡す</a></li>
+<li><a href="#config"><span class="secno">26.6</span> 構成で寸法違いを一括して出す</a></li>
+<li class="sub"><a href="#config-dialog">ダイアログで書き出す</a></li>
+<li class="sub"><a href="#config-cli">コマンドラインで書き出す</a></li>
+<li><a href="#symmetry"><span class="secno">26.7</span> 対称モデルを作る</a></li>
+<li><a href="#later"><span class="secno">26.8</span> 今後のこと</a></li>
+</ol>
+</nav>
+<p>この章では、EMRM-Studio の外の解析プログラム（Cav3D Studio など）に形を渡すための使い方を説明します。真空・コイル・ヨークなどの領域を別のボディで作り、ボディの名前を領域名にして、名前付き STEP で書き出します。寸法違いを一度に出す方法と、対称モデルを作る方法も説明します。EMRM-Studio の中で解くときは、STEP を書き出す必要はありません（<a href="14_em_intro.html">第 II 部</a>）。</p>
+
+<h2 id="overview"><span class="secno">26.1</span> 外のプログラムに渡すときにできること</h2>
+<p>CAD は、解析の前の<strong>形づくり</strong>を受け持ちます。外のプログラムに渡すためにできるのは次のことです。</p>
+<ul>
+  <li><p>領域ごとに別のボディを作り、名前を付ける。</p></li>
+  <li><p>ボディの名前を領域名とした<strong>名前付き STEP</strong>を書き出す。受け取る側のプログラム（Cav3D Studio）は、ボディの名前を領域名の初期値として読みます。</p></li>
+  <li><p>寸法違いの形を、構成とコマンドラインで一括して書き出す。</p></li>
+  <li><p>対称面でボディを切って、1/2・1/4 のモデルを作る。</p></li>
+</ul>
+<aside class="note" role="note"><p class="callout-title">注意</p><p>境界条件・励振・電磁気の材料の設定、メッシュの作成、ソルバの実行、結果の表示は、EMRM-Studio のスタディで行います（<a href="14_em_intro.html">第 14 章</a>）。外のプログラムに渡すときは、それらの設定は受け取る側のプログラムで行います。</p></aside>
+<div class="table-wrap"><table>
+  <caption>全体の流れ</caption>
+  <thead><tr><th>手順</th><th>操作</th><th>節</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">1</th><td>真空・コイル・ヨークを、重ならない別のボディで作る</td><td><a href="#regions">領域をボディで作る</a></td></tr>
+    <tr><th scope="row">2</th><td>ボディに領域名を付ける</td><td><a href="#names">ボディ名が領域名になる</a></td></tr>
+    <tr><th scope="row">3</th><td>名前付き STEP をエクスポートする</td><td><a href="#export">名前付き STEP を書き出す</a></td></tr>
+    <tr><th scope="row">4</th><td>Cav3D Studio で開く</td><td><a href="#handoff">Cav3D Studio に渡す</a></td></tr>
+    <tr><th scope="row">任意</th><td>寸法違いを一括で出す／対称モデルにする</td><td><a href="#config">構成で一括して出す</a>・<a href="#symmetry">対称モデル</a></td></tr>
+  </tbody>
+</table></div>
+
+<h2 id="regions"><span class="secno">26.2</span> 領域をボディで作る</h2>
+<p>解析では、材料の違う部分を<strong>領域</strong>に分けます。mcad では、1 つの領域を 1 つのボディにします。真空（空気）の領域も、形のあるボディとして作ります。例として、ヨーク（板）の上に、コイル（輪）を含む真空の箱を作ります。</p>
+<figure id="fig-16_model_section"><a class="zoom" href="images/16_model_section.png"><img src="images/16_model_section.png" alt="例のモデルを断面図で見たところ。下がヨーク（橙）、上が真空（青）、真空の中の 2 つの長方形がコイル（緑）の断面です。" width="700" height="645" loading="lazy"></a><figcaption><span class="figno">図 26-1</span> 例のモデルを断面図で見たところ。下がヨーク（橙）、上が真空（青）、真空の中の 2 つの長方形がコイル（緑）の断面です。</figcaption></figure>
+<ol class="steps">
+  <li><p>ヨークを作ります。XY 平面に、原点が中心の 100 × 60 の長方形を描き、<span class="path">リボンの<span class="ui">［3D モデル］</span>タブ → <span class="ui">［作成］</span>パネル → <span class="ui">［押し出し］</span></span>をクリックします。<span class="ui">［方向］</span>を<span class="ui">［反転方向］</span>にして、<span class="ui">［距離 A］</span>に <code>10 mm</code> と入力します。最初の押し出しなので、<span class="ui">［ブール演算］</span>は<span class="ui">［新規ソリッド］</span>です。</p></li>
+  <li><p>真空の箱を作ります。もう一度<span class="ui">［押し出し］</span>を始め、同じ長方形を選びます。<span class="ui">［方向］</span>は<span class="ui">［既定］</span>、<span class="ui">［距離 A］</span>は <code>40 mm</code> にします。<span class="ui">［ブール演算］</span>は<span class="ui">［新規ソリッド］</span>にします。</p></li>
+  <li><p>コイルを作ります。XY 平面に、原点が中心の円（半径 10 と 20）を描き、<span class="ui">［距離 A］</span> <code>20 mm</code> で押し出します（<span class="ui">［新規ソリッド］</span>）。このとき、コイルは真空の箱と重なっています。</p></li>
+  <li><p>重なりを取り除きます。<span class="path">リボンの<span class="ui">［3D モデル］</span>タブ → <span class="ui">［修正］</span>パネル → <span class="ui">［結合］</span></span>をクリックし、<span class="ui">［ベース ボディ］</span>に真空のボディ、<span class="ui">［ツール ボディ］</span>にコイルのボディを選びます。<span class="ui">［演算］</span>を<span class="ui">［カット］</span>にして、<span class="ui">［ツール ボディを保持］</span>にチェックを入れ、<span class="ui">［OK］</span>で確定します。真空のボディからコイルの形がくり抜かれ、コイルのボディは残ります。</p></li>
+</ol>
+<p>押し出しや結合の操作は<a href="06_features_basic.html">第 6 章</a>と<a href="08_bodies.html">第 8 章</a>にあります。</p>
+<aside class="tip" role="note"><p class="callout-title">ヒント</p><p>領域が重なっていないことは、体積で確かめます。<span class="path">リボンの<span class="ui">［検査］</span>タブ → <span class="ui">［計測］</span>パネル → <span class="ui">［物理プロパティ］</span></span>の<span class="ui">［ボディ］</span>の表の<span class="ui">［体積］</span>の列に、ボディごとの体積が出ます。例のモデルは、ヨーク 60 000 mm³、真空 221 150 mm³、コイル 18 849.6 mm³ で、合計は 300 000 mm³ です（ダイアログの<span class="ui">［体積］</span>の欄）。外形の 100 × 60 × 50 mm と一致します。重なりがあると、合計が外形より大きくなります。このダイアログは開いたまま、ブラウザとビューを操作できます。</p></aside>
+<aside class="note" role="note"><p class="callout-title">注意</p><p>領域の重なりを自動で調べる機能は、今はありません。ボディどうしが重なったままだと、受け取る側で同じ空間が 2 つの領域に入ります。結合のカット（<span class="ui">［ツール ボディを保持］</span>）で、必ず取り除きます。</p></aside>
+
+<h2 id="names"><span class="secno">26.3</span> ボディ名が領域名になる</h2>
+<p>名前付き STEP では、<strong>ボディの名前</strong>が STEP の部品名（ラベル）になり、受け取る側で領域名になります。</p>
+<ol class="steps">
+  <li><p>ブラウザの<span class="ui">［ソリッド ボディ］</span>を開き、ボディの行をクリックします。</p></li>
+  <li><p><kbd>F2</kbd>（名前の変更）を押し、領域名（<code>Vacuum</code>・<code>Coil</code>・<code>Yoke</code>）を入力して <kbd>Enter</kbd> を押します。右クリックの<span class="ui">［ボディの名前を変更］</span>でも同じです。</p></li>
+</ol>
+<figure id="fig-16_bodies"><a class="zoom" href="images/16_bodies.png"><img src="images/16_bodies.png" alt="名前を付けたボディ。［ソリッド ボディ］の下に、領域の名前で並びます。" width="360" height="232" loading="lazy"></a><figcaption><span class="figno">図 26-2</span> 名前を付けたボディ。<span class="ui">［ソリッド ボディ］</span>の下に、領域の名前で並びます。</figcaption></figure>
+<p>ボディの名前は、<span class="ui">［プロパティ］</span>パネルの<span class="ui">［属性］</span>タブの<span class="ui">［名前］</span>でも変えられます。名前を空にすると、既定の名前に戻ります。</p>
+<h3 id="names-rules">ラベルの規則</h3>
+<div class="table-wrap"><table>
+  <caption>ボディの名前と STEP のラベル</caption>
+  <thead><tr><th>ボディの状態</th><th>ラベル</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">名前を付けたボディ</th><td>付けた名前そのまま（<span class="ui doc">［Vacuum］</span>）</td></tr>
+    <tr><th scope="row">名前のないボディが 1 つだけのパーツ</th><td>パーツの名前（<span class="ui doc">［Part1］</span>。ブラウザでパーツの行を選んで <kbd>F2</kbd> で変えられます）</td></tr>
+    <tr><th scope="row">名前のないボディが複数あるパーツ</th><td><code>パーツ名_番号</code>（<span class="ui doc">［Part1_1］</span>・<span class="ui doc">［Part1_2］</span>…）。番号はボディの作成順で、名前を付けたボディも数えます</td></tr>
+  </tbody>
+</table></div>
+<p>番号は、名前を付けたボディにも振られるので、名前のないボディだけが飛び飛びの番号になります（<span class="ui doc">［Vacuum］</span>・<span class="ui doc">［Part1_2］</span>・<span class="ui doc">［Part1_3］</span> のように）。名前のないボディの番号は、一度エクスポートすると、ドキュメントに覚えられます。以後は、ボディを抑制・削除しても、残りのボディの番号は変わりません。エクスポートの前は、ボディが増減すると番号が振り直されます。領域名にしたいボディには、すべて名前を付けます。</p>
+<p>受け取る側（Cav3D Studio）は、領域名を<strong>英数字と <code>_</code>・<code>.</code>・<code>-</code> だけ、64 文字まで</strong>にそろえます。日本語・空白・<code>/</code> などを含む名前は、受け取る側で別の名前に変わります。エクスポートのダイアログが警告するので、英数字の名前にします。</p>
+
+<h2 id="export"><span class="secno">26.4</span> 名前付き STEP を書き出す</h2>
+<ol class="steps">
+  <li><p><span class="path">リボンの<span class="ui">［管理］</span>タブ → <span class="ui">［挿入］</span>パネル → <span class="ui">［エクスポート］</span></span>をクリックします。<span class="ui">［形式］</span>が<span class="ui">［STEP］</span>のまま、<span class="ui">［ファイル］</span>に保存先を入力します。</p></li>
+  <li><p><span class="ui">［アプリケーション プロトコル］</span>は既定の<span class="ui">［AP 214 - 自動車設計］</span>、<span class="ui">［単位］</span>は<span class="ui">［ミリメートル］</span>のままにします。</p></li>
+  <li><p><span class="ui">［範囲と座標系］</span>の<span class="ui">［ボディ］</span>で、書き出す領域にチェックを付けます。<span class="ui">［名前付き STEP（部品名 = 領域名）］</span>の表に、部品名・ボディ・受け取る側での領域名が並びます。</p>
+    <figure id="fig-16_export_named"><a class="zoom" href="images/16_export_named.png"><img src="images/16_export_named.png" alt="領域名の確認。部品名とボディ名が同じで、受け取る側でも同じ名前になります。" width="520" height="724" loading="lazy"></a><figcaption><span class="figno">図 26-3</span> 領域名の確認。部品名とボディ名が同じで、受け取る側でも同じ名前になります。</figcaption></figure></li>
+  <li><p>表の下に警告がないことを確かめて、<span class="ui">［エクスポート］</span>を押します。</p></li>
+</ol>
+<p>警告は、表の下に色付きの文で出ます。次の図は、受け取る側で名前が変わる場合（<span class="ui doc">［Coil 1］</span> は空白があるので <span class="ui doc">［Coil_1］</span> になります）と、同じ名前の 2 つのボディが 1 つの領域になってしまう場合（<span class="ui doc">［Vacuum］</span>）です。</p>
+<figure id="fig-16_export_warnings"><a class="zoom" href="images/16_export_warnings.png"><img src="images/16_export_warnings.png" alt="名前の警告。表の［Cav3D Studio での領域名］の列に、受け取る側での名前が出ます。" width="523" height="772" loading="lazy"></a><figcaption><span class="figno">図 26-4</span> 名前の警告。表の<span class="ui">［Cav3D Studio での領域名］</span>の列に、受け取る側での名前が出ます。</figcaption></figure>
+<ul>
+  <li><p>名前が重なっているときは、ボディの名前を変えます。同じ名前の複数のボディは、受け取る側で 1 つの領域になり、材料の違う部分が混ざります。</p></li>
+  <li><p>書き出されるのは、チェックを付けたボディだけです。ヨークを除くなどの範囲指定は、チェックの付け外しで行います。ボディの色も STEP に書かれます。</p></li>
+  <li><p>座標は、<span class="ui">［座標系］</span>の選び方で変わります。受け取る側の軸に合わせたいときは、UCS を作って選びます（<a href="05_work_features.html">第 5 章</a>）。</p></li>
+</ul>
+<aside class="note" role="note"><p class="callout-title">注意</p><p>エクスポートのダイアログの<span class="ui">［名前付き STEP（部品名 = 領域名）］</span>の下の説明には、部品名の付け方が書いてあります。名前を付けたボディは、その名前で書き出されます。名前のないボディは、パーツの名前（パーツにボディが複数あるときは <code>パーツ名_1</code>・<code>パーツ名_2</code>…）で書き出されます（上の表のとおりです）。</p></aside>
+<aside class="try"><p class="callout-title">この機能を試す</p><p class="try-sample">題材: <code>samples/split_bodies.mcad</code> （<a href="00_intro.html#samples">題材の一覧と開き方</a>）</p>
+  <p>題材を開きます。ブラウザの<span class="ui">［ソリッド ボディ］</span>に、<span class="ui doc">［Cavity］</span>・<span class="ui doc">［Core］</span>・<span class="ui doc">［Coil］</span> の 3 つがあります。<span class="ui">［エクスポート］</span>を開いて、<span class="ui">［名前付き STEP（部品名 = 領域名）］</span>の表に同じ名前が並ぶことを確かめます。<span class="ui doc">［Coil］</span> のチェックを外すと、表から消えます。ボディの名前を <code>真空</code> に変えると、警告が出ます。</p>
+</aside>
+
+<h2 id="handoff"><span class="secno">26.5</span> Cav3D Studio に渡す</h2>
+<p>書き出した STEP は、Cav3D Studio で開きます。受け取る側の操作は、Cav3D Studio の説明を見てください。mcad 側で確かめることは次のとおりです。</p>
+<ol class="steps">
+  <li><p>STEP を書き出す前に、<a href="#export">名前付き STEP の表</a>に警告がないことを確かめます。</p></li>
+  <li><p>Cav3D Studio で STEP を開くと、ボディの名前が領域名の初期値になります。名前を見て、領域ごとに材料と境界条件を設定します。</p></li>
+  <li><p>形を変えたいときは、mcad でパラメータを変え、同じ名前で書き出し直します。ボディの名前を変えなければ、領域の対応は同じです。</p></li>
+</ol>
+<aside class="tip" role="note"><p class="callout-title">ヒント</p><p>書き出しは、ボディが増えても減っても、現在のボディの名前をそのまま使います。領域名を後から変えると、受け取る側で設定した材料との対応が崩れます。名前は最初に決めておきます。</p></aside>
+
+<h2 id="config"><span class="secno">26.6</span> 構成で寸法違いを一括して出す</h2>
+<p>寸法だけが違う形（幅 80 と幅 160 など）を何通りも解析にかけるときは、構成（寸法やパターンの個数、抑制を変えたメンバー）を作って、一度に書き出します。構成の作り方は<a href="11_configurations.html">第 11 章</a>にあります。</p>
+<h3 id="config-dialog">ダイアログで書き出す</h3>
+<ol class="steps">
+  <li><p><span class="path">リボンの<span class="ui">［管理］</span>タブ → <span class="ui">［挿入］</span>パネル → <span class="ui">［エクスポート］</span></span>を開きます。構成のあるパーツでは、<span class="ui">［構成ごとにエクスポート］</span>の欄が出ます。</p></li>
+  <li><p><span class="ui">［構成ごとにエクスポート］</span>にチェックを入れ、書き出す構成を選びます。基本の形も書くときは<span class="ui">［ベースの構成を含める］</span>にチェックを入れます。</p></li>
+  <li><p><span class="ui">［ファイル名のテンプレート］</span>を決めます。既定の <code>{name}_{config}</code> は、<span class="ui">［ファイル］</span>の名前と構成の名前をつなぎます（<code>plate_Short.step</code>・<code>plate_Long.step</code>）。</p>
+    <figure id="fig-16_export_configs"><a class="zoom" href="images/16_export_configs.png"><img src="images/16_export_configs.png" alt="構成ごとのエクスポート。構成を選ぶと、1 構成につき 1 ファイルが書かれます。" width="520" height="943" loading="lazy"></a><figcaption><span class="figno">図 26-5</span> 構成ごとのエクスポート。構成を選ぶと、1 構成につき 1 ファイルが書かれます。</figcaption></figure></li>
+  <li><p><span class="ui">［エクスポート］</span>を押します。構成ごとのファイルと、書いた内容の記録（<code>export_manifest.json</code>）が、同じフォルダに書かれます。</p></li>
+</ol>
+<h3 id="config-cli">コマンドラインで書き出す</h3>
+<p>mcad を起動せずに、<code>python -m mcad convert</code> で、ドキュメントを変えずに書き出せます。パラメータを一時的に変える <code>--set</code>、構成を選ぶ <code>--config</code>・<code>--all-configs</code> があります（コマンドラインの全体は<a href="28_automation.html#cli">第 28 章</a>）。</p>
+<pre><code>python -m mcad convert plate.mcad out\plate.step --set W=150mm
+python -m mcad convert plate.mcad out\plate.step --config Long
+python -m mcad convert plate.mcad out\plate.step --all-configs</code></pre>
+<ul>
+  <li><p><code>--set 名前=値</code> は、パラメータの式をこの書き出しのあいだだけ上書きします（繰り返せます）。構成が同じパラメータを決めていても、<code>--set</code> の値が勝ちます。ドキュメントのファイルは変わりません。</p></li>
+  <li><p>構成が 2 つ以上のとき、ファイル名は <code>出力名_構成名.step</code> になります。<code>--name-template</code> で変えられます。1 つだけなら、出力名のままです。</p></li>
+  <li><p>2 つ以上のファイルを書くときは、<code>export_manifest.json</code> も書きます。書いた各ファイルの構成・上書きしたパラメータ・体積・チェックサムが入ります。<code>--no-manifest</code> で書きません。</p></li>
+  <li><p>出力先のフォルダは、先に作っておきます。</p></li>
+</ul>
+<pre><code>plate_configs.mcad -&gt; out\plate_Short.step (step) [Short]
+  part Part1: body f26#0, 1 solid(s), volume 60984.1 mm^3
+plate_configs.mcad -&gt; out\plate_Long.step (step) [Long]
+  part Part1: body f26#0, 1 solid(s), volume 122471 mm^3
+manifest: out\export_manifest.json
+result: OK</code></pre>
+<aside class="note" role="note"><p class="callout-title">注意</p><p>コマンドラインの出力の文は英語です。終了コードは、0 が成功、1 が「書いたが、失敗したフィーチャか見つからない参照がある」、2 が「ドキュメントを読めない・引数の誤り・書けない」です。</p></aside>
+
+<h2 id="symmetry"><span class="secno">26.7</span> 対称モデルを作る</h2>
+<p>形が対称なら、対称面で半分（や 1/4）に切ったモデルを解析すると、計算が軽くなります。mcad では、普通の<span class="path">リボンの<span class="ui">［3D モデル］</span>タブ → <span class="ui">［修正］</span>パネル → <span class="ui">［分割］</span></span>で、対称面の片側を切り捨てます。</p>
+<ol class="steps">
+  <li><p>対称面を決めます。原点の YZ・XZ・XY 平面のどれかなら、そのまま使えます。別の位置なら、作業平面を作ります（<a href="05_work_features.html">第 5 章</a>）。</p></li>
+  <li><p><span class="path">リボンの<span class="ui">［3D モデル］</span>タブ → <span class="ui">［修正］</span>パネル → <span class="ui">［分割］</span></span>をクリックします。<span class="ui">［方法］</span>を<span class="ui">［ソリッドをトリム］</span>にします。</p></li>
+  <li><p><span class="ui">［分割ツール］</span>の欄で、ブラウザの<span class="ui">［原点］</span>の平面（ここでは<span class="ui">［YZ 平面（右側面）］</span>）をクリックします。<span class="ui">［ソリッド］</span>は空のままにします。すべてのボディが対象です。対称面をまたぐボディだけを選んでもかまいません。</p>
+    <figure id="fig-16_split_form"><a class="zoom" href="images/16_split_form.png"><img src="images/16_split_form.png" alt="分割のフォーム。［ソリッドをトリム］は、平面の片側を捨てます。" width="360" height="290" loading="lazy"></a><figcaption><span class="figno">図 26-6</span> 分割のフォーム。<span class="ui">［ソリッドをトリム］</span>は、平面の片側を捨てます。</figcaption></figure></li>
+  <li><p>ビューのプレビューで残る側を確かめます。反対側が残るときは、<span class="ui">［反転］</span>にチェックを入れます。<span class="ui">［OK］</span>で確定します。</p>
+    <figure id="fig-16_half_model"><a class="zoom" href="images/16_half_model.png"><img src="images/16_half_model.png" alt="YZ 平面で半分にしたモデル。ヨーク・真空・コイルが同じ面で切られ、ボディの名前は変わりません。" width="700" height="645" loading="lazy"></a><figcaption><span class="figno">図 26-7</span> YZ 平面で半分にしたモデル。ヨーク・真空・コイルが同じ面で切られ、ボディの名前は変わりません。</figcaption></figure></li>
+</ol>
+<p><span class="ui">［反転］</span>を付けないときに残る側は、平面によって決まっています。</p>
+<div class="table-wrap"><table>
+  <caption>既定で残る側</caption>
+  <thead><tr><th>分割ツール</th><th>残る側</th></tr></thead>
+  <tbody>
+    <tr><th scope="row"><span class="ui">［YZ 平面（右側面）］</span></th><td>X が小さい側（X ≤ 0）</td></tr>
+    <tr><th scope="row"><span class="ui">［XZ 平面（正面）］</span></th><td>Y が大きい側（Y ≥ 0）</td></tr>
+    <tr><th scope="row"><span class="ui">［XY 平面（上面）］</span></th><td>Z が小さい側（Z ≤ 0）</td></tr>
+  </tbody>
+</table></div>
+<p>1/4 モデルは、もう 1 つ<span class="ui">［分割］</span>を足して、別の対称面で切ります。切ったボディは、名前をそのまま持つので、名前付き STEP でも同じ領域名で書き出されます。</p>
+<aside class="note" role="note"><p class="callout-title">注意</p><p>切った面に「対称面」の境界条件を付ける機能は、今の mcad にはありません。受け取る側のプログラムで、切った面に対称（電気壁・磁気壁）の条件を付けます。</p></aside>
+<aside class="try"><p class="callout-title">この機能を試す</p><p class="try-sample">題材: <code>samples/split_bodies.mcad</code> （<a href="00_intro.html#samples">題材の一覧と開き方</a>）</p>
+  <p>題材の<span class="ui">［分割1］</span>をダブルクリックし、<span class="ui">［方法］</span>を<span class="ui">［ソリッドをトリム］</span>にします。ビューのプレビューで、<span class="ui doc">［Cavity］</span> の片側だけが残ります（この題材の<span class="ui">［分割1］</span>は、<span class="ui doc">［Cavity］</span> だけが対象です）。<span class="ui">［反転］</span>にチェックを入れると、残る側が逆になります。確定すると、後ろの<span class="ui">［ボディを移動1］</span>は、動かす<span class="ui doc">［Core］</span>がなくなってエラーになります。試したら <kbd>Ctrl</kbd>+<kbd>Z</kbd> で戻します。</p>
+</aside>
+
+<h2 id="later"><span class="secno">26.8</span> 今後のこと</h2>
+<p>次のことは、今の mcad にはありません。</p>
+<ul>
+  <li><p>境界条件・励振・電磁気の物性の設定と、解析の条件を含むパッケージの書き出し。</p></li>
+  <li><p>メッシュの作成と、ソルバの実行。</p></li>
+  <li><p>結果（固有モード・Q 値・電磁界の分布など）の読み込みと表示。</p></li>
+  <li><p>切った面への対称の条件の設定。</p></li>
+</ul>
+<p>今の mcad で解析に備えるには、領域をボディに分けて、名前を付け、名前付き STEP で書き出します。</p>
+
+</article>
+<nav class="pager" aria-label="前後の章"><a class="prev" rel="prev" href="25_em_troubleshooting.html"><span class="dir">前の章</span>第 25 章 電磁場解析で困ったとき</a><a class="next" rel="next" href="27_customize.html"><span class="dir">次の章</span>第 27 章 カスタマイズ</a></nav>
+<footer class="footer"><p>EMRM-Studio ユーザーマニュアル（日本語）・EMRM-Studio 0.1.0 ・ <a href="#main">このページの先頭へ</a></p></footer>
+</main>
+</div>
+</body>
+</html>

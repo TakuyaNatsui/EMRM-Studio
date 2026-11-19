@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="generator" content="tools/build_manual.py">
+<title>第 10 章 パラメータと式 - EMRM-Studio ユーザーマニュアル</title>
+<link rel="stylesheet" href="assets/manual.css">
+<script src="assets/search_index.js" charset="utf-8" defer></script>
+<script src="assets/manual.js" charset="utf-8" defer></script>
+</head>
+<body class="page">
+<header class="topbar">
+<a class="brand" href="index.html">EMRM-Studio ユーザーマニュアル</a>
+<button class="toc-toggle" type="button" aria-controls="toc" aria-expanded="false">目次</button>
+<form class="search" role="search" action="#" onsubmit="return false">
+<input id="q" type="search" placeholder="マニュアルを検索（/）" aria-label="マニュアルを検索" autocomplete="off">
+</form>
+</header>
+<div id="search-results" class="search-results" hidden></div>
+<div class="layout">
+<nav id="toc" class="toc" aria-label="目次">
+<details class="toc-box">
+<summary>目次</summary>
+<ol class="toc-chapters">
+<li class="toc-home"><a href="index.html">表紙・目次</a></li>
+<li><a href="00_intro.html">はじめに</a></li>
+<li class="toc-part" role="presentation">第 I 部　形状を作る（CAD）</li>
+<li><a href="01_screen.html"><span class="chno">第 1 章</span> 画面の構成</a></li>
+<li><a href="02_view.html"><span class="chno">第 2 章</span> 視点の操作</a></li>
+<li><a href="03_first_part.html"><span class="chno">第 3 章</span> はじめての部品</a></li>
+<li><a href="04_sketch.html"><span class="chno">第 4 章</span> スケッチ</a></li>
+<li><a href="05_work_features.html"><span class="chno">第 5 章</span> 作業フィーチャ</a></li>
+<li><a href="06_features_basic.html"><span class="chno">第 6 章</span> フィーチャ（押し出し・回転・穴・フィレットなど）</a></li>
+<li><a href="07_features_advanced.html"><span class="chno">第 7 章</span> フィーチャ（スイープ・ロフト・コイル・パターンなど）</a></li>
+<li><a href="08_bodies.html"><span class="chno">第 8 章</span> ボディの操作</a></li>
+<li><a href="09_browser.html"><span class="chno">第 9 章</span> ブラウザとフィーチャの管理</a></li>
+<li class="current"><a href="10_parameters.html" aria-current="page"><span class="chno">第 10 章</span> パラメータと式</a><ol class="toc-sections"><li><a href="10_parameters.html#overview"><span class="secno">10.1</span> パラメータの考え方</a></li><li><a href="10_parameters.html#dialog"><span class="secno">10.2</span> パラメータの表</a></li><li><a href="10_parameters.html#user"><span class="secno">10.3</span> ユーザー パラメータを作る</a></li><li><a href="10_parameters.html#reorder"><span class="secno">10.4</span> 並べ替える</a></li><li><a href="10_parameters.html#expression"><span class="secno">10.5</span> 式の書き方</a></li><li><a href="10_parameters.html#driven"><span class="secno">10.6</span> 従動寸法（参照パラメータ）を式で読む</a></li><li><a href="10_parameters.html#naming"><span class="secno">10.7</span> 名前を付ける・変える</a></li><li><a href="10_parameters.html#dims"><span class="secno">10.8</span> 寸法の表示（値・名前・式）と fx:</a></li><li><a href="10_parameters.html#csv"><span class="secno">10.9</span> CSV の書き出しと読み込み</a></li><li><a href="10_parameters.html#iproperties"><span class="secno">10.10</span> iProperties</a></li><li><a href="10_parameters.html#next"><span class="secno">10.11</span> 次に読む章</a></li></ol></li>
+<li><a href="11_configurations.html"><span class="chno">第 11 章</span> 構成</a></li>
+<li><a href="12_inspect.html"><span class="chno">第 12 章</span> 検査</a></li>
+<li><a href="13_files.html"><span class="chno">第 13 章</span> ファイル</a></li>
+<li class="toc-part" role="presentation">第 II 部　電磁場解析</li>
+<li><a href="14_em_intro.html"><span class="chno">第 14 章</span> 電磁場解析のはじめに</a></li>
+<li><a href="15_em_first.html"><span class="chno">第 15 章</span> はじめての電磁場解析（ソレノイド）</a></li>
+<li><a href="16_em_setup.html"><span class="chno">第 16 章</span> スタディの共通の設定</a></li>
+<li><a href="17_em_results.html"><span class="chno">第 17 章</span> 結果の見方</a></li>
+<li><a href="18_em_magnetostatic.html"><span class="chno">第 18 章</span> 静磁場解析</a></li>
+<li><a href="19_em_coils.html"><span class="chno">第 19 章</span> 静磁場解析: コイル</a></li>
+<li><a href="20_em_dipole.html"><span class="chno">第 20 章</span> 静磁場解析の例題: H 型双極電磁石</a></li>
+<li><a href="21_em_eigenmode.html"><span class="chno">第 21 章</span> 共振モード解析</a></li>
+<li><a href="22_em_driven.html"><span class="chno">第 22 章</span> ポート解析</a></li>
+<li><a href="23_em_electrostatic.html"><span class="chno">第 23 章</span> 静電場解析</a></li>
+<li><a href="24_em_gun.html"><span class="chno">第 24 章</span> 電子銃解析</a></li>
+<li><a href="25_em_troubleshooting.html"><span class="chno">第 25 章</span> 電磁場解析で困ったとき</a></li>
+<li class="toc-part" role="presentation">第 III 部　連携・カスタマイズ・自動化</li>
+<li><a href="26_step_export.html"><span class="chno">第 26 章</span> 他の解析プログラムに形を渡す</a></li>
+<li><a href="27_customize.html"><span class="chno">第 27 章</span> カスタマイズ</a></li>
+<li><a href="28_automation.html"><span class="chno">第 28 章</span> 自動化</a></li>
+<li><a href="29_troubleshooting.html"><span class="chno">第 29 章</span> 困ったとき</a></li>
+<li class="toc-part" role="presentation">付録</li>
+<li class="appendix"><a href="appendix_a_commands.html"><span class="chno">付録 A</span> コマンド一覧</a></li>
+<li class="appendix"><a href="appendix_b_shortcuts.html"><span class="chno">付録 B</span> ショートカット一覧</a></li>
+<li class="appendix"><a href="appendix_c_feature_params.html"><span class="chno">付録 C</span> フィーチャのパラメータ一覧</a></li>
+<li class="appendix"><a href="appendix_d_glossary.html"><span class="chno">付録 D</span> 用語の対応表</a></li>
+</ol>
+</details>
+</nav>
+<main class="content" id="main">
+<article class="chapter ">
+<p class="chapter-label">第 10 章</p>
+<h1>パラメータと式</h1>
+<nav class="pagetoc" aria-label="この章の内容">
+<p class="pagetoc-title">この章の内容</p>
+<ol>
+<li><a href="#overview"><span class="secno">10.1</span> パラメータの考え方</a></li>
+<li><a href="#dialog"><span class="secno">10.2</span> パラメータの表</a></li>
+<li class="sub"><a href="#dialog-follow">開いたままビューを操作する</a></li>
+<li class="sub"><a href="#dialog-edit">式を変える</a></li>
+<li><a href="#user"><span class="secno">10.3</span> ユーザー パラメータを作る</a></li>
+<li><a href="#reorder"><span class="secno">10.4</span> 並べ替える</a></li>
+<li><a href="#expression"><span class="secno">10.5</span> 式の書き方</a></li>
+<li class="sub"><a href="#expression-errors">式の誤りの文</a></li>
+<li><a href="#driven"><span class="secno">10.6</span> 従動寸法（参照パラメータ）を式で読む</a></li>
+<li><a href="#naming"><span class="secno">10.7</span> 名前を付ける・変える</a></li>
+<li><a href="#dims"><span class="secno">10.8</span> 寸法の表示（値・名前・式）と fx:</a></li>
+<li><a href="#csv"><span class="secno">10.9</span> CSV の書き出しと読み込み</a></li>
+<li class="sub"><a href="#csv-export">書き出す</a></li>
+<li class="sub"><a href="#csv-import">読み込む</a></li>
+<li><a href="#iproperties"><span class="secno">10.10</span> iProperties</a></li>
+<li class="sub"><a href="#iproperties-summary">概要・プロジェクト・物理</a></li>
+<li class="sub"><a href="#iproperties-custom">ユーザー定義のプロパティと質量へのリンク</a></li>
+<li><a href="#next"><span class="secno">10.11</span> 次に読む章</a></li>
+</ol>
+</nav>
+<p>この章では、寸法や数値を<strong>パラメータ</strong>として管理し、式でつなぐ方法を説明します。板の幅を 1 か所変えるだけで、穴の位置・個数・間隔まで付いてくるモデルを作れるようになります。また、品番や質量などを<strong>iProperties</strong>に保存します。この章の写真は、<code>samples/parametric_plate.mcad</code> で撮りました。</p>
+
+<p>パラメータと iProperties は、リボンの<span class="ui">［管理］</span>タブの<span class="ui">［パラメータ］</span>パネルにあります。同じタブの<span class="ui">［挿入］</span>パネル（<span class="ui">［インポート］</span>・<span class="ui">［エクスポート］</span>）は<a href="13_files.html">第 13 章</a>、<span class="ui">［構成］</span>パネルは<a href="11_configurations.html">第 11 章</a>で説明します。</p>
+
+<h2 id="overview"><span class="secno">10.1</span> パラメータの考え方</h2>
+<p>mcad のパラメータは、3 種類あります。</p>
+<div class="table-wrap"><table>
+  <caption>パラメータの種類</caption>
+  <thead><tr><th>種類</th><th>何か</th><th>名前</th><th>式を書けるか</th></tr></thead>
+  <tbody>
+    <tr><th scope="row"><span class="ui">［モデル パラメータ］</span></th><td>スケッチの寸法（駆動寸法）と、フィーチャの数値の欄（押し出しの距離・パターンの個数など）</td><td>自動で <code>d0</code>・<code>d1</code>…。自分の名前に変えられます</td><td>書けます</td></tr>
+    <tr><th scope="row"><span class="ui">［参照パラメータ］</span></th><td>スケッチの従動寸法（計測した値）</td><td>自動の名前。変えられます</td><td>書けません（値は計測値）。ほかの式からは読めます</td></tr>
+    <tr><th scope="row"><span class="ui">［ユーザー パラメータ］</span></th><td>利用者が作る値（板厚・個数・フラグなど）</td><td>自分で付けます</td><td>書けます</td></tr>
+  </tbody>
+</table></div>
+<p>パラメータは式で結べます。例えば、押し出しの距離を<code>T</code>にし、穴の位置を<code>W / 2</code>にすると、<code>T</code> や <code>W</code> を変えたときに、板厚も穴の位置も付いてきます。パラメータを変えると、それを読むスケッチとフィーチャがまとめて再計算されます。1 回の変更は 1 つの Undo の項目です。</p>
+
+<h2 id="dialog"><span class="secno">10.2</span> パラメータの表</h2>
+<p>パラメータは、1 つの表にまとまっています。</p>
+<ol class="steps">
+  <li><p><span class="path">リボンの<span class="ui">［管理］</span>タブ → <span class="ui">［パラメータ］</span>パネル → <span class="ui">［パラメータ］</span></span>をクリックします。</p></li>
+  <li><p>表のダイアログが開きます。上から、<span class="ui">［モデル パラメータ］</span>・<span class="ui">［参照パラメータ］</span>・<span class="ui">［ユーザー パラメータ］</span>の順に並びます。</p>
+    <figure id="fig-10_params_model"><a class="zoom" href="images/10_params_model.png"><img src="images/10_params_model.png" alt="パラメータの表。モデル パラメータの［パラメータ名］は自動の名前（d0…）、［式］はWやH / 4のようにユーザー パラメータで決まっています。" width="900" height="640" loading="lazy"></a><figcaption><span class="figno">図 10-1</span> パラメータの表。モデル パラメータの<span class="ui">［パラメータ名］</span>は自動の名前（<code>d0</code>…）、<span class="ui">［式］</span>は<code>W</code>や<code>H / 4</code>のようにユーザー パラメータで決まっています。</figcaption></figure></li>
+  <li><p>下へスクロールすると、参照パラメータとユーザー パラメータがあります。</p>
+    <figure id="fig-10_params_user"><a class="zoom" href="images/10_params_user.png"><img src="images/10_params_user.png" alt="下の部分。diagは従動寸法の参照パラメータ（斜体）、W・H・T・n・dがユーザー パラメータです。" width="900" height="640" loading="lazy"></a><figcaption><span class="figno">図 10-2</span> 下の部分。<code>diag</code>は従動寸法の参照パラメータ（斜体）、<code>W</code>・<code>H</code>・<code>T</code>・<code>n</code>・<code>d</code>がユーザー パラメータです。</figcaption></figure></li>
+</ol>
+<div class="table-wrap"><table>
+  <caption>表の列</caption>
+  <thead><tr><th>列</th><th>内容</th></tr></thead>
+  <tbody>
+    <tr><th scope="row"><span class="ui">［パラメータ名］</span></th><td>式で使う名前。ダブルクリックで変えます</td></tr>
+    <tr><th scope="row"><span class="ui">［単位/タイプ］</span></th><td>値の単位（<code>mm</code>・<code>deg</code>）か型（<span class="ui">［整数］</span>・<span class="ui">［真偽値］</span>・<span class="ui">［テキスト］</span>）。ユーザー パラメータはコンボボックスで選べます</td></tr>
+    <tr><th scope="row"><span class="ui">［式］</span></th><td>値を決める式。ダブルクリックで編集します</td></tr>
+    <tr><th scope="row"><span class="ui">［値］</span></th><td>式の結果（読むだけ）。式が誤りのときは <code>!</code> が出ます</td></tr>
+    <tr><th scope="row"><span class="ui">［コメント］</span></th><td>ユーザー パラメータは自由なコメント。モデル・参照パラメータは、どのスケッチ・フィーチャの何の値か（例: <span class="ui doc">［板のスケッチ (距離)］</span>）</td></tr>
+    <tr><th scope="row"><span class="ui">［使用箇所］</span></th><td>そのパラメータを式で読んでいる欄の名前</td></tr>
+  </tbody>
+</table></div>
+<ul>
+  <li><p>表の上の<span class="ui">［名前で絞り込み］</span>の欄に文字を入れると、名前に合う行だけが残ります。</p></li>
+  <li><p>表は開いたまま、ビューやブラウザを操作できます（モードレス）。使い終わったら<span class="ui">［閉じる］</span>で閉じます。</p></li>
+  <li><p>表が開いているときに<span class="ui">［パラメータ］</span>をもう一度押しても、新しくは開かず、開いている表が前に出ます。<span class="ui">［iProperties］</span>のダイアログとは、同時に開けます。</p></li>
+</ul>
+
+<h3 id="dialog-follow">開いたままビューを操作する</h3>
+<p>表は、ドキュメントが変わると読み直されます。表を開いたまま、スケッチの寸法を変えたり、<kbd>Ctrl</kbd>+<kbd>Z</kbd> で元に戻したりすると、表の値と式がすぐに変わります。</p>
+<ol class="steps">
+  <li><p>パラメータの表を開いたまま、ブラウザの<span class="ui doc">［穴の列のスケッチ］</span>をダブルクリックします。スケッチの編集に入っても、表は開いたままです。</p></li>
+  <li><p>水平距離の寸法（<code>15.00 mm</code>）をダブルクリックし、入力欄に <code>25 mm</code> と入力して <kbd>Enter</kbd> を押します。</p>
+    <figure id="fig-10_params_follow_view"><a class="zoom" href="images/10_params_follow_view.png"><img src="images/10_params_follow_view.png" alt="表を開いたまま、スケッチの寸法を 25 mm に変えたところ。ビューの穴は、スケッチを終えると新しい位置になります。" width="640" height="440" loading="lazy"></a><figcaption><span class="figno">図 10-3</span> 表を開いたまま、スケッチの寸法を <code>25 mm</code> に変えたところ。ビューの穴は、スケッチを終えると新しい位置になります。</figcaption></figure></li>
+  <li><p>表の <code>d9</code> の行（<span class="ui doc">［穴の列のスケッチ (水平距離)］</span>）が <code>25 mm</code> に変わります。</p>
+    <figure id="fig-10_params_follow"><a class="zoom" href="images/10_params_follow.png"><img src="images/10_params_follow.png" alt="同じ時点の表。d9 の［式］と［値］が、スケッチの寸法に追従しています。" width="900" height="640" loading="lazy"></a><figcaption><span class="figno">図 10-4</span> 同じ時点の表。<code>d9</code> の<span class="ui">［式］</span>と<span class="ui">［値］</span>が、スケッチの寸法に追従しています。</figcaption></figure></li>
+</ol>
+
+<h3 id="dialog-edit">式を変える</h3>
+<ol class="steps">
+  <li><p>変えたい行の<span class="ui">［式］</span>のセルをダブルクリックします。セルが入力欄になります。</p>
+    <figure id="fig-10_params_editing"><a class="zoom" href="images/10_params_editing.png"><img src="images/10_params_editing.png" alt="Wの式を編集しているところ。1.5 * H + 30 mm と入力しています。" width="900" height="640" loading="lazy"></a><figcaption><span class="figno">図 10-5</span> <code>W</code>の式を編集しているところ。<code>1.5 * H + 30 mm</code> と入力しています。</figcaption></figure></li>
+  <li><p>式を入力して <kbd>Enter</kbd> を押します。</p></li>
+  <li><p>モデルが再計算されます。<span class="ui">［値］</span>の列と、3D ビューの形が変わります。</p></li>
+</ol>
+<p>式が誤っているときは、表の下に赤い字で理由が出て、セルは元の式に戻ります。</p>
+<figure id="fig-10_params_error"><a class="zoom" href="images/10_params_error.png"><img src="images/10_params_error.png" alt="dの式を 10 mm + 5 deg にしたとき。長さと角度は足せないので、理由が出ました。" width="900" height="640" loading="lazy"></a><figcaption><span class="figno">図 10-6</span> <code>d</code>の式を <code>10 mm + 5 deg</code> にしたとき。長さと角度は足せないので、理由が出ました。</figcaption></figure>
+<aside class="tip" role="note"><p class="callout-title">ヒント</p><p>フィーチャのフォーム（押し出しの<span class="ui">［距離 A］</span>など）や、スケッチの寸法の入力欄にも、同じ式を書けます。表に出ているモデル パラメータの式は、そのフォームの欄と同じものです。</p></aside>
+
+<h2 id="user"><span class="secno">10.3</span> ユーザー パラメータを作る</h2>
+<ol class="steps">
+  <li><p>表の下の<span class="ui">［数値を追加］</span>・<span class="ui">［テキストを追加］</span>・<span class="ui">［真偽値を追加］</span>のどれかを押します。<span class="ui">［ユーザー パラメータ］</span>に新しい行（<code>Param1</code>…）ができ、名前の欄が編集に入ります。</p></li>
+  <li><p>名前を入力して <kbd>Enter</kbd> を押します。</p></li>
+  <li><p>必要なら<span class="ui">［単位/タイプ］</span>のコンボボックスで型を選び、<span class="ui">［式］</span>に値を入力します。</p>
+    <figure id="fig-10_params_types"><a class="zoom" href="images/10_params_types.png"><img src="images/10_params_types.png" alt="真偽値（wide = True）とテキスト（memo）を追加したところ。［単位/タイプ］が［真偽値］・［テキスト］になります。" width="900" height="640" loading="lazy"></a><figcaption><span class="figno">図 10-7</span> 真偽値（<code>wide</code> = <code>True</code>）とテキスト（<code>memo</code>）を追加したところ。<span class="ui">［単位/タイプ］</span>が<span class="ui">［真偽値］</span>・<span class="ui">［テキスト］</span>になります。</figcaption></figure></li>
+  <li><p>必要なら<span class="ui">［コメント］</span>に説明を書きます。</p></li>
+</ol>
+<div class="table-wrap"><table>
+  <caption><span class="ui">［単位/タイプ］</span>の種類</caption>
+  <thead><tr><th>選択</th><th>型</th><th>式の例</th></tr></thead>
+  <tbody>
+    <tr><th scope="row"><code>mm</code>・<code>cm</code>・<code>m</code>・<code>in</code>・<code>ft</code></th><td>長さ</td><td><code>120 mm</code>・<code>5 in</code></td></tr>
+    <tr><th scope="row"><code>deg</code>・<code>rad</code></th><td>角度</td><td><code>45 deg</code></td></tr>
+    <tr><th scope="row"><code>kg</code>・<code>g</code>・<code>s</code>・<code>min</code>・<code>N</code>・<code>MPa</code>・<code>Pa</code>・<code>Hz</code>・<code>A</code>・<code>V</code>・<code>K</code></th><td>質量・時間・力・圧力・周波数・電流・電圧・温度</td><td><code>7.85 g</code>・<code>10 A</code></td></tr>
+    <tr><th scope="row"><code>ul</code></th><td>単位なしの数（実数）</td><td><code>4 ul</code>・<code>0.5</code></td></tr>
+    <tr><th scope="row"><span class="ui">［整数］</span></th><td>整数（個数など）</td><td><code>4</code>・<code>N + 1</code></td></tr>
+    <tr><th scope="row"><span class="ui">［真偽値］</span></th><td>真偽</td><td><code>true</code>・<code>W &gt; 100 mm</code></td></tr>
+    <tr><th scope="row"><span class="ui">［テキスト］</span></th><td>テキスト</td><td><code>'試作'</code></td></tr>
+  </tbody>
+</table></div>
+<ul>
+  <li><p><span class="ui">［数値を追加］</span>で作ると、文書の長さの単位（<code>mm</code>）の <code>1</code> になります。型を変えたときに、式が追加した直後の既定の式のままなら、新しい型の既定の式（<code>1</code>・<code>1 deg</code>・<code>true</code>）に替わります。</p></li>
+  <li><p><strong>単位を替えても、式の数は変わりません。</strong>式が<code>10 mm</code>・<code>10</code>・<code>-2.5 in</code>のように数だけ（名前も演算も含まない）なら、次元の違う単位にも数をそのままに単位だけを付け替えます。<code>10 mm</code>は<code>deg</code>で<code>10 deg</code>、<code>ul</code>で<code>10</code>、<span class="ui">［整数］</span>で<code>10</code>になります（<span class="ui">［整数］</span>にできるのは数が整数のときだけで、<code>10.5 mm</code>は<span class="ui">［整数］</span>にできません）。<code>mm</code>から<code>in</code>のように同じ次元の単位（<code>mm</code>と<code>in</code>など）は、パラメータごとには持てません。選んでも何も替わらず、式も表示も文書の単位のままで、コンボボックスも元の単位に戻ります。長さの表示を替えるには、リボンの<span class="ui">［ツール］</span>タブ →<span class="ui">［オプション］</span>パネル →<span class="ui">［単位と精度］</span>で文書の単位を替えます。</p></li>
+  <li><p><code>W * 2</code>のように名前や演算を含む式は書き換えません。次元が合わなくなるときは（例: 式が <code>W * 2</code> のパラメータ <code>Z</code> を deg にする）「式 W * 2 は長さなので、'Z' を deg にできません。先に式を直してください。」と出て、単位は元のままです。そのパラメータを読む別のパラメータ・寸法・フィーチャの欄が壊れるときも、壊れる欄の名前（<code>B</code>・<code>スケッチ1.d0</code>など）を挙げて断ります。先に式を直してから単位を選びます。テキストや真偽値の式を数の単位にするときも同じです。</p></li>
+  <li><p>個数の欄（パターンの<span class="ui">［個数］</span>など）にも、<code>n</code> や <code>n + 1</code> のように名前と式を書けます。個数の型は<span class="ui">［整数］</span>です。</p></li>
+  <li><p>ユーザー パラメータを消すには、行を選んで<span class="ui">［削除］</span>を押します。式から読まれていないものを全部まとめて消すには<span class="ui">［未使用を消去］</span>です。式から読まれているパラメータは、使っている欄の名前が出て、消せません。</p></li>
+</ul>
+<pre><code>パラメータ 'W' は 矩形状パターン1.length1, 中央の穴のスケッチ.d15, 板のスケッチ.d0, Part1 のプロパティ で使われているので削除できません</code></pre>
+
+<h2 id="reorder"><span class="secno">10.4</span> 並べ替える</h2>
+<p>ユーザー パラメータは、作った順に並びます。あとから整理するには、行を選んで<span class="ui">［上へ］</span>・<span class="ui">［下へ］</span>を押します。押すたびに 1 行ずつ動き、動かした後も同じ行が選ばれたままなので、続けて押せます。表を選んだ状態で <kbd>Alt</kbd>+<kbd>↑</kbd>・<kbd>Alt</kbd>+<kbd>↓</kbd> でも動かせます（セルの編集中は効きません）。</p>
+<ul>
+  <li><p>行は複数選んでもかまいません。連なった行は塊のまま動き、先頭・末尾に着いた行はそこで止まります。動く行が無いときは、ボタンが無効になります。</p></li>
+  <li><p>動かせるのは<span class="ui">［ユーザー パラメータ］</span>だけです。<span class="ui">［モデル パラメータ］</span>・<span class="ui">［参照パラメータ］</span>（寸法やフィーチャから来る行）は動かせません（これらを選んでいるとボタンは無効です）。</p></li>
+  <li><p>文書全体のパラメータと、部品ごとのパラメータは別々の並びです。行は同じ並びの中でだけ動き、もう一方の並びの行とは入れ替わりません。</p></li>
+  <li><p>文書全体の並びの末尾の行を<span class="ui">［下へ］</span>、部品の並びの先頭の行を<span class="ui">［上へ］</span>で動かそうとしても、ボタンは無効です（ポインタを載せると理由が出ます）。</p></li>
+  <li><p>名前で絞り込んでいる間は、隣の行が見えないので<span class="ui">［上へ］</span>・<span class="ui">［下へ］</span>は無効です。絞り込みを消してから動かします。</p></li>
+  <li><p>順番は文書に保存され、<span class="ui">［元に戻す］</span>で戻せます。<span class="ui">［CSV をエクスポート］</span>の行の順も、表と同じです。</p></li>
+</ul>
+
+<h2 id="expression"><span class="secno">10.5</span> 式の書き方</h2>
+<p>式は、数・単位付きの数・パラメータの名前を、演算子と関数でつないだものです。Inventor のパラメータの式に近い書き方です。</p>
+<div class="table-wrap"><table>
+  <caption>式の部品</caption>
+  <thead><tr><th>部品</th><th>書き方</th><th>例</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">数</th><td>整数・小数・指数</td><td><code>10</code>・<code>2.5</code>・<code>1e-3</code></td></tr>
+    <tr><th scope="row">単位付きの数</th><td>数の<strong>直後</strong>に単位。空白は入れても入れなくてもかまいません</td><td><code>10 mm</code>・<code>10mm</code>・<code>30 deg</code>・<code>2 in</code>・<code>4 ul</code></td></tr>
+    <tr><th scope="row">四則・冪・括弧</th><td><code>+</code> <code>-</code> <code>*</code> <code>/</code> <code>^</code>（冪）<code>( )</code></td><td><code>(W - 30 mm) / (n - 1)</code>・<code>2 ^ 3</code></td></tr>
+    <tr><th scope="row">パラメータの参照</th><td>名前をそのまま書くか、<code>${名前}</code></td><td><code>W / 2</code>・<code>${W} / 2</code></td></tr>
+    <tr><th scope="row">定数</th><td><code>pi</code></td><td><code>2 * pi * R</code></td></tr>
+    <tr><th scope="row">比較・論理</th><td><code>==</code> <code>!=</code> <code>&lt;</code> <code>&lt;=</code> <code>&gt;</code> <code>&gt;=</code>、<code>and</code> <code>or</code> <code>not</code>、<code>true</code> <code>false</code></td><td><code>W &gt; 100 mm and n &gt;= 4</code></td></tr>
+    <tr><th scope="row">条件</th><td><code>if_(条件, 真のとき, 偽のとき)</code></td><td><code>if_(wide, 10 mm, 8 mm)</code></td></tr>
+    <tr><th scope="row">テキスト</th><td>引用符で囲み、<code>+</code> でつなぎます</td><td><code>'PLT-' + memo</code></td></tr>
+  </tbody>
+</table></div>
+<div class="table-wrap"><table>
+  <caption>使える関数</caption>
+  <thead><tr><th>関数</th><th>内容</th></tr></thead>
+  <tbody>
+    <tr><th scope="row"><code>sin</code> <code>cos</code> <code>tan</code></th><td>三角関数。引数は角度（<code>30 deg</code>）か、裸の数（文書の角度の単位）。結果は単位なしの数</td></tr>
+    <tr><th scope="row"><code>asin</code> <code>acos</code> <code>atan</code> <code>atan2</code></th><td>逆三角関数。結果は角度</td></tr>
+    <tr><th scope="row"><code>sqrt</code> <code>abs</code></th><td>平方根・絶対値（単位を保ちます。<code>sqrt(W^2 + H^2)</code>）</td></tr>
+    <tr><th scope="row"><code>min</code> <code>max</code></th><td>引数（2 つ以上）の最小・最大</td></tr>
+    <tr><th scope="row"><code>round</code> <code>floor</code> <code>ceil</code> <code>log</code> <code>exp</code></th><td>丸め・対数・指数。<strong>単位のない数</strong>だけを受けます。長さは割ってから使います（<code>floor(L / 10 mm)</code>）</td></tr>
+    <tr><th scope="row"><code>if_</code></th><td>条件で値を選びます。選ばれなかった側は計算しません</td></tr>
+  </tbody>
+</table></div>
+<ul>
+  <li><p><strong>単位が合う式だけが通ります。</strong>長さ + 長さ、長さ / 長さ（単位のない数）、長さ * 数は通りますが、<code>10 mm + 5 deg</code> は誤りです。数と単位の間に <code>*</code>・<code>/</code>・<code>^</code> を使うときは、<code>5 N*m</code> のように前後に空白を入れません（<code>10 mm * W</code> は「10 mm 掛ける W」です）。</p></li>
+  <li><p>裸の数は、欄の単位（長さの欄なら文書の単位の <code>mm</code>、角度の欄なら <code>deg</code>）として読みます。</p></li>
+  <li><p>全角の文字（<code>×</code>・<code>÷</code>・<code>−</code>・<code>°</code>・全角の数字）は、半角に直して読みます。</p></li>
+  <li><p>式の長さは 2,000 文字までです。<code>//</code>・<code>%</code>・属性の参照などは使えません。</p></li>
+  <li><p>インチは <code>in</code>（<code>inch</code> も可）です。分数は <code>(1/2) * 1 in</code> のように書きます。</p></li>
+</ul>
+
+<h3 id="expression-errors">式の誤りの文</h3>
+<div class="table-wrap"><table>
+  <caption>よく出る誤り</caption>
+  <thead><tr><th>書き方</th><th>表の下に出る文</th></tr></thead>
+  <tbody>
+    <tr><th scope="row"><code>10 mm + 5 deg</code></th><td><code>'+' の次元が合いません: 長さ と 角度</code></td></tr>
+    <tr><th scope="row"><code>W / 0</code></th><td><code>'d' の式が正しくありません: 0 で割りました</code></td></tr>
+    <tr><th scope="row"><code>unknown_name * 2</code></th><td><code>名前 'unknown_name' は不明です</code></td></tr>
+    <tr><th scope="row"><code>d + (</code></th><td><code>式の構文の誤り: '(' が閉じられていません</code></td></tr>
+    <tr><th scope="row"><code>W</code> の式を <code>H</code>、<code>H</code> の式を <code>W</code></th><td><code>循環参照: W -&gt; H -&gt; W</code></td></tr>
+  </tbody>
+</table></div>
+<p>誤りは、確定の前に拒否されます。拒否された式は文書に入らず、形は変わりません。前のフィーチャから後ろのフィーチャの値を読む（履歴の前方参照）式も、拒否されます。</p>
+<aside class="tip" role="note"><p class="callout-title">ヒント</p><p>条件式の例: <span class="ui">［真偽値を追加］</span>で <code>wide</code> を <code>true</code> で作り、<code>d</code> の式を <code>if_(wide, 10 mm, 8 mm)</code> にします。<code>wide</code> を <code>false</code> にすると、穴径が <code>8 mm</code> に戻ります。<code>if_(W &gt; 100 mm, 10 mm, 8 mm)</code> のように、比較の結果を条件にしてもかまいません。</p></aside>
+
+<h2 id="driven"><span class="secno">10.6</span> 従動寸法（参照パラメータ）を式で読む</h2>
+<p>スケッチの寸法は、形を決める<strong>駆動寸法</strong>と、形から計測するだけの<strong>従動寸法</strong>（参照寸法。括弧付きで表示）に分けられます。従動寸法の値は<span class="ui">［参照パラメータ］</span>に出て、式から読めます。</p>
+<p>題材の<span class="ui doc">［板のスケッチ］</span>には、左下から右上への従動寸法 <code>diag</code> があり、<span class="ui doc">［中央の穴］</span>の直径が <code>diag / 10</code> で決まっています。板の幅 <code>W</code> を変えると、<code>diag</code> が変わり、中央の穴の直径も変わります。</p>
+<ol class="steps">
+  <li><p>寸法をつけるときに、HUD の<span class="ui">［従動（参照）］</span>を選ぶか、付けた寸法を選んで<span class="ui">［従動寸法の切替］</span>（スケッチの<span class="ui">［形式］</span>パネル）を押します。寸法が括弧付きになります。</p></li>
+  <li><p>パラメータの表の<span class="ui">［参照パラメータ］</span>に、その寸法が出ます。名前を付けると、式から名前で読めます。</p></li>
+</ol>
+<ul>
+  <li><p>参照パラメータの<span class="ui">［式］</span>は編集できません（セルをダブルクリックしても、入力欄になりません）。名前は変えられます。</p></li>
+  <li><p>同じスケッチの駆動寸法が、そのスケッチの従動寸法を式で読むと、循環になって拒否されます。</p></li>
+  <li><p>駆動寸法を従動寸法にすると、式は捨てられ、今の計測値が残ります。従動寸法を駆動寸法にすると、今の値が数値の寸法になります（式は戻りません）。</p></li>
+</ul>
+<aside class="inventor" role="note"><p class="callout-title">Inventor との違い</p><p>Inventor の参照パラメータ（括弧付きの寸法）と同じです。Inventor の「公称値・公差・モデル値」の列、パラメータの「キー」「エクスポート」のチェックは、mcad にはありません。</p></aside>
+
+<h2 id="naming"><span class="secno">10.7</span> 名前を付ける・変える</h2>
+<p>モデル パラメータの自動の名前（<code>d0</code>・<code>d1</code>…）は、ダブルクリックして自分の名前に変えられます。名前を付けると、式から読めます。ユーザー パラメータも同じ操作で名前を変えます。自動の名前は、ドキュメントを開いた時点で、寸法（従動寸法を含む）とフィーチャの数値の欄のすべてに付いています。</p>
+<ol class="steps">
+  <li><p>表の<span class="ui">［パラメータ名］</span>のセルをダブルクリックします。</p></li>
+  <li><p>名前を入力して <kbd>Enter</kbd> を押します。例えば押し出しの距離 <code>d5</code> を <code>plate_t</code> にします。</p></li>
+</ol>
+<ul>
+  <li><p><strong>名前を変えても、式は壊れません。</strong>その名前を読んでいる式の表示が、新しい名前に変わります（例: <code>n</code> を <code>count</code> にすると、<code>(W - 30 mm) / (n - 1)</code> が <code>(W - 30 mm) / (count - 1)</code> になります）。</p></li>
+  <li><p>自動の名前は、消しても詰めません（<code>d2</code> を消しても <code>d3</code> は <code>d3</code> のままで、番号は使い回しません）。</p></li>
+  <li><p>名前には日本語も使えます（<code>板厚</code>）。全角の英数字は半角に直されます。</p></li>
+</ul>
+<div class="table-wrap"><table>
+  <caption>使えない名前の例</caption>
+  <thead><tr><th>名前</th><th>理由・出る文</th></tr></thead>
+  <tbody>
+    <tr><th scope="row"><code>1x</code>・<code>_a</code>・<code>plate thickness</code></th><td>英字・数字・<code>_</code> を使い、数字や <code>_</code> で始めません（空白は使えません）</td></tr>
+    <tr><th scope="row"><code>if</code>・<code>pi</code>・<code>sin</code></th><td>式で使う語（<code>if</code>・<code>and</code>・<code>pi</code>・関数の名前など）です</td></tr>
+    <tr><th scope="row"><code>p3</code></th><td>「<code>'p3' は内部の ID のようです。別の名前にしてください</code>」</td></tr>
+    <tr><th scope="row"><code>W</code>・<code>d0</code></th><td>「<code>名前 'W' は既にパラメータで使われています</code>」「<code>名前 'd0' は既に寸法で使われています</code>」</td></tr>
+    <tr><th scope="row">65 文字以上</th><td>名前は 64 文字までです</td></tr>
+  </tbody>
+</table></div>
+
+<h2 id="dims"><span class="secno">10.8</span> 寸法の表示（値・名前・式）と fx:</h2>
+<p>スケッチと 3D ビューの寸法は、3 つの見せ方から選べます。スケッチを編集している間に、リボンの<span class="ui">［スケッチ］</span>タブ →<span class="ui">［形式］</span>パネルの▼にある次のコマンドで切り替えます。</p>
+<ul>
+  <li><p><span class="ui">［寸法を値で表示］</span>: 値（<code>120.00 mm</code>）</p></li>
+  <li><p><span class="ui">［寸法を名前で表示］</span>: 名前（<code>d0</code>）</p></li>
+  <li><p><span class="ui">［寸法を式で表示］</span>: 名前と式（<code>d0 = W</code>）</p></li>
+</ul>
+<figure id="fig-10_dim_value"><a class="zoom" href="images/10_dim_value.png"><img src="images/10_dim_value.png" alt="値の表示。式で決まる寸法の先頭に fx: が付きます。従動寸法は括弧付きです。" width="640" height="440" loading="lazy"></a><figcaption><span class="figno">図 10-8</span> 値の表示。式で決まる寸法の先頭に <code>fx:</code> が付きます。従動寸法は括弧付きです。</figcaption></figure>
+<figure id="fig-10_dim_name"><a class="zoom" href="images/10_dim_name.png"><img src="images/10_dim_name.png" alt="名前の表示。駆動寸法に自動の名前（d0・d1…）、従動寸法に付けた名前（diag）が出ます。" width="640" height="440" loading="lazy"></a><figcaption><span class="figno">図 10-9</span> 名前の表示。駆動寸法に自動の名前（<code>d0</code>・<code>d1</code>…）、従動寸法に付けた名前（<code>diag</code>）が出ます。</figcaption></figure>
+<figure id="fig-10_dim_expression"><a class="zoom" href="images/10_dim_expression.png"><img src="images/10_dim_expression.png" alt="式の表示。d0 = W のように名前と式が出ます。" width="640" height="440" loading="lazy"></a><figcaption><span class="figno">図 10-10</span> 式の表示。<code>d0 = W</code> のように名前と式が出ます。</figcaption></figure>
+<p><code>fx:</code> は、式（ほかのパラメータを参照する式）で値が決まる駆動寸法の印です。定数だけの寸法（<code>0 mm</code>）には付きません。寸法をダブルクリックして出る入力欄には、<code>fx:</code> を含まない式そのものが出ます。</p>
+
+<h2 id="csv"><span class="secno">10.9</span> CSV の書き出しと読み込み</h2>
+<p>パラメータの表は、CSV で書き出して表計算ソフトで編集し、読み込み直せます。たくさんの値を一度に変えたいときや、設計表にまとめたいときに使います。</p>
+<h3 id="csv-export">書き出す</h3>
+<ol class="steps">
+  <li><p>パラメータの表の<span class="ui">［CSV をエクスポート］</span>を押します。</p></li>
+  <li><p>保存先とファイル名を決めます（既定は <code>parameters.csv</code>）。</p>
+    <figure id="fig-10_params_csv"><a class="zoom" href="images/10_params_csv.png"><img src="images/10_params_csv.png" alt="書き出した後。表の下に、件数と保存先が出ます。" width="900" height="640" loading="lazy"></a><figcaption><span class="figno">図 10-11</span> 書き出した後。表の下に、件数と保存先が出ます。</figcaption></figure></li>
+</ol>
+<p>文字コードは BOM 付きの UTF-8 です（Excel でそのまま開けます）。見出しの行と、1 パラメータ 1 行です。<code>Unit/Type</code> の列は、画面の表示（<span class="ui">［整数］</span>・<span class="ui">［真偽値］</span>・<span class="ui">［テキスト］</span>）に関わらず、<code>Integer</code>・<code>True/False</code>・<code>Text</code> と書かれます。</p>
+<pre><code>Kind,Name,Unit/Type,Equation,Value,Comment
+model,d0,mm,W,120.00 mm,
+model,d12,Integer,n,4,
+reference,diag,mm,144.22 mm,144.22 mm,
+user,W,mm,120 mm,120.00 mm,plate width
+user,n,Integer,4,4,number of holes in the row</code></pre>
+<h3 id="csv-import">読み込む</h3>
+<ol class="steps">
+  <li><p>CSV を編集します。例えば <code>W</code> の <code>Equation</code> を <code>150 mm</code> に変え、末尾に <code>user,margin,mm,15 mm,,edge margin</code> の行を足します。</p></li>
+  <li><p>パラメータの表の<span class="ui">［CSV をインポート］</span>を押し、ファイルを選びます。</p></li>
+  <li><p>表の下に「<code>インポート: 1 個を追加、1 個を変更しました。</code>」と出て、モデルが再計算されます。</p></li>
+</ol>
+<ul>
+  <li><p>列は見出しの名前で決めます（<code>Kind</code>・<code>Name</code>・<code>Unit/Type</code>・<code>Equation</code>・<code>Value</code>・<code>Comment</code>）。列の順は問いません。文字コードは UTF-8 と Shift_JIS（CP932）を読めます。</p></li>
+  <li><p><code>user</code> の行は、名前があれば式・型・コメントを変え、無ければ新しく作ります。<code>model</code> の行は、今ある名前の式を変えます。<code>reference</code> の行は読み飛ばします。<code>Value</code> の列は無視します。</p></li>
+  <li><p><strong>全部か無か</strong>です。1 行でも誤りがあると、何も変えず、行番号つきで理由を出します（「<code>パラメータのファイルに誤りがあります（行: 理由）: 26: '+' の次元が合いません: 長さ と 角度</code>」）。</p></li>
+  <li><p>読み込みは 1 つの Undo の項目です。<kbd>Ctrl</kbd>+<kbd>Z</kbd> で、追加も変更もまとめて戻ります。</p></li>
+  <li><p>前の行が後の行の名前を読んでいても通ります（追加した行を、前の行から読めます）。</p></li>
+</ul>
+
+<h2 id="iproperties"><span class="secno">10.10</span> iProperties</h2>
+<p>iProperties は、パーツの品番・説明・材料・質量などの情報を持ちます。<span class="path">リボンの<span class="ui">［管理］</span>タブ → <span class="ui">［パラメータ］</span>パネル → <span class="ui">［iProperties］</span></span>で開きます。4 つのタブがあります。入力はすぐ文書に入り、1 つずつ Undo の項目になります。</p>
+<p>パラメータの表と同じに、iProperties も開いたまま、ビューやブラウザを操作できます。2 つは同時に開けて、パラメータの表で値を変えると、iProperties の<span class="ui">［結果］</span>も読み直されます。</p>
+<h3 id="iproperties-summary">概要・プロジェクト・物理</h3>
+<figure id="fig-10_iprops_summary"><a class="zoom" href="images/10_iprops_summary.png"><img src="images/10_iprops_summary.png" alt="［概要］のタブ。［作成者］と［コメント］は、ドキュメント全体のメタデータです。保存日時は、保存したファイルの日時です。" width="640" height="160" loading="lazy"></a><figcaption><span class="figno">図 10-12</span> <span class="ui">［概要］</span>のタブ。<span class="ui">［作成者］</span>と<span class="ui">［コメント］</span>は、ドキュメント全体のメタデータです。保存日時は、保存したファイルの日時です。</figcaption></figure>
+<figure id="fig-10_iprops_project"><a class="zoom" href="images/10_iprops_project.png"><img src="images/10_iprops_project.png" alt="［プロジェクト］のタブ。［部品番号］・［リビジョン番号］・［説明］・［設計者］を入力します。" width="640" height="190" loading="lazy"></a><figcaption><span class="figno">図 10-13</span> <span class="ui">［プロジェクト］</span>のタブ。<span class="ui">［部品番号］</span>・<span class="ui">［リビジョン番号］</span>・<span class="ui">［説明］</span>・<span class="ui">［設計者］</span>を入力します。</figcaption></figure>
+<figure id="fig-10_iprops_physical"><a class="zoom" href="images/10_iprops_physical.png"><img src="images/10_iprops_physical.png" alt="［物理］のタブ。材料と質量が出ます。［材料］・［物理プロパティ］のボタンで、それぞれのダイアログを開きます（第 12 章）。iProperties は開いたままです。" width="640" height="130" loading="lazy"></a><figcaption><span class="figno">図 10-14</span> <span class="ui">［物理］</span>のタブ。材料と質量が出ます。<span class="ui">［材料］</span>・<span class="ui">［物理プロパティ］</span>のボタンで、それぞれのダイアログを開きます（<a href="12_inspect.html">第 12 章</a>）。iProperties は開いたままです。</figcaption></figure>
+<h3 id="iproperties-custom">ユーザー定義のプロパティと質量へのリンク</h3>
+<p><span class="ui">［ユーザー定義］</span>のタブには、自分で名前を付けたプロパティを並べます。列は<span class="ui">［名前］</span>・<span class="ui">［種類］</span>・<span class="ui">［値］</span>・<span class="ui">［結果］</span>です。</p>
+<figure id="fig-10_iprops_custom"><a class="zoom" href="images/10_iprops_custom.png"><img src="images/10_iprops_custom.png" alt="［ユーザー定義］のタブ。mass はmass()（質量へのリンク）、plate_width は W を読みます。［結果］に、計算した値が出ます。" width="640" height="360" loading="lazy"></a><figcaption><span class="figno">図 10-15</span> <span class="ui">［ユーザー定義］</span>のタブ。<code>mass</code> は<code>mass()</code>（質量へのリンク）、<code>plate_width</code> は <code>W</code> を読みます。<span class="ui">［結果］</span>に、計算した値が出ます。</figcaption></figure>
+<ol class="steps">
+  <li><p><span class="ui">［追加］</span>を押します。<code>Property1</code> のような行ができます。</p></li>
+  <li><p><span class="ui">［名前］</span>・<span class="ui">［値］</span>のセルをダブルクリックして入力します。<span class="ui">［種類］</span>は、<span class="ui">［テキスト］</span>・<span class="ui">［数値］</span>・<span class="ui">［はい/いいえ］</span>から選びます。</p></li>
+  <li><p><span class="ui">［数値］</span>の値は式です。パラメータの名前（<code>W * 2</code>）や、次の関数を書けます。<span class="ui">［結果］</span>に値が出ます。</p></li>
+</ol>
+<div class="table-wrap"><table>
+  <caption>プロパティの式で使える結果の関数</caption>
+  <thead><tr><th>関数</th><th>値</th></tr></thead>
+  <tbody>
+    <tr><th scope="row"><code>mass()</code></th><td>質量（材料の密度を掛けた値）</td></tr>
+    <tr><th scope="row"><code>volume()</code></th><td>体積</td></tr>
+    <tr><th scope="row"><code>area()</code></th><td>表面積</td></tr>
+    <tr><th scope="row"><code>bbox_x()</code> <code>bbox_y()</code> <code>bbox_z()</code></th><td>外接箱（軸に平行な箱）の X・Y・Z の大きさ</td></tr>
+    <tr><th scope="row"><code>cog_x()</code> <code>cog_y()</code> <code>cog_z()</code></th><td>重心の X・Y・Z の位置</td></tr>
+    <tr><th scope="row"><code>body_attr("名前空間", "キー")</code></th><td>プラグインがボディに書いた属性の値。その名前空間のキーを持つボディが 1 つか、全部のボディが同じ値のときだけ値になります。違うときや無いときは、<span class="ui">［結果］</span>が<span class="ui">［エラー］</span>になります</td></tr>
+  </tbody>
+</table></div>
+<ul>
+  <li><p><span class="ui">［質量にリンク］</span>のボタンを押すと、<code>Mass</code> という名前の <code>mass()</code> の行が足されます（使われていれば <code>Mass2</code>…）。</p></li>
+  <li><p><span class="ui">［結果］</span>は、ワーカーが質量を計算してから出ます（それまでは <span class="ui">［N/A］</span>）。形・材料・パラメータを変えると、追従して変わります。</p></li>
+  <li><p><span class="ui">［種類］</span>を<span class="ui">［はい/いいえ］</span>にすると、値は <code>yes</code>・<code>no</code> です。</p></li>
+  <li><p>プロパティは文書に保存されます。構成（<a href="11_configurations.html">第 11 章</a>）ごとに値を変えることもできます。</p></li>
+  <li><p>削除するには、行を選んで<span class="ui">［削除］</span>を押します（値を空にしても消えます）。</p></li>
+</ul>
+<aside class="note" role="note"><p class="callout-title">注意</p><p>形状・スケッチ・パラメータの式から、<code>mass()</code> などの結果の関数は読めません（形を決める式が、形の結果を読むと循環になるためです）。結果の関数は、iProperties の式でだけ使えます。</p></aside>
+
+<h2 id="next"><span class="secno">10.11</span> 次に読む章</h2>
+<ul>
+  <li><p>パラメータの値を何通りか切り替えて、まとめて書き出すとき: <a href="11_configurations.html">第 11 章 構成</a></p></li>
+  <li><p>質量・材料を確かめるとき: <a href="12_inspect.html">第 12 章 検査</a></p></li>
+  <li><p>コマンドラインでパラメータの値を指定して書き出すとき: <a href="28_automation.html">第 28 章 自動化</a></p></li>
+</ul>
+<aside class="try"><p class="callout-title">この機能を試す</p><p class="try-sample">題材: <code>samples/parametric_plate.mcad</code> （<a href="00_intro.html#samples">題材の一覧と開き方</a>）</p>
+  <p>パラメータの表を開き、<code>W</code> の式を <code>150 mm</code>、<code>n</code> を <code>6</code>、<code>d</code> を <code>10 mm</code> にします。板の寸法・穴の個数と間隔・穴径が付いてきて、<code>diag</code> が変わり、中央の穴の直径も変わります。<code>W</code> に <code>1.5 * H + 30 mm</code> のような式も書けます。<code>n</code> を <code>1</code> にすると、間隔の式が 0 で割れて<span class="ui doc">［矩形状パターン1］</span>がエラーになります（戻せば直ります）。<span class="ui">［数値を追加］</span>で <code>margin</code> を <code>15 mm</code> で作り、<span class="ui doc">［穴の列のスケッチ］</span>の水平距離の寸法に <code>margin</code> と入力すると、穴の位置が <code>margin</code> に従います。<span class="ui">［未使用を消去］</span>で使っていないパラメータが消え、使っているものは消せません。<span class="ui">［CSV をエクスポート］</span>で書き出し、<code>W</code> の式を変えて<span class="ui">［CSV をインポート］</span>で読み込みます。最後に<span class="ui">［iProperties］</span>の<span class="ui">［ユーザー定義］</span>で、<code>mass</code> の<span class="ui">［結果］</span>が <code>W</code> や <code>T</code> に追従することを確かめます。パラメータの表を開いたまま<span class="ui">［iProperties］</span>も開き、表で <code>W</code> を変えると、<span class="ui">［結果］</span>がすぐに変わります。</p>
+</aside>
+
+</article>
+<nav class="pager" aria-label="前後の章"><a class="prev" rel="prev" href="09_browser.html"><span class="dir">前の章</span>第 9 章 ブラウザとフィーチャの管理</a><a class="next" rel="next" href="11_configurations.html"><span class="dir">次の章</span>第 11 章 構成</a></nav>
+<footer class="footer"><p>EMRM-Studio ユーザーマニュアル（日本語）・EMRM-Studio 0.1.0 ・ <a href="#main">このページの先頭へ</a></p></footer>
+</main>
+</div>
+</body>
+</html>

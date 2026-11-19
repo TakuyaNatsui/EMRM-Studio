@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="generator" content="tools/build_manual.py">
+<title>はじめに - EMRM-Studio ユーザーマニュアル</title>
+<link rel="stylesheet" href="assets/manual.css">
+<script src="assets/search_index.js" charset="utf-8" defer></script>
+<script src="assets/manual.js" charset="utf-8" defer></script>
+</head>
+<body class="page">
+<header class="topbar">
+<a class="brand" href="index.html">EMRM-Studio ユーザーマニュアル</a>
+<button class="toc-toggle" type="button" aria-controls="toc" aria-expanded="false">目次</button>
+<form class="search" role="search" action="#" onsubmit="return false">
+<input id="q" type="search" placeholder="マニュアルを検索（/）" aria-label="マニュアルを検索" autocomplete="off">
+</form>
+</header>
+<div id="search-results" class="search-results" hidden></div>
+<div class="layout">
+<nav id="toc" class="toc" aria-label="目次">
+<details class="toc-box">
+<summary>目次</summary>
+<ol class="toc-chapters">
+<li class="toc-home"><a href="index.html">表紙・目次</a></li>
+<li class="current"><a href="00_intro.html" aria-current="page">はじめに</a><ol class="toc-sections"><li><a href="00_intro.html#about">このマニュアルについて</a></li><li><a href="00_intro.html#notation">読み方と表記</a></li><li><a href="00_intro.html#requirements">動作環境</a></li><li><a href="00_intro.html#start">起動する</a></li><li><a href="00_intro.html#first-run">初回起動の質問</a></li><li><a href="00_intro.html#samples">試用の題材</a></li><li><a href="00_intro.html#help">ヘルプとマニュアル</a></li></ol></li>
+<li class="toc-part" role="presentation">第 I 部　形状を作る（CAD）</li>
+<li><a href="01_screen.html"><span class="chno">第 1 章</span> 画面の構成</a></li>
+<li><a href="02_view.html"><span class="chno">第 2 章</span> 視点の操作</a></li>
+<li><a href="03_first_part.html"><span class="chno">第 3 章</span> はじめての部品</a></li>
+<li><a href="04_sketch.html"><span class="chno">第 4 章</span> スケッチ</a></li>
+<li><a href="05_work_features.html"><span class="chno">第 5 章</span> 作業フィーチャ</a></li>
+<li><a href="06_features_basic.html"><span class="chno">第 6 章</span> フィーチャ（押し出し・回転・穴・フィレットなど）</a></li>
+<li><a href="07_features_advanced.html"><span class="chno">第 7 章</span> フィーチャ（スイープ・ロフト・コイル・パターンなど）</a></li>
+<li><a href="08_bodies.html"><span class="chno">第 8 章</span> ボディの操作</a></li>
+<li><a href="09_browser.html"><span class="chno">第 9 章</span> ブラウザとフィーチャの管理</a></li>
+<li><a href="10_parameters.html"><span class="chno">第 10 章</span> パラメータと式</a></li>
+<li><a href="11_configurations.html"><span class="chno">第 11 章</span> 構成</a></li>
+<li><a href="12_inspect.html"><span class="chno">第 12 章</span> 検査</a></li>
+<li><a href="13_files.html"><span class="chno">第 13 章</span> ファイル</a></li>
+<li class="toc-part" role="presentation">第 II 部　電磁場解析</li>
+<li><a href="14_em_intro.html"><span class="chno">第 14 章</span> 電磁場解析のはじめに</a></li>
+<li><a href="15_em_first.html"><span class="chno">第 15 章</span> はじめての電磁場解析（ソレノイド）</a></li>
+<li><a href="16_em_setup.html"><span class="chno">第 16 章</span> スタディの共通の設定</a></li>
+<li><a href="17_em_results.html"><span class="chno">第 17 章</span> 結果の見方</a></li>
+<li><a href="18_em_magnetostatic.html"><span class="chno">第 18 章</span> 静磁場解析</a></li>
+<li><a href="19_em_coils.html"><span class="chno">第 19 章</span> 静磁場解析: コイル</a></li>
+<li><a href="20_em_dipole.html"><span class="chno">第 20 章</span> 静磁場解析の例題: H 型双極電磁石</a></li>
+<li><a href="21_em_eigenmode.html"><span class="chno">第 21 章</span> 共振モード解析</a></li>
+<li><a href="22_em_driven.html"><span class="chno">第 22 章</span> ポート解析</a></li>
+<li><a href="23_em_electrostatic.html"><span class="chno">第 23 章</span> 静電場解析</a></li>
+<li><a href="24_em_gun.html"><span class="chno">第 24 章</span> 電子銃解析</a></li>
+<li><a href="25_em_troubleshooting.html"><span class="chno">第 25 章</span> 電磁場解析で困ったとき</a></li>
+<li class="toc-part" role="presentation">第 III 部　連携・カスタマイズ・自動化</li>
+<li><a href="26_step_export.html"><span class="chno">第 26 章</span> 他の解析プログラムに形を渡す</a></li>
+<li><a href="27_customize.html"><span class="chno">第 27 章</span> カスタマイズ</a></li>
+<li><a href="28_automation.html"><span class="chno">第 28 章</span> 自動化</a></li>
+<li><a href="29_troubleshooting.html"><span class="chno">第 29 章</span> 困ったとき</a></li>
+<li class="toc-part" role="presentation">付録</li>
+<li class="appendix"><a href="appendix_a_commands.html"><span class="chno">付録 A</span> コマンド一覧</a></li>
+<li class="appendix"><a href="appendix_b_shortcuts.html"><span class="chno">付録 B</span> ショートカット一覧</a></li>
+<li class="appendix"><a href="appendix_c_feature_params.html"><span class="chno">付録 C</span> フィーチャのパラメータ一覧</a></li>
+<li class="appendix"><a href="appendix_d_glossary.html"><span class="chno">付録 D</span> 用語の対応表</a></li>
+</ol>
+</details>
+</nav>
+<main class="content" id="main">
+<article class="chapter ">
+<h1>はじめに</h1>
+<nav class="pagetoc" aria-label="この章の内容">
+<p class="pagetoc-title">この章の内容</p>
+<ol>
+<li><a href="#about">このマニュアルについて</a></li>
+<li><a href="#notation">読み方と表記</a></li>
+<li><a href="#requirements">動作環境</a></li>
+<li><a href="#start">起動する</a></li>
+<li><a href="#first-run">初回起動の質問</a></li>
+<li><a href="#samples">試用の題材</a></li>
+<li><a href="#help">ヘルプとマニュアル</a></li>
+</ol>
+</nav>
+<p>EMRM-Studio は、パラメトリックな 3D CAD（mcad）と、その形状で解く 3 次元の電磁場解析（有限要素法）を一つにしたソフトウェアです。加速器のマグネット・加速空洞・カプラー・電子銃の電極の設計に使います。この章では、マニュアルの読み方、動作環境、起動の方法、初めて起動したときの質問、試して遊べる題材の場所を説明します。</p>
+
+<h2 id="about">このマニュアルについて</h2>
+<p>このマニュアルは、EMRM-Studio の機能を<strong>画面を見ながら順に試す</strong>ために書いています。CAD の操作の用語・リボンの並び・キーは Autodesk Inventor（日本語版）に合わせてあります。Inventor と違うところは、<strong>Inventor との違い</strong>の囲みで知らせます。</p>
+<p>マニュアルは 3 つの部に分かれています。形状を作る CAD（第 I 部）、その形状で解く電磁場解析（第 II 部）、ほかのプログラムとの連携・カスタマイズ・自動化（第 III 部）です。電磁場解析を初めて使うときは、<a href="14_em_intro.html">第 14 章</a>で解析の種類（スタディ）を見てから、<a href="15_em_first.html">第 15 章</a>の例題を試してください。</p>
+<p>今の版は、単品の部品を作る CAD と、静磁場・共振モード・ポート解析・静電場・電子銃の 5 種類のスタディに対応しています。アセンブリと図面は含みません。</p>
+<div class="table-wrap"><table>
+  <caption>章の構成</caption>
+  <thead><tr><th>章</th><th>内容</th></tr></thead>
+  <tbody>
+    <tr><th scope="row"><a href="01_screen.html">第 1 章</a>・<a href="02_view.html">第 2 章</a></th><td>画面の構成と視点の操作: リボン、ブラウザ、プロパティ パネル、ステータスバー、マウス、ViewCube</td></tr>
+    <tr><th scope="row"><a href="03_first_part.html">第 3 章</a></th><td>はじめての部品: 穴付きの板を一から作る（チュートリアル）</td></tr>
+    <tr><th scope="row">第 4〜13 章</th><td>CAD の機能: スケッチ、作業フィーチャ、フィーチャ、ボディ、ブラウザ、パラメータ、構成、検査、ファイル</td></tr>
+    <tr><th scope="row"><a href="14_em_intro.html">第 14 章</a>・<a href="15_em_first.html">第 15 章</a></th><td>電磁場解析のはじめに（スタディの種類と選び方）と、はじめての電磁場解析（ソレノイドの例題）</td></tr>
+    <tr><th scope="row">第 16・17 章</th><td>スタディの共通の設定（材料・対称面・メッシュ・実行）と、結果の見方</td></tr>
+    <tr><th scope="row">第 18〜24 章</th><td>スタディごとの説明: 静磁場（コイル・双極電磁石の例題）、共振モード、ポート解析、静電場（電子銃の電極の例題）、電子銃（ビームの例題）</td></tr>
+    <tr><th scope="row"><a href="25_em_troubleshooting.html">第 25 章</a></th><td>電磁場解析で困ったとき</td></tr>
+    <tr><th scope="row">第 25〜29 章</th><td>他の解析プログラムに形を渡す（名前付き STEP）、カスタマイズ、自動化、困ったとき</td></tr>
+    <tr><th scope="row">付録 A〜D</th><td>コマンド・ショートカット・フィーチャのパラメータの一覧（アプリの定義から自動で作ります）、用語の対応表</td></tr>
+  </tbody>
+</table></div>
+
+<h2 id="notation">読み方と表記</h2>
+<p>手順は番号を付けて書きます。画面に出る名前（ボタン・タブ・欄・ダイアログなど）は、<span class="ui">［押し出し］</span>のように囲みます。キーは <kbd>Ctrl</kbd>+<kbd>S</kbd> のように書きます。</p>
+<ol class="steps">
+  <li><p><span class="path">リボンの<span class="ui">［3D モデル］</span>タブ → <span class="ui">［作成］</span>パネル → <span class="ui">［押し出し］</span></span>をクリックします。</p></li>
+  <li><p>プロパティ パネルの<span class="ui">［距離 A］</span>に <code>10</code> と入力します。</p></li>
+  <li><p><kbd>Enter</kbd> で確定します。</p></li>
+</ol>
+<p>リボンの場所は「タブ → パネル → ボタン」の順に書きます。ボタンの<strong>▼</strong>はドロップダウンで、中に同じ仲間のコマンドが入っています。囲みは 3 種類あります。</p>
+<aside class="note" role="note"><p class="callout-title">注意</p><p>元に戻せない操作や、間違えやすい点です。</p></aside>
+<aside class="tip" role="note"><p class="callout-title">ヒント</p><p>知っていると便利なことです。</p></aside>
+<aside class="inventor" role="note"><p class="callout-title">Inventor との違い</p><p>Inventor との違いです。Inventor と動作が違うとき、あるいは Inventor にない機能のときに書きます。</p></aside>
+<p>「この機能を試す」の囲みは、<a href="#samples">試用の題材</a>のどれで試せるかを示します。</p>
+<aside class="try"><p class="callout-title">この機能を試す</p><p class="try-sample">題材: <code>samples/plate_with_holes.mcad</code> （<a href="00_intro.html#samples">題材の一覧と開き方</a>）</p>
+  <p>題材を開き、画面の写真と同じものが見えることを確かめます。</p>
+</aside>
+<p>ページの上の検索欄（<kbd>/</kbd> で入力欄に移ります）で、マニュアル全体から言葉を探せます。左の目次で章と節を選べます。幅の狭い画面では目次が畳まれ、<strong>目次</strong>のボタンで開きます。印刷すると、目次や検索を除いた本文だけが出ます。</p>
+
+<h2 id="requirements">動作環境</h2>
+<div class="table-wrap"><table>
+  <thead><tr><th>項目</th><th>内容</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">OS</th><td>Windows 11（64 bit）</td></tr>
+    <tr><th scope="row">GPU</th><td>OpenGL 3.2 以上のドライバが使えること。ソフトウェア OpenGL（GPU の無い仮想マシンなど）には対応していません</td></tr>
+    <tr><th scope="row">画面</th><td>リボンは、幅が足りないと右のパネルから小さいボタンの名前を省き、さらに狭いとパネルを畳みます（押すとそのパネルのコマンドのメニューが出ます）。このマニュアルの写真は幅 1400 px の窓で撮っています</td></tr>
+    <tr><th scope="row">開発版の実行</th><td>Python 3.13。依存するライブラリはリポジトリの <code>README.md</code> と <code>requirements-lock.txt</code> にあります</td></tr>
+  </tbody>
+</table></div>
+<aside class="note" role="note"><p class="callout-title">注意</p><p>起動のときに別のプロセスで OpenGL を調べます（約 2 秒）。使えない環境では、案内を出して終了します（終了コード 3）。</p></aside>
+
+<h2 id="start">起動する</h2>
+<p>開発版はコマンドラインから起動します。</p>
+<ol class="steps">
+  <li><p>PowerShell でリポジトリのフォルダに移り、<code>$env:PYTHONPATH = "src"</code> としてから <code>python -m emrm</code> を実行します。</p></li>
+  <li><p>空のドキュメント（タブの名前は「無題 1」）のウィンドウが開きます。ここから部品を作ります。</p>
+    <figure id="fig-00_window_blank"><a class="zoom" href="images/00_window_blank.png"><img src="images/00_window_blank.png" alt="起動直後の画面。左にブラウザとプロパティ パネル、中央に 3D ビュー、上にリボンがあります。" width="1000" height="643" loading="lazy"></a><figcaption><span class="figno">図 0-1</span> 起動直後の画面。左にブラウザとプロパティ パネル、中央に 3D ビュー、上にリボンがあります。</figcaption></figure></li>
+</ol>
+<p>起動のときにオプションで状態を決められます。</p>
+<div class="table-wrap"><table>
+  <caption>主な起動オプション</caption>
+  <thead><tr><th>コマンド</th><th>動作</th></tr></thead>
+  <tbody>
+    <tr><th scope="row"><code>python -m emrm --open examples\solenoid.emrm</code></th><td>ドキュメントを開いて起動します。繰り返し指定すると複数を開きます（<code>.emrm</code> のほか mcad の <code>.mcad</code> も開けます）</td></tr>
+    <tr><th scope="row"><code>python -m emrm --language en</code></th><td>表示言語を英語にします（<code>ja</code> は日本語。既定は日本語）</td></tr>
+    <tr><th scope="row"><code>python -m emrm --theme dark</code></th><td>ダークのテーマにします（<code>light</code> は明るいテーマ。既定は明るい）</td></tr>
+    <tr><th scope="row"><code>python -m emrm --demo</code></th><td>見本の部品（矩形 → 押し出し → 穴 → フィレット）を作って表示します</td></tr>
+    <tr><th scope="row"><code>python -m emrm --data-dir フォルダ</code></th><td>設定・ログ・キャッシュを別のフォルダに置きます（試すだけのとき便利です）</td></tr>
+    <tr><th scope="row"><code>python -m emrm --recover keep</code></th><td>前回の異常終了で残ったドキュメントの扱い（<code>ask</code>・<code>open</code>・<code>overwrite</code>・<code>discard</code>・<code>keep</code>）を、尋ねずに決めます</td></tr>
+  </tbody>
+</table></div>
+<p>設定とウィンドウの配置は <code>%APPDATA%\EMRM-Studio\</code>、ログとキャッシュは <code>%LOCALAPPDATA%\EMRM-Studio\</code> に保存されます。<code>--data-dir</code> を付けると、その下に作ります。</p>
+<aside class="tip" role="note"><p class="callout-title">ヒント</p><p>コマンドラインだけで使う機能（ドキュメントの再計算の確認・STEP への変換）は<a href="28_automation.html">第 28 章</a>にあります。</p></aside>
+
+<h2 id="first-run">初回起動の質問</h2>
+<p>初めて起動すると、ウィンドウの上に「普段使っている CAD」を 1 つだけ尋ねるダイアログが出ます。マウスで視点を動かす操作を、その CAD に合わせるための質問です。</p>
+<figure id="fig-00_first_run"><a class="zoom" href="images/00_first_run.png"><img src="images/00_first_run.png" alt="初回起動のダイアログ。左の一覧で CAD を選ぶと、右にそのマウス操作の早見表が出ます。" width="760" height="460" loading="lazy"></a><figcaption><span class="figno">図 0-2</span> 初回起動のダイアログ。左の一覧で CAD を選ぶと、右にそのマウス操作の早見表が出ます。</figcaption></figure>
+<ol class="steps">
+  <li><p>左の一覧から普段使っている CAD を選びます。迷うときは、初めから選ばれている<span class="ui">［Inventor 風］</span>のままにします。</p></li>
+  <li><p><span class="ui">［OK］</span>を押します。</p></li>
+</ol>
+<p><span class="ui">［その他／あとで選ぶ］</span>を選ぶか、<kbd>Esc</kbd> で閉じると、設定は変わらず（<span class="ui">［Inventor 風］</span>のまま）、この質問は 2 回目から出ません。あとから、ステータスバーの右端のマウスのボタンか、<span class="path">リボンの<span class="ui">［ツール］</span>タブ → <span class="ui">［オプション］</span>パネル → <span class="ui">［オプション］</span></span>の<span class="ui">［マウスと視点の操作］</span>のページでいつでも変えられます。詳しくは<a href="02_view.html#mouse">第 2 章</a>と<a href="27_customize.html">第 27 章</a>にあります。</p>
+<aside class="inventor" role="note"><p class="callout-title">Inventor との違い</p><p><span class="ui">［Inventor 風］</span>では、マウスの動きが Inventor と同じです。中ドラッグで画面移動、<kbd>Shift</kbd> を押しながら中ドラッグでオービット、ホイールでズーム（前に回すとズームアウト）です。</p></aside>
+
+<h2 id="samples">試用の題材</h2>
+<p>リポジトリの <code>samples/</code> フォルダに、CAD の機能を試すためのドキュメントを置いてあります（電磁場解析の例題は <code>examples/</code> にあります。<a href="14_em_intro.html#examples">第 14 章</a>）。<span class="ui">［開く］</span>か、起動のときの <code>--open</code> で開きます。いちど開いた（保存した）ドキュメントは、リボンの<span class="ui">［ファイル］</span>の<span class="ui">［最近使ったドキュメント］</span>からも開けます（<a href="01_screen.html#qat-recent">第 1 章</a>）。</p>
+<pre><code>python -m emrm --open samples/plate_with_holes.mcad</code></pre>
+<figure id="fig-00_window_sample"><a class="zoom" href="images/00_window_sample.png"><img src="images/00_window_sample.png" alt="plate_with_holes.mcad を開いたところ。ブラウザにフィーチャが並び、ビューに板が出ます。" width="1000" height="643" loading="lazy"></a><figcaption><span class="figno">図 0-3</span> <code>plate_with_holes.mcad</code> を開いたところ。ブラウザにフィーチャが並び、ビューに板が出ます。</figcaption></figure>
+<div class="table-wrap"><table>
+  <caption>題材の一覧（各章の「この機能を試す」が使います）</caption>
+  <thead><tr><th>ファイル</th><th>内容</th><th>使う章</th></tr></thead>
+  <tbody>
+    <tr><th scope="row"><code>plate_with_holes.mcad</code></th><td>穴付きの板（100 × 60 × 10、φ10 の貫通穴 4 つ、フィレットと面取り）</td><td>第 1・2・3・6・12 章</td></tr>
+    <tr><th scope="row"><code>stepped_shaft.mcad</code></th><td>段付きの軸（回転）</td><td>第 2・6 章</td></tr>
+    <tr><th scope="row"><code>measure_and_material.mcad</code></th><td>2 つのボディ（鋼とアルミ）、計測、わざと作った形の問題</td><td>第 2・12 章</td></tr>
+    <tr><th scope="row"><code>housing.mcad</code></th><td>ハウジング（シェル・勾配・リブ・フィレット）</td><td>第 6 章</td></tr>
+    <tr><th scope="row"><code>flange.mcad</code></th><td>フランジ（円形状パターン）</td><td>第 7 章</td></tr>
+    <tr><th scope="row"><code>l_bracket.mcad</code></th><td>L ブラケット（リブ・ミラー）</td><td>第 7 章</td></tr>
+    <tr><th scope="row"><code>sketch_projection.mcad</code></th><td>スケッチの投影・楕円・スプライン・文字</td><td>第 4 章</td></tr>
+    <tr><th scope="row"><code>primitives.mcad</code></th><td>プリミティブ（直方体・円柱・球）</td><td>第 6 章</td></tr>
+    <tr><th scope="row"><code>pipe_sweep.mcad</code>・<code>loft_transition.mcad</code>・<code>coil_spring.mcad</code></th><td>スイープ（パイプ）・ロフト（ダクトの継手）・コイル（二重ばね）</td><td>第 7・10 章</td></tr>
+    <tr><th scope="row"><code>jis_holes.mcad</code></th><td>JIS の規格穴・ねじ・可変半径のフィレット</td><td>第 6・7 章</td></tr>
+    <tr><th scope="row"><code>parametric_plate.mcad</code></th><td>ユーザー パラメータと式で決まる板</td><td>第 10 章</td></tr>
+    <tr><th scope="row"><code>split_bodies.mcad</code></th><td>金型の割り型（ボディの結合・分割・移動、名前付き STEP）</td><td>第 8・24 章</td></tr>
+    <tr><th scope="row"><code>imported_parts.mcad</code> と <code>import/</code></th><td>STEP・BREP・STL の取り込みと修復</td><td>第 13 章</td></tr>
+  </tbody>
+</table></div>
+<aside class="note" role="note"><p class="callout-title">注意</p><p>題材は上書きしないで、名前を付けて保存してから試すと安全です。わざと失敗させる試しの後は、値を戻すか <kbd>Ctrl</kbd>+<kbd>Z</kbd> で戻します。題材は <code>python tools/make_samples.py</code> で作り直せます。</p></aside>
+
+<h2 id="help">ヘルプとマニュアル</h2>
+<p>アプリの中からも、このマニュアルとコマンドの説明を開けます。</p>
+<ul>
+  <li><p>リボンの右端の<span class="ui">［ヘルプ］</span>（<strong>?</strong>）のメニューから<span class="ui">［ユーザーマニュアル］</span>を選ぶと、このマニュアルが既定のブラウザで開きます。</p></li>
+  <li><p>リボンのボタンの上にマウスを置いて <kbd>F1</kbd> を押すと、そのコマンドの説明（キー・リボンの場所・使えるモード）が出ます。説明の<span class="ui">［マニュアルで詳しく］</span>を押すと、<a href="appendix_a_commands.html">付録 A のコマンド一覧</a>の、そのコマンドの行が開きます。</p></li>
+  <li><p>何もない所で <kbd>F1</kbd> を押すと、全コマンドの一覧（検索できます）が出ます。</p></li>
+</ul>
+<figure id="fig-00_help_menu"><a class="zoom" href="images/00_help_menu.png"><img src="images/00_help_menu.png" alt="リボンの右端の［ヘルプ］のメニュー。［ユーザーマニュアル］がこのマニュアルを開きます。" width="205" height="126" loading="lazy"></a><figcaption><span class="figno">図 0-4</span> リボンの右端の<span class="ui">［ヘルプ］</span>のメニュー。<span class="ui">［ユーザーマニュアル］</span>がこのマニュアルを開きます。</figcaption></figure>
+<p>マニュアルは日本語です。表示言語を英語にしても、マニュアルは日本語のものを開きます。</p>
+
+</article>
+<nav class="pager" aria-label="前後の章"><span class="prev"></span><a class="next" rel="next" href="01_screen.html"><span class="dir">次の章</span>第 1 章 画面の構成</a></nav>
+<footer class="footer"><p>EMRM-Studio ユーザーマニュアル（日本語）・EMRM-Studio 0.1.0 ・ <a href="#main">このページの先頭へ</a></p></footer>
+</main>
+</div>
+</body>
+</html>

@@ -1,0 +1,366 @@
+/* ユーザーマニュアルの見た目（外部の CDN・Web フォントは使わない。OS の日本語フォントで表示する）。
+   原稿（docs/manual_src/ja/*.html）はこの CSS の class だけを使う。部品の書き方は docs/manual_src/STYLE.md。
+   EMRM-Studio の fork: 部の見出し（.toc-part・.contents .part）、表紙のスタディのカード（.studies）、スタディの種類の色の印
+   （.study-<種類>・.badge-study）を足した。 */
+
+:root {
+  --bg: #ffffff;
+  --bg-soft: #f4f6fa;
+  --fg: #1d2330;
+  --muted: #566074;
+  --line: #d9dee8;
+  --accent: #1f5fa8;
+  --accent-soft: #e6eefa;
+  --on-accent: #ffffff;
+  --bar-bg: #1f5fa8;
+  --bar-fg: #ffffff;
+  --link: #1757a6;
+  --code-bg: #edf0f6;
+  --ui-bg: #e6eefb;
+  --ui-fg: #0f3f78;
+  --ui-line: #b4c9e8;
+  --note: #a24b00;
+  --note-bg: #fff3e3;
+  --tip: #0f6b36;
+  --tip-bg: #e8f6ee;
+  --inventor: #5a3aa5;
+  --inventor-bg: #f0ecfa;
+  --try: #0a6573;
+  --try-bg: #e3f4f6;
+  --todo-bg: #ffef9a;
+  --todo-line: #b98300;
+  --target-bg: #fff6c2;
+  --shadow: 0 6px 24px rgba(20, 30, 50, 0.18);
+  /* スタディの種類の色（表紙のカード・本文の印。物理タブの面の色・アイコンの色に合わせる） */
+  --study-magnetostatic: #b8732e;
+  --study-eigenmode: #2f6fd6;
+  --study-driven: #ea6c0a;
+  --study-electrostatic: #7c3aed;
+  --study-trajectory: #16a34a;
+  --topbar-h: 3.2rem;
+  --font: "Yu Gothic UI", "Meiryo UI", "Meiryo", "Hiragino Sans", "Noto Sans CJK JP", system-ui, -apple-system,
+    "Segoe UI", sans-serif;
+  --mono: "Cascadia Mono", "Consolas", "BIZ UDGothic", "MS Gothic", monospace;
+  color-scheme: light dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #171a21;
+    --bg-soft: #1f232d;
+    --fg: #e3e7ef;
+    --muted: #9aa5ba;
+    --line: #333a48;
+    --accent: #6ea8f0;
+    --accent-soft: #223149;
+    --on-accent: #0c1626;
+    --bar-bg: #1d3a63;
+    --bar-fg: #f2f6fc;
+    --link: #8bb9f5;
+    --code-bg: #262c39;
+    --ui-bg: #233149;
+    --ui-fg: #b9d5ff;
+    --ui-line: #40557a;
+    --note: #ffb867;
+    --note-bg: #34281a;
+    --tip: #7fdba2;
+    --tip-bg: #1a2d22;
+    --inventor: #c3adff;
+    --inventor-bg: #2a2440;
+    --try: #70d4e2;
+    --try-bg: #173036;
+    --todo-bg: #5a4a00;
+    --todo-line: #d9a400;
+    --target-bg: #3a3516;
+    --shadow: 0 6px 24px rgba(0, 0, 0, 0.5);
+    --study-magnetostatic: #e0a061;
+    --study-eigenmode: #77a9f5;
+    --study-driven: #fb9a4b;
+    --study-electrostatic: #b49cff;
+    --study-trajectory: #5fd38c;
+  }
+}
+
+* { box-sizing: border-box; }
+html { scroll-padding-top: calc(var(--topbar-h) + 0.8rem); }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font);
+  font-size: 16px;
+  line-height: 1.85;
+  -webkit-text-size-adjust: 100%;
+}
+a { color: var(--link); text-underline-offset: 0.18em; }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* ---- 上部の帯 ---- */
+.topbar {
+  position: sticky; top: 0; z-index: 30;
+  display: flex; align-items: center; gap: 0.8rem;
+  height: var(--topbar-h); padding: 0 1rem;
+  background: var(--bar-bg); color: var(--bar-fg);
+}
+.topbar .brand { color: var(--bar-fg); font-weight: 700; font-size: 1.05rem; text-decoration: none; white-space: nowrap; }
+.topbar .brand:hover { text-decoration: underline; }
+.toc-toggle {
+  display: none; font: inherit; font-size: 0.9rem; padding: 0.15rem 0.7rem; cursor: pointer;
+  color: var(--bar-fg); background: transparent; border: 1px solid currentColor; border-radius: 4px;
+}
+.search { margin-left: auto; flex: 0 1 22rem; min-width: 0; }
+.search input {
+  width: 100%; font: inherit; font-size: 0.92rem; padding: 0.25rem 0.7rem;
+  color: var(--fg); background: var(--bg); border: 1px solid transparent; border-radius: 6px;
+}
+.search input::placeholder { color: var(--muted); }
+
+/* ---- 検索の結果 ---- */
+.search-results {
+  position: fixed; z-index: 40; top: calc(var(--topbar-h) - 0.2rem); right: 1rem;
+  width: min(42rem, calc(100vw - 2rem)); max-height: min(70vh, 40rem); overflow: auto;
+  background: var(--bg); color: var(--fg); border: 1px solid var(--line); border-radius: 8px; box-shadow: var(--shadow);
+}
+.search-results[hidden] { display: none; }
+.search-results .count { margin: 0; padding: 0.4rem 0.9rem; font-size: 0.82rem; color: var(--muted); border-bottom: 1px solid var(--line); }
+.search-results a.hit { display: block; padding: 0.5rem 0.9rem; color: inherit; text-decoration: none; border-bottom: 1px solid var(--line); line-height: 1.55; }
+.search-results a.hit:hover, .search-results a.hit.active { background: var(--accent-soft); }
+.search-results .hit-title { display: block; font-weight: 700; }
+.search-results .hit-page { display: block; font-size: 0.78rem; color: var(--muted); }
+.search-results .hit-text { display: block; font-size: 0.86rem; color: var(--muted); }
+mark { background: var(--todo-bg); color: inherit; border-radius: 2px; padding: 0 0.05em; }
+
+/* ---- 全体の配置 ---- */
+.layout { display: grid; grid-template-columns: 18rem minmax(0, 1fr); align-items: start; }
+.toc {
+  position: sticky; top: var(--topbar-h); max-height: calc(100vh - var(--topbar-h)); overflow: auto;
+  padding: 0.8rem 0.6rem 2rem 1rem; border-right: 1px solid var(--line); background: var(--bg-soft); font-size: 0.9rem; line-height: 1.55;
+}
+.toc summary { cursor: pointer; font-weight: 700; padding: 0.2rem 0; }
+.js .toc-box > summary { display: none; }
+.toc ol { list-style: none; margin: 0; padding: 0; }
+.toc-chapters > li { margin: 0.05rem 0; }
+.toc-chapters > li > a {
+  display: block; padding: 0.22rem 0.5rem; border-radius: 5px; color: var(--fg); text-decoration: none;
+}
+.toc-chapters > li > a:hover { background: var(--accent-soft); }
+.toc .chno { color: var(--muted); font-size: 0.82em; margin-right: 0.2em; }
+.toc .current > a { background: var(--accent-soft); font-weight: 700; box-shadow: inset 3px 0 0 var(--accent); }
+.toc .stub > a { color: var(--muted); }
+.toc-home > a { color: var(--link) !important; }
+.toc-sections { margin: 0.15rem 0 0.4rem 1.2rem !important; border-left: 1px solid var(--line); }
+.toc-sections a { display: block; padding: 0.12rem 0.5rem; color: var(--fg); text-decoration: none; font-size: 0.92em; }
+.toc-sections a:hover { text-decoration: underline; }
+.secno { color: var(--muted); font-variant-numeric: tabular-nums; margin-right: 0.15em; }
+
+.content { min-width: 0; padding: 1.4rem 2rem 3rem; max-width: 62rem; }
+.chapter > p, .chapter > ul, .chapter > ol, .chapter > dl, .chapter > aside, .chapter > blockquote, .chapter > h2,
+.chapter > h3, .chapter > pre { max-width: 42em; }
+.chapter-label { margin: 0; color: var(--muted); font-weight: 700; letter-spacing: 0.04em; }
+
+h1, h2, h3 { line-height: 1.4; font-weight: 700; }
+h1 { font-size: 1.9rem; margin: 0.1em 0 0.8em; padding-bottom: 0.3em; border-bottom: 3px solid var(--accent); }
+h2 { font-size: 1.4rem; margin: 2.2em 0 0.7em; padding: 0.15em 0 0.15em 0.7rem; border-left: 6px solid var(--accent); background: var(--bg-soft); }
+h3 { font-size: 1.12rem; margin: 1.8em 0 0.5em; padding-bottom: 0.1em; border-bottom: 1px solid var(--line); }
+p { margin: 0.8em 0; }
+ul, ol { padding-left: 1.6em; }
+li { margin: 0.25em 0; }
+li > p { margin: 0.4em 0; }
+strong { font-weight: 700; }
+code, pre { font-family: var(--mono); font-size: 0.9em; }
+code { background: var(--code-bg); padding: 0.08em 0.35em; border-radius: 4px; }
+pre { background: var(--code-bg); padding: 0.8rem 1rem; border-radius: 6px; overflow-x: auto; line-height: 1.55; }
+pre code { background: none; padding: 0; }
+hr { border: 0; border-top: 1px solid var(--line); margin: 2em 0; }
+:target { scroll-margin-top: calc(var(--topbar-h) + 0.8rem); }
+h2:target, h3:target { background: var(--target-bg); }
+
+/* ---- 画面の表示名・キー ---- */
+.ui {
+  display: inline; padding: 0.02em 0.32em; font-weight: 600; font-size: 0.95em; color: var(--ui-fg);
+  background: var(--ui-bg); border: 1px solid var(--ui-line); border-radius: 4px; box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+.ui.bad { color: #b00020; border-color: #b00020; }
+.path { line-height: 2.1; }
+kbd {
+  display: inline-block; min-width: 1.5em; padding: 0 0.4em; text-align: center; font-family: var(--mono); font-size: 0.86em;
+  line-height: 1.5; color: var(--fg); background: var(--bg-soft); border: 1px solid var(--line); border-bottom-width: 2px; border-radius: 4px;
+}
+.todo { background: var(--todo-bg); outline: 1px dashed var(--todo-line); border-radius: 2px; padding: 0 0.2em; }
+
+/* ---- 手順 ---- */
+ol.steps { list-style: none; padding-left: 0; counter-reset: step; }
+ol.steps > li > p, ol.steps > li > aside, ol.steps > li > ul, ol.steps > li > ol { max-width: 40em; }
+ol.steps > li { position: relative; counter-increment: step; margin: 1.3em 0; padding-left: 2.8rem; }
+ol.steps > li::before {
+  content: counter(step); position: absolute; left: 0; top: 0.12em; width: 2rem; height: 2rem; border-radius: 50%;
+  color: var(--on-accent); background: var(--accent); font-weight: 700; text-align: center; line-height: 2rem;
+}
+ol.steps > li > p:first-child { margin-top: 0; font-weight: 600; }
+ol.steps > li > figure, ol.steps > li > .figrow { margin-left: 0; }
+
+/* ---- 囲み ---- */
+aside.note, aside.tip, aside.inventor, aside.try {
+  margin: 1.2em 0; padding: 0.6rem 1rem; border-left: 5px solid var(--note); border-radius: 0 6px 6px 0; background: var(--note-bg);
+}
+aside.tip { border-left-color: var(--tip); background: var(--tip-bg); }
+aside.inventor { border-left-color: var(--inventor); background: var(--inventor-bg); }
+aside.try { border-left-color: var(--try); background: var(--try-bg); }
+aside > p:last-child { margin-bottom: 0.2em; }
+.callout-title { margin: 0 0 0.2em !important; font-weight: 700; font-size: 0.92rem; color: var(--note); }
+aside.tip .callout-title { color: var(--tip); }
+aside.inventor .callout-title { color: var(--inventor); }
+aside.try .callout-title { color: var(--try); }
+.try-sample { font-size: 0.92rem; color: var(--muted); }
+
+/* ---- 図 ---- */
+figure { margin: 1.4em 0; }
+figure a.zoom { display: inline-block; max-width: 100%; }
+figure img { display: block; max-width: 100%; height: auto; border: 1px solid var(--line); border-radius: 6px; background: #fff; }
+figcaption { margin-top: 0.4em; font-size: 0.88rem; color: var(--muted); line-height: 1.6; max-width: 46em; }
+.figno { font-weight: 700; margin-right: 0.3em; color: var(--fg); }
+
+.figrow { display: grid; grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr)); gap: 0.2rem 1.2rem; align-items: start; margin: 1em 0; }
+.figrow > figure { margin: 0.4em 0; }
+
+/* ---- 表 ---- */
+.table-wrap { overflow-x: auto; margin: 1.1em 0; max-width: 100%; }
+table { border-collapse: collapse; width: 100%; font-size: 0.93rem; line-height: 1.6; }
+caption { text-align: left; font-weight: 700; padding: 0.3em 0; }
+th, td { padding: 0.4rem 0.7rem; border: 1px solid var(--line); vertical-align: top; text-align: left; }
+thead th { background: var(--bg-soft); white-space: nowrap; }
+tbody th { font-weight: 600; background: var(--bg); }
+tr.group th { background: var(--accent-soft); }
+tr:target > * { background: var(--target-bg); }
+table.commands, table.params, table.keys { font-size: 0.88rem; }
+.cid { display: block; font-size: 0.78em; font-weight: 400; color: var(--muted); }
+.cid code { background: none; padding: 0; }
+.where { color: var(--muted); font-size: 0.9rem; }
+
+/* ---- ページ内の目次・前後の章 ---- */
+.pagetoc { max-width: 42em; margin: 1.2em 0 1.8em; padding: 0.7rem 1.1rem; background: var(--bg-soft); border: 1px solid var(--line); border-radius: 8px; font-size: 0.92rem; }
+.pagetoc-title { margin: 0 0 0.3em; font-weight: 700; }
+.pagetoc ol { list-style: none; margin: 0; padding: 0; columns: 2 14rem; }
+.pagetoc li { margin: 0.1em 0; break-inside: avoid; line-height: 1.5; }
+.pagetoc li.sub { padding-left: 1.2em; font-size: 0.93em; }
+.pager { display: flex; justify-content: space-between; gap: 1rem; margin-top: 3rem; padding-top: 1rem; border-top: 1px solid var(--line); }
+.pager a { display: block; flex: 1 1 0; padding: 0.6rem 1rem; color: var(--fg); text-decoration: none; border: 1px solid var(--line); border-radius: 8px; }
+.pager a:hover { background: var(--accent-soft); }
+.pager .next { text-align: right; }
+.pager .prev, .pager .next { flex: 1 1 0; }
+.pager .dir { display: block; font-size: 0.78rem; color: var(--muted); }
+.footer { margin-top: 2rem; font-size: 0.82rem; color: var(--muted); }
+p.stub { color: var(--muted); font-style: italic; padding: 0.6rem 1rem; border: 1px dashed var(--line); border-radius: 6px; max-width: 42em; }
+.badge { display: inline-block; margin-left: 0.5em; padding: 0 0.6em; font-size: 0.75rem; color: var(--muted); border: 1px solid var(--line); border-radius: 999px; }
+
+/* ---- 表紙 ---- */
+.cover .subtitle { margin: -0.4em 0 0.2em; font-size: 1.15rem; color: var(--muted); }
+.cover .version { margin: 0 0 1em; font-size: 0.9rem; color: var(--muted); }
+.cover .lead { max-width: 40em; }
+.contents { list-style: none; padding: 0; max-width: 48em; }
+.contents > li { padding: 0.55rem 0; border-bottom: 1px solid var(--line); }
+.contents .chapter-link { font-size: 1.08rem; font-weight: 700; text-decoration: none; }
+.contents .chno { color: var(--muted); font-weight: 400; font-size: 0.85em; margin-right: 0.2em; }
+.contents .summary { display: block; font-size: 0.9rem; color: var(--muted); }
+.contents .sections { list-style: none; display: flex; flex-wrap: wrap; gap: 0.1rem 1.2rem; margin: 0.3rem 0 0; padding: 0; font-size: 0.88rem; }
+.contents .sections li { margin: 0; }
+.toc-title { margin-top: 1.6em; }
+
+/* ---- 部の見出し（左の目次・表紙の目次） ---- */
+.toc .toc-part {
+  margin: 0.9rem 0 0.15rem; padding: 0.15rem 0.5rem; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.05em;
+  color: var(--muted); border-bottom: 1px solid var(--line);
+}
+.contents > li.part {
+  padding: 1.6rem 0 0.35rem; border-bottom: 2px solid var(--accent); color: var(--accent); font-weight: 700;
+  font-size: 1.05rem; letter-spacing: 0.04em;
+}
+.contents > li.part:first-child { padding-top: 0.4rem; }
+
+/* ---- 表紙のスタディ（解析の種類）のカード ---- */
+.studies-lead { max-width: 42em; }
+.studies {
+  list-style: none; margin: 0.6rem 0 1.2rem; padding: 0; max-width: 62rem;
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(14.5rem, 1fr)); gap: 0.8rem;
+}
+.study > a, .study > div {
+  display: flex; flex-direction: column; gap: 0.3rem; height: 100%; padding: 0.75rem 1rem 0.85rem;
+  color: var(--fg); text-decoration: none; background: var(--bg-soft);
+  border: 1px solid var(--line); border-top: 5px solid var(--study, var(--accent)); border-radius: 8px;
+}
+.study > a:hover { background: var(--accent-soft); border-color: var(--study, var(--accent)); }
+.study > a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.study-title { font-weight: 700; font-size: 1.08rem; }
+.study-summary { font-size: 0.9rem; line-height: 1.6; }
+.study-uses { font-size: 0.82rem; color: var(--muted); }
+.study-uses::before { content: "使い所: "; }
+.study-chapter { margin-top: auto; padding-top: 0.2rem; font-size: 0.82rem; color: var(--link); font-weight: 600; }
+.study-chapter::after { content: " →"; }
+.study.planned > div { border-top-style: dashed; color: var(--muted); }
+.study-magnetostatic { --study: var(--study-magnetostatic); }
+.study-eigenmode { --study: var(--study-eigenmode); }
+.study-driven { --study: var(--study-driven); }
+.study-electrostatic { --study: var(--study-electrostatic); }
+.study-trajectory { --study: var(--study-trajectory); }
+/* 本文のスタディの印（<span class="badge-study study-…">静磁場</span>。章の頭・表の中） */
+.badge-study {
+  display: inline-block; padding: 0 0.55em; border-radius: 999px; font-size: 0.8rem; font-weight: 700; line-height: 1.6;
+  color: var(--study, var(--accent)); border: 1.5px solid var(--study, var(--accent)); white-space: nowrap;
+}
+
+/* ---- 幅の狭い画面: 目次は引き出し ---- */
+@media (max-width: 900px) {
+  .layout { display: block; }
+  .toc { position: static; max-height: none; border-right: 0; border-bottom: 1px solid var(--line); }
+  .js .toc-toggle { display: inline-block; }
+  .js .toc {
+    position: fixed; z-index: 35; top: var(--topbar-h); bottom: 0; left: 0; width: min(20rem, 88vw); max-height: none;
+    border: 0; transform: translateX(-102%); box-shadow: var(--shadow);
+  }
+  .js body.toc-anim .toc { transition: transform 0.18s ease; }
+  .js body.toc-open .toc, body.toc-open .toc { transform: none; }
+  .content { padding: 1rem 1rem 3rem; }
+  .search { flex-basis: 12rem; }
+  .topbar .brand { font-size: 0.95rem; }
+  h1 { font-size: 1.55rem; }
+  h2 { font-size: 1.25rem; }
+  .search-results { right: 0.5rem; width: calc(100vw - 1rem); }
+}
+@media (max-width: 520px) {
+  .topbar .brand { display: none; }
+  ol.steps > li { padding-left: 2.4rem; }
+}
+
+/* ---- 印刷 ---- */
+@media print {
+  :root { --bg: #fff; --fg: #000; --muted: #444; --line: #bbb; --accent: #1f3f73; }
+  .studies { display: block; }
+  .study > a, .study > div { margin: 0.4rem 0; break-inside: avoid; }
+  body { font-size: 10.5pt; line-height: 1.7; background: #fff; color: #000; }
+  .topbar, .toc, .pager, .search-results, .footer, .toc-toggle, .pagetoc { display: none !important; }
+  .layout { display: block; }
+  .content { max-width: none; padding: 0; }
+  a { color: inherit; text-decoration: none; }
+  a[href]::after { content: none; }
+  h1, h2, h3 { break-after: avoid; }
+  h2 { background: none; }
+  figure, table, aside, pre, tr { break-inside: avoid; }
+  figure img { border-color: #999; }
+  .table-wrap { overflow: visible; }
+  .ui { color: #000; background: #eee; border-color: #999; }
+  p.stub { border-color: #999; }
+}
+
+/* ---- 流れの図（<ol class="flow"><li><b>題</b>説明</li>…</ol>。手順の概観。EMRM-Studio の fork） ---- */
+ol.flow {
+  list-style: none; counter-reset: flow; padding: 0; margin: 1rem 0 1.2rem; max-width: 62rem;
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(12.5rem, 1fr)); gap: 0.6rem;
+}
+ol.flow > li {
+  counter-increment: flow; margin: 0; padding: 0.55rem 0.8rem; font-size: 0.88rem; line-height: 1.55;
+  background: var(--bg-soft); border: 1px solid var(--line); border-radius: 8px;
+}
+ol.flow > li > b:first-child { display: block; color: var(--accent); font-size: 0.95rem; }
+ol.flow > li > b:first-child::before { content: counter(flow) ". "; }

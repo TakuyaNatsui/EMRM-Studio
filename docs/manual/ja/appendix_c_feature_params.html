@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="generator" content="tools/build_manual.py">
+<title>付録 C フィーチャのパラメータ一覧 - EMRM-Studio ユーザーマニュアル</title>
+<link rel="stylesheet" href="assets/manual.css">
+<script src="assets/search_index.js" charset="utf-8" defer></script>
+<script src="assets/manual.js" charset="utf-8" defer></script>
+</head>
+<body class="page">
+<header class="topbar">
+<a class="brand" href="index.html">EMRM-Studio ユーザーマニュアル</a>
+<button class="toc-toggle" type="button" aria-controls="toc" aria-expanded="false">目次</button>
+<form class="search" role="search" action="#" onsubmit="return false">
+<input id="q" type="search" placeholder="マニュアルを検索（/）" aria-label="マニュアルを検索" autocomplete="off">
+</form>
+</header>
+<div id="search-results" class="search-results" hidden></div>
+<div class="layout">
+<nav id="toc" class="toc" aria-label="目次">
+<details class="toc-box">
+<summary>目次</summary>
+<ol class="toc-chapters">
+<li class="toc-home"><a href="index.html">表紙・目次</a></li>
+<li><a href="00_intro.html">はじめに</a></li>
+<li class="toc-part" role="presentation">第 I 部　形状を作る（CAD）</li>
+<li><a href="01_screen.html"><span class="chno">第 1 章</span> 画面の構成</a></li>
+<li><a href="02_view.html"><span class="chno">第 2 章</span> 視点の操作</a></li>
+<li><a href="03_first_part.html"><span class="chno">第 3 章</span> はじめての部品</a></li>
+<li><a href="04_sketch.html"><span class="chno">第 4 章</span> スケッチ</a></li>
+<li><a href="05_work_features.html"><span class="chno">第 5 章</span> 作業フィーチャ</a></li>
+<li><a href="06_features_basic.html"><span class="chno">第 6 章</span> フィーチャ（押し出し・回転・穴・フィレットなど）</a></li>
+<li><a href="07_features_advanced.html"><span class="chno">第 7 章</span> フィーチャ（スイープ・ロフト・コイル・パターンなど）</a></li>
+<li><a href="08_bodies.html"><span class="chno">第 8 章</span> ボディの操作</a></li>
+<li><a href="09_browser.html"><span class="chno">第 9 章</span> ブラウザとフィーチャの管理</a></li>
+<li><a href="10_parameters.html"><span class="chno">第 10 章</span> パラメータと式</a></li>
+<li><a href="11_configurations.html"><span class="chno">第 11 章</span> 構成</a></li>
+<li><a href="12_inspect.html"><span class="chno">第 12 章</span> 検査</a></li>
+<li><a href="13_files.html"><span class="chno">第 13 章</span> ファイル</a></li>
+<li class="toc-part" role="presentation">第 II 部　電磁場解析</li>
+<li><a href="14_em_intro.html"><span class="chno">第 14 章</span> 電磁場解析のはじめに</a></li>
+<li><a href="15_em_first.html"><span class="chno">第 15 章</span> はじめての電磁場解析（ソレノイド）</a></li>
+<li><a href="16_em_setup.html"><span class="chno">第 16 章</span> スタディの共通の設定</a></li>
+<li><a href="17_em_results.html"><span class="chno">第 17 章</span> 結果の見方</a></li>
+<li><a href="18_em_magnetostatic.html"><span class="chno">第 18 章</span> 静磁場解析</a></li>
+<li><a href="19_em_coils.html"><span class="chno">第 19 章</span> 静磁場解析: コイル</a></li>
+<li><a href="20_em_dipole.html"><span class="chno">第 20 章</span> 静磁場解析の例題: H 型双極電磁石</a></li>
+<li><a href="21_em_eigenmode.html"><span class="chno">第 21 章</span> 共振モード解析</a></li>
+<li><a href="22_em_driven.html"><span class="chno">第 22 章</span> ポート解析</a></li>
+<li><a href="23_em_electrostatic.html"><span class="chno">第 23 章</span> 静電場解析</a></li>
+<li><a href="24_em_gun.html"><span class="chno">第 24 章</span> 電子銃解析</a></li>
+<li><a href="25_em_troubleshooting.html"><span class="chno">第 25 章</span> 電磁場解析で困ったとき</a></li>
+<li class="toc-part" role="presentation">第 III 部　連携・カスタマイズ・自動化</li>
+<li><a href="26_step_export.html"><span class="chno">第 26 章</span> 他の解析プログラムに形を渡す</a></li>
+<li><a href="27_customize.html"><span class="chno">第 27 章</span> カスタマイズ</a></li>
+<li><a href="28_automation.html"><span class="chno">第 28 章</span> 自動化</a></li>
+<li><a href="29_troubleshooting.html"><span class="chno">第 29 章</span> 困ったとき</a></li>
+<li class="toc-part" role="presentation">付録</li>
+<li class="appendix"><a href="appendix_a_commands.html"><span class="chno">付録 A</span> コマンド一覧</a></li>
+<li class="appendix"><a href="appendix_b_shortcuts.html"><span class="chno">付録 B</span> ショートカット一覧</a></li>
+<li class="current appendix"><a href="appendix_c_feature_params.html" aria-current="page"><span class="chno">付録 C</span> フィーチャのパラメータ一覧</a><ol class="toc-sections"><li><a href="appendix_c_feature_params.html#feature-part-sketch"><span class="secno">C.1</span> スケッチ</a></li><li><a href="appendix_c_feature_params.html#feature-part-extrude"><span class="secno">C.2</span> 押し出し</a></li><li><a href="appendix_c_feature_params.html#feature-part-revolve"><span class="secno">C.3</span> 回転</a></li><li><a href="appendix_c_feature_params.html#feature-part-loft"><span class="secno">C.4</span> ロフト</a></li><li><a href="appendix_c_feature_params.html#feature-part-sweep"><span class="secno">C.5</span> スイープ</a></li><li><a href="appendix_c_feature_params.html#feature-part-rib"><span class="secno">C.6</span> リブ</a></li><li><a href="appendix_c_feature_params.html#feature-part-coil"><span class="secno">C.7</span> コイル</a></li><li><a href="appendix_c_feature_params.html#feature-part-helix"><span class="secno">C.8</span> ヘリカル曲線</a></li><li><a href="appendix_c_feature_params.html#feature-part-primitive_box"><span class="secno">C.9</span> 直方体</a></li><li><a href="appendix_c_feature_params.html#feature-part-primitive_cylinder"><span class="secno">C.10</span> 円柱</a></li><li><a href="appendix_c_feature_params.html#feature-part-primitive_sphere"><span class="secno">C.11</span> 球</a></li><li><a href="appendix_c_feature_params.html#feature-part-primitive_torus"><span class="secno">C.12</span> トーラス</a></li><li><a href="appendix_c_feature_params.html#feature-part-primitive_cone"><span class="secno">C.13</span> 円錐</a></li><li><a href="appendix_c_feature_params.html#feature-part-primitive_wedge"><span class="secno">C.14</span> くさび</a></li><li><a href="appendix_c_feature_params.html#feature-part-hole"><span class="secno">C.15</span> 穴</a></li><li><a href="appendix_c_feature_params.html#feature-part-fillet"><span class="secno">C.16</span> フィレット</a></li><li><a href="appendix_c_feature_params.html#feature-part-chamfer"><span class="secno">C.17</span> 面取り</a></li><li><a href="appendix_c_feature_params.html#feature-part-cosmetic_thread"><span class="secno">C.18</span> ねじ</a></li><li><a href="appendix_c_feature_params.html#feature-part-shell"><span class="secno">C.19</span> シェル</a></li><li><a href="appendix_c_feature_params.html#feature-part-draft"><span class="secno">C.20</span> 勾配</a></li><li><a href="appendix_c_feature_params.html#feature-part-boolean"><span class="secno">C.21</span> 結合</a></li><li><a href="appendix_c_feature_params.html#feature-part-split"><span class="secno">C.22</span> 分割</a></li><li><a href="appendix_c_feature_params.html#feature-part-move_body"><span class="secno">C.23</span> ボディを移動</a></li><li><a href="appendix_c_feature_params.html#feature-part-delete_body"><span class="secno">C.24</span> ボディを削除</a></li><li><a href="appendix_c_feature_params.html#feature-part-heal"><span class="secno">C.25</span> 修復</a></li><li><a href="appendix_c_feature_params.html#feature-part-datum_plane"><span class="secno">C.26</span> 平面</a></li><li><a href="appendix_c_feature_params.html#feature-part-datum_axis"><span class="secno">C.27</span> 軸</a></li><li><a href="appendix_c_feature_params.html#feature-part-datum_point"><span class="secno">C.28</span> 点</a></li><li><a href="appendix_c_feature_params.html#feature-part-datum_csys"><span class="secno">C.29</span> UCS</a></li><li><a href="appendix_c_feature_params.html#feature-part-pattern_linear"><span class="secno">C.30</span> 矩形状パターン</a></li><li><a href="appendix_c_feature_params.html#feature-part-pattern_circular"><span class="secno">C.31</span> 円形状パターン</a></li><li><a href="appendix_c_feature_params.html#feature-part-pattern_points"><span class="secno">C.32</span> スケッチ駆動パターン</a></li><li><a href="appendix_c_feature_params.html#feature-part-mirror"><span class="secno">C.33</span> ミラー</a></li></ol></li>
+<li class="appendix"><a href="appendix_d_glossary.html"><span class="chno">付録 D</span> 用語の対応表</a></li>
+</ol>
+</details>
+</nav>
+<main class="content" id="main">
+<article class="chapter appendix">
+<p class="chapter-label">付録 C</p>
+<h1>フィーチャのパラメータ一覧</h1>
+<nav class="pagetoc" aria-label="この章の内容">
+<p class="pagetoc-title">この章の内容</p>
+<ol>
+<li><a href="#feature-part-sketch"><span class="secno">C.1</span> スケッチ</a></li>
+<li><a href="#feature-part-extrude"><span class="secno">C.2</span> 押し出し</a></li>
+<li><a href="#feature-part-revolve"><span class="secno">C.3</span> 回転</a></li>
+<li><a href="#feature-part-loft"><span class="secno">C.4</span> ロフト</a></li>
+<li><a href="#feature-part-sweep"><span class="secno">C.5</span> スイープ</a></li>
+<li><a href="#feature-part-rib"><span class="secno">C.6</span> リブ</a></li>
+<li><a href="#feature-part-coil"><span class="secno">C.7</span> コイル</a></li>
+<li><a href="#feature-part-helix"><span class="secno">C.8</span> ヘリカル曲線</a></li>
+<li><a href="#feature-part-primitive_box"><span class="secno">C.9</span> 直方体</a></li>
+<li><a href="#feature-part-primitive_cylinder"><span class="secno">C.10</span> 円柱</a></li>
+<li><a href="#feature-part-primitive_sphere"><span class="secno">C.11</span> 球</a></li>
+<li><a href="#feature-part-primitive_torus"><span class="secno">C.12</span> トーラス</a></li>
+<li><a href="#feature-part-primitive_cone"><span class="secno">C.13</span> 円錐</a></li>
+<li><a href="#feature-part-primitive_wedge"><span class="secno">C.14</span> くさび</a></li>
+<li><a href="#feature-part-hole"><span class="secno">C.15</span> 穴</a></li>
+<li><a href="#feature-part-fillet"><span class="secno">C.16</span> フィレット</a></li>
+<li><a href="#feature-part-chamfer"><span class="secno">C.17</span> 面取り</a></li>
+<li><a href="#feature-part-cosmetic_thread"><span class="secno">C.18</span> ねじ</a></li>
+<li><a href="#feature-part-shell"><span class="secno">C.19</span> シェル</a></li>
+<li><a href="#feature-part-draft"><span class="secno">C.20</span> 勾配</a></li>
+<li><a href="#feature-part-boolean"><span class="secno">C.21</span> 結合</a></li>
+<li><a href="#feature-part-split"><span class="secno">C.22</span> 分割</a></li>
+<li><a href="#feature-part-move_body"><span class="secno">C.23</span> ボディを移動</a></li>
+<li><a href="#feature-part-delete_body"><span class="secno">C.24</span> ボディを削除</a></li>
+<li><a href="#feature-part-heal"><span class="secno">C.25</span> 修復</a></li>
+<li><a href="#feature-part-datum_plane"><span class="secno">C.26</span> 平面</a></li>
+<li><a href="#feature-part-datum_axis"><span class="secno">C.27</span> 軸</a></li>
+<li><a href="#feature-part-datum_point"><span class="secno">C.28</span> 点</a></li>
+<li><a href="#feature-part-datum_csys"><span class="secno">C.29</span> UCS</a></li>
+<li><a href="#feature-part-pattern_linear"><span class="secno">C.30</span> 矩形状パターン</a></li>
+<li><a href="#feature-part-pattern_circular"><span class="secno">C.31</span> 円形状パターン</a></li>
+<li><a href="#feature-part-pattern_points"><span class="secno">C.32</span> スケッチ駆動パターン</a></li>
+<li><a href="#feature-part-mirror"><span class="secno">C.33</span> ミラー</a></li>
+</ol>
+</nav>
+<p>フィーチャの型ごとに、プロパティのパネル（フォーム）の欄を一覧にしたものです。アプリのスキーマから自動で作るので、欄の表示名・既定値・説明は画面と同じです。押し出し・回転・ロフト・スイープ・コイルのフォームには、「入力ジオメトリ」「動作」「出力」「その他」の見出しがあります。「その他」は初めは畳まれています。</p>
+<p>欄の種類は、数値の欄（長さ・角度・数値・整数）は式やパラメータの名前（第 10 章）も入力できます。「選択」は選択肢から選び、「選択」を意味する名前（面・エッジ・スケッチなど）は、ビューかブラウザでクリックして入れます。欄は、ほかの欄の値によって隠れたり灰色になったりするものがあります。</p>
+<h2 id="feature-part-sketch"><span class="secno">C.1</span> スケッチ</h2>
+<p class="where">作成: 3D モデル → スケッチ → スケッチ。<span class="cid"><code>part.sketch</code></span></p>
+<div class="table-wrap"><table class="params">
+<thead><tr><th>欄</th><th>種類</th><th>既定値</th><th>説明</th></tr></thead>
+<tbody>
+<tr><th scope="row">平面<span class="cid"><code>placement</code></span></th><td>面・作業フィーチャなどの選択</td><td>なし</td><td></td></tr>
+<tr><th scope="row">X 方向<span class="cid"><code>x_dir</code></span></th><td>方向</td><td>なし</td><td></td></tr>
+<tr><th scope="row">法線を反転<span class="cid"><code>flip_normal</code></span></th><td>チェック</td><td>オフ</td><td></td></tr>
+<tr><th scope="row">スケッチ<span class="cid"><code>sketch</code></span></th><td>スケッチの内容</td><td>なし</td><td></td></tr>
+</tbody>
+</table></div>
+<h2 id="feature-part-extrude"><span class="secno">C.2</span> 押し出し</h2>
+<p class="where">作成: 3D モデル → 作成 → 押し出し。<span class="cid"><code>part.extrude</code></span></p>
+<div class="table-wrap"><table class="params">
+<thead><tr><th>欄</th><th>種類</th><th>既定値</th><th>説明</th></tr></thead>
+<tbody>
+<tr class="group"><th colspan="4" scope="colgroup">入力ジオメトリ</th></tr>
+<tr><th scope="row">プロファイル（必須）<span class="cid"><code>profile</code></span></th><td>スケッチの閉領域の選択</td><td>なし</td><td></td></tr>
+<tr><th scope="row">曲線（必須）<span class="cid"><code>chain</code></span></th><td>スケッチ曲線の選択</td><td>なし</td><td></td></tr>
+<tr class="group"><th colspan="4" scope="colgroup">動作</th></tr>
+<tr><th scope="row">方向<span class="cid"><code>end1 / flip / two_sided / end2</code></span></th><td>選択: 既定・反転方向・対称・非対称</td><td>既定</td><td>既定: 既定の側に押し出します（スケッチの法線の側。カットは材料の側） 反転方向: 反対の側に押し出します 対称: 両側に距離 A の半分ずつ押し出します 非対称: 片側に距離 A、反対側に距離 B だけ押し出します</td></tr>
+<tr><th scope="row">範囲<span class="cid"><code>end1 / flip / two_sided / end2</code></span></th><td>選択: 距離・貫通・次へ・終点・ボディ</td><td>距離</td><td>距離: 指定した距離だけ押し出します 貫通: すべてのソリッドを貫いて押し出します 次へ: 押し出しの向きの次の面まで押し出します 終点: 面、作業平面、頂点、作業点のいずれかまで押し出します ボディ: 選んだソリッドの面まで押し出します</td></tr>
+<tr><th scope="row">距離 A<span class="cid"><code>depth1</code></span></th><td>長さ</td><td>10 mm</td><td></td></tr>
+<tr><th scope="row">距離 B<span class="cid"><code>depth2</code></span></th><td>長さ</td><td>10 mm</td><td></td></tr>
+<tr><th scope="row">終点（必須）<span class="cid"><code>to_ref</code></span></th><td>面・作業フィーチャなどの選択</td><td>なし</td><td></td></tr>
+<tr><th scope="row">オフセット<span class="cid"><code>to_offset</code></span></th><td>長さ</td><td>0 mm</td><td>終了面を押し出しの向きに動かします（負の値にすると手前で止まります）</td></tr>
+<tr><th scope="row">ソリッド（必須）<span class="cid"><code>to_bodies</code></span></th><td>ボディの選択（複数）</td><td>なし</td><td></td></tr>
+<tr class="group"><th colspan="4" scope="colgroup">出力</th></tr>
+<tr><th scope="row">ブール演算<span class="cid"><code>operation</code></span></th><td>選択: 新規ソリッド・結合・カット・交差</td><td>新規ソリッド</td><td></td></tr>
+<tr><th scope="row">ソリッド<span class="cid"><code>merge_scope</code></span></th><td>ボディの選択（複数）</td><td>なし</td><td></td></tr>
+<tr class="group"><th colspan="4" scope="colgroup">詳細</th></tr>
+<tr><th scope="row">開いたプロファイル<span class="cid"><code>open_profile</code></span></th><td>チェック</td><td>オフ</td><td>開いたスケッチ曲線を使います（薄肉の設定の厚さを付けます）</td></tr>
+<tr><th scope="row">テーパ A<span class="cid"><code>taper</code></span></th><td>角度</td><td>0°</td><td>正の角度にすると、押し出しの向きに沿って断面が広がります</td></tr>
+<tr><th scope="row">薄肉<span class="cid"><code>thin</code></span></th><td>チェック</td><td>オフ</td><td></td></tr>
+<tr><th scope="row">壁の厚さ<span class="cid"><code>thickness</code></span></th><td>長さ</td><td>2 mm</td><td></td></tr>
+<tr><th scope="row">壁の位置<span class="cid"><code>thin_side</code></span></th><td>選択: 内側・外側・中央</td><td>内側</td><td>開いたプロファイルでは、内側は曲線の左側、外側は右側です</td></tr>
+<tr><th scope="row">開始オフセット<span class="cid"><code>start_offset</code></span></th><td>長さ</td><td>0 mm</td><td>押し出しの開始位置を押し出しの向きに動かします</td></tr>
+<tr><th scope="row">開始<span class="cid"><code>start_ref</code></span></th><td>面・作業フィーチャなどの選択</td><td>なし</td><td></td></tr>
+<tr><th scope="row">方向<span class="cid"><code>direction_ref</code></span></th><td>面・作業フィーチャなどの選択</td><td>なし</td><td></td></tr>
+</tbody>
+</table></div>
+<h2 id="feature-part-revolve"><span class="secno">C.3</span> 回転</h2>
+<p class="where">作成: 3D モデル → 作成 → 回転。<span class="cid"><code>part.revolve</code></span></p>
+<div class="table-wrap"><table class="params">
+<thead><tr><th>欄</th><th>種類</th><th>既定値</th><th>説明</th></tr></thead>
+<tbody>
+<tr class="group"><th colspan="4" scope="colgroup">入力ジオメトリ</th></tr>
+<tr><th scope="row">プロファイル（必須）<span class="cid"><code>profile</code></span></th><td>スケッチの閉領域の選択</td><td>なし</td><td></td></tr>
+<tr><th scope="row">曲線（必須）<span class="cid"><code>chain</code></span></th><td>スケッチ曲線の選択</td><td>なし</td><td></td></tr>
+<tr><th scope="row">軸（必須）<span class="cid"><code>axis</code></span></th><td>面・作業フィーチャなどの選択</td><td>なし</td><td></td></tr>
+<tr class="group"><th colspan="4" scope="colgroup">動作</th></tr>
+<tr><th scope="row">方向<span class="cid"><code>end1 / flip / two_sided</code></span></th><td>選択: 既定・反転方向・対称・非対称</td><td>既定</td><td>既定: 軸のまわりに既定の向きで回転します 反転方向: 反対の向きに回転します 対称: スケッチの両側に角度 A の半分ずつ回転します 非対称: 片側に角度 A、反対側に角度 B だけ回転します</td></tr>
+<tr><th scope="row">角度 A<span class="cid"><code>angle</code></span></th><td>角度</td><td>360°</td><td></td></tr>
+<tr><th scope="row">角度 B<span class="cid"><code>angle2</code></span></th><td>角度</td><td>90°</td><td></td></tr>
+<tr class="group"><th colspan="4" scope="colgroup">出力</th></tr>
+<tr><th scope="row">ブール演算<span class="cid"><code>operation</code></span></th><td>選択: 新規ソリッド・結合・カット・交差</td><td>新規ソリッド</td><td></td></tr>
+<tr><th scope="row">ソリッド<span class="cid"><code>merge_scope</code></span></th><td>ボディの選択（複数）</td><td>なし</td><td></td></tr>
+<tr class="group"><th colspan="4" scope="colgroup">詳細</th></tr>
+<tr><th scope="row">開いたプロファイル<span class="cid"><code>open_profile</code></span></th><td>チェック</td><td>オフ</td><td>開いたスケッチ曲線を使います（薄肉の設定の厚さを付けます）</td></tr>
+<tr><th scope="row">薄肉<span class="cid"><code>thin</code></span></th><td>チェック</td><td>オフ</td><td></td></tr>
+<tr><th scope="row">壁の厚さ<span class="cid"><code>thickness</code></span></th><td>長さ</td><td>2 mm</td><td></td></tr>
+<tr><th scope="row">壁の位置<span class="cid"><code>thin_side</code></span></th><td>選択: 内側・外側・中央</td><td>内側</td><td>開いたプロファイルでは、内側は曲線の左側、外側は右側です</td></tr>
+</tbody>
+</table></div>
+<h2 id="feature-part-loft"><span class="secno">C.4</span> ロフト</h2>
+<p class="where">作成: 3D モデル → 作成 → ロフト。<span class="cid"><code>part.loft</code></span></p>
+<div class="table-wrap"><table class="params">
+<thead><tr><th>欄</th><th>種類</th><th>既定値</th><th>説明</th></tr></thead>
+<tbody>
+<tr class="group"><th colspan="4" scope="colgroup">入力ジオメトリ</th></tr>
+<tr><th scope="row">断面（必須）<span class="cid"><code>sections</code></span></th><td>スケッチの閉領域の選択（複数）</td><td>なし</td><td></td></tr>
+<tr><th scope="row">始点<span class="cid"><code>start_point</code></span></th><td>面・作業フィーチャなどの選択</td><td>なし</td><td>最初の断面の代わりに使う点</td></tr>
+<tr><th scope="row">終点<span class="cid"><code>end_point</code></span></th><td>面・作業フィーチャなどの選択</td><td>なし</td><td>最後の断面の代わりに使う点</td></tr>
+<tr class="group"><th colspan="4" scope="colgroup">動作</th></tr>
+<tr><th scope="row">線織<span class="cid"><code>ruled</code></span></th><td>チェック</td><td>オフ</td><td>断面どうしを、滑らかな曲面ではなく直線でつなぎます</td></tr>
+<tr><th scope="row">閉じたループ<span class="cid"><code>closed</code></span></th><td>チェック</td><td>オフ</td><td>最後の断面から最初の断面へ戻ってつなぎます（断面が 3 つ以上のとき）</td></tr>
+<tr><th scope="row">始点を自動で対応付ける<span class="cid"><code>auto_map</code></span></th><td>チェック</td><td>オン</td><td>ねじれが最小になるように、断面の始点を対応付けます</td></tr>
+<tr><th scope="row">始点のずらし<span class="cid"><code>shift</code></span></th><td>整数</td><td>0</td><td>k 番目の断面の始点を、この数のエッジ分の k 倍だけずらします</td></tr>
+<tr class="group"><th colspan="4" scope="colgroup">出力</th></tr>
+<tr><th scope="row">ブール演算<span class="cid"><code>operation</code></span></th><td>選択: 新規ソリッド・結合・カット・交差</td><td>新規ソリッド</td><td></td></tr>
+<tr><th scope="row">ソリッド<span class="cid"><code>merge_scope</code></span></th><td>ボディの選択（複数）</td><td>なし</td><td></td></tr>
+</tbody>
+</table></div>
+<h2 id="feature-part-sweep"><span class="secno">C.5</span> スイープ</h2>
+<p class="where">作成: 3D モデル → 作成 → スイープ。<span class="cid"><code>part.sweep</code></span></p>
+<div class="table-wrap"><table class="params">
+<thead><tr><th>欄</th><th>種類</th><th>既定値</th><th>説明</th></tr></thead>
+<tbody>
+<tr class="group"><th colspan="4" scope="colgroup">入力ジオメトリ</th></tr>
+<tr><th scope="row">プロファイル（必須）<span class="cid"><code>profile</code></span></th><td>スケッチの閉領域の選択</td><td>なし</td><td></td></tr>
+<tr><th scope="row">パスの元<span class="cid"><code>path_source</code></span></th><td>選択: スケッチの曲線・エッジ</td><td>スケッチの曲線</td><td></td></tr>
+<tr><th scope="row">パス（必須）<span class="cid"><code>path</code></span></th><td>スケッチ曲線の選択</td><td>なし</td><td></td></tr>
+<tr><th scope="row">パスのエッジ（必須）<span class="cid"><code>path_edges</code></span></th><td>面・エッジ・頂点の選択（複数）</td><td>なし</td><td></td></tr>
+<tr class="group"><th colspan="4" scope="colgroup">動作</th></tr>
+<tr><th scope="row">向き<span class="cid"><code>orientation</code></span></th><td>選択: パス・平行</td><td>パス</td><td>パスは断面をパスに対する角度のまま保ちます。平行は断面を回さずに動かすだけです</td></tr>
+<tr><th scope="row">テーパー角<span class="cid"><code>taper</code></span></th><td>角度</td><td>0°</td><td>正の角度にすると、断面がパスに沿って広がります</td></tr>
+<tr><th scope="row">ねじれ角<span class="cid"><code>twist</code></span></th><td>角度</td><td>0°</td><td>断面がパスの全長にわたってパスの周りを回る角度</td></tr>
+<tr class="group"><th colspan="4" scope="colgroup">出力</th></tr>
+<tr><th scope="row">ブール演算<span class="cid"><code>operation</code></span></th><td>選択: 新規ソリッド・結合・カット・交差</td><td>新規ソリッド</td><td></td></tr>
+<tr><th scope="row">ソリッド<span class="cid"><code>merge_scope</code></span></th><td>ボディの選択（複数）</td><td>なし</td><td></td></tr>
+</tbody>
+</table></div>
+<h2 id="feature-part-rib"><span class="secno">C.6</span> リブ</h2>
+<p class="where">作成: 3D モデル → 作成 → リブ。<span class="cid"><code>part.rib</code></span></p>
+<div class="table-wrap"><table class="params">
+<thead><tr><th>欄</th><th>種類</th><th>既定値</th><th>説明</th></tr></thead>
+<tbody>
+<tr><th scope="row">プロファイル（必須）<span class="cid"><code>chain</code></span></th><td>スケッチ曲線の選択</td><td>なし</td><td></td></tr>
+<tr><th scope="row">方向<span class="cid"><code>direction</code></span></th><td>選択: スケッチ平面に垂直・スケッチ平面に平行</td><td>スケッチ平面に垂直</td><td></td></tr>
+<tr><th scope="row">厚さ<span class="cid"><code>thickness</code></span></th><td>長さ</td><td>3 mm</td><td></td></tr>
+<tr><th scope="row">厚さの方向<span class="cid"><code>thickness_side</code></span></th><td>選択: 対称・方向 1・方向 2</td><td>対称</td><td></td></tr>
+<tr><th scope="row">範囲<span class="cid"><code>extent</code></span></th><td>選択: 次へ・距離指定</td><td>次へ</td><td></td></tr>
+<tr><th scope="row">距離<span class="cid"><code>depth</code></span></th><td>長さ</td><td>10 mm</td><td></td></tr>
+<tr><th scope="row">プロファイルを延長<span class="cid"><code>extend_profile</code></span></th><td>チェック</td><td>オン</td><td>プロファイルの両端を、ソリッドに届くまで延ばします</td></tr>
+<tr><th scope="row">方向を反転<span class="cid"><code>flip</code></span></th><td>チェック</td><td>オフ</td><td></td></tr>
+<tr><th scope="row">ブール演算<span class="cid"><code>operation</code></span></th><td>選択: 結合</td><td>結合</td><td></td></tr>
+<tr><th scope="row">ソリッド<span class="cid"><code>merge_scope</code></span></th><td>ボディの選択（複数）</td><td>なし</td><td></td></tr>
+</tbody>
+</table></div>
+<h2 id="feature-part-coil"><span class="secno">C.7</span> コイル</h2>
+<p class="where">作成: 3D モデル → 作成 → コイル → コイル。<span class="cid"><code>part.coil</code></span></p>
+<div class="table-wrap"><table class="params">
+<thead><tr><th>欄</th><th>種類</th><th>既定値</th><th>説明</th></tr></thead>
+<tbody>
+<tr class="group"><th colspan="4" scope="colgroup">コイルの形状</th></tr>
+<tr><th scope="row">プロファイル（必須）<span class="cid"><code>profile</code></span></th><td>スケッチの閉領域の選択</td><td>なし</td><td></td></tr>
+<tr><th scope="row">巻き方<span class="cid"><code>winding</code></span></th><td>選択: 円形・スケッチの輪郭</td><td>円形</td><td>円形は軸のまわりに巻きます。スケッチの輪郭は、軸に垂直な平面に描いた閉じた輪郭に沿って巻きます</td></tr>
+<tr><th scope="row">軸（必須）<span class="cid"><code>axis</code></span></th><td>面・作業フィーチャなどの選択</td><td>なし</td><td></td></tr>
+<tr><th scope="row">輪郭の選び方<span class="cid"><code>outline_source</code></span></th><td>選択: 領域・スケッチの曲線</td><td>領域</td><td>領域: スケッチの閉じたループの内側をクリックします（ループの内側の曲線は無視します）。スケッチの曲線: 1 つの閉じたループの曲線を選びます。ほかの曲線がループを横切っていてもかまいません。端点のつながりが一通りなら、曲線を 1 本クリックするとループ全体が選ばれます</td></tr>
+<tr><th scope="row">輪郭（必須）<span class="cid"><code>outline</code></span></th><td>スケッチの閉領域の選択</td><td>なし</td><td>コイルの軸に垂直な平面に描いた閉じた領域です。領域の外周が輪郭になります（内側の穴は無視します）。プロファイルが輪郭から離れていれば、輪郭をプロファイルの位置まで外か内へずらした線の上を巻きます。尖った角にはスケッチでフィレットを付けてください。ただし、プロファイルを輪郭から角の外側へ離して置いたときは、巻線が円弧で角を回ります</td></tr>
+<tr><th scope="row">輪郭の曲線（必須）<span class="cid"><code>outline_chain</code></span></th><td>スケッチ曲線の選択</td><td>なし</td><td>コイルの軸に垂直な平面の上で 1 つの閉じたループになるスケッチの曲線です。プロファイルが輪郭から離れていれば、輪郭をプロファイルの位置まで外か内へずらした線の上を巻きます。尖った角にはスケッチでフィレットを付けてください。ただし、プロファイルを輪郭から角の外側へ離して置いたときは、巻線が円弧で角を回ります</td></tr>
+<tr><th scope="row">回転方向<span class="cid"><code>rotation</code></span></th><td>選択: 時計回り・反時計回り</td><td>時計回り</td><td></td></tr>
+<tr><th scope="row">方向を反転<span class="cid"><code>flip</code></span></th><td>チェック</td><td>オフ</td><td></td></tr>
+<tr class="group"><th colspan="4" scope="colgroup">コイルの大きさ</th></tr>
+<tr><th scope="row">コイルの大きさ<span class="cid"><code>size</code></span></th><td>選択: ピッチと回転数・回転数と高さ・ピッチと高さ</td><td>ピッチと回転数</td><td></td></tr>
+<tr><th scope="row">ピッチ<span class="cid"><code>pitch</code></span></th><td>長さ</td><td>10 mm</td><td></td></tr>
+<tr><th scope="row">回転数<span class="cid"><code>turns</code></span></th><td>数値</td><td>5</td><td></td></tr>
+<tr><th scope="row">高さ<span class="cid"><code>height</code></span></th><td>長さ</td><td>50 mm</td><td></td></tr>
+<tr><th scope="row">テーパー<span class="cid"><code>taper</code></span></th><td>角度</td><td>0°</td><td>正の角度にすると、半径が軸に沿って大きくなります。スケッチの輪郭に巻くときは、巻線が上がるにつれて輪郭が外へ広がります</td></tr>
+<tr class="group"><th colspan="4" scope="colgroup">出力</th></tr>
+<tr><th scope="row">ブール演算<span class="cid"><code>operation</code></span></th><td>選択: 新規ソリッド・結合・カット・交差</td><td>新規ソリッド</td><td></td></tr>
+<tr><th scope="row">ソリッド<span class="cid"><code>merge_scope</code></span></th><td>ボディの選択（複数）</td><td>なし</td><td></td></tr>
+</tbody>
+</table></div>
+<h2 id="feature-part-helix"><span class="secno">C.8</span> ヘリカル曲線</h2>
+<p class="where">作成: 3D モデル → 作成 → コイル → ヘリカル曲線。<span class="cid"><code>part.helix</code></span></p>
+<div class="table-wrap"><table class="params">
+<thead><tr><th>欄</th><th>種類</th><th>既定値</th><th>説明</th></tr></thead>
+<tbody>
+<tr><th scope="row">軸（必須）<span class="cid"><code>axis</code></span></th><td>面・作業フィーチャなどの選択</td><td>なし</td><td></td></tr>
+<tr><th scope="row">始点（必須）<span class="cid"><code>start</code></span></th><td>面・作業フィーチャなどの選択</td><td>なし</td><td></td></tr>
+<tr><th scope="row">コイルの大きさ<span class="cid"><code>size</code></span></th><td>選択: ピッチと回転数・回転数と高さ・ピッチと高さ</td><td>ピッチと回転数</td><td></td></tr>
+<tr><th scope="row">ピッチ<span class="cid"><code>pitch</code></span></th><td>長さ</td><td>10 mm</td><td></td></tr>
+<tr><th scope="row">回転数<span class="cid"><code>turns</code></span></th><td>数値</td><td>5</td><td></td></tr>
+<tr><th scope="row">高さ<span class="cid"><code>height</code></span></th><td>長さ</td><td>50 mm</td><td></td></tr>
+<tr><th scope="row">テーパー<span class="cid"><code>taper</code></span></th><td>角度</td><td>0°</td><td>正の角度にすると、半径が軸に沿って大きくなります</td></tr>
+<tr><th scope="row">回転方向<span class="cid"><code>rotation</code></span></th><td>選択: 時計回り・反時計回り</td><td>時計回り</td><td></td></tr>
+<tr><th scope="row">方向を反転<span class="cid"><code>flip</code></span></th><td>チェック</td><td>オフ</td><td></td></tr>
+</tbody>
+</table></div>
+<h2 id="feature-part-primitive_box"><span class="secno">C.9</span> 直方体</h2>
+<p class="where">作成: 3D モデル → 作成 → プリミティブ → 直方体。<span class="cid"><code>part.primitive_box</code></span></p>
+<div class="table-wrap"><table class="params">
+<thead><tr><th>欄</th><th>種類</th><th>既定値</th><th>説明</th></tr></thead>
+<tbody>
+<tr><th scope="row">長さ<span class="cid"><code>length</code></span></th><td>長さ</td><td>40 mm</td><td></td></tr>
+<tr><th scope="row">幅<span class="cid"><code>width</code></span></th><td>長さ</td><td>30 mm</td><td></td></tr>
+<tr><th scope="row">高さ<span class="cid"><code>height</code></span></th><td>長さ</td><td>20 mm</td><td></td></tr>
+<tr><th scope="row">平面<span class="cid"><code>plane</code></span></th><td>面・作業フィーチャなどの選択</td><td>なし</td><td>プリミティブを置く平面です（空のときは XY 平面）</td></tr>
+<tr><th scope="row">位置 X<span class="cid"><code>x</code></span></th><td>長さ</td><td>0 mm</td><td></td></tr>
+<tr><th scope="row">位置 Y<span class="cid"><code>y</code></span></th><td>長さ</td><td>0 mm</td><td></td></tr>
+<tr><th scope="row">方向を反転<span class="cid"><code>flip</code></span></th><td>チェック</td><td>オフ</td><td></td></tr>
+<tr><th scope="row">ブール演算<span class="cid"><code>operation</code></span></th><td>選択: 新規ソリッド・結合・カット・交差</td><td>新規ソリッド</td><td></td></tr>
+<tr><th scope="row">ソリッド<span class="cid"><code>merge_scope</code></span></th><td>ボディの選択（複数）</td><td>なし</td><td></td></tr>
+</tbody>
+</table></div>
+<h2 id="feature-part-primitive_cylinder"><span class="secno">C.10</span> 円柱</h2>
+<p class="where">作成: 3D モデル → 作成 → プリミティブ → 円柱。<span class="cid"><code>part.primitive_cylinder</code></span></p>
+<div class="table-wrap"><table class="params">
+<thead><tr><th>欄</th><th>種類</th><th>既定値</th><th>説明</th></tr></thead>
+<tbody>
+<tr><th scope="row">直径<span class="cid"><code>diameter</code></span></th><td>長さ</td><td>20 mm</td><td></td></tr>
+<tr><th scope="row">高さ<span class="cid"><code>height</code></span></th><td>長さ</td><td>30 mm</td><td></td></tr>
+<tr><th scope="row">平面<span class="cid"><code>plane</code></span></th><td>面・作業フィーチャなどの選択</td><td>なし</td><td>プリミティブを置く平面です（空のときは XY 平面）</td></tr>
+<tr><th scope="row">位置 X<span class="cid"><code>x</code></span></th><td>長さ</td><td>0 mm</td><td></td></tr>
+<tr><th scope="row">位置 Y<span class="cid"><code>y</code></span></th><td>長さ</td><td>0 mm</td><td></td></tr>
+<tr><th scope="row">方向を反転<span class="cid"><code>flip</code></span></th><td>チェック</td><td>オフ</td><td></td></tr>
+<tr><th scope="row">ブール演算<span class="cid"><code>operation</code></span></th><td>選択: 新規ソリッド・結合・カット・交差</td><td>新規ソリッド</td><td></td></tr>
+<tr><th scope="row">ソリッド<span class="cid"><code>merge_scope</code></span></th><td>ボディの選択（複数）</td><td>なし</td><td></td></tr>
+</tbody>
+</table></div>
+<h2 id="feature-part-primitive_sphere"><span class="secno">C.11</span> 球</h2>
+<p class="where">作成: 3D モデル → 作成 → プリミティブ → 球。<span class="cid"><code>part.primitive_sphere</code></span></p>
+<div class="table-wrap"><table class="params">
+<thead><tr><th>欄</th><th>種類</th><th>既定値</th><th>説明</th></tr></thead>
+<tbody>
+<tr><th scope="row">直径<span class="cid"><code>diameter</code></span></th><td>長さ</td><td>30 mm</td><td></td></tr>
+<tr><th scope="row">平面<span class="cid"><code>plane</code></span></th><td>面・作業フィーチャなどの選択</td><td>なし</td><td>プリミティブを置く平面です（空のときは XY 平面）</td></tr>
+<tr><th scope="row">位置 X<span class="cid"><code>x</code></span></th><td>長さ</td><td>0 mm</td><td></td></tr>
+<tr><th scope="row">位置 Y<span class="cid"><code>y</code></span></th><td>長さ</td><td>0 mm</td><td></td></tr>
+<tr><th scope="row">方向を反転<span class="cid"><code>flip</code></span></th><td>チェック</td><td>オフ</td><td></td></tr>
+<tr><th scope="row">ブール演算<span class="cid"><code>operation</code></span></th><td>選択: 新規ソリッド・結合・カット・交差</td><td>新規ソリッド</td><td></td></tr>
+<tr><th scope="row">ソリッド<span class="cid"><code>merge_scope</code></span></th><td>ボディの選択（複数）</td><td>なし</td><td></td></tr>
+</tbody>
+</table></div>
+<h2 id="feature-part-primitive_torus"><span class="secno">C.12</span> トーラス</h2>
+<p class="where">作成: 3D モデル → 作成 → プリミティブ → トーラス。<span class="cid"><code>part.primitive_torus</code></span></p>
+<div class="table-wrap"><table class="params">
+<thead><tr><th>欄</th><th>種類</th><th>既定値</th><th>説明</th></tr></thead>
+<tbody>
+<tr><th scope="row">リングの直径<span class="cid"><code>diameter</code></span></th><td>長さ</td><td>40 mm</td><td></td></tr>
+<tr><th scope="row">チューブの直径<span class="cid"><code>tube_diameter</code></span></th><td>長さ</td><td>10 mm</td><td></td></tr>
+<tr><th scope="row">平面<span class="cid"><code>plane</code></span></th><td>面・作業フィーチャなどの選択</td><td>なし</td><td>プリミティブを置く平面です（空のときは XY 平面）</td></tr>
+<tr><th scope="row">位置 X<span class="cid"><code>x</code></span></th><td>長さ</td><td>0 mm</td><td></td></tr>
+<tr><th scope="row">位置 Y<span class="cid"><code>y</code></span></th><td>長さ</td><td>0 mm</td><td></td></tr>
+<tr><th scope="row">方向を反転<span class="cid"><code>flip</code></span></th><td>チェック</td><td>オフ</td><td></td></tr>
+<tr><th scope="row">ブール演算<span class="cid"><code>operation</code></span></th><td>選択: 新規ソリッド・結合・カット・交差</td><td>新規ソリッド</td><td></td></tr>
+<tr><th scope="row">ソリッド<span class="cid"><code>merge_scope</code></span></th><td>ボディの選択（複数）</td><td>なし</td><td></td></tr>
+</tbody>
+</table></div>
+<h2 id="feature-part-primitive_cone"><span class="secno">C.13</span> 円錐</h2>
+<p class="where">作成: 3D モデル → 作成 → プリミティブ → 円錐。<span class="cid"><code>part.primitive_cone</code></span></p>
+<div class="table-wrap"><table class="params">
+<thead><tr><th>欄</th><th>種類</th><th>既定値</th><th>説明</th></tr></thead>
+<tbody>
+<tr><th scope="row">底面の直径<span class="cid"><code>diameter</code></span></th><td>長さ</td><td>30 mm</td><td></td></tr>
+<tr><th scope="row">上面の直径<span class="cid"><code>diameter2</code></span></th><td>長さ</td><td>0 mm</td><td></td></tr>
+<tr><th scope="row">高さ<span class="cid"><code>height</code></span></th><td>長さ</td><td>30 mm</td><td></td></tr>
+<tr><th scope="row">平面<span class="cid"><code>plane</code></span></th><td>面・作業フィーチャなどの選択</td><td>なし</td><td>プリミティブを置く平面です（空のときは XY 平面）</td></tr>
+<tr><th scope="row">位置 X<span class="cid"><code>x</code></span></th><td>長さ</td><td>0 mm</td><td></td></tr>
+<tr><th scope="row">位置 Y<span class="cid"><code>y</code></span></th><td>長さ</td><td>0 mm</td><td></td></tr>
+<tr><th scope="row">方向を反転<span class="cid"><code>flip</code></span></th><td>チェック</td><td>オフ</td><td></td></tr>
+<tr><th scope="row">ブール演算<span class="cid"><code>operation</code></span></th><td>選択: 新規ソリッド・結合・カット・交差</td><td>新規ソリッド</td><td></td></tr>
+<tr><th scope="row">ソリッド<span class="cid"><code>merge_scope</code></span></th><td>ボディの選択（複数）</td><td>なし</td><td></td></tr>
+</tbody>
+</table></div>
+<h2 id="feature-part-primitive_wedge"><span class="secno">C.14</span> くさび</h2>
+<p class="where">作成: 3D モデル → 作成 → プリミティブ → くさび。<span class="cid"><code>part.primitive_wedge</code></span></p>
+<div class="table-wrap"><table class="params">
+<thead><tr><th>欄</th><th>種類</th><th>既定値</th><th>説明</th></tr></thead>
+<tbody>
+<tr><th scope="row">長さ<span class="cid"><code>length</code></span></th><td>長さ</td><td>40 mm</td><td></td></tr>
+<tr><th scope="row">幅<span class="cid"><code>width</code></span></th><td>長さ</td><td>30 mm</td><td></td></tr>
+<tr><th scope="row">高さ<span class="cid"><code>height</code></span></th><td>長さ</td><td>20 mm</td><td></td></tr>
+<tr><th scope="row">上面の長さ<span class="cid"><code>top_length</code></span></th><td>長さ</td><td>0 mm</td><td></td></tr>
+<tr><th scope="row">上面の幅<span class="cid"><code>top_width</code></span></th><td>長さ</td><td>30 mm</td><td></td></tr>
+<tr><th scope="row">平面<span class="cid"><code>plane</code></span></th><td>面・作業フィーチャなどの選択</td><td>なし</td><td>プリミティブを置く平面です（空のときは XY 平面）</td></tr>
+<tr><th scope="row">位置 X<span class="cid"><code>x</code></span></th><td>長さ</td><td>0 mm</td><td></td></tr>
+<tr><th scope="row">位置 Y<span class="cid"><code>y</code></span></th><td>長さ</td><td>0 mm</td><td></td></tr>
+<tr><th scope="row">方向を反転<span class="cid"><code>flip</code></span></th><td>チェック</td><td>オフ</td><td></td></tr>
+<tr><th scope="row">ブール演算<span class="cid"><code>operation</code></span></th><td>選択: 新規ソリッド・結合・カット・交差</td><td>新規ソリッド</td><td></td></tr>
+<tr><th scope="row">ソリッド<span class="cid"><code>merge_scope</code></span></th><td>ボディの選択（複数）</td><td>なし</td><td></td></tr>
+</tbody>
+</table></div>
+<h2 id="feature-part-hole"><span class="secno">C.15</span> 穴</h2>
+<p class="where">作成: 3D モデル → 修正 → 穴。<span class="cid"><code>part.hole</code></span></p>
+<div class="table-wrap"><table class="params">
+<thead><tr><th>欄</th><th>種類</th><th>既定値</th><th>説明</th></tr></thead>
+<tbody>
+<tr><th scope="row">位置（必須）<span class="cid"><code>points</code></span></th><td>スケッチの点の選択</td><td>なし</td><td></td></tr>
+<tr><th scope="row">開始面<span class="cid"><code>start</code></span></th><td>面・作業フィーチャなどの選択</td><td>なし</td><td></td></tr>
+<tr><th scope="row">穴の種類<span class="cid"><code>hole_type</code></span></th><td>選択: 単純穴・クリアランス穴・タップ穴・テーパ タップ穴</td><td>単純穴</td><td></td></tr>
+<tr><th scope="row">種類<span class="cid"><code>kind</code></span></th><td>選択: 単純・ザグリ・皿穴・スポットフェース</td><td>単純</td><td></td></tr>
+<tr><th scope="row">直径<span class="cid"><code>diameter</code></span></th><td>長さ</td><td>10 mm</td><td></td></tr>
+<tr><th scope="row">サイズ<span class="cid"><code>clearance_size</code></span></th><td>選択: M1.6・M2・M2.5・…（全 17 種）</td><td>M6</td><td></td></tr>
+<tr><th scope="row">はめあい<span class="cid"><code>clearance_fit</code></span></th><td>選択: 1 級（精級）・2 級（中級）・3 級（粗級）</td><td>2 級（中級）</td><td></td></tr>
+<tr><th scope="row">規格からザグリの直径を決める<span class="cid"><code>std_counterbore</code></span></th><td>チェック</td><td>オン</td><td></td></tr>
+<tr><th scope="row">ねじの種類<span class="cid"><code>tap_series</code></span></th><td>選択: メートル並目（JIS B 0205）・メートル細目（JIS B 0205）・管用平行ねじ G（JIS B 0202）</td><td>メートル並目（JIS B 0205）</td><td></td></tr>
+<tr><th scope="row">指定<span class="cid"><code>thread_coarse</code></span></th><td>選択: M1×0.25・M1.2×0.25・M1.4×0.3・…（全 26 種）</td><td>M6×1</td><td></td></tr>
+<tr><th scope="row">指定<span class="cid"><code>thread_fine</code></span></th><td>選択: M8×1・M10×1.25・M10×1・…（全 18 種）</td><td>M8×1</td><td></td></tr>
+<tr><th scope="row">指定<span class="cid"><code>thread_g</code></span></th><td>選択: G 1/16・G 1/8・G 1/4・…（全 14 種）</td><td>G 1/4</td><td></td></tr>
+<tr><th scope="row">指定<span class="cid"><code>thread_rc</code></span></th><td>選択: Rc 1/16・Rc 1/8・Rc 1/4・…（全 9 種）</td><td>Rc 1/4</td><td></td></tr>
+<tr><th scope="row">等級<span class="cid"><code>thread_class</code></span></th><td>選択: 6H・5H・7H・6g・6h・6e</td><td>6H</td><td></td></tr>
+<tr><th scope="row">方向<span class="cid"><code>thread_dir</code></span></th><td>選択: 右ねじ・左ねじ</td><td>右ねじ</td><td></td></tr>
+<tr><th scope="row">全ねじ<span class="cid"><code>thread_full</code></span></th><td>チェック</td><td>オン</td><td></td></tr>
+<tr><th scope="row">ねじの深さ<span class="cid"><code>thread_depth</code></span></th><td>長さ</td><td>10 mm</td><td></td></tr>
+<tr><th scope="row">終了条件<span class="cid"><code>end</code></span></th><td>選択: 距離・貫通・次へ</td><td>距離</td><td></td></tr>
+<tr><th scope="row">深さ<span class="cid"><code>depth</code></span></th><td>長さ</td><td>10 mm</td><td></td></tr>
+<tr><th scope="row">先端角<span class="cid"><code>tip_angle</code></span></th><td>選択: 118°・135°・平坦</td><td>118°</td><td></td></tr>
+<tr><th scope="row">方向を反転<span class="cid"><code>flip</code></span></th><td>チェック</td><td>オフ</td><td></td></tr>
+<tr><th scope="row">ザグリの直径<span class="cid"><code>cb_diameter</code></span></th><td>長さ</td><td>18 mm</td><td></td></tr>
+<tr><th scope="row">ザグリの深さ<span class="cid"><code>cb_depth</code></span></th><td>長さ</td><td>5 mm</td><td></td></tr>
+<tr><th scope="row">皿穴の直径<span class="cid"><code>cs_diameter</code></span></th><td>長さ</td><td>20 mm</td><td></td></tr>
+<tr><th scope="row">皿穴の角度<span class="cid"><code>cs_angle</code></span></th><td>角度</td><td>90°</td><td></td></tr>
+<tr><th scope="row">スポットフェースの直径<span class="cid"><code>sf_diameter</code></span></th><td>長さ</td><td>20 mm</td><td></td></tr>
+<tr><th scope="row">スポットフェースの深さ<span class="cid"><code>sf_depth</code></span></th><td>長さ</td><td>1 mm</td><td></td></tr>
+<tr><th scope="row">ブール演算<span class="cid"><code>operation</code></span></th><td>選択: カット</td><td>カット</td><td></td></tr>
+<tr><th scope="row">ソリッド<span class="cid"><code>merge_scope</code></span></th><td>ボディの選択（複数）</td><td>なし</td><td></td></tr>
+</tbody>
+</table></div>
+<h2 id="feature-part-fillet"><span class="secno">C.16</span> フィレット</h2>
+<p class="where">作成: 3D モデル → 修正 → フィレット。<span class="cid"><code>part.fillet</code></span></p>
+<div class="table-wrap"><table class="params">
+<thead><tr><th>欄</th><th>種類</th><th>既定値</th><th>説明</th></tr></thead>
+<tbody>
+<tr><th scope="row">種類<span class="cid"><code>mode</code></span></th><td>選択: 一定・可変</td><td>一定</td><td></td></tr>
+<tr><th scope="row">半径<span class="cid"><code>radius</code></span></th><td>長さ</td><td>1 mm</td><td></td></tr>
+<tr><th scope="row">エッジ（必須）<span class="cid"><code>edges</code></span></th><td>面・エッジ・頂点の選択（複数）</td><td>なし</td><td></td></tr>
+<tr><th scope="row">半径の滑らかな遷移<span class="cid"><code>smooth</code></span></th><td>チェック</td><td>オン</td><td>点の間の半径を滑らかにつなぎます（オフのときは直線的に変わります）</td></tr>
+<tr><th scope="row">半径の点<span class="cid"><code>var_points</code></span></th><td>行を足せる表</td><td>なし</td><td></td></tr>
+</tbody>
+</table></div>
+<h2 id="feature-part-chamfer"><span class="secno">C.17</span> 面取り</h2>
+<p class="where">作成: 3D モデル → 修正 → 面取り。<span class="cid"><code>part.chamfer</code></span></p>
+<div class="table-wrap"><table class="params">
+<thead><tr><th>欄</th><th>種類</th><th>既定値</th><th>説明</th></tr></thead>
+<tbody>
+<tr><th scope="row">種類<span class="cid"><code>mode</code></span></th><td>選択: 等距離・2 距離・距離と角度</td><td>等距離</td><td></td></tr>
+<tr><th scope="row">距離<span class="cid"><code>distance</code></span></th><td>長さ</td><td>1 mm</td><td></td></tr>
+<tr><th scope="row">距離 2<span class="cid"><code>distance2</code></span></th><td>長さ</td><td>1 mm</td><td></td></tr>
+<tr><th scope="row">角度<span class="cid"><code>angle</code></span></th><td>角度</td><td>45°</td><td></td></tr>
+<tr><th scope="row">方向を反転<span class="cid"><code>flip</code></span></th><td>チェック</td><td>オフ</td><td></td></tr>
+<tr><th scope="row">エッジ（必須）<span class="cid"><code>edges</code></span></th><td>面・エッジ・頂点の選択（複数）</td><td>なし</td><td></td></tr>
+<tr><th scope="row">面<span class="cid"><code>face</code></span></th><td>面・エッジ・頂点の選択</td><td>なし</td><td></td></tr>
+</tbody>
+</table></div>
+<h2 id="feature-part-cosmetic_thread"><span class="secno">C.18</span> ねじ</h2>
+<p class="where">作成: 3D モデル → 修正 → ねじ。<span class="cid"><code>part.cosmetic_thread</code></span></p>
+<div class="table-wrap"><table class="params">
+<thead><tr><th>欄</th><th>種類</th><th>既定値</th><th>説明</th></tr></thead>
+<tbody>
+<tr><th scope="row">面（必須）<span class="cid"><code>face</code></span></th><td>面・エッジ・頂点の選択</td><td>なし</td><td></td></tr>
+<tr><th scope="row">ねじの種類<span class="cid"><code>family</code></span></th><td>選択: メートル並目（JIS B 0205）・メートル細目（JIS B 0205）・管用平行ねじ G（JIS B 0202）・管用テーパねじ Rc（JIS B 0203）</td><td>メートル並目（JIS B 0205）</td><td></td></tr>
+<tr><th scope="row">指定<span class="cid"><code>thread_coarse</code></span></th><td>選択: M1×0.25・M1.2×0.25・M1.4×0.3・…（全 26 種）</td><td>M6×1</td><td></td></tr>
+<tr><th scope="row">指定<span class="cid"><code>thread_fine</code></span></th><td>選択: M8×1・M10×1.25・M10×1・…（全 18 種）</td><td>M8×1</td><td></td></tr>
+<tr><th scope="row">指定<span class="cid"><code>thread_g</code></span></th><td>選択: G 1/16・G 1/8・G 1/4・…（全 14 種）</td><td>G 1/4</td><td></td></tr>
+<tr><th scope="row">指定<span class="cid"><code>thread_rc</code></span></th><td>選択: Rc 1/16・Rc 1/8・Rc 1/4・…（全 9 種）</td><td>Rc 1/4</td><td></td></tr>
+<tr><th scope="row">等級<span class="cid"><code>thread_class</code></span></th><td>選択: 6H・5H・7H・6g・6h・6e</td><td>6H</td><td></td></tr>
+<tr><th scope="row">方向<span class="cid"><code>thread_dir</code></span></th><td>選択: 右ねじ・左ねじ</td><td>右ねじ</td><td></td></tr>
+<tr><th scope="row">全ねじ<span class="cid"><code>thread_full</code></span></th><td>チェック</td><td>オン</td><td></td></tr>
+<tr><th scope="row">ねじの深さ<span class="cid"><code>thread_depth</code></span></th><td>長さ</td><td>10 mm</td><td></td></tr>
+<tr><th scope="row">オフセット<span class="cid"><code>thread_offset</code></span></th><td>長さ</td><td>0 mm</td><td></td></tr>
+<tr><th scope="row">方向を反転<span class="cid"><code>reverse</code></span></th><td>チェック</td><td>オフ</td><td></td></tr>
+</tbody>
+</table></div>
+<h2 id="feature-part-shell"><span class="secno">C.19</span> シェル</h2>
+<p class="where">作成: 3D モデル → 修正 → シェル。<span class="cid"><code>part.shell</code></span></p>
+<div class="table-wrap"><table class="params">
+<thead><tr><th>欄</th><th>種類</th><th>既定値</th><th>説明</th></tr></thead>
+<tbody>
+<tr><th scope="row">削除する面<span class="cid"><code>faces</code></span></th><td>面・エッジ・頂点の選択（複数）</td><td>なし</td><td></td></tr>
+<tr><th scope="row">面のチェーンを自動で選ぶ<span class="cid"><code>chain</code></span></th><td>チェック</td><td>オン</td><td>選んだ面に接する面も選びます</td></tr>
+<tr><th scope="row">ソリッド<span class="cid"><code>bodies</code></span></th><td>ボディの選択（複数）</td><td>なし</td><td></td></tr>
+<tr><th scope="row">厚さ<span class="cid"><code>thickness</code></span></th><td>長さ</td><td>2 mm</td><td></td></tr>
+<tr><th scope="row">方向<span class="cid"><code>direction</code></span></th><td>選択: 内側・外側・両側</td><td>内側</td><td></td></tr>
+<tr><th scope="row">角の種類<span class="cid"><code>join</code></span></th><td>選択: 自動・シャープ・丸み</td><td>自動</td><td></td></tr>
+</tbody>
+</table></div>
+<h2 id="feature-part-draft"><span class="secno">C.20</span> 勾配</h2>
+<p class="where">作成: 3D モデル → 修正 → 勾配。<span class="cid"><code>part.draft</code></span></p>
+<div class="table-wrap"><table class="params">
+<thead><tr><th>欄</th><th>種類</th><th>既定値</th><th>説明</th></tr></thead>
+<tbody>
+<tr><th scope="row">固定平面（必須）<span class="cid"><code>plane</code></span></th><td>面・作業フィーチャなどの選択</td><td>なし</td><td></td></tr>
+<tr><th scope="row">抜き方向<span class="cid"><code>pull</code></span></th><td>面・作業フィーチャなどの選択</td><td>なし</td><td>既定は固定平面の法線です</td></tr>
+<tr><th scope="row">方向を反転<span class="cid"><code>flip</code></span></th><td>チェック</td><td>オフ</td><td></td></tr>
+<tr><th scope="row">面（必須）<span class="cid"><code>faces</code></span></th><td>面・エッジ・頂点の選択（複数）</td><td>なし</td><td></td></tr>
+<tr><th scope="row">面のチェーンを自動で選ぶ<span class="cid"><code>chain</code></span></th><td>チェック</td><td>オン</td><td>選んだ面に接する面にも勾配を付けます</td></tr>
+<tr><th scope="row">勾配角<span class="cid"><code>angle</code></span></th><td>角度</td><td>3°</td><td>正の角度にすると、抜き方向に沿って面が内側へ傾きます</td></tr>
+</tbody>
+</table></div>
+<h2 id="feature-part-boolean"><span class="secno">C.21</span> 結合</h2>
+<p class="where">作成: 3D モデル → 修正 → 結合。<span class="cid"><code>part.boolean</code></span></p>
+<div class="table-wrap"><table class="params">
+<thead><tr><th>欄</th><th>種類</th><th>既定値</th><th>説明</th></tr></thead>
+<tbody>
+<tr><th scope="row">ベース ボディ（必須）<span class="cid"><code>base</code></span></th><td>ボディの選択（複数）</td><td>なし</td><td></td></tr>
+<tr><th scope="row">ツール ボディ（必須）<span class="cid"><code>tools</code></span></th><td>ボディの選択（複数）</td><td>なし</td><td></td></tr>
+<tr><th scope="row">演算<span class="cid"><code>operation</code></span></th><td>選択: 結合・カット・交差</td><td>結合</td><td></td></tr>
+<tr><th scope="row">ツール ボディを保持<span class="cid"><code>keep_tools</code></span></th><td>チェック</td><td>オフ</td><td></td></tr>
+</tbody>
+</table></div>
+<h2 id="feature-part-split"><span class="secno">C.22</span> 分割</h2>
+<p class="where">作成: 3D モデル → 修正 → 分割。<span class="cid"><code>part.split</code></span></p>
+<div class="table-wrap"><table class="params">
+<thead><tr><th>欄</th><th>種類</th><th>既定値</th><th>説明</th></tr></thead>
+<tbody>
+<tr><th scope="row">方法<span class="cid"><code>mode</code></span></th><td>選択: ソリッドを分割・ソリッドをトリム</td><td>ソリッドを分割</td><td></td></tr>
+<tr><th scope="row">分割ツール（必須）<span class="cid"><code>tool</code></span></th><td>面・作業フィーチャなどの選択</td><td>なし</td><td></td></tr>
+<tr><th scope="row">ソリッド<span class="cid"><code>bodies</code></span></th><td>ボディの選択（複数）</td><td>なし</td><td></td></tr>
+<tr><th scope="row">反転<span class="cid"><code>flip</code></span></th><td>チェック</td><td>オフ</td><td></td></tr>
+</tbody>
+</table></div>
+<h2 id="feature-part-move_body"><span class="secno">C.23</span> ボディを移動</h2>
+<p class="where">作成: 3D モデル → 修正 → ボディを移動。<span class="cid"><code>part.move_body</code></span></p>
+<div class="table-wrap"><table class="params">
+<thead><tr><th>欄</th><th>種類</th><th>既定値</th><th>説明</th></tr></thead>
+<tbody>
+<tr><th scope="row">ソリッド（必須）<span class="cid"><code>bodies</code></span></th><td>ボディの選択（複数）</td><td>なし</td><td></td></tr>
+<tr><th scope="row">種類<span class="cid"><code>method</code></span></th><td>選択: フリー ドラッグ・光線に沿って移動・線を中心に回転</td><td>フリー ドラッグ</td><td></td></tr>
+<tr><th scope="row">X 方向に移動<span class="cid"><code>dx</code></span></th><td>長さ</td><td>0 mm</td><td></td></tr>
+<tr><th scope="row">Y 方向に移動<span class="cid"><code>dy</code></span></th><td>長さ</td><td>0 mm</td><td></td></tr>
+<tr><th scope="row">Z 方向に移動<span class="cid"><code>dz</code></span></th><td>長さ</td><td>0 mm</td><td></td></tr>
+<tr><th scope="row">X まわりに回転<span class="cid"><code>rx</code></span></th><td>角度</td><td>0°</td><td></td></tr>
+<tr><th scope="row">Y まわりに回転<span class="cid"><code>ry</code></span></th><td>角度</td><td>0°</td><td></td></tr>
+<tr><th scope="row">Z まわりに回転<span class="cid"><code>rz</code></span></th><td>角度</td><td>0°</td><td></td></tr>
+<tr><th scope="row">方向<span class="cid"><code>direction</code></span></th><td>面・作業フィーチャなどの選択</td><td>なし</td><td></td></tr>
+<tr><th scope="row">距離<span class="cid"><code>distance</code></span></th><td>長さ</td><td>10 mm</td><td></td></tr>
+<tr><th scope="row">回転軸<span class="cid"><code>axis</code></span></th><td>面・作業フィーチャなどの選択</td><td>なし</td><td></td></tr>
+<tr><th scope="row">角度<span class="cid"><code>angle</code></span></th><td>角度</td><td>90°</td><td></td></tr>
+<tr><th scope="row">コピーを作成<span class="cid"><code>copy</code></span></th><td>チェック</td><td>オフ</td><td></td></tr>
+</tbody>
+</table></div>
+<h2 id="feature-part-delete_body"><span class="secno">C.24</span> ボディを削除</h2>
+<p class="where">作成: 3D モデル → 修正 → ボディを削除。<span class="cid"><code>part.delete_body</code></span></p>
+<div class="table-wrap"><table class="params">
+<thead><tr><th>欄</th><th>種類</th><th>既定値</th><th>説明</th></tr></thead>
+<tbody>
+<tr><th scope="row">方法<span class="cid"><code>mode</code></span></th><td>選択: 削除・保持</td><td>削除</td><td></td></tr>
+<tr><th scope="row">ソリッド（必須）<span class="cid"><code>bodies</code></span></th><td>ボディの選択（複数）</td><td>なし</td><td></td></tr>
+</tbody>
+</table></div>
+<h2 id="feature-part-heal"><span class="secno">C.25</span> 修復</h2>
+<p class="where">作成: 3D モデル → 修正 → 修復。<span class="cid"><code>part.heal</code></span></p>
+<div class="table-wrap"><table class="params">
+<thead><tr><th>欄</th><th>種類</th><th>既定値</th><th>説明</th></tr></thead>
+<tbody>
+<tr><th scope="row">ボディ<span class="cid"><code>bodies</code></span></th><td>ボディの選択（複数）</td><td>なし</td><td>修復するボディ（空のときはすべてのソリッドとサーフェス）</td></tr>
+<tr><th scope="row">許容差<span class="cid"><code>tolerance</code></span></th><td>長さ</td><td>0.01 mm</td><td>これより小さい隙間は閉じ、これより短いエッジは削除します</td></tr>
+<tr><th scope="row">縫合<span class="cid"><code>stitch</code></span></th><td>チェック</td><td>オン</td><td>隙間を閉じ、ばらばらの面を 1 つのシェルにつなげます（閉じたシェルはソリッドになります）</td></tr>
+<tr><th scope="row">面の向きを揃える<span class="cid"><code>orientation</code></span></th><td>チェック</td><td>オン</td><td></td></tr>
+<tr><th scope="row">小さいエッジを削除<span class="cid"><code>small_edges</code></span></th><td>チェック</td><td>オン</td><td>許容差より短いエッジと、その隣のスライバー面を削除します</td></tr>
+</tbody>
+</table></div>
+<h2 id="feature-part-datum_plane"><span class="secno">C.26</span> 平面</h2>
+<p class="where">作成: 3D モデル → 作業フィーチャ → 作業平面 → 平面。<span class="cid"><code>part.datum_plane</code></span></p>
+<div class="table-wrap"><table class="params">
+<thead><tr><th>欄</th><th>種類</th><th>既定値</th><th>説明</th></tr></thead>
+<tbody>
+<tr><th scope="row">方法<span class="cid"><code>mode</code></span></th><td>選択: 平面からのオフセット・点を通る平面に平行・2 つの平面間の中点平面・…（全 12 種）</td><td>平面からのオフセット</td><td></td></tr>
+<tr><th scope="row">平面（必須）<span class="cid"><code>base</code></span></th><td>面・作業フィーチャなどの選択</td><td>なし</td><td></td></tr>
+<tr><th scope="row">2 つ目の平面（必須）<span class="cid"><code>plane2</code></span></th><td>面・作業フィーチャなどの選択</td><td>なし</td><td></td></tr>
+<tr><th scope="row">サーフェス（必須）<span class="cid"><code>surface</code></span></th><td>面・エッジ・頂点の選択</td><td>なし</td><td></td></tr>
+<tr><th scope="row">エッジまたは軸（必須）<span class="cid"><code>line</code></span></th><td>面・作業フィーチャなどの選択</td><td>なし</td><td></td></tr>
+<tr><th scope="row">2 つ目のエッジ（必須）<span class="cid"><code>line2</code></span></th><td>面・作業フィーチャなどの選択</td><td>なし</td><td></td></tr>
+<tr><th scope="row">点（必須）<span class="cid"><code>point</code></span></th><td>面・作業フィーチャなどの選択</td><td>なし</td><td></td></tr>
+<tr><th scope="row">2 点目（必須）<span class="cid"><code>point2</code></span></th><td>面・作業フィーチャなどの選択</td><td>なし</td><td></td></tr>
+<tr><th scope="row">3 点目（必須）<span class="cid"><code>point3</code></span></th><td>面・作業フィーチャなどの選択</td><td>なし</td><td></td></tr>
+<tr><th scope="row">曲線（必須）<span class="cid"><code>curve</code></span></th><td>面・作業フィーチャなどの選択</td><td>なし</td><td></td></tr>
+<tr><th scope="row">曲線上の点<span class="cid"><code>on_point</code></span></th><td>面・作業フィーチャなどの選択</td><td>なし</td><td></td></tr>
+<tr><th scope="row">オフセット<span class="cid"><code>offset</code></span></th><td>長さ</td><td>10 mm</td><td></td></tr>
+<tr><th scope="row">角度<span class="cid"><code>angle</code></span></th><td>角度</td><td>90°</td><td></td></tr>
+<tr><th scope="row">曲線上の位置<span class="cid"><code>position</code></span></th><td>数値</td><td>0</td><td>0 が曲線の始点、1 が終点（点を選ばないときに使います）</td></tr>
+<tr><th scope="row">方向を反転<span class="cid"><code>flip</code></span></th><td>チェック</td><td>オフ</td><td></td></tr>
+</tbody>
+</table></div>
+<h2 id="feature-part-datum_axis"><span class="secno">C.27</span> 軸</h2>
+<p class="where">作成: 3D モデル → 作業フィーチャ → 作業軸 → 軸。<span class="cid"><code>part.datum_axis</code></span></p>
+<div class="table-wrap"><table class="params">
+<thead><tr><th>欄</th><th>種類</th><th>既定値</th><th>説明</th></tr></thead>
+<tbody>
+<tr><th scope="row">方法<span class="cid"><code>mode</code></span></th><td>選択: 線分またはエッジ上・点を通る線分に平行・2 点を通る・…（全 7 種）</td><td>線分またはエッジ上</td><td></td></tr>
+<tr><th scope="row">エッジまたは軸（必須）<span class="cid"><code>line</code></span></th><td>面・作業フィーチャなどの選択</td><td>なし</td><td></td></tr>
+<tr><th scope="row">平面（必須）<span class="cid"><code>base</code></span></th><td>面・作業フィーチャなどの選択</td><td>なし</td><td></td></tr>
+<tr><th scope="row">2 つ目の平面（必須）<span class="cid"><code>plane2</code></span></th><td>面・作業フィーチャなどの選択</td><td>なし</td><td></td></tr>
+<tr><th scope="row">点（必須）<span class="cid"><code>point</code></span></th><td>面・作業フィーチャなどの選択</td><td>なし</td><td></td></tr>
+<tr><th scope="row">2 点目（必須）<span class="cid"><code>point2</code></span></th><td>面・作業フィーチャなどの選択</td><td>なし</td><td></td></tr>
+<tr><th scope="row">円形エッジ（必須）<span class="cid"><code>curve</code></span></th><td>面・作業フィーチャなどの選択</td><td>なし</td><td></td></tr>
+<tr><th scope="row">回転状の面（必須）<span class="cid"><code>surface</code></span></th><td>面・エッジ・頂点の選択</td><td>なし</td><td></td></tr>
+<tr><th scope="row">方向を反転<span class="cid"><code>flip</code></span></th><td>チェック</td><td>オフ</td><td></td></tr>
+</tbody>
+</table></div>
+<h2 id="feature-part-datum_point"><span class="secno">C.28</span> 点</h2>
+<p class="where">作成: 3D モデル → 作業フィーチャ → 作業点 → 点。<span class="cid"><code>part.datum_point</code></span></p>
+<div class="table-wrap"><table class="params">
+<thead><tr><th>欄</th><th>種類</th><th>既定値</th><th>説明</th></tr></thead>
+<tbody>
+<tr><th scope="row">方法<span class="cid"><code>mode</code></span></th><td>選択: 固定点・頂点またはスケッチ点上・エッジの中点・…（全 7 種）</td><td>固定点</td><td></td></tr>
+<tr><th scope="row">点（必須）<span class="cid"><code>point</code></span></th><td>面・作業フィーチャなどの選択</td><td>なし</td><td></td></tr>
+<tr><th scope="row">エッジ（必須）<span class="cid"><code>curve</code></span></th><td>面・作業フィーチャなどの選択</td><td>なし</td><td></td></tr>
+<tr><th scope="row">円・球・トーラス（必須）<span class="cid"><code>center_of</code></span></th><td>面・作業フィーチャなどの選択</td><td>なし</td><td></td></tr>
+<tr><th scope="row">平面（必須）<span class="cid"><code>base</code></span></th><td>面・作業フィーチャなどの選択</td><td>なし</td><td></td></tr>
+<tr><th scope="row">2 つ目の平面（必須）<span class="cid"><code>plane2</code></span></th><td>面・作業フィーチャなどの選択</td><td>なし</td><td></td></tr>
+<tr><th scope="row">3 つ目の平面（必須）<span class="cid"><code>plane3</code></span></th><td>面・作業フィーチャなどの選択</td><td>なし</td><td></td></tr>
+<tr><th scope="row">エッジまたは軸（必須）<span class="cid"><code>line</code></span></th><td>面・作業フィーチャなどの選択</td><td>なし</td><td></td></tr>
+<tr><th scope="row">2 つ目のエッジ（必須）<span class="cid"><code>line2</code></span></th><td>面・作業フィーチャなどの選択</td><td>なし</td><td></td></tr>
+<tr><th scope="row">座標系<span class="cid"><code>frame</code></span></th><td>面・作業フィーチャなどの選択</td><td>なし</td><td></td></tr>
+<tr><th scope="row">X<span class="cid"><code>x</code></span></th><td>長さ</td><td>0 mm</td><td></td></tr>
+<tr><th scope="row">Y<span class="cid"><code>y</code></span></th><td>長さ</td><td>0 mm</td><td></td></tr>
+<tr><th scope="row">Z<span class="cid"><code>z</code></span></th><td>長さ</td><td>0 mm</td><td></td></tr>
+</tbody>
+</table></div>
+<h2 id="feature-part-datum_csys"><span class="secno">C.29</span> UCS</h2>
+<p class="where">作成: 3D モデル → 作業フィーチャ → UCS。<span class="cid"><code>part.datum_csys</code></span></p>
+<div class="table-wrap"><table class="params">
+<thead><tr><th>欄</th><th>種類</th><th>既定値</th><th>説明</th></tr></thead>
+<tbody>
+<tr><th scope="row">方法<span class="cid"><code>mode</code></span></th><td>選択: オフセットと回転・原点と 2 方向・3 点</td><td>オフセットと回転</td><td></td></tr>
+<tr><th scope="row">基準の座標系<span class="cid"><code>frame</code></span></th><td>面・作業フィーチャなどの選択</td><td>なし</td><td></td></tr>
+<tr><th scope="row">X<span class="cid"><code>x</code></span></th><td>長さ</td><td>0 mm</td><td></td></tr>
+<tr><th scope="row">Y<span class="cid"><code>y</code></span></th><td>長さ</td><td>0 mm</td><td></td></tr>
+<tr><th scope="row">Z<span class="cid"><code>z</code></span></th><td>長さ</td><td>0 mm</td><td></td></tr>
+<tr><th scope="row">X 軸まわりの回転<span class="cid"><code>rx</code></span></th><td>角度</td><td>0°</td><td></td></tr>
+<tr><th scope="row">Y 軸まわりの回転<span class="cid"><code>ry</code></span></th><td>角度</td><td>0°</td><td></td></tr>
+<tr><th scope="row">Z 軸まわりの回転<span class="cid"><code>rz</code></span></th><td>角度</td><td>0°</td><td></td></tr>
+<tr><th scope="row">原点（必須）<span class="cid"><code>point</code></span></th><td>面・作業フィーチャなどの選択</td><td>なし</td><td></td></tr>
+<tr><th scope="row">X 方向（必須）<span class="cid"><code>line</code></span></th><td>面・作業フィーチャなどの選択</td><td>なし</td><td></td></tr>
+<tr><th scope="row">Y の向き<span class="cid"><code>line2</code></span></th><td>面・作業フィーチャなどの選択</td><td>なし</td><td></td></tr>
+<tr><th scope="row">X を反転<span class="cid"><code>flip</code></span></th><td>チェック</td><td>オフ</td><td></td></tr>
+<tr><th scope="row">Y を反転<span class="cid"><code>flip_y</code></span></th><td>チェック</td><td>オフ</td><td></td></tr>
+<tr><th scope="row">X 軸の点（必須）<span class="cid"><code>point2</code></span></th><td>面・作業フィーチャなどの選択</td><td>なし</td><td></td></tr>
+<tr><th scope="row">XY 平面の点（必須）<span class="cid"><code>point3</code></span></th><td>面・作業フィーチャなどの選択</td><td>なし</td><td></td></tr>
+</tbody>
+</table></div>
+<h2 id="feature-part-pattern_linear"><span class="secno">C.30</span> 矩形状パターン</h2>
+<p class="where">作成: 3D モデル → パターン → 矩形状パターン。<span class="cid"><code>part.pattern_linear</code></span></p>
+<div class="table-wrap"><table class="params">
+<thead><tr><th>欄</th><th>種類</th><th>既定値</th><th>説明</th></tr></thead>
+<tbody>
+<tr><th scope="row">パターンの種類<span class="cid"><code>pattern_type</code></span></th><td>選択: フィーチャを個別にパターン・ソリッドをパターン</td><td>フィーチャを個別にパターン</td><td></td></tr>
+<tr><th scope="row">フィーチャ（必須）<span class="cid"><code>features</code></span></th><td>フィーチャの選択（複数）</td><td>なし</td><td></td></tr>
+<tr><th scope="row">ソリッド<span class="cid"><code>bodies</code></span></th><td>ボディの選択（複数）</td><td>なし</td><td></td></tr>
+<tr><th scope="row">方向 1（必須）<span class="cid"><code>dir1</code></span></th><td>面・作業フィーチャなどの選択</td><td>なし</td><td></td></tr>
+<tr><th scope="row">反転<span class="cid"><code>flip1</code></span></th><td>チェック</td><td>オフ</td><td></td></tr>
+<tr><th scope="row">個数<span class="cid"><code>count1</code></span></th><td>整数</td><td>2</td><td></td></tr>
+<tr><th scope="row">長さ<span class="cid"><code>length1</code></span></th><td>長さ</td><td>10 mm</td><td></td></tr>
+<tr><th scope="row">長さの種類<span class="cid"><code>measure1</code></span></th><td>選択: 間隔・距離</td><td>間隔</td><td></td></tr>
+<tr><th scope="row">中間平面<span class="cid"><code>midplane1</code></span></th><td>チェック</td><td>オフ</td><td></td></tr>
+<tr><th scope="row">方向 2<span class="cid"><code>dir2</code></span></th><td>面・作業フィーチャなどの選択</td><td>なし</td><td></td></tr>
+<tr><th scope="row">反転<span class="cid"><code>flip2</code></span></th><td>チェック</td><td>オフ</td><td></td></tr>
+<tr><th scope="row">個数<span class="cid"><code>count2</code></span></th><td>整数</td><td>1</td><td></td></tr>
+<tr><th scope="row">長さ<span class="cid"><code>length2</code></span></th><td>長さ</td><td>10 mm</td><td></td></tr>
+<tr><th scope="row">長さの種類<span class="cid"><code>measure2</code></span></th><td>選択: 間隔・距離</td><td>間隔</td><td></td></tr>
+<tr><th scope="row">中間平面<span class="cid"><code>midplane2</code></span></th><td>チェック</td><td>オフ</td><td></td></tr>
+<tr><th scope="row">省略したオカレンス<span class="cid"><code>skip</code></span></th><td>文字</td><td>なし</td><td>作成しないオカレンス（ビューの点をクリックして切り替えます）</td></tr>
+<tr><th scope="row">作成方法<span class="cid"><code>compute</code></span></th><td>選択: 同一・調整</td><td>同一</td><td>同一はフィーチャの結果をコピーします。調整は各オカレンスの範囲を計算し直します（遅くなります）</td></tr>
+<tr><th scope="row">ソリッド演算<span class="cid"><code>solid_op</code></span></th><td>選択: 結合・新規ボディを作成</td><td>結合</td><td></td></tr>
+</tbody>
+</table></div>
+<h2 id="feature-part-pattern_circular"><span class="secno">C.31</span> 円形状パターン</h2>
+<p class="where">作成: 3D モデル → パターン → 円形状パターン。<span class="cid"><code>part.pattern_circular</code></span></p>
+<div class="table-wrap"><table class="params">
+<thead><tr><th>欄</th><th>種類</th><th>既定値</th><th>説明</th></tr></thead>
+<tbody>
+<tr><th scope="row">パターンの種類<span class="cid"><code>pattern_type</code></span></th><td>選択: フィーチャを個別にパターン・ソリッドをパターン</td><td>フィーチャを個別にパターン</td><td></td></tr>
+<tr><th scope="row">フィーチャ（必須）<span class="cid"><code>features</code></span></th><td>フィーチャの選択（複数）</td><td>なし</td><td></td></tr>
+<tr><th scope="row">ソリッド<span class="cid"><code>bodies</code></span></th><td>ボディの選択（複数）</td><td>なし</td><td></td></tr>
+<tr><th scope="row">回転軸（必須）<span class="cid"><code>axis</code></span></th><td>面・作業フィーチャなどの選択</td><td>なし</td><td></td></tr>
+<tr><th scope="row">反転<span class="cid"><code>flip</code></span></th><td>チェック</td><td>オフ</td><td></td></tr>
+<tr><th scope="row">個数<span class="cid"><code>count</code></span></th><td>整数</td><td>6</td><td></td></tr>
+<tr><th scope="row">角度<span class="cid"><code>angle</code></span></th><td>角度</td><td>360°</td><td></td></tr>
+<tr><th scope="row">中間平面<span class="cid"><code>midplane</code></span></th><td>チェック</td><td>オフ</td><td></td></tr>
+<tr><th scope="row">配置方法<span class="cid"><code>placement</code></span></th><td>選択: フィット・増分</td><td>フィット</td><td></td></tr>
+<tr><th scope="row">向き<span class="cid"><code>orientation</code></span></th><td>選択: 回転・固定</td><td>回転</td><td></td></tr>
+<tr><th scope="row">省略したオカレンス<span class="cid"><code>skip</code></span></th><td>文字</td><td>なし</td><td>作成しないオカレンス（ビューの点をクリックして切り替えます）</td></tr>
+<tr><th scope="row">作成方法<span class="cid"><code>compute</code></span></th><td>選択: 同一・調整</td><td>同一</td><td>同一はフィーチャの結果をコピーします。調整は各オカレンスの範囲を計算し直します（遅くなります）</td></tr>
+<tr><th scope="row">ソリッド演算<span class="cid"><code>solid_op</code></span></th><td>選択: 結合・新規ボディを作成</td><td>結合</td><td></td></tr>
+</tbody>
+</table></div>
+<h2 id="feature-part-pattern_points"><span class="secno">C.32</span> スケッチ駆動パターン</h2>
+<p class="where">作成: 3D モデル → パターン → スケッチ駆動パターン。<span class="cid"><code>part.pattern_points</code></span></p>
+<div class="table-wrap"><table class="params">
+<thead><tr><th>欄</th><th>種類</th><th>既定値</th><th>説明</th></tr></thead>
+<tbody>
+<tr><th scope="row">パターンの種類<span class="cid"><code>pattern_type</code></span></th><td>選択: フィーチャを個別にパターン・ソリッドをパターン</td><td>フィーチャを個別にパターン</td><td></td></tr>
+<tr><th scope="row">フィーチャ（必須）<span class="cid"><code>features</code></span></th><td>フィーチャの選択（複数）</td><td>なし</td><td></td></tr>
+<tr><th scope="row">ソリッド<span class="cid"><code>bodies</code></span></th><td>ボディの選択（複数）</td><td>なし</td><td></td></tr>
+<tr><th scope="row">スケッチの点（必須）<span class="cid"><code>points</code></span></th><td>スケッチの点の選択</td><td>なし</td><td></td></tr>
+<tr><th scope="row">基準点<span class="cid"><code>base_point</code></span></th><td>面・作業フィーチャなどの選択</td><td>なし</td><td></td></tr>
+<tr><th scope="row">省略したオカレンス<span class="cid"><code>skip</code></span></th><td>文字</td><td>なし</td><td>作成しないオカレンス（ビューの点をクリックして切り替えます）</td></tr>
+<tr><th scope="row">作成方法<span class="cid"><code>compute</code></span></th><td>選択: 同一・調整</td><td>同一</td><td>同一はフィーチャの結果をコピーします。調整は各オカレンスの範囲を計算し直します（遅くなります）</td></tr>
+<tr><th scope="row">ソリッド演算<span class="cid"><code>solid_op</code></span></th><td>選択: 結合・新規ボディを作成</td><td>結合</td><td></td></tr>
+</tbody>
+</table></div>
+<h2 id="feature-part-mirror"><span class="secno">C.33</span> ミラー</h2>
+<p class="where">作成: 3D モデル → パターン → ミラー。<span class="cid"><code>part.mirror</code></span></p>
+<div class="table-wrap"><table class="params">
+<thead><tr><th>欄</th><th>種類</th><th>既定値</th><th>説明</th></tr></thead>
+<tbody>
+<tr><th scope="row">パターンの種類<span class="cid"><code>pattern_type</code></span></th><td>選択: フィーチャを個別にミラー・ソリッドをミラー</td><td>フィーチャを個別にミラー</td><td></td></tr>
+<tr><th scope="row">フィーチャ（必須）<span class="cid"><code>features</code></span></th><td>フィーチャの選択（複数）</td><td>なし</td><td></td></tr>
+<tr><th scope="row">ソリッド<span class="cid"><code>bodies</code></span></th><td>ボディの選択（複数）</td><td>なし</td><td></td></tr>
+<tr><th scope="row">ミラー平面（必須）<span class="cid"><code>plane</code></span></th><td>面・作業フィーチャなどの選択</td><td>なし</td><td></td></tr>
+<tr><th scope="row">作成方法<span class="cid"><code>compute</code></span></th><td>選択: 同一・調整</td><td>同一</td><td>同一はフィーチャの結果をコピーします。調整は各オカレンスの範囲を計算し直します（遅くなります）</td></tr>
+<tr><th scope="row">ソリッド演算<span class="cid"><code>solid_op</code></span></th><td>選択: 結合・新規ソリッド</td><td>結合</td><td></td></tr>
+<tr><th scope="row">元のボディを削除<span class="cid"><code>remove_original</code></span></th><td>チェック</td><td>オフ</td><td></td></tr>
+</tbody>
+</table></div>
+</article>
+<nav class="pager" aria-label="前後の章"><a class="prev" rel="prev" href="appendix_b_shortcuts.html"><span class="dir">前の章</span>付録 B ショートカット一覧</a><a class="next" rel="next" href="appendix_d_glossary.html"><span class="dir">次の章</span>付録 D 用語の対応表</a></nav>
+<footer class="footer"><p>EMRM-Studio ユーザーマニュアル（日本語）・EMRM-Studio 0.1.0 ・ <a href="#main">このページの先頭へ</a></p></footer>
+</main>
+</div>
+</body>
+</html>

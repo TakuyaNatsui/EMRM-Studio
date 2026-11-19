@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="generator" content="tools/build_manual.py">
+<title>第 23 章 静電場解析 - EMRM-Studio ユーザーマニュアル</title>
+<link rel="stylesheet" href="assets/manual.css">
+<script src="assets/search_index.js" charset="utf-8" defer></script>
+<script src="assets/manual.js" charset="utf-8" defer></script>
+</head>
+<body class="page">
+<header class="topbar">
+<a class="brand" href="index.html">EMRM-Studio ユーザーマニュアル</a>
+<button class="toc-toggle" type="button" aria-controls="toc" aria-expanded="false">目次</button>
+<form class="search" role="search" action="#" onsubmit="return false">
+<input id="q" type="search" placeholder="マニュアルを検索（/）" aria-label="マニュアルを検索" autocomplete="off">
+</form>
+</header>
+<div id="search-results" class="search-results" hidden></div>
+<div class="layout">
+<nav id="toc" class="toc" aria-label="目次">
+<details class="toc-box">
+<summary>目次</summary>
+<ol class="toc-chapters">
+<li class="toc-home"><a href="index.html">表紙・目次</a></li>
+<li><a href="00_intro.html">はじめに</a></li>
+<li class="toc-part" role="presentation">第 I 部　形状を作る（CAD）</li>
+<li><a href="01_screen.html"><span class="chno">第 1 章</span> 画面の構成</a></li>
+<li><a href="02_view.html"><span class="chno">第 2 章</span> 視点の操作</a></li>
+<li><a href="03_first_part.html"><span class="chno">第 3 章</span> はじめての部品</a></li>
+<li><a href="04_sketch.html"><span class="chno">第 4 章</span> スケッチ</a></li>
+<li><a href="05_work_features.html"><span class="chno">第 5 章</span> 作業フィーチャ</a></li>
+<li><a href="06_features_basic.html"><span class="chno">第 6 章</span> フィーチャ（押し出し・回転・穴・フィレットなど）</a></li>
+<li><a href="07_features_advanced.html"><span class="chno">第 7 章</span> フィーチャ（スイープ・ロフト・コイル・パターンなど）</a></li>
+<li><a href="08_bodies.html"><span class="chno">第 8 章</span> ボディの操作</a></li>
+<li><a href="09_browser.html"><span class="chno">第 9 章</span> ブラウザとフィーチャの管理</a></li>
+<li><a href="10_parameters.html"><span class="chno">第 10 章</span> パラメータと式</a></li>
+<li><a href="11_configurations.html"><span class="chno">第 11 章</span> 構成</a></li>
+<li><a href="12_inspect.html"><span class="chno">第 12 章</span> 検査</a></li>
+<li><a href="13_files.html"><span class="chno">第 13 章</span> ファイル</a></li>
+<li class="toc-part" role="presentation">第 II 部　電磁場解析</li>
+<li><a href="14_em_intro.html"><span class="chno">第 14 章</span> 電磁場解析のはじめに</a></li>
+<li><a href="15_em_first.html"><span class="chno">第 15 章</span> はじめての電磁場解析（ソレノイド）</a></li>
+<li><a href="16_em_setup.html"><span class="chno">第 16 章</span> スタディの共通の設定</a></li>
+<li><a href="17_em_results.html"><span class="chno">第 17 章</span> 結果の見方</a></li>
+<li><a href="18_em_magnetostatic.html"><span class="chno">第 18 章</span> 静磁場解析</a></li>
+<li><a href="19_em_coils.html"><span class="chno">第 19 章</span> 静磁場解析: コイル</a></li>
+<li><a href="20_em_dipole.html"><span class="chno">第 20 章</span> 静磁場解析の例題: H 型双極電磁石</a></li>
+<li><a href="21_em_eigenmode.html"><span class="chno">第 21 章</span> 共振モード解析</a></li>
+<li><a href="22_em_driven.html"><span class="chno">第 22 章</span> ポート解析</a></li>
+<li class="current"><a href="23_em_electrostatic.html" aria-current="page"><span class="chno">第 23 章</span> 静電場解析</a><ol class="toc-sections"><li><a href="23_em_electrostatic.html#overview"><span class="secno">23.1</span> 静電場のスタディ</a></li><li><a href="23_em_electrostatic.html#electrodes"><span class="secno">23.2</span> 電極</a></li><li><a href="23_em_electrostatic.html#materials"><span class="secno">23.3</span> 材料と誘電体</a></li><li><a href="23_em_electrostatic.html#boundaries"><span class="secno">23.4</span> 外面と対称面の境界</a></li><li><a href="23_em_electrostatic.html#results"><span class="secno">23.5</span> 静電場の結果</a></li><li><a href="23_em_electrostatic.html#example"><span class="secno">23.6</span> 例題: 電子銃の電極</a></li><li><a href="23_em_electrostatic.html#accuracy"><span class="secno">23.7</span> 精度の目安</a></li><li><a href="23_em_electrostatic.html#limits"><span class="secno">23.8</span> 今の版でできないこと</a></li></ol></li>
+<li><a href="24_em_gun.html"><span class="chno">第 24 章</span> 電子銃解析</a></li>
+<li><a href="25_em_troubleshooting.html"><span class="chno">第 25 章</span> 電磁場解析で困ったとき</a></li>
+<li class="toc-part" role="presentation">第 III 部　連携・カスタマイズ・自動化</li>
+<li><a href="26_step_export.html"><span class="chno">第 26 章</span> 他の解析プログラムに形を渡す</a></li>
+<li><a href="27_customize.html"><span class="chno">第 27 章</span> カスタマイズ</a></li>
+<li><a href="28_automation.html"><span class="chno">第 28 章</span> 自動化</a></li>
+<li><a href="29_troubleshooting.html"><span class="chno">第 29 章</span> 困ったとき</a></li>
+<li class="toc-part" role="presentation">付録</li>
+<li class="appendix"><a href="appendix_a_commands.html"><span class="chno">付録 A</span> コマンド一覧</a></li>
+<li class="appendix"><a href="appendix_b_shortcuts.html"><span class="chno">付録 B</span> ショートカット一覧</a></li>
+<li class="appendix"><a href="appendix_c_feature_params.html"><span class="chno">付録 C</span> フィーチャのパラメータ一覧</a></li>
+<li class="appendix"><a href="appendix_d_glossary.html"><span class="chno">付録 D</span> 用語の対応表</a></li>
+</ol>
+</details>
+</nav>
+<main class="content" id="main">
+<article class="chapter ">
+<p class="chapter-label">第 23 章</p>
+<h1>静電場解析</h1>
+<nav class="pagetoc" aria-label="この章の内容">
+<p class="pagetoc-title">この章の内容</p>
+<ol>
+<li><a href="#overview"><span class="secno">23.1</span> 静電場のスタディ</a></li>
+<li><a href="#electrodes"><span class="secno">23.2</span> 電極</a></li>
+<li class="sub"><a href="#face-electrodes">面の電極</a></li>
+<li><a href="#materials"><span class="secno">23.3</span> 材料と誘電体</a></li>
+<li><a href="#boundaries"><span class="secno">23.4</span> 外面と対称面の境界</a></li>
+<li class="sub"><a href="#symmetry">対称面の境界</a></li>
+<li><a href="#results"><span class="secno">23.5</span> 静電場の結果</a></li>
+<li class="sub"><a href="#table">結果の表</a></li>
+<li class="sub"><a href="#capacitance">電極間の容量</a></li>
+<li><a href="#example"><span class="secno">23.6</span> 例題: 電子銃の電極</a></li>
+<li><a href="#accuracy"><span class="secno">23.7</span> 精度の目安</a></li>
+<li><a href="#limits"><span class="secno">23.8</span> 今の版でできないこと</a></li>
+</ol>
+</nav>
+<p><span class="badge-study study-electrostatic">静電場</span> この章では、<strong>静電場</strong>のスタディを説明します。電極の電位がつくる電位と電場を求め、電極の電荷・電極間の容量・表面の最大電界を出します。電極の決め方、誘電体、外面と対称面の境界、結果の表と表示、例題（電子銃の電極）、精度の目安の順です。題材は <code>examples/electron_gun.emrm</code> です。</p>
+
+<h2 id="overview"><span class="secno">23.1</span> 静電場のスタディ</h2>
+<p>電極の電位を決めて、そのまわりの電位 φ を有限要素法で解きます。真空・誘電体の中に電荷が無いとして、∇·(ε<sub>0</sub>ε<sub>r</sub>∇φ) = 0 を 2 次の曲線の節点要素で解き、E = −∇φ、D = ε<sub>0</sub>ε<sub>r</sub>E を求めます。形状のまわりの空気は、静磁場と同じく自動で作ります。</p>
+<ul>
+  <li><p><span class="path">リボンの<span class="ui">［物理］</span>タブ → <span class="ui">［スタディ］</span>パネル → <span class="ui">［新しい静電場スタディ］</span></span>で作ります。最初から材料「空気」・解析領域・メッシュ・解析の設定が入っています。</p></li>
+  <li><p>スタディのブラウザのフォルダは、材料・領域・電極・解析領域・対称・メッシュ・解析の設定・結果です。</p></li>
+  <li><p>静電場のスタディで使える条件は<span class="ui">［電極］</span>だけです。コイルなどの静磁場の条件は押せません。</p></li>
+</ul>
+<figure id="fig-23_em_es_setup"><a class="zoom" href="images/23_em_es_setup.png"><img src="images/23_em_es_setup.png" alt="電子銃の電極の例題。電極のボディは真鍮の色で塗られ、選んだ電極（陰極）が濃く出ます。左は電極のフォーム（ボディと電位）。" width="1000" height="671" loading="lazy"></a><figcaption><span class="figno">図 23-1</span> 電子銃の電極の例題。電極のボディは真鍮の色で塗られ、選んだ電極（陰極）が濃く出ます。左は電極のフォーム（ボディと電位）。</figcaption></figure>
+
+<h2 id="electrodes"><span class="secno">23.2</span> 電極</h2>
+<p>電極は、電位を決めた導体です。ボディを選んで電極にすると、そのボディの表面がその電位になります。</p>
+<ol class="steps">
+  <li><p>3D ビューで、電極にするボディを選びます（<kbd>Ctrl</kbd> で複数）。</p></li>
+  <li><p><span class="path">リボンの<span class="ui">［物理］</span>タブ → <span class="ui">［励磁］</span>パネル → <span class="ui">［電極］</span></span>をクリックします。選んだボディの電極ができ、プロパティ パネルにフォームが出ます。</p></li>
+  <li><p><span class="ui">［名前］</span>に電極の名前（例 <code>陰極</code>）、<span class="ui">［電位］</span>に電位（例 <code>-20 kV</code>）を入れます。</p></li>
+  <li><p><span class="ui">［適用］</span>を押します。</p></li>
+</ol>
+<ul>
+  <li><p>ボディを選ばずに押すと、フォームの<span class="ui">［ボディ］</span>の一覧でチェックを入れて選べます（<span class="ui">［3D で選ぶ］</span>でも選べます）。</p></li>
+  <li><p><span class="ui">［電位］</span>は単位を付けて書けます（<code>500 V</code>・<code>-20 kV</code>）。文書のパラメータを使った式（<code>-V_acc</code>）も書けます（<a href="10_parameters.html">第 10 章</a>）。0 V の電極は、接地した導体です。</p></li>
+  <li><p>つながった 1 つの導体は、1 つの電極にまとめます。違う電極のボディが接していると、解析がエラーになります。</p></li>
+  <li><p>電極のボディはメッシュに残り、中の節点もすべてその電位に固定されます（中の電場は 0）。中の要素も要素数に数えます。電極のボディの材料は、メッシュの大きさだけに効きます。</p></li>
+  <li><p>スタディのブラウザの<span class="ui">［領域］</span>では、電極のボディの行に「電極: 名前」と出ます。</p></li>
+</ul>
+<h3 id="face-electrodes">面の電極</h3>
+<p>3D ビューで面を選んでから<span class="ui">［電極］</span>を押すと、選んだ面がその電位になります。ボディごと電極にするときは、面を選ぶ必要はありません（ボディの面を一緒に選んでも、ボディの電位に含めます）。面の電極にできるのは、<strong>解析の外面にある面</strong>だけです。たとえば、解析領域を消して真空をボディで作ったときの、真空のボディの外面（容器の壁）です（<a href="#boundaries">下の節</a>）。ボディの間の面（自動の空気に囲まれた面）は電極にできません。</p>
+<aside class="note" role="note"><p class="callout-title">注意</p><p>浮いた電極（電位を決めず、電荷の合計が 0 の導体）は、今の版にはありません。どの電極にも電位を与えます。</p></aside>
+
+<h2 id="materials"><span class="secno">23.3</span> 材料と誘電体</h2>
+<p>静電場の材料の<span class="ui">［種類］</span>は、空気と誘電体です。</p>
+<div class="table-wrap"><table>
+  <caption>静電場の材料</caption>
+  <thead><tr><th>種類</th><th>欄</th><th>使う所</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">空気</th><td>（εr = 1）</td><td>真空・空気。材料を選んでいないボディも空気です</td></tr>
+    <tr><th scope="row">誘電体</th><td><span class="ui">［比誘電率］</span> εr</td><td>絶縁物（セラミック・樹脂・絶縁油など）</td></tr>
+  </tbody>
+</table></div>
+<ul>
+  <li><p>静電場では、材料のフォームに比誘電率だけが出ます（比透磁率・誘電正接は出ません）。</p></li>
+  <li><p>誘電体と空気の境では、D の法線の成分が連続し、E が εr の比で飛びます。電極と誘電体と真空が会う所（三重点）は、電場が強くなりやすい場所です。</p></li>
+  <li><p>どの材料にも<span class="ui">［メッシュの大きさ（0 = 全体の値）］</span>があります。電極の角・ギャップなど、電場の強い所を細かくします。</p></li>
+</ul>
+
+<h2 id="boundaries"><span class="secno">23.4</span> 外面と対称面の境界</h2>
+<p>解析領域（形状のまわりの自動の空気）の作り方は、静磁場と同じです（<a href="18_em_magnetostatic.html#region">第 18 章</a>）。その外面の境界は、<span class="path">リボンの<span class="ui">［解析］</span>タブ → <span class="ui">［設定］</span>パネル → <span class="ui">［解析の設定］</span></span>の<span class="ui">［外面の境界］</span>で選びます。</p>
+<div class="table-wrap"><table>
+  <caption>外面の境界</caption>
+  <thead><tr><th>外面の境界</th><th>意味</th><th>使う所</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">電荷ゼロ（n·D = 0）（既定）</th><td>電気力線が外面に沿う。開いた空間の近似（解析領域を十分大きくする）</td><td>まわりに導体の無い電極</td></tr>
+    <tr><th scope="row">接地（0 V）</th><td>外面の電位が 0 V（接地した容器）</td><td>真空容器の中の電子銃・電極</td></tr>
+  </tbody>
+</table></div>
+<ul>
+  <li><p>電荷ゼロの外面だけで、電極が 1 つのときは、電位がどこも同じになり、電場は 0 です（チェックが警告します）。外面を接地にするか、電極を足します。</p></li>
+  <li><p>0 V でない電極が、接地の外面・接地の対称面に接していると、解析がエラーになります。</p></li>
+  <li><p>真空の容器をボディで作るときは、スタディのブラウザの<span class="ui">［解析領域］</span>の行を消します（<kbd>Del</kbd>）。自動の空気を作らず、ボディの外面が解析の外面になり、上の<span class="ui">［外面の境界］</span>が付きます。容器の壁の面は面の電極にもできます。<span class="ui">［解析領域］</span>を押すと、解析領域を作り直します。</p></li>
+</ul>
+<h3 id="symmetry">対称面の境界</h3>
+<p>対称面（<span class="ui">［対称面］</span>）の境界は、次の 2 つです。</p>
+<div class="table-wrap"><table>
+  <caption>静電場の対称面の境界</caption>
+  <thead><tr><th>境界</th><th>面の向こうの電極（鏡像）</th><th>使う所</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">電荷ゼロ（電位が対称）（既定）</th><td>同じ電位の同じ電極</td><td>電子銃・同軸の電極など、形も電位も対称なとき</td></tr>
+    <tr><th scope="row">接地（電位が反対称）</th><td>逆の電位の別の電極（面の上は 0 V）</td><td>+V と −V の静電偏向器の中央の面</td></tr>
+  </tbody>
+</table></div>
+<p>対称面の板は、電荷ゼロが青緑、接地が灰色です。電極が対称面で切れているときは、残す側の半分だけを解き、向こうの半分は鏡像として自動で入ります。</p>
+
+<h2 id="results"><span class="secno">23.5</span> 静電場の結果</h2>
+<p>結果の表示の操作は<a href="17_em_results.html">第 17 章</a>のとおりです。静電場で表示できる量は、<span class="ui">［φ 電位］</span>・<span class="ui">［|E| 電界の強さ］</span>・Ex・Ey・Ez・<span class="ui">［|D| 電束密度］</span>・<span class="ui">［比誘電率 εr］</span>です。</p>
+<ul>
+  <li><p>φ を表示して<span class="ui">［等値線］</span>を重ねると、等電位線になります。<span class="ui">［Field Lines］</span>は、静電場では電気力線（E の力線）を描きます。φ の色の範囲は、最小から最大までです。</p></li>
+  <li><p><span class="ui">［表面］</span>では、電極の表面を、電極のすぐ外の |E|（表面の電界）で塗ります。放電の起きやすい所が分かります。</p></li>
+  <li><p><span class="ui">［線上のグラフ］</span>は、φ を表示しているときは φ のグラフ、ほかの量のときは E の成分と |E| のグラフを出します。</p></li>
+  <li><p><span class="ui">［フィールドマップ］</span>は、規則格子の φ・E・D を CSV か HDF5 に書き出します（電子の軌道の計算などに使います）。</p></li>
+</ul>
+<figure id="fig-23_em_es_potential"><a class="zoom" href="images/23_em_es_potential.png"><img src="images/23_em_es_potential.png" alt="電子銃の電極の電位 φ（YZ の断面、正対）。等電位線（黒）と電気力線（白）を重ねたところ。右下は結果の表。" width="1000" height="671" loading="lazy"></a><figcaption><span class="figno">図 23-2</span> 電子銃の電極の電位 φ（YZ の断面、正対）。等電位線（黒）と電気力線（白）を重ねたところ。右下は結果の表。</figcaption></figure>
+<div class="figrow">
+  <figure id="fig-23_em_es_field"><a class="zoom" href="images/23_em_es_field.png"><img src="images/23_em_es_field.png" alt="|E| と電気力線。ウェーネルトの角と陽極の穴の縁で電場が強くなっています。" width="460" height="361" loading="lazy"></a><figcaption><span class="figno">図 23-3</span> |E| と電気力線。ウェーネルトの角と陽極の穴の縁で電場が強くなっています。</figcaption></figure>
+  <figure id="fig-23_em_es_surface"><a class="zoom" href="images/23_em_es_surface.png"><img src="images/23_em_es_surface.png" alt="表面: 電極の表面の電界。ウェーネルトの前の外側の角が最も強い所です。" width="460" height="361" loading="lazy"></a><figcaption><span class="figno">図 23-4</span> 表面: 電極の表面の電界。ウェーネルトの前の外側の角が最も強い所です。</figcaption></figure>
+</div>
+
+<h3 id="table">結果の表</h3>
+<p>右の<span class="ui">［結果］</span>の表には、次の値が出ます。値はどれも、対称面で切ったモデルを全体に換算した値です。</p>
+<div class="table-wrap"><table>
+  <caption>静電場の結果の表</caption>
+  <thead><tr><th>量</th><th>内容</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">静電エネルギー W [J]</th><td>W = ½ ∫ E·D dV（全体）</td></tr>
+    <tr><th scope="row">電極ごとの電位 V・電荷 Q</th><td>Q は電極の表面の電荷（電極を囲む面の D の流束）。単位は値に合わせて nC・pC などを選びます</td></tr>
+    <tr><th scope="row">表面の最大電界 |E| とその位置</th><td>電極の表面のすぐ外の |E| の最大 [MV/m] と、その点の座標 [mm]</td></tr>
+    <tr><th scope="row">接地の電荷</th><td>接地の外面・対称面の電荷（接地があるときだけ）。電極と接地の電荷の合計は 0 です</td></tr>
+    <tr><th scope="row">容量 C</th><td>電極が 1 つのとき。C = Q / V（電極と接地の間）</td></tr>
+    <tr><th scope="row">C(a–b)・C(a–接地)</th><td>電極が 2 つ以上のとき。電極間の容量（<a href="#capacitance">下の節</a>）</td></tr>
+    <tr><th scope="row">Maxwell C(a,b)</th><td>電極が 2 つ以上のとき。Maxwell の容量行列（<a href="#capacitance">下の節</a>）</td></tr>
+    <tr><th scope="row">電極の外の最大電界 |E| とその位置</th><td>電極の外（空気・誘電体）の全体の最大。括弧の中は領域の名前（air は自動の空気）</td></tr>
+  </tbody>
+</table></div>
+<figure id="fig-23_em_es_table"><a class="zoom" href="images/23_em_es_table.png"><img src="images/23_em_es_table.png" alt="例題の結果の表。電極ごとの電位・電荷・表面の最大電界と、電極間の容量・容量行列。" width="470" height="790" loading="lazy"></a><figcaption><span class="figno">図 23-5</span> 例題の結果の表。電極ごとの電位・電荷・表面の最大電界と、電極間の容量・容量行列。</figcaption></figure>
+
+<h3 id="capacitance">電極間の容量</h3>
+<p>電極が 2 つ以上のとき、結果の表に<strong>電極間の容量</strong>が出ます。電極を節点とする等価回路の、コンデンサの値です（部分容量。回路シミュレータに入れる値です）。求めるのに追加の解析は要りません。</p>
+<div class="table-wrap"><table>
+  <caption>容量の行</caption>
+  <thead><tr><th>行</th><th>内容</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">C(a–b)</th><td>電極 a と電極 b の間のコンデンサ。間に別の電極があって電場が届かない組は 0 です</td></tr>
+    <tr><th scope="row">C(a–接地)</th><td>電極 a と接地（接地の外面・対称面）の間のコンデンサ。接地があるときだけ出ます</td></tr>
+    <tr><th scope="row">Maxwell C(a,b)</th><td>Maxwell の容量行列 Q<sub>a</sub> = Σ<sub>b</sub> C(a,b) V<sub>b</sub> の係数。対角は正、対角の外は 0 か負です</td></tr>
+  </tbody>
+</table></div>
+<p>電極の電荷は、この回路のとおり Q<sub>a</sub> = Σ<sub>b</sub> C(a–b) (V<sub>a</sub> − V<sub>b</sub>) + C(a–接地) V<sub>a</sub> です。Maxwell の容量行列とは、C(a–b) = −C(a,b)、C(a–接地) = a の行の和 の関係です。エネルギーは W = ½ Σ Q<sub>a</sub>V<sub>a</sub> です。</p>
+<ul>
+  <li><p>接地の無い 2 つの電極（コンデンサ）の容量は、C(1–2) そのものです（C = Q / V）。</p></li>
+  <li><p>電極をつないで 1 つの端子にしたときの端子の間の容量は、端子をまたぐコンデンサの和です。例題で、陰極とウェーネルトをつないだ端子と、陽極と接地をつないだ端子の間の容量（パルス電源から見た電子銃の容量）は、C(陰極–陽極) + C(ウェーネルト–陽極) + C(陰極–接地) + C(ウェーネルト–接地) = 2.74 pF です。</p></li>
+</ul>
+<aside class="note" role="note"><p class="callout-title">注意</p><p>接地の対称面で切ったモデルの C(a–接地) は、電極 a と対称面（0 V）の間の容量です。鏡像の電極との間の容量は、その半分（直列）です。鏡像の電極を同じ電位で動かすときの容量が欲しいときは、その面を電荷ゼロにするか、全体で解きます。</p></aside>
+
+<h2 id="example"><span class="secno">23.6</span> 例題: 電子銃の電極</h2>
+<p><code>examples/electron_gun.emrm</code> は、陰極・ウェーネルト・陽極の 3 つの電極の例です。ビームの軸は z です。YZ・ZX の電荷ゼロの対称面で 1/4 モデルにし、外面は接地（真空容器）にしてあります。要素の大きさは 3 mm です。</p>
+<div class="table-wrap"><table>
+  <caption>電子銃の電極の例題</caption>
+  <thead><tr><th>電極（ボディ）</th><th>形</th><th>電位</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">陰極（<span class="ui doc">［Cathode］</span>）</th><td>円板 φ20 × 5 mm（z = 0〜5 mm）</td><td>−20 kV</td></tr>
+    <tr><th scope="row">ウェーネルト（<span class="ui doc">［Wehnelt］</span>）</th><td>円筒 外径 40・内径 24 mm（z = −5〜10 mm）</td><td>−20.2 kV（陰極より 200 V 低い）</td></tr>
+    <tr><th scope="row">陽極（<span class="ui doc">［Anode］</span>）</th><td>円板 φ60 × 5 mm（z = 30〜35 mm）、中央に φ8 の穴</td><td>0 V</td></tr>
+  </tbody>
+</table></div>
+<ol class="steps">
+  <li><p>例題を開き、<span class="path">リボンの<span class="ui">［解析］</span>タブ → <span class="ui">［実行］</span>パネル → <span class="ui">［実行］</span></span>をクリックします。10 秒ほどで終わり、結果が φ の断面で出ます。</p></li>
+  <li><p><span class="ui">［結果の表示］</span>のパネルで、<span class="ui">［重ねるもの］</span>の<span class="ui">［等値線］</span>と<span class="ui">［Field Lines］</span>を入れ、<span class="ui">［断面に正対］</span>を押します（上の図）。</p></li>
+  <li><p><span class="path">リボンの<span class="ui">［結果］</span>タブ → <span class="ui">［評価］</span>パネル → <span class="ui">［線上のグラフ］</span></span>をクリックし、<span class="ui">［始点］</span>の z を <code>-10</code>、<span class="ui">［終点］</span>の z を <code>60</code> にします（x・y はどちらも <code>0</code>）。<span class="ui">［OK］</span>で、ビームの軸の上の φ のグラフが出ます。</p></li>
+  <li><p>量を |E| にして、もう一度<span class="ui">［線上のグラフ］</span>を押します。軸の上の E のグラフが出ます。</p></li>
+</ol>
+<div class="figrow">
+  <figure id="fig-23_em_es_line_phi"><a class="zoom" href="images/23_em_es_line_phi.png"><img src="images/23_em_es_line_phi.png" alt="ビームの軸の上の φ。陰極（−20 kV）から陽極の穴（0 V 近く）まで上がります。" width="460" height="361" loading="lazy"></a><figcaption><span class="figno">図 23-6</span> ビームの軸の上の φ。陰極（−20 kV）から陽極の穴（0 V 近く）まで上がります。</figcaption></figure>
+  <figure id="fig-23_em_es_line_e"><a class="zoom" href="images/23_em_es_line_e.png"><img src="images/23_em_es_line_e.png" alt="ビームの軸の上の E。陰極と陽極の間で Ez が負なので、電子は +z に加速されます。" width="460" height="361" loading="lazy"></a><figcaption><span class="figno">図 23-7</span> ビームの軸の上の E。陰極と陽極の間で Ez が負なので、電子は +z に加速されます。</figcaption></figure>
+</div>
+<p>結果の表では、電荷は陰極 −1.35 nC・ウェーネルト −54.0 nC・陽極 +27.4 nC・接地 +28.0 nC で、合計は 0 です。表面の最大電界は、ウェーネルトの前の外側の角（半径 20 mm・z = 10 mm）の 2.46 MV/m です。</p>
+<aside class="tip" role="note"><p class="callout-title">ヒント</p><p>外面を電荷ゼロにすると、陽極の先の軸の上の電位が −4 kV ほどまで下がります（陰極側の電場が陽極の外を回り込むため）。電子銃のように容器が接地されているものは、外面を接地にします。</p></aside>
+<aside class="note" role="note"><p class="callout-title">注意</p><p>鋭い角の電界は、メッシュを細かくするほど大きくなります（角では電界が無限大になるため）。表面の最大電界を設計に使うときは、角を丸めた形にし、そこのメッシュを細かくして値が収まるかを確かめます。</p></aside>
+
+<h2 id="accuracy"><span class="secno">23.7</span> 精度の目安</h2>
+<div class="table-wrap"><table>
+  <caption>静電場の検証</caption>
+  <thead><tr><th>問題</th><th>量</th><th>解析解との差</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">誘電体（εr = 4）を挟んだ平行平板</th><td>容量・電界・D の連続</td><td>丸め誤差（10<sup>−12</sup>）</td></tr>
+    <tr><th scope="row">同心球（内球の半径 10 mm・1000 V、外球の内径 25 mm・0 V。要素 2.5 mm、1/8 モデル）</th><td>容量 C = 4πε<sub>0</sub>ab/(b − a) = 1.854 pF</td><td>0.013 %</td></tr>
+    <tr><th scope="row">同上</th><td>内球の表面の電界 0.1667 MV/m</td><td>0.04 %</td></tr>
+    <tr><th scope="row">重ねた 3 枚の平板（間隔 0.2 m・0.5 m、1 m 角）</th><td>電極間の容量 C = ε<sub>0</sub>A/d、間に電極を挟んだ組は 0</td><td>10<sup>−10</sup></td></tr>
+    <tr><th scope="row">対称面で半分にしたモデルと全体のモデル</th><td>電荷・容量・エネルギー</td><td>10<sup>−10</sup></td></tr>
+  </tbody>
+</table></div>
+
+<h2 id="limits"><span class="secno">23.8</span> 今の版でできないこと</h2>
+<ul>
+  <li><p>浮いた電極（電位が決まっていない導体）</p></li>
+  <li><p>空間電荷（電子のビームの電荷がつくる電場）と電子の軌道は、電子銃のスタディで解きます（<a href="24_em_gun.html">第 24 章</a>）</p></li>
+  <li><p>ボディの間の面（誘電体の表面に付けた膜など）の面の電極</p></li>
+</ul>
+
+</article>
+<nav class="pager" aria-label="前後の章"><a class="prev" rel="prev" href="22_em_driven.html"><span class="dir">前の章</span>第 22 章 ポート解析</a><a class="next" rel="next" href="24_em_gun.html"><span class="dir">次の章</span>第 24 章 電子銃解析</a></nav>
+<footer class="footer"><p>EMRM-Studio ユーザーマニュアル（日本語）・EMRM-Studio 0.1.0 ・ <a href="#main">このページの先頭へ</a></p></footer>
+</main>
+</div>
+</body>
+</html>

@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="generator" content="tools/build_manual.py">
+<title>第 1 章 画面の構成 - EMRM-Studio ユーザーマニュアル</title>
+<link rel="stylesheet" href="assets/manual.css">
+<script src="assets/search_index.js" charset="utf-8" defer></script>
+<script src="assets/manual.js" charset="utf-8" defer></script>
+</head>
+<body class="page">
+<header class="topbar">
+<a class="brand" href="index.html">EMRM-Studio ユーザーマニュアル</a>
+<button class="toc-toggle" type="button" aria-controls="toc" aria-expanded="false">目次</button>
+<form class="search" role="search" action="#" onsubmit="return false">
+<input id="q" type="search" placeholder="マニュアルを検索（/）" aria-label="マニュアルを検索" autocomplete="off">
+</form>
+</header>
+<div id="search-results" class="search-results" hidden></div>
+<div class="layout">
+<nav id="toc" class="toc" aria-label="目次">
+<details class="toc-box">
+<summary>目次</summary>
+<ol class="toc-chapters">
+<li class="toc-home"><a href="index.html">表紙・目次</a></li>
+<li><a href="00_intro.html">はじめに</a></li>
+<li class="toc-part" role="presentation">第 I 部　形状を作る（CAD）</li>
+<li class="current"><a href="01_screen.html" aria-current="page"><span class="chno">第 1 章</span> 画面の構成</a><ol class="toc-sections"><li><a href="01_screen.html#overview"><span class="secno">1.1</span> 画面の全体</a></li><li><a href="01_screen.html#ribbon"><span class="secno">1.2</span> リボン</a></li><li><a href="01_screen.html#qat"><span class="secno">1.3</span> クイック アクセス ツールバーとファイル</a></li><li><a href="01_screen.html#browser"><span class="secno">1.4</span> ブラウザ</a></li><li><a href="01_screen.html#properties"><span class="secno">1.5</span> プロパティ パネル</a></li><li><a href="01_screen.html#view"><span class="secno">1.6</span> ビューと ViewCube</a></li><li><a href="01_screen.html#hud"><span class="secno">1.7</span> 数値の入力（HUD）</a></li><li><a href="01_screen.html#mini-toolbar"><span class="secno">1.8</span> ミニツールバー</a></li><li><a href="01_screen.html#status"><span class="secno">1.9</span> ステータスバー</a></li><li><a href="01_screen.html#palette"><span class="secno">1.10</span> コマンド検索</a></li><li><a href="01_screen.html#notices"><span class="secno">1.11</span> 知らせと知らせの履歴</a></li></ol></li>
+<li><a href="02_view.html"><span class="chno">第 2 章</span> 視点の操作</a></li>
+<li><a href="03_first_part.html"><span class="chno">第 3 章</span> はじめての部品</a></li>
+<li><a href="04_sketch.html"><span class="chno">第 4 章</span> スケッチ</a></li>
+<li><a href="05_work_features.html"><span class="chno">第 5 章</span> 作業フィーチャ</a></li>
+<li><a href="06_features_basic.html"><span class="chno">第 6 章</span> フィーチャ（押し出し・回転・穴・フィレットなど）</a></li>
+<li><a href="07_features_advanced.html"><span class="chno">第 7 章</span> フィーチャ（スイープ・ロフト・コイル・パターンなど）</a></li>
+<li><a href="08_bodies.html"><span class="chno">第 8 章</span> ボディの操作</a></li>
+<li><a href="09_browser.html"><span class="chno">第 9 章</span> ブラウザとフィーチャの管理</a></li>
+<li><a href="10_parameters.html"><span class="chno">第 10 章</span> パラメータと式</a></li>
+<li><a href="11_configurations.html"><span class="chno">第 11 章</span> 構成</a></li>
+<li><a href="12_inspect.html"><span class="chno">第 12 章</span> 検査</a></li>
+<li><a href="13_files.html"><span class="chno">第 13 章</span> ファイル</a></li>
+<li class="toc-part" role="presentation">第 II 部　電磁場解析</li>
+<li><a href="14_em_intro.html"><span class="chno">第 14 章</span> 電磁場解析のはじめに</a></li>
+<li><a href="15_em_first.html"><span class="chno">第 15 章</span> はじめての電磁場解析（ソレノイド）</a></li>
+<li><a href="16_em_setup.html"><span class="chno">第 16 章</span> スタディの共通の設定</a></li>
+<li><a href="17_em_results.html"><span class="chno">第 17 章</span> 結果の見方</a></li>
+<li><a href="18_em_magnetostatic.html"><span class="chno">第 18 章</span> 静磁場解析</a></li>
+<li><a href="19_em_coils.html"><span class="chno">第 19 章</span> 静磁場解析: コイル</a></li>
+<li><a href="20_em_dipole.html"><span class="chno">第 20 章</span> 静磁場解析の例題: H 型双極電磁石</a></li>
+<li><a href="21_em_eigenmode.html"><span class="chno">第 21 章</span> 共振モード解析</a></li>
+<li><a href="22_em_driven.html"><span class="chno">第 22 章</span> ポート解析</a></li>
+<li><a href="23_em_electrostatic.html"><span class="chno">第 23 章</span> 静電場解析</a></li>
+<li><a href="24_em_gun.html"><span class="chno">第 24 章</span> 電子銃解析</a></li>
+<li><a href="25_em_troubleshooting.html"><span class="chno">第 25 章</span> 電磁場解析で困ったとき</a></li>
+<li class="toc-part" role="presentation">第 III 部　連携・カスタマイズ・自動化</li>
+<li><a href="26_step_export.html"><span class="chno">第 26 章</span> 他の解析プログラムに形を渡す</a></li>
+<li><a href="27_customize.html"><span class="chno">第 27 章</span> カスタマイズ</a></li>
+<li><a href="28_automation.html"><span class="chno">第 28 章</span> 自動化</a></li>
+<li><a href="29_troubleshooting.html"><span class="chno">第 29 章</span> 困ったとき</a></li>
+<li class="toc-part" role="presentation">付録</li>
+<li class="appendix"><a href="appendix_a_commands.html"><span class="chno">付録 A</span> コマンド一覧</a></li>
+<li class="appendix"><a href="appendix_b_shortcuts.html"><span class="chno">付録 B</span> ショートカット一覧</a></li>
+<li class="appendix"><a href="appendix_c_feature_params.html"><span class="chno">付録 C</span> フィーチャのパラメータ一覧</a></li>
+<li class="appendix"><a href="appendix_d_glossary.html"><span class="chno">付録 D</span> 用語の対応表</a></li>
+</ol>
+</details>
+</nav>
+<main class="content" id="main">
+<article class="chapter ">
+<p class="chapter-label">第 1 章</p>
+<h1>画面の構成</h1>
+<nav class="pagetoc" aria-label="この章の内容">
+<p class="pagetoc-title">この章の内容</p>
+<ol>
+<li><a href="#overview"><span class="secno">1.1</span> 画面の全体</a></li>
+<li><a href="#ribbon"><span class="secno">1.2</span> リボン</a></li>
+<li class="sub"><a href="#ribbon-sketch">スケッチのタブ</a></li>
+<li class="sub"><a href="#ribbon-buttons">ボタンの種類</a></li>
+<li class="sub"><a href="#ribbon-minimize">リボンを小さくする</a></li>
+<li><a href="#qat"><span class="secno">1.3</span> クイック アクセス ツールバーとファイル</a></li>
+<li class="sub"><a href="#qat-recent">最近使ったドキュメント</a></li>
+<li><a href="#browser"><span class="secno">1.4</span> ブラウザ</a></li>
+<li><a href="#properties"><span class="secno">1.5</span> プロパティ パネル</a></li>
+<li class="sub"><a href="#properties-values">フィーチャの値を見る</a></li>
+<li class="sub"><a href="#properties-form">フィーチャを作る・編集する</a></li>
+<li><a href="#view"><span class="secno">1.6</span> ビューと ViewCube</a></li>
+<li><a href="#hud"><span class="secno">1.7</span> 数値の入力（HUD）</a></li>
+<li><a href="#mini-toolbar"><span class="secno">1.8</span> ミニツールバー</a></li>
+<li><a href="#status"><span class="secno">1.9</span> ステータスバー</a></li>
+<li><a href="#palette"><span class="secno">1.10</span> コマンド検索</a></li>
+<li><a href="#notices"><span class="secno">1.11</span> 知らせと知らせの履歴</a></li>
+</ol>
+</nav>
+<p>この章では、mcad の画面を部品ごとに説明します。どこに何があるかを知っておくと、あとの章の手順を探しやすくなります。</p>
+
+<h2 id="overview"><span class="secno">1.1</span> 画面の全体</h2>
+<p>画面は大きく 9 つの部分に分かれます。番号は次の図の丸の番号です。</p>
+<figure id="fig-01_window_overview"><a class="zoom" href="images/01_window_overview.png"><img src="images/01_window_overview.png" alt="画面の全体。①〜④ がリボン、⑤ ⑥ が左のドック、⑦〜⑨ がビューとステータスバーです。" width="1000" height="663" loading="lazy"></a><figcaption><span class="figno">図 1-1</span> 画面の全体。①〜④ がリボン、⑤ ⑥ が左のドック、⑦〜⑨ がビューとステータスバーです。</figcaption></figure>
+<div class="table-wrap"><table>
+  <thead><tr><th>番号</th><th>名前</th><th>役割</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">①</th><td><a href="#qat">クイック アクセス ツールバー</a></td><td>新規・開く・保存・元に戻す・やり直しなど、よく使うコマンド</td></tr>
+    <tr><th scope="row">②</th><td><a href="#qat">ファイル</a></td><td>ドキュメントの操作のメニュー（アプリケーション メニュー）</td></tr>
+    <tr><th scope="row">③④</th><td><a href="#ribbon">リボン</a>（タブとパネル）</td><td>すべてのコマンドを置く場所。タブで切り替え、パネルにボタンが並びます</td></tr>
+    <tr><th scope="row">⑤</th><td><a href="#browser">ブラウザ</a>（<span class="ui">［モデル］</span>）</td><td>パーツの履歴（原点・スケッチ・フィーチャ・ボディ）の一覧</td></tr>
+    <tr><th scope="row">⑥</th><td><a href="#properties">プロパティ パネル</a></td><td>選んだフィーチャの値、作成・編集のフォーム</td></tr>
+    <tr><th scope="row">⑦</th><td><a href="#view">ビュー</a></td><td>3D の表示。クリックで要素を選び、マウスで視点を動かします</td></tr>
+    <tr><th scope="row">⑧</th><td><a href="#view">ViewCube</a></td><td>クリックで視点の向きを変えるキューブ</td></tr>
+    <tr><th scope="row">⑨</th><td><a href="#status">ステータスバー</a></td><td>操作の案内、選択の数、単位、エンジンの状態、知らせ、マウスのプリセット</td></tr>
+  </tbody>
+</table></div>
+<p>ドキュメントは、ビューの上のタブで切り替えます（複数のドキュメントを同時に開けます）。まだ保存していない変更があるドキュメントは、タブの名前に <code>*</code> が付きます。</p>
+
+<h2 id="ribbon"><span class="secno">1.2</span> リボン</h2>
+<p>リボンは、上の段に<strong>タブ</strong>、その下に<strong>パネル</strong>が並びます。パネルの中にコマンドのボタンがあり、パネルの名前はパネルの下に出ます。構成は Autodesk Inventor 2025・2026 のリボンと同じです。</p>
+<figure id="fig-01_ribbon_model"><a class="zoom" href="images/01_ribbon_model.png"><img src="images/01_ribbon_model.png" alt="［3D モデル］タブ。パーツを作るコマンドがパネルごとにまとまっています。" width="1303" height="122" loading="lazy"></a><figcaption><span class="figno">図 1-2</span> <span class="ui">［3D モデル］</span>タブ。パーツを作るコマンドがパネルごとにまとまっています。</figcaption></figure>
+<p>ボタンを押してツールを始めると、使っているツールのボタンが、色の付いた枠と薄い色で強調されます。パネルが畳まれていて、使っているツールがそのパネルの中のコマンドなら、畳まれたパネルのボタン全体が強調されます（注釈タブの<span class="ui">［記号］</span>パネルが畳まれた幅で<span class="ui">［中心マーク］</span>を始めたときなど）。ツールを終える（<kbd>Esc</kbd>・<span class="ui">［OK］</span>・<span class="ui">［キャンセル］</span>）か、別のツールを始めるか、モードやタブを替えると、強調は消えるか、そのタブのツールのボタンに移ります。ダイアログを開くだけのコマンドや、一度で終わるコマンドは強調されません。</p>
+<figure id="fig-01_ribbon_active"><a class="zoom" href="images/01_ribbon_active.png"><img src="images/01_ribbon_active.png" alt="押し出しを始めた直後のリボン。使っている［押し出し］のボタンが、色の付いた枠で囲まれます。" width="1303" height="122" loading="lazy"></a><figcaption><span class="figno">図 1-3</span> 押し出しを始めた直後のリボン。使っている<span class="ui">［押し出し］</span>のボタンが、色の付いた枠で囲まれます。</figcaption></figure>
+<div class="table-wrap"><table>
+  <caption>タブとパネル</caption>
+  <thead><tr><th>タブ</th><th>パネル</th><th>主なコマンド</th></tr></thead>
+  <tbody>
+    <tr><th scope="row"><span class="ui">［3D モデル］</span></th><td><span class="ui">［スケッチ］</span>・<span class="ui">［作成］</span>・<span class="ui">［修正］</span>・<span class="ui">［作業フィーチャ］</span>・<span class="ui">［パターン］</span></td><td>スケッチ、押し出し、回転、ロフト、スイープ、穴、フィレット、面取り、シェル、作業平面、矩形状パターン、ミラー</td></tr>
+    <tr><th scope="row"><span class="ui">［スケッチ］</span></th><td><span class="ui">［作成］</span>・<span class="ui">［修正］</span>・<span class="ui">［パターン］</span>・<span class="ui">［拘束］</span>・<span class="ui">［形式］</span>・<span class="ui">［終了］</span></td><td>線・円・長方形などの作図、トリム、寸法、拘束（スケッチを編集している間だけ出ます）</td></tr>
+    <tr><th scope="row"><span class="ui">［検査］</span></th><td><span class="ui">［計測］</span>・<span class="ui">［解析］</span></td><td>計測、領域のプロパティ、物理プロパティ、エラーを検索</td></tr>
+    <tr><th scope="row"><span class="ui">［ツール］</span></th><td><span class="ui">［材料と外観］</span>・<span class="ui">［オプション］</span>・<span class="ui">［マクロ］</span></td><td>材料、外観、オプション、単位と精度、キーボード ショートカット、Python コンソール</td></tr>
+    <tr><th scope="row"><span class="ui">［管理］</span></th><td><span class="ui">［パラメータ］</span>・<span class="ui">［挿入］</span>・<span class="ui">［構成］</span></td><td>パラメータ、iProperties、インポート、エクスポート、構成の表</td></tr>
+    <tr><th scope="row"><span class="ui">［表示］</span></th><td><span class="ui">［表示設定］</span>・<span class="ui">［外観］</span>・<span class="ui">［ウィンドウ］</span>・<span class="ui">［ナビゲート］</span></td><td>表示・非表示、ビジュアル スタイル、断面図、ViewCube、標準ビュー、ズーム</td></tr>
+  </tbody>
+</table></div>
+<p>すべてのコマンドの場所・キー・説明は<a href="appendix_a_commands.html">付録 A</a>にあります。ほかのタブは次の図のとおりです。</p>
+<figure id="fig-01_ribbon_inspect"><a class="zoom" href="images/01_ribbon_inspect.png"><img src="images/01_ribbon_inspect.png" alt="［検査］タブ。計測と物理プロパティがここにあります。" width="570" height="122" loading="lazy"></a><figcaption><span class="figno">図 1-4</span> <span class="ui">［検査］</span>タブ。計測と物理プロパティがここにあります。</figcaption></figure>
+<figure id="fig-01_ribbon_tools"><a class="zoom" href="images/01_ribbon_tools.png"><img src="images/01_ribbon_tools.png" alt="［ツール］タブ。材料・外観・オプション・Python コンソールがここにあります。" width="656" height="122" loading="lazy"></a><figcaption><span class="figno">図 1-5</span> <span class="ui">［ツール］</span>タブ。材料・外観・オプション・Python コンソールがここにあります。</figcaption></figure>
+<figure id="fig-01_ribbon_manage"><a class="zoom" href="images/01_ribbon_manage.png"><img src="images/01_ribbon_manage.png" alt="［管理］タブ。パラメータの表と、インポート・エクスポートがここにあります。" width="570" height="122" loading="lazy"></a><figcaption><span class="figno">図 1-6</span> <span class="ui">［管理］</span>タブ。パラメータの表と、インポート・エクスポートがここにあります。</figcaption></figure>
+<figure id="fig-01_ribbon_view"><a class="zoom" href="images/01_ribbon_view.png"><img src="images/01_ribbon_view.png" alt="［表示］タブ。視点・見え方・断面図・表示と非表示を操作します。" width="1336" height="122" loading="lazy"></a><figcaption><span class="figno">図 1-7</span> <span class="ui">［表示］</span>タブ。視点・見え方・断面図・表示と非表示を操作します。</figcaption></figure>
+
+<h3 id="ribbon-sketch">スケッチのタブ</h3>
+<p>スケッチを編集し始めると、リボンに緑色の<span class="ui">［スケッチ］</span>タブが出て、自動で前に出ます。スケッチを終えると消えて、<span class="ui">［3D モデル］</span>タブに戻ります。</p>
+<figure id="fig-01_ribbon_sketch"><a class="zoom" href="images/01_ribbon_sketch.png"><img src="images/01_ribbon_sketch.png" alt="スケッチを編集している間のリボン。作図・修正・拘束・終了のパネルが並びます。" width="1369" height="122" loading="lazy"></a><figcaption><span class="figno">図 1-8</span> スケッチを編集している間のリボン。作図・修正・拘束・終了のパネルが並びます。</figcaption></figure>
+
+<h3 id="ribbon-buttons">ボタンの種類</h3>
+<ul>
+  <li><p><strong>大きいボタン</strong>はアイコンの下に名前、<strong>小さいボタン</strong>はアイコンの横に名前が出ます。</p></li>
+  <li><p>ボタンの横の<strong>▼</strong>は、同じ仲間のコマンドをまとめたドロップダウンです。▼ を押すとメニューが開きます。最後に使ったコマンドがボタンの表に出て、次からは表のボタンを押すだけで使えます。</p></li>
+  <li><p>パネルの名前の横の<strong>▼</strong>は、そのパネルの残りのコマンドを開きます。</p></li>
+  <li><p>今は使えないコマンドは灰色で出ます。ボタンの上にマウスを置くと、名前・キー・説明のヒントが出ます。<kbd>F1</kbd> を押すと、そのコマンドの詳しい説明が開きます。</p></li>
+  <li><p>ウィンドウが狭いと、右のパネルから小さいボタンの名前を省き、それでも狭いと右のパネルから畳みます。畳まれたパネルを押すと、そのパネルのコマンドがメニューで出ます。</p></li>
+</ul>
+
+<h3 id="ribbon-minimize">リボンを小さくする</h3>
+<p>3D ビューを広く使いたいときは、リボンを最小化します。</p>
+<ol class="steps">
+  <li><p><span class="ui">［リボンを最小化］</span>（<kbd>Ctrl</kbd>+<kbd>F1</kbd>）か、タブの名前のダブルクリックで、タブだけの表示と全体の表示を切り替えます。</p></li>
+  <li><p>タブだけの表示では、タブを押すとパネルが浮かんで出ます。</p></li>
+</ol>
+<p>リボンの右端の最小化のボタンの▼では、<span class="ui">［タブに最小化］</span>・<span class="ui">［パネル タイトルに最小化］</span>・<span class="ui">［パネル ボタンに最小化］</span>・<span class="ui">［すべてを切り替え］</span>を選べます。最小化の状態は、アプリを閉じるときに保存され、次の起動で戻ります。</p>
+<aside class="tip" role="note"><p class="callout-title">ヒント</p><p>従来のメニューバーをリボンの上に出す設定もあります（<a href="27_customize.html">第 27 章</a>）。</p></aside>
+
+<h2 id="qat"><span class="secno">1.3</span> クイック アクセス ツールバーとファイル</h2>
+<p>画面の左上には、クイック アクセス ツールバーとアプリケーション メニュー（<span class="ui">［ファイル］</span>）があります。</p>
+<ul>
+  <li><p>クイック アクセス ツールバーには、<span class="ui">［新規］</span>・<span class="ui">［開く］</span>・<span class="ui">［保存］</span>・<span class="ui">［元に戻す］</span>・<span class="ui">［やり直し］</span>、選択フィルタのドロップダウン（<span class="ui">［面を選択］</span>・<span class="ui">［エッジを選択］</span>・<span class="ui">［頂点を選択］</span>・<span class="ui">［選択を解除］</span>）、<span class="ui">［材料］</span>、<span class="ui">［外観］</span>が並びます。</p></li>
+  <li><p><span class="ui">［ファイル］</span>を押すと、ドキュメントの操作のメニューが開きます。</p></li>
+</ul>
+<figure id="fig-01_file_menu"><a class="zoom" href="images/01_file_menu.png"><img src="images/01_file_menu.png" alt="［ファイル］のメニュー。新規・開く・最近使ったドキュメント・保存・インポート・エクスポート・終了があります。" width="289" height="294" loading="lazy"></a><figcaption><span class="figno">図 1-9</span> <span class="ui">［ファイル］</span>のメニュー。新規・開く・最近使ったドキュメント・保存・インポート・エクスポート・終了があります。</figcaption></figure>
+<p>ドキュメントの保存や開き方は<a href="13_files.html">第 13 章</a>にあります。</p>
+<h3 id="qat-recent">最近使ったドキュメント</h3>
+<p><span class="ui">［ファイル］</span>の<span class="ui">［最近使ったドキュメント］</span>には、最近開いた・保存したドキュメントが新しい順に並びます（10 件まで）。選ぶと、そのドキュメントが開きます。</p>
+<div class="figrow">
+  <figure id="fig-01_file_recent"><a class="zoom" href="images/01_file_recent.png"><img src="images/01_file_recent.png" alt="［最近使ったドキュメント］に 3 件あるとき。新しいものが上に並びます。" width="179" height="72" loading="lazy"></a><figcaption><span class="figno">図 1-10</span> <span class="ui">［最近使ったドキュメント］</span>に 3 件あるとき。新しいものが上に並びます。</figcaption></figure>
+  <figure id="fig-01_file_recent_none"><a class="zoom" href="images/01_file_recent_none.png"><img src="images/01_file_recent_none.png" alt="ひとつも無いとき。灰色の 1 行だけが出ます。" width="234" height="24" loading="lazy"></a><figcaption><span class="figno">図 1-11</span> ひとつも無いとき。灰色の 1 行だけが出ます。</figcaption></figure>
+</div>
+<ul>
+  <li><p>並ぶのは、ファイルの名前です（先頭に 1〜9 の番号が付きます）。カーソルを合わせると、ファイルの場所が出ます。</p></li>
+  <li><p>開いたとき・保存したとき（<span class="ui">［名前を付けて保存］</span>・<span class="ui">［コピーを保存］</span>を含む）に、先頭へ入ります。10 件を超えると、いちばん古いものから消えます。</p></li>
+  <li><p>ファイルが移動・削除されて無いものは、灰色で選べません。</p></li>
+  <li><p>一覧は設定に記録されるので、アプリを閉じても残ります。</p></li>
+</ul>
+
+<h2 id="browser"><span class="secno">1.4</span> ブラウザ</h2>
+<p>画面の左上のドックは<span class="ui">［モデル］</span>のブラウザです。パーツを作った順（履歴）に、フィーチャが並びます。</p>
+<figure id="fig-01_browser"><a class="zoom" href="images/01_browser.png"><img src="images/01_browser.png" alt="ブラウザ。パーツの下に、ソリッド ボディ・原点・スケッチ・フィーチャが並び、最後に［パーツの終端］があります。" width="360" height="210" loading="lazy"></a><figcaption><span class="figno">図 1-12</span> ブラウザ。パーツの下に、ソリッド ボディ・原点・スケッチ・フィーチャが並び、最後に<span class="ui">［パーツの終端］</span>があります。</figcaption></figure>
+<div class="table-wrap"><table>
+  <caption>ブラウザの行</caption>
+  <thead><tr><th>行</th><th>内容</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">パーツ（<span class="ui doc">［Part1］</span>）</th><td>ドキュメントの部品。行の名前は、<kbd>F2</kbd>（名前の変更）で変えられます</td></tr>
+    <tr><th scope="row">ソリッド ボディ</th><td>パーツができたソリッドの一覧。チェックで表示・非表示を切り替えます</td></tr>
+    <tr><th scope="row"><span class="ui">［原点］</span></th><td>原点・<span class="ui">［X 軸］</span>・<span class="ui">［Y 軸］</span>・<span class="ui">［Z 軸］</span>・3 つの原点平面。チェックで 3D ビューに出し入れします</td></tr>
+    <tr><th scope="row">スケッチ・フィーチャ</th><td>作った順に並びます。<span class="ui">［種類］</span>の列にフィーチャの種類、<span class="ui">［状態］</span>の列に結果（<span class="ui">［OK］</span>・<span class="ui">［警告］</span>・<span class="ui">［エラー］</span>など）が出ます</td></tr>
+    <tr><th scope="row"><span class="ui">［パーツの終端］</span></th><td>ここより後ろは計算されません。上の行へドラッグして、途中までの形を確かめられます</td></tr>
+  </tbody>
+</table></div>
+<ul>
+  <li><p>行をクリックすると、ビューで対応する要素が選ばれます。ビューで面を選ぶと、それを作ったフィーチャの行が強調されます。</p></li>
+  <li><p>行をダブルクリックすると、そのフィーチャ（スケッチ）の編集が始まります。</p></li>
+  <li><p>行を右クリックすると、<span class="ui">［フィーチャの編集］</span>・<span class="ui">［削除］</span>・<span class="ui">［名前の変更］</span>・<span class="ui">［抑制］</span>などのメニューが出ます。</p></li>
+  <li><p>状態が<span class="ui">［OK］</span>でないフィーチャは、印が付いて、ツールチップに理由が出ます。</p></li>
+</ul>
+<p>ブラウザの操作の詳細（並べ替え・抑制・フォルダ・参照の修復）は<a href="09_browser.html">第 9 章</a>にあります。</p>
+
+<h2 id="properties"><span class="secno">1.5</span> プロパティ パネル</h2>
+<p>ブラウザの下は<span class="ui">［プロパティ］</span>パネルです。2 つの使い方があります。</p>
+<h3 id="properties-values">フィーチャの値を見る</h3>
+<p>ブラウザでフィーチャを 1 つ選ぶと、そのフィーチャの名前・状態・パラメータの値が出ます。欄の値を変えて <kbd>Enter</kbd> で確定すると、その値だけが変わります。<span class="ui">［編集］</span>のボタンを押すと、フィーチャの編集が始まります（参照を選び直すときなど）。</p>
+<figure id="fig-01_property_panel"><a class="zoom" href="images/01_property_panel.png"><img src="images/01_property_panel.png" alt="フィレット1 を選んだところ。上のブラウザで選び、下のパネルに値が出ます。" width="361" height="503" loading="lazy"></a><figcaption><span class="figno">図 1-13</span> フィレット1 を選んだところ。上のブラウザで選び、下のパネルに値が出ます。</figcaption></figure>
+<h3 id="properties-form">フィーチャを作る・編集する</h3>
+<p>押し出しやフィレットなどのコマンドを始めると、パネルにフォームが出ます。フォームは Inventor と同じ<strong>入力ジオメトリ → 動作 → 出力</strong>の並びです。確定は<span class="ui">［OK］</span>（<kbd>Enter</kbd> か <kbd>Ctrl</kbd>+<kbd>Enter</kbd>）、取り消しは<span class="ui">［キャンセル］</span>（<kbd>Esc</kbd>）です。フィーチャを新しく作るときは、<span class="ui">［OK］</span>と<span class="ui">［キャンセル］</span>の間に<span class="ui">［+］</span>（適用して新規作成）も出ます。確定して、同じ種類のフィーチャを同じ値で続けて作り始めます（選んだ面やエッジなどは空になります）。同じボタン（確認コーナー）は、ビューの右上にも出ます。</p>
+<p>数値の欄には、数値のほかに式（<code>10 mm + 2</code>・<code>W / 2</code>）や単位（<code>1 inch</code>）も書けます。右に評価した値（<code>= 12.00 mm</code>）が出て、間違いは赤い枠とヒントで知らせます。単位のない数値は、ドキュメントの単位として扱います。</p>
+
+<h2 id="view"><span class="secno">1.6</span> ビューと ViewCube</h2>
+<p>画面の中央が 3D ビューです。マウスの左クリックで要素（面・エッジ・頂点）を選び、右クリックでコンテキスト メニューを開きます。視点の動かし方は<a href="02_view.html">第 2 章</a>にあります。</p>
+<ul>
+  <li><p>面・エッジにカーソルを合わせると橙色に光り、クリックすると選ばれて青色になります。<kbd>Ctrl</kbd> を押しながらクリックで選択を切り替え、<kbd>Shift</kbd> を押しながらで追加します。何もない所をクリックすると選択を解除します。</p></li>
+  <li><p>右クリックすると、カーソルの下の面・エッジ・作業平面が選ばれてから、その要素のメニューが出ます（平らな面・作業平面のメニューには<span class="ui">［新しいスケッチ］</span>があります）。何も選んでいなくてもかまいません。すでに選んでいる要素を右クリックしたときは、選択は変わりません（複数を選んでいても、そのままです）。何もない所を右クリックすると、今の選択のメニューが出ます。</p></li>
+  <li><p>スケッチの中と、フィーチャのツールを使っている間は、右クリックで選択は変わりません。選ばれる種類は、クイック アクセス ツールバーの選択フィルタに従います（<span class="ui">［面を選択］</span>を切ってあると、面は選ばれません）。</p></li>
+  <li><p>左下の小さな座標軸は、今のビューの X・Y・Z の向きです。</p></li>
+  <li><p>右上の<strong>ViewCube</strong>は、クリックした面・エッジ・コーナーの向きから見るためのキューブです。左上の家のボタンで<span class="ui">［ホーム ビュー］</span>に戻ります。</p></li>
+</ul>
+<figure id="fig-01_viewcube"><a class="zoom" href="images/01_viewcube.png"><img src="images/01_viewcube.png" alt="ViewCube。カーソルを合わせた面が光ります。左上の家のボタンがホーム ビューです。" width="116" height="116" loading="lazy"></a><figcaption><span class="figno">図 1-14</span> ViewCube。カーソルを合わせた面が光ります。左上の家のボタンがホーム ビューです。</figcaption></figure>
+<aside class="inventor" role="note"><p class="callout-title">Inventor との違い</p><p>Inventor と同じく、右クリックした要素が選ばれてからメニューが出ます。</p></aside>
+
+<h2 id="hud"><span class="secno">1.7</span> 数値の入力（HUD）</h2>
+<p>押し出し・回転・穴・フィレット・面取りなどの作成・編集の間、ビューには<strong>ライブプレビュー</strong>（OK の前に結果を半透明で見せる表示）と、値を変える<strong>ハンドル</strong>（青い矢印）が出ます。ハンドルの横には<strong>値の欄</strong>が出ます。これを HUD と呼びます。</p>
+<figure id="fig-01_hud"><a class="zoom" href="images/01_hud.png"><img src="images/01_hud.png" alt="フィレットの編集中。矢印（ハンドル）の横に半径の欄が出て、プレビューが更新されます。欄の下の［OK］・［キャンセル］でも確定・取り消しできます。" width="1000" height="643" loading="lazy"></a><figcaption><span class="figno">図 1-15</span> フィレットの編集中。矢印（ハンドル）の横に半径の欄が出て、プレビューが更新されます。欄の下の<span class="ui">［OK］</span>・<span class="ui">［キャンセル］</span>でも確定・取り消しできます。</figcaption></figure>
+<ol class="steps">
+  <li><p>ビューで数字を打つと、HUD の最初の欄に入ります。</p></li>
+  <li><p><kbd>Tab</kbd> で次の欄へ進みます（<kbd>Shift</kbd>+<kbd>Tab</kbd> で前の欄）。</p></li>
+  <li><p><kbd>Enter</kbd> で確定（<span class="ui">［OK］</span>と同じ）、<kbd>Esc</kbd> でキャンセルします。</p></li>
+</ol>
+<p>欄には式（<code>${W}/2</code>・<code>10 mm + 2</code>）も書けます。矢印の先をドラッグしても値を変えられます。ドラッグの値は、画面の大きさに合わせた 1・2・5 の刻みに丸まります（<kbd>Shift</kbd> を押している間は丸めません）。スケッチの作図中にも、線の長さ・角度、円の直径などを同じ方法で入力できます（<a href="04_sketch.html">第 4 章</a>）。</p>
+<p>HUD は、出る場所で 2 種類に分かれます。どちらも<span class="ui">［OK］</span>と<span class="ui">［キャンセル］</span>のボタンが付いていて、マウスでも押せます。</p>
+<ul>
+  <li><p><strong>決まった位置に出る HUD</strong>: ハンドルの横・寸法を置いた位置・断面の矢印の横に出ます。</p></li>
+  <li><p><strong>スケッチの入力ウィンドウ</strong>: スケッチの作図・編集ツール（線・円・フィレット・面取り・オフセットなど）の値の欄です。カーソルには付かず、ビューの<strong>左上に止まっています</strong>。見出し（上の帯）をマウスでドラッグすると、好きな場所へ動かせます（<a href="04_sketch.html#numeric">第 4 章</a>）。</p></li>
+</ul>
+<p>どちらの HUD も、マウスを使わず<strong>キーだけでも操作できます</strong>。<kbd>Tab</kbd> は、数値の欄だけでなく、選択肢（<span class="ui">［種類］</span>など）とチェック（<span class="ui">［コピー］</span>・<span class="ui">［等しい］</span>など）にも移ります（<kbd>Shift</kbd>+<kbd>Tab</kbd> で前の欄）。フォーカスのある欄には、青い枠が付きます。</p>
+<div class="table-wrap"><table>
+  <caption>HUD のキー</caption>
+  <thead><tr><th>欄</th><th>キー</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">数値の欄</th><td>数字・単位・式を打ちます。ビューで最初に打った数字は、最初の欄に入ります</td></tr>
+    <tr><th scope="row">選択肢</th><td><kbd>↑</kbd>・<kbd>↓</kbd> で選びます（一覧は開きません）</td></tr>
+    <tr><th scope="row">チェック</th><td><kbd>Space</kbd> で切り替えます</td></tr>
+    <tr><th scope="row">どの欄でも</th><td><kbd>Tab</kbd>・<kbd>Shift</kbd>+<kbd>Tab</kbd> で次・前の欄、<kbd>Enter</kbd> で確定、<kbd>Esc</kbd> でキャンセル</td></tr>
+  </tbody>
+</table></div>
+<p>数値の欄がない HUD（移動の<span class="ui">［コピー］</span>やスプラインの<span class="ui">［閉じる］</span>のチェックだけのもの）も、ビューで <kbd>Tab</kbd> を押すと、最初の欄にフォーカスが移ります。ビューのクリックに戻れば、そのまま作図を続けられます。ブラウザやプロパティの欄を触ったあとでも、スケッチの入力ウィンドウが出ると、キーボードのフォーカスはビューに移ります。<kbd>Tab</kbd> も数字も、そのまま入力ウィンドウに届きます（別の欄に文字を打っている途中のときは、移しません）。</p>
+<aside class="inventor" role="note"><p class="callout-title">Inventor との違い</p><p>スケッチの入力ウィンドウは、Inventor の［2D フィレット］などの小さなダイアログのように、止まっていて、ドラッグで動かせます。Inventor の動的入力のように、カーソルに付けて動かすこともできます（<a href="27_customize.html#options">第 27 章</a>のオプション）。</p></aside>
+<aside class="tip" role="note"><p class="callout-title">ヒント</p><p>プレビューが失敗する値（大きすぎるフィレットなど）にすると、パネルの上に理由が赤く出て、失敗した辺がビューで赤くなります。値を直すと戻ります。</p></aside>
+
+<h2 id="mini-toolbar"><span class="secno">1.8</span> ミニツールバー</h2>
+<p>ビューで面・エッジ・ボディなどを選ぶと、選んだ場所の近くに小さなツールバーが浮かんで出ます。右クリックのメニューと同じ、よく使うコマンド（<span class="ui">［非表示］</span>・<span class="ui">［分離］</span>・<span class="ui">［ビュー面］</span>・<span class="ui">［選択範囲をズーム］</span>・<span class="ui">［全体表示］</span>・<span class="ui">［選択を解除］</span>など）をすぐ押せます。</p>
+<figure id="fig-01_mini_toolbar"><a class="zoom" href="images/01_mini_toolbar.png"><img src="images/01_mini_toolbar.png" alt="面を選んだところ。選んだ面の近くにミニツールバーが出ます。" width="700" height="460" loading="lazy"></a><figcaption><span class="figno">図 1-16</span> 面を選んだところ。選んだ面の近くにミニツールバーが出ます。</figcaption></figure>
+<p>ツールが動いている間、<kbd>Esc</kbd> を押したとき、視点を動かしている間は隠れます。出さない設定もあります（<a href="27_customize.html">第 27 章</a>）。</p>
+
+<h2 id="status"><span class="secno">1.9</span> ステータスバー</h2>
+<p>画面の下のステータスバーには、左から次のものが出ます。</p>
+<figure id="fig-01_status_bar"><a class="zoom" href="images/01_status_bar.png"><img src="images/01_status_bar.png" alt="ステータスバーの中央から右。マウス操作のヒント・選択の数・単位・エンジンの状態・知らせ・マウスのプリセットが並びます。" width="840" height="28" loading="lazy"></a><figcaption><span class="figno">図 1-17</span> ステータスバーの中央から右。マウス操作のヒント・選択の数・単位・エンジンの状態・知らせ・マウスのプリセットが並びます。</figcaption></figure>
+<div class="table-wrap"><table>
+  <thead><tr><th>場所</th><th>内容</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">左</th><td>今のツールの案内（次に何をするか。タブを替えると、そのタブのツールの案内になります）や、カーソルの下にある要素の名前（<span class="ui doc">［押し出し1 の終了面］</span> など）。案内が長くて切れるときは、文にカーソルを置くと全文が出ます</td></tr>
+    <tr><th scope="row">中央</th><td>マウス操作のヒント（<code>F4+左ドラッグ: オービット | 中ドラッグ: 画面移動 | ホイール: ズーム</code>）。回転しない図面のタブでは、<code>中ドラッグ: 画面移動 | ホイール: ズーム</code>です</td></tr>
+    <tr><th scope="row">右</th><td>選択の数と簡易測定（面なら面積、エッジなら長さ）。図面のタブでは、選んだビュー・注記・スケッチの数です</td></tr>
+    <tr><th scope="row">右</th><td>単位（<code>mm, deg</code>）。押すと<span class="ui">［単位と精度］</span>のダイアログが開きます</td></tr>
+    <tr><th scope="row">右</th><td>計算エンジンの状態（<code>エンジン: 準備完了</code>・計算中）</td></tr>
+    <tr><th scope="row">右</th><td>知らせ（ベルのボタン）。押すと<a href="#notices">知らせの履歴</a>が開きます</td></tr>
+    <tr><th scope="row">右端</th><td>マウスのプリセット（<code>マウス: Inventor 風</code>）。押すと一覧が出て、ホバーで操作の早見表が出ます</td></tr>
+  </tbody>
+</table></div>
+<p>スケッチを編集している間は、カーソルのスケッチ座標と、スケッチの自由度・状態（未定義・完全定義・過剰定義）も出ます。</p>
+
+<h2 id="palette"><span class="secno">1.10</span> コマンド検索</h2>
+<p>コマンドの場所を忘れたときは、コマンド検索で名前から探して実行できます。</p>
+<ol class="steps">
+  <li><p><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> を押します。<span class="ui">［コマンド検索］</span>は、リボンの右端の<span class="ui">［ヘルプ］</span>のメニューにもあります。</p></li>
+  <li><p>名前（日本語でも英語でも）を入力します。コマンドの名前・別名・説明・場所が検索の対象です。</p>
+    <figure id="fig-01_command_palette"><a class="zoom" href="images/01_command_palette.png"><img src="images/01_command_palette.png" alt="コマンド検索。結果の各行に、名前・リボンの場所・キーが出ます。" width="720" height="170" loading="lazy"></a><figcaption><span class="figno">図 1-18</span> コマンド検索。結果の各行に、名前・リボンの場所・キーが出ます。</figcaption></figure></li>
+  <li><p>↑↓ で選んで <kbd>Enter</kbd>（行のクリックでも）で実行します。<kbd>Esc</kbd> で閉じます。</p></li>
+</ol>
+<p>今は使えないコマンドは灰色で出て、実行すると「今は使えません」と知らせます。最近実行したコマンドは上に出ます。</p>
+
+<h2 id="notices"><span class="secno">1.11</span> 知らせと知らせの履歴</h2>
+<p>保存・書き出し・エラーなどの知らせは、ウィンドウの右下にしばらく出ます（<strong>トースト</strong>）。エラーのトーストには、失敗したフィーチャを直す<span class="ui">［編集］</span>のボタンが付きます。</p>
+<figure id="fig-01_toast"><a class="zoom" href="images/01_toast.png"><img src="images/01_toast.png" alt="保存したときの知らせ（トースト）。ウィンドウの右下に出て、数秒で消えます。" width="141" height="60" loading="lazy"></a><figcaption><span class="figno">図 1-19</span> 保存したときの知らせ（トースト）。ウィンドウの右下に出て、数秒で消えます。</figcaption></figure>
+<p>消えた知らせは、履歴で読み返せます。</p>
+<ol class="steps">
+  <li><p>ステータスバーのベルのボタンを押すか、リボンの右端の<span class="ui">［ヘルプ］</span>のメニューから<span class="ui">［通知］</span>を選びます。</p></li>
+  <li><p><span class="ui">［通知］</span>のタブで、時刻・重大度（<span class="ui">［情報］</span>・<span class="ui">［警告］</span>・<span class="ui">［エラー］</span>）・メッセージを見ます。検索欄で絞り込み、<span class="ui">［コピー］</span>・<span class="ui">［保存］</span>のボタンで書き出せます。</p>
+    <figure id="fig-01_notice_history"><a class="zoom" href="images/01_notice_history.png"><img src="images/01_notice_history.png" alt="知らせの履歴。［ログ］のタブでは、アプリのログも読めます。" width="847" height="420" loading="lazy"></a><figcaption><span class="figno">図 1-20</span> 知らせの履歴。<span class="ui">［ログ］</span>のタブでは、アプリのログも読めます。</figcaption></figure></li>
+</ol>
+<p>知らせの履歴とログは、<span class="ui">［ログと通知］</span>（リボンの<span class="ui">［表示］</span>タブの<span class="ui">［ウィンドウ］</span>パネル）でドックとしても開けます。</p>
+
+</article>
+<nav class="pager" aria-label="前後の章"><a class="prev" rel="prev" href="00_intro.html"><span class="dir">前の章</span>はじめに</a><a class="next" rel="next" href="02_view.html"><span class="dir">次の章</span>第 2 章 視点の操作</a></nav>
+<footer class="footer"><p>EMRM-Studio ユーザーマニュアル（日本語）・EMRM-Studio 0.1.0 ・ <a href="#main">このページの先頭へ</a></p></footer>
+</main>
+</div>
+</body>
+</html>

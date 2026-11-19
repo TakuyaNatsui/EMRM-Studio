@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="generator" content="tools/build_manual.py">
+<title>第 27 章 カスタマイズ - EMRM-Studio ユーザーマニュアル</title>
+<link rel="stylesheet" href="assets/manual.css">
+<script src="assets/search_index.js" charset="utf-8" defer></script>
+<script src="assets/manual.js" charset="utf-8" defer></script>
+</head>
+<body class="page">
+<header class="topbar">
+<a class="brand" href="index.html">EMRM-Studio ユーザーマニュアル</a>
+<button class="toc-toggle" type="button" aria-controls="toc" aria-expanded="false">目次</button>
+<form class="search" role="search" action="#" onsubmit="return false">
+<input id="q" type="search" placeholder="マニュアルを検索（/）" aria-label="マニュアルを検索" autocomplete="off">
+</form>
+</header>
+<div id="search-results" class="search-results" hidden></div>
+<div class="layout">
+<nav id="toc" class="toc" aria-label="目次">
+<details class="toc-box">
+<summary>目次</summary>
+<ol class="toc-chapters">
+<li class="toc-home"><a href="index.html">表紙・目次</a></li>
+<li><a href="00_intro.html">はじめに</a></li>
+<li class="toc-part" role="presentation">第 I 部　形状を作る（CAD）</li>
+<li><a href="01_screen.html"><span class="chno">第 1 章</span> 画面の構成</a></li>
+<li><a href="02_view.html"><span class="chno">第 2 章</span> 視点の操作</a></li>
+<li><a href="03_first_part.html"><span class="chno">第 3 章</span> はじめての部品</a></li>
+<li><a href="04_sketch.html"><span class="chno">第 4 章</span> スケッチ</a></li>
+<li><a href="05_work_features.html"><span class="chno">第 5 章</span> 作業フィーチャ</a></li>
+<li><a href="06_features_basic.html"><span class="chno">第 6 章</span> フィーチャ（押し出し・回転・穴・フィレットなど）</a></li>
+<li><a href="07_features_advanced.html"><span class="chno">第 7 章</span> フィーチャ（スイープ・ロフト・コイル・パターンなど）</a></li>
+<li><a href="08_bodies.html"><span class="chno">第 8 章</span> ボディの操作</a></li>
+<li><a href="09_browser.html"><span class="chno">第 9 章</span> ブラウザとフィーチャの管理</a></li>
+<li><a href="10_parameters.html"><span class="chno">第 10 章</span> パラメータと式</a></li>
+<li><a href="11_configurations.html"><span class="chno">第 11 章</span> 構成</a></li>
+<li><a href="12_inspect.html"><span class="chno">第 12 章</span> 検査</a></li>
+<li><a href="13_files.html"><span class="chno">第 13 章</span> ファイル</a></li>
+<li class="toc-part" role="presentation">第 II 部　電磁場解析</li>
+<li><a href="14_em_intro.html"><span class="chno">第 14 章</span> 電磁場解析のはじめに</a></li>
+<li><a href="15_em_first.html"><span class="chno">第 15 章</span> はじめての電磁場解析（ソレノイド）</a></li>
+<li><a href="16_em_setup.html"><span class="chno">第 16 章</span> スタディの共通の設定</a></li>
+<li><a href="17_em_results.html"><span class="chno">第 17 章</span> 結果の見方</a></li>
+<li><a href="18_em_magnetostatic.html"><span class="chno">第 18 章</span> 静磁場解析</a></li>
+<li><a href="19_em_coils.html"><span class="chno">第 19 章</span> 静磁場解析: コイル</a></li>
+<li><a href="20_em_dipole.html"><span class="chno">第 20 章</span> 静磁場解析の例題: H 型双極電磁石</a></li>
+<li><a href="21_em_eigenmode.html"><span class="chno">第 21 章</span> 共振モード解析</a></li>
+<li><a href="22_em_driven.html"><span class="chno">第 22 章</span> ポート解析</a></li>
+<li><a href="23_em_electrostatic.html"><span class="chno">第 23 章</span> 静電場解析</a></li>
+<li><a href="24_em_gun.html"><span class="chno">第 24 章</span> 電子銃解析</a></li>
+<li><a href="25_em_troubleshooting.html"><span class="chno">第 25 章</span> 電磁場解析で困ったとき</a></li>
+<li class="toc-part" role="presentation">第 III 部　連携・カスタマイズ・自動化</li>
+<li><a href="26_step_export.html"><span class="chno">第 26 章</span> 他の解析プログラムに形を渡す</a></li>
+<li class="current"><a href="27_customize.html" aria-current="page"><span class="chno">第 27 章</span> カスタマイズ</a><ol class="toc-sections"><li><a href="27_customize.html#options"><span class="secno">27.1</span> オプション</a></li><li><a href="27_customize.html#theme"><span class="secno">27.2</span> 配色（ライト・ダーク）</a></li><li><a href="27_customize.html#language"><span class="secno">27.3</span> 表示言語</a></li><li><a href="27_customize.html#units"><span class="secno">27.4</span> 単位と精度</a></li><li><a href="27_customize.html#shortcuts"><span class="secno">27.5</span> ショートカットキーを変える</a></li><li><a href="27_customize.html#mouse"><span class="secno">27.6</span> マウス操作のプリセット</a></li><li><a href="27_customize.html#screen"><span class="secno">27.7</span> 画面の整え方</a></li><li><a href="27_customize.html#startup"><span class="secno">27.8</span> 起動の引数と設定の場所</a></li></ol></li>
+<li><a href="28_automation.html"><span class="chno">第 28 章</span> 自動化</a></li>
+<li><a href="29_troubleshooting.html"><span class="chno">第 29 章</span> 困ったとき</a></li>
+<li class="toc-part" role="presentation">付録</li>
+<li class="appendix"><a href="appendix_a_commands.html"><span class="chno">付録 A</span> コマンド一覧</a></li>
+<li class="appendix"><a href="appendix_b_shortcuts.html"><span class="chno">付録 B</span> ショートカット一覧</a></li>
+<li class="appendix"><a href="appendix_c_feature_params.html"><span class="chno">付録 C</span> フィーチャのパラメータ一覧</a></li>
+<li class="appendix"><a href="appendix_d_glossary.html"><span class="chno">付録 D</span> 用語の対応表</a></li>
+</ol>
+</details>
+</nav>
+<main class="content" id="main">
+<article class="chapter ">
+<p class="chapter-label">第 27 章</p>
+<h1>カスタマイズ</h1>
+<nav class="pagetoc" aria-label="この章の内容">
+<p class="pagetoc-title">この章の内容</p>
+<ol>
+<li><a href="#options"><span class="secno">27.1</span> オプション</a></li>
+<li><a href="#theme"><span class="secno">27.2</span> 配色（ライト・ダーク）</a></li>
+<li><a href="#language"><span class="secno">27.3</span> 表示言語</a></li>
+<li><a href="#units"><span class="secno">27.4</span> 単位と精度</a></li>
+<li><a href="#shortcuts"><span class="secno">27.5</span> ショートカットキーを変える</a></li>
+<li class="sub"><a href="#shortcuts-conflict">衝突の検出</a></li>
+<li><a href="#mouse"><span class="secno">27.6</span> マウス操作のプリセット</a></li>
+<li><a href="#screen"><span class="secno">27.7</span> 画面の整え方</a></li>
+<li><a href="#startup"><span class="secno">27.8</span> 起動の引数と設定の場所</a></li>
+<li class="sub"><a href="#folders">設定とログの場所</a></li>
+</ol>
+</nav>
+<p>この章では、mcad を自分の使い方に合わせる設定を説明します。オプションの画面の見方、配色（ライト・ダーク）、表示言語、ショートカットキーの変更、マウス操作のプリセット、画面の整え方、起動のときの引数を取り上げます。</p>
+
+<h2 id="options"><span class="secno">27.1</span> オプション</h2>
+<p>アプリケーション全体の設定は、<span class="ui">［オプション］</span>のダイアログにまとまっています。設定はドキュメントではなく、この PC の mcad に保存されます。</p>
+<ol class="steps">
+  <li><p><span class="path">リボンの<span class="ui">［ツール］</span>タブ → <span class="ui">［オプション］</span>パネル → <span class="ui">［オプション］</span></span>をクリックします。左の一覧からページを選ぶと、右に設定の欄が出ます。</p>
+    <figure id="fig-17_options_ui"><a class="zoom" href="images/17_options_ui.png"><img src="images/17_options_ui.png" alt="［オプション］の［画面］ページ。左の一覧がページ、右が設定の欄です。" width="760" height="532" loading="lazy"></a><figcaption><span class="figno">図 27-1</span> <span class="ui">［オプション］</span>の<span class="ui">［画面］</span>ページ。左の一覧がページ、右が設定の欄です。</figcaption></figure></li>
+  <li><p>値を変えて、<span class="ui">［OK］</span>（保存して閉じる）か<span class="ui">［適用］</span>（保存して開いたまま）を押します。<span class="ui">［キャンセル］</span>は何も保存しません。</p></li>
+  <li><p>今のページの欄を全部、初期値に戻すときは、<span class="ui">［既定に戻す］</span>を押してから、<span class="ui">［OK］</span>か<span class="ui">［適用］</span>を押します。ほかのページの欄は変わりません。</p></li>
+</ol>
+<p>変更がすぐに効く設定と、mcad を起動し直したあとで効く設定があります。起動し直しが要る設定を変えて保存すると、「一部の変更は mcad を再起動した後に有効になります」と知らせが出ます。範囲を外れた値や読めない値は、欄の横に赤い文で理由が出て、保存されません。</p>
+<div class="table-wrap"><table>
+  <caption>主な設定（ページごと）</caption>
+  <thead><tr><th>ページ</th><th>項目</th><th>内容（既定値）</th><th>反映</th></tr></thead>
+  <tbody>
+    <tr><th scope="row" rowspan="8"><span class="ui">［画面］</span></th><td><span class="ui">［表示言語］</span></td><td><span class="ui">［日本語］</span>か<span class="ui">［English］</span>（<a href="#language">表示言語</a>）</td><td>すぐ</td></tr>
+    <tr><td><span class="ui">［配色］</span></td><td><span class="ui">［明るい］</span>か<span class="ui">［暗い］</span>（<a href="#theme">配色</a>）</td><td>すぐ</td></tr>
+    <tr><td><span class="ui">［表示メッシュのメモリ（MB）］</span></td><td>ビューに出すメッシュに使うメモリの上限（512）</td><td>再起動</td></tr>
+    <tr><td><span class="ui">［コマンドの表示］</span></td><td><span class="ui">［リボン］</span>（Inventor と同じタブとパネル）か<span class="ui">［ツールバー］</span>（以前の版のメニュー バーとツールバー）</td><td>再起動</td></tr>
+    <tr><td><span class="ui">［リボンの上にメニュー バーも表示］</span></td><td>オフ。メニュー バーには、ファイルとヘルプのコマンドと<span class="ui">［最近使ったドキュメント］</span>が入ります</td><td>再起動</td></tr>
+    <tr><td><span class="ui">［内部名を表示（開発用）］</span></td><td>オフ。入れると、選んだ面・エッジ・頂点の内部名とシグネチャが、プロパティ パネルに出ます（不具合を報告するときに使います）</td><td>すぐ</td></tr>
+    <tr><td><span class="ui">［選択範囲の近くにミニ ツールバーを表示する］</span></td><td>オン。切ると、選択の近くの小さなツールバーが出なくなります</td><td>すぐ</td></tr>
+    <tr><td><span class="ui">［スケッチの入力ウィンドウをカーソルに付けて動かす］</span></td><td>オフ。オフのときは、作図・編集ツールの入力ウィンドウが、ビューの左上（ドラッグで動かした場所）に止まっていて、<span class="ui">［確定］</span>・<span class="ui">［終了］</span>などのボタンがあります（ツールによって変わります）。入れると、前の形（Inventor の動的入力のように、カーソルに付いて動き、ボタンの代わりに <kbd>Enter</kbd>・<kbd>Esc</kbd> の案内が出ます）になります（<a href="04_sketch.html#numeric">第 4 章</a>）</td><td>すぐ</td></tr>
+    <tr><th scope="row" rowspan="4"><span class="ui">［3D ビュー］</span></th><td><span class="ui">［表示の品質］</span></td><td>曲面を分割する細かさ（<span class="ui">［標準］</span>。<span class="ui">［粗い］</span>は速く、<span class="ui">［細かい］</span>はなめらか）</td><td>すぐ</td></tr>
+    <tr><td><span class="ui">［アンチエイリアスのサンプル数］</span></td><td>ビューの線のなめらかさ（8。0 でなし）</td><td>再起動</td></tr>
+    <tr><td><span class="ui">［ビューの切り替えの時間（ms）］</span></td><td>標準ビューなどへの切り替えのアニメーションの時間（200。0 でなし）</td><td>すぐ</td></tr>
+    <tr><td><span class="ui">［背景］</span></td><td><span class="ui">［グラデーション］</span>か<span class="ui">［1 色］</span></td><td>すぐ</td></tr>
+    <tr><th scope="row"><span class="ui">［元に戻す］</span></th><td><span class="ui">［元に戻せる回数］</span></td><td>戻せる操作の数（200）</td><td>あとで開くドキュメントから</td></tr>
+    <tr><th scope="row" rowspan="2"><span class="ui">［自動回復］</span></th><td><span class="ui">［自動回復の間隔（秒）］</span></td><td>回復用の写しを書く間隔（120。0 で書きません）</td><td>すぐ</td></tr>
+    <tr><td><span class="ui">［ドキュメントごとに保持する回復用の写しの数］</span></td><td>古い版をいくつ残すか（3）</td><td>すぐ</td></tr>
+    <tr><th scope="row"><span class="ui">［ファイル］</span></th><td>同梱キャッシュ・外部の格納先・バックアップ・ロック・テンプレートなど</td><td><a href="13_files.html#storage">第 13 章</a>にあります</td><td>すぐ</td></tr>
+    <tr><th scope="row"><span class="ui">［形状エンジン］</span></th><td><span class="ui">［ワーカーのプロセス］</span>・<span class="ui">［ワーカーごとのメモリ上限（MB）］</span>・<span class="ui">［取り込みを打ち切る時間（秒）］</span>など</td><td>形を計算するプロセスの設定です（<a href="29_troubleshooting.html#memory">第 29 章</a>）</td><td>再起動を含む</td></tr>
+    <tr><th scope="row"><span class="ui">［形状キャッシュ］</span></th><td><span class="ui">［ディスクキャッシュ（GB）］</span>など</td><td>計算結果の保存の設定です（4 GB）</td><td>すぐ</td></tr>
+    <tr><th scope="row"><span class="ui">［再計算］</span></th><td><span class="ui">［フィーチャが失敗したとき］</span></td><td><span class="ui">［続ける］</span>か<span class="ui">［止める］</span>（続ける）</td><td>すぐ</td></tr>
+    <tr><th scope="row"><span class="ui">［ライブプレビュー］</span></th><td><span class="ui">［ライブプレビュー］</span></td><td>値を入れている間の結果の表示（オン）</td><td>再起動</td></tr>
+    <tr><th scope="row"><span class="ui">［スケッチ］</span></th><td>スナップの半径・拘束の推論・表示する記号など</td><td><a href="04_sketch.html">第 4 章</a>のスケッチの設定です</td><td>すぐ</td></tr>
+  </tbody>
+</table></div>
+<p><span class="ui">［マウスと視点の操作］</span>のページは、<a href="#mouse">マウス操作のプリセット</a>の節にあります。</p>
+<aside class="inventor" role="note"><p class="callout-title">Inventor との違い</p><p>Inventor の「アプリケーション オプション」に当たります。mcad のオプションは、ドキュメントごとの設定（単位と精度など）を含みません。ドキュメントの設定は、保存するドキュメントの中に入ります。</p></aside>
+
+<h2 id="theme"><span class="secno">27.2</span> 配色（ライト・ダーク）</h2>
+<ol class="steps">
+  <li><p><span class="path">リボンの<span class="ui">［ツール］</span>タブ → <span class="ui">［オプション］</span>パネル → <span class="ui">［オプション］</span></span>を開き、<span class="ui">［画面］</span>ページの<span class="ui">［配色］</span>を<span class="ui">［暗い］</span>にします。</p></li>
+  <li><p><span class="ui">［OK］</span>を押します。起動し直さずに、ウィンドウ・アイコン・3D ビューの背景と色が暗い配色に替わります。</p>
+    <figure id="fig-17_theme_dark"><a class="zoom" href="images/17_theme_dark.png"><img src="images/17_theme_dark.png" alt="暗い配色。ブラウザ・リボン・ビューの全体が替わります。" width="1000" height="643" loading="lazy"></a><figcaption><span class="figno">図 27-2</span> 暗い配色。ブラウザ・リボン・ビューの全体が替わります。</figcaption></figure></li>
+</ol>
+<p>3D ビューの背景は、<span class="ui">［3D ビュー］</span>ページの<span class="ui">［背景］</span>で、配色の 2 色のグラデーションと 1 色から選べます。起動のときに決めるには <code>--theme dark</code>（明るい配色は <code>--theme light</code>）を付けます（<a href="#startup">起動の引数</a>）。</p>
+
+<h2 id="language"><span class="secno">27.3</span> 表示言語</h2>
+<p>メニュー・ダイアログ・知らせの言語は、日本語と英語から選べます。</p>
+<ol class="steps">
+  <li><p><span class="path">リボンの<span class="ui">［ツール］</span>タブ → <span class="ui">［オプション］</span>パネル → <span class="ui">［オプション］</span></span>を開き、<span class="ui">［画面］</span>ページの<span class="ui">［表示言語］</span>を<span class="ui">［English］</span>にして、<span class="ui">［OK］</span>を押します。</p></li>
+  <li><p>再起動しなくても、リボン・ブラウザ・ステータスバー・ツールチップが英語に替わります。</p>
+    <figure id="fig-17_language_en"><a class="zoom" href="images/17_language_en.png"><img src="images/17_language_en.png" alt="英語の表示にしたウィンドウ。リボンのタブとパネルの名前・ボタン、ブラウザ、ステータスバーが英語になります。" width="1000" height="643" loading="lazy"></a><figcaption><span class="figno">図 27-3</span> 英語の表示にしたウィンドウ。リボンのタブとパネルの名前・ボタン、ブラウザ、ステータスバーが英語になります。</figcaption></figure></li>
+</ol>
+<p>ドキュメントの中の名前（フィーチャの名前など）は、書いた言語のままです。起動のときに決めるには <code>--language en</code>（日本語は <code>--language ja</code>）を付けます。</p>
+<aside class="note" role="note"><p class="callout-title">注意</p><p>このユーザーマニュアルは日本語だけです。表示言語を英語にしても、ヘルプのメニューは日本語のマニュアルを開きます。</p></aside>
+
+<h2 id="units"><span class="secno">27.4</span> 単位と精度</h2>
+<p>長さと角度の表示の単位と小数の桁数は、ドキュメントごとに決めます。オプションではなく、ドキュメントの設定です。</p>
+<ol class="steps">
+  <li><p><span class="path">リボンの<span class="ui">［ツール］</span>タブ → <span class="ui">［オプション］</span>パネル → <span class="ui">［単位と精度］</span></span>をクリックします（ステータスバーの単位の表示（<code>mm, deg</code>）を押しても開きます）。</p></li>
+  <li><p><span class="ui">［単位系］</span>で<span class="ui">［MMGS（ミリメートル・グラム・秒）］</span>などを選ぶか、<span class="ui">［長さ］</span>・<span class="ui">［角度］</span>・<span class="ui">［質量］</span>と、<span class="ui">［長さの小数の桁数］</span>・<span class="ui">［角度の小数の桁数］</span>を決めて、<span class="ui">［OK］</span>を押します。</p>
+    <figure id="fig-17_units_dialog"><a class="zoom" href="images/17_units_dialog.png"><img src="images/17_units_dialog.png" alt="単位と精度。単位を変えても、値の表示が変わるだけで、モデルの形は変わりません。" width="303" height="266" loading="lazy"></a><figcaption><span class="figno">図 27-4</span> 単位と精度。単位を変えても、値の表示が変わるだけで、モデルの形は変わりません。</figcaption></figure></li>
+</ol>
+<p>この変更は<kbd>Ctrl</kbd>+<kbd>Z</kbd>で戻せます。数値の欄に単位のない数値を入れると、このドキュメントの単位として扱います（<a href="10_parameters.html">第 10 章</a>）。</p>
+
+<h2 id="shortcuts"><span class="secno">27.5</span> ショートカットキーを変える</h2>
+<p>コマンドのショートカットキーは、一覧で確かめて、自分のキーに替えられます。</p>
+<ol class="steps">
+  <li><p><span class="path">リボンの<span class="ui">［ツール］</span>タブ → <span class="ui">［オプション］</span>パネル → <span class="ui">［キーボード ショートカット］</span></span>をクリックします（<span class="ui">［オプション］</span>の<span class="ui">［画面］</span>ページの<span class="ui">［キーボード ショートカット］</span>でも開きます）。全コマンドの<span class="ui">［コマンド］</span>・<span class="ui">［場所］</span>・<span class="ui">［ショートカット］</span>・<span class="ui">［既定］</span>・<span class="ui">［適用先］</span>が並びます。<span class="ui">［場所］</span>は、コマンドがあるリボンのタブとパネル（<span class="ui">［ツール］</span> &gt; <span class="ui">［マクロ］</span> など）か、メニューの名前です。</p></li>
+  <li><p>上の検索欄に、コマンドの名前（日本語も英語も）・場所・キーの一部を入れて絞ります。<span class="ui">［ショートカットのあるものだけ］</span>と<span class="ui">［変更したものだけ］</span>でも絞れます。</p>
+    <figure id="fig-17_shortcuts_dialog"><a class="zoom" href="images/17_shortcuts_dialog.png"><img src="images/17_shortcuts_dialog.png" alt="ショートカットの一覧。［保存］で絞った状態で、［コピーを保存］にはキーがありません。" width="820" height="360" loading="lazy"></a><figcaption><span class="figno">図 27-5</span> ショートカットの一覧。<span class="ui">［保存］</span>で絞った状態で、<span class="ui">［コピーを保存］</span>にはキーがありません。</figcaption></figure></li>
+  <li><p>コマンドの行を選び、<span class="ui">［新しいショートカット］</span>の欄をクリックして、割り当てたいキーを押します。<span class="ui">［割り当て］</span>を押すと、すぐに効きます。</p></li>
+  <li><p>キーを外すときは<span class="ui">［外す］</span>、変えたキーを元に戻すときは<span class="ui">［既定に戻す］</span>を押します。全部を戻すには<span class="ui">［すべて既定に戻す］</span>を押し、確認で<span class="ui">［はい］</span>を選びます。<span class="ui">［一覧をコピー］</span>は、見えている行をタブ区切りの文字にして、クリップボードに入れます。</p></li>
+</ol>
+<h3 id="shortcuts-conflict">衝突の検出</h3>
+<p>すでに別のコマンドが使っているキーを入れると、割り当てる前に、赤い文で知らせます。</p>
+<figure id="fig-17_shortcuts_conflict"><a class="zoom" href="images/17_shortcuts_conflict.png"><img src="images/17_shortcuts_conflict.png" alt="衝突の知らせ。Ctrl+S は［保存］が使っています。" width="820" height="360" loading="lazy"></a><figcaption><span class="figno">図 27-6</span> 衝突の知らせ。<code>Ctrl+S</code> は<span class="ui">［保存］</span>が使っています。</figcaption></figure>
+<p>そのまま<span class="ui">［割り当て］</span>を押すと、「…は既に…で使われています。そちらから外して、ここで使いますか?」と確認します。<span class="ui">［はい］</span>を選ぶと、相手のキーを外してこちらに付けます。<span class="ui">［いいえ］</span>は何も変えません（既定）。</p>
+<figure id="fig-17_shortcuts_changed"><a class="zoom" href="images/17_shortcuts_changed.png"><img src="images/17_shortcuts_changed.png" alt="キーを変えたあと。［変更したものだけ］で絞ると、変えたコマンドだけが残ります。変えたキーは太字で、［既定］の列は変わりません（［全体表示］は、変えたあとも既定が &lt;kbd&gt;Home&lt;/kbd&gt; です）。" width="820" height="360" loading="lazy"></a><figcaption><span class="figno">図 27-7</span> キーを変えたあと。<span class="ui">［変更したものだけ］</span>で絞ると、変えたコマンドだけが残ります。変えたキーは太字で、<span class="ui">［既定］</span>の列は変わりません（<span class="ui">［全体表示］</span>は、変えたあとも既定が <kbd>Home</kbd> です）。</figcaption></figure>
+<ul>
+  <li><p>押している間にパン・ズーム・オービットをするキー（<span class="ui">［Inventor 風］</span>では <kbd>F2</kbd>〜<kbd>F4</kbd>）は、割り当てられません。「…は、押している間にパン・ズーム・オービットを行うマウス設定で使われています。別のキーを選んでください」と断られます。</p></li>
+  <li><p>複数のキーを続けて押す組み合わせ（<code>V, F</code> など）は使えません。修飾キー（<kbd>Ctrl</kbd>・<kbd>Shift</kbd>・<kbd>Alt</kbd>）だけの割り当ても、できません。</p></li>
+  <li><p>文字・数字・ファンクションキーのショートカットは、ウィンドウのどこでも効きます。文字を入れる欄・コンボボックス・数値の欄では、欄に入力されます。</p></li>
+</ul>
+<aside class="inventor" role="note"><p class="callout-title">Inventor との違い</p><p>Inventor では、「ツール」タブの「オプション」パネルの「カスタマイズ」にある「キーボード」のタブで変えます。mcad では、1 つの画面（上の一覧）で、検索・衝突の確認・変更ができます。</p></aside>
+<aside class="note" role="note"><p class="callout-title">注意</p><p><span class="ui">［既定］</span>の列は、今選んでいるマウス操作のプリセットのキーです。キーを変えたあとも、この列はプリセットのキーのままです。プリセットを替えると、既定のキーも替わります。変えたキーはプリセットを替えても残ります。変更は、設定のフォルダの <code>shortcuts.json</code> に保存されます。</p></aside>
+<aside class="tip" role="note"><p class="callout-title">ヒント</p><p>コマンドの名前だけを知りたいときは、<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd>（<span class="ui">［コマンド検索］</span>）で、名前の一部から探して実行できます（<a href="01_screen.html#palette">第 1 章</a>）。</p></aside>
+
+<h2 id="mouse"><span class="secno">27.6</span> マウス操作のプリセット</h2>
+<p>3D ビューのオービット・画面移動・ズームのマウス操作は、16 種類のプリセットから選びます。初めて起動すると、普段使っている CAD を尋ねます。</p>
+<figure id="fig-00_first_run"><a class="zoom" href="images/00_first_run.png"><img src="images/00_first_run.png" alt="初回起動のダイアログ。選んだ CAD に合わせた早見表が出ます。" width="760" height="460" loading="lazy"></a><figcaption><span class="figno">図 27-8</span> 初回起動のダイアログ。選んだ CAD に合わせた早見表が出ます。</figcaption></figure>
+<p>後から替えるには、ステータスバーの右端のマウスのボタンか、<span class="path">リボンの<span class="ui">［ツール］</span>タブ → <span class="ui">［オプション］</span>パネル → <span class="ui">［オプション］</span></span>の<span class="ui">［マウスと視点の操作］</span>ページを使います（<a href="02_view.html#mouse-preset">第 2 章</a>）。起動のときに <code>--preset inventor</code> のように ID を付けて決めることもできます。</p>
+<figure id="fig-02_options_mouse"><a class="zoom" href="images/02_options_mouse.png"><img src="images/02_options_mouse.png" alt="［マウスと視点の操作］ページ。プリセットの早見表と、すべてのプリセットに共通の設定があります。" width="760" height="532" loading="lazy"></a><figcaption><span class="figno">図 27-9</span> <span class="ui">［マウスと視点の操作］</span>ページ。プリセットの早見表と、すべてのプリセットに共通の設定があります。</figcaption></figure>
+<ul>
+  <li><p><span class="ui">［すべてのプリセットに共通］</span>の欄で、ホイールの向き・ズームの中心・オービットの方式・速さなどを、プリセットを変えずに上書きできます。<span class="ui">［（プリセットのまま）］</span>を選ぶと上書きしません。</p></li>
+  <li><p><span class="ui">［タッチパッドの判定］</span>は、ノート PC のタッチパッドを、マウスのホイールと見分ける設定です。<span class="ui">［自動で判定する］</span>で足りないときに替えます。</p></li>
+  <li><p><span class="ui">［複製して編集］</span>は、選んだプリセットの差分だけを書くファイルを、設定のフォルダの <code>navigation</code> に作り、フォルダを開きます。ファイルをテキスト エディタで直して<span class="ui">［再読み込み］</span>を押すと、自分のプリセットとして一覧に出ます。<span class="ui">［インポート］</span>・<span class="ui">［エクスポート］</span>で、ファイルをやり取りできます。</p></li>
+</ul>
+
+<h2 id="screen"><span class="secno">27.7</span> 画面の整え方</h2>
+<ul>
+  <li><p><strong>リボンかツールバーか</strong>: <span class="ui">［画面］</span>ページの<span class="ui">［コマンドの表示］</span>で選びます。<span class="ui">［ツールバー］</span>は、以前の版のメニュー バーと 2 段のツールバーです。変えたあとは、mcad を起動し直します。</p></li>
+  <li><p><strong>メニュー バー</strong>: <span class="ui">［リボンの上にメニュー バーも表示］</span>を入れると、リボンの上にメニュー バーが出ます。リボンのどのパネルにもないコマンドと、<span class="ui">［最近使ったドキュメント］</span>も、ここにあります。</p></li>
+  <li><p><strong>全画面表示</strong>: <span class="path">リボンの<span class="ui">［表示］</span>タブ → <span class="ui">［ウィンドウ］</span>パネル → <span class="ui">［全画面表示］</span></span>（<kbd>F11</kbd>）で、ウィンドウを画面いっぱいにします。もう一度押すと戻ります。</p></li>
+  <li><p><strong>ドック</strong>: 左のブラウザとプロパティのドックは、幅と高さをドラッグで変えられます。<span class="path">リボンの<span class="ui">［表示］</span>タブ → <span class="ui">［ウィンドウ］</span>パネル → <span class="ui">［変更履歴］</span></span>・<span class="path">リボンの<span class="ui">［表示］</span>タブ → <span class="ui">［ウィンドウ］</span>パネル → <span class="ui">［ログと通知］</span></span>のドックは、リボンの<span class="ui">［表示］</span>タブの<span class="ui">［ウィンドウ］</span>パネルで出し入れします。ウィンドウの大きさ・ドックの配置・リボンの最小化の状態は、閉じるときに保存され、次の起動で戻ります。</p></li>
+  <li><p><strong>ミニ ツールバー</strong>: 出したくないときは、<span class="ui">［選択範囲の近くにミニ ツールバーを表示する］</span>を切ります。</p></li>
+</ul>
+
+<h2 id="startup"><span class="secno">27.8</span> 起動の引数と設定の場所</h2>
+<p>起動のコマンドに引数を付けると、設定を一時的に替えて起動できます。配布版は <code>mcad.exe</code> に同じ引数を渡します。</p>
+<pre><code>python -m mcad --open part.mcad --language en --theme dark</code></pre>
+<div class="table-wrap"><table>
+  <caption>主な引数</caption>
+  <thead><tr><th>引数</th><th>動作</th></tr></thead>
+  <tbody>
+    <tr><th scope="row"><code>--open ファイル</code></th><td>ドキュメントを開いて起動します。繰り返すと複数を開きます。開けないときは、知らせに理由が出ます</td></tr>
+    <tr><th scope="row"><code>--language ja|en</code></th><td>表示言語をこの起動だけ替えます（保存はしません）</td></tr>
+    <tr><th scope="row"><code>--theme light|dark</code></th><td>配色をこの起動だけ替えます</td></tr>
+    <tr><th scope="row"><code>--preset ID</code></th><td>マウス操作のプリセット（<code>inventor</code> など）を設定に保存します。ID が違うと、案内を出して終了します</td></tr>
+    <tr><th scope="row"><code>--data-dir フォルダ</code></th><td>設定・ログ・キャッシュ・回復用の写しを、そのフォルダの下に置きます。試すときや、持ち歩く環境で使います</td></tr>
+    <tr><th scope="row"><code>--settings ファイル</code></th><td>設定を、JSON のファイルに保存します（<code>{"ui.theme": "dark"}</code> の形）。読めない設定ファイルは別名で退避して、既定の設定で起動し、知らせます</td></tr>
+    <tr><th scope="row"><code>--recover ask|open|overwrite|discard|keep</code></th><td>前回の異常終了で残った写しの扱いを、尋ねずに決めます（<a href="13_files.html#recovery">第 13 章</a>）。<code>ask</code> は復旧のダイアログ、<code>open</code> は未保存のドキュメントとして開く、<code>overwrite</code> は元のファイルに上書き（前の版は <code>.bak</code>）、<code>discard</code> は捨てる、<code>keep</code> は次の起動まで残す</td></tr>
+    <tr><th scope="row"><code>--plugin</code>・<code>--entry-point-plugins</code></th><td>外部のプラグインを読み込みます（<a href="28_automation.html#plugin">第 28 章</a>）</td></tr>
+    <tr><th scope="row"><code>--no-spare</code></th><td>予備のワーカーを起動しません。メモリは減りますが、止まったあとの復帰が遅くなります</td></tr>
+    <tr><th scope="row"><code>--skip-gl-check</code></th><td>起動のときの OpenGL の検査を省きます（<a href="29_troubleshooting.html#gpu">第 29 章</a>）</td></tr>
+    <tr><th scope="row"><code>--no-dialogs</code></th><td>起動のときの誤りを、ダイアログでなく標準エラーに出します</td></tr>
+    <tr><th scope="row"><code>--demo</code></th><td>見本の部品を作って表示します</td></tr>
+    <tr><th scope="row"><code>--log-input</code></th><td>3D ビューのホイール・ジェスチャ・修飾キーの動きをログに書きます（タッチパッドの確認用）</td></tr>
+  </tbody>
+</table></div>
+<p><code>--hidden</code>・<code>--quit-after</code>・<code>--report</code>・<code>--screenshot</code> と、<code>--section</code>・<code>--view</code>・<code>--preview</code> などは、開発と画面の写真を撮る試験用です。通常は使いません。引数の一覧は <code>python -m mcad --help</code> で出ます（英語）。</p>
+<h3 id="folders">設定とログの場所</h3>
+<p>引数なしで起動したときのフォルダは次のとおりです。<code>%APPDATA%</code> は、Windows の「Roaming」のユーザー フォルダです。</p>
+<div class="table-wrap"><table>
+  <caption>mcad が使うフォルダ</caption>
+  <thead><tr><th>場所</th><th>中身</th></tr></thead>
+  <tbody>
+    <tr><th scope="row"><code>%APPDATA%\mcad\</code></th><td>設定 <code>mcad.ini</code>、ウィンドウの配置 <code>window.ini</code>、ショートカット <code>shortcuts.json</code>、コンソールの履歴 <code>console_history.txt</code>、マウスのプリセット <code>navigation\</code>、テンプレート <code>templates\</code></td></tr>
+    <tr><th scope="row"><code>%LOCALAPPDATA%\mcad\logs\</code></th><td>ログ（<code>gui.log</code> と、形状エンジンの <code>worker-…log</code>）</td></tr>
+    <tr><th scope="row"><code>%LOCALAPPDATA%\mcad\cache\</code></th><td>計算結果のディスクキャッシュ</td></tr>
+    <tr><th scope="row"><code>%LOCALAPPDATA%\mcad\sessions\</code></th><td>起動ごとの作業フォルダ。自動回復の写しとロックが入ります</td></tr>
+  </tbody>
+</table></div>
+<p><code>--data-dir C:\mcad_data</code> を付けると、設定は <code>C:\mcad_data\config\</code>、ログ・キャッシュ・回復用の写しは <code>C:\mcad_data\local\</code> の下に作られます。</p>
+<aside class="tip" role="note"><p class="callout-title">ヒント</p><p>設定を最初の状態に戻したいときは、mcad を終了してから、<code>%APPDATA%\mcad\mcad.ini</code> を別の名前に変えます。次の起動で、既定の設定で始まります。ウィンドウの配置だけを戻すなら、<code>window.ini</code> を変えます。</p></aside>
+<aside class="note" role="note"><p class="callout-title">注意</p><p><code>--data-dir</code> のフォルダのパスが長いと、Windows のパスの長さの上限（260 文字）を超えることがあります。キャッシュ入りのドキュメントを開くときの作業フォルダ（<code>local\sessions</code> の下）は、長いパスでも扱えます。ディスクキャッシュ（<code>local\cache</code>）など、ほかのフォルダは、長いパスにまだ対応していません。短いフォルダ（<code>C:\mcad_data</code> など）を使います。</p></aside>
+
+</article>
+<nav class="pager" aria-label="前後の章"><a class="prev" rel="prev" href="26_step_export.html"><span class="dir">前の章</span>第 26 章 他の解析プログラムに形を渡す</a><a class="next" rel="next" href="28_automation.html"><span class="dir">次の章</span>第 28 章 自動化</a></nav>
+<footer class="footer"><p>EMRM-Studio ユーザーマニュアル（日本語）・EMRM-Studio 0.1.0 ・ <a href="#main">このページの先頭へ</a></p></footer>
+</main>
+</div>
+</body>
+</html>

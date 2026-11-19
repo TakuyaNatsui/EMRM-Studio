@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="generator" content="tools/build_manual.py">
+<title>第 29 章 困ったとき - EMRM-Studio ユーザーマニュアル</title>
+<link rel="stylesheet" href="assets/manual.css">
+<script src="assets/search_index.js" charset="utf-8" defer></script>
+<script src="assets/manual.js" charset="utf-8" defer></script>
+</head>
+<body class="page">
+<header class="topbar">
+<a class="brand" href="index.html">EMRM-Studio ユーザーマニュアル</a>
+<button class="toc-toggle" type="button" aria-controls="toc" aria-expanded="false">目次</button>
+<form class="search" role="search" action="#" onsubmit="return false">
+<input id="q" type="search" placeholder="マニュアルを検索（/）" aria-label="マニュアルを検索" autocomplete="off">
+</form>
+</header>
+<div id="search-results" class="search-results" hidden></div>
+<div class="layout">
+<nav id="toc" class="toc" aria-label="目次">
+<details class="toc-box">
+<summary>目次</summary>
+<ol class="toc-chapters">
+<li class="toc-home"><a href="index.html">表紙・目次</a></li>
+<li><a href="00_intro.html">はじめに</a></li>
+<li class="toc-part" role="presentation">第 I 部　形状を作る（CAD）</li>
+<li><a href="01_screen.html"><span class="chno">第 1 章</span> 画面の構成</a></li>
+<li><a href="02_view.html"><span class="chno">第 2 章</span> 視点の操作</a></li>
+<li><a href="03_first_part.html"><span class="chno">第 3 章</span> はじめての部品</a></li>
+<li><a href="04_sketch.html"><span class="chno">第 4 章</span> スケッチ</a></li>
+<li><a href="05_work_features.html"><span class="chno">第 5 章</span> 作業フィーチャ</a></li>
+<li><a href="06_features_basic.html"><span class="chno">第 6 章</span> フィーチャ（押し出し・回転・穴・フィレットなど）</a></li>
+<li><a href="07_features_advanced.html"><span class="chno">第 7 章</span> フィーチャ（スイープ・ロフト・コイル・パターンなど）</a></li>
+<li><a href="08_bodies.html"><span class="chno">第 8 章</span> ボディの操作</a></li>
+<li><a href="09_browser.html"><span class="chno">第 9 章</span> ブラウザとフィーチャの管理</a></li>
+<li><a href="10_parameters.html"><span class="chno">第 10 章</span> パラメータと式</a></li>
+<li><a href="11_configurations.html"><span class="chno">第 11 章</span> 構成</a></li>
+<li><a href="12_inspect.html"><span class="chno">第 12 章</span> 検査</a></li>
+<li><a href="13_files.html"><span class="chno">第 13 章</span> ファイル</a></li>
+<li class="toc-part" role="presentation">第 II 部　電磁場解析</li>
+<li><a href="14_em_intro.html"><span class="chno">第 14 章</span> 電磁場解析のはじめに</a></li>
+<li><a href="15_em_first.html"><span class="chno">第 15 章</span> はじめての電磁場解析（ソレノイド）</a></li>
+<li><a href="16_em_setup.html"><span class="chno">第 16 章</span> スタディの共通の設定</a></li>
+<li><a href="17_em_results.html"><span class="chno">第 17 章</span> 結果の見方</a></li>
+<li><a href="18_em_magnetostatic.html"><span class="chno">第 18 章</span> 静磁場解析</a></li>
+<li><a href="19_em_coils.html"><span class="chno">第 19 章</span> 静磁場解析: コイル</a></li>
+<li><a href="20_em_dipole.html"><span class="chno">第 20 章</span> 静磁場解析の例題: H 型双極電磁石</a></li>
+<li><a href="21_em_eigenmode.html"><span class="chno">第 21 章</span> 共振モード解析</a></li>
+<li><a href="22_em_driven.html"><span class="chno">第 22 章</span> ポート解析</a></li>
+<li><a href="23_em_electrostatic.html"><span class="chno">第 23 章</span> 静電場解析</a></li>
+<li><a href="24_em_gun.html"><span class="chno">第 24 章</span> 電子銃解析</a></li>
+<li><a href="25_em_troubleshooting.html"><span class="chno">第 25 章</span> 電磁場解析で困ったとき</a></li>
+<li class="toc-part" role="presentation">第 III 部　連携・カスタマイズ・自動化</li>
+<li><a href="26_step_export.html"><span class="chno">第 26 章</span> 他の解析プログラムに形を渡す</a></li>
+<li><a href="27_customize.html"><span class="chno">第 27 章</span> カスタマイズ</a></li>
+<li><a href="28_automation.html"><span class="chno">第 28 章</span> 自動化</a></li>
+<li class="current"><a href="29_troubleshooting.html" aria-current="page"><span class="chno">第 29 章</span> 困ったとき</a><ol class="toc-sections"><li><a href="29_troubleshooting.html#first"><span class="secno">29.1</span> まず確かめること</a></li><li><a href="29_troubleshooting.html#feature-fail"><span class="secno">29.2</span> フィーチャが失敗したとき</a></li><li><a href="29_troubleshooting.html#refs"><span class="secno">29.3</span> 参照が見つからないとき</a></li><li><a href="29_troubleshooting.html#open-fail"><span class="secno">29.4</span> 開けない・取り込めない</a></li><li><a href="29_troubleshooting.html#save-fail"><span class="secno">29.5</span> 保存できない</a></li><li><a href="29_troubleshooting.html#settings-file"><span class="secno">29.6</span> 設定ファイルが読めない</a></li><li><a href="29_troubleshooting.html#memory"><span class="secno">29.7</span> メモリが足りないとき</a></li><li><a href="29_troubleshooting.html#engine-stop"><span class="secno">29.8</span> 形状エンジンが止まったとき</a></li><li><a href="29_troubleshooting.html#slow"><span class="secno">29.9</span> 動作が遅いとき</a></li><li><a href="29_troubleshooting.html#gpu"><span class="secno">29.10</span> 画面が出ない（3D ビューが使えない）</a></li><li><a href="29_troubleshooting.html#limits"><span class="secno">29.11</span> 既知の制限</a></li><li><a href="29_troubleshooting.html#report"><span class="secno">29.12</span> 問い合わせの前に集める情報</a></li></ol></li>
+<li class="toc-part" role="presentation">付録</li>
+<li class="appendix"><a href="appendix_a_commands.html"><span class="chno">付録 A</span> コマンド一覧</a></li>
+<li class="appendix"><a href="appendix_b_shortcuts.html"><span class="chno">付録 B</span> ショートカット一覧</a></li>
+<li class="appendix"><a href="appendix_c_feature_params.html"><span class="chno">付録 C</span> フィーチャのパラメータ一覧</a></li>
+<li class="appendix"><a href="appendix_d_glossary.html"><span class="chno">付録 D</span> 用語の対応表</a></li>
+</ol>
+</details>
+</nav>
+<main class="content" id="main">
+<article class="chapter ">
+<p class="chapter-label">第 29 章</p>
+<h1>困ったとき</h1>
+<nav class="pagetoc" aria-label="この章の内容">
+<p class="pagetoc-title">この章の内容</p>
+<ol>
+<li><a href="#first"><span class="secno">29.1</span> まず確かめること</a></li>
+<li><a href="#feature-fail"><span class="secno">29.2</span> フィーチャが失敗したとき</a></li>
+<li><a href="#refs"><span class="secno">29.3</span> 参照が見つからないとき</a></li>
+<li><a href="#open-fail"><span class="secno">29.4</span> 開けない・取り込めない</a></li>
+<li><a href="#save-fail"><span class="secno">29.5</span> 保存できない</a></li>
+<li><a href="#settings-file"><span class="secno">29.6</span> 設定ファイルが読めない</a></li>
+<li><a href="#memory"><span class="secno">29.7</span> メモリが足りないとき</a></li>
+<li><a href="#engine-stop"><span class="secno">29.8</span> 形状エンジンが止まったとき</a></li>
+<li><a href="#slow"><span class="secno">29.9</span> 動作が遅いとき</a></li>
+<li><a href="#gpu"><span class="secno">29.10</span> 画面が出ない（3D ビューが使えない）</a></li>
+<li><a href="#limits"><span class="secno">29.11</span> 既知の制限</a></li>
+<li><a href="#report"><span class="secno">29.12</span> 問い合わせの前に集める情報</a></li>
+</ol>
+</nav>
+<p>この章では、操作がうまくいかないときの確かめ方と直し方をまとめます。画面に出るエラーの文と対処、遅いとき、3D ビューが出ないとき、今の mcad でできないことを説明します。解決しないときのために、問い合わせの前に集める情報も説明します。</p>
+
+<h2 id="first"><span class="secno">29.1</span> まず確かめること</h2>
+<ul>
+  <li><p><strong>知らせを読みます。</strong>エラーや警告は、ウィンドウの右下に数秒出ます。消えたあとも、ステータスバーのベルのボタンか、<span class="path">メニューの<span class="ui">［ヘルプ］</span> → <span class="ui">［通知］</span></span>で、履歴を読み返せます。</p></li>
+  <li><p><strong>ブラウザの状態を見ます。</strong>フィーチャの<span class="ui">［状態］</span>が<span class="ui">［OK］</span>以外の行に、理由があります。行にマウスを置くと、ツールチップに理由が出ます。</p></li>
+  <li><p><strong>元に戻します。</strong>直前の操作が原因なら、<kbd>Ctrl</kbd>+<kbd>Z</kbd> で戻して、値を変えてやり直します。</p></li>
+  <li><p><strong>保存してから、試します。</strong>うまくいかない前に、<kbd>Ctrl</kbd>+<kbd>S</kbd> で保存しておきます。保存すると、前の版が <code>.bak</code> に残ります。</p></li>
+</ul>
+<figure id="fig-19_notifications"><a class="zoom" href="images/19_notifications.png"><img src="images/19_notifications.png" alt="知らせの履歴。時刻・重大度・メッセージ・コードが並びます。失敗したフィーチャの知らせは、重大度が［エラー］です。［ログ］のタブでは、アプリのログも読めます。" width="847" height="270" loading="lazy"></a><figcaption><span class="figno">図 29-1</span> 知らせの履歴。時刻・重大度・メッセージ・コードが並びます。失敗したフィーチャの知らせは、重大度が<span class="ui">［エラー］</span>です。<span class="ui">［ログ］</span>のタブでは、アプリのログも読めます。</figcaption></figure>
+<p>知らせの履歴では、<span class="ui">［情報］</span>・<span class="ui">［警告］</span>・<span class="ui">［エラー］</span>のボタンで種類を絞り、検索欄で文字を探せます。<span class="ui">［コピー］</span>でクリップボードに、<span class="ui">［保存］</span>でテキスト ファイルに書き出せます。</p>
+
+<h2 id="feature-fail"><span class="secno">29.2</span> フィーチャが失敗したとき</h2>
+<p>フィーチャの値が合わないと、そのフィーチャは<span class="ui">［エラー］</span>になります。失敗したフィーチャは形を変えず、その前の形が残ります。後ろのフィーチャは、その形に対して計算されます。失敗したフィーチャが作る面やエッジを使っていた後ろのフィーチャは、参照が見つからず、<span class="ui">［警告］</span>になります。<span class="ui">［オプション］</span>の<span class="ui">［再計算］</span>ページの<span class="ui">［フィーチャが失敗したとき］</span>を<span class="ui">［止める］</span>にすると、そこで計算を止めます。</p>
+<ol class="steps">
+  <li><p>値を入力している途中で失敗するときは、<span class="ui">［プロパティ］</span>パネルの上と、欄の下に、理由が赤い文で出ます。ビューにはプレビューが出ません。選んだエッジは、パネルの<span class="ui">［エッジ］</span>の見出しと同じ色で示されます。</p>
+    <figure id="fig-19_fillet_reason"><a class="zoom" href="images/19_fillet_reason.png"><img src="images/19_fillet_reason.png" alt="半径 40 mm のフィレット。理由と、直し方の案（半径を小さくする）が出ます。" width="360" height="360" loading="lazy"></a><figcaption><span class="figno">図 29-2</span> 半径 40 mm のフィレット。理由と、直し方の案（半径を小さくする）が出ます。</figcaption></figure></li>
+  <li><p>値を直します。直ると赤い文が消えます。<span class="ui">［OK］</span>で確定します。</p></li>
+  <li><p>そのまま<span class="ui">［OK］</span>を押すと、フィーチャは<span class="ui">［エラー］</span>の状態で残ります。右下に、<span class="ui">［エラー］</span>の知らせが出ます。知らせの<span class="ui">［編集］</span>か、ブラウザの行のダブルクリックで、値を直しに戻れます。</p>
+    <div class="figrow">
+      <figure id="fig-19_fillet_toast"><a class="zoom" href="images/19_fillet_toast.png"><img src="images/19_fillet_toast.png" alt="失敗したフィレットの知らせ。縁が赤いのは［エラー］の印で、［編集］で値を直しに戻れます。" width="234" height="104" loading="lazy"></a><figcaption><span class="figno">図 29-3</span> 失敗したフィレットの知らせ。縁が赤いのは<span class="ui">［エラー］</span>の印で、<span class="ui">［編集］</span>で値を直しに戻れます。</figcaption></figure>
+      <figure id="fig-19_fillet_error"><a class="zoom" href="images/19_fillet_error.png"><img src="images/19_fillet_error.png" alt="失敗したフィレット。［エラー］の行の下の［面取り1］も、フィレットのエッジを使っているので［警告］になります。" width="360" height="222" loading="lazy"></a><figcaption><span class="figno">図 29-4</span> 失敗したフィレット。<span class="ui">［エラー］</span>の行の下の<span class="ui">［面取り1］</span>も、フィレットのエッジを使っているので<span class="ui">［警告］</span>になります。</figcaption></figure>
+    </div></li>
+</ol>
+<p>直せないときは、フィーチャを右クリックして<span class="ui">［抑制］</span>にすると、そのフィーチャを飛ばして先へ進めます（<span class="ui">［抑制解除］</span>で戻ります）。</p>
+<div class="table-wrap"><table>
+  <caption>よく出る失敗の文と直し方</caption>
+  <thead><tr><th>場面</th><th>文</th><th>直し方</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">フィレット</th><td>半径 … mm のフィレットを作れませんでした: 半径が隣り合う面に対して大きすぎる可能性があります。</td><td>半径を小さくします。エッジの選び方（接線チェーン・単独）も確かめます</td></tr>
+    <tr><th scope="row">面取り</th><td>距離が隣り合う面に対して大きすぎる可能性があります。距離か角度を小さくしてください。</td><td>距離か角度を小さくします</td></tr>
+    <tr><th scope="row">シェル</th><td>厚さが壁に対して大きすぎる可能性があります（最も薄い部分の半分より小さくする必要があります）。</td><td>厚さを小さくするか、取り除く面を確かめます</td></tr>
+    <tr><th scope="row">シェル</th><td>この形はシェルできません: エッジが片方の端で尖り、もう一方の端で接線になっています（矩形から円へのロフトの側面など）。</td><td>内側の形（断面を内側へオフセットしたロフトなど）を作り、結合のカットで取り除きます</td></tr>
+    <tr><th scope="row">勾配</th><td>引き抜き方向と勾配の角度を確かめてください。引き抜き方向と平行な面には勾配を付けられません。</td><td>引き抜き方向と、勾配を付ける面を選び直します</td></tr>
+    <tr><th scope="row">カット・結合・交差</th><td>演算がどのボディも変えませんでした／… がどのボディにも触れていません</td><td>形状の位置と深さ（距離）を確かめ、材料と重なるようにします</td></tr>
+    <tr><th scope="row">押し出し・回転など</th><td>プロファイルのループが閉じていません／区間 … と … がつながっていません</td><td>スケッチを開いて、線の端を一致の拘束でつなぎます。<span class="ui">［エラーを検索］</span>の一覧も使えます</td></tr>
+    <tr><th scope="row">スイープ・ロフト・コイル</th><td>結果にソリッドがありません。断面（プロファイル）を確かめてください。</td><td>内側の輪郭は外側の中にあり、自分と交差しないようにします</td></tr>
+    <tr><th scope="row">スイープ</th><td>ねじれのあるスイープには、鋭い角のないパスが必要です。</td><td>パスの角を丸めます</td></tr>
+    <tr><th scope="row">コイル</th><td>コイルが自分と交差しています: 断面の軸方向の幅が…ピッチより大きくなっています。</td><td>ピッチを大きくするか、断面を小さくします</td></tr>
+    <tr><th scope="row">ロフト</th><td>ロフトの断面に穴を含めることはできません／閉じたループのロフトが自分と交差しています</td><td>穴は、あとで結合のカットで開けます。閉じたループのロフトは、断面を輪になるように置きます</td></tr>
+    <tr><th scope="row">分割</th><td>分割ツールはどのボディとも交わりません</td><td>分割の平面の位置（オフセット）を、ボディにかかるように変えます</td></tr>
+    <tr><th scope="row">式・パラメータ</th><td>名前 '…' は不明です／0 で割りました／循環参照: …</td><td>式の名前と単位を確かめます（<a href="10_parameters.html">第 10 章</a>）。循環している式を 1 つ切ります</td></tr>
+    <tr><th scope="row">スケッチ</th><td>新しい拘束でスケッチが過剰定義になります／スケッチを解けませんでした</td><td>追加した拘束か寸法を取り消し、矛盾しない値にします（<a href="04_sketch.html">第 4 章</a>）</td></tr>
+  </tbody>
+</table></div>
+<aside class="note" role="note"><p class="callout-title">注意</p><p>「形状エンジンがフィーチャ … で異常終了しました。変更するまでこのフィーチャを飛ばします」と出たときは、そのフィーチャの値を変えるまで、計算されません。値を少し変えると、もう一度計算します（<a href="#engine-stop">形状エンジンが止まったとき</a>）。</p></aside>
+
+<h2 id="refs"><span class="secno">29.3</span> 参照が見つからないとき</h2>
+<p>フィーチャは、面・エッジ・スケッチの図形などを参照して作られます。上流のフィーチャを消したり形を大きく変えたりすると、参照が見つからなくなります。ブラウザのフィーチャが<span class="ui">［警告］</span>になり、消したフィーチャの名前を挙げた知らせ（「面取り1 が無い フィレット1 を参照しています」など）が出ます。</p>
+<div class="figrow">
+  <figure id="fig-19_ref_toast"><a class="zoom" href="images/19_ref_toast.png"><img src="images/19_ref_toast.png" alt="［フィレット1］を消したあとの知らせ。消したフィーチャの名前が出ます。" width="127" height="60" loading="lazy"></a><figcaption><span class="figno">図 29-5</span> <span class="ui">［フィレット1］</span>を消したあとの知らせ。消したフィーチャの名前が出ます。</figcaption></figure>
+  <figure id="fig-19_ref_warning"><a class="zoom" href="images/19_ref_warning.png"><img src="images/19_ref_warning.png" alt="［フィレット1］を消した（［子を残す］を選んだ）あとのブラウザ。フィレットのエッジを使っていた［面取り1］が［警告］になります。" width="360" height="222" loading="lazy"></a><figcaption><span class="figno">図 29-6</span> <span class="ui">［フィレット1］</span>を消した（<span class="ui">［子を残す］</span>を選んだ）あとのブラウザ。フィレットのエッジを使っていた<span class="ui">［面取り1］</span>が<span class="ui">［警告］</span>になります。</figcaption></figure>
+</div>
+<ol class="steps">
+  <li><p>すぐ気づいたときは、<kbd>Ctrl</kbd>+<kbd>Z</kbd> で消す前に戻します。</p></li>
+  <li><p>直すときは、<span class="path">リボンの<span class="ui">［3D モデル］</span>タブ → <span class="ui">［修正］</span>パネル → <span class="ui">［参照を修復］</span></span>をクリックします。見つからない参照と、形から見つけ直した参照（確認が必要なもの）が、履歴の上から順に並びます。</p>
+    <figure id="fig-19_repair_refs"><a class="zoom" href="images/19_repair_refs.png"><img src="images/19_repair_refs.png" alt="［参照を修復］のダイアログ。［フィーチャ］・［参照］・［状態］・［候補］の表です。行を選ぶと、［選び直す］・候補の一覧・［こちらにする］・［フィーチャを編集］が使えます。" width="900" height="330" loading="lazy"></a><figcaption><span class="figno">図 29-7</span> <span class="ui">［参照を修復］</span>のダイアログ。<span class="ui">［フィーチャ］</span>・<span class="ui">［参照］</span>・<span class="ui">［状態］</span>・<span class="ui">［候補］</span>の表です。行を選ぶと、<span class="ui">［選び直す］</span>・候補の一覧・<span class="ui">［こちらにする］</span>・<span class="ui">［フィーチャを編集］</span>が使えます。</figcaption></figure></li>
+  <li><p>行を選び、次のどれかで直します。<span class="ui">［選び直す］</span>は、ビューで別の面・エッジをクリックして置き換えます。<span class="ui">［候補］</span>から選んで<span class="ui">［こちらにする］</span>を押すと、候補に付け替えます。<span class="ui">［フィーチャを編集］</span>は、そのフィーチャのフォームを開きます。</p></li>
+  <li><p>形から見つけ直した参照が意図どおりなら、<span class="ui">［参照を更新］</span>（<span class="ui">［すべて更新］</span>）で今の要素に確定します。上の行から順に直します。下の行は、上を直すと一緒に直ることがあります。</p></li>
+</ol>
+<p>「参照 '…' を形から推定しました。確かめてください」と出たものは、mcad が形から探して付け直したものです。意図した面か、ビューで確かめます。<span class="path">リボンの<span class="ui">［3D モデル］</span>タブ → <span class="ui">［修正］</span>パネル → <span class="ui">［参照を更新］</span></span>は、選んだフィーチャの参照を、今の要素で保存し直します。</p>
+
+<h2 id="open-fail"><span class="secno">29.4</span> 開けない・取り込めない</h2>
+<div class="table-wrap"><table>
+  <caption>開くとき・インポートするときの文</caption>
+  <thead><tr><th>文</th><th>原因と対処</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">… を開けませんでした: ファイルが見つかりません。移動または削除された可能性があります</th><td>パスが違うか、ファイルが移動しています。ファイルの場所を確かめます。コマンドラインでは <code>--open</code> のパスです</td></tr>
+    <tr><th scope="row">ファイル … は壊れているか、.mcad のドキュメントではありません。同じフォルダにバックアップ（.bak）があれば、そちらを開いてください</th><td>同じフォルダの <code>名前.mcad.bak</code> は、そのまま開けます（<span class="ui">［開く］</span>のファイル名の欄に、名前を入力します）。拡張子を <code>.mcad</code> にしたコピーを作って開いてもかまいません。自動回復の写しが残っていれば、起動のときの復旧でも取り戻せます（<a href="13_files.html#recovery">第 13 章</a>）</td></tr>
+    <tr><th scope="row">ファイルは新しい版で書かれています（形式 …。このアプリが読めるのは … まで）</th><td>新しい mcad で保存されたファイルです。mcad を新しい版にします</td></tr>
+    <tr><th scope="row">ディスクの空きが足りないため、このドキュメントを開けません</th><td>文の中のフォルダに空きを作ってから、もう一度開きます</td></tr>
+    <tr><th scope="row">ファイルが安全のための上限を超えています</th><td>異常に大きいか、壊れたファイルです。出どころを確かめます</td></tr>
+    <tr><th scope="row">ファイルにインポートできる形状がありません</th><td>形状のない STEP（ラベルだけなど）です。元の CAD から、形状を含めて書き出し直します</td></tr>
+    <tr><th scope="row">STEP ファイルの読込に失敗しました／IGES・BREP ファイルの読込に失敗しました</th><td>壊れたファイル、または対応しない内容です。元の CAD で、別のプロトコル（AP 203・214・242）や別の形式（IGES・BREP）で書き出し直します</td></tr>
+    <tr><th scope="row">メッシュファイルを読めませんでした: …</th><td>理由に、行番号と内容（「面の頂点番号が範囲外です」など）が出ます。元のソフトで書き出し直します</td></tr>
+    <tr><th scope="row">ファイルが大きすぎるか複雑すぎて取り込めません: ジオメトリ エンジンのメモリが足りなくなりました</th><td><a href="#memory">メモリが足りないとき</a>を見ます</td></tr>
+    <tr><th scope="row">インポートが … 秒以内に終わらなかったため中止しました</th><td>壊れているか、複雑すぎます。<span class="ui">［オプション］</span>の<span class="ui">［形状エンジン］</span>ページの<span class="ui">［取り込みを打ち切る時間（秒）］</span>（既定 120）を長くして、もう一度試します</td></tr>
+    <tr><th scope="row">ファイル … は、インポートできる上限の … MB を超えています</th><td><span class="ui">［取り込めるファイルの最大の大きさ（MB）］</span>（既定 2048）を大きくします</td></tr>
+    <tr><th scope="row">インポートしたボディ … は正しくありません。エラーを検索して修復してください</th><td>形状に欠陥があります（<a href="13_files.html#repair">形状チェックと修復</a>）</td></tr>
+  </tbody>
+</table></div>
+
+<h2 id="save-fail"><span class="secno">29.5</span> 保存できない</h2>
+<p>保存に失敗しても、ドキュメントは開いたままで、編集の内容は失われません。理由を直して、もう一度保存します。</p>
+<div class="table-wrap"><table>
+  <caption>保存のときの文</caption>
+  <thead><tr><th>文</th><th>原因と対処</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">… を保存できませんでした: アクセスが拒否されました。権限と、ほかのプログラムが使っていないかを確かめてください</th><td>書き込めないフォルダ・ファイルです。権限を確かめるか、<span class="ui">［名前を付けて保存］</span>で別の場所に保存します</td></tr>
+    <tr><th scope="row">… は読み取り専用です。名前を付けて保存で別の名前にするか、ファイルの読み取り専用の属性を外してください</th><td>ファイルのプロパティで読み取り専用を外すか、別の名前で保存します</td></tr>
+    <tr><th scope="row">ディスクの空きがありません。空きを作るか、別のドライブに保存してください</th><td>空き容量を作ります</td></tr>
+    <tr><th scope="row">… を保存できませんでした: パスが長すぎます。もっと短いフォルダに保存するか、短い名前にしてください／パスが長すぎて保存できません（… 文字。上限は … 文字）</th><td>保存先のパス（バックアップと一時ファイルの名前を含む）が、Windows のパスの長さの上限（260 文字）を超えています。もっと短いフォルダか、短い名前で保存します。Windows の設定で長いパスを有効にしていると、この上限はありません</td></tr>
+    <tr><th scope="row">保存先が他のプログラムに使われています。一時ファイル … に保存しました</th><td>内容は、文の中の一時ファイルに入っています。ほかのプログラム（同期ソフト・ウイルス対策など）の使用が終わってから、そのファイルの名前を変えます</td></tr>
+    <tr><th scope="row">… を置き換えられませんでした（…）。前の版は … にあります</th><td>元のファイルは、文の中の <code>.bak</code> に残っています</td></tr>
+    <tr><th scope="row">… は … が使用中のため上書きできません。名前を付けて保存してください</th><td>別の人が開いているファイルです（<a href="13_files.html#lock">ファイルのロック</a>）。別の名前で保存します</td></tr>
+    <tr><th scope="row">… のデータ ファイル … 個が見つからないか壊れていたため、保存されませんでした</th><td>取り込んだデータが失われています。元のファイルから、もう一度インポートします</td></tr>
+  </tbody>
+</table></div>
+<p>エクスポートで失敗したときの文は、次のとおりです。</p>
+<ul>
+  <li><p>「エクスポートする前にスケッチを終了するかキャンセルしてください」: スケッチを終了してから書き出します。</p></li>
+  <li><p>「… 個のフィーチャが失敗しています（エクスポートする形はそれらの前の状態です）」・「… に見つからない参照（参照エラー）が … 個あります」: 先に、<a href="#feature-fail">失敗したフィーチャ</a>と<a href="#refs">参照</a>を直します。</p></li>
+  <li><p>「… をエクスポートできませんでした: …」: 理由（フォルダがない・書き込めないなど）を直します。コマンドラインでは、出力先のフォルダを先に作ります。</p></li>
+</ul>
+
+<h2 id="settings-file"><span class="secno">29.6</span> 設定ファイルが読めない</h2>
+<p>設定のファイルが壊れていて読めないと、「設定ファイル … を読めませんでした（…）。… として退避し、既定の設定を使います」と出て、既定の設定で起動します。壊れたファイルは、別の名前で残ります。内容を直せるなら、退避したファイルを元の名前に戻します。設定の場所は<a href="27_customize.html#folders">第 27 章</a>にあります。</p>
+
+<h2 id="memory"><span class="secno">29.7</span> メモリが足りないとき</h2>
+<p>形状を計算するプロセス（ワーカー）には、メモリの上限があります。大きなファイルのインポートや、とても複雑な形の計算で上限を超えると、次の文が出て、その操作は失敗します（mcad は終了しません）。</p>
+<ul>
+  <li><p>「この操作は、ワーカー プロセスが使えるより多くのメモリを必要とします」</p></li>
+  <li><p>「ファイルが大きすぎるか複雑すぎて取り込めません: ジオメトリ エンジンのメモリが足りなくなりました」</p></li>
+</ul>
+<ol class="steps">
+  <li><p><span class="path">リボンの<span class="ui">［ツール］</span>タブ → <span class="ui">［オプション］</span>パネル → <span class="ui">［オプション］</span></span>を開き、<span class="ui">［形状エンジン］</span>ページの<span class="ui">［ワーカーごとのメモリ上限（MB）］</span>を確かめます。既定は、このコンピュータの物理メモリの 60%（最小 4 GB）です。<code>0</code> は上限なしです。</p>
+    <figure id="fig-19_options_engine"><a class="zoom" href="images/19_options_engine.png"><img src="images/19_options_engine.png" alt="［形状エンジン］ページ。メモリ上限・取り込みの打ち切り・大きさの上限があります。" width="760" height="532" loading="lazy"></a><figcaption><span class="figno">図 29-8</span> <span class="ui">［形状エンジン］</span>ページ。メモリ上限・取り込みの打ち切り・大きさの上限があります。</figcaption></figure></li>
+  <li><p>値を大きくして<span class="ui">［OK］</span>を押し、mcad を起動し直します。</p></li>
+  <li><p>それでも足りないときは、ほかのドキュメントとアプリを閉じるか、元の CAD でモデルを分けて書き出します。<span class="ui">［画面］</span>ページの<span class="ui">［表示メッシュのメモリ（MB）］</span>は、表示用の別のメモリです。</p></li>
+</ol>
+
+<h2 id="engine-stop"><span class="secno">29.8</span> 形状エンジンが止まったとき</h2>
+<p>計算を受け持つ別のプロセス（形状エンジン）が止まることがあります。1 回なら、予備に切り替えて続けます（知らせ「形状エンジンを再起動しました」）。ドキュメントは失われません。</p>
+<ul>
+  <li><p>特定のフィーチャで止まったときは、「形状エンジンがフィーチャ … で異常終了しました。変更するまでこのフィーチャを飛ばします」と出ます。そのフィーチャの値を変えると、もう一度計算します。同じ形で止まるときは、値を変えるか、<span class="ui">［抑制］</span>します。</p></li>
+  <li><p>繰り返し止まると、<span class="ui">［形状エンジンが止まりました］</span>のダイアログが出ます。ドキュメントを保存して、<span class="ui">［エンジンを再起動］</span>を押します。止まり続けるときは、<span class="ui">［診断情報をコピー］</span>で内容をコピーして、<a href="#report">問い合わせ</a>に添えます。</p></li>
+  <li><p>「mcad の起動後にアプリケーションのファイルが変更されたため、ジオメトリ エンジンを起動できません。mcad を再起動してください」と出たときは、mcad を終了して起動し直します。</p></li>
+  <li><p>「スケッチのソルバのプロセスが止まりました」は、スケッチを解くプロセスが止まったことです。スケッチを開き直します。</p></li>
+</ul>
+
+<h2 id="slow"><span class="secno">29.9</span> 動作が遅いとき</h2>
+<ul>
+  <li><p><strong>計算が長引いているとき</strong>: 少し待つと、ステータスバーに進捗の棒と<span class="ui">［再計算を中断］</span>のボタンが出ます。押すと、計算をやめて、すぐ次の操作ができます（「再計算を中断しました」）。値を直してから、もう一度計算させます。</p></li>
+  <li><p><strong>フィーチャが多い・形が複雑なとき</strong>: 最後のフィーチャまでを毎回計算します。今は後ろを使わないなら、ブラウザの<span class="ui">［パーツの終端］</span>を、途中のフィーチャの下へドラッグします。そこから後ろは計算されません。使わないフィーチャは<span class="ui">［抑制］</span>します（<a href="09_browser.html">第 9 章</a>）。</p></li>
+  <li><p><strong>パターンの個数が多いとき</strong>: 穴を 1 つずつ作らず、パターンにします。個数を減らして形を決め、最後に増やします。</p></li>
+  <li><p><strong>値を入れている間が重いとき</strong>: <span class="ui">［ライブプレビュー］</span>ページの<span class="ui">［ライブプレビュー］</span>を切ると、確定してから計算します（再起動の後に効きます）。</p></li>
+  <li><p><strong>ビューが重いとき</strong>: <span class="ui">［3D ビュー］</span>ページの<span class="ui">［表示の品質］</span>を<span class="ui">［粗い］</span>に、<span class="ui">［アンチエイリアスのサンプル数］</span>を小さく（再起動の後に効きます）します。<span class="ui">［透明］</span>や<span class="ui">［断面図］</span>を終えるのも効きます。</p></li>
+  <li><p><strong><span class="ui">［エラーを検索］</span>が遅いとき</strong>: 穴の多い形では、<span class="ui">［自己交差を調べる］</span>のチェックを外すと速くなります。</p></li>
+  <li><p><strong>開くのが遅いとき</strong>: 同梱キャッシュのあるドキュメントは、すぐ表示されます（<a href="13_files.html#storage-cache">第 13 章</a>）。</p></li>
+  <li><p><strong>起動が遅いとき</strong>: 起動のたびに、OpenGL の検査（約 2 秒）と、計算のプロセスの起動があります。メモリが少ないときは、<span class="ui">［形状エンジン］</span>ページの<span class="ui">［ワーカーのプロセス］</span>を<span class="ui">［省メモリ］</span>にします（メモリは減りますが、止まったあとの復帰が遅くなります）。</p></li>
+</ul>
+
+<h2 id="gpu"><span class="secno">29.10</span> 画面が出ない（3D ビューが使えない）</h2>
+<p>mcad は、OpenGL 3.2 以上に対応した GPU（グラフィックスのドライバ）が必要です。起動のときに、別のプロセスで OpenGL を検査します。使えないと、次の案内を出して終了します（終了コード 3）。</p>
+<p>「mcad には OpenGL 3.2 以上のグラフィックスドライバが必要です。3D ビューを初期化できませんでした（…）。GPU のドライバを入れるか更新してください。<code>QT_OPENGL=software</code> や GPU アクセラレーションの無いリモートデスクトップでは実行しないでください。」</p>
+<ul>
+  <li><p>GPU のメーカー（NVIDIA・AMD・Intel）の最新のドライバを入れます。Windows の更新だけでは、古いドライバのことがあります。</p></li>
+  <li><p>ソフトウェアの OpenGL（<code>QT_OPENGL=software</code>）には対応していません。GPU のない仮想マシンや、GPU を使わないリモート デスクトップでは動きません。環境変数を設定しているときは、外します。</p></li>
+  <li><p>ノート PC で GPU が 2 つあるとき（内蔵と外付け）は、Windows の設定で、mcad に高性能の GPU を割り当てます。</p></li>
+  <li><p>OpenGL の検査を省く <code>--skip-gl-check</code> は、GPU が使えない環境の回避策ではありません。</p></li>
+  <li><p>起動の記録は、ログの <code>gui.log</code> の先頭に、<code>GL check:</code> の行（GPU の名前と OpenGL の版）で残ります。</p></li>
+</ul>
+
+<h2 id="limits"><span class="secno">29.11</span> 既知の制限</h2>
+<p>今の mcad（単品のパーツを作る範囲）でできないこと、気をつけることです。</p>
+<div class="table-wrap"><table>
+  <caption>できないこと・気をつけること</caption>
+  <thead><tr><th>項目</th><th>内容と回避</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">矩形から円へのロフトのシェル</th><td>失敗します（形の限界）。内側の形（断面を内側へオフセットしたロフト）を作り、結合のカットで取り除きます</td></tr>
+    <tr><th scope="row">ロフトの断面の穴・ガイド レール</th><td>ロフトの断面に穴は含められません。ガイド レールも使えません</td></tr>
+    <tr><th scope="row">面のパターン・回転の「面まで」</th><td>未対応です</td></tr>
+    <tr><th scope="row">スケッチの文字・スプライン</th><td>文字の内容を後から編集する画面と、スプラインの接線の編集は、未対応です</td></tr>
+    <tr><th scope="row">構成</th><td>投影ジオメトリのあるスケッチの寸法は、構成では変えられません（基本の構成でだけ解きます）。投影元を変える構成では、従動寸法を読む式もエラーになります。メンバーの並べ替えと、構成を持つパーツのコピーは未対応です（誤りで止まるので、形が壊れることはありません）</td></tr>
+    <tr><th scope="row">インポート・エクスポート</th><td>メッシュのボディは編集できず、STEP・IGES・BREP に書けません。IGES の色・層は読みません。取り込んだデータの外部の格納先の整理と、ボディのレイヤーの画面はありません。辺や頂点だけで接する結合は、別々のソリッドのままです（警告）</td></tr>
+    <tr><th scope="row">大きな形</th><td>穴が千個を超える板などでは、<span class="ui">［エラーを検索］</span>の自己交差の検査が十数秒かかります</td></tr>
+    <tr><th scope="row">JIS の穴・ねじの寸法</th><td>下穴径（JIS B 1004）・ピッチ（JIS B 0205）の表は、規格の本文では確認していません（二次の情報です）。実際の設計では、手元の規格と照合します</td></tr>
+    <tr><th scope="row">参照の付き方</th><td>結合・分割などで分かれたボディの面やエッジへの参照は、上流の形を大きく変えると、別の面に付き換わらずに、見つからなくなることがあります（<a href="#refs">参照が見つからないとき</a>）</td></tr>
+    <tr><th scope="row">古いドキュメント</th><td>作業平面・軸・UCS の向きと原点の基準を、Inventor に合わせて変えました。以前の mcad で作ったドキュメントでは、曲線に垂直な平面・エッジを使う平面や軸などの向きや位置が、変わることがあります。開いたら、作業フィーチャを確かめます</td></tr>
+    <tr><th scope="row">自動化</th><td>スクリプトのファイルを実行する <code>python -m mcad run</code> と、マクロの再生の画面は、未対応です（<a href="28_automation.html">第 28 章</a>）</td></tr>
+    <tr><th scope="row">実機での確認</th><td>ネットワーク ドライブ・OneDrive の下でのロック、タッチパッドの操作感、コマンド検索・ミニ ツールバーの使い心地は、実際の環境では確認が済んでいません</td></tr>
+    <tr><th scope="row">範囲外</th><td>アセンブリ・図面・解析の機能は、今の mcad にはありません</td></tr>
+  </tbody>
+</table></div>
+
+<h2 id="report"><span class="secno">29.12</span> 問い合わせの前に集める情報</h2>
+<p>解決しないときは、次の情報を集めて伝えると、原因を調べやすくなります。</p>
+<ol class="steps">
+  <li><p><strong>症状と手順</strong>を書きます。どの操作をしたら、何が起きたか。画面の文（赤い文・知らせ）も、そのまま写します。</p></li>
+  <li><p><strong>mcad の版</strong>を調べます。<span class="path">メニューの<span class="ui">［ヘルプ］</span> → <span class="ui">［EMRM-Studio について］</span></span>を開くと、<span class="ui">［概要］</span>のタブに mcad と、使っている部品（形状エンジン・スケッチのソルバ・画面の部品）の版が出ます。</p>
+    <figure id="fig-19_about"><a class="zoom" href="images/19_about.png"><img src="images/19_about.png" alt="［EMRM-Studio について］のダイアログ。版の表を、そのまま伝えます。" width="720" height="400" loading="lazy"></a><figcaption><span class="figno">図 29-9</span> <span class="ui">［EMRM-Studio について］</span>のダイアログ。版の表を、そのまま伝えます。</figcaption></figure></li>
+  <li><p><strong>知らせの履歴</strong>を保存します。<span class="ui">［通知］</span>のダイアログで、<span class="ui">［保存］</span>を押すと、全部の知らせをテキスト ファイルに書き出せます。</p></li>
+  <li><p><strong>ログ</strong>を渡します。<span class="ui">［通知］</span>の<span class="ui">［ログ］</span>のタブで、アプリのログ（<code>gui.log</code>）を読めます。ファイルは <code>%LOCALAPPDATA%\mcad\logs\</code> にあり、形状エンジンのログ（<code>worker-番号.log</code>・<code>worker-番号.out</code>）と、異常終了の記録（<code>crash-番号.txt</code>）も、同じフォルダにあります。</p></li>
+  <li><p><strong>ドキュメントとファイル</strong>があれば渡します。問題が起きる <code>.mcad</code>（と、取り込んだ元のファイル）と、画面の写真です。</p></li>
+  <li><p>形状エンジンが止まったときは、<span class="ui">［診断情報をコピー］</span>の内容を添えます。</p></li>
+</ol>
+<aside class="note" role="note"><p class="callout-title">注意</p><p>ドキュメントとログには、部品の形のほか、作成者の名前（既定は Windows のユーザー名）、ファイルのパス、コメントが入ることがあります。社外に渡す前に、内容を確かめます。</p></aside>
+<aside class="tip" role="note"><p class="callout-title">ヒント</p><p>ヘルプの<span class="ui">［ユーザーマニュアル］</span>（<span class="ui">［ユーザーマニュアル］</span>）と、リボンのボタンに置いて押す <kbd>F1</kbd>（<span class="ui">［ヘルプ］</span>）で、コマンドの説明を読めます（<a href="00_intro.html#help">はじめに</a>）。コマンドの場所を忘れたときは、<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd>のコマンド検索で探せます。</p></aside>
+
+</article>
+<nav class="pager" aria-label="前後の章"><a class="prev" rel="prev" href="28_automation.html"><span class="dir">前の章</span>第 28 章 自動化</a><a class="next" rel="next" href="appendix_a_commands.html"><span class="dir">次の章</span>付録 A コマンド一覧</a></nav>
+<footer class="footer"><p>EMRM-Studio ユーザーマニュアル（日本語）・EMRM-Studio 0.1.0 ・ <a href="#main">このページの先頭へ</a></p></footer>
+</main>
+</div>
+</body>
+</html>

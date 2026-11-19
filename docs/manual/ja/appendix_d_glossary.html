@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="generator" content="tools/build_manual.py">
+<title>付録 D 用語の対応表 - EMRM-Studio ユーザーマニュアル</title>
+<link rel="stylesheet" href="assets/manual.css">
+<script src="assets/search_index.js" charset="utf-8" defer></script>
+<script src="assets/manual.js" charset="utf-8" defer></script>
+</head>
+<body class="page">
+<header class="topbar">
+<a class="brand" href="index.html">EMRM-Studio ユーザーマニュアル</a>
+<button class="toc-toggle" type="button" aria-controls="toc" aria-expanded="false">目次</button>
+<form class="search" role="search" action="#" onsubmit="return false">
+<input id="q" type="search" placeholder="マニュアルを検索（/）" aria-label="マニュアルを検索" autocomplete="off">
+</form>
+</header>
+<div id="search-results" class="search-results" hidden></div>
+<div class="layout">
+<nav id="toc" class="toc" aria-label="目次">
+<details class="toc-box">
+<summary>目次</summary>
+<ol class="toc-chapters">
+<li class="toc-home"><a href="index.html">表紙・目次</a></li>
+<li><a href="00_intro.html">はじめに</a></li>
+<li class="toc-part" role="presentation">第 I 部　形状を作る（CAD）</li>
+<li><a href="01_screen.html"><span class="chno">第 1 章</span> 画面の構成</a></li>
+<li><a href="02_view.html"><span class="chno">第 2 章</span> 視点の操作</a></li>
+<li><a href="03_first_part.html"><span class="chno">第 3 章</span> はじめての部品</a></li>
+<li><a href="04_sketch.html"><span class="chno">第 4 章</span> スケッチ</a></li>
+<li><a href="05_work_features.html"><span class="chno">第 5 章</span> 作業フィーチャ</a></li>
+<li><a href="06_features_basic.html"><span class="chno">第 6 章</span> フィーチャ（押し出し・回転・穴・フィレットなど）</a></li>
+<li><a href="07_features_advanced.html"><span class="chno">第 7 章</span> フィーチャ（スイープ・ロフト・コイル・パターンなど）</a></li>
+<li><a href="08_bodies.html"><span class="chno">第 8 章</span> ボディの操作</a></li>
+<li><a href="09_browser.html"><span class="chno">第 9 章</span> ブラウザとフィーチャの管理</a></li>
+<li><a href="10_parameters.html"><span class="chno">第 10 章</span> パラメータと式</a></li>
+<li><a href="11_configurations.html"><span class="chno">第 11 章</span> 構成</a></li>
+<li><a href="12_inspect.html"><span class="chno">第 12 章</span> 検査</a></li>
+<li><a href="13_files.html"><span class="chno">第 13 章</span> ファイル</a></li>
+<li class="toc-part" role="presentation">第 II 部　電磁場解析</li>
+<li><a href="14_em_intro.html"><span class="chno">第 14 章</span> 電磁場解析のはじめに</a></li>
+<li><a href="15_em_first.html"><span class="chno">第 15 章</span> はじめての電磁場解析（ソレノイド）</a></li>
+<li><a href="16_em_setup.html"><span class="chno">第 16 章</span> スタディの共通の設定</a></li>
+<li><a href="17_em_results.html"><span class="chno">第 17 章</span> 結果の見方</a></li>
+<li><a href="18_em_magnetostatic.html"><span class="chno">第 18 章</span> 静磁場解析</a></li>
+<li><a href="19_em_coils.html"><span class="chno">第 19 章</span> 静磁場解析: コイル</a></li>
+<li><a href="20_em_dipole.html"><span class="chno">第 20 章</span> 静磁場解析の例題: H 型双極電磁石</a></li>
+<li><a href="21_em_eigenmode.html"><span class="chno">第 21 章</span> 共振モード解析</a></li>
+<li><a href="22_em_driven.html"><span class="chno">第 22 章</span> ポート解析</a></li>
+<li><a href="23_em_electrostatic.html"><span class="chno">第 23 章</span> 静電場解析</a></li>
+<li><a href="24_em_gun.html"><span class="chno">第 24 章</span> 電子銃解析</a></li>
+<li><a href="25_em_troubleshooting.html"><span class="chno">第 25 章</span> 電磁場解析で困ったとき</a></li>
+<li class="toc-part" role="presentation">第 III 部　連携・カスタマイズ・自動化</li>
+<li><a href="26_step_export.html"><span class="chno">第 26 章</span> 他の解析プログラムに形を渡す</a></li>
+<li><a href="27_customize.html"><span class="chno">第 27 章</span> カスタマイズ</a></li>
+<li><a href="28_automation.html"><span class="chno">第 28 章</span> 自動化</a></li>
+<li><a href="29_troubleshooting.html"><span class="chno">第 29 章</span> 困ったとき</a></li>
+<li class="toc-part" role="presentation">付録</li>
+<li class="appendix"><a href="appendix_a_commands.html"><span class="chno">付録 A</span> コマンド一覧</a></li>
+<li class="appendix"><a href="appendix_b_shortcuts.html"><span class="chno">付録 B</span> ショートカット一覧</a></li>
+<li class="appendix"><a href="appendix_c_feature_params.html"><span class="chno">付録 C</span> フィーチャのパラメータ一覧</a></li>
+<li class="current appendix"><a href="appendix_d_glossary.html" aria-current="page"><span class="chno">付録 D</span> 用語の対応表</a><ol class="toc-sections"><li><a href="appendix_d_glossary.html#screen"><span class="secno">D.1</span> 画面の部分</a></li><li><a href="appendix_d_glossary.html#file"><span class="secno">D.2</span> ファイルとドキュメント</a></li><li><a href="appendix_d_glossary.html#sketch"><span class="secno">D.3</span> スケッチ</a></li><li><a href="appendix_d_glossary.html#features"><span class="secno">D.4</span> フィーチャ</a></li><li><a href="appendix_d_glossary.html#manage"><span class="secno">D.5</span> 管理・検査・ブラウザ</a></li><li><a href="appendix_d_glossary.html#view"><span class="secno">D.6</span> 表示と視点</a></li><li><a href="appendix_d_glossary.html#mcad"><span class="secno">D.7</span> mcad に独自の言い方</a></li></ol></li>
+</ol>
+</details>
+</nav>
+<main class="content" id="main">
+<article class="chapter appendix">
+<p class="chapter-label">付録 D</p>
+<h1>用語の対応表</h1>
+<nav class="pagetoc" aria-label="この章の内容">
+<p class="pagetoc-title">この章の内容</p>
+<ol>
+<li><a href="#screen"><span class="secno">D.1</span> 画面の部分</a></li>
+<li><a href="#file"><span class="secno">D.2</span> ファイルとドキュメント</a></li>
+<li><a href="#sketch"><span class="secno">D.3</span> スケッチ</a></li>
+<li><a href="#features"><span class="secno">D.4</span> フィーチャ</a></li>
+<li><a href="#manage"><span class="secno">D.5</span> 管理・検査・ブラウザ</a></li>
+<li><a href="#view"><span class="secno">D.6</span> 表示と視点</a></li>
+<li><a href="#mcad"><span class="secno">D.7</span> mcad に独自の言い方</a></li>
+</ol>
+</nav>
+<p>この付録は、mcad の画面の名前と、Autodesk Inventor（英語版）・SOLIDWORKS（日本語版）の名前の対応表です。他の CAD に慣れた人が、mcad で同じ操作を探すときに使います。</p>
+<ul>
+  <li><p>左の列は mcad の表示名です。Inventor の日本語版に合わせてあります。</p></li>
+  <li><p>Inventor（英語版）の列は、Inventor の英語版の名前です。mcad の表示言語を<span class="ui">［English］</span>にしたときの名前も、Inventor の英語版に合わせてあります（<a href="27_customize.html#language">第 27 章</a>）。</p></li>
+  <li><p>SOLIDWORKS の列には、一般に使われている名前だけを載せました。対応するコマンドがない、または名前を確かめられなかったものは、<code>—</code> にしてあります。コマンドの動作は、同じ名前でも細かく違うことがあります。</p></li>
+</ul>
+<aside class="note" role="note"><p class="callout-title">注意</p><p>Inventor・SOLIDWORKS の画面の写真や説明は、このマニュアルには含みません。名前の対応だけを載せています。</p></aside>
+<h2 id="screen"><span class="secno">D.1</span> 画面の部分</h2>
+<p>画面を構成する部品の名前です。</p>
+<div class="table-wrap"><table>
+  <thead><tr><th>mcad（Inventor 日本語版）</th><th>Inventor（英語版）</th><th>SOLIDWORKS（日本語版）</th><th>備考</th></tr></thead>
+  <tbody>
+    <tr><th scope="row"><span class="ui">［リボン］</span></th><td>Ribbon</td><td>コマンドマネージャー</td><td>タブとパネルにコマンドが並びます</td></tr>
+    <tr><th scope="row"><span class="ui">［ファイル］</span></th><td>Application menu（File）</td><td>ファイル メニュー</td><td>リボンの左端のボタンです</td></tr>
+    <tr><th scope="row"><span class="ui">［ブラウザ］</span></th><td>Browser</td><td>FeatureManager デザイン ツリー</td><td>パーツの履歴を並べる一覧です</td></tr>
+    <tr><th scope="row">プロパティ パネル</th><td>Properties panel</td><td>PropertyManager</td><td>フィーチャの作成・編集のフォームです</td></tr>
+    <tr><th scope="row"><span class="ui">［ビュー］</span></th><td>Graphics window</td><td>グラフィックス領域</td><td>3D 表示の領域です</td></tr>
+    <tr><th scope="row">ステータスバー</th><td>Status bar</td><td>ステータス バー</td><td></td></tr>
+    <tr><th scope="row">コンテキスト メニュー</th><td>Marking menu / Context menu</td><td>ショートカット メニュー</td><td>右クリックのメニューです。Inventor は右クリックでマーキング メニューが出ます</td></tr>
+    <tr><th scope="row">ミニ ツールバー</th><td>Mini-toolbar</td><td>コンテキスト ツールバー</td><td>選択の近くに浮かぶ小さなツールバーです</td></tr>
+  </tbody>
+</table></div>
+<h2 id="file"><span class="secno">D.2</span> ファイルとドキュメント</h2>
+<p>ファイルの操作と、アプリケーションの設定の名前です。</p>
+<div class="table-wrap"><table>
+  <thead><tr><th>mcad（Inventor 日本語版）</th><th>Inventor（英語版）</th><th>SOLIDWORKS（日本語版）</th><th>備考</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">ドキュメント</th><td>Document</td><td>ドキュメント</td><td>mcad のドキュメントは 1 つの .mcad ファイルです</td></tr>
+    <tr><th scope="row"><span class="ui">［新規］</span></th><td>New</td><td>新規</td><td></td></tr>
+    <tr><th scope="row"><span class="ui">［開く］</span></th><td>Open</td><td>開く</td><td></td></tr>
+    <tr><th scope="row"><span class="ui">［保存］</span></th><td>Save</td><td>保存</td><td></td></tr>
+    <tr><th scope="row"><span class="ui">［名前を付けて保存］</span></th><td>Save As</td><td>名前を付けて保存</td><td></td></tr>
+    <tr><th scope="row"><span class="ui">［コピーを保存］</span></th><td>Save Copy As</td><td>コピーとして保存</td><td>SOLIDWORKS は「名前を付けて保存」のオプションです</td></tr>
+    <tr><th scope="row"><span class="ui">［インポート］</span></th><td>Import</td><td>開く（ファイルの種類で STEP などを選ぶ）</td><td></td></tr>
+    <tr><th scope="row"><span class="ui">［エクスポート］</span></th><td>Export</td><td>名前を付けて保存（ファイルの種類で STEP などを選ぶ）</td><td></td></tr>
+    <tr><th scope="row"><span class="ui">［テンプレート］</span></th><td>Template</td><td>テンプレート</td><td></td></tr>
+    <tr><th scope="row"><span class="ui">［最近使ったドキュメント］</span></th><td>Recent Documents</td><td>最近使ったドキュメント</td><td><span class="ui">［ファイル］</span>のメニューにあります（10 件まで。<a href="01_screen.html#qat-recent">第 1 章</a>）</td></tr>
+    <tr><th scope="row"><span class="ui">［元に戻す］</span></th><td>Undo</td><td>元に戻す</td><td></td></tr>
+    <tr><th scope="row"><span class="ui">［やり直し］</span></th><td>Redo</td><td>やり直し</td><td></td></tr>
+    <tr><th scope="row"><span class="ui">［オプション］</span></th><td>Application Options</td><td>オプション（システム オプション）</td><td>アプリケーション全体の設定です</td></tr>
+    <tr><th scope="row"><span class="ui">［単位と精度］</span></th><td>Document Settings（Units）</td><td>ドキュメント プロパティ（単位）</td><td>mcad ではドキュメントごとの設定です</td></tr>
+    <tr><th scope="row"><span class="ui">［キーボード ショートカット］</span></th><td>Customize（Keyboard）</td><td>カスタマイズ（キーボード）</td><td></td></tr>
+    <tr><th scope="row"><span class="ui">［マクロを記録］</span></th><td>—（記録の機能はありません）</td><td>マクロ（記録）</td><td>mcad は JSON のファイルに記録します</td></tr>
+    <tr><th scope="row"><span class="ui">［Python コンソール］</span></th><td>VBA Editor（Alt+F11）</td><td>—</td><td>mcad のスクリプトは Python です</td></tr>
+  </tbody>
+</table></div>
+<h2 id="sketch"><span class="secno">D.3</span> スケッチ</h2>
+<p>スケッチの作図・拘束・寸法の名前です。</p>
+<div class="table-wrap"><table>
+  <thead><tr><th>mcad（Inventor 日本語版）</th><th>Inventor（英語版）</th><th>SOLIDWORKS（日本語版）</th><th>備考</th></tr></thead>
+  <tbody>
+    <tr><th scope="row"><span class="ui">［スケッチ］</span></th><td>Sketch</td><td>スケッチ</td><td></td></tr>
+    <tr><th scope="row"><span class="ui">［2 点長方形］</span></th><td>Two Point Rectangle</td><td>コーナー矩形</td><td></td></tr>
+    <tr><th scope="row"><span class="ui">［中心点円］</span></th><td>Center Point Circle</td><td>円（中心円）</td><td></td></tr>
+    <tr><th scope="row"><span class="ui">［線］</span></th><td>Line</td><td>直線</td><td></td></tr>
+    <tr><th scope="row"><span class="ui">［円弧］</span></th><td>Arc</td><td>円弧</td><td></td></tr>
+    <tr><th scope="row"><span class="ui">［構築線］</span></th><td>Construction</td><td>構築線</td><td></td></tr>
+    <tr><th scope="row"><span class="ui">［トリム］</span></th><td>Trim</td><td>エンティティのトリム</td><td></td></tr>
+    <tr><th scope="row"><span class="ui">［オフセット］</span></th><td>Offset</td><td>エンティティのオフセット</td><td></td></tr>
+    <tr><th scope="row"><span class="ui">［投影ジオメトリ］</span></th><td>Project Geometry</td><td>エンティティの変換</td><td></td></tr>
+    <tr><th scope="row"><span class="ui">［寸法］</span></th><td>General Dimension</td><td>スマート寸法</td><td></td></tr>
+    <tr><th scope="row"><span class="ui">［拘束］</span></th><td>Constraint</td><td>拘束条件</td><td></td></tr>
+    <tr><th scope="row"><span class="ui">［一致］</span></th><td>Coincident</td><td>一致</td><td></td></tr>
+    <tr><th scope="row"><span class="ui">［水平］</span></th><td>Horizontal</td><td>水平</td><td></td></tr>
+    <tr><th scope="row"><span class="ui">［垂直］</span></th><td>Vertical</td><td>垂直</td><td></td></tr>
+    <tr><th scope="row"><span class="ui">［平行］</span></th><td>Parallel</td><td>平行</td><td></td></tr>
+    <tr><th scope="row"><span class="ui">［直交］</span></th><td>Perpendicular</td><td>直交</td><td></td></tr>
+    <tr><th scope="row"><span class="ui">［正接］</span></th><td>Tangent</td><td>正接</td><td></td></tr>
+    <tr><th scope="row"><span class="ui">［同心円］</span></th><td>Concentric</td><td>同心円</td><td></td></tr>
+    <tr><th scope="row"><span class="ui">［完全定義］</span></th><td>Fully constrained</td><td>完全定義</td><td>ステータスバーの表示です</td></tr>
+    <tr><th scope="row"><span class="ui">［過剰定義］</span></th><td>Over-constrained</td><td>過剰定義</td><td></td></tr>
+  </tbody>
+</table></div>
+<h2 id="features"><span class="secno">D.4</span> フィーチャ</h2>
+<p>パーツを作るフィーチャの名前です。</p>
+<div class="table-wrap"><table>
+  <thead><tr><th>mcad（Inventor 日本語版）</th><th>Inventor（英語版）</th><th>SOLIDWORKS（日本語版）</th><th>備考</th></tr></thead>
+  <tbody>
+    <tr><th scope="row"><span class="ui">［押し出し］</span></th><td>Extrude</td><td>押し出しボス/ベース・押し出しカット</td><td>ボスとカットは、mcad では<span class="ui">［ブール演算］</span>で選びます</td></tr>
+    <tr><th scope="row"><span class="ui">［回転］</span></th><td>Revolve</td><td>回転ボス/ベース・回転カット</td><td></td></tr>
+    <tr><th scope="row"><span class="ui">［スイープ］</span></th><td>Sweep</td><td>スイープ</td><td></td></tr>
+    <tr><th scope="row"><span class="ui">［ロフト］</span></th><td>Loft</td><td>ロフト</td><td></td></tr>
+    <tr><th scope="row"><span class="ui">［リブ］</span></th><td>Rib</td><td>リブ</td><td></td></tr>
+    <tr><th scope="row"><span class="ui">［穴］</span></th><td>Hole</td><td>穴ウィザード</td><td></td></tr>
+    <tr><th scope="row"><span class="ui">［フィレット］</span></th><td>Fillet</td><td>フィレット</td><td></td></tr>
+    <tr><th scope="row"><span class="ui">［面取り］</span></th><td>Chamfer</td><td>面取り</td><td></td></tr>
+    <tr><th scope="row"><span class="ui">［ねじ］</span></th><td>Thread</td><td>コズメティック ねじ山</td><td>表示だけのねじです</td></tr>
+    <tr><th scope="row"><span class="ui">［シェル］</span></th><td>Shell</td><td>シェル</td><td></td></tr>
+    <tr><th scope="row"><span class="ui">［勾配］</span></th><td>Draft</td><td>抜き勾配</td><td></td></tr>
+    <tr><th scope="row"><span class="ui">［結合］</span></th><td>Combine</td><td>結合</td><td>ボディどうしの演算です</td></tr>
+    <tr><th scope="row"><span class="ui">［分割］</span></th><td>Split</td><td>分割</td><td></td></tr>
+    <tr><th scope="row"><span class="ui">［ボディを移動］</span></th><td>Move Bodies</td><td>移動/コピー ボディ</td><td></td></tr>
+    <tr><th scope="row"><span class="ui">［矩形状パターン］</span></th><td>Rectangular Pattern</td><td>線形パターン</td><td></td></tr>
+    <tr><th scope="row"><span class="ui">［円形状パターン］</span></th><td>Circular Pattern</td><td>円形パターン</td><td></td></tr>
+    <tr><th scope="row"><span class="ui">［スケッチ駆動パターン］</span></th><td>Sketch Driven Pattern</td><td>スケッチ駆動パターン</td><td></td></tr>
+    <tr><th scope="row"><span class="ui">［ミラー］</span></th><td>Mirror</td><td>ミラー</td><td></td></tr>
+    <tr><th scope="row"><span class="ui">［修復］</span></th><td>Repair Bodies</td><td>—</td><td>取り込んだ形状の欠陥を直します</td></tr>
+    <tr><th scope="row"><span class="ui">［作業フィーチャ］</span></th><td>Work Features</td><td>参照ジオメトリ</td><td></td></tr>
+    <tr><th scope="row"><span class="ui">［作業平面］</span></th><td>Work Plane</td><td>平面</td><td></td></tr>
+    <tr><th scope="row"><span class="ui">［作業軸］</span></th><td>Work Axis</td><td>軸</td><td></td></tr>
+    <tr><th scope="row"><span class="ui">［作業点］</span></th><td>Work Point</td><td>点</td><td></td></tr>
+    <tr><th scope="row"><span class="ui">［UCS］</span></th><td>UCS</td><td>座標系</td><td></td></tr>
+  </tbody>
+</table></div>
+<h2 id="manage"><span class="secno">D.5</span> 管理・検査・ブラウザ</h2>
+<p>パラメータ・構成・検査・ブラウザの操作の名前です。</p>
+<div class="table-wrap"><table>
+  <thead><tr><th>mcad（Inventor 日本語版）</th><th>Inventor（英語版）</th><th>SOLIDWORKS（日本語版）</th><th>備考</th></tr></thead>
+  <tbody>
+    <tr><th scope="row"><span class="ui">［パラメータ］</span></th><td>Parameters</td><td>方程式、グローバル変数、および寸法</td><td></td></tr>
+    <tr><th scope="row"><span class="ui">［ユーザー パラメータ］</span></th><td>User Parameters</td><td>グローバル変数</td><td></td></tr>
+    <tr><th scope="row"><span class="ui">［参照パラメータ］</span></th><td>Reference Parameters</td><td>従動寸法</td><td></td></tr>
+    <tr><th scope="row"><span class="ui">［iProperties］</span></th><td>iProperties</td><td>カスタム プロパティ</td><td></td></tr>
+    <tr><th scope="row"><span class="ui">［構成］</span></th><td>iPart（member）</td><td>コンフィギュレーション</td><td>Inventor の iPart のメンバーに当たります</td></tr>
+    <tr><th scope="row"><span class="ui">［構成の表］</span></th><td>iPart Author（table）</td><td>デザイン テーブル</td><td></td></tr>
+    <tr><th scope="row"><span class="ui">［計測］</span></th><td>Measure</td><td>測定</td><td></td></tr>
+    <tr><th scope="row"><span class="ui">［物理プロパティ］</span></th><td>iProperties（Physical）</td><td>質量特性</td><td></td></tr>
+    <tr><th scope="row"><span class="ui">［材料］</span></th><td>Material</td><td>材料</td><td></td></tr>
+    <tr><th scope="row"><span class="ui">［外観］</span></th><td>Appearance</td><td>外観</td><td></td></tr>
+    <tr><th scope="row"><span class="ui">［エラーを検索］</span></th><td>—</td><td>—</td><td>取り込んだ形状の欠陥や、自己交差を調べます</td></tr>
+    <tr><th scope="row"><span class="ui">［抑制］</span></th><td>Suppress</td><td>抑制</td><td></td></tr>
+    <tr><th scope="row"><span class="ui">［抑制解除］</span></th><td>Unsuppress</td><td>抑制解除</td><td></td></tr>
+    <tr><th scope="row"><span class="ui">［パーツの終端］</span></th><td>End of Part</td><td>ロールバック バー</td><td>ここより後ろは計算されません</td></tr>
+    <tr><th scope="row"><span class="ui">［フォルダ］</span></th><td>Folder</td><td>フォルダ</td><td></td></tr>
+  </tbody>
+</table></div>
+<h2 id="view"><span class="secno">D.6</span> 表示と視点</h2>
+<p>視点の操作と、見え方の名前です。</p>
+<div class="table-wrap"><table>
+  <thead><tr><th>mcad（Inventor 日本語版）</th><th>Inventor（英語版）</th><th>SOLIDWORKS（日本語版）</th><th>備考</th></tr></thead>
+  <tbody>
+    <tr><th scope="row"><span class="ui">［ホーム ビュー］</span></th><td>Home View</td><td>—</td><td></td></tr>
+    <tr><th scope="row"><span class="ui">［ビュー面］</span></th><td>Look At</td><td>面に垂直</td><td></td></tr>
+    <tr><th scope="row"><span class="ui">［オービット］</span></th><td>Orbit</td><td>回転</td><td></td></tr>
+    <tr><th scope="row"><span class="ui">［画面移動］</span></th><td>Pan</td><td>パン</td><td></td></tr>
+    <tr><th scope="row"><span class="ui">［ズーム］</span></th><td>Zoom</td><td>ズーム</td><td></td></tr>
+    <tr><th scope="row"><span class="ui">［全体表示］</span></th><td>Zoom All</td><td>全体表示</td><td></td></tr>
+    <tr><th scope="row"><span class="ui">［ビジュアル スタイル］</span></th><td>Visual Style</td><td>表示スタイル</td><td></td></tr>
+    <tr><th scope="row"><span class="ui">［断面図］</span></th><td>Section View</td><td>断面表示</td><td></td></tr>
+    <tr><th scope="row"><span class="ui">［分離］</span></th><td>Isolate</td><td>分離</td><td></td></tr>
+    <tr><th scope="row">表示と非表示</th><td>Visibility</td><td>表示/非表示</td><td>ブラウザのチェックと、<span class="ui">［表示］</span>タブの<span class="ui">［表示設定］</span>パネルで切り替えます</td></tr>
+  </tbody>
+</table></div>
+<h2 id="mcad"><span class="secno">D.7</span> mcad に独自の言い方</h2>
+<p>対応する名前のない、mcad の用語です。</p>
+<div class="table-wrap"><table>
+  <thead><tr><th>mcad（Inventor 日本語版）</th><th>Inventor（英語版）</th><th>SOLIDWORKS（日本語版）</th><th>備考</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">名前付き STEP</th><td>—</td><td>—</td><td>ボディの名前を部品名（領域名）にした STEP です（<a href="26_step_export.html">第 26 章</a>）</td></tr>
+    <tr><th scope="row">ボディ名</th><td>Solid body name</td><td>ボディ名</td><td>ブラウザで <kbd>F2</kbd> を押して付けます</td></tr>
+    <tr><th scope="row">同梱キャッシュ</th><td>—</td><td>—</td><td>計算結果を .mcad に保存する仕組みです（<a href="13_files.html#storage">第 13 章</a>）</td></tr>
+    <tr><th scope="row"><span class="ui">［プロジェクト］</span></th><td>Project（.ipj）</td><td>—</td><td>mcad にはありません。ドキュメントは単独のファイルです</td></tr>
+  </tbody>
+</table></div>
+<p>コマンドごとの場所とキーは<a href="appendix_a_commands.html">付録 A</a>、ショートカットは<a href="appendix_b_shortcuts.html">付録 B</a>にあります。</p>
+
+</article>
+<nav class="pager" aria-label="前後の章"><a class="prev" rel="prev" href="appendix_c_feature_params.html"><span class="dir">前の章</span>付録 C フィーチャのパラメータ一覧</a><span class="next"></span></nav>
+<footer class="footer"><p>EMRM-Studio ユーザーマニュアル（日本語）・EMRM-Studio 0.1.0 ・ <a href="#main">このページの先頭へ</a></p></footer>
+</main>
+</div>
+</body>
+</html>

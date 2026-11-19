@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="generator" content="tools/build_manual.py">
+<title>第 15 章 はじめての電磁場解析（ソレノイド） - EMRM-Studio ユーザーマニュアル</title>
+<link rel="stylesheet" href="assets/manual.css">
+<script src="assets/search_index.js" charset="utf-8" defer></script>
+<script src="assets/manual.js" charset="utf-8" defer></script>
+</head>
+<body class="page">
+<header class="topbar">
+<a class="brand" href="index.html">EMRM-Studio ユーザーマニュアル</a>
+<button class="toc-toggle" type="button" aria-controls="toc" aria-expanded="false">目次</button>
+<form class="search" role="search" action="#" onsubmit="return false">
+<input id="q" type="search" placeholder="マニュアルを検索（/）" aria-label="マニュアルを検索" autocomplete="off">
+</form>
+</header>
+<div id="search-results" class="search-results" hidden></div>
+<div class="layout">
+<nav id="toc" class="toc" aria-label="目次">
+<details class="toc-box">
+<summary>目次</summary>
+<ol class="toc-chapters">
+<li class="toc-home"><a href="index.html">表紙・目次</a></li>
+<li><a href="00_intro.html">はじめに</a></li>
+<li class="toc-part" role="presentation">第 I 部　形状を作る（CAD）</li>
+<li><a href="01_screen.html"><span class="chno">第 1 章</span> 画面の構成</a></li>
+<li><a href="02_view.html"><span class="chno">第 2 章</span> 視点の操作</a></li>
+<li><a href="03_first_part.html"><span class="chno">第 3 章</span> はじめての部品</a></li>
+<li><a href="04_sketch.html"><span class="chno">第 4 章</span> スケッチ</a></li>
+<li><a href="05_work_features.html"><span class="chno">第 5 章</span> 作業フィーチャ</a></li>
+<li><a href="06_features_basic.html"><span class="chno">第 6 章</span> フィーチャ（押し出し・回転・穴・フィレットなど）</a></li>
+<li><a href="07_features_advanced.html"><span class="chno">第 7 章</span> フィーチャ（スイープ・ロフト・コイル・パターンなど）</a></li>
+<li><a href="08_bodies.html"><span class="chno">第 8 章</span> ボディの操作</a></li>
+<li><a href="09_browser.html"><span class="chno">第 9 章</span> ブラウザとフィーチャの管理</a></li>
+<li><a href="10_parameters.html"><span class="chno">第 10 章</span> パラメータと式</a></li>
+<li><a href="11_configurations.html"><span class="chno">第 11 章</span> 構成</a></li>
+<li><a href="12_inspect.html"><span class="chno">第 12 章</span> 検査</a></li>
+<li><a href="13_files.html"><span class="chno">第 13 章</span> ファイル</a></li>
+<li class="toc-part" role="presentation">第 II 部　電磁場解析</li>
+<li><a href="14_em_intro.html"><span class="chno">第 14 章</span> 電磁場解析のはじめに</a></li>
+<li class="current"><a href="15_em_first.html" aria-current="page"><span class="chno">第 15 章</span> はじめての電磁場解析（ソレノイド）</a><ol class="toc-sections"><li><a href="15_em_first.html#model"><span class="secno">15.1</span> 形状を作る</a></li><li><a href="15_em_first.html#study"><span class="secno">15.2</span> スタディを作り、材料を設定する</a></li><li><a href="15_em_first.html#coil"><span class="secno">15.3</span> コイルを設定する</a></li><li><a href="15_em_first.html#symmetry"><span class="secno">15.4</span> 対称面・解析領域・メッシュ</a></li><li><a href="15_em_first.html#preview"><span class="secno">15.5</span> 電流分布のプレビュー</a></li><li><a href="15_em_first.html#run"><span class="secno">15.6</span> 解析を実行して結果を見る</a></li></ol></li>
+<li><a href="16_em_setup.html"><span class="chno">第 16 章</span> スタディの共通の設定</a></li>
+<li><a href="17_em_results.html"><span class="chno">第 17 章</span> 結果の見方</a></li>
+<li><a href="18_em_magnetostatic.html"><span class="chno">第 18 章</span> 静磁場解析</a></li>
+<li><a href="19_em_coils.html"><span class="chno">第 19 章</span> 静磁場解析: コイル</a></li>
+<li><a href="20_em_dipole.html"><span class="chno">第 20 章</span> 静磁場解析の例題: H 型双極電磁石</a></li>
+<li><a href="21_em_eigenmode.html"><span class="chno">第 21 章</span> 共振モード解析</a></li>
+<li><a href="22_em_driven.html"><span class="chno">第 22 章</span> ポート解析</a></li>
+<li><a href="23_em_electrostatic.html"><span class="chno">第 23 章</span> 静電場解析</a></li>
+<li><a href="24_em_gun.html"><span class="chno">第 24 章</span> 電子銃解析</a></li>
+<li><a href="25_em_troubleshooting.html"><span class="chno">第 25 章</span> 電磁場解析で困ったとき</a></li>
+<li class="toc-part" role="presentation">第 III 部　連携・カスタマイズ・自動化</li>
+<li><a href="26_step_export.html"><span class="chno">第 26 章</span> 他の解析プログラムに形を渡す</a></li>
+<li><a href="27_customize.html"><span class="chno">第 27 章</span> カスタマイズ</a></li>
+<li><a href="28_automation.html"><span class="chno">第 28 章</span> 自動化</a></li>
+<li><a href="29_troubleshooting.html"><span class="chno">第 29 章</span> 困ったとき</a></li>
+<li class="toc-part" role="presentation">付録</li>
+<li class="appendix"><a href="appendix_a_commands.html"><span class="chno">付録 A</span> コマンド一覧</a></li>
+<li class="appendix"><a href="appendix_b_shortcuts.html"><span class="chno">付録 B</span> ショートカット一覧</a></li>
+<li class="appendix"><a href="appendix_c_feature_params.html"><span class="chno">付録 C</span> フィーチャのパラメータ一覧</a></li>
+<li class="appendix"><a href="appendix_d_glossary.html"><span class="chno">付録 D</span> 用語の対応表</a></li>
+</ol>
+</details>
+</nav>
+<main class="content" id="main">
+<article class="chapter ">
+<p class="chapter-label">第 15 章</p>
+<h1>はじめての電磁場解析（ソレノイド）</h1>
+<nav class="pagetoc" aria-label="この章の内容">
+<p class="pagetoc-title">この章の内容</p>
+<ol>
+<li><a href="#model"><span class="secno">15.1</span> 形状を作る</a></li>
+<li><a href="#study"><span class="secno">15.2</span> スタディを作り、材料を設定する</a></li>
+<li><a href="#coil"><span class="secno">15.3</span> コイルを設定する</a></li>
+<li><a href="#symmetry"><span class="secno">15.4</span> 対称面・解析領域・メッシュ</a></li>
+<li><a href="#preview"><span class="secno">15.5</span> 電流分布のプレビュー</a></li>
+<li><a href="#run"><span class="secno">15.6</span> 解析を実行して結果を見る</a></li>
+</ol>
+</nav>
+<p>この章では、厚いソレノイドの中心の磁場を、静磁場のスタディで一通り解きます。形状 → スタディ → 材料 → コイル → 対称面とメッシュ → 電流分布のプレビュー → 解析 → 結果の順に進めます。読み終えると、電磁場解析の基本の操作が分かります。</p>
+<p>題材は、内半径 20 mm・外半径 30 mm・長さ 50 mm の円筒のコイル（50 ターン × 100 A）です。理論値（一様な電流密度の厚いソレノイドの中心）は <strong>B<sub>z</sub> = 0.0890 T</strong> です。設定の済んだものは <code>examples/solenoid.emrm</code> です。</p>
+
+<h2 id="model"><span class="secno">15.1</span> 形状を作る</h2>
+<p>コイルのボディ（中が空いた円筒）を作ります。CAD の操作は第 I 部にあります（<a href="06_features_basic.html">第 6 章</a>）。</p>
+<ol class="steps">
+  <li><p><span class="ui">［3D モデル］</span>タブで、XY 平面から z = −25 mm の作業平面を作り、その上に直径 60 mm・高さ 50 mm の円柱を作ります。</p></li>
+  <li><p>z = +25 mm の作業平面を作り、直径 40 mm・高さ 50 mm の円柱を<span class="ui">［切り取り］</span>で作ります。穴のあいた円筒が、コイルのボディになります。</p>
+    <figure id="fig-15_em_sol_model"><a class="zoom" href="images/15_em_sol_model.png"><img src="images/15_em_sol_model.png" alt="コイルのボディ（中が空いた円筒）。z 軸が中心を通ります。" width="700" height="549" loading="lazy"></a><figcaption><span class="figno">図 15-1</span> コイルのボディ（中が空いた円筒）。z 軸が中心を通ります。</figcaption></figure></li>
+</ol>
+<aside class="note" role="note"><p class="callout-title">注意</p><p>ループのコイル（電流が軸のまわりを回るコイル）は、コイルの軸がボディの穴を通る形にします。穴のない円柱をコイルにすると、チェックで警告が出て、解析はエラーになります（<a href="19_em_coils.html#loop">第 19 章</a>）。</p></aside>
+
+<h2 id="study"><span class="secno">15.2</span> スタディを作り、材料を設定する</h2>
+<ol class="steps">
+  <li><p><span class="path">リボンの<span class="ui">［物理］</span>タブ → <span class="ui">［スタディ］</span>パネル → <span class="ui">［新しい静磁場スタディ］</span></span>をクリックします。リボンの右上の<span class="ui">［+］</span>のメニューからも作れます。スタディには、材料<span class="ui">［空気］</span>・解析領域・メッシュ・解析の設定が最初から入っています。スタディのブラウザの<span class="ui">［領域］</span>には、形状のソリッド ボディがブラウザと同じ名前で並びます（初めはどれも空気）。</p></li>
+  <li><p>3D ビューで、コイルのボディの面をクリックして選びます。</p></li>
+  <li><p><span class="path">リボンの<span class="ui">［物理］</span>タブ → <span class="ui">［材料］</span>パネル → <span class="ui">［材料］</span></span>をクリックします。新しい材料ができ、選んでいたボディに割り当てられます。プロパティ パネルで、名前を <code>銅</code>、<span class="ui">［種類］</span>を<span class="ui">［導体（コイル）］</span>、<span class="ui">［メッシュの大きさ（0 = 全体の値）］</span>を <code>3 mm</code> にして、<span class="ui">［適用］</span>を押します。</p>
+    <figure id="fig-15_em_sol_material"><a class="zoom" href="images/15_em_sol_material.png"><img src="images/15_em_sol_material.png" alt="材料「銅」のプロパティ。下の［ボディ］に、この材料を割り当てたボディの名前が出ます。" width="360" height="323" loading="lazy"></a><figcaption><span class="figno">図 15-2</span> 材料「銅」のプロパティ。下の<span class="ui">［ボディ］</span>に、この材料を割り当てたボディの名前が出ます。</figcaption></figure></li>
+</ol>
+<p>スタディのブラウザの<span class="ui">［領域］</span>の行は「ボディ名 — 材料」で、材料の色の印が付きます。行を選ぶと、プロパティ パネルで材料を選び直せます。</p>
+<aside class="tip" role="note"><p class="callout-title">ヒント</p><p>コイルのボディの材料は空気のままでも解けます。電流を流すのは、次のコイルの設定です。ここで材料「銅」を作ったのは、コイルの中のメッシュを細かくするためと、3D ビューで色分けして見分けるためです。</p></aside>
+
+<h2 id="coil"><span class="secno">15.3</span> コイルを設定する</h2>
+<ol class="steps">
+  <li><p>コイルのボディを選んだまま、<span class="path">リボンの<span class="ui">［物理］</span>タブ → <span class="ui">［励磁］</span>パネル → <span class="ui">［コイル］</span></span>をクリックします。選んでいたボディの入ったコイルができ、プロパティ パネルにフォームが開きます。</p></li>
+  <li><p>次の表のように入れて、<span class="ui">［適用］</span>を押します。</p>
+    <div class="table-wrap"><table>
+      <caption>コイルの設定</caption>
+      <thead><tr><th>欄</th><th>値</th><th>意味</th></tr></thead>
+      <tbody>
+        <tr><th scope="row"><span class="ui">［コイルの形］</span></th><td><span class="ui">［ループ（軸と向き）］</span></td><td>電流が軸のまわりを回るコイル</td></tr>
+        <tr><th scope="row"><span class="ui">［巻き方］</span></th><td><span class="ui">［多数巻き（stranded）］</span></td><td>断面で電流密度が一様</td></tr>
+        <tr><th scope="row"><span class="ui">［巻数］</span></th><td><code>50</code></td><td>モデル全体（対称面で切る前）の巻数</td></tr>
+        <tr><th scope="row"><span class="ui">［1 ターンの電流］</span></th><td><code>100 A</code></td><td>導線 1 本の電流</td></tr>
+        <tr><th scope="row"><span class="ui">［向き］</span></th><td><span class="ui">［右ねじ（+軸）］</span></td><td>+z に右ねじが進む向きに電流が回り、中の磁場は +z</td></tr>
+        <tr><th scope="row"><span class="ui">［コイルの軸］</span></th><td><span class="ui">［Z］</span>（軸の点は原点）</td><td>軸の向きと、軸が通る点</td></tr>
+      </tbody>
+    </table></div>
+    <figure id="fig-15_em_sol_coil"><a class="zoom" href="images/15_em_sol_coil.png"><img src="images/15_em_sol_coil.png" alt="コイルの設定。コイルを選ぶと、そのボディだけが濃く表示されます。" width="1000" height="755" loading="lazy"></a><figcaption><span class="figno">図 15-3</span> コイルの設定。コイルを選ぶと、そのボディだけが濃く表示されます。</figcaption></figure></li>
+</ol>
+<aside class="tip" role="note"><p class="callout-title">ヒント</p><p>フォームの<span class="ui">［ボディ］</span>には、形状のソリッド ボディが全部並び、チェックを入れたボディがコイルになります。<span class="ui">［3D で選ぶ］</span>を押している間は、3D ビューでボディをクリックするたびに入れる・外すを切り替えます。何も選ばずに<span class="ui">［コイル］</span>を押すと、すぐに 3D で選べる状態でフォームが開きます。</p></aside>
+
+<h2 id="symmetry"><span class="secno">15.4</span> 対称面・解析領域・メッシュ</h2>
+<p>ソレノイドは XY・YZ・ZX のどの面についても対称なので、3 つの対称面で 1/8 にして解くと速くなります（対称面は省いても解けます）。</p>
+<ol class="steps">
+  <li><p><span class="path">リボンの<span class="ui">［物理］</span>タブ → <span class="ui">［解析領域］</span>パネル → <span class="ui">［対称面］</span></span>を 3 回クリックし、それぞれの<span class="ui">［平面］</span>を XY・YZ・ZX にします。<span class="ui">［境界］</span>は<span class="ui">［自動］</span>のままにします。</p>
+    <figure id="fig-15_em_sol_symmetry"><a class="zoom" href="images/15_em_sol_symmetry.png"><img src="images/15_em_sol_symmetry.png" alt="対称面のプロパティ（平面 XY、境界 自動）。" width="360" height="589" loading="lazy"></a><figcaption><span class="figno">図 15-4</span> 対称面のプロパティ（平面 XY、境界 自動）。</figcaption></figure></li>
+  <li><p><span class="path">リボンの<span class="ui">［物理］</span>タブ → <span class="ui">［解析領域］</span>パネル → <span class="ui">［解析領域］</span></span>をクリックすると、自動の空気の領域の設定が開きます（形は箱、余白はモデルの大きさの 3 倍）。例題はこのままにします。</p></li>
+  <li><p><span class="path">リボンの<span class="ui">［メッシュ］</span>タブ → <span class="ui">［設定］</span>パネル → <span class="ui">［メッシュの設定］</span></span>で、全体の<span class="ui">［要素の大きさ］</span>を <code>20 mm</code> にします。コイルの中は、材料の 3 mm になります。</p>
+    <figure id="fig-15_em_sol_mesh"><a class="zoom" href="images/15_em_sol_mesh.png"><img src="images/15_em_sol_mesh.png" alt="メッシュの設定（要素の大きさ 20 mm、次数 2）。" width="360" height="589" loading="lazy"></a><figcaption><span class="figno">図 15-5</span> メッシュの設定（要素の大きさ 20 mm、次数 2）。</figcaption></figure></li>
+  <li><p><span class="path">リボンの<span class="ui">［物理］</span>タブ → <span class="ui">［チェック］</span>パネル → <span class="ui">［チェック］</span></span>をクリックし、右の<span class="ui">［チェック］</span>に「問題は見つかりませんでした」と出ることを確かめます。</p></li>
+</ol>
+<p>自動の境界は、コイルの軸から次のように決まります（<a href="18_em_magnetostatic.html#symmetry">第 18 章</a>）。</p>
+<div class="table-wrap"><table>
+  <caption>自動の境界の決まり方</caption>
+  <thead><tr><th>対称面</th><th>軸（z）との関係</th><th>境界</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">XY</th><td>軸に垂直</td><td>磁束垂直（磁力線が面を垂直に横切る）</td></tr>
+    <tr><th scope="row">YZ・ZX</th><td>軸を含む</td><td>磁束平行（磁力線が面に沿う）</td></tr>
+  </tbody>
+</table></div>
+
+<h2 id="preview"><span class="secno">15.5</span> 電流分布のプレビュー</h2>
+<p>磁場を解く前に、コイルの電流の向きと大きさを確かめます。</p>
+<ol class="steps">
+  <li><p><span class="path">リボンの<span class="ui">［物理］</span>タブ → <span class="ui">［励磁］</span>パネル → <span class="ui">［電流分布］</span></span>をクリックします。コイルの電流だけを解き（数秒）、ボディが透明になって電流密度 J が矢印で出ます。</p>
+    <figure id="fig-15_em_sol_preview"><a class="zoom" href="images/15_em_sol_preview.png"><img src="images/15_em_sol_preview.png" alt="電流分布のプレビュー。矢印は z 軸のまわりを右ねじの向きに回ります（色は |J| [A/mm²]）。右下の表に起磁力と |J| の最大が出ます。" width="1000" height="755" loading="lazy"></a><figcaption><span class="figno">図 15-6</span> 電流分布のプレビュー。矢印は z 軸のまわりを右ねじの向きに回ります（色は |J| [A/mm²]）。右下の表に起磁力と |J| の最大が出ます。</figcaption></figure></li>
+  <li><p>右の<span class="ui">［結果］</span>の表で、次の値を確かめます。</p></li>
+</ol>
+<div class="table-wrap"><table>
+  <caption>電流分布の表</caption>
+  <thead><tr><th>表の行</th><th>値</th><th>意味</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">起磁力（モデルの中。指定 / 計算）</th><td>2500 / 2500</td><td>1/8 モデルの中の巻数 × 電流。XY の対称面（磁束垂直）がコイルの断面を半分に切るので、巻数は 50 から 25 に自動で換算されます。指定と計算が同じなら、正しく流れています</td></tr>
+    <tr><th scope="row">電流の路</th><td>端子</td><td>対称面（磁束平行）で切ったループは、切り口が電流の入口・出口（端子）になります</td></tr>
+    <tr><th scope="row">電流密度の最大 |J|</th><td>10.01 A/mm²</td><td>多数巻きでは N·I / 断面積 = 50 × 100 A / (10 mm × 50 mm) = 10 A/mm² で一様</td></tr>
+  </tbody>
+</table></div>
+
+<h2 id="run"><span class="secno">15.6</span> 解析を実行して結果を見る</h2>
+<ol class="steps">
+  <li><p><span class="path">リボンの<span class="ui">［解析］</span>タブ → <span class="ui">［実行］</span>パネル → <span class="ui">［実行］</span></span>をクリックします。下の<span class="ui">［ジョブ］</span>に進み具合が出て、10 秒ほどで終わります。メッシュはプレビューのときのものを使い回します。</p></li>
+  <li><p>終わると<span class="ui">［結果］</span>タブに切り替わり、コイルの軸を含む ZX 面の |B| の断面が出ます。カメラの側の形状は、断面で取り除かれます。</p></li>
+  <li><p><span class="path">リボンの<span class="ui">［結果］</span>タブ → <span class="ui">［表示］</span>パネル → <span class="ui">［矢印］</span></span>と<span class="path">リボンの<span class="ui">［結果］</span>タブ → <span class="ui">［表示］</span>パネル → <span class="ui">［Field Lines］</span></span>をクリックします（もう一度押すと消えます）。ViewCube で正面にすると見やすくなります。</p>
+    <figure id="fig-15_em_sol_result"><a class="zoom" href="images/15_em_sol_result.png"><img src="images/15_em_sol_result.png" alt="|B| の断面と B の矢印・磁力線。磁力線はボアを通り、外を回って戻ります。" width="700" height="677" loading="lazy"></a><figcaption><span class="figno">図 15-7</span> |B| の断面と B の矢印・磁力線。磁力線はボアを通り、外を回って戻ります。</figcaption></figure></li>
+</ol>
+<p>右の<span class="ui">［結果］</span>の表に、次の値が出ます。</p>
+<div class="table-wrap"><table>
+  <caption>結果の表</caption>
+  <thead><tr><th>表の行</th><th>この例題の値</th><th>意味</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">磁気エネルギー W [J]</th><td>0.354</td><td>モデル全体（1/8 の 8 倍）のエネルギー</td></tr>
+    <tr><th scope="row">インダクタンス L</th><td>70.8 μH</td><td>L = 2W / I²（I = 1 ターンの電流）。単位は値に合わせて変わります</td></tr>
+    <tr><th scope="row">磁束鎖交 Ψ [Wb]</th><td>0.00708</td><td>Ψ = L I（<a href="19_em_coils.html#inductance">第 19 章</a>）</td></tr>
+    <tr><th scope="row">対称の倍数</th><td>8</td><td>2 の（対称面の数）乗</td></tr>
+  </tbody>
+</table></div>
+<ol class="steps">
+  <li><p><span class="path">リボンの<span class="ui">［結果］</span>タブ → <span class="ui">［評価］</span>パネル → <span class="ui">［線上のグラフ］</span></span>をクリックし、そのまま<span class="ui">［OK］</span>を押します。コイルの軸に沿った Bx・By・Bz・|B| のグラフが、中央のタブに出ます。</p>
+    <figure id="fig-15_em_sol_lineplot"><a class="zoom" href="images/15_em_sol_lineplot.png"><img src="images/15_em_sol_lineplot.png" alt="線上のグラフ。コイルの軸に沿った B。中心の Bz は約 0.089 T です。" width="1000" height="755" loading="lazy"></a><figcaption><span class="figno">図 15-8</span> 線上のグラフ。コイルの軸に沿った B。中心の Bz は約 0.089 T です。</figcaption></figure></li>
+</ol>
+<p>中心の B<sub>z</sub> は 0.088〜0.090 T 程度になり、理論値 0.0890 T と 1〜2% で合います。ボアの中の空気は全体の要素の大きさ（20 mm）で粗いので、より精しく見たいときは、全体の要素の大きさを小さくするか、ボアに空気のボディを置いてメッシュを細かくします（<a href="16_em_setup.html#mesh">第 16 章</a>）。</p>
+<aside class="tip" role="note"><p class="callout-title">ヒント</p><p><span class="ui">［3D モデル］</span>タブに戻ると、結果の表示・断面・透明表示は自動で元に戻ります。<span class="ui">［結果］</span>タブに戻ると、最新の結果をまた表示します。</p></aside>
+<p>結果の見方の全体は<a href="17_em_results.html">第 17 章</a>、静磁場のスタディの設定の全体は<a href="18_em_magnetostatic.html">第 18 章</a>にあります。</p>
+
+</article>
+<nav class="pager" aria-label="前後の章"><a class="prev" rel="prev" href="14_em_intro.html"><span class="dir">前の章</span>第 14 章 電磁場解析のはじめに</a><a class="next" rel="next" href="16_em_setup.html"><span class="dir">次の章</span>第 16 章 スタディの共通の設定</a></nav>
+<footer class="footer"><p>EMRM-Studio ユーザーマニュアル（日本語）・EMRM-Studio 0.1.0 ・ <a href="#main">このページの先頭へ</a></p></footer>
+</main>
+</div>
+</body>
+</html>

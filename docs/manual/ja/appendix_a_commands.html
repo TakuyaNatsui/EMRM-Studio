@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="generator" content="tools/build_manual.py">
+<title>付録 A コマンド一覧 - EMRM-Studio ユーザーマニュアル</title>
+<link rel="stylesheet" href="assets/manual.css">
+<script src="assets/search_index.js" charset="utf-8" defer></script>
+<script src="assets/manual.js" charset="utf-8" defer></script>
+</head>
+<body class="page">
+<header class="topbar">
+<a class="brand" href="index.html">EMRM-Studio ユーザーマニュアル</a>
+<button class="toc-toggle" type="button" aria-controls="toc" aria-expanded="false">目次</button>
+<form class="search" role="search" action="#" onsubmit="return false">
+<input id="q" type="search" placeholder="マニュアルを検索（/）" aria-label="マニュアルを検索" autocomplete="off">
+</form>
+</header>
+<div id="search-results" class="search-results" hidden></div>
+<div class="layout">
+<nav id="toc" class="toc" aria-label="目次">
+<details class="toc-box">
+<summary>目次</summary>
+<ol class="toc-chapters">
+<li class="toc-home"><a href="index.html">表紙・目次</a></li>
+<li><a href="00_intro.html">はじめに</a></li>
+<li class="toc-part" role="presentation">第 I 部　形状を作る（CAD）</li>
+<li><a href="01_screen.html"><span class="chno">第 1 章</span> 画面の構成</a></li>
+<li><a href="02_view.html"><span class="chno">第 2 章</span> 視点の操作</a></li>
+<li><a href="03_first_part.html"><span class="chno">第 3 章</span> はじめての部品</a></li>
+<li><a href="04_sketch.html"><span class="chno">第 4 章</span> スケッチ</a></li>
+<li><a href="05_work_features.html"><span class="chno">第 5 章</span> 作業フィーチャ</a></li>
+<li><a href="06_features_basic.html"><span class="chno">第 6 章</span> フィーチャ（押し出し・回転・穴・フィレットなど）</a></li>
+<li><a href="07_features_advanced.html"><span class="chno">第 7 章</span> フィーチャ（スイープ・ロフト・コイル・パターンなど）</a></li>
+<li><a href="08_bodies.html"><span class="chno">第 8 章</span> ボディの操作</a></li>
+<li><a href="09_browser.html"><span class="chno">第 9 章</span> ブラウザとフィーチャの管理</a></li>
+<li><a href="10_parameters.html"><span class="chno">第 10 章</span> パラメータと式</a></li>
+<li><a href="11_configurations.html"><span class="chno">第 11 章</span> 構成</a></li>
+<li><a href="12_inspect.html"><span class="chno">第 12 章</span> 検査</a></li>
+<li><a href="13_files.html"><span class="chno">第 13 章</span> ファイル</a></li>
+<li class="toc-part" role="presentation">第 II 部　電磁場解析</li>
+<li><a href="14_em_intro.html"><span class="chno">第 14 章</span> 電磁場解析のはじめに</a></li>
+<li><a href="15_em_first.html"><span class="chno">第 15 章</span> はじめての電磁場解析（ソレノイド）</a></li>
+<li><a href="16_em_setup.html"><span class="chno">第 16 章</span> スタディの共通の設定</a></li>
+<li><a href="17_em_results.html"><span class="chno">第 17 章</span> 結果の見方</a></li>
+<li><a href="18_em_magnetostatic.html"><span class="chno">第 18 章</span> 静磁場解析</a></li>
+<li><a href="19_em_coils.html"><span class="chno">第 19 章</span> 静磁場解析: コイル</a></li>
+<li><a href="20_em_dipole.html"><span class="chno">第 20 章</span> 静磁場解析の例題: H 型双極電磁石</a></li>
+<li><a href="21_em_eigenmode.html"><span class="chno">第 21 章</span> 共振モード解析</a></li>
+<li><a href="22_em_driven.html"><span class="chno">第 22 章</span> ポート解析</a></li>
+<li><a href="23_em_electrostatic.html"><span class="chno">第 23 章</span> 静電場解析</a></li>
+<li><a href="24_em_gun.html"><span class="chno">第 24 章</span> 電子銃解析</a></li>
+<li><a href="25_em_troubleshooting.html"><span class="chno">第 25 章</span> 電磁場解析で困ったとき</a></li>
+<li class="toc-part" role="presentation">第 III 部　連携・カスタマイズ・自動化</li>
+<li><a href="26_step_export.html"><span class="chno">第 26 章</span> 他の解析プログラムに形を渡す</a></li>
+<li><a href="27_customize.html"><span class="chno">第 27 章</span> カスタマイズ</a></li>
+<li><a href="28_automation.html"><span class="chno">第 28 章</span> 自動化</a></li>
+<li><a href="29_troubleshooting.html"><span class="chno">第 29 章</span> 困ったとき</a></li>
+<li class="toc-part" role="presentation">付録</li>
+<li class="current appendix"><a href="appendix_a_commands.html" aria-current="page"><span class="chno">付録 A</span> コマンド一覧</a><ol class="toc-sections"><li><a href="appendix_a_commands.html#tab-model"><span class="secno">A.1</span> ［3D モデル］タブ</a></li><li><a href="appendix_a_commands.html#tab-sketch"><span class="secno">A.2</span> ［スケッチ］タブ（スケッチを編集している間だけ出ます）</a></li><li><a href="appendix_a_commands.html#tab-physics"><span class="secno">A.3</span> ［物理］タブ</a></li><li><a href="appendix_a_commands.html#tab-mesh"><span class="secno">A.4</span> ［メッシュ］タブ</a></li><li><a href="appendix_a_commands.html#tab-solve"><span class="secno">A.5</span> ［解析］タブ</a></li><li><a href="appendix_a_commands.html#tab-results"><span class="secno">A.6</span> ［結果］タブ</a></li><li><a href="appendix_a_commands.html#tab-view"><span class="secno">A.7</span> ［表示］タブ</a></li><li><a href="appendix_a_commands.html#tab-inspect"><span class="secno">A.8</span> ［検査］タブ</a></li><li><a href="appendix_a_commands.html#tab-manage"><span class="secno">A.9</span> ［管理］タブ</a></li><li><a href="appendix_a_commands.html#tab-tools"><span class="secno">A.10</span> ［ツール］タブ</a></li><li><a href="appendix_a_commands.html#menus"><span class="secno">A.11</span> リボンの外のメニュー</a></li><li><a href="appendix_a_commands.html#context"><span class="secno">A.12</span> 右クリックのメニューだけのコマンド</a></li><li><a href="appendix_a_commands.html#keys-only"><span class="secno">A.13</span> キーとコマンド検索だけのコマンド</a></li></ol></li>
+<li class="appendix"><a href="appendix_b_shortcuts.html"><span class="chno">付録 B</span> ショートカット一覧</a></li>
+<li class="appendix"><a href="appendix_c_feature_params.html"><span class="chno">付録 C</span> フィーチャのパラメータ一覧</a></li>
+<li class="appendix"><a href="appendix_d_glossary.html"><span class="chno">付録 D</span> 用語の対応表</a></li>
+</ol>
+</details>
+</nav>
+<main class="content" id="main">
+<article class="chapter appendix">
+<p class="chapter-label">付録 A</p>
+<h1>コマンド一覧</h1>
+<nav class="pagetoc" aria-label="この章の内容">
+<p class="pagetoc-title">この章の内容</p>
+<ol>
+<li><a href="#tab-model"><span class="secno">A.1</span> ［3D モデル］タブ</a></li>
+<li class="sub"><a href="#panel-model-sketch">［スケッチ］パネル</a></li>
+<li class="sub"><a href="#panel-model-create">［作成］パネル</a></li>
+<li class="sub"><a href="#panel-model-modify">［修正］パネル</a></li>
+<li class="sub"><a href="#panel-model-work_features">［作業フィーチャ］パネル</a></li>
+<li class="sub"><a href="#panel-model-pattern">［パターン］パネル</a></li>
+<li class="sub"><a href="#panel-model-exit">［終了］パネル</a></li>
+<li><a href="#tab-sketch"><span class="secno">A.2</span> ［スケッチ］タブ（スケッチを編集している間だけ出ます）</a></li>
+<li class="sub"><a href="#panel-sketch-create">［作成］パネル</a></li>
+<li class="sub"><a href="#panel-sketch-modify">［修正］パネル</a></li>
+<li class="sub"><a href="#panel-sketch-pattern">［パターン］パネル</a></li>
+<li class="sub"><a href="#panel-sketch-constrain">［拘束］パネル</a></li>
+<li class="sub"><a href="#panel-sketch-format">［形式］パネル</a></li>
+<li class="sub"><a href="#panel-sketch-exit">［終了］パネル</a></li>
+<li><a href="#tab-physics"><span class="secno">A.3</span> ［物理］タブ</a></li>
+<li class="sub"><a href="#panel-physics-study">［スタディ］パネル</a></li>
+<li class="sub"><a href="#panel-physics-materials">［材料］パネル</a></li>
+<li class="sub"><a href="#panel-physics-excitation">［励磁］パネル</a></li>
+<li class="sub"><a href="#panel-physics-boundary">［境界］パネル</a></li>
+<li class="sub"><a href="#panel-physics-region">［解析領域］パネル</a></li>
+<li class="sub"><a href="#panel-physics-check">［チェック］パネル</a></li>
+<li><a href="#tab-mesh"><span class="secno">A.4</span> ［メッシュ］タブ</a></li>
+<li class="sub"><a href="#panel-mesh-settings">［設定］パネル</a></li>
+<li class="sub"><a href="#panel-mesh-generate">［生成］パネル</a></li>
+<li class="sub"><a href="#panel-mesh-display">［表示］パネル</a></li>
+<li><a href="#tab-solve"><span class="secno">A.5</span> ［解析］タブ</a></li>
+<li class="sub"><a href="#panel-solve-settings">［設定］パネル</a></li>
+<li class="sub"><a href="#panel-solve-run">［実行］パネル</a></li>
+<li><a href="#tab-results"><span class="secno">A.6</span> ［結果］タブ</a></li>
+<li class="sub"><a href="#panel-results-display">［表示］パネル</a></li>
+<li class="sub"><a href="#panel-results-evaluate">［評価］パネル</a></li>
+<li><a href="#tab-view"><span class="secno">A.7</span> ［表示］タブ</a></li>
+<li class="sub"><a href="#panel-view-visibility">［表示設定］パネル</a></li>
+<li class="sub"><a href="#panel-view-appearance">［外観］パネル</a></li>
+<li class="sub"><a href="#panel-view-windows">［ウィンドウ］パネル</a></li>
+<li class="sub"><a href="#panel-view-navigate">［ナビゲート］パネル</a></li>
+<li><a href="#tab-inspect"><span class="secno">A.8</span> ［検査］タブ</a></li>
+<li class="sub"><a href="#panel-inspect-measure">［計測］パネル</a></li>
+<li class="sub"><a href="#panel-inspect-analysis">［解析］パネル</a></li>
+<li><a href="#tab-manage"><span class="secno">A.9</span> ［管理］タブ</a></li>
+<li class="sub"><a href="#panel-manage-parameters">［パラメータ］パネル</a></li>
+<li class="sub"><a href="#panel-manage-insert">［挿入］パネル</a></li>
+<li class="sub"><a href="#panel-manage-author">［構成］パネル</a></li>
+<li><a href="#tab-tools"><span class="secno">A.10</span> ［ツール］タブ</a></li>
+<li class="sub"><a href="#panel-tools-material_appearance">［材料と外観］パネル</a></li>
+<li class="sub"><a href="#panel-tools-options">［オプション］パネル</a></li>
+<li class="sub"><a href="#panel-tools-macro">［マクロ］パネル</a></li>
+<li><a href="#menus"><span class="secno">A.11</span> リボンの外のメニュー</a></li>
+<li class="sub"><a href="#menu-file">［ファイル］メニュー</a></li>
+<li class="sub"><a href="#menu-help">［ヘルプ］メニュー</a></li>
+<li class="sub"><a href="#menu-edit">［編集］メニュー</a></li>
+<li class="sub"><a href="#menu-view">［表示］メニュー</a></li>
+<li><a href="#context"><span class="secno">A.12</span> 右クリックのメニューだけのコマンド</a></li>
+<li><a href="#keys-only"><span class="secno">A.13</span> キーとコマンド検索だけのコマンド</a></li>
+</ol>
+</nav>
+<p>mcad の全コマンドを、リボンの<strong>タブ</strong>と<strong>パネル</strong>の並びで一覧にしたものです。この付録はアプリの定義から自動で作ります。表示名・場所・キー・説明は画面の表示と同じです。キーは Inventor 風のマウス操作のプリセット（既定）のものです。</p>
+<aside class="tip" role="note"><p class="callout-title">ヒント</p><p>F1 を押したときのコマンドの説明から、この表の該当の行へ飛べます。コマンド名の下の小さな英字は<strong>コマンド ID</strong>です。マクロ・スクリプトからコマンドを呼ぶときに使います（第 18 章）。</p></aside>
+<p>ボタンの<strong>▼</strong>は、同じボタンの中に入っている（▼を押すとメニューで選べる）コマンドです。ドロップダウンは最後に使ったものがボタンの表に出ます。</p>
+<h2 id="tab-model"><span class="secno">A.1</span> ［3D モデル］タブ</h2>
+<h3 id="panel-model-sketch">［スケッチ］パネル</h3>
+<div class="table-wrap"><table class="commands">
+<thead><tr><th>コマンド</th><th>場所</th><th>キー</th><th>説明</th><th>使えるモード</th></tr></thead>
+<tbody>
+<tr id="cmd-sketch-new"><th scope="row">スケッチ<span class="cid"><code>sketch.new</code></span></th><td>3D モデル → スケッチ</td><td><kbd>S</kbd></td><td>平面か平らな面の上でスケッチを始める</td><td>パーツ</td></tr>
+<tr id="cmd-sketch-redefine"><th scope="row">スケッチ平面を再定義<span class="cid"><code>sketch.redefine</code></span></th><td>3D モデル → スケッチ （パネルの▼）</td><td></td><td>選んだスケッチの平面を別の平面か平らな面に変える（モデルは再計算され、スケッチ要素は同じ要素のまま残る）</td><td>パーツ</td></tr>
+</tbody>
+</table></div>
+<h3 id="panel-model-create">［作成］パネル</h3>
+<div class="table-wrap"><table class="commands">
+<thead><tr><th>コマンド</th><th>場所</th><th>キー</th><th>説明</th><th>使えるモード</th></tr></thead>
+<tbody>
+<tr id="cmd-feature-create-part-extrude"><th scope="row">押し出し<span class="cid"><code>feature.create.part.extrude</code></span></th><td>3D モデル → 作成</td><td><kbd>E</kbd></td><td></td><td>パーツ</td></tr>
+<tr id="cmd-feature-create-part-revolve"><th scope="row">回転<span class="cid"><code>feature.create.part.revolve</code></span></th><td>3D モデル → 作成</td><td><kbd>R</kbd></td><td></td><td>パーツ</td></tr>
+<tr id="cmd-feature-create-part-loft"><th scope="row">ロフト<span class="cid"><code>feature.create.part.loft</code></span></th><td>3D モデル → 作成</td><td></td><td></td><td>パーツ</td></tr>
+<tr id="cmd-feature-create-part-sweep"><th scope="row">スイープ<span class="cid"><code>feature.create.part.sweep</code></span></th><td>3D モデル → 作成</td><td></td><td></td><td>パーツ</td></tr>
+<tr id="cmd-feature-create-part-rib"><th scope="row">リブ<span class="cid"><code>feature.create.part.rib</code></span></th><td>3D モデル → 作成</td><td></td><td></td><td>パーツ</td></tr>
+<tr id="cmd-feature-create-part-coil"><th scope="row">コイル<span class="cid"><code>feature.create.part.coil</code></span></th><td>3D モデル → 作成 → コイル▼</td><td></td><td></td><td>パーツ</td></tr>
+<tr id="cmd-feature-create-part-helix"><th scope="row">ヘリカル曲線<span class="cid"><code>feature.create.part.helix</code></span></th><td>3D モデル → 作成 → コイル▼</td><td></td><td></td><td>パーツ</td></tr>
+<tr id="cmd-feature-create-part-primitive_box"><th scope="row">直方体<span class="cid"><code>feature.create.part.primitive_box</code></span></th><td>3D モデル → 作成 → プリミティブ▼</td><td></td><td></td><td>パーツ</td></tr>
+<tr id="cmd-feature-create-part-primitive_cylinder"><th scope="row">円柱<span class="cid"><code>feature.create.part.primitive_cylinder</code></span></th><td>3D モデル → 作成 → プリミティブ▼</td><td></td><td></td><td>パーツ</td></tr>
+<tr id="cmd-feature-create-part-primitive_sphere"><th scope="row">球<span class="cid"><code>feature.create.part.primitive_sphere</code></span></th><td>3D モデル → 作成 → プリミティブ▼</td><td></td><td></td><td>パーツ</td></tr>
+<tr id="cmd-feature-create-part-primitive_torus"><th scope="row">トーラス<span class="cid"><code>feature.create.part.primitive_torus</code></span></th><td>3D モデル → 作成 → プリミティブ▼</td><td></td><td></td><td>パーツ</td></tr>
+<tr id="cmd-feature-create-part-primitive_cone"><th scope="row">円錐<span class="cid"><code>feature.create.part.primitive_cone</code></span></th><td>3D モデル → 作成 → プリミティブ▼</td><td></td><td></td><td>パーツ</td></tr>
+<tr id="cmd-feature-create-part-primitive_wedge"><th scope="row">くさび<span class="cid"><code>feature.create.part.primitive_wedge</code></span></th><td>3D モデル → 作成 → プリミティブ▼</td><td></td><td></td><td>パーツ</td></tr>
+</tbody>
+</table></div>
+<h3 id="panel-model-modify">［修正］パネル</h3>
+<div class="table-wrap"><table class="commands">
+<thead><tr><th>コマンド</th><th>場所</th><th>キー</th><th>説明</th><th>使えるモード</th></tr></thead>
+<tbody>
+<tr id="cmd-feature-create-part-hole"><th scope="row">穴<span class="cid"><code>feature.create.part.hole</code></span></th><td>3D モデル → 修正</td><td><kbd>H</kbd></td><td></td><td>パーツ</td></tr>
+<tr id="cmd-feature-create-part-fillet"><th scope="row">フィレット<span class="cid"><code>feature.create.part.fillet</code></span></th><td>3D モデル → 修正</td><td><kbd>F</kbd></td><td></td><td>パーツ</td></tr>
+<tr id="cmd-feature-create-part-chamfer"><th scope="row">面取り<span class="cid"><code>feature.create.part.chamfer</code></span></th><td>3D モデル → 修正</td><td><kbd>C</kbd></td><td></td><td>パーツ</td></tr>
+<tr id="cmd-feature-create-part-cosmetic_thread"><th scope="row">ねじ<span class="cid"><code>feature.create.part.cosmetic_thread</code></span></th><td>3D モデル → 修正</td><td></td><td></td><td>パーツ</td></tr>
+<tr id="cmd-feature-create-part-shell"><th scope="row">シェル<span class="cid"><code>feature.create.part.shell</code></span></th><td>3D モデル → 修正</td><td></td><td></td><td>パーツ</td></tr>
+<tr id="cmd-feature-create-part-draft"><th scope="row">勾配<span class="cid"><code>feature.create.part.draft</code></span></th><td>3D モデル → 修正</td><td><kbd>D</kbd></td><td></td><td>パーツ</td></tr>
+<tr id="cmd-feature-create-part-boolean"><th scope="row">結合<span class="cid"><code>feature.create.part.boolean</code></span></th><td>3D モデル → 修正</td><td></td><td></td><td>パーツ</td></tr>
+<tr id="cmd-feature-create-part-split"><th scope="row">分割<span class="cid"><code>feature.create.part.split</code></span></th><td>3D モデル → 修正</td><td></td><td></td><td>パーツ</td></tr>
+<tr id="cmd-feature-create-part-move_body"><th scope="row">ボディを移動<span class="cid"><code>feature.create.part.move_body</code></span></th><td>3D モデル → 修正</td><td></td><td></td><td>パーツ</td></tr>
+<tr id="cmd-feature-create-part-delete_body"><th scope="row">ボディを削除<span class="cid"><code>feature.create.part.delete_body</code></span></th><td>3D モデル → 修正</td><td></td><td></td><td>パーツ</td></tr>
+<tr id="cmd-feature-create-part-heal"><th scope="row">修復<span class="cid"><code>feature.create.part.heal</code></span></th><td>3D モデル → 修正</td><td></td><td></td><td>パーツ</td></tr>
+<tr id="cmd-feature-edit"><th scope="row">フィーチャの編集<span class="cid"><code>feature.edit</code></span></th><td>3D モデル → 修正 （パネルの▼）</td><td></td><td>選んだフィーチャの値と参照を編集する</td><td>パーツ</td></tr>
+<tr id="cmd-edit-delete"><th scope="row">削除<span class="cid"><code>edit.delete</code></span></th><td>3D モデル → 修正 （パネルの▼）</td><td><kbd>Del</kbd></td><td>選んだフィーチャを削除する（それを使うフィーチャの扱いを尋ねる）</td><td>パーツ</td></tr>
+<tr id="cmd-edit-rename"><th scope="row">名前の変更<span class="cid"><code>edit.rename</code></span></th><td>3D モデル → 修正 （パネルの▼）</td><td><kbd>F2</kbd></td><td>選んだフィーチャの名前を変える</td><td>パーツ</td></tr>
+<tr id="cmd-edit-rebind_refs"><th scope="row">参照を更新<span class="cid"><code>edit.rebind_refs</code></span></th><td>3D モデル → 修正 （パネルの▼）</td><td></td><td>選んだフィーチャの、形で見つけ直した参照を今の要素で保存する</td><td>パーツ</td></tr>
+<tr id="cmd-edit-suppress"><th scope="row">抑制<span class="cid"><code>edit.suppress</code></span></th><td>3D モデル → 修正 （パネルの▼）</td><td></td><td>選んだフィーチャを再計算で飛ばす</td><td>パーツ</td></tr>
+<tr id="cmd-edit-unsuppress"><th scope="row">抑制解除<span class="cid"><code>edit.unsuppress</code></span></th><td>3D モデル → 修正 （パネルの▼）</td><td></td><td>選んだフィーチャを再計算でまた使う</td><td>パーツ</td></tr>
+<tr id="cmd-edit-repair_refs"><th scope="row">参照を修復<span class="cid"><code>edit.repair_refs</code></span></th><td>3D モデル → 修正 （パネルの▼）</td><td></td><td>見つからなかった参照と、形状から見つけ直した参照を一覧にして直します（選び直す・候補を使う）</td><td>パーツ</td></tr>
+<tr id="cmd-feature-rollback_here"><th scope="row">ここまでロールバック<span class="cid"><code>feature.rollback_here</code></span></th><td>3D モデル → 修正 （パネルの▼）</td><td></td><td>パーツの終端を選択したフィーチャの直後に置きます。それより後ろのフィーチャは計算されません</td><td>パーツ</td></tr>
+<tr id="cmd-feature-rollback_end"><th scope="row">パーツの終端を最後へ移動<span class="cid"><code>feature.rollback_end</code></span></th><td>3D モデル → 修正 （パネルの▼）</td><td></td><td>パーツの終端を最後のフィーチャの後ろに置き、すべてのフィーチャを計算します</td><td>パーツ</td></tr>
+<tr id="cmd-edit-create_folder"><th scope="row">フォルダを作成<span class="cid"><code>edit.create_folder</code></span></th><td>3D モデル → 修正 （パネルの▼）</td><td></td><td>選択したフィーチャをブラウザの新しいフォルダに入れます</td><td>パーツ</td></tr>
+<tr id="cmd-edit-comment"><th scope="row">コメント<span class="cid"><code>edit.comment</code></span></th><td>3D モデル → 修正 （パネルの▼）</td><td></td><td>選択したフィーチャにコメントを書きます（ブラウザのツールチップに表示されます）</td><td>パーツ</td></tr>
+</tbody>
+</table></div>
+<h3 id="panel-model-work_features">［作業フィーチャ］パネル</h3>
+<div class="table-wrap"><table class="commands">
+<thead><tr><th>コマンド</th><th>場所</th><th>キー</th><th>説明</th><th>使えるモード</th></tr></thead>
+<tbody>
+<tr id="cmd-feature-create-part-datum_plane"><th scope="row">平面<span class="cid"><code>feature.create.part.datum_plane</code></span></th><td>3D モデル → 作業フィーチャ → 作業平面▼</td><td><kbd>]</kbd></td><td></td><td>パーツ</td></tr>
+<tr id="cmd-feature-create-part-datum_plane-offset"><th scope="row">平面からのオフセット<span class="cid"><code>feature.create.part.datum_plane.offset</code></span></th><td>3D モデル → 作業フィーチャ → 作業平面▼</td><td></td><td></td><td>パーツ</td></tr>
+<tr id="cmd-feature-create-part-datum_plane-parallel_point"><th scope="row">点を通る平面に平行<span class="cid"><code>feature.create.part.datum_plane.parallel_point</code></span></th><td>3D モデル → 作業フィーチャ → 作業平面▼</td><td></td><td></td><td>パーツ</td></tr>
+<tr id="cmd-feature-create-part-datum_plane-midplane"><th scope="row">2 つの平面間の中点平面<span class="cid"><code>feature.create.part.datum_plane.midplane</code></span></th><td>3D モデル → 作業フィーチャ → 作業平面▼</td><td></td><td></td><td>パーツ</td></tr>
+<tr id="cmd-feature-create-part-datum_plane-angle"><th scope="row">エッジ周囲の平面の角度<span class="cid"><code>feature.create.part.datum_plane.angle</code></span></th><td>3D モデル → 作業フィーチャ → 作業平面▼</td><td></td><td></td><td>パーツ</td></tr>
+<tr id="cmd-feature-create-part-datum_plane-three_points"><th scope="row">3 点<span class="cid"><code>feature.create.part.datum_plane.three_points</code></span></th><td>3D モデル → 作業フィーチャ → 作業平面▼</td><td></td><td></td><td>パーツ</td></tr>
+<tr id="cmd-feature-create-part-datum_plane-two_edges"><th scope="row">同一平面上にある 2 つのエッジ<span class="cid"><code>feature.create.part.datum_plane.two_edges</code></span></th><td>3D モデル → 作業フィーチャ → 作業平面▼</td><td></td><td></td><td>パーツ</td></tr>
+<tr id="cmd-feature-create-part-datum_plane-line_point"><th scope="row">エッジと点<span class="cid"><code>feature.create.part.datum_plane.line_point</code></span></th><td>3D モデル → 作業フィーチャ → 作業平面▼</td><td></td><td></td><td>パーツ</td></tr>
+<tr id="cmd-feature-create-part-datum_plane-tangent_edge"><th scope="row">エッジを通るサーフェスに正接<span class="cid"><code>feature.create.part.datum_plane.tangent_edge</code></span></th><td>3D モデル → 作業フィーチャ → 作業平面▼</td><td></td><td></td><td>パーツ</td></tr>
+<tr id="cmd-feature-create-part-datum_plane-tangent_point"><th scope="row">点を通るサーフェスに正接<span class="cid"><code>feature.create.part.datum_plane.tangent_point</code></span></th><td>3D モデル → 作業フィーチャ → 作業平面▼</td><td></td><td></td><td>パーツ</td></tr>
+<tr id="cmd-feature-create-part-datum_plane-tangent_plane"><th scope="row">サーフェスに正接し、平面に平行<span class="cid"><code>feature.create.part.datum_plane.tangent_plane</code></span></th><td>3D モデル → 作業フィーチャ → 作業平面▼</td><td></td><td></td><td>パーツ</td></tr>
+<tr id="cmd-feature-create-part-datum_plane-normal_point"><th scope="row">点を通る軸に垂直<span class="cid"><code>feature.create.part.datum_plane.normal_point</code></span></th><td>3D モデル → 作業フィーチャ → 作業平面▼</td><td></td><td></td><td>パーツ</td></tr>
+<tr id="cmd-feature-create-part-datum_plane-normal_curve"><th scope="row">点上で曲線に垂直<span class="cid"><code>feature.create.part.datum_plane.normal_curve</code></span></th><td>3D モデル → 作業フィーチャ → 作業平面▼</td><td></td><td></td><td>パーツ</td></tr>
+<tr id="cmd-feature-create-part-datum_axis"><th scope="row">軸<span class="cid"><code>feature.create.part.datum_axis</code></span></th><td>3D モデル → 作業フィーチャ → 作業軸▼</td><td><kbd>/</kbd></td><td></td><td>パーツ</td></tr>
+<tr id="cmd-feature-create-part-datum_axis-edge"><th scope="row">線分またはエッジ上<span class="cid"><code>feature.create.part.datum_axis.edge</code></span></th><td>3D モデル → 作業フィーチャ → 作業軸▼</td><td></td><td></td><td>パーツ</td></tr>
+<tr id="cmd-feature-create-part-datum_axis-parallel_point"><th scope="row">点を通る線分に平行<span class="cid"><code>feature.create.part.datum_axis.parallel_point</code></span></th><td>3D モデル → 作業フィーチャ → 作業軸▼</td><td></td><td></td><td>パーツ</td></tr>
+<tr id="cmd-feature-create-part-datum_axis-two_points"><th scope="row">2 点を通る<span class="cid"><code>feature.create.part.datum_axis.two_points</code></span></th><td>3D モデル → 作業フィーチャ → 作業軸▼</td><td></td><td></td><td>パーツ</td></tr>
+<tr id="cmd-feature-create-part-datum_axis-two_planes"><th scope="row">2 つの平面の交線<span class="cid"><code>feature.create.part.datum_axis.two_planes</code></span></th><td>3D モデル → 作業フィーチャ → 作業軸▼</td><td></td><td></td><td>パーツ</td></tr>
+<tr id="cmd-feature-create-part-datum_axis-normal_point"><th scope="row">点を通る平面に垂直<span class="cid"><code>feature.create.part.datum_axis.normal_point</code></span></th><td>3D モデル → 作業フィーチャ → 作業軸▼</td><td></td><td></td><td>パーツ</td></tr>
+<tr id="cmd-feature-create-part-datum_axis-circle_center"><th scope="row">円形エッジまたは楕円形エッジの中心を通る<span class="cid"><code>feature.create.part.datum_axis.circle_center</code></span></th><td>3D モデル → 作業フィーチャ → 作業軸▼</td><td></td><td></td><td>パーツ</td></tr>
+<tr id="cmd-feature-create-part-datum_axis-revolved"><th scope="row">回転状の面またはフィーチャを通る<span class="cid"><code>feature.create.part.datum_axis.revolved</code></span></th><td>3D モデル → 作業フィーチャ → 作業軸▼</td><td></td><td></td><td>パーツ</td></tr>
+<tr id="cmd-feature-create-part-datum_point"><th scope="row">点<span class="cid"><code>feature.create.part.datum_point</code></span></th><td>3D モデル → 作業フィーチャ → 作業点▼</td><td><kbd>.</kbd></td><td></td><td>パーツ</td></tr>
+<tr id="cmd-feature-create-part-datum_point-coordinates"><th scope="row">固定点<span class="cid"><code>feature.create.part.datum_point.coordinates</code></span></th><td>3D モデル → 作業フィーチャ → 作業点▼</td><td></td><td></td><td>パーツ</td></tr>
+<tr id="cmd-feature-create-part-datum_point-vertex"><th scope="row">頂点またはスケッチ点上<span class="cid"><code>feature.create.part.datum_point.vertex</code></span></th><td>3D モデル → 作業フィーチャ → 作業点▼</td><td></td><td></td><td>パーツ</td></tr>
+<tr id="cmd-feature-create-part-datum_point-midpoint"><th scope="row">エッジの中点<span class="cid"><code>feature.create.part.datum_point.midpoint</code></span></th><td>3D モデル → 作業フィーチャ → 作業点▼</td><td></td><td></td><td>パーツ</td></tr>
+<tr id="cmd-feature-create-part-datum_point-center"><th scope="row">円・球・トーラスの中心点<span class="cid"><code>feature.create.part.datum_point.center</code></span></th><td>3D モデル → 作業フィーチャ → 作業点▼</td><td></td><td></td><td>パーツ</td></tr>
+<tr id="cmd-feature-create-part-datum_point-three_planes"><th scope="row">3 平面の交点<span class="cid"><code>feature.create.part.datum_point.three_planes</code></span></th><td>3D モデル → 作業フィーチャ → 作業点▼</td><td></td><td></td><td>パーツ</td></tr>
+<tr id="cmd-feature-create-part-datum_point-two_lines"><th scope="row">2 線分の交点<span class="cid"><code>feature.create.part.datum_point.two_lines</code></span></th><td>3D モデル → 作業フィーチャ → 作業点▼</td><td></td><td></td><td>パーツ</td></tr>
+<tr id="cmd-feature-create-part-datum_point-plane_line"><th scope="row">平面と線分の交点<span class="cid"><code>feature.create.part.datum_point.plane_line</code></span></th><td>3D モデル → 作業フィーチャ → 作業点▼</td><td></td><td></td><td>パーツ</td></tr>
+<tr id="cmd-feature-create-part-datum_csys"><th scope="row">UCS<span class="cid"><code>feature.create.part.datum_csys</code></span></th><td>3D モデル → 作業フィーチャ</td><td></td><td></td><td>パーツ</td></tr>
+</tbody>
+</table></div>
+<h3 id="panel-model-pattern">［パターン］パネル</h3>
+<div class="table-wrap"><table class="commands">
+<thead><tr><th>コマンド</th><th>場所</th><th>キー</th><th>説明</th><th>使えるモード</th></tr></thead>
+<tbody>
+<tr id="cmd-feature-create-part-pattern_linear"><th scope="row">矩形状パターン<span class="cid"><code>feature.create.part.pattern_linear</code></span></th><td>3D モデル → パターン</td><td></td><td></td><td>パーツ</td></tr>
+<tr id="cmd-feature-create-part-pattern_circular"><th scope="row">円形状パターン<span class="cid"><code>feature.create.part.pattern_circular</code></span></th><td>3D モデル → パターン</td><td></td><td></td><td>パーツ</td></tr>
+<tr id="cmd-feature-create-part-pattern_points"><th scope="row">スケッチ駆動パターン<span class="cid"><code>feature.create.part.pattern_points</code></span></th><td>3D モデル → パターン</td><td></td><td></td><td>パーツ</td></tr>
+<tr id="cmd-feature-create-part-mirror"><th scope="row">ミラー<span class="cid"><code>feature.create.part.mirror</code></span></th><td>3D モデル → パターン</td><td></td><td></td><td>パーツ</td></tr>
+</tbody>
+</table></div>
+<h3 id="panel-model-exit">［終了］パネル</h3>
+<div class="table-wrap"><table class="commands">
+<thead><tr><th>コマンド</th><th>場所</th><th>キー</th><th>説明</th><th>使えるモード</th></tr></thead>
+<tbody>
+<tr id="cmd-sketch-exit"><th scope="row">2D スケッチを終了<span class="cid"><code>sketch.exit</code></span></th><td>3D モデル → 終了</td><td></td><td>スケッチを終えてモデルを再計算する</td><td>スケッチ</td></tr>
+<tr id="cmd-sketch-discard"><th scope="row">スケッチの変更を破棄<span class="cid"><code>sketch.discard</code></span></th><td>3D モデル → 終了</td><td></td><td>変更を残さずにスケッチを出る</td><td>スケッチ</td></tr>
+</tbody>
+</table></div>
+<h2 id="tab-sketch"><span class="secno">A.2</span> ［スケッチ］タブ（スケッチを編集している間だけ出ます）</h2>
+<h3 id="panel-sketch-create">［作成］パネル</h3>
+<div class="table-wrap"><table class="commands">
+<thead><tr><th>コマンド</th><th>場所</th><th>キー</th><th>説明</th><th>使えるモード</th></tr></thead>
+<tbody>
+<tr id="cmd-sketch-tool-line"><th scope="row">線<span class="cid"><code>sketch.tool.line</code></span></th><td>スケッチ → 作成</td><td><kbd>L</kbd></td><td>線を描く。点を続けてクリックする（ダブルクリックか Enter で連続線を終える）</td><td>スケッチ</td></tr>
+<tr id="cmd-sketch-tool-circle"><th scope="row">中心点円<span class="cid"><code>sketch.tool.circle</code></span></th><td>スケッチ → 作成 → 円▼</td><td><kbd>C</kbd></td><td>中心と円周上の 1 点で円を描く</td><td>スケッチ</td></tr>
+<tr id="cmd-sketch-tool-circle3"><th scope="row">3 点円<span class="cid"><code>sketch.tool.circle3</code></span></th><td>スケッチ → 作成 → 円▼</td><td></td><td>3 点を通る円を描く</td><td>スケッチ</td></tr>
+<tr id="cmd-sketch-tool-tangent_circle"><th scope="row">接線円<span class="cid"><code>sketch.tool.tangent_circle</code></span></th><td>スケッチ → 作成 → 円▼</td><td></td><td>3 本の線に接する円を描く</td><td>スケッチ</td></tr>
+<tr id="cmd-sketch-tool-arc"><th scope="row">中心点円弧<span class="cid"><code>sketch.tool.arc</code></span></th><td>スケッチ → 作成 → 円弧▼</td><td></td><td>中心・始点・終点で円弧を描く</td><td>スケッチ</td></tr>
+<tr id="cmd-sketch-tool-arc3"><th scope="row">3 点円弧<span class="cid"><code>sketch.tool.arc3</code></span></th><td>スケッチ → 作成 → 円弧▼</td><td></td><td>始点・終点と通る 1 点で円弧を描く</td><td>スケッチ</td></tr>
+<tr id="cmd-sketch-tool-tangent_arc"><th scope="row">接線円弧<span class="cid"><code>sketch.tool.tangent_arc</code></span></th><td>スケッチ → 作成 → 円弧▼</td><td></td><td>線か円弧の端点から、その線か円弧に接する円弧を描く</td><td>スケッチ</td></tr>
+<tr id="cmd-sketch-tool-rect"><th scope="row">2 点長方形<span class="cid"><code>sketch.tool.rect</code></span></th><td>スケッチ → 作成 → 長方形▼</td><td></td><td>対角の 2 点で長方形を描く</td><td>スケッチ</td></tr>
+<tr id="cmd-sketch-tool-rect3"><th scope="row">3 点長方形<span class="cid"><code>sketch.tool.rect3</code></span></th><td>スケッチ → 作成 → 長方形▼</td><td></td><td>任意の角度の長方形を描く: 角、1 つ目の辺の端点、隣の辺の長さ</td><td>スケッチ</td></tr>
+<tr id="cmd-sketch-tool-rect_center"><th scope="row">2 点中心長方形<span class="cid"><code>sketch.tool.rect_center</code></span></th><td>スケッチ → 作成 → 長方形▼</td><td></td><td>中心と角で長方形を描く</td><td>スケッチ</td></tr>
+<tr id="cmd-sketch-tool-rect3_center"><th scope="row">3 点中心長方形<span class="cid"><code>sketch.tool.rect3_center</code></span></th><td>スケッチ → 作成 → 長方形▼</td><td></td><td>中心、辺の向きと辺の長さの半分、隣の辺の長さの半分から、任意の角度の長方形を描く</td><td>スケッチ</td></tr>
+<tr id="cmd-sketch-tool-parallelogram"><th scope="row">平行四辺形<span class="cid"><code>sketch.tool.parallelogram</code></span></th><td>スケッチ → 作成 → 長方形▼</td><td></td><td>3 つの角から平行四辺形を描く</td><td>スケッチ</td></tr>
+<tr id="cmd-sketch-tool-rounded_rect"><th scope="row">角丸長方形<span class="cid"><code>sketch.tool.rounded_rect</code></span></th><td>スケッチ → 作成 → 長方形▼</td><td></td><td>対角の 2 点から、角を接線円弧で丸めた長方形を描く</td><td>スケッチ</td></tr>
+<tr id="cmd-sketch-tool-slot_center_to_center"><th scope="row">中心合わせスロット<span class="cid"><code>sketch.tool.slot_center_to_center</code></span></th><td>スケッチ → 作成 → 長方形▼</td><td></td><td>2 つの円弧の中心と幅から直線スロットを描く</td><td>スケッチ</td></tr>
+<tr id="cmd-sketch-tool-slot_overall"><th scope="row">全体の長さスロット<span class="cid"><code>sketch.tool.slot_overall</code></span></th><td>スケッチ → 作成 → 長方形▼</td><td></td><td>全長と幅から直線スロットを描く</td><td>スケッチ</td></tr>
+<tr id="cmd-sketch-tool-slot_center_point"><th scope="row">中心点スロット<span class="cid"><code>sketch.tool.slot_center_point</code></span></th><td>スケッチ → 作成 → 長方形▼</td><td></td><td>スロットの中心、円弧の中心、幅から直線スロットを描く</td><td>スケッチ</td></tr>
+<tr id="cmd-sketch-tool-slot_arc3"><th scope="row">3 点円弧スロット<span class="cid"><code>sketch.tool.slot_arc3</code></span></th><td>スケッチ → 作成 → 長方形▼</td><td></td><td>中心線の円弧上の 3 点と幅から円弧スロットを描く</td><td>スケッチ</td></tr>
+<tr id="cmd-sketch-tool-slot_center_arc"><th scope="row">中心点円弧スロット<span class="cid"><code>sketch.tool.slot_center_arc</code></span></th><td>スケッチ → 作成 → 長方形▼</td><td></td><td>中心線の円弧の中心・始点・終点と幅から円弧スロットを描く</td><td>スケッチ</td></tr>
+<tr id="cmd-sketch-tool-polygon"><th scope="row">ポリゴン<span class="cid"><code>sketch.tool.polygon</code></span></th><td>スケッチ → 作成 → 長方形▼</td><td></td><td>中心と角、または辺の中点からポリゴンを描く</td><td>スケッチ</td></tr>
+<tr id="cmd-sketch-tool-fillet"><th scope="row">フィレット<span class="cid"><code>sketch.tool.fillet</code></span></th><td>スケッチ → 作成 → フィレット▼</td><td></td><td>2 本の線の角を、接線円弧と半径寸法で丸める</td><td>スケッチ</td></tr>
+<tr id="cmd-sketch-tool-chamfer"><th scope="row">面取り<span class="cid"><code>sketch.tool.chamfer</code></span></th><td>スケッチ → 作成 → フィレット▼</td><td></td><td>面取りの線と寸法で 2 本の線の角を切り落とす</td><td>スケッチ</td></tr>
+<tr id="cmd-sketch-tool-point"><th scope="row">点<span class="cid"><code>sketch.tool.point</code></span></th><td>スケッチ → 作成</td><td></td><td>スケッチ点を置く</td><td>スケッチ</td></tr>
+<tr id="cmd-sketch-tool-text"><th scope="row">テキスト<span class="cid"><code>sketch.tool.text</code></span></th><td>スケッチ → 作成</td><td><kbd>T</kbd></td><td>文字を配置する。その輪郭は押し出せるスケッチ要素になる</td><td>スケッチ</td></tr>
+<tr id="cmd-sketch-tool-centerline"><th scope="row">中心線<span class="cid"><code>sketch.tool.centerline</code></span></th><td>スケッチ → 作成</td><td></td><td>中心線を描く（回転の軸。領域には使わない）</td><td>スケッチ</td></tr>
+<tr id="cmd-sketch-tool-construction_line"><th scope="row">線（構築線）<span class="cid"><code>sketch.tool.construction_line</code></span></th><td>スケッチ → 作成</td><td></td><td>構築線を描く（領域には使わない）</td><td>スケッチ</td></tr>
+<tr id="cmd-sketch-tool-spline_fit"><th scope="row">スプライン（補間）<span class="cid"><code>sketch.tool.spline_fit</code></span></th><td>スケッチ → 作成 → スプライン▼</td><td></td><td>クリックした点を通るスプラインを描く</td><td>スケッチ</td></tr>
+<tr id="cmd-sketch-tool-spline_cv"><th scope="row">スプライン（制御頂点）<span class="cid"><code>sketch.tool.spline_cv</code></span></th><td>スケッチ → 作成 → スプライン▼</td><td></td><td>クリックした制御頂点で形を制御するスプラインを描く</td><td>スケッチ</td></tr>
+<tr id="cmd-sketch-tool-ellipse"><th scope="row">楕円<span class="cid"><code>sketch.tool.ellipse</code></span></th><td>スケッチ → 作成 → 楕円▼</td><td></td><td>中心、長軸の端点、短軸の半径を決める点から楕円を描く</td><td>スケッチ</td></tr>
+<tr id="cmd-sketch-tool-ellipse_arc"><th scope="row">楕円弧<span class="cid"><code>sketch.tool.ellipse_arc</code></span></th><td>スケッチ → 作成 → 楕円▼</td><td></td><td>楕円弧を描く（楕円を決めてから、円弧の始点と終点を指定する）</td><td>スケッチ</td></tr>
+<tr id="cmd-sketch-tool-project"><th scope="row">ジオメトリを投影<span class="cid"><code>sketch.tool.project</code></span></th><td>スケッチ → 作成 → 投影▼</td><td><kbd>P</kbd></td><td>モデルの面・エッジ・頂点をスケッチ平面に投影する。投影ジオメトリはモデルに追従する</td><td>スケッチ</td></tr>
+<tr id="cmd-sketch-tool-project_cut"><th scope="row">切断エッジを投影<span class="cid"><code>sketch.tool.project_cut</code></span></th><td>スケッチ → 作成 → 投影▼</td><td></td><td>スケッチ平面がボディを切る所のエッジを投影する</td><td>スケッチ</td></tr>
+<tr id="cmd-sketch-tool-reattach"><th scope="row">投影ジオメトリの参照を付け直す<span class="cid"><code>sketch.tool.reattach</code></span></th><td>スケッチ → 作成 （パネルの▼）</td><td></td><td>元を失った投影ジオメトリを選び、新しい元に付け直す</td><td>スケッチ</td></tr>
+</tbody>
+</table></div>
+<h3 id="panel-sketch-modify">［修正］パネル</h3>
+<div class="table-wrap"><table class="commands">
+<thead><tr><th>コマンド</th><th>場所</th><th>キー</th><th>説明</th><th>使えるモード</th></tr></thead>
+<tbody>
+<tr id="cmd-sketch-tool-move_entities"><th scope="row">移動<span class="cid"><code>sketch.tool.move_entities</code></span></th><td>スケッチ → 修正</td><td></td><td>選んだスケッチ要素を基準点から移動先へ移動する</td><td>スケッチ</td></tr>
+<tr id="cmd-sketch-tool-trim"><th scope="row">トリム<span class="cid"><code>sketch.tool.trim</code></span></th><td>スケッチ → 修正</td><td></td><td>交点の間の曲線の部分を消す（曲線を横切ってドラッグすると複数を消す）</td><td>スケッチ</td></tr>
+<tr id="cmd-sketch-tool-scale_entities"><th scope="row">尺度<span class="cid"><code>sketch.tool.scale_entities</code></span></th><td>スケッチ → 修正</td><td></td><td>選んだスケッチ要素を基準点から尺度変更する</td><td>スケッチ</td></tr>
+<tr id="cmd-sketch-tool-copy_entities"><th scope="row">コピー<span class="cid"><code>sketch.tool.copy_entities</code></span></th><td>スケッチ → 修正</td><td></td><td>選んだスケッチ要素を基準点から移動先へコピーする</td><td>スケッチ</td></tr>
+<tr id="cmd-sketch-tool-extend"><th scope="row">延長<span class="cid"><code>sketch.tool.extend</code></span></th><td>スケッチ → 修正</td><td></td><td>曲線を、交わる最も近い曲線まで延長する（曲線を横切ってドラッグすると複数を延長）</td><td>スケッチ</td></tr>
+<tr id="cmd-sketch-tool-stretch_entities"><th scope="row">ストレッチ<span class="cid"><code>sketch.tool.stretch_entities</code></span></th><td>スケッチ → 修正</td><td></td><td>選んだスケッチ要素を移動し、つながっている線をストレッチする</td><td>スケッチ</td></tr>
+<tr id="cmd-sketch-tool-rotate_entities"><th scope="row">回転<span class="cid"><code>sketch.tool.rotate_entities</code></span></th><td>スケッチ → 修正</td><td></td><td>選んだスケッチ要素を中心点のまわりに回転する</td><td>スケッチ</td></tr>
+<tr id="cmd-sketch-tool-split"><th scope="row">分割<span class="cid"><code>sketch.tool.split</code></span></th><td>スケッチ → 修正 → 分割▼</td><td></td><td>曲線を最も近い交点で分割する</td><td>スケッチ</td></tr>
+<tr id="cmd-sketch-tool-divide"><th scope="row">等分割<span class="cid"><code>sketch.tool.divide</code></span></th><td>スケッチ → 修正 → 分割▼</td><td></td><td>線か円弧を等しい数に分割する</td><td>スケッチ</td></tr>
+<tr id="cmd-sketch-tool-offset"><th scope="row">オフセット<span class="cid"><code>sketch.tool.offset</code></span></th><td>スケッチ → 修正</td><td></td><td>曲線のループを距離を指定してオフセットする（オフセットは元との間隔を保つ。ドラッグするか寸法を付けて間隔を変える）</td><td>スケッチ</td></tr>
+<tr id="cmd-sketch-select_chain"><th scope="row">チェーンを選択<span class="cid"><code>sketch.select_chain</code></span></th><td>スケッチ → 修正 （パネルの▼）</td><td></td><td>選んだ曲線と端点でつながった曲線を選ぶ（曲線のダブルクリックと同じ）</td><td>スケッチ</td></tr>
+<tr id="cmd-sketch-delete_items"><th scope="row">スケッチ要素を削除<span class="cid"><code>sketch.delete_items</code></span></th><td>スケッチ → 修正 （パネルの▼）</td><td></td><td>選んだスケッチ要素と拘束を削除する（消した要素を使う拘束も消える）</td><td>スケッチ</td></tr>
+<tr id="cmd-sketch-delete_all_geometry"><th scope="row">スケッチの全要素を削除<span class="cid"><code>sketch.delete_all_geometry</code></span></th><td>スケッチ → 修正 （パネルの▼）</td><td></td><td>スケッチの要素と拘束をすべて削除する（元に戻すで戻せます）</td><td>スケッチ</td></tr>
+<tr id="cmd-sketch-delete_all_constraints"><th scope="row">スケッチの全拘束を削除<span class="cid"><code>sketch.delete_all_constraints</code></span></th><td>スケッチ → 修正 （パネルの▼）</td><td></td><td>スケッチの拘束をすべて削除し、要素は残す（元に戻すで戻せます）</td><td>スケッチ</td></tr>
+<tr id="cmd-sketch-repair"><th scope="row">スケッチを修復<span class="cid"><code>sketch.repair</code></span></th><td>スケッチ → 修正 （パネルの▼）</td><td></td><td>重複した要素と退化した要素を削除し、ほぼ重なっている端点をつないで、スケッチが閉じるようにする</td><td>スケッチ</td></tr>
+<tr id="cmd-sketch-copy"><th scope="row">コピー<span class="cid"><code>sketch.copy</code></span></th><td>スケッチ → 修正 （パネルの▼）</td><td><kbd>Ctrl</kbd>+<kbd>C</kbd></td><td>選んだスケッチ要素を、その間の拘束とともにクリップボードへコピーする</td><td>スケッチ</td></tr>
+<tr id="cmd-sketch-cut"><th scope="row">切り取り<span class="cid"><code>sketch.cut</code></span></th><td>スケッチ → 修正 （パネルの▼）</td><td><kbd>Ctrl</kbd>+<kbd>X</kbd></td><td>選んだスケッチ要素を切り取り、クリップボードに入れる</td><td>スケッチ</td></tr>
+<tr id="cmd-sketch-paste"><th scope="row">貼り付け<span class="cid"><code>sketch.paste</code></span></th><td>スケッチ → 修正 （パネルの▼）</td><td><kbd>Ctrl</kbd>+<kbd>V</kbd></td><td>クリップボードのスケッチ要素をこのスケッチに貼り付ける（別のスケッチやドキュメントから来たものでもよい）</td><td>スケッチ</td></tr>
+</tbody>
+</table></div>
+<h3 id="panel-sketch-pattern">［パターン］パネル</h3>
+<div class="table-wrap"><table class="commands">
+<thead><tr><th>コマンド</th><th>場所</th><th>キー</th><th>説明</th><th>使えるモード</th></tr></thead>
+<tbody>
+<tr id="cmd-sketch-tool-pattern_rect"><th scope="row">矩形状パターン<span class="cid"><code>sketch.tool.pattern_rect</code></span></th><td>スケッチ → パターン</td><td></td><td>選んだスケッチ要素を 1 方向か 2 方向にパターン化する</td><td>スケッチ</td></tr>
+<tr id="cmd-sketch-tool-pattern_circ"><th scope="row">円形状パターン<span class="cid"><code>sketch.tool.pattern_circ</code></span></th><td>スケッチ → パターン</td><td></td><td>選んだスケッチ要素を中心点のまわりにパターン化する</td><td>スケッチ</td></tr>
+<tr id="cmd-sketch-tool-mirror"><th scope="row">ミラー<span class="cid"><code>sketch.tool.mirror</code></span></th><td>スケッチ → パターン</td><td></td><td>選んだスケッチ要素を、対称拘束を付けて線に対してミラーする</td><td>スケッチ</td></tr>
+<tr id="cmd-sketch-edit_generator"><th scope="row">パターンまたはオフセットを編集<span class="cid"><code>sketch.edit_generator</code></span></th><td>スケッチ → パターン</td><td></td><td>選んだ曲線のパターンまたはオフセットの個数・間隔・距離を変更する</td><td>スケッチ</td></tr>
+</tbody>
+</table></div>
+<h3 id="panel-sketch-constrain">［拘束］パネル</h3>
+<div class="table-wrap"><table class="commands">
+<thead><tr><th>コマンド</th><th>場所</th><th>キー</th><th>説明</th><th>使えるモード</th></tr></thead>
+<tbody>
+<tr id="cmd-sketch-tool-dimension"><th scope="row">寸法<span class="cid"><code>sketch.tool.dimension</code></span></th><td>スケッチ → 拘束</td><td><kbd>D</kbd></td><td>寸法を付ける（種類は選んだ要素と置く位置で決まる）</td><td>スケッチ</td></tr>
+<tr id="cmd-sketch-show_constraints"><th scope="row">拘束を表示<span class="cid"><code>sketch.show_constraints</code></span></th><td>スケッチ → 拘束</td><td></td><td>幾何拘束の記号を表示・非表示にする</td><td>スケッチ</td></tr>
+<tr id="cmd-sketch-show_dimensions"><th scope="row">寸法を表示<span class="cid"><code>sketch.show_dimensions</code></span></th><td>スケッチ → 拘束</td><td></td><td>スケッチの寸法を表示・非表示にする</td><td>スケッチ</td></tr>
+<tr id="cmd-sketch-show_dof"><th scope="row">すべての自由度を表示<span class="cid"><code>sketch.show_dof</code></span></th><td>スケッチ → 拘束</td><td></td><td>まだ動ける点に矢印を表示する</td><td>スケッチ</td></tr>
+<tr id="cmd-sketch-constrain-coincident"><th scope="row">一致<span class="cid"><code>sketch.constrain.coincident</code></span></th><td>スケッチ → 拘束</td><td></td><td>2 点を一致させる（スケッチ原点にも）</td><td>スケッチ</td></tr>
+<tr id="cmd-sketch-constrain-point_on_object"><th scope="row">点を要素上に<span class="cid"><code>sketch.constrain.point_on_object</code></span></th><td>スケッチ → 拘束</td><td></td><td>点を線・円・円弧・スケッチの軸の上に置く</td><td>スケッチ</td></tr>
+<tr id="cmd-sketch-constrain-collinear"><th scope="row">同一直線上<span class="cid"><code>sketch.constrain.collinear</code></span></th><td>スケッチ → 拘束</td><td></td><td>2 本の線を同一直線上に置く</td><td>スケッチ</td></tr>
+<tr id="cmd-sketch-constrain-horizontal"><th scope="row">水平<span class="cid"><code>sketch.constrain.horizontal</code></span></th><td>スケッチ → 拘束</td><td></td><td>線か 2 点を水平にする</td><td>スケッチ</td></tr>
+<tr id="cmd-sketch-constrain-vertical"><th scope="row">垂直<span class="cid"><code>sketch.constrain.vertical</code></span></th><td>スケッチ → 拘束</td><td></td><td>線か 2 点を垂直にする</td><td>スケッチ</td></tr>
+<tr id="cmd-sketch-constrain-parallel"><th scope="row">平行<span class="cid"><code>sketch.constrain.parallel</code></span></th><td>スケッチ → 拘束</td><td></td><td>2 本の線を平行にする</td><td>スケッチ</td></tr>
+<tr id="cmd-sketch-constrain-perpendicular"><th scope="row">直交<span class="cid"><code>sketch.constrain.perpendicular</code></span></th><td>スケッチ → 拘束</td><td></td><td>2 本の線を直交させる</td><td>スケッチ</td></tr>
+<tr id="cmd-sketch-constrain-tangent"><th scope="row">正接<span class="cid"><code>sketch.constrain.tangent</code></span></th><td>スケッチ → 拘束</td><td></td><td>線と円・円弧、または 2 つの円・円弧を接させる</td><td>スケッチ</td></tr>
+<tr id="cmd-sketch-constrain-concentric"><th scope="row">同心円<span class="cid"><code>sketch.constrain.concentric</code></span></th><td>スケッチ → 拘束</td><td></td><td>2 つの円・円弧の中心を一致させる</td><td>スケッチ</td></tr>
+<tr id="cmd-sketch-constrain-equal"><th scope="row">等しい<span class="cid"><code>sketch.constrain.equal</code></span></th><td>スケッチ → 拘束</td><td></td><td>2 本の線の長さ、または 2 つの円・円弧の半径を等しくする</td><td>スケッチ</td></tr>
+<tr id="cmd-sketch-constrain-midpoint"><th scope="row">中点<span class="cid"><code>sketch.constrain.midpoint</code></span></th><td>スケッチ → 拘束</td><td></td><td>点を線か円弧の中点に置く</td><td>スケッチ</td></tr>
+<tr id="cmd-sketch-constrain-symmetric"><th scope="row">対称<span class="cid"><code>sketch.constrain.symmetric</code></span></th><td>スケッチ → 拘束</td><td></td><td>2 つの点・線・円・円弧を、ある線に対して対称にする（線は最後に選ぶ）</td><td>スケッチ</td></tr>
+<tr id="cmd-sketch-constrain-fix"><th scope="row">固定<span class="cid"><code>sketch.constrain.fix</code></span></th><td>スケッチ → 拘束</td><td></td><td>点か要素を今の位置に固定する</td><td>スケッチ</td></tr>
+<tr id="cmd-sketch-select_constraints"><th scope="row">関連する拘束を選択<span class="cid"><code>sketch.select_constraints</code></span></th><td>スケッチ → 拘束 （パネルの▼）</td><td></td><td>選んだ要素を使う拘束と寸法を選ぶ</td><td>スケッチ</td></tr>
+<tr id="cmd-sketch-select_geometry"><th scope="row">関連する要素を選択<span class="cid"><code>sketch.select_geometry</code></span></th><td>スケッチ → 拘束 （パネルの▼）</td><td></td><td>選んだ拘束と寸法が使う要素を選ぶ</td><td>スケッチ</td></tr>
+</tbody>
+</table></div>
+<h3 id="panel-sketch-format">［形式］パネル</h3>
+<div class="table-wrap"><table class="commands">
+<thead><tr><th>コマンド</th><th>場所</th><th>キー</th><th>説明</th><th>使えるモード</th></tr></thead>
+<tbody>
+<tr id="cmd-sketch-construction"><th scope="row">構築線<span class="cid"><code>sketch.construction</code></span></th><td>スケッチ → 形式</td><td></td><td>選んだスケッチの要素を構築線にする（構築線なら元に戻す）</td><td>スケッチ</td></tr>
+<tr id="cmd-sketch-toggle_driven"><th scope="row">従動寸法の切替<span class="cid"><code>sketch.toggle_driven</code></span></th><td>スケッチ → 形式</td><td></td><td>選んだ寸法を従動（参照。括弧付き）か駆動にする</td><td>スケッチ</td></tr>
+<tr id="cmd-sketch-show_construction"><th scope="row">構築線を表示<span class="cid"><code>sketch.show_construction</code></span></th><td>スケッチ → 形式</td><td></td><td>構築線と中心線を表示・非表示にする</td><td>スケッチ</td></tr>
+<tr id="cmd-sketch-show_projected"><th scope="row">投影ジオメトリを表示<span class="cid"><code>sketch.show_projected</code></span></th><td>スケッチ → 形式</td><td></td><td>モデルから投影したジオメトリを表示・非表示にする</td><td>スケッチ</td></tr>
+<tr id="cmd-sketch-slice_graphics"><th scope="row">スライス表示<span class="cid"><code>sketch.slice_graphics</code></span></th><td>スケッチ → 形式</td><td><kbd>F7</kbd></td><td>スケッチ平面の手前（法線の側）のモデルを取り去ってボディの断面を表示します。［ジオメトリを投影］で断面の線をクリックして投影できます</td><td>スケッチ</td></tr>
+<tr id="cmd-sketch-dimension_display-value"><th scope="row">寸法を値で表示<span class="cid"><code>sketch.dimension_display.value</code></span></th><td>スケッチ → 形式 （パネルの▼）</td><td></td><td>寸法の値を表示する</td><td>スケッチ</td></tr>
+<tr id="cmd-sketch-dimension_display-name"><th scope="row">寸法を名前で表示<span class="cid"><code>sketch.dimension_display.name</code></span></th><td>スケッチ → 形式 （パネルの▼）</td><td></td><td>寸法の名前を表示する</td><td>スケッチ</td></tr>
+<tr id="cmd-sketch-dimension_display-expression"><th scope="row">寸法を式で表示<span class="cid"><code>sketch.dimension_display.expression</code></span></th><td>スケッチ → 形式 （パネルの▼）</td><td></td><td>寸法の式を表示する</td><td>スケッチ</td></tr>
+</tbody>
+</table></div>
+<h3 id="panel-sketch-exit">［終了］パネル</h3>
+<div class="table-wrap"><table class="commands">
+<thead><tr><th>コマンド</th><th>場所</th><th>キー</th><th>説明</th><th>使えるモード</th></tr></thead>
+<tbody>
+
+</tbody>
+</table></div>
+<h2 id="tab-physics"><span class="secno">A.3</span> ［物理］タブ</h2>
+<h3 id="panel-physics-study">［スタディ］パネル</h3>
+<div class="table-wrap"><table class="commands">
+<thead><tr><th>コマンド</th><th>場所</th><th>キー</th><th>説明</th><th>使えるモード</th></tr></thead>
+<tbody>
+<tr id="cmd-em-study-new_magnetostatic"><th scope="row">新しい静磁場スタディ<span class="cid"><code>em.study.new_magnetostatic</code></span></th><td>物理 → スタディ</td><td></td><td>今の形状に静磁場のスタディ（コイル・鉄・空気）を作ります</td><td>パーツ</td></tr>
+<tr id="cmd-em-study-new_eigenmode"><th scope="row">新しい共振モードスタディ<span class="cid"><code>em.study.new_eigenmode</code></span></th><td>物理 → スタディ</td><td></td><td>空洞の共振モードのスタディを作ります。空洞の中の真空をボディで作ると、その外面が壁になります</td><td>パーツ</td></tr>
+<tr id="cmd-em-study-new_driven"><th scope="row">新しいポート解析スタディ<span class="cid"><code>em.study.new_driven</code></span></th><td>物理 → スタディ</td><td></td><td>真空のボディのポート解析のスタディ（周波数スイープ・S パラメータ・カプラー空洞の共振探索）を作ります</td><td>パーツ</td></tr>
+<tr id="cmd-em-study-new_electrostatic"><th scope="row">新しい静電場スタディ<span class="cid"><code>em.study.new_electrostatic</code></span></th><td>物理 → スタディ</td><td></td><td>今の形状に静電場のスタディ（電極の電位・誘電体・空気）を作ります</td><td>パーツ</td></tr>
+<tr id="cmd-em-study-new_gun"><th scope="row">新しい電子銃スタディ<span class="cid"><code>em.study.new_gun</code></span></th><td>物理 → スタディ</td><td></td><td>電子銃のスタディを作ります（電極・放出面と、必要なら磁場。ビームを空間電荷と自己磁場とともに解きます）</td><td>パーツ</td></tr>
+</tbody>
+</table></div>
+<h3 id="panel-physics-materials">［材料］パネル</h3>
+<div class="table-wrap"><table class="commands">
+<thead><tr><th>コマンド</th><th>場所</th><th>キー</th><th>説明</th><th>使えるモード</th></tr></thead>
+<tbody>
+<tr id="cmd-em-material-add"><th scope="row">材料<span class="cid"><code>em.material.add</code></span></th><td>物理 → 材料</td><td></td><td>材料（比透磁率か比誘電率・メッシュの大きさ・色）を決めます。選んでいるボディにはこの材料を割り当てます</td><td>パーツ</td></tr>
+<tr id="cmd-em-region-assign"><th scope="row">割り当て<span class="cid"><code>em.region.assign</code></span></th><td>物理 → 材料</td><td></td><td>選んだボディの材料を選びます</td><td>パーツ</td></tr>
+</tbody>
+</table></div>
+<h3 id="panel-physics-excitation">［励磁］パネル</h3>
+<div class="table-wrap"><table class="commands">
+<thead><tr><th>コマンド</th><th>場所</th><th>キー</th><th>説明</th><th>使えるモード</th></tr></thead>
+<tbody>
+<tr id="cmd-em-coil-add"><th scope="row">コイル<span class="cid"><code>em.coil.add</code></span></th><td>物理 → 励磁</td><td></td><td>選んだボディにコイルを定義します（巻数・電流・巻きの向き）</td><td>パーツ</td></tr>
+<tr id="cmd-em-electrode-add"><th scope="row">電極<span class="cid"><code>em.electrode.add</code></span></th><td>物理 → 励磁</td><td></td><td>選んだボディ（または外面）を電極にして電位を与えます（ボディの表面がその電位になります）</td><td>パーツ</td></tr>
+<tr id="cmd-em-emitter-add"><th scope="row">放出面<span class="cid"><code>em.emitter.add</code></span></th><td>物理 → 励磁</td><td></td><td>選んだ陰極の電極の面を放出面にします（空間電荷制限。Child-Langmuir 則）</td><td>パーツ</td></tr>
+<tr id="cmd-em-bfield-edit"><th scope="row">磁場<span class="cid"><code>em.bfield.edit</code></span></th><td>物理 → 励磁</td><td></td><td>ビームにかける磁場を選びます（なし・静磁場のスタディの結果・軸上の分布）</td><td>パーツ</td></tr>
+<tr id="cmd-em-coil-preview"><th scope="row">電流分布<span class="cid"><code>em.coil.preview</code></span></th><td>物理 → 励磁</td><td></td><td>コイルの電流だけを解き、電流密度を矢印で表示します（磁場は解きません）</td><td>パーツ</td></tr>
+<tr id="cmd-em-beam-edit"><th scope="row">ビーム軸<span class="cid"><code>em.beam.edit</code></span></th><td>物理 → 励磁</td><td></td><td>加速電圧・R/Q・表面の最大の場の比を求めるビーム軸と粒子の速さを編集します</td><td>パーツ</td></tr>
+<tr id="cmd-em-port-add"><th scope="row">ポート<span class="cid"><code>em.port.add</code></span></th><td>物理 → 励磁</td><td></td><td>選んだ面を導波管か同軸のポートにします（支配モードは自動で求めます。ポートの番号は一覧の並びの順）</td><td>パーツ</td></tr>
+</tbody>
+</table></div>
+<h3 id="panel-physics-boundary">［境界］パネル</h3>
+<div class="table-wrap"><table class="commands">
+<thead><tr><th>コマンド</th><th>場所</th><th>キー</th><th>説明</th><th>使えるモード</th></tr></thead>
+<tbody>
+<tr id="cmd-em-bc-flux_parallel"><th scope="row">磁束平行<span class="cid"><code>em.bc.flux_parallel</code></span></th><td>物理 → 境界</td><td></td><td>選んだ面に沿って磁力線が走るようにします（n×A = 0）</td><td>パーツ</td></tr>
+<tr id="cmd-em-bc-flux_normal"><th scope="row">磁束垂直<span class="cid"><code>em.bc.flux_normal</code></span></th><td>物理 → 境界</td><td></td><td>選んだ面に磁力線が垂直に入るようにします（n×H = 0）</td><td>パーツ</td></tr>
+<tr id="cmd-em-bc-eshort"><th scope="row">電気壁<span class="cid"><code>em.bc.eshort</code></span></th><td>物理 → 境界</td><td></td><td>選んだ面を電気壁（E-short、n×E = 0）にします。電場は面に垂直になります</td><td>パーツ</td></tr>
+<tr id="cmd-em-bc-mshort"><th scope="row">磁気壁<span class="cid"><code>em.bc.mshort</code></span></th><td>物理 → 境界</td><td></td><td>選んだ面を磁気壁（M-short、n×H = 0）にします。磁場は面に垂直になります</td><td>パーツ</td></tr>
+</tbody>
+</table></div>
+<h3 id="panel-physics-region">［解析領域］パネル</h3>
+<div class="table-wrap"><table class="commands">
+<thead><tr><th>コマンド</th><th>場所</th><th>キー</th><th>説明</th><th>使えるモード</th></tr></thead>
+<tbody>
+<tr id="cmd-em-region-enclosure"><th scope="row">解析領域<span class="cid"><code>em.region.enclosure</code></span></th><td>物理 → 解析領域</td><td></td><td>モデルのまわりに作る空気の領域を編集します</td><td>パーツ</td></tr>
+<tr id="cmd-em-region-symmetry"><th scope="row">対称面<span class="cid"><code>em.region.symmetry</code></span></th><td>物理 → 解析領域</td><td></td><td>対称面でモデルを切ります（静磁場は境界条件を自動で決めます。共振モードは電気壁か磁気壁、静電場は電荷ゼロか接地）</td><td>パーツ</td></tr>
+<tr id="cmd-em-display-domain"><th scope="row">解析領域を表示<span class="cid"><code>em.display.domain</code></span></th><td>物理 → 解析領域</td><td></td><td>物理・メッシュ・解析のタブで、解析領域（空気）の枠を表示するか切り替えます</td><td>パーツ</td></tr>
+<tr id="cmd-em-display-symmetry"><th scope="row">対称面を表示<span class="cid"><code>em.display.symmetry</code></span></th><td>物理 → 解析領域</td><td></td><td>対称面を表示するか切り替えます（緑: 磁束平行、青: 磁束垂直、橙: 決められない）</td><td>パーツ</td></tr>
+<tr id="cmd-em-region-zoom"><th scope="row">解析領域の全体表示<span class="cid"><code>em.region.zoom</code></span></th><td>物理 → 解析領域</td><td></td><td>解析領域の全体が入るように表示します（［全体表示］はモデルだけに合わせます）</td><td>パーツ</td></tr>
+</tbody>
+</table></div>
+<h3 id="panel-physics-check">［チェック］パネル</h3>
+<div class="table-wrap"><table class="commands">
+<thead><tr><th>コマンド</th><th>場所</th><th>キー</th><th>説明</th><th>使えるモード</th></tr></thead>
+<tbody>
+<tr id="cmd-em-check"><th scope="row">チェック<span class="cid"><code>em.check</code></span></th><td>物理 → チェック</td><td></td><td>スタディの設定を検査し、問題を一覧にします</td><td>パーツ</td></tr>
+</tbody>
+</table></div>
+<h2 id="tab-mesh"><span class="secno">A.4</span> ［メッシュ］タブ</h2>
+<h3 id="panel-mesh-settings">［設定］パネル</h3>
+<div class="table-wrap"><table class="commands">
+<thead><tr><th>コマンド</th><th>場所</th><th>キー</th><th>説明</th><th>使えるモード</th></tr></thead>
+<tbody>
+<tr id="cmd-em-mesh-settings"><th scope="row">メッシュの設定<span class="cid"><code>em.mesh.settings</code></span></th><td>メッシュ → 設定</td><td></td><td>要素の大きさと次数を編集します</td><td>パーツ</td></tr>
+</tbody>
+</table></div>
+<h3 id="panel-mesh-generate">［生成］パネル</h3>
+<div class="table-wrap"><table class="commands">
+<thead><tr><th>コマンド</th><th>場所</th><th>キー</th><th>説明</th><th>使えるモード</th></tr></thead>
+<tbody>
+<tr id="cmd-em-mesh-generate"><th scope="row">メッシュ生成<span class="cid"><code>em.mesh.generate</code></span></th><td>メッシュ → 生成</td><td></td><td>アクティブなスタディのメッシュを生成して表示します</td><td>パーツ</td></tr>
+</tbody>
+</table></div>
+<h3 id="panel-mesh-display">［表示］パネル</h3>
+<div class="table-wrap"><table class="commands">
+<thead><tr><th>コマンド</th><th>場所</th><th>キー</th><th>説明</th><th>使えるモード</th></tr></thead>
+<tbody>
+<tr id="cmd-em-display-mesh"><th scope="row">メッシュを表示<span class="cid"><code>em.display.mesh</code></span></th><td>メッシュ → 表示</td><td></td><td>最新のメッシュ（ボディの表面）を表示するか切り替えます（表示中はボディの面を隠します）</td><td>パーツ</td></tr>
+</tbody>
+</table></div>
+<h2 id="tab-solve"><span class="secno">A.5</span> ［解析］タブ</h2>
+<h3 id="panel-solve-settings">［設定］パネル</h3>
+<div class="table-wrap"><table class="commands">
+<thead><tr><th>コマンド</th><th>場所</th><th>キー</th><th>説明</th><th>使えるモード</th></tr></thead>
+<tbody>
+<tr id="cmd-em-solve-settings"><th scope="row">解析の設定<span class="cid"><code>em.solve.settings</code></span></th><td>解析 → 設定</td><td></td><td>ソルバの設定を編集します</td><td>パーツ</td></tr>
+</tbody>
+</table></div>
+<h3 id="panel-solve-run">［実行］パネル</h3>
+<div class="table-wrap"><table class="commands">
+<thead><tr><th>コマンド</th><th>場所</th><th>キー</th><th>説明</th><th>使えるモード</th></tr></thead>
+<tbody>
+<tr id="cmd-em-solve-run"><th scope="row">実行<span class="cid"><code>em.solve.run</code></span></th><td>解析 → 実行</td><td></td><td>アクティブなスタディを（必要ならメッシュを作って）解きます</td><td>パーツ</td></tr>
+<tr id="cmd-em-solve-stop"><th scope="row">停止<span class="cid"><code>em.solve.stop</code></span></th><td>解析 → 実行</td><td></td><td>実行中のジョブを次の区切りで止めます</td><td>パーツ</td></tr>
+</tbody>
+</table></div>
+<h2 id="tab-results"><span class="secno">A.6</span> ［結果］タブ</h2>
+<h3 id="panel-results-display">［表示］パネル</h3>
+<div class="table-wrap"><table class="commands">
+<thead><tr><th>コマンド</th><th>場所</th><th>キー</th><th>説明</th><th>使えるモード</th></tr></thead>
+<tbody>
+<tr id="cmd-em-results-field"><th scope="row">場の表示<span class="cid"><code>em.results.field</code></span></th><td>結果 → 表示</td><td></td><td>最新の結果の磁場を 3D ビューの断面に出します</td><td>パーツ</td></tr>
+<tr id="cmd-em-results-surface"><th scope="row">表面<span class="cid"><code>em.results.surface</code></span></th><td>結果 → 表示</td><td></td><td>ボディの表面を場の値で色分けします（鉄の飽和を見るときなど）</td><td>パーツ</td></tr>
+<tr id="cmd-em-results-arrows3d"><th scope="row">3D の矢印<span class="cid"><code>em.results.arrows3d</code></span></th><td>結果 → 表示</td><td></td><td>モデルのまわりの 3D の格子に場の矢印を出します</td><td>パーツ</td></tr>
+<tr id="cmd-em-results-arrows"><th scope="row">矢印<span class="cid"><code>em.results.arrows</code></span></th><td>結果 → 表示</td><td></td><td>断面の上の場の矢印を表示・非表示にします</td><td>パーツ</td></tr>
+<tr id="cmd-em-results-field_lines"><th scope="row">Field Lines<span class="cid"><code>em.results.field_lines</code></span></th><td>結果 → 表示</td><td></td><td>断面の上の力線（静磁場は磁力線、静電場は電気力線）を表示・非表示にします</td><td>パーツ</td></tr>
+<tr id="cmd-em-results-contours"><th scope="row">等値線<span class="cid"><code>em.results.contours</code></span></th><td>結果 → 表示</td><td></td><td>断面の等値線を出す・消す</td><td>パーツ</td></tr>
+<tr id="cmd-em-results-current"><th scope="row">電流<span class="cid"><code>em.results.current</code></span></th><td>結果 → 表示</td><td></td><td>最新の結果のコイルの電流密度を矢印で表示します</td><td>パーツ</td></tr>
+<tr id="cmd-em-results-surface_current"><th scope="row">表面電流<span class="cid"><code>em.results.surface_current</code></span></th><td>結果 → 表示</td><td></td><td>選んだモードの表面電流 |Js| = |n×H| で壁を色分けし、その矢印を出します</td><td>パーツ</td></tr>
+<tr id="cmd-em-results-tracks"><th scope="row">軌道<span class="cid"><code>em.results.tracks</code></span></th><td>結果 → 表示</td><td></td><td>電子の軌道を表示・非表示にします</td><td>パーツ</td></tr>
+<tr id="cmd-em-results-settings"><th scope="row">表示の設定<span class="cid"><code>em.results.settings</code></span></th><td>結果 → 表示</td><td></td><td>結果の表示のパネル（量・断面の位置・色）を開きます</td><td>パーツ</td></tr>
+</tbody>
+</table></div>
+<h3 id="panel-results-evaluate">［評価］パネル</h3>
+<div class="table-wrap"><table class="commands">
+<thead><tr><th>コマンド</th><th>場所</th><th>キー</th><th>説明</th><th>使えるモード</th></tr></thead>
+<tbody>
+<tr id="cmd-em-results-line_plot"><th scope="row">線上のグラフ<span class="cid"><code>em.results.line_plot</code></span></th><td>結果 → 評価</td><td></td><td>線（始点・終点）に沿った磁場をグラフのタブに描きます</td><td>パーツ</td></tr>
+<tr id="cmd-em-results-axis_plot"><th scope="row">軸上の場<span class="cid"><code>em.results.axis_plot</code></span></th><td>結果 → 評価</td><td></td><td>選んだモードのビーム軸の上の場をグラフのタブに描きます</td><td>パーツ</td></tr>
+<tr id="cmd-em-results-gun_envelope"><th scope="row">包絡線<span class="cid"><code>em.results.gun_envelope</code></span></th><td>結果 → 評価</td><td></td><td>ビームに沿う半径と電流をグラフのタブに描きます</td><td>パーツ</td></tr>
+<tr id="cmd-em-results-sparams"><th scope="row">S パラメータ<span class="cid"><code>em.results.sparams</code></span></th><td>結果 → 評価</td><td></td><td>ポート解析の S パラメータ（大きさと位相）と U/P_inc をグラフのタブに描きます</td><td>パーツ</td></tr>
+<tr id="cmd-em-results-add_field"><th scope="row">場を追加<span class="cid"><code>em.results.add_field</code></span></th><td>結果 → 評価</td><td></td><td>ポート解析の場を別の周波数でも求めて結果に足します（S パラメータのグラフの右クリックのメニューからもできます）</td><td>パーツ</td></tr>
+<tr id="cmd-em-results-gun_plane"><th scope="row">断面のビーム<span class="cid"><code>em.results.gun_plane</code></span></th><td>結果 → 評価</td><td></td><td>断面のビームの電流・エネルギー・大きさ・エミッタンスを出し、位相空間を描きます</td><td>パーツ</td></tr>
+<tr id="cmd-em-results-gun_emission"><th scope="row">放出の電流密度<span class="cid"><code>em.results.gun_emission</code></span></th><td>結果 → 評価</td><td></td><td>陰極の放出の電流密度を、ビームの軸からの距離に対して描きます</td><td>パーツ</td></tr>
+<tr id="cmd-em-results-gun_convergence"><th scope="row">反復の履歴<span class="cid"><code>em.results.gun_convergence</code></span></th><td>結果 → 評価</td><td></td><td>自己無撞着の反復の電流と残差を描きます</td><td>パーツ</td></tr>
+<tr id="cmd-em-results-multipoles"><th scope="row">多極成分<span class="cid"><code>em.results.multipoles</code></span></th><td>結果 → 評価</td><td></td><td>参照円の上で多極成分を評価します</td><td>パーツ</td></tr>
+<tr id="cmd-em-results-slice2d"><th scope="row">2D 断面図<span class="cid"><code>em.results.slice2d</code></span></th><td>結果 → 評価</td><td></td><td>今の断面を 2D の図に描きます（マウスの位置の値を読めます）</td><td>パーツ</td></tr>
+<tr id="cmd-em-results-field_map"><th scope="row">フィールドマップ<span class="cid"><code>em.results.field_map</code></span></th><td>結果 → 評価</td><td></td><td>規則格子の場（B と H、E と H、または電位と E と D）を書き出します（CSV か HDF5）</td><td>パーツ</td></tr>
+<tr id="cmd-em-results-touchstone"><th scope="row">Touchstone<span class="cid"><code>em.results.touchstone</code></span></th><td>結果 → 評価</td><td></td><td>S パラメータを Touchstone のファイル（.sNp）に保存します</td><td>パーツ</td></tr>
+</tbody>
+</table></div>
+<h2 id="tab-view"><span class="secno">A.7</span> ［表示］タブ</h2>
+<h3 id="panel-view-visibility">［表示設定］パネル</h3>
+<div class="table-wrap"><table class="commands">
+<thead><tr><th>コマンド</th><th>場所</th><th>キー</th><th>説明</th><th>使えるモード</th></tr></thead>
+<tbody>
+<tr id="cmd-view-hide"><th scope="row">非表示<span class="cid"><code>view.hide</code></span></th><td>表示 → 表示設定</td><td></td><td>選んだボディ・スケッチ・作業フィーチャを隠す（面・辺を選んだときはそのボディを隠す）</td><td>パーツ・スケッチ</td></tr>
+<tr id="cmd-view-show"><th scope="row">表示<span class="cid"><code>view.show</code></span></th><td>表示 → 表示設定</td><td></td><td>選んだボディ・スケッチ・作業フィーチャを表示する（フィーチャに使われて隠れたスケッチも）</td><td>パーツ・スケッチ</td></tr>
+<tr id="cmd-view-show_all"><th scope="row">すべて表示<span class="cid"><code>view.show_all</code></span></th><td>表示 → 表示設定</td><td></td><td>「非表示」で隠したものをすべて表示する。フィーチャに使われて隠れたスケッチは隠れたまま（そのスケッチを選んで「表示」を使う）</td><td>パーツ・スケッチ</td></tr>
+<tr id="cmd-view-invert_visibility"><th scope="row">表示の反転<span class="cid"><code>view.invert_visibility</code></span></th><td>表示 → 表示設定</td><td></td><td>表示しているボディを隠し、隠したボディを表示する</td><td>パーツ・スケッチ</td></tr>
+<tr id="cmd-view-isolate"><th scope="row">分離<span class="cid"><code>view.isolate</code></span></th><td>表示 → 表示設定</td><td></td><td>選択した項目のボディだけを表示する</td><td>パーツ・スケッチ</td></tr>
+<tr id="cmd-view-isolate_end"><th scope="row">分離を解除<span class="cid"><code>view.isolate_end</code></span></th><td>表示 → 表示設定</td><td></td><td>分離で隠したボディを再び表示する</td><td>パーツ・スケッチ</td></tr>
+<tr id="cmd-view-category-work_features"><th scope="row">すべての作業フィーチャ<span class="cid"><code>view.category.work_features</code></span></th><td>表示 → 表示設定 → オブジェクトの表示設定▼</td><td></td><td>ユーザ作業平面・作業軸・作業点・UCS をまとめて表示/非表示</td><td>パーツ・スケッチ</td></tr>
+<tr id="cmd-view-category-origin_planes"><th scope="row">原点の平面<span class="cid"><code>view.category.origin_planes</code></span></th><td>表示 → 表示設定 → オブジェクトの表示設定▼</td><td></td><td>この種類のオブジェクトをまとめて表示・非表示にする</td><td>パーツ・スケッチ</td></tr>
+<tr id="cmd-view-category-origin_axes"><th scope="row">原点の軸<span class="cid"><code>view.category.origin_axes</code></span></th><td>表示 → 表示設定 → オブジェクトの表示設定▼</td><td></td><td>この種類のオブジェクトをまとめて表示・非表示にする</td><td>パーツ・スケッチ</td></tr>
+<tr id="cmd-view-category-origin_points"><th scope="row">原点<span class="cid"><code>view.category.origin_points</code></span></th><td>表示 → 表示設定 → オブジェクトの表示設定▼</td><td></td><td>この種類のオブジェクトをまとめて表示・非表示にする</td><td>パーツ・スケッチ</td></tr>
+<tr id="cmd-view-category-datum_planes"><th scope="row">ユーザ作業平面<span class="cid"><code>view.category.datum_planes</code></span></th><td>表示 → 表示設定 → オブジェクトの表示設定▼</td><td></td><td>この種類のオブジェクトをまとめて表示・非表示にする</td><td>パーツ・スケッチ</td></tr>
+<tr id="cmd-view-category-datum_axes"><th scope="row">ユーザ作業軸<span class="cid"><code>view.category.datum_axes</code></span></th><td>表示 → 表示設定 → オブジェクトの表示設定▼</td><td></td><td>この種類のオブジェクトをまとめて表示・非表示にする</td><td>パーツ・スケッチ</td></tr>
+<tr id="cmd-view-category-datum_points"><th scope="row">ユーザ作業点<span class="cid"><code>view.category.datum_points</code></span></th><td>表示 → 表示設定 → オブジェクトの表示設定▼</td><td></td><td>この種類のオブジェクトをまとめて表示・非表示にする</td><td>パーツ・スケッチ</td></tr>
+<tr id="cmd-view-category-datum_csys"><th scope="row">ユーザ座標系（UCS）<span class="cid"><code>view.category.datum_csys</code></span></th><td>表示 → 表示設定 → オブジェクトの表示設定▼</td><td></td><td>この種類のオブジェクトをまとめて表示・非表示にする</td><td>パーツ・スケッチ</td></tr>
+<tr id="cmd-view-category-sketches"><th scope="row">スケッチ<span class="cid"><code>view.category.sketches</code></span></th><td>表示 → 表示設定 → オブジェクトの表示設定▼</td><td></td><td>この種類のオブジェクトをまとめて表示・非表示にする</td><td>パーツ・スケッチ</td></tr>
+<tr id="cmd-view-category-dimensions"><th scope="row">スケッチ寸法<span class="cid"><code>view.category.dimensions</code></span></th><td>表示 → 表示設定 → オブジェクトの表示設定▼</td><td></td><td>この種類のオブジェクトをまとめて表示・非表示にする</td><td>パーツ・スケッチ</td></tr>
+<tr id="cmd-view-category-bodies"><th scope="row">ボディ<span class="cid"><code>view.category.bodies</code></span></th><td>表示 → 表示設定 → オブジェクトの表示設定▼</td><td></td><td>この種類のオブジェクトをまとめて表示・非表示にする</td><td>パーツ・スケッチ</td></tr>
+</tbody>
+</table></div>
+<h3 id="panel-view-appearance">［外観］パネル</h3>
+<div class="table-wrap"><table class="commands">
+<thead><tr><th>コマンド</th><th>場所</th><th>キー</th><th>説明</th><th>使えるモード</th></tr></thead>
+<tbody>
+<tr id="cmd-view-display_mode"><th scope="row">ビジュアル スタイル<span class="cid"><code>view.display_mode</code></span></th><td>表示 → 外観</td><td></td><td>ビジュアル スタイル（シェーディング、エッジ表示、隠線エッジ表示、ワイヤフレーム）を選ぶ</td><td>パーツ・スケッチ</td></tr>
+<tr id="cmd-view-projection"><th scope="row">投影<span class="cid"><code>view.projection</code></span></th><td>表示 → 外観</td><td></td><td>直交投影（平行に投影）またはパース（遠くの部分ほど小さく見える）</td><td>パーツ・スケッチ</td></tr>
+<tr id="cmd-view-transparent"><th scope="row">透明<span class="cid"><code>view.transparent</code></span></th><td>表示 → 外観</td><td></td><td>ボディを半透明で表示する</td><td>パーツ・スケッチ</td></tr>
+<tr id="cmd-view-silhouette"><th scope="row">シルエット エッジ<span class="cid"><code>view.silhouette</code></span></th><td>表示 → 外観</td><td></td><td>ワイヤフレームのビジュアル スタイルで曲面の輪郭を描く</td><td>パーツ・スケッチ</td></tr>
+<tr id="cmd-view-section-half"><th scope="row">1/2 断面図<span class="cid"><code>view.section.half</code></span></th><td>表示 → 外観 → 断面図▼</td><td></td><td>平面か平らな面でモデルを切って中を見る（矢印のドラッグで平面を動かす）</td><td>パーツ</td></tr>
+<tr id="cmd-view-section-quarter"><th scope="row">1/4 断面図<span class="cid"><code>view.section.quarter</code></span></th><td>表示 → 外観 → 断面図▼</td><td></td><td>2 つの平面でモデルを切り、1/4 だけを残す</td><td>パーツ</td></tr>
+<tr id="cmd-view-section-three_quarter"><th scope="row">3/4 断面図<span class="cid"><code>view.section.three_quarter</code></span></th><td>表示 → 外観 → 断面図▼</td><td></td><td>2 つの平面でモデルの 1/4 を取り去って中を見る</td><td>パーツ</td></tr>
+<tr id="cmd-view-section-end"><th scope="row">断面図を終了<span class="cid"><code>view.section.end</code></span></th><td>表示 → 外観</td><td></td><td>モデル全体の表示に戻す</td><td>パーツ・スケッチ</td></tr>
+<tr id="cmd-view-section-flip"><th scope="row">断面を反転<span class="cid"><code>view.section.flip</code></span></th><td>表示 → 外観</td><td></td><td>断面の平面の反対側を表示する</td><td>パーツ・スケッチ</td></tr>
+<tr id="cmd-view-section-caps"><th scope="row">切断面を塗りつぶす<span class="cid"><code>view.section.caps</code></span></th><td>表示 → 外観</td><td></td><td>切断面をボディごとの色で塗りつぶす</td><td>パーツ・スケッチ</td></tr>
+<tr id="cmd-view-section-hatch"><th scope="row">切断面のハッチング<span class="cid"><code>view.section.hatch</code></span></th><td>表示 → 外観</td><td></td><td>塗りつぶした切断面にハッチングの線を描く</td><td>パーツ・スケッチ</td></tr>
+</tbody>
+</table></div>
+<h3 id="panel-view-windows">［ウィンドウ］パネル</h3>
+<div class="table-wrap"><table class="commands">
+<thead><tr><th>コマンド</th><th>場所</th><th>キー</th><th>説明</th><th>使えるモード</th></tr></thead>
+<tbody>
+<tr id="cmd-view-ribbon-toggle"><th scope="row">リボンを最小化<span class="cid"><code>view.ribbon.toggle</code></span></th><td>表示 → ウィンドウ</td><td><kbd>Ctrl</kbd>+<kbd>F1</kbd></td><td>リボンをタブの名前だけにする、またはリボン全体を表示に戻す（タブの名前のダブルクリックと同じ）</td><td>パーツ・スケッチ</td></tr>
+<tr id="cmd-view-view_cube"><th scope="row">ViewCube<span class="cid"><code>view.view_cube</code></span></th><td>表示 → ウィンドウ</td><td></td><td>ビューの右上の ViewCube を表示・非表示にする</td><td>パーツ・スケッチ</td></tr>
+<tr id="cmd-app-undo_history"><th scope="row">変更履歴<span class="cid"><code>app.undo_history</code></span></th><td>表示 → ウィンドウ</td><td></td><td>ドキュメントの変更の一覧を表示します。行をクリックすると、その時点まで元に戻す・やり直します</td><td>パーツ・スケッチ</td></tr>
+<tr id="cmd-app-log_view"><th scope="row">ログと通知<span class="cid"><code>app.log_view</code></span></th><td>表示 → ウィンドウ</td><td></td><td>通知の履歴とアプリケーションのログ ファイルを表示します</td><td>パーツ・スケッチ</td></tr>
+<tr id="cmd-window-fullscreen"><th scope="row">全画面表示<span class="cid"><code>window.fullscreen</code></span></th><td>表示 → ウィンドウ</td><td><kbd>F11</kbd></td><td>タイトル バーを隠して画面全体を使います。元に戻すには F11 をもう一度押してください</td><td>パーツ・スケッチ</td></tr>
+<tr id="cmd-window-next_document"><th scope="row">次のドキュメント<span class="cid"><code>window.next_document</code></span></th><td>表示 → ウィンドウ</td><td><kbd>Ctrl</kbd>+<kbd>Tab</kbd></td><td>開いている次のドキュメントに切り替えます</td><td>パーツ・スケッチ</td></tr>
+<tr id="cmd-window-previous_document"><th scope="row">前のドキュメント<span class="cid"><code>window.previous_document</code></span></th><td>表示 → ウィンドウ</td><td><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Tab</kbd></td><td>開いている前のドキュメントに切り替えます</td><td>パーツ・スケッチ</td></tr>
+<tr id="cmd-app-panel-model"><th scope="row">モデル<span class="cid"><code>app.panel.model</code></span></th><td>表示 → ウィンドウ → ユーザー インタフェース▼</td><td></td><td>ブラウザ（フィーチャとスタディ）を表示・非表示にする</td><td>パーツ・スケッチ</td></tr>
+<tr id="cmd-app-panel-properties"><th scope="row">プロパティ<span class="cid"><code>app.panel.properties</code></span></th><td>表示 → ウィンドウ → ユーザー インタフェース▼</td><td></td><td>プロパティのパネルを表示・非表示にする</td><td>パーツ・スケッチ</td></tr>
+<tr id="cmd-em-panel-check"><th scope="row">チェック<span class="cid"><code>em.panel.check</code></span></th><td>表示 → ウィンドウ → ユーザー インタフェース▼</td><td></td><td>チェックのパネルを表示・非表示にする</td><td>パーツ</td></tr>
+<tr id="cmd-em-panel-display"><th scope="row">結果の表示<span class="cid"><code>em.panel.display</code></span></th><td>表示 → ウィンドウ → ユーザー インタフェース▼</td><td></td><td>結果の表示の設定を表示・非表示にする</td><td>パーツ</td></tr>
+<tr id="cmd-em-panel-results"><th scope="row">結果<span class="cid"><code>em.panel.results</code></span></th><td>表示 → ウィンドウ → ユーザー インタフェース▼</td><td></td><td>結果の値の表を表示・非表示にする</td><td>パーツ</td></tr>
+<tr id="cmd-em-panel-jobs"><th scope="row">ジョブ<span class="cid"><code>em.panel.jobs</code></span></th><td>表示 → ウィンドウ → ユーザー インタフェース▼</td><td></td><td>ジョブのパネル（ログと進み具合）を表示・非表示にする</td><td>パーツ</td></tr>
+<tr id="cmd-app-reset_layout"><th scope="row">初期配置に戻す<span class="cid"><code>app.reset_layout</code></span></th><td>表示 → ウィンドウ → ユーザー インタフェース▼</td><td></td><td>パネルを起動直後の位置と大きさに戻す</td><td>パーツ・スケッチ</td></tr>
+</tbody>
+</table></div>
+<h3 id="panel-view-navigate">［ナビゲート］パネル</h3>
+<div class="table-wrap"><table class="commands">
+<thead><tr><th>コマンド</th><th>場所</th><th>キー</th><th>説明</th><th>使えるモード</th></tr></thead>
+<tbody>
+<tr id="cmd-view-fit_all"><th scope="row">全体表示<span class="cid"><code>view.fit_all</code></span></th><td>表示 → ナビゲート</td><td><kbd>Home</kbd></td><td>モデル全体が見えるようにズームする</td><td>パーツ・スケッチ</td></tr>
+<tr id="cmd-view-std-front"><th scope="row">正面<span class="cid"><code>view.std.front</code></span></th><td>表示 → ナビゲート → 標準ビュー▼</td><td><kbd>Ctrl</kbd>+<kbd>1</kbd></td><td>標準の向きからモデルを見る</td><td>パーツ・スケッチ</td></tr>
+<tr id="cmd-view-std-back"><th scope="row">背面<span class="cid"><code>view.std.back</code></span></th><td>表示 → ナビゲート → 標準ビュー▼</td><td><kbd>Ctrl</kbd>+<kbd>2</kbd></td><td>標準の向きからモデルを見る</td><td>パーツ・スケッチ</td></tr>
+<tr id="cmd-view-std-left"><th scope="row">左<span class="cid"><code>view.std.left</code></span></th><td>表示 → ナビゲート → 標準ビュー▼</td><td><kbd>Ctrl</kbd>+<kbd>3</kbd></td><td>標準の向きからモデルを見る</td><td>パーツ・スケッチ</td></tr>
+<tr id="cmd-view-std-right"><th scope="row">右<span class="cid"><code>view.std.right</code></span></th><td>表示 → ナビゲート → 標準ビュー▼</td><td><kbd>Ctrl</kbd>+<kbd>4</kbd></td><td>標準の向きからモデルを見る</td><td>パーツ・スケッチ</td></tr>
+<tr id="cmd-view-std-top"><th scope="row">上<span class="cid"><code>view.std.top</code></span></th><td>表示 → ナビゲート → 標準ビュー▼</td><td><kbd>Ctrl</kbd>+<kbd>5</kbd></td><td>標準の向きからモデルを見る</td><td>パーツ・スケッチ</td></tr>
+<tr id="cmd-view-std-bottom"><th scope="row">下<span class="cid"><code>view.std.bottom</code></span></th><td>表示 → ナビゲート → 標準ビュー▼</td><td><kbd>Ctrl</kbd>+<kbd>6</kbd></td><td>標準の向きからモデルを見る</td><td>パーツ・スケッチ</td></tr>
+<tr id="cmd-view-std-iso"><th scope="row">アイソメ ビュー<span class="cid"><code>view.std.iso</code></span></th><td>表示 → ナビゲート → 標準ビュー▼</td><td><kbd>Ctrl</kbd>+<kbd>7</kbd></td><td>標準の向きからモデルを見る</td><td>パーツ・スケッチ</td></tr>
+<tr id="cmd-view-normal_to"><th scope="row">ビュー面<span class="cid"><code>view.normal_to</code></span></th><td>表示 → ナビゲート</td><td><kbd>Ctrl</kbd>+<kbd>8</kbd></td><td>平面・面・スケッチに X 方向を右にして正対する（もう一度で裏側から）。直線のエッジは水平に表示する。何も選んでいなければ、コマンドを始めてから要素をクリックする</td><td>パーツ・スケッチ</td></tr>
+<tr id="cmd-view-home"><th scope="row">ホーム ビュー<span class="cid"><code>view.home</code></span></th><td>表示 → ナビゲート</td><td><kbd>F6</kbd></td><td>ホーム ビューに移動する（設定していなければアイソメ ビュー）</td><td>パーツ・スケッチ</td></tr>
+<tr id="cmd-view-previous"><th scope="row">前のビューを表示<span class="cid"><code>view.previous</code></span></th><td>表示 → ナビゲート</td><td><kbd>F5</kbd></td><td>前のビュー（向きと拡大率）に戻る</td><td>パーツ・スケッチ</td></tr>
+<tr id="cmd-view-next"><th scope="row">次のビューを表示<span class="cid"><code>view.next</code></span></th><td>表示 → ナビゲート</td><td><kbd>Shift</kbd>+<kbd>F5</kbd></td><td>前のビューを表示した後の次のビューに進む</td><td>パーツ・スケッチ</td></tr>
+<tr id="cmd-view-zoom_window"><th scope="row">窓ズーム<span class="cid"><code>view.zoom_window</code></span></th><td>表示 → ナビゲート → ズーム▼</td><td><kbd>Shift</kbd>+<kbd>F3</kbd></td><td>拡大する範囲を窓で囲む</td><td>パーツ・スケッチ</td></tr>
+<tr id="cmd-view-zoom_selected"><th scope="row">選択範囲をズーム<span class="cid"><code>view.zoom_selected</code></span></th><td>表示 → ナビゲート → ズーム▼</td><td></td><td>選択した項目がビューいっぱいになるようにズームする</td><td>パーツ・スケッチ</td></tr>
+<tr id="cmd-view-named-save"><th scope="row">ビューを保存<span class="cid"><code>view.named.save</code></span></th><td>表示 → ナビゲート</td><td></td><td>現在のビュー（カメラと断面図）に名前を付けてドキュメントに保存する</td><td>パーツ・スケッチ</td></tr>
+<tr id="cmd-view-named-restore"><th scope="row">ビューを復元<span class="cid"><code>view.named.restore</code></span></th><td>表示 → ナビゲート</td><td></td><td>保存したビューに移動する</td><td>パーツ・スケッチ</td></tr>
+<tr id="cmd-view-named-delete"><th scope="row">ビューを削除<span class="cid"><code>view.named.delete</code></span></th><td>表示 → ナビゲート</td><td></td><td>保存したビューを削除する</td><td>パーツ・スケッチ</td></tr>
+<tr id="cmd-view-navigation-set_preset"><th scope="row">マウス操作のプリセット<span class="cid"><code>view.navigation.set_preset</code></span></th><td>表示 → ナビゲート</td><td></td><td>マウスのボタンとホイールでビューをオービット・画面移動・ズームする方法を選ぶ</td><td>パーツ・スケッチ</td></tr>
+<tr id="cmd-view-rotate-left"><th scope="row">左へオービット<span class="cid"><code>view.rotate.left</code></span></th><td>表示 → ナビゲート （パネルの▼）</td><td><kbd>Left</kbd></td><td>画面の軸のまわりにビューを 15° 回す</td><td>パーツ・スケッチ</td></tr>
+<tr id="cmd-view-rotate-right"><th scope="row">右へオービット<span class="cid"><code>view.rotate.right</code></span></th><td>表示 → ナビゲート （パネルの▼）</td><td><kbd>Right</kbd></td><td>画面の軸のまわりにビューを 15° 回す</td><td>パーツ・スケッチ</td></tr>
+<tr id="cmd-view-rotate-up"><th scope="row">上へオービット<span class="cid"><code>view.rotate.up</code></span></th><td>表示 → ナビゲート （パネルの▼）</td><td><kbd>Up</kbd></td><td>画面の軸のまわりにビューを 15° 回す</td><td>パーツ・スケッチ</td></tr>
+<tr id="cmd-view-rotate-down"><th scope="row">下へオービット<span class="cid"><code>view.rotate.down</code></span></th><td>表示 → ナビゲート （パネルの▼）</td><td><kbd>Down</kbd></td><td>画面の軸のまわりにビューを 15° 回す</td><td>パーツ・スケッチ</td></tr>
+<tr id="cmd-view-rotate-ccw"><th scope="row">ビューを反時計回りに回転<span class="cid"><code>view.rotate.ccw</code></span></th><td>表示 → ナビゲート （パネルの▼）</td><td><kbd>Alt</kbd>+<kbd>Left</kbd></td><td>視線のまわりにビューを 90° 回す（画面でモデルが反時計回りに回る）</td><td>パーツ・スケッチ</td></tr>
+<tr id="cmd-view-rotate-cw"><th scope="row">ビューを時計回りに回転<span class="cid"><code>view.rotate.cw</code></span></th><td>表示 → ナビゲート （パネルの▼）</td><td><kbd>Alt</kbd>+<kbd>Right</kbd></td><td>視線のまわりにビューを 90° 回す（画面でモデルが時計回りに回る）</td><td>パーツ・スケッチ</td></tr>
+<tr id="cmd-view-home-set"><th scope="row">現在のビューをホーム ビューに設定（ビューにフィット）<span class="cid"><code>view.home.set</code></span></th><td>表示 → ナビゲート （パネルの▼）</td><td></td><td>現在の向きをホーム ビューにする（ホーム ビューでは常にモデル全体を表示）</td><td>パーツ・スケッチ</td></tr>
+<tr id="cmd-view-home-set_fixed"><th scope="row">現在のビューをホーム ビューに設定（固定間隔）<span class="cid"><code>view.home.set_fixed</code></span></th><td>表示 → ナビゲート （パネルの▼）</td><td></td><td>現在の向きと拡大率をホーム ビューにする</td><td>パーツ・スケッチ</td></tr>
+<tr id="cmd-view-home-reset"><th scope="row">ホーム ビューをリセット<span class="cid"><code>view.home.reset</code></span></th><td>表示 → ナビゲート （パネルの▼）</td><td></td><td>モデル全体のアイソメ ビューをホーム ビューに戻す</td><td>パーツ・スケッチ</td></tr>
+</tbody>
+</table></div>
+<h2 id="tab-inspect"><span class="secno">A.8</span> ［検査］タブ</h2>
+<h3 id="panel-inspect-measure">［計測］パネル</h3>
+<div class="table-wrap"><table class="commands">
+<thead><tr><th>コマンド</th><th>場所</th><th>キー</th><th>説明</th><th>使えるモード</th></tr></thead>
+<tbody>
+<tr id="cmd-inspect-measure"><th scope="row">計測<span class="cid"><code>inspect.measure</code></span></th><td>検査 → 計測</td><td></td><td>選択したジオメトリの距離・角度・長さ・面積・半径を計測します</td><td>パーツ</td></tr>
+<tr id="cmd-inspect-region_properties"><th scope="row">領域のプロパティ<span class="cid"><code>inspect.region_properties</code></span></th><td>検査 → 計測</td><td></td><td>スケッチの閉じた領域の面積・図心・断面二次モーメント</td><td>パーツ・スケッチ</td></tr>
+<tr id="cmd-inspect-mass_properties"><th scope="row">物理プロパティ<span class="cid"><code>inspect.mass_properties</code></span></th><td>検査 → 計測</td><td></td><td>材料・密度・質量・体積・重心・慣性モーメント</td><td>パーツ</td></tr>
+</tbody>
+</table></div>
+<h3 id="panel-inspect-analysis">［解析］パネル</h3>
+<div class="table-wrap"><table class="commands">
+<thead><tr><th>コマンド</th><th>場所</th><th>キー</th><th>説明</th><th>使えるモード</th></tr></thead>
+<tbody>
+<tr id="cmd-inspect-find_errors"><th scope="row">エラーを検索<span class="cid"><code>inspect.find_errors</code></span></th><td>検査 → 解析</td><td></td><td>ボディの不正なジオメトリ・自己交差・微小エッジ・スライバー面・フリー エッジ・ギャップを調べます</td><td>パーツ</td></tr>
+</tbody>
+</table></div>
+<h2 id="tab-manage"><span class="secno">A.9</span> ［管理］タブ</h2>
+<h3 id="panel-manage-parameters">［パラメータ］パネル</h3>
+<div class="table-wrap"><table class="commands">
+<thead><tr><th>コマンド</th><th>場所</th><th>キー</th><th>説明</th><th>使えるモード</th></tr></thead>
+<tbody>
+<tr id="cmd-manage-parameters"><th scope="row">パラメータ<span class="cid"><code>manage.parameters</code></span></th><td>管理 → パラメータ</td><td></td><td>モデル、参照、ユーザーの各パラメータ: 名前、式、単位、コメント、使用箇所</td><td>パーツ・スケッチ</td></tr>
+<tr id="cmd-manage-properties"><th scope="row">iProperties<span class="cid"><code>manage.properties</code></span></th><td>管理 → パラメータ</td><td></td><td>部品番号、説明、材料、ユーザー定義のプロパティ（質量やパラメータにリンクした値を含む）</td><td>パーツ・スケッチ</td></tr>
+</tbody>
+</table></div>
+<h3 id="panel-manage-insert">［挿入］パネル</h3>
+<div class="table-wrap"><table class="commands">
+<thead><tr><th>コマンド</th><th>場所</th><th>キー</th><th>説明</th><th>使えるモード</th></tr></thead>
+<tbody>
+<tr id="cmd-file-import"><th scope="row">インポート<span class="cid"><code>file.import</code></span></th><td>管理 → 挿入</td><td></td><td>STEP、IGES、BREP、STL、OBJ、PLY、3MF のファイルをパーツにインポートします</td><td>パーツ・スケッチ</td></tr>
+<tr id="cmd-file-export"><th scope="row">エクスポート<span class="cid"><code>file.export</code></span></th><td>管理 → 挿入</td><td></td><td>パーツを STEP（Cav3D Studio 向けの名前付きの部品）、IGES、BREP、STL、3MF、OBJ、PLY、またはビューの画像に、図面を PDF、DXF、SVG、PNG 画像にエクスポートします</td><td>パーツ・スケッチ</td></tr>
+</tbody>
+</table></div>
+<h3 id="panel-manage-author">［構成］パネル</h3>
+<div class="table-wrap"><table class="commands">
+<thead><tr><th>コマンド</th><th>場所</th><th>キー</th><th>説明</th><th>使えるモード</th></tr></thead>
+<tbody>
+<tr id="cmd-manage-configurations"><th scope="row">構成の表<span class="cid"><code>manage.configurations</code></span></th><td>管理 → 構成</td><td></td><td>パーツのメンバーの表を出します。メンバーごとに異なるパラメータ、抑制したフィーチャ、プロパティを表示し、すべてのメンバーをエクスポートできます</td><td>パーツ・スケッチ</td></tr>
+</tbody>
+</table></div>
+<h2 id="tab-tools"><span class="secno">A.10</span> ［ツール］タブ</h2>
+<h3 id="panel-tools-material_appearance">［材料と外観］パネル</h3>
+<div class="table-wrap"><table class="commands">
+<thead><tr><th>コマンド</th><th>場所</th><th>キー</th><th>説明</th><th>使えるモード</th></tr></thead>
+<tbody>
+<tr id="cmd-tools-material"><th scope="row">材料<span class="cid"><code>tools.material</code></span></th><td>ツール → 材料と外観</td><td></td><td>パーツか選択したボディに材料を割り当てます</td><td>パーツ</td></tr>
+<tr id="cmd-tools-appearance"><th scope="row">外観<span class="cid"><code>tools.appearance</code></span></th><td>ツール → 材料と外観</td><td></td><td>選択した面かボディの色と透明度を上書きします</td><td>パーツ</td></tr>
+<tr id="cmd-tools-appearance_clear"><th scope="row">外観をクリア<span class="cid"><code>tools.appearance_clear</code></span></th><td>ツール → 材料と外観</td><td></td><td>選択した面かボディの外観の上書きを削除します</td><td>パーツ</td></tr>
+</tbody>
+</table></div>
+<h3 id="panel-tools-options">［オプション］パネル</h3>
+<div class="table-wrap"><table class="commands">
+<thead><tr><th>コマンド</th><th>場所</th><th>キー</th><th>説明</th><th>使えるモード</th></tr></thead>
+<tbody>
+<tr id="cmd-app-preferences"><th scope="row">オプション<span class="cid"><code>app.preferences</code></span></th><td>ツール → オプション</td><td></td><td>アプリの設定を変更する</td><td>パーツ・スケッチ</td></tr>
+<tr id="cmd-doc-units"><th scope="row">単位と精度<span class="cid"><code>doc.units</code></span></th><td>ツール → オプション</td><td></td><td>アクティブなドキュメントの表示の単位と小数の桁数を変える</td><td>パーツ・スケッチ</td></tr>
+<tr id="cmd-app-shortcuts"><th scope="row">キーボード ショートカット<span class="cid"><code>app.shortcuts</code></span></th><td>ツール → オプション</td><td></td><td>すべてのキーボード ショートカットを表示して変更します</td><td>パーツ・スケッチ</td></tr>
+</tbody>
+</table></div>
+<h3 id="panel-tools-macro">［マクロ］パネル</h3>
+<div class="table-wrap"><table class="commands">
+<thead><tr><th>コマンド</th><th>場所</th><th>キー</th><th>説明</th><th>使えるモード</th></tr></thead>
+<tbody>
+<tr id="cmd-app-console"><th scope="row">Python コンソール<span class="cid"><code>app.console</code></span></th><td>ツール → マクロ</td><td><kbd>Alt</kbd>+<kbd>F11</kbd></td><td>Python コンソールを表示します。スクリプト API（app, doc, part, sel）で Python を実行できます</td><td>パーツ・スケッチ</td></tr>
+<tr id="cmd-macro-record"><th scope="row">マクロを記録<span class="cid"><code>macro.record</code></span></th><td>ツール → マクロ</td><td></td><td>作業中のドキュメントへの操作を、マクロとして記録し始めます。もう一度実行すると停止します</td><td>パーツ・スケッチ</td></tr>
+<tr id="cmd-macro-save"><th scope="row">マクロを保存<span class="cid"><code>macro.save</code></span></th><td>ツール → マクロ</td><td></td><td>記録したマクロを JSON ファイル（*.mcadmacro.json）として保存します</td><td>パーツ・スケッチ</td></tr>
+</tbody>
+</table></div>
+<h2 id="menus"><span class="secno">A.11</span> リボンの外のメニュー</h2>
+<p><strong>ファイル</strong>（リボンの左端）と<strong>ヘルプ</strong>（リボンの右端の ? のボタン）などのメニューです。新規・開く・保存はクイック アクセス ツールバーにも並んでいます。</p>
+<h3 id="menu-file">［ファイル］メニュー</h3>
+<div class="table-wrap"><table class="commands">
+<thead><tr><th>コマンド</th><th>場所</th><th>キー</th><th>説明</th><th>使えるモード</th></tr></thead>
+<tbody>
+<tr id="cmd-file-new"><th scope="row">新規<span class="cid"><code>file.new</code></span></th><td>メニュー: ファイル</td><td><kbd>Ctrl</kbd>+<kbd>N</kbd></td><td>新しいドキュメントを作る</td><td>パーツ・スケッチ</td></tr>
+<tr id="cmd-file-open"><th scope="row">開く<span class="cid"><code>file.open</code></span></th><td>メニュー: ファイル</td><td><kbd>Ctrl</kbd>+<kbd>O</kbd></td><td>ドキュメントを開きます（STEP、IGES、BREP、STL、OBJ、PLY、3MF のファイルは新しいドキュメントにインポートされます）</td><td>パーツ・スケッチ</td></tr>
+<tr id="cmd-file-close"><th scope="row">閉じる<span class="cid"><code>file.close</code></span></th><td>メニュー: ファイル</td><td><kbd>Ctrl</kbd>+<kbd>W</kbd></td><td>作業中のドキュメントを閉じる</td><td>パーツ・スケッチ</td></tr>
+<tr id="cmd-file-save"><th scope="row">保存<span class="cid"><code>file.save</code></span></th><td>メニュー: ファイル</td><td><kbd>Ctrl</kbd>+<kbd>S</kbd></td><td>作業中のドキュメントを保存する</td><td>パーツ・スケッチ</td></tr>
+<tr id="cmd-file-save_as"><th scope="row">名前を付けて保存<span class="cid"><code>file.save_as</code></span></th><td>メニュー: ファイル</td><td><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>S</kbd></td><td>作業中のドキュメントを別の名前で保存する</td><td>パーツ・スケッチ</td></tr>
+<tr id="cmd-file-save_copy"><th scope="row">コピーを保存<span class="cid"><code>file.save_copy</code></span></th><td>メニュー: ファイル</td><td></td><td>アクティブなドキュメントのコピーを保存します（ドキュメントの保存先は変わりません）</td><td>パーツ・スケッチ</td></tr>
+<tr id="cmd-app-quit"><th scope="row">終了<span class="cid"><code>app.quit</code></span></th><td>メニュー: ファイル</td><td><kbd>Ctrl</kbd>+<kbd>Q</kbd></td><td>mcad を終了する</td><td>パーツ・スケッチ</td></tr>
+<tr id="cmd-file-new_from_template"><th scope="row">テンプレートから新規作成<span class="cid"><code>file.new_from_template</code></span></th><td>メニュー: ファイル</td><td><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>N</kbd></td><td>テンプレートから新しいドキュメントを作成します（標準（mm）、標準（in）、または自分で作ったテンプレート）</td><td>パーツ・スケッチ</td></tr>
+<tr id="cmd-file-save_template"><th scope="row">テンプレートとして保存<span class="cid"><code>file.save_template</code></span></th><td>メニュー: ファイル</td><td></td><td>作業中のドキュメントを、新しいドキュメントのテンプレートとして保存します</td><td>パーツ・スケッチ</td></tr>
+</tbody>
+</table></div>
+<h3 id="menu-help">［ヘルプ］メニュー</h3>
+<div class="table-wrap"><table class="commands">
+<thead><tr><th>コマンド</th><th>場所</th><th>キー</th><th>説明</th><th>使えるモード</th></tr></thead>
+<tbody>
+<tr id="cmd-app-notifications"><th scope="row">通知<span class="cid"><code>app.notifications</code></span></th><td>メニュー: ヘルプ</td><td></td><td>最近の通知を表示する</td><td>パーツ・スケッチ</td></tr>
+<tr id="cmd-app-about"><th scope="row">EMRM-Studio について<span class="cid"><code>app.about</code></span></th><td>メニュー: ヘルプ</td><td></td><td>版・ライセンス・第三者のソフトウェアの告知</td><td>パーツ・スケッチ</td></tr>
+<tr id="cmd-app-command_palette"><th scope="row">コマンド検索<span class="cid"><code>app.command_palette</code></span></th><td>メニュー: ヘルプ</td><td><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd></td><td>すべてのコマンドを名前・識別子・場所で検索し、1 つを実行します</td><td>パーツ・スケッチ</td></tr>
+<tr id="cmd-app-help"><th scope="row">ヘルプ<span class="cid"><code>app.help</code></span></th><td>メニュー: ヘルプ</td><td><kbd>F1</kbd></td><td>マウス ポインタの下にあるコマンドのヘルプを表示します。または、すべてのコマンドを検索します</td><td>パーツ・スケッチ</td></tr>
+<tr id="cmd-app-user_manual"><th scope="row">ユーザーマニュアル<span class="cid"><code>app.user_manual</code></span></th><td>メニュー: ヘルプ</td><td></td><td>ユーザーマニュアル（HTML）を既定のブラウザで開きます</td><td>パーツ・スケッチ</td></tr>
+</tbody>
+</table></div>
+<h3 id="menu-edit">［編集］メニュー</h3>
+<div class="table-wrap"><table class="commands">
+<thead><tr><th>コマンド</th><th>場所</th><th>キー</th><th>説明</th><th>使えるモード</th></tr></thead>
+<tbody>
+<tr id="cmd-edit-undo"><th scope="row">元に戻す<span class="cid"><code>edit.undo</code></span></th><td>メニュー: 編集</td><td><kbd>Ctrl</kbd>+<kbd>Z</kbd></td><td>最後の変更を元に戻す</td><td>パーツ・スケッチ</td></tr>
+<tr id="cmd-edit-redo"><th scope="row">やり直し<span class="cid"><code>edit.redo</code></span></th><td>メニュー: 編集</td><td><kbd>Ctrl</kbd>+<kbd>Y</kbd></td><td>元に戻した変更をやり直す</td><td>パーツ・スケッチ</td></tr>
+<tr id="cmd-edit-clear_selection"><th scope="row">選択を解除<span class="cid"><code>edit.clear_selection</code></span></th><td>メニュー: 編集</td><td></td><td>すべての選択を解除する</td><td>パーツ・スケッチ</td></tr>
+</tbody>
+</table></div>
+<h3 id="menu-view">［表示］メニュー</h3>
+<div class="table-wrap"><table class="commands">
+<thead><tr><th>コマンド</th><th>場所</th><th>キー</th><th>説明</th><th>使えるモード</th></tr></thead>
+<tbody>
+<tr id="cmd-view-filter-face"><th scope="row">面を選択<span class="cid"><code>view.filter.face</code></span></th><td>メニュー: 表示 → 選択フィルタ</td><td></td><td>3D ビューでこの種類の要素を選べるようにする・選べなくする</td><td>パーツ・スケッチ</td></tr>
+<tr id="cmd-view-filter-edge"><th scope="row">エッジを選択<span class="cid"><code>view.filter.edge</code></span></th><td>メニュー: 表示 → 選択フィルタ</td><td></td><td>3D ビューでこの種類の要素を選べるようにする・選べなくする</td><td>パーツ・スケッチ</td></tr>
+<tr id="cmd-view-select_vertices"><th scope="row">頂点を選択<span class="cid"><code>view.select_vertices</code></span></th><td>メニュー: 表示 → 選択フィルタ</td><td></td><td>3D ビューでこの種類の要素を選べるようにする・選べなくする</td><td>パーツ・スケッチ</td></tr>
+</tbody>
+</table></div>
+<h2 id="context"><span class="secno">A.12</span> 右クリックのメニューだけのコマンド</h2>
+<p>面・エッジ・スケッチの要素・ブラウザの行などを右クリックしたときのメニューにあるコマンドです。</p>
+<div class="table-wrap"><table class="commands">
+<thead><tr><th>コマンド</th><th>場所</th><th>キー</th><th>説明</th><th>使えるモード</th></tr></thead>
+<tbody>
+<tr id="cmd-feature-edit_owner"><th scope="row">フィーチャの編集<span class="cid"><code>feature.edit_owner</code></span></th><td>右クリックのメニュー</td><td></td><td>選んだ面・エッジを作ったフィーチャを編集する</td><td>パーツ</td></tr>
+<tr id="cmd-sketch-edit_owner"><th scope="row">スケッチを編集<span class="cid"><code>sketch.edit_owner</code></span></th><td>右クリックのメニュー</td><td></td><td>選んだ面・エッジを作ったフィーチャのスケッチを編集する</td><td>パーツ</td></tr>
+<tr id="cmd-edit-rename_folder"><th scope="row">フォルダの名前を変更<span class="cid"><code>edit.rename_folder</code></span></th><td>右クリックのメニュー</td><td></td><td>フォルダの名前を変更します</td><td>パーツ</td></tr>
+<tr id="cmd-edit-ungroup_folder"><th scope="row">フォルダを解除<span class="cid"><code>edit.ungroup_folder</code></span></th><td>右クリックのメニュー</td><td></td><td>フィーチャをフォルダから出して、フォルダを削除します</td><td>パーツ</td></tr>
+<tr id="cmd-edit-rename_body"><th scope="row">ボディの名前を変更<span class="cid"><code>edit.rename_body</code></span></th><td>右クリックのメニュー</td><td></td><td>選択したボディの名前を変更します（ブラウザで F2。そこで空にすると既定の名前に戻ります）</td><td>パーツ</td></tr>
+<tr id="cmd-inspect-delete_measure"><th scope="row">計測を削除<span class="cid"><code>inspect.delete_measure</code></span></th><td>右クリックのメニュー</td><td></td><td>選択した残した計測を削除します</td><td>パーツ</td></tr>
+<tr id="cmd-sketch-new_on_selection"><th scope="row">新しいスケッチ<span class="cid"><code>sketch.new_on_selection</code></span></th><td>右クリックのメニュー</td><td></td><td>選んだ平面か平らな面の上でスケッチを始める</td><td>パーツ</td></tr>
+<tr id="cmd-sketch-edit"><th scope="row">スケッチを編集<span class="cid"><code>sketch.edit</code></span></th><td>右クリックのメニュー</td><td></td><td>選んだスケッチを編集する</td><td>パーツ</td></tr>
+<tr id="cmd-sketch-release_offset"><th scope="row">オフセットを普通の形にする<span class="cid"><code>sketch.release_offset</code></span></th><td>右クリックのメニュー</td><td></td><td>以前の版でできた、選んだオフセットを、普通のスケッチの形とオフセット拘束に変える（形は変わらない）</td><td>スケッチ</td></tr>
+<tr id="cmd-sketch-reattach_selected"><th scope="row">投影ジオメトリの参照を付け直す<span class="cid"><code>sketch.reattach_selected</code></span></th><td>右クリックのメニュー</td><td></td><td>元を失った投影ジオメトリを選び、新しい元に付け直す</td><td>スケッチ</td></tr>
+<tr id="cmd-sketch-relation-coincident"><th scope="row">一致<span class="cid"><code>sketch.relation.coincident</code></span></th><td>右クリックのメニュー</td><td></td><td>2 点を一致させる（スケッチ原点にも）</td><td>スケッチ</td></tr>
+<tr id="cmd-sketch-relation-point_on_object"><th scope="row">点を要素上に<span class="cid"><code>sketch.relation.point_on_object</code></span></th><td>右クリックのメニュー</td><td></td><td>点を線・円・円弧・スケッチの軸の上に置く</td><td>スケッチ</td></tr>
+<tr id="cmd-sketch-relation-collinear"><th scope="row">同一直線上<span class="cid"><code>sketch.relation.collinear</code></span></th><td>右クリックのメニュー</td><td></td><td>2 本の線を同一直線上に置く</td><td>スケッチ</td></tr>
+<tr id="cmd-sketch-relation-horizontal"><th scope="row">水平<span class="cid"><code>sketch.relation.horizontal</code></span></th><td>右クリックのメニュー</td><td></td><td>線か 2 点を水平にする</td><td>スケッチ</td></tr>
+<tr id="cmd-sketch-relation-vertical"><th scope="row">垂直<span class="cid"><code>sketch.relation.vertical</code></span></th><td>右クリックのメニュー</td><td></td><td>線か 2 点を垂直にする</td><td>スケッチ</td></tr>
+<tr id="cmd-sketch-relation-parallel"><th scope="row">平行<span class="cid"><code>sketch.relation.parallel</code></span></th><td>右クリックのメニュー</td><td></td><td>2 本の線を平行にする</td><td>スケッチ</td></tr>
+<tr id="cmd-sketch-relation-perpendicular"><th scope="row">直交<span class="cid"><code>sketch.relation.perpendicular</code></span></th><td>右クリックのメニュー</td><td></td><td>2 本の線を直交させる</td><td>スケッチ</td></tr>
+<tr id="cmd-sketch-relation-tangent"><th scope="row">正接<span class="cid"><code>sketch.relation.tangent</code></span></th><td>右クリックのメニュー</td><td></td><td>線と円・円弧、または 2 つの円・円弧を接させる</td><td>スケッチ</td></tr>
+<tr id="cmd-sketch-relation-concentric"><th scope="row">同心円<span class="cid"><code>sketch.relation.concentric</code></span></th><td>右クリックのメニュー</td><td></td><td>2 つの円・円弧の中心を一致させる</td><td>スケッチ</td></tr>
+<tr id="cmd-sketch-relation-equal"><th scope="row">等しい<span class="cid"><code>sketch.relation.equal</code></span></th><td>右クリックのメニュー</td><td></td><td>2 本の線の長さ、または 2 つの円・円弧の半径を等しくする</td><td>スケッチ</td></tr>
+<tr id="cmd-sketch-relation-midpoint"><th scope="row">中点<span class="cid"><code>sketch.relation.midpoint</code></span></th><td>右クリックのメニュー</td><td></td><td>点を線か円弧の中点に置く</td><td>スケッチ</td></tr>
+<tr id="cmd-sketch-relation-symmetric"><th scope="row">対称<span class="cid"><code>sketch.relation.symmetric</code></span></th><td>右クリックのメニュー</td><td></td><td>2 つの点・線・円・円弧を、ある線に対して対称にする（線は最後に選ぶ）</td><td>スケッチ</td></tr>
+<tr id="cmd-sketch-relation-fix"><th scope="row">固定<span class="cid"><code>sketch.relation.fix</code></span></th><td>右クリックのメニュー</td><td></td><td>点か要素を今の位置に固定する</td><td>スケッチ</td></tr>
+</tbody>
+</table></div>
+<h2 id="keys-only"><span class="secno">A.13</span> キーとコマンド検索だけのコマンド</h2>
+<p>ボタンもメニューも無く、キー、クイック アクセス ツールバー、またはコマンド検索（<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd>）から使うコマンドです。</p>
+<div class="table-wrap"><table class="commands">
+<thead><tr><th>コマンド</th><th>場所</th><th>キー</th><th>説明</th><th>使えるモード</th></tr></thead>
+<tbody>
+<tr id="cmd-view-rotate-left-big"><th scope="row">左へオービット<span class="cid"><code>view.rotate.left.big</code></span></th><td>キーかコマンド検索から</td><td><kbd>Shift</kbd>+<kbd>Left</kbd></td><td>画面の軸のまわりにビューを 90° 回す</td><td>パーツ・スケッチ</td></tr>
+<tr id="cmd-view-rotate-right-big"><th scope="row">右へオービット<span class="cid"><code>view.rotate.right.big</code></span></th><td>キーかコマンド検索から</td><td><kbd>Shift</kbd>+<kbd>Right</kbd></td><td>画面の軸のまわりにビューを 90° 回す</td><td>パーツ・スケッチ</td></tr>
+<tr id="cmd-view-rotate-up-big"><th scope="row">上へオービット<span class="cid"><code>view.rotate.up.big</code></span></th><td>キーかコマンド検索から</td><td><kbd>Shift</kbd>+<kbd>Up</kbd></td><td>画面の軸のまわりにビューを 90° 回す</td><td>パーツ・スケッチ</td></tr>
+<tr id="cmd-view-rotate-down-big"><th scope="row">下へオービット<span class="cid"><code>view.rotate.down.big</code></span></th><td>キーかコマンド検索から</td><td><kbd>Shift</kbd>+<kbd>Down</kbd></td><td>画面の軸のまわりにビューを 90° 回す</td><td>パーツ・スケッチ</td></tr>
+<tr id="cmd-view-rotate-left-fine"><th scope="row">左へオービット<span class="cid"><code>view.rotate.left.fine</code></span></th><td>キーかコマンド検索から</td><td><kbd>Ctrl</kbd>+<kbd>Left</kbd></td><td>画面の軸のまわりにビューを 5° 回す</td><td>パーツ・スケッチ</td></tr>
+<tr id="cmd-view-rotate-right-fine"><th scope="row">右へオービット<span class="cid"><code>view.rotate.right.fine</code></span></th><td>キーかコマンド検索から</td><td><kbd>Ctrl</kbd>+<kbd>Right</kbd></td><td>画面の軸のまわりにビューを 5° 回す</td><td>パーツ・スケッチ</td></tr>
+<tr id="cmd-view-rotate-up-fine"><th scope="row">上へオービット<span class="cid"><code>view.rotate.up.fine</code></span></th><td>キーかコマンド検索から</td><td><kbd>Ctrl</kbd>+<kbd>Up</kbd></td><td>画面の軸のまわりにビューを 5° 回す</td><td>パーツ・スケッチ</td></tr>
+<tr id="cmd-view-rotate-down-fine"><th scope="row">下へオービット<span class="cid"><code>view.rotate.down.fine</code></span></th><td>キーかコマンド検索から</td><td><kbd>Ctrl</kbd>+<kbd>Down</kbd></td><td>画面の軸のまわりにビューを 5° 回す</td><td>パーツ・スケッチ</td></tr>
+<tr id="cmd-engine-cancel"><th scope="row">再計算を中断<span class="cid"><code>engine.cancel</code></span></th><td>キーかコマンド検索から</td><td></td><td>実行中の計算を停止します。モデルは元のままです</td><td>パーツ・スケッチ</td></tr>
+<tr id="cmd-qat-material"><th scope="row">材料<span class="cid"><code>qat.material</code></span></th><td>キーかコマンド検索から</td><td></td><td>パーツか選択したボディに材料を割り当てます</td><td>パーツ</td></tr>
+<tr id="cmd-qat-appearance"><th scope="row">外観<span class="cid"><code>qat.appearance</code></span></th><td>キーかコマンド検索から</td><td></td><td>選択した面かボディの色と透明度を上書きします</td><td>パーツ</td></tr>
+</tbody>
+</table></div>
+</article>
+<nav class="pager" aria-label="前後の章"><a class="prev" rel="prev" href="29_troubleshooting.html"><span class="dir">前の章</span>第 29 章 困ったとき</a><a class="next" rel="next" href="appendix_b_shortcuts.html"><span class="dir">次の章</span>付録 B ショートカット一覧</a></nav>
+<footer class="footer"><p>EMRM-Studio ユーザーマニュアル（日本語）・EMRM-Studio 0.1.0 ・ <a href="#main">このページの先頭へ</a></p></footer>
+</main>
+</div>
+</body>
+</html>

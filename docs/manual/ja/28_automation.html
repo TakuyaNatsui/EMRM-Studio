@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="generator" content="tools/build_manual.py">
+<title>第 28 章 自動化 - EMRM-Studio ユーザーマニュアル</title>
+<link rel="stylesheet" href="assets/manual.css">
+<script src="assets/search_index.js" charset="utf-8" defer></script>
+<script src="assets/manual.js" charset="utf-8" defer></script>
+</head>
+<body class="page">
+<header class="topbar">
+<a class="brand" href="index.html">EMRM-Studio ユーザーマニュアル</a>
+<button class="toc-toggle" type="button" aria-controls="toc" aria-expanded="false">目次</button>
+<form class="search" role="search" action="#" onsubmit="return false">
+<input id="q" type="search" placeholder="マニュアルを検索（/）" aria-label="マニュアルを検索" autocomplete="off">
+</form>
+</header>
+<div id="search-results" class="search-results" hidden></div>
+<div class="layout">
+<nav id="toc" class="toc" aria-label="目次">
+<details class="toc-box">
+<summary>目次</summary>
+<ol class="toc-chapters">
+<li class="toc-home"><a href="index.html">表紙・目次</a></li>
+<li><a href="00_intro.html">はじめに</a></li>
+<li class="toc-part" role="presentation">第 I 部　形状を作る（CAD）</li>
+<li><a href="01_screen.html"><span class="chno">第 1 章</span> 画面の構成</a></li>
+<li><a href="02_view.html"><span class="chno">第 2 章</span> 視点の操作</a></li>
+<li><a href="03_first_part.html"><span class="chno">第 3 章</span> はじめての部品</a></li>
+<li><a href="04_sketch.html"><span class="chno">第 4 章</span> スケッチ</a></li>
+<li><a href="05_work_features.html"><span class="chno">第 5 章</span> 作業フィーチャ</a></li>
+<li><a href="06_features_basic.html"><span class="chno">第 6 章</span> フィーチャ（押し出し・回転・穴・フィレットなど）</a></li>
+<li><a href="07_features_advanced.html"><span class="chno">第 7 章</span> フィーチャ（スイープ・ロフト・コイル・パターンなど）</a></li>
+<li><a href="08_bodies.html"><span class="chno">第 8 章</span> ボディの操作</a></li>
+<li><a href="09_browser.html"><span class="chno">第 9 章</span> ブラウザとフィーチャの管理</a></li>
+<li><a href="10_parameters.html"><span class="chno">第 10 章</span> パラメータと式</a></li>
+<li><a href="11_configurations.html"><span class="chno">第 11 章</span> 構成</a></li>
+<li><a href="12_inspect.html"><span class="chno">第 12 章</span> 検査</a></li>
+<li><a href="13_files.html"><span class="chno">第 13 章</span> ファイル</a></li>
+<li class="toc-part" role="presentation">第 II 部　電磁場解析</li>
+<li><a href="14_em_intro.html"><span class="chno">第 14 章</span> 電磁場解析のはじめに</a></li>
+<li><a href="15_em_first.html"><span class="chno">第 15 章</span> はじめての電磁場解析（ソレノイド）</a></li>
+<li><a href="16_em_setup.html"><span class="chno">第 16 章</span> スタディの共通の設定</a></li>
+<li><a href="17_em_results.html"><span class="chno">第 17 章</span> 結果の見方</a></li>
+<li><a href="18_em_magnetostatic.html"><span class="chno">第 18 章</span> 静磁場解析</a></li>
+<li><a href="19_em_coils.html"><span class="chno">第 19 章</span> 静磁場解析: コイル</a></li>
+<li><a href="20_em_dipole.html"><span class="chno">第 20 章</span> 静磁場解析の例題: H 型双極電磁石</a></li>
+<li><a href="21_em_eigenmode.html"><span class="chno">第 21 章</span> 共振モード解析</a></li>
+<li><a href="22_em_driven.html"><span class="chno">第 22 章</span> ポート解析</a></li>
+<li><a href="23_em_electrostatic.html"><span class="chno">第 23 章</span> 静電場解析</a></li>
+<li><a href="24_em_gun.html"><span class="chno">第 24 章</span> 電子銃解析</a></li>
+<li><a href="25_em_troubleshooting.html"><span class="chno">第 25 章</span> 電磁場解析で困ったとき</a></li>
+<li class="toc-part" role="presentation">第 III 部　連携・カスタマイズ・自動化</li>
+<li><a href="26_step_export.html"><span class="chno">第 26 章</span> 他の解析プログラムに形を渡す</a></li>
+<li><a href="27_customize.html"><span class="chno">第 27 章</span> カスタマイズ</a></li>
+<li class="current"><a href="28_automation.html" aria-current="page"><span class="chno">第 28 章</span> 自動化</a><ol class="toc-sections"><li><a href="28_automation.html#console"><span class="secno">28.1</span> Python コンソール</a></li><li><a href="28_automation.html#group"><span class="secno">28.2</span> まとめて 1 つの Undo にする</a></li><li><a href="28_automation.html#script-api"><span class="secno">28.3</span> スクリプトの API</a></li><li><a href="28_automation.html#macro"><span class="secno">28.4</span> マクロの記録</a></li><li><a href="28_automation.html#cli"><span class="secno">28.5</span> コマンドライン</a></li><li><a href="28_automation.html#plugin"><span class="secno">28.6</span> プラグインを読み込む</a></li></ol></li>
+<li><a href="29_troubleshooting.html"><span class="chno">第 29 章</span> 困ったとき</a></li>
+<li class="toc-part" role="presentation">付録</li>
+<li class="appendix"><a href="appendix_a_commands.html"><span class="chno">付録 A</span> コマンド一覧</a></li>
+<li class="appendix"><a href="appendix_b_shortcuts.html"><span class="chno">付録 B</span> ショートカット一覧</a></li>
+<li class="appendix"><a href="appendix_c_feature_params.html"><span class="chno">付録 C</span> フィーチャのパラメータ一覧</a></li>
+<li class="appendix"><a href="appendix_d_glossary.html"><span class="chno">付録 D</span> 用語の対応表</a></li>
+</ol>
+</details>
+</nav>
+<main class="content" id="main">
+<article class="chapter ">
+<p class="chapter-label">第 28 章</p>
+<h1>自動化</h1>
+<nav class="pagetoc" aria-label="この章の内容">
+<p class="pagetoc-title">この章の内容</p>
+<ol>
+<li><a href="#console"><span class="secno">28.1</span> Python コンソール</a></li>
+<li class="sub"><a href="#console-example">例: 板と穴を作る</a></li>
+<li class="sub"><a href="#console-keys">コンソールの操作</a></li>
+<li><a href="#group"><span class="secno">28.2</span> まとめて 1 つの Undo にする</a></li>
+<li><a href="#script-api"><span class="secno">28.3</span> スクリプトの API</a></li>
+<li><a href="#macro"><span class="secno">28.4</span> マクロの記録</a></li>
+<li><a href="#cli"><span class="secno">28.5</span> コマンドライン</a></li>
+<li class="sub"><a href="#cli-check">check</a></li>
+<li class="sub"><a href="#cli-convert">convert</a></li>
+<li class="sub"><a href="#cli-exit">終了コードと注意</a></li>
+<li><a href="#plugin"><span class="secno">28.6</span> プラグインを読み込む</a></li>
+</ol>
+</nav>
+<p>この章では、操作を Python で自動化する方法を説明します。コンソールからスクリプトでモデルを作り、操作をマクロとして記録し、コマンドラインから mcad を起動せずに再計算や書き出しを行います。読み終えると、決まった形を何度も作る作業や、たくさんのファイルの変換を自動にできます。</p>
+
+<h2 id="console"><span class="secno">28.1</span> Python コンソール</h2>
+<p>画面の下に Python コンソールを出して、mcad の中で Python を実行します。スクリプトで行った操作は、画面での操作と同じに、元に戻したり、変更履歴に出たりします。</p>
+<ol class="steps">
+  <li><p><span class="path">リボンの<span class="ui">［ツール］</span>タブ → <span class="ui">［マクロ］</span>パネル → <span class="ui">［Python コンソール］</span></span>（<kbd>Alt</kbd>+<kbd>F11</kbd>）を押します。画面の下に<span class="ui">［コンソール］</span>のドックが開きます。もう一度押すと隠れます。</p></li>
+  <li><p>入力欄（<code>&gt;&gt;&gt;</code> の右）に Python の式を入力して <kbd>Enter</kbd> を押します。結果が上の出力欄に出ます。</p></li>
+</ol>
+<p>コンソールでは、次の名前がはじめから使えます。</p>
+<div class="table-wrap"><table>
+  <caption>コンソールの名前</caption>
+  <thead><tr><th>名前</th><th>内容</th></tr></thead>
+  <tbody>
+    <tr><th scope="row"><code>app</code></th><td>アプリケーション全体。ドキュメントを作る・開く・まとめて 1 つの Undo にする、など</td></tr>
+    <tr><th scope="row"><code>doc</code></th><td>今のドキュメント。タブを替えると、そのドキュメントに替わります</td></tr>
+    <tr><th scope="row"><code>part</code></th><td>今のドキュメントの最初のパーツ（<code>Part1</code>）</td></tr>
+    <tr><th scope="row"><code>sel</code></th><td>今の選択</td></tr>
+    <tr><th scope="row"><code>mcad</code>・<code>Datum</code>・<code>N_</code></th><td>mcad のモジュール、原点の平面などの参照（<code>Datum("origin.XY")</code>）、翻訳の印</td></tr>
+  </tbody>
+</table></div>
+<aside class="tip" role="note"><p class="callout-title">ヒント</p><p><code>help(part.extrude)</code> のように <code>help</code> を使うと、フィーチャの関数の引数（欄の名前・単位・選択肢・既定値）が出ます。</p></aside>
+
+<h3 id="console-example">例: 板と穴を作る</h3>
+<p>100 × 60 × 10 mm の板に、φ10 の貫通穴を 4 つ開けます。第 3 章の手順と同じ形です。次のコードを、コンソールに貼り付けます（複数行をまとめて貼り付けられます）。</p>
+<pre><code>with app.group("板と穴"):
+    with part.new_sketch(Datum("origin.XY")) as sk:
+        r = sk.rectangle((0, 0), (100, 60))
+        _ = sk.constrain.fix(r.corner(0))
+        _ = sk.dim.distance(r.bottom, "100 mm")
+        _ = sk.dim.distance(r.left, "60 mm")
+    plate = part.extrude(sk.profile(), depth1="10 mm")
+    (top,) = plate.faces("end")
+    with part.new_sketch(top) as hs:
+        _ = hs.point(15, 15)
+    hole = part.hole(hs.points(), diameter="10 mm", end="through_all")
+    _ = part.pattern_linear(features=[hole], dir1=Datum("origin.X"), count1=2, length1="70 mm",
+                            dir2=Datum("origin.Y"), count2=2, length2="30 mm")
+part.recompute(wait=True)
+print(sum(b.volume for b in part.bodies))</code></pre>
+<figure id="fig-18_console"><a class="zoom" href="images/18_console.png"><img src="images/18_console.png" alt="実行したあとのコンソール。体積は 60000 − 4 × π × 5² × 10 = 56858.4… mm³ で、理論値と一致します。" width="760" height="242" loading="lazy"></a><figcaption><span class="figno">図 28-1</span> 実行したあとのコンソール。体積は <code>60000 − 4 × π × 5² × 10 = 56858.4…</code> mm³ で、理論値と一致します。</figcaption></figure>
+<div class="figrow">
+  <figure id="fig-18_console_result"><a class="zoom" href="images/18_console_result.png"><img src="images/18_console_result.png" alt="できた板。穴が 4 つ開いています。" width="460" height="263" loading="lazy"></a><figcaption><span class="figno">図 28-2</span> できた板。穴が 4 つ開いています。</figcaption></figure>
+  <figure id="fig-18_console_browser"><a class="zoom" href="images/18_console_browser.png"><img src="images/18_console_browser.png" alt="ブラウザ。スクリプトで作ったスケッチ・押し出し・穴・矩形状パターンが、画面で作ったときと同じように並びます。" width="360" height="242" loading="lazy"></a><figcaption><span class="figno">図 28-3</span> ブラウザ。スクリプトで作ったスケッチ・押し出し・穴・矩形状パターンが、画面で作ったときと同じように並びます。</figcaption></figure>
+</div>
+<ul>
+  <li><p>長さと角度は、単位付きの文字（<code>"10 mm"</code>・<code>"45 deg"</code>）か、数値（ドキュメントの単位）で渡します。</p></li>
+  <li><p><code>part.recompute(wait=True)</code> は、計算が終わるまで待ちます。待っている間も、画面は固まりません。</p></li>
+  <li><p>式の値（<code>'c16'</code> のような ID）が表示されるのは、Python の対話モードの規則です。<code>_ =</code> で受けると表示されません。</p></li>
+  <li><p>エラーは赤い文字で出ます。エラーでも、mcad は終了せず、次の入力ができます。<code>sys.exit()</code> を実行しても、アプリケーションは閉じません（「コンソールからアプリケーションを閉じることはできません」と出ます）。</p></li>
+</ul>
+<h3 id="console-keys">コンソールの操作</h3>
+<div class="table-wrap"><table>
+  <caption>入力欄のキー</caption>
+  <thead><tr><th>キー</th><th>動作</th></tr></thead>
+  <tbody>
+    <tr><th scope="row"><kbd>Enter</kbd></th><td>1 行を実行します。ブロック（<code>with</code>・<code>for</code> など）は <code>...</code> の続きの行になり、空の行で実行します</td></tr>
+    <tr><th scope="row"><kbd>↑</kbd>・<kbd>↓</kbd></th><td>前に入力した行を呼び出します（履歴は <code>%APPDATA%\mcad\console_history.txt</code> に最大 500 行）</td></tr>
+    <tr><th scope="row"><kbd>Tab</kbd></th><td>名前を補完します（行の先頭では字下げ）</td></tr>
+    <tr><th scope="row"><kbd>Ctrl</kbd>+<kbd>L</kbd></th><td>出力欄を消します</td></tr>
+    <tr><th scope="row"><kbd>Ctrl</kbd>+<kbd>C</kbd></th><td>実行中なら中断、そうでなければ入力の取り消しです。計算の途中の呼び出しの中では、Python に戻ったところで止まります</td></tr>
+  </tbody>
+</table></div>
+<p>スクリプトをファイルにしておくときは、<code>exec(open(r"C:\work\make_plate.py", encoding="utf-8").read())</code> で実行します。ファイルの中でも <code>app</code>・<code>doc</code>・<code>part</code> を使えます。</p>
+<aside class="inventor" role="note"><p class="callout-title">Inventor との違い</p><p>Inventor では <kbd>Alt</kbd>+<kbd>F11</kbd> が VBA エディタです。mcad では同じキーで Python コンソールが開きます。VBA や iLogic のコードは動きません。</p></aside>
+<aside class="note" role="note"><p class="callout-title">注意</p><p>コンソールは、普通の Python を、あなたの権限で実行します。出どころの分からないコードは貼り付けません。スクリプトの API は、アプリケーションが動いているスレッドからだけ使えます（別のスレッドからは「スクリプト API は、アプリケーションを実行しているスレッドからだけ使えます」と断られます）。</p></aside>
+
+<h2 id="group"><span class="secno">28.2</span> まとめて 1 つの Undo にする</h2>
+<p><code>with app.group("名前"):</code> の中の操作は、<strong>1 つの Undo 項目</strong>になります。上の例の「板と穴」は、<kbd>Ctrl</kbd>+<kbd>Z</kbd> を 1 回押すと、全部が元に戻ります。</p>
+<ol class="steps">
+  <li><p><span class="path">リボンの<span class="ui">［表示］</span>タブ → <span class="ui">［ウィンドウ］</span>パネル → <span class="ui">［変更履歴］</span></span>をクリックします。右に<span class="ui">［変更履歴］</span>のドックが開きます。</p></li>
+  <li><p>グループは、<span class="ui">［初期状態］</span>の下に 1 行（<code>板と穴</code>）で出ます。今の位置の行には ▶ の印が付きます。行をクリックすると、その時点まで戻る・進みます。<span class="ui">［初期状態］</span>の行をクリックすると、全部が戻ります。元に戻した行は灰色の斜体で残り、クリックでやり直せます。</p>
+    <figure id="fig-18_undo_history"><a class="zoom" href="images/18_undo_history.png"><img src="images/18_undo_history.png" alt="変更履歴。スクリプトで行った一連の操作が、1 つの項目にまとまります。" width="312" height="72" loading="lazy"></a><figcaption><span class="figno">図 28-4</span> 変更履歴。スクリプトで行った一連の操作が、1 つの項目にまとまります。</figcaption></figure></li>
+</ol>
+<ul>
+  <li><p>グループの中で例外が起きると、グループの始めの状態に戻ります（途中までの変更は残りません）。</p></li>
+  <li><p>グループの中から、<code>app.undo()</code>・<code>app.redo()</code> は呼べません。グループを出てから使います。画面の<span class="ui">［元に戻す］</span>（<kbd>Ctrl</kbd>+<kbd>Z</kbd>）・<span class="ui">［やり直し］</span>（<kbd>Ctrl</kbd>+<kbd>Y</kbd>）は、グループの外で、普通に使えます。</p></li>
+  <li><p>グループを実行している間は、画面の操作でドキュメントを変えるコマンドは無効になります（ステータスバーに「スクリプトの実行中: ドキュメントを変えるコマンドは無効です」と出ます）。終わると、また編集できます。</p></li>
+</ul>
+
+<h2 id="script-api"><span class="secno">28.3</span> スクリプトの API</h2>
+<p>コンソールで使う API は、公開 API 1.0（<code>mcad.api.script</code>）です。1.x の間は、機能が足されるだけで、今ある名前と引数は変わりません。画面で行える操作は、すべてこの API を通ります。主な名前は次のとおりです。</p>
+<div class="table-wrap"><table>
+  <caption>主なオブジェクトと関数</caption>
+  <thead><tr><th>オブジェクト</th><th>主なもの</th></tr></thead>
+  <tbody>
+    <tr><th scope="row"><code>app</code></th><td><code>new_document()</code>・<code>open_document(パス)</code>・<code>documents</code>・<code>active_document</code>・<code>group(名前)</code>・<code>undo()</code>・<code>redo()</code>・<code>wait()</code></td></tr>
+    <tr><th scope="row"><code>doc</code></th><td><code>title</code>・<code>part</code>・<code>parts["Part1"]</code>・<code>selection</code>・<code>recompute()</code>・<code>undo()</code>・<code>redo()</code>・<code>export(形式, パス)</code>・<code>close()</code>・<code>run(アクション ID, …)</code></td></tr>
+    <tr><th scope="row"><code>part</code></th><td><code>name</code>・<code>features</code>・<code>feature(キー)</code>・<code>bodies</code>・<code>new_sketch(平面)</code>・<code>edit_sketch(スケッチ)</code>・<code>recompute(wait=True)</code>、フィーチャを作る関数（下の表）</td></tr>
+    <tr><th scope="row">スケッチ<br>（<code>with part.new_sketch(…) as s</code>）</th><td><code>point</code>・<code>line</code>・<code>circle</code>・<code>arc</code>・<code>rect</code>・<code>rectangle</code>、<code>constrain.<em>種類</em>(…)</code>（拘束）、<code>dim.<em>種類</em>(…)</code>（寸法）、<code>profile()</code>・<code>points()</code>（フィーチャに渡す参照）</td></tr>
+    <tr><th scope="row">フィーチャ</th><td><code>name</code>・<code>type_id</code>・<code>status</code>・<code>params</code>・<code>update(欄=値)</code>・<code>suppress()</code>・<code>rename(名前)</code>・<code>delete()</code>・<code>faces(役割)</code>・<code>edges(役割)</code>・<code>bodies()</code></td></tr>
+    <tr><th scope="row">ボディ</th><td><code>volume</code>・<code>area</code>・<code>n_faces</code>・<code>n_edges</code>・<code>bbox</code>・<code>ref</code>・<code>attrs</code></td></tr>
+    <tr><th scope="row"><code>sel</code></th><td><code>items</code>・<code>features</code>・<code>refs</code>・<code>clear()</code></td></tr>
+    <tr><th scope="row"><code>Datum("…")</code></th><td>原点の平面・軸・点の参照（<code>origin.XY</code>・<code>origin.XZ</code>・<code>origin.YZ</code>・<code>origin.X</code>・<code>origin.Y</code>・<code>origin.Z</code>）</td></tr>
+  </tbody>
+</table></div>
+<p>フィーチャを作る <code>part.<em>名前</em>(…)</code> の関数は、画面のコマンドに 1 つずつ対応します。引数は、フォームの欄（<a href="appendix_c_feature_params.html">付録 C</a>）に対応し、<code>help(part.hole)</code> で一覧が出ます。必須の欄は、先頭から位置で渡せます。そのほかはキーワードで渡します。</p>
+<div class="table-wrap"><table>
+  <caption>フィーチャの関数と画面のコマンド</caption>
+  <thead><tr><th>関数</th><th>コマンド</th><th>関数</th><th>コマンド</th></tr></thead>
+  <tbody>
+    <tr><td><code>extrude</code></td><td><span class="ui">［押し出し］</span></td><td><code>fillet</code></td><td><span class="ui">［フィレット］</span></td></tr>
+    <tr><td><code>revolve</code></td><td><span class="ui">［回転］</span></td><td><code>chamfer</code></td><td><span class="ui">［面取り］</span></td></tr>
+    <tr><td><code>sweep</code></td><td><span class="ui">［スイープ］</span></td><td><code>hole</code></td><td><span class="ui">［穴］</span></td></tr>
+    <tr><td><code>loft</code></td><td><span class="ui">［ロフト］</span></td><td><code>shell</code></td><td><span class="ui">［シェル］</span></td></tr>
+    <tr><td><code>coil</code>・<code>helix</code></td><td><span class="ui">［コイル］</span>・<span class="ui">［ヘリカル曲線］</span></td><td><code>draft</code></td><td><span class="ui">［勾配］</span></td></tr>
+    <tr><td><code>rib</code></td><td><span class="ui">［リブ］</span></td><td><code>cosmetic_thread</code></td><td><span class="ui">［ねじ］</span></td></tr>
+    <tr><td><code>boolean</code></td><td><span class="ui">［結合］</span></td><td><code>split</code></td><td><span class="ui">［分割］</span></td></tr>
+    <tr><td><code>move_body</code></td><td><span class="ui">［ボディを移動］</span></td><td><code>delete_body</code></td><td><span class="ui">［ボディを削除］</span></td></tr>
+    <tr><td><code>heal</code></td><td><span class="ui">［修復］</span></td><td><code>mirror</code></td><td><span class="ui">［ミラー］</span></td></tr>
+    <tr><td><code>pattern_linear</code></td><td><span class="ui">［矩形状パターン］</span></td><td><code>pattern_circular</code></td><td><span class="ui">［円形状パターン］</span></td></tr>
+    <tr><td><code>pattern_points</code></td><td><span class="ui">［スケッチ駆動パターン］</span></td><td><code>datum_plane</code>・<code>datum_axis</code>・<code>datum_point</code>・<code>datum_csys</code></td><td><span class="ui">［平面］</span>・<span class="ui">［軸］</span>・<span class="ui">［点］</span>・<span class="ui">［UCS］</span></td></tr>
+    <tr><td><code>primitive_box</code>・<code>primitive_cylinder</code>・<code>primitive_sphere</code></td><td><span class="ui">［直方体］</span>・<span class="ui">［円柱］</span>・<span class="ui">［球］</span></td><td><code>primitive_torus</code>・<code>primitive_cone</code>・<code>primitive_wedge</code></td><td><span class="ui">［トーラス］</span>・<span class="ui">［円錐］</span>・<span class="ui">［くさび］</span></td></tr>
+  </tbody>
+</table></div>
+<p>ドキュメントを変える操作（寸法の名前・パラメータ・構成・ボディ名・外観・表示など）は、<code>doc</code> の関数にもなっています。名前は、操作の ID の <code>.</code> を <code>_</code> にしたものです（<code>doc.body_rename(element=part, body="…", name="Vacuum")</code>・<code>doc.config_add(element=part, name="Short")</code>）。ほかの操作は <code>doc.run("操作の ID", 引数…)</code> で呼べます。</p>
+<aside class="note" role="note"><p class="callout-title">注意</p><p>引数の名前（<code>depth1</code>・<code>end</code> など）と選択肢の値は、<code>help</code> の出力で確かめます。値を間違えると、どの欄が間違いかが誤りの文で分かります。</p></aside>
+
+<h2 id="macro"><span class="secno">28.4</span> マクロの記録</h2>
+<p>画面で行った操作を、マクロとして記録して、ファイルに保存できます。保存したファイルは、スクリプトの手順として読み返せます。</p>
+<figure id="fig-18_ribbon_macro"><a class="zoom" href="images/18_ribbon_macro.png"><img src="images/18_ribbon_macro.png" alt="リボンの［ツール］タブの［マクロ］パネル。コンソールの開閉・記録・保存があります。" width="226" height="90" loading="lazy"></a><figcaption><span class="figno">図 28-5</span> リボンの<span class="ui">［ツール］</span>タブの<span class="ui">［マクロ］</span>パネル。コンソールの開閉・記録・保存があります。</figcaption></figure>
+<ol class="steps">
+  <li><p><span class="path">リボンの<span class="ui">［ツール］</span>タブ → <span class="ui">［マクロ］</span>パネル → <span class="ui">［マクロを記録］</span></span>をクリックします。「…のマクロを記録しています。停止するには、コマンドをもう一度実行してください」と知らせが出ます。</p></li>
+  <li><p>記録したい操作を、普通に行います（スケッチを描く・押し出す・穴を開ける、など）。</p></li>
+  <li><p>もう一度<span class="ui">［マクロを記録］</span>をクリックします。「マクロの記録を停止しました（4 ステップ）」のように、ステップの数が出ます。</p></li>
+  <li><p><span class="path">リボンの<span class="ui">［ツール］</span>タブ → <span class="ui">［マクロ］</span>パネル → <span class="ui">［マクロを保存］</span></span>をクリックし、保存先と名前を入力します。拡張子は <code>.mcadmacro.json</code> です。</p></li>
+</ol>
+<pre><code>{"format": "mcad-macro", "version": 1, "app_version": "0.1.0.dev0", "api_version": "1.0",
+ "steps": [
+   {"action": "sketch.create", "bind": {"result": "$f1"},
+    "args": {"element": "E1", "placement": {"$d": "origin.XY"}}},
+   {"action": "sketch.add_geometry", …},
+   {"action": "sketch.edit_end", "args": {}},
+   {"action": "feature.add", "bind": {"result": "$f2"},
+    "args": {"element": "E1", "type_id": "part.extrude", …}}
+ ]}</code></pre>
+<ul>
+  <li><p>記録するのは、<strong>記録を始めたドキュメント</strong>への、確定した操作です。マウスの途中の動きではなく、ツールで確定した結果（スケッチの図形・押し出しの値など）です。</p></li>
+  <li><p>ファイルの保存・開く・エクスポート・終了のような、ドキュメントの外に作用する操作は、記録されません。</p></li>
+  <li><p>操作で作られたもの（スケッチ・フィーチャ）は、<code>$f1</code> のような記号で書かれ、再生のときに新しく作られたものに置き換わります。記録の前からあったものを使った操作は、同じドキュメントだけで再生できます。</p></li>
+</ul>
+<aside class="note" role="note"><p class="callout-title">注意</p><p>マクロを再生するコマンド（画面）は、今の mcad にはありません。今後の予定です。再生するときは、ドキュメントの外へ書く操作（ファイルの保存・エクスポートなど）を含むマクロは、実行する前に確認する仕組みになっています。同じ作業を繰り返すときは、今は、記録したファイルの手順を見ながら、スクリプトに書き直します。</p></aside>
+
+<h2 id="cli"><span class="secno">28.5</span> コマンドライン</h2>
+<p>画面を出さずに、ドキュメントの再計算の確認と、書き出しを行えます。バッチ処理や、大量のファイルの変換に使います。配布版では、<code>python -m mcad</code> を <code>mcad.exe</code> に読み替えます。</p>
+<div class="table-wrap"><table>
+  <caption>コマンド</caption>
+  <thead><tr><th>コマンド</th><th>動作</th></tr></thead>
+  <tbody>
+    <tr><th scope="row"><code>python -m mcad</code></th><td>画面のアプリを起動します。<code>--open</code> などの引数は<a href="27_customize.html#startup">第 27 章</a>にあります</td></tr>
+    <tr><th scope="row"><code>python -m mcad check ファイル.mcad</code></th><td>ドキュメントを再計算して、フィーチャの状態を一覧にします</td></tr>
+    <tr><th scope="row"><code>python -m mcad convert ファイル.mcad 出力</code></th><td>再計算して、STEP・STL などに書き出します</td></tr>
+    <tr><th scope="row"><code>run</code>・<code>bench</code></th><td>まだ使えません（スクリプトのファイルを実行する <code>run</code> は今後です）</td></tr>
+  </tbody>
+</table></div>
+<h3 id="cli-check">check</h3>
+<pre><code>python -m mcad check plate_with_holes.mcad
+plate_with_holes.mcad:
+  E1 f3     ok             スケッチ1
+  E1 f20    ok             板
+  E1 f21    ok             スケッチ2
+  E1 f34    ok             穴1
+  E1 f35    ok             フィレット1
+  E1 f36    ok             面取り1
+  E1 body f20#0: volume 56489.1 mm^3
+result: OK (0 failed feature(s))</code></pre>
+<p>行は、パーツ・フィーチャの ID・状態・名前の順です。最後の <code>body</code> の行の <code>f20#0</code> は、ボディのキーです（<code>convert</code> の <code>--bodies</code> で使います）。</p>
+<div class="table-wrap"><table>
+  <caption>check のオプション</caption>
+  <thead><tr><th>オプション</th><th>動作</th></tr></thead>
+  <tbody>
+    <tr><th scope="row"><code>--json</code></th><td>結果を JSON で出します（状態・メッセージ・ボディの一覧）</td></tr>
+    <tr><th scope="row"><code>--all-configs</code></th><td>すべての構成も計算して報告します</td></tr>
+    <tr><th scope="row"><code>--inline</code></th><td>計算の別プロセスを作らず、同じプロセスで計算します</td></tr>
+    <tr><th scope="row"><code>--timeout 秒</code></th><td>計算を待つ時間（既定 600 秒）</td></tr>
+    <tr><th scope="row"><code>--cache-dir</code>・<code>--log-dir</code>・<code>--no-disk-cache</code></th><td>ディスクキャッシュとログの場所（既定は <code>%LOCALAPPDATA%\mcad</code>）、キャッシュを使わない</td></tr>
+    <tr><th scope="row"><code>--plugin</code>・<code>--entry-point-plugins</code></th><td>外部のプラグインを読みます（<a href="#plugin">プラグイン</a>）</td></tr>
+  </tbody>
+</table></div>
+<h3 id="cli-convert">convert</h3>
+<p>形式は、出力の拡張子（<code>.step</code>・<code>.stp</code>・<code>.stl</code>・<code>.iges</code>・<code>.igs</code>・<code>.brep</code>・<code>.3mf</code>・<code>.obj</code>・<code>.ply</code>）か、<code>--format</code> で決めます。<code>check</code> のオプションも使えます。出力先のフォルダは、先に作っておきます。</p>
+<pre><code>python -m mcad convert plate_with_holes.mcad out\plate.step --schema AP242
+python -m mcad convert plate_with_holes.mcad out\plate.stl --resolution high
+python -m mcad convert parametric_plate.mcad out\plate.step --set W=150mm
+python -m mcad convert plate_configs.mcad out\plate.step --all-configs</code></pre>
+<div class="table-wrap"><table>
+  <caption>convert のオプション</caption>
+  <thead><tr><th>オプション</th><th>動作（エクスポートのダイアログと同じ値）</th></tr></thead>
+  <tbody>
+    <tr><th scope="row"><code>--schema AP214|AP242</code></th><td>STEP のアプリケーション プロトコル（既定 <code>AP214</code>）</td></tr>
+    <tr><th scope="row"><code>--unit mm|cm|m|in</code></th><td>書き込む数値の単位（既定 <code>mm</code>）</td></tr>
+    <tr><th scope="row"><code>--frame cs:フィーチャ ID</code></th><td>書き出しの座標系（UCS のフィーチャの ID）。省くとワールド座標系</td></tr>
+    <tr><th scope="row"><code>--bodies キー,キー</code></th><td>書き出すボディ（<code>check</code> の <code>body</code> の行のキー）。省くと全部</td></tr>
+    <tr><th scope="row"><code>--resolution high|medium|low|custom</code></th><td>メッシュ形式（STL・3MF・OBJ・PLY）の解像度。<code>custom</code> のときは <code>--surface-deviation 0.05mm</code>・<code>--normal-deviation 10deg</code></td></tr>
+    <tr><th scope="row"><code>--ascii</code></th><td>STL・PLY を ASCII で書きます（既定はバイナリ）</td></tr>
+    <tr><th scope="row"><code>--set 名前=値</code></th><td>この書き出しのあいだだけ、パラメータの式を上書きします（繰り返せます）。ドキュメントは変わりません</td></tr>
+    <tr><th scope="row"><code>--config 名前</code>・<code>--all-configs</code></th><td>書き出す構成を選びます（<a href="26_step_export.html#config">第 26 章</a>）。<code>--name-template</code>・<code>--manifest</code>・<code>--no-manifest</code> でファイル名と記録を決めます</td></tr>
+    <tr><th scope="row"><code>--json</code></th><td>結果を JSON で出します（書いた部品名・体積・名前の警告を含む）</td></tr>
+  </tbody>
+</table></div>
+<h3 id="cli-exit">終了コードと注意</h3>
+<div class="table-wrap"><table>
+  <caption>終了コード</caption>
+  <thead><tr><th>コード</th><th>意味</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">0</th><td>成功（<code>check</code> は全フィーチャが成功。<code>convert</code> は書き出した）</td></tr>
+    <tr><th scope="row">1</th><td>失敗したフィーチャがある（<code>convert</code> は、書いたが、失敗したフィーチャか見つからない参照があり、書いた形はその前の状態）</td></tr>
+    <tr><th scope="row">2</th><td>ドキュメントを読めない・引数の誤り・書けない（出力先のフォルダがない、形式が分からない、など）</td></tr>
+    <tr><th scope="row">3</th><td>形状エンジンが結果を返さなかった（時間切れ・繰り返す異常終了）</td></tr>
+    <tr><th scope="row">4</th><td>想定外の誤り（mcad の不具合。トレースバックはログに残ります）</td></tr>
+  </tbody>
+</table></div>
+<ul>
+  <li><p>コマンドラインの出力の文は英語です。日本語の部品名・フィーチャ名は、そのまま出ます。</p></li>
+  <li><p>ヘッドレスのコマンドは、ドキュメントを書き換えず、ロックもかけません。画面の mcad で開いている最中のファイルにも使えます（保存前の変更は含みません）。</p></li>
+</ul>
+
+<h2 id="plugin"><span class="secno">28.6</span> プラグインを読み込む</h2>
+<p>プラグインは、フィーチャ・コマンド・出力形式などを足す Python のコードです。起動のときに、画面のアプリにも、<code>check</code>・<code>convert</code> にも読み込ませます。</p>
+<pre><code>python -m mcad --plugin C:\plugins\my_plugin.py
+python -m mcad --plugin my_package --plugin C:\plugins\other
+python -m mcad check part.mcad --plugin C:\plugins\my_plugin.py
+python -m mcad --entry-point-plugins</code></pre>
+<ul>
+  <li><p><code>--plugin</code> には、モジュール名（<code>pkg.mod</code>）、パッケージのフォルダ、<code>.py</code> のファイルを渡します。繰り返して複数を読めます。形状を計算する別プロセスにも、同じプラグインが読み込まれます。</p></li>
+  <li><p><code>--entry-point-plugins</code> は、インストールされた配布物が <code>mcad.plugins</code> の entry point に登録したプラグインを、まとめて読みます。指定しなければ読みません。</p></li>
+  <li><p>プラグインは、対応する mcad の API の版を宣言します（<code>PluginInfo</code> の <code>api_version</code>。たとえば <code>"&gt;=1.0,&lt;2.0"</code>）。宣言がない・この mcad の API（1.0）に合わないプラグインは、読み込まれず、知らせが出ます（「プラグイン … は対応する mcad の API の版を宣言していません」「…の API の版が合いません。プラグインを更新してください」）。読み込めなかったことは、画面では警告の知らせ、コマンドラインでは標準エラーの <code>note:</code> で分かります。</p></li>
+  <li><p>最小のプラグインは、次の形です。<code>register</code> の中で、拡張点（フィーチャの型など）を登録します。</p></li>
+</ul>
+<pre><code>from mcad.api import PluginInfo
+
+PLUGIN_INFO = PluginInfo("my.plugin", "1.0", api_version="&gt;=1.0,&lt;2.0")
+
+
+def register(ctx):
+    pass     # ctx に、フィーチャの型・コマンドなどを登録する</code></pre>
+<aside class="note" role="note"><p class="callout-title">注意</p><p>プラグインは、mcad と同じ権限で動く Python のコードです。信頼できるものだけを読み込みます。プラグインのフィーチャを使ったドキュメントを、プラグインなしで開くと、そのフィーチャは「型が使えないので、変えずに残します」と知らせて、編集できない状態で残ります（プラグインを入れれば、また使えます）。</p></aside>
+<aside class="tip" role="note"><p class="callout-title">ヒント</p><p>補完用の型情報（<code>.pyi</code>）は、開発版の <code>typings\mcad</code> にあります。エディタに読み込むと、<code>part.extrude(…)</code> などの引数が補完されます。</p></aside>
+
+</article>
+<nav class="pager" aria-label="前後の章"><a class="prev" rel="prev" href="27_customize.html"><span class="dir">前の章</span>第 27 章 カスタマイズ</a><a class="next" rel="next" href="29_troubleshooting.html"><span class="dir">次の章</span>第 29 章 困ったとき</a></nav>
+<footer class="footer"><p>EMRM-Studio ユーザーマニュアル（日本語）・EMRM-Studio 0.1.0 ・ <a href="#main">このページの先頭へ</a></p></footer>
+</main>
+</div>
+</body>
+</html>

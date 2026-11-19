@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="generator" content="tools/build_manual.py">
+<title>第 9 章 ブラウザとフィーチャの管理 - EMRM-Studio ユーザーマニュアル</title>
+<link rel="stylesheet" href="assets/manual.css">
+<script src="assets/search_index.js" charset="utf-8" defer></script>
+<script src="assets/manual.js" charset="utf-8" defer></script>
+</head>
+<body class="page">
+<header class="topbar">
+<a class="brand" href="index.html">EMRM-Studio ユーザーマニュアル</a>
+<button class="toc-toggle" type="button" aria-controls="toc" aria-expanded="false">目次</button>
+<form class="search" role="search" action="#" onsubmit="return false">
+<input id="q" type="search" placeholder="マニュアルを検索（/）" aria-label="マニュアルを検索" autocomplete="off">
+</form>
+</header>
+<div id="search-results" class="search-results" hidden></div>
+<div class="layout">
+<nav id="toc" class="toc" aria-label="目次">
+<details class="toc-box">
+<summary>目次</summary>
+<ol class="toc-chapters">
+<li class="toc-home"><a href="index.html">表紙・目次</a></li>
+<li><a href="00_intro.html">はじめに</a></li>
+<li class="toc-part" role="presentation">第 I 部　形状を作る（CAD）</li>
+<li><a href="01_screen.html"><span class="chno">第 1 章</span> 画面の構成</a></li>
+<li><a href="02_view.html"><span class="chno">第 2 章</span> 視点の操作</a></li>
+<li><a href="03_first_part.html"><span class="chno">第 3 章</span> はじめての部品</a></li>
+<li><a href="04_sketch.html"><span class="chno">第 4 章</span> スケッチ</a></li>
+<li><a href="05_work_features.html"><span class="chno">第 5 章</span> 作業フィーチャ</a></li>
+<li><a href="06_features_basic.html"><span class="chno">第 6 章</span> フィーチャ（押し出し・回転・穴・フィレットなど）</a></li>
+<li><a href="07_features_advanced.html"><span class="chno">第 7 章</span> フィーチャ（スイープ・ロフト・コイル・パターンなど）</a></li>
+<li><a href="08_bodies.html"><span class="chno">第 8 章</span> ボディの操作</a></li>
+<li class="current"><a href="09_browser.html" aria-current="page"><span class="chno">第 9 章</span> ブラウザとフィーチャの管理</a><ol class="toc-sections"><li><a href="09_browser.html#view"><span class="secno">9.1</span> ブラウザの見方</a></li><li><a href="09_browser.html#rollback"><span class="secno">9.2</span> パーツの終端でロールバックする</a></li><li><a href="09_browser.html#reorder"><span class="secno">9.3</span> フィーチャを並べ替える</a></li><li><a href="09_browser.html#suppress"><span class="secno">9.4</span> フィーチャを抑制する</a></li><li><a href="09_browser.html#folder"><span class="secno">9.5</span> フォルダで整理する</a></li><li><a href="09_browser.html#name"><span class="secno">9.6</span> 名前とコメント</a></li><li><a href="09_browser.html#family"><span class="secno">9.7</span> 親子の強調</a></li><li><a href="09_browser.html#visibility"><span class="secno">9.8</span> 表示・非表示と、使われたスケッチ</a></li><li><a href="09_browser.html#repair"><span class="secno">9.9</span> 参照の修復</a></li><li><a href="09_browser.html#inspector"><span class="secno">9.10</span> インスペクタ（プロパティ パネル）</a></li><li><a href="09_browser.html#undo"><span class="secno">9.11</span> 元に戻す・やり直しと変更履歴</a></li></ol></li>
+<li><a href="10_parameters.html"><span class="chno">第 10 章</span> パラメータと式</a></li>
+<li><a href="11_configurations.html"><span class="chno">第 11 章</span> 構成</a></li>
+<li><a href="12_inspect.html"><span class="chno">第 12 章</span> 検査</a></li>
+<li><a href="13_files.html"><span class="chno">第 13 章</span> ファイル</a></li>
+<li class="toc-part" role="presentation">第 II 部　電磁場解析</li>
+<li><a href="14_em_intro.html"><span class="chno">第 14 章</span> 電磁場解析のはじめに</a></li>
+<li><a href="15_em_first.html"><span class="chno">第 15 章</span> はじめての電磁場解析（ソレノイド）</a></li>
+<li><a href="16_em_setup.html"><span class="chno">第 16 章</span> スタディの共通の設定</a></li>
+<li><a href="17_em_results.html"><span class="chno">第 17 章</span> 結果の見方</a></li>
+<li><a href="18_em_magnetostatic.html"><span class="chno">第 18 章</span> 静磁場解析</a></li>
+<li><a href="19_em_coils.html"><span class="chno">第 19 章</span> 静磁場解析: コイル</a></li>
+<li><a href="20_em_dipole.html"><span class="chno">第 20 章</span> 静磁場解析の例題: H 型双極電磁石</a></li>
+<li><a href="21_em_eigenmode.html"><span class="chno">第 21 章</span> 共振モード解析</a></li>
+<li><a href="22_em_driven.html"><span class="chno">第 22 章</span> ポート解析</a></li>
+<li><a href="23_em_electrostatic.html"><span class="chno">第 23 章</span> 静電場解析</a></li>
+<li><a href="24_em_gun.html"><span class="chno">第 24 章</span> 電子銃解析</a></li>
+<li><a href="25_em_troubleshooting.html"><span class="chno">第 25 章</span> 電磁場解析で困ったとき</a></li>
+<li class="toc-part" role="presentation">第 III 部　連携・カスタマイズ・自動化</li>
+<li><a href="26_step_export.html"><span class="chno">第 26 章</span> 他の解析プログラムに形を渡す</a></li>
+<li><a href="27_customize.html"><span class="chno">第 27 章</span> カスタマイズ</a></li>
+<li><a href="28_automation.html"><span class="chno">第 28 章</span> 自動化</a></li>
+<li><a href="29_troubleshooting.html"><span class="chno">第 29 章</span> 困ったとき</a></li>
+<li class="toc-part" role="presentation">付録</li>
+<li class="appendix"><a href="appendix_a_commands.html"><span class="chno">付録 A</span> コマンド一覧</a></li>
+<li class="appendix"><a href="appendix_b_shortcuts.html"><span class="chno">付録 B</span> ショートカット一覧</a></li>
+<li class="appendix"><a href="appendix_c_feature_params.html"><span class="chno">付録 C</span> フィーチャのパラメータ一覧</a></li>
+<li class="appendix"><a href="appendix_d_glossary.html"><span class="chno">付録 D</span> 用語の対応表</a></li>
+</ol>
+</details>
+</nav>
+<main class="content" id="main">
+<article class="chapter ">
+<p class="chapter-label">第 9 章</p>
+<h1>ブラウザとフィーチャの管理</h1>
+<nav class="pagetoc" aria-label="この章の内容">
+<p class="pagetoc-title">この章の内容</p>
+<ol>
+<li><a href="#view"><span class="secno">9.1</span> ブラウザの見方</a></li>
+<li><a href="#rollback"><span class="secno">9.2</span> パーツの終端でロールバックする</a></li>
+<li class="sub"><a href="#rollback-drag">ドラッグで動かす</a></li>
+<li class="sub"><a href="#rollback-menu">右クリックで動かす</a></li>
+<li><a href="#reorder"><span class="secno">9.3</span> フィーチャを並べ替える</a></li>
+<li><a href="#suppress"><span class="secno">9.4</span> フィーチャを抑制する</a></li>
+<li><a href="#folder"><span class="secno">9.5</span> フォルダで整理する</a></li>
+<li><a href="#name"><span class="secno">9.6</span> 名前とコメント</a></li>
+<li><a href="#family"><span class="secno">9.7</span> 親子の強調</a></li>
+<li><a href="#visibility"><span class="secno">9.8</span> 表示・非表示と、使われたスケッチ</a></li>
+<li><a href="#repair"><span class="secno">9.9</span> 参照の修復</a></li>
+<li class="sub"><a href="#repair-dialog">修復のダイアログで直す</a></li>
+<li class="sub"><a href="#delete-children">フィーチャを削除するとき</a></li>
+<li><a href="#inspector"><span class="secno">9.10</span> インスペクタ（プロパティ パネル）</a></li>
+<li><a href="#undo"><span class="secno">9.11</span> 元に戻す・やり直しと変更履歴</a></li>
+</ol>
+</nav>
+<p>この章では、ブラウザでフィーチャの履歴を管理する方法を説明します。履歴の途中までを確かめ、順序を入れ替え、フィーチャを抑制し、フォルダで整理し、切れた参照を直せるようになります。ブラウザの基本は<a href="01_screen.html#browser">第 1 章</a>にあります。この章の写真は、おもに <code>samples/parametric_plate.mcad</code>（板の幅・穴の個数が式で決まる題材）で撮りました。</p>
+
+<h2 id="view"><span class="secno">9.1</span> ブラウザの見方</h2>
+<p>ブラウザは、パーツを作った順（履歴）にフィーチャを並べます。部品の行の下は、<span class="ui">［ソリッド ボディ］</span>・<span class="ui">［原点］</span>・履歴のフィーチャ（スケッチを含む）・<span class="ui">［パーツの終端］</span>・<span class="ui">［作業フィーチャ］</span>・<span class="ui">［計測］</span>の順です。列は<span class="ui">［フィーチャ］</span>（名前）・<span class="ui">［種類］</span>・<span class="ui">［状態］</span>の 3 つです。</p>
+<figure id="fig-09_browser_states"><a class="zoom" href="images/09_browser_states.png"><img src="images/09_browser_states.png" alt="［状態］の列の例。［矩形状パターン1］は［エラー］（四角に ×）、［中央の穴］は［抑制］（白抜きの丸に斜線。行は灰色の斜体）です。" width="360" height="302" loading="lazy"></a><figcaption><span class="figno">図 9-1</span> <span class="ui">［状態］</span>の列の例。<span class="ui">［矩形状パターン1］</span>は<span class="ui">［エラー］</span>（四角に ×）、<span class="ui doc">［中央の穴］</span>は<span class="ui">［抑制］</span>（白抜きの丸に斜線。行は灰色の斜体）です。</figcaption></figure>
+<div class="table-wrap"><table>
+  <caption>状態の印（色だけでなく形でも見分けられます）</caption>
+  <thead><tr><th>状態</th><th>印</th><th>意味</th></tr></thead>
+  <tbody>
+    <tr><th scope="row"><span class="ui">［OK］</span></th><td>塗りつぶしの緑の丸</td><td>正しく計算できています</td></tr>
+    <tr><th scope="row"><span class="ui">［警告］</span></th><td>三角</td><td>計算はできましたが、確かめることがあります（ツールチップに理由）</td></tr>
+    <tr><th scope="row"><span class="ui">［エラー］</span></th><td>四角に ×</td><td>計算できません（ツールチップに理由）</td></tr>
+    <tr><th scope="row"><span class="ui">［抑制］</span></th><td>白抜きの丸に斜線</td><td>利用者が一時的に無効にしています</td></tr>
+    <tr><th scope="row"><span class="ui">［ロールバック］</span></th><td>下向きの三角</td><td><span class="ui">［パーツの終端］</span>より後ろにあり、計算されません</td></tr>
+    <tr><th scope="row"><span class="ui">［未計算］</span></th><td>点線の丸</td><td>途中で計算を止めたため、まだ計算していません</td></tr>
+    <tr><th scope="row"><span class="ui">［計算中］</span>・<span class="ui">［保留］</span></th><td>砂時計</td><td>計算の途中です。結果が古くなっていて、再計算を待っているときは<span class="ui">［保留］</span>です</td></tr>
+    <tr><th scope="row"><span class="ui">［中断］</span></th><td>白抜きの丸</td><td>利用者が計算を中断しました</td></tr>
+    <tr><th scope="row"><span class="ui">［隔離中］</span></th><td>盾</td><td>計算エンジンを異常終了させた演算なので、計算しないようにしています</td></tr>
+    <tr><th scope="row"><span class="ui">［プラグインなし］</span></th><td>四角に ?</td><td>このフィーチャの種類を扱うプラグインが入っていません</td></tr>
+  </tbody>
+</table></div>
+<ul>
+  <li><p>参照が見つからないフィーチャは、状態の印の右下に、見つからない参照の数が出ます（<a href="#repair">参照の修復</a>）。</p></li>
+  <li><p>行にカーソルを合わせると、ツールチップに状態・理由・参照している行（「参照」）・使っている行（「使用先」）・コメントが出ます。ビューでは、その行のフィーチャが作った面が光ります。</p></li>
+  <li><p>行をクリックすると、ビューで選ばれます。ビューで面を選ぶと、それを作ったフィーチャの行が強調されます。</p></li>
+  <li><p>行をダブルクリックすると、フィーチャの編集が始まります。スケッチの行は、スケッチの編集です。</p></li>
+  <li><p>行を右クリックすると、この章のコマンドのメニューが出ます。</p></li>
+</ul>
+<figure id="fig-09_feature_menu"><a class="zoom" href="images/09_feature_menu.png"><img src="images/09_feature_menu.png" alt="フィーチャの行の右クリックのメニュー。編集・削除・名前の変更・抑制・ロールバック・フォルダ・コメント・参照の修復があります。" width="219" height="394" loading="lazy"></a><figcaption><span class="figno">図 9-2</span> フィーチャの行の右クリックのメニュー。編集・削除・名前の変更・抑制・ロールバック・フォルダ・コメント・参照の修復があります。</figcaption></figure>
+<div class="table-wrap"><table>
+  <caption>フィーチャの行の右クリックのメニュー</caption>
+  <thead><tr><th>コマンド</th><th>動き</th><th>節</th></tr></thead>
+  <tbody>
+    <tr><th scope="row"><span class="ui">［新しいスケッチ］</span></th><td>作業平面の行（と、<span class="ui">［原点］</span>の平面の行）で使います。その平面にすぐスケッチを始めます。メニューの先頭に出ます</td><td><a href="04_sketch.html#start-plane">第 4 章</a></td></tr>
+    <tr><th scope="row"><span class="ui">［フィーチャの編集］</span></th><td>フィーチャの編集を始めます（行のダブルクリックと同じ）</td><td>各フィーチャの章</td></tr>
+    <tr><th scope="row"><span class="ui">［スケッチを編集］</span>・<span class="ui">［スケッチ平面を再定義］</span></th><td>スケッチの行で使います。スケッチを編集する・スケッチを描く平面を別の平面や面に替える</td><td><a href="04_sketch.html">第 4 章</a></td></tr>
+    <tr><th scope="row"><span class="ui">［削除］</span></th><td>フィーチャを削除します。ほかのフィーチャが使っているときは扱いを尋ねます</td><td><a href="#delete-children">フィーチャを削除するとき</a></td></tr>
+    <tr><th scope="row"><span class="ui">［名前の変更］</span>・<span class="ui">［コメント］</span></th><td>名前とコメント</td><td><a href="#name">名前とコメント</a></td></tr>
+    <tr><th scope="row"><span class="ui">［抑制］</span>・<span class="ui">［抑制解除］</span></th><td>抑制と、その解除</td><td><a href="#suppress">抑制</a></td></tr>
+    <tr><th scope="row"><span class="ui">［参照を修復］</span>・<span class="ui">［参照を更新］</span></th><td>切れた参照を直す</td><td><a href="#repair">参照の修復</a></td></tr>
+    <tr><th scope="row"><span class="ui">［ここまでロールバック］</span>・<span class="ui">［パーツの終端を最後へ移動］</span></th><td>パーツの終端をそこへ置く・最後へ戻す</td><td><a href="#rollback">パーツの終端</a></td></tr>
+    <tr><th scope="row"><span class="ui">［フォルダを作成］</span></th><td>選んだフィーチャをフォルダにまとめます</td><td><a href="#folder">フォルダ</a></td></tr>
+    <tr><th scope="row"><span class="ui">［非表示］</span>・<span class="ui">［表示］</span>・<span class="ui">［選択範囲をズーム］</span>・<span class="ui">［全体表示］</span>・<span class="ui">［選択を解除］</span></th><td>表示の操作。ビューのメニューと同じです</td><td><a href="02_view.html">第 2 章</a></td></tr>
+  </tbody>
+</table></div>
+<p>ビューで面・エッジを右クリックすると、右クリックした要素が選ばれてから、メニューが出ます（何も選んでいなくてもかまいません。すでに選んでいる要素を右クリックしたときは、選択はそのままです）。このメニューには、その面を作ったフィーチャを編集するコマンド（<span class="ui">［フィーチャの編集］</span>。名前が<span class="ui doc">［押し出し1 の編集］</span>のように出ます）と、スケッチを編集するコマンド（<span class="ui">［スケッチを編集］</span>）があります。選んだのが平らな面なら、その次に<span class="ui">［新しいスケッチ］</span>もあります（曲面・エッジでは出ません）。</p>
+<p><span class="ui">［原点］</span>の<span class="ui">［XY 平面（上面）］</span>・<span class="ui">［XZ 平面（正面）］</span>・<span class="ui">［YZ 平面（右側面）］</span>の行を右クリックしたメニューは、先頭が<span class="ui">［新しいスケッチ］</span>で、続けて<span class="ui">［非表示］</span>・<span class="ui">［表示］</span>・<span class="ui">［全体表示］</span>・<span class="ui">［選択を解除］</span>です。原点の軸・点の行には<span class="ui">［新しいスケッチ］</span>は出ません。</p>
+<aside class="tip" role="note"><p class="callout-title">ヒント</p><p>右クリックのメニューのコマンドは、リボンの<span class="ui">［3D モデル］</span>タブの<span class="ui">［修正］</span>パネルの右下の▼からも使えます。</p></aside>
+
+<h2 id="rollback"><span class="secno">9.2</span> パーツの終端でロールバックする</h2>
+<p>ブラウザの<span class="ui">［パーツの終端］</span>は、履歴の「ここまでを計算する」という印です。上へドラッグすると、それより後ろのフィーチャは計算されません。途中の形を確かめたり、途中にフィーチャを足したりするときに使います。</p>
+<h3 id="rollback-drag">ドラッグで動かす</h3>
+<ol class="steps">
+  <li><p>ブラウザの<span class="ui">［パーツの終端］</span>の行を、戻したい位置のフィーチャの上へドラッグして落とします。ドラッグ中は、落とせる位置に線が出ます。</p></li>
+  <li><p>終端より後ろのフィーチャは、灰色の斜体で<span class="ui">［ロールバック］</span>になります。ビューは、終端までの形になります。</p>
+    <figure id="fig-09_rollback_tree"><a class="zoom" href="images/09_rollback_tree.png"><img src="images/09_rollback_tree.png" alt="［パーツの終端］を［矩形状パターン1］の上へドラッグしたところ。後ろの 3 行が［ロールバック］です。" width="360" height="302" loading="lazy"></a><figcaption><span class="figno">図 9-3</span> <span class="ui">［パーツの終端］</span>を<span class="ui">［矩形状パターン1］</span>の上へドラッグしたところ。後ろの 3 行が<span class="ui">［ロールバック］</span>です。</figcaption></figure></li>
+</ol>
+<div class="figrow">
+  <figure id="fig-09_rollback_all"><a class="zoom" href="images/09_rollback_all.png"><img src="images/09_rollback_all.png" alt="終端が最後のとき。穴が 5 つあります。" width="460" height="288" loading="lazy"></a><figcaption><span class="figno">図 9-4</span> 終端が最後のとき。穴が 5 つあります。</figcaption></figure>
+  <figure id="fig-09_rollback_view"><a class="zoom" href="images/09_rollback_view.png"><img src="images/09_rollback_view.png" alt="終端を［矩形状パターン1］の前へ動かしたとき。穴は 1 つだけです。" width="460" height="288" loading="lazy"></a><figcaption><span class="figno">図 9-5</span> 終端を<span class="ui">［矩形状パターン1］</span>の前へ動かしたとき。穴は 1 つだけです。</figcaption></figure>
+</div>
+<h3 id="rollback-menu">右クリックで動かす</h3>
+<ul>
+  <li><p>フィーチャの行を右クリックし、<span class="ui">［ここまでロールバック］</span>を選ぶと、そのフィーチャの直後まで計算します。</p></li>
+  <li><p><span class="ui">［パーツの終端］</span>の行か、フィーチャの行を右クリックして<span class="ui">［パーツの終端を最後へ移動］</span>を選ぶと、すべてのフィーチャを計算する状態に戻ります。</p></li>
+</ul>
+<figure id="fig-09_bar_menu"><a class="zoom" href="images/09_bar_menu.png"><img src="images/09_bar_menu.png" alt="［パーツの終端］の行の右クリックのメニュー。" width="219" height="76" loading="lazy"></a><figcaption><span class="figno">図 9-6</span> <span class="ui">［パーツの終端］</span>の行の右クリックのメニュー。</figcaption></figure>
+<ul>
+  <li><p><strong>新しいフィーチャは、終端の直前に入ります。</strong>終端を途中に置いてスケッチや押し出しを作ると、履歴のその位置に挿入されます。終端は動きません。</p></li>
+  <li><p>終端の位置はドキュメントに保存されます。開き直しても同じ位置です。</p></li>
+  <li><p>終端の動きは 1 回が 1 つの Undo の項目です。</p></li>
+  <li><p>終端は、最初のフィーチャの上（何も計算しない状態）にも置けます。</p></li>
+</ul>
+<aside class="note" role="note"><p class="callout-title">注意</p><p>終端のすぐ後ろ（終端と、その次のフィーチャの間）にはフィーチャを落とせません。落とした位置と結果が食い違うためです。ロールバックするには終端をドラッグします。</p></aside>
+<aside class="inventor" role="note"><p class="callout-title">Inventor との違い</p><p>Inventor の<span class="ui">［パーツの終端］</span>と同じ使い方です。フィーチャを編集している間も、そのフィーチャより後ろは一時的にロールバックされます。</p></aside>
+
+<h2 id="reorder"><span class="secno">9.3</span> フィーチャを並べ替える</h2>
+<p>履歴の順序は、ブラウザの行のドラッグで入れ替えられます。順序が変わっても形が同じなら、そのまま確定します。</p>
+<ol class="steps">
+  <li><p>動かすフィーチャの行を選びます。複数動かすときは、<kbd>Ctrl</kbd> を押しながらクリックして選び足します。</p></li>
+  <li><p>行をドラッグして、2 つのフィーチャの間（行と行の境目）に落とします。</p>
+    <figure id="fig-09_reorder_done"><a class="zoom" href="images/09_reorder_done.png"><img src="images/09_reorder_done.png" alt="［中央の穴のスケッチ］と［中央の穴］を、［矩形状パターン1］の上へ動かしたところ。形は変わりません。" width="360" height="302" loading="lazy"></a><figcaption><span class="figno">図 9-7</span> <span class="ui doc">［中央の穴のスケッチ］</span>と<span class="ui doc">［中央の穴］</span>を、<span class="ui">［矩形状パターン1］</span>の上へ動かしたところ。形は変わりません。</figcaption></figure></li>
+</ol>
+<p>動かすと、あるフィーチャが、それが使う（参照する）フィーチャより前に来てしまうときは、落とせません。禁止のカーソルになり、ツールチップに理由が出ます。例えば、<span class="ui">［穴1］</span>を、その位置のスケッチ<span class="ui doc">［穴の列のスケッチ］</span>より前へは動かせません。</p>
+<figure id="fig-09_drop_refused"><a class="zoom" href="images/09_drop_refused.png"><img src="images/09_drop_refused.png" alt="落とせない位置にドラッグしたときのツールチップ。どのフィーチャが、どのフィーチャのどの欄を使っているかが出ます。" width="383" height="22" loading="lazy"></a><figcaption><span class="figno">図 9-8</span> 落とせない位置にドラッグしたときのツールチップ。どのフィーチャが、どのフィーチャのどの欄を使っているかが出ます。</figcaption></figure>
+<aside class="note" role="note"><p class="callout-title">注意</p><p>行の真ん中には落とせません。フォルダの行の真ん中だけは、フォルダに入れる操作になります。ソリッド ボディ・原点・作業フィーチャ・計測の行は動かせません。ツールやスケッチを編集している間は、並べ替え・名前の変更・フォルダの操作はできません。</p></aside>
+<aside class="tip" role="note"><p class="callout-title">ヒント</p><p>式やパラメータを経由した参照も数えます。<code>W</code> を使う寸法を、<code>W</code> を作るフィーチャより前に動かすことはできません。</p></aside>
+
+<h2 id="suppress"><span class="secno">9.4</span> フィーチャを抑制する</h2>
+<p><strong>抑制</strong>は、フィーチャを履歴に残したまま、一時的に無効にします。穴やフィレットを外した形を確かめたいときに使います。</p>
+<ol class="steps">
+  <li><p>ブラウザのフィーチャの行（複数でもかまいません）を右クリックし、<span class="ui">［抑制］</span>を選びます。</p></li>
+  <li><p>行が灰色の斜体になり、<span class="ui">［状態］</span>が<span class="ui">［抑制］</span>になります。ビューから、そのフィーチャの形が消えます。</p></li>
+  <li><p>戻すときは、同じ行を右クリックして<span class="ui">［抑制解除］</span>を選びます。</p></li>
+</ol>
+<ul>
+  <li><p>抑制したフィーチャを使っている後ろのフィーチャは、<span class="ui">［エラー］</span>になります。例えば<span class="ui">［穴1］</span>を抑制すると、それをパターンにした<span class="ui">［矩形状パターン1］</span>は計算できなくなります。抑制を解除すると直ります。</p></li>
+  <li><p>抑制と解除は、1 回が 1 つの Undo の項目です。</p></li>
+  <li><p>プロパティ パネルの<span class="ui">［属性］</span>のタブにある<span class="ui">［抑制］</span>のチェックでも、同じ操作ができます（<a href="#inspector">インスペクタ</a>）。</p></li>
+  <li><p>構成（<a href="11_configurations.html">第 11 章</a>）では、メンバーごとに抑制を決められます。</p></li>
+</ul>
+
+<h2 id="folder"><span class="secno">9.5</span> フォルダで整理する</h2>
+<p>フィーチャが多いときは、<strong>フォルダ</strong>にまとめて、ブラウザを見やすくします。フォルダは履歴の順序を変えません。</p>
+<ol class="steps">
+  <li><p>フォルダに入れるフィーチャの行を選びます（<kbd>Ctrl</kbd> を押しながらクリックで複数）。</p></li>
+  <li><p>右クリックして<span class="ui">［フォルダを作成］</span>を選びます。</p></li>
+  <li><p>名前を入力して確定します。既定の名前は<span class="ui">［フォルダ1］</span>、<span class="ui">［フォルダ2］</span>…と、使われていない番号です。</p>
+    <figure id="fig-09_folder_tree"><a class="zoom" href="images/09_folder_tree.png"><img src="images/09_folder_tree.png" alt="3 つのフィーチャをまとめた［穴の列］フォルダ。フォルダの左の三角で開閉します。" width="360" height="302" loading="lazy"></a><figcaption><span class="figno">図 9-9</span> 3 つのフィーチャをまとめた<span class="ui doc">［穴の列］</span>フォルダ。フォルダの左の三角で開閉します。</figcaption></figure></li>
+</ol>
+<figure id="fig-09_folder_menu"><a class="zoom" href="images/09_folder_menu.png"><img src="images/09_folder_menu.png" alt="フォルダの行の右クリックのメニュー。" width="202" height="100" loading="lazy"></a><figcaption><span class="figno">図 9-10</span> フォルダの行の右クリックのメニュー。</figcaption></figure>
+<ul>
+  <li><p><strong>名前を変える</strong>: フォルダの行を選んで <kbd>F2</kbd>（または<span class="ui">［フォルダの名前を変更］</span>）。フォルダの行のダブルクリックは開閉です。</p></li>
+  <li><p><strong>解除する</strong>: フォルダの行を右クリックして<span class="ui">［フォルダを解除］</span>。フォルダの中のフィーチャは外に出て、フォルダだけが消えます。</p></li>
+  <li><p><strong>出し入れする</strong>: フィーチャの行をフォルダの上や中へドラッグすると入り、外へドラッグすると出ます。</p></li>
+  <li><p><strong>入れ子にする</strong>: フォルダの中のフィーチャを選んで<span class="ui">［フォルダを作成］</span>すると、そのフォルダの中に新しいフォルダができます。</p></li>
+</ul>
+<aside class="note" role="note"><p class="callout-title">注意</p><p>フォルダのメンバーは、履歴の中で連続している必要があります。離れたフィーチャを選んでフォルダを作ると、寄せてまとめます（使う側が前に来てしまうときは断られます）。フォルダの途中に別のフィーチャが割り込んで、フォルダが分かれてしまう移動も断られます（「この移動ではフォルダ … が分かれてしまいます」）。</p></aside>
+<aside class="note" role="note"><p class="callout-title">注意</p><p>フォルダは、中身のフィーチャの「フォルダ」の欄だけで決まります。中身が空のフォルダは持てません。</p></aside>
+
+<h2 id="name"><span class="secno">9.6</span> 名前とコメント</h2>
+<p>フィーチャには、わかりやすい名前とコメントを付けられます。</p>
+<ol class="steps">
+  <li><p>フィーチャの行を選んで <kbd>F2</kbd>（<span class="ui">［名前の変更］</span>）を押し、新しい名前を入力します。</p></li>
+  <li><p>コメントは、右クリックの<span class="ui">［コメント］</span>で入力します。複数行を書けます。空にすると消えます。</p></li>
+</ol>
+<p>コメントは、行のツールチップと、プロパティ パネルの<span class="ui">［属性］</span>のタブの<span class="ui">［コメント］</span>に出ます。名前もコメントも、1 回の変更が 1 つの Undo の項目です。</p>
+<aside class="note" role="note"><p class="callout-title">注意</p><p>フィーチャの名前は、パーツの中で重ならないようにします。重なる名前や空の名前は付けられません。名前を変えても、ほかのフィーチャの参照や式は壊れません。</p></aside>
+<aside class="tip" role="note"><p class="callout-title">ヒント</p><p>パーツの行の名前も同じ <kbd>F2</kbd> で変えられます。電磁場解析に渡す STEP の部品名になります（<a href="26_step_export.html">第 26 章</a>）。ボディの名前は<a href="08_bodies.html#names">第 8 章</a>にあります。</p></aside>
+
+<h2 id="family"><span class="secno">9.7</span> 親子の強調</h2>
+<p>フィーチャは、ほかのフィーチャの結果（スケッチ・面・パラメータ）を使って作られます。使われる側を<strong>親</strong>、使う側を<strong>子</strong>と呼びます。フィーチャを選ぶと、親と子の行が、別の色と形で強調されます。</p>
+<figure id="fig-09_family_tree"><a class="zoom" href="images/09_family_tree.png"><img src="images/09_family_tree.png" alt="［穴1］を選んだところ。親の［穴の列のスケッチ］が緑と上向きの三角（▲）、子の［矩形状パターン1］が紫と下向きの三角（▼）です。" width="360" height="302" loading="lazy"></a><figcaption><span class="figno">図 9-11</span> <span class="ui">［穴1］</span>を選んだところ。親の<span class="ui doc">［穴の列のスケッチ］</span>が緑と上向きの三角（▲）、子の<span class="ui">［矩形状パターン1］</span>が紫と下向きの三角（▼）です。</figcaption></figure>
+<p>同じ内容は、行のツールチップの「参照」（親）・「使用先」（子）と、プロパティ パネルの<span class="ui">［属性］</span>のタブの<span class="ui">［依存元］</span>・<span class="ui">［依存先］</span>にも出ます。フィーチャを変更・削除・抑制したときに、どこまで影響するかを事前に確かめられます。</p>
+
+<h2 id="visibility"><span class="secno">9.8</span> 表示・非表示と、使われたスケッチ</h2>
+<p>ブラウザの行の左のチェックで、ボディ・スケッチ・作業フィーチャ・原点の表示と非表示を切り替えます。リボンの<span class="ui">［表示］</span>タブにも同じコマンドがあります（<a href="02_view.html#visibility">第 2 章</a>）。</p>
+<p>フィーチャが使ったスケッチ（押し出しのプロファイルなど）は、作った後は<strong>隠れます</strong>。ブラウザの行のチェックが外れています。もう一度出して、寸法を確かめたいときは、次のようにします。</p>
+<ol class="steps">
+  <li><p>ブラウザで、隠れているスケッチの行をクリックして選びます。</p></li>
+  <li><p>リボンの<span class="ui">［表示］</span>タブ →<span class="ui">［表示設定］</span>パネル →<span class="ui">［表示］</span>をクリックします（右クリックのメニューの<span class="ui">［表示］</span>でも同じです）。</p>
+    <figure id="fig-09_sketch_shown_tree"><a class="zoom" href="images/09_sketch_shown_tree.png"><img src="images/09_sketch_shown_tree.png" alt="［穴の列のスケッチ］のチェックが入りました。" width="360" height="302" loading="lazy"></a><figcaption><span class="figno">図 9-12</span> <span class="ui doc">［穴の列のスケッチ］</span>のチェックが入りました。</figcaption></figure></li>
+</ol>
+<figure id="fig-09_sketch_shown_view"><a class="zoom" href="images/09_sketch_shown_view.png"><img src="images/09_sketch_shown_view.png" alt="スケッチが出た状態。穴の位置の点が見えます。" width="700" height="438" loading="lazy"></a><figcaption><span class="figno">図 9-13</span> スケッチが出た状態。穴の位置の点が見えます。</figcaption></figure>
+<aside class="note" role="note"><p class="callout-title">注意</p><p><span class="ui">［すべて表示］</span>は、明示的に隠したものを出します。使われて隠れているスケッチは出しません。そのスケッチを選んで<span class="ui">［表示］</span>を押してください。</p></aside>
+<aside class="inventor" role="note"><p class="callout-title">Inventor との違い</p><p>Inventor でスケッチを右クリックして表示を切り替えるのと同じです。ブラウザのチェックで出し入れもできます。</p></aside>
+
+<h2 id="repair"><span class="secno">9.9</span> 参照の修復</h2>
+<p>フィーチャは、面・エッジ・頂点を<strong>名前</strong>で覚えています。上流のフィーチャを変えると、その面やエッジが無くなったり、同じ形のものが複数になったりして、後ろのフィーチャが覚えていた参照を見つけられなくなることがあります。</p>
+<p>参照が見つからないフィーチャは、<span class="ui">［状態］</span>が<span class="ui">［エラー］</span>か<span class="ui">［警告］</span>になり、印の右下に見つからない参照の数が出ます。ツールチップに、どの参照かが書かれます（「参照が見つかりません: 板 の側面（スケッチ1 の線 4 から） と … の間のエッジ」）。</p>
+<figure id="fig-09_repair_tree"><a class="zoom" href="images/09_repair_tree.png"><img src="images/09_repair_tree.png" alt="フィレットの前に、同じエッジを面取りしたところ（題材は plate_with_holes.mcad）。［フィレット1］は参照が 4 つ見つからず［エラー］、［面取り1］は［警告］です。" width="360" height="302" loading="lazy"></a><figcaption><span class="figno">図 9-14</span> フィレットの前に、同じエッジを面取りしたところ（題材は <code>plate_with_holes.mcad</code>）。<span class="ui">［フィレット1］</span>は参照が 4 つ見つからず<span class="ui">［エラー］</span>、<span class="ui">［面取り1］</span>は<span class="ui">［警告］</span>です。</figcaption></figure>
+<h3 id="repair-dialog">修復のダイアログで直す</h3>
+<ol class="steps">
+  <li><p>ブラウザのフィーチャを右クリックして<span class="ui">［参照を修復］</span>を選びます。一覧のダイアログが開きます。このダイアログは、開いたまま、ブラウザの行やビューを操作できます。</p>
+    <figure id="fig-09_repair_dialog"><a class="zoom" href="images/09_repair_dialog.png"><img src="images/09_repair_dialog.png" alt="参照の修復。［見つからない］参照が、履歴の上から順に並びます。" width="900" height="460" loading="lazy"></a><figcaption><span class="figno">図 9-15</span> 参照の修復。<span class="ui">［見つからない］</span>参照が、履歴の上から順に並びます。</figcaption></figure></li>
+  <li><p>一覧の行を選びます。<span class="ui">［候補］</span>の欄に、近い形の参照が出ます。</p></li>
+  <li><p>候補を選んで、<span class="ui">［こちらにする］</span>を押します。その行は一覧から消え、フィーチャが再計算されます。</p></li>
+  <li><p>候補に合うものがないときは、<span class="ui">［選び直す］</span>を押します。ダイアログの上の説明が「ビューでエッジを選択してください」のように替わるので、ダイアログを開いたまま、ビューで面・エッジ・頂点（行と同じ種類）をクリックします。クリックした要素が、その行の参照になります。</p></li>
+  <li><p>上の行から順に直します。上流が直ると、下の行は自然に直ることがあります。<span class="ui">［形状から見つけ直した］</span>行は、形で見つけ直した参照です。<span class="ui">［参照を更新］</span>（選んだ行）か<span class="ui">［すべて更新］</span>で、今の解決先を参照として保存します。</p>
+    <figure id="fig-09_repair_recovered"><a class="zoom" href="images/09_repair_recovered.png"><img src="images/09_repair_recovered.png" alt="［フィレット1］の 4 つの参照を直すと、［フィレット1］が［OK］になり、［面取り1］の参照が［形状から見つけ直した］になりました。" width="900" height="460" loading="lazy"></a><figcaption><span class="figno">図 9-16</span> <span class="ui">［フィレット1］</span>の 4 つの参照を直すと、<span class="ui">［フィレット1］</span>が<span class="ui">［OK］</span>になり、<span class="ui">［面取り1］</span>の参照が<span class="ui">［形状から見つけ直した］</span>になりました。</figcaption></figure></li>
+  <li><p>すべての行が消えると、「すべての参照は正常です。」と出ます。</p>
+    <figure id="fig-09_repair_done"><a class="zoom" href="images/09_repair_done.png"><img src="images/09_repair_done.png" alt="［すべて更新］の後。一覧は空になりました。" width="900" height="460" loading="lazy"></a><figcaption><span class="figno">図 9-17</span> <span class="ui">［すべて更新］</span>の後。一覧は空になりました。</figcaption></figure></li>
+</ol>
+<div class="table-wrap"><table>
+  <caption>一覧の状態とボタン</caption>
+  <thead><tr><th>状態</th><th>意味</th><th>直し方</th></tr></thead>
+  <tbody>
+    <tr><th scope="row"><span class="ui">［見つからない］</span></th><td>参照が無くなりました</td><td><span class="ui">［こちらにする］</span>（近い候補があるとき）か<span class="ui">［選び直す］</span></td></tr>
+    <tr><th scope="row"><span class="ui">［形状から見つけ直した］</span></th><td>名前では見つからず、形から見つけ直しました</td><td>確かめて<span class="ui">［参照を更新］</span></td></tr>
+    <tr><th scope="row"><span class="ui">［候補が複数あります］</span></th><td>同じ形の候補が複数あり、決めきれません</td><td>候補を選んで<span class="ui">［こちらにする］</span>、または<span class="ui">［参照を更新］</span></td></tr>
+  </tbody>
+</table></div>
+<p>プロファイルやデータム（作業平面など）の参照は、<span class="ui">［選び直す］</span>では直せません。<span class="ui">［フィーチャを編集］</span>を押して、フィーチャのフォームで選び直します。1 回の操作が 1 つの Undo の項目です。</p>
+<aside class="tip" role="note"><p class="callout-title">ヒント</p><p>修復のダイアログは閉じなくても、ブラウザの行を選んだり、ビューを操作したりできます。<span class="ui">［元に戻す］</span>・<span class="ui">［やり直し］</span>をすると、一覧も作り直されます。</p></aside>
+<aside class="note" role="note"><p class="callout-title">注意</p><p>フィーチャの右クリックの<span class="ui">［参照を更新］</span>は、そのフィーチャで<span class="ui">［形状から見つけ直した］</span>か<span class="ui">［候補が複数あります］</span>になっている参照を、一覧を開かずに更新します。</p></aside>
+<h3 id="delete-children">フィーチャを削除するとき</h3>
+<p>ほかのフィーチャが使っているフィーチャを<span class="ui">［削除］</span>（<kbd>Del</kbd>）で消そうとすると、使っているフィーチャの一覧と、扱いの選択が出ます。</p>
+<figure id="fig-09_delete_dialog"><a class="zoom" href="images/09_delete_dialog.png"><img src="images/09_delete_dialog.png" alt="［穴の列のスケッチ］を削除しようとしたとき。［穴1］と［矩形状パターン1］が使っています。" width="460" height="320" loading="lazy"></a><figcaption><span class="figno">図 9-18</span> <span class="ui doc">［穴の列のスケッチ］</span>を削除しようとしたとき。<span class="ui">［穴1］</span>と<span class="ui">［矩形状パターン1］</span>が使っています。</figcaption></figure>
+<ul>
+  <li><p><span class="ui">［子を残す］</span>: 使っているフィーチャは残し、参照が見つからない状態にします。あとで修復のダイアログで直します。</p></li>
+  <li><p><span class="ui">［子も削除］</span>: 使っているフィーチャも一緒に消します。</p></li>
+  <li><p><span class="ui">［キャンセル］</span>: 何もしません。</p></li>
+</ul>
+<aside class="tip" role="note"><p class="callout-title">ヒント</p><p>消したら、<kbd>Ctrl</kbd>+<kbd>Z</kbd> で戻せます。使っているフィーチャが無いときは、尋ねずに消します。</p></aside>
+
+<h2 id="inspector"><span class="secno">9.10</span> インスペクタ（プロパティ パネル）</h2>
+<p>ブラウザでフィーチャを 1 つ選ぶと、プロパティ パネルに<strong>インスペクタ</strong>が出ます。<span class="ui">［パラメータ］</span>と<span class="ui">［属性］</span>の 2 つのタブがあります。</p>
+<figure id="fig-09_inspector_params"><a class="zoom" href="images/09_inspector_params.png"><img src="images/09_inspector_params.png" alt="［パラメータ］のタブ。フィーチャのフォームと同じ欄です。欄を変えて &lt;kbd&gt;Enter&lt;/kbd&gt; を押すと、その値だけが変わります。［編集］でフィーチャの編集を始めます。" width="360" height="425" loading="lazy"></a><figcaption><span class="figno">図 9-19</span> <span class="ui">［パラメータ］</span>のタブ。フィーチャのフォームと同じ欄です。欄を変えて <kbd>Enter</kbd> を押すと、その値だけが変わります。<span class="ui">［編集］</span>でフィーチャの編集を始めます。</figcaption></figure>
+<figure id="fig-09_inspector_attrs"><a class="zoom" href="images/09_inspector_attrs.png"><img src="images/09_inspector_attrs.png" alt="［属性］のタブ。名前・コメント・抑制と、親子（［依存元］・［依存先］）が出ます。" width="360" height="335" loading="lazy"></a><figcaption><span class="figno">図 9-20</span> <span class="ui">［属性］</span>のタブ。名前・コメント・抑制と、親子（<span class="ui">［依存元］</span>・<span class="ui">［依存先］</span>）が出ます。</figcaption></figure>
+<ul>
+  <li><p><span class="ui">［名前］</span>・<span class="ui">［コメント］</span>・<span class="ui">［抑制］</span>は、入力が終わるたびに確定します（1 回が 1 つの Undo の項目）。</p></li>
+  <li><p><span class="ui">［種類］</span>・<span class="ui">［状態］</span>・<span class="ui">［フォルダ］</span>・<span class="ui">［依存元］</span>・<span class="ui">［依存先］</span>は読むだけです。</p></li>
+  <li><p>ボディを選んだときの<span class="ui">［属性］</span>は、名前・材料・外観と、体積・表面積・面の数などです（<a href="08_bodies.html#names">第 8 章</a>・<a href="12_inspect.html">第 12 章</a>）。</p></li>
+  <li><p>入力の途中でほかの行を選ぶと、その欄は確定されます。拒否された値は理由が欄の下に出て、元の値に戻ります。</p></li>
+</ul>
+
+<h2 id="undo"><span class="secno">9.11</span> 元に戻す・やり直しと変更履歴</h2>
+<p><span class="ui">［元に戻す］</span>（<kbd>Ctrl</kbd>+<kbd>Z</kbd>）と<span class="ui">［やり直し］</span>（<kbd>Ctrl</kbd>+<kbd>Y</kbd>）は、クイック アクセス ツールバーの矢印のボタンでも使えます。この章のコマンドは、どれも 1 回の操作が 1 つの項目です。フィーチャの作成・編集、パラメータの変更、名前の変更、終端の移動、並べ替え、抑制などを、1 つずつ戻せます。戻せる回数は、<span class="ui">［オプション］</span>の<span class="ui">［元に戻せる回数］</span>で決めます（既定は 200 回。変えた値は、あとから開くドキュメントに効きます）。</p>
+<p>どの操作を戻すかは、<strong>変更履歴</strong>で確かめられます。</p>
+<ol class="steps">
+  <li><p>リボンの<span class="ui">［表示］</span>タブ →<span class="ui">［ウィンドウ］</span>パネル →<span class="ui">［変更履歴］</span>をクリックします。右にドックが出ます。もう一度押すと隠れます。</p></li>
+  <li><p>操作の名前が、古い順に並びます。先頭は<span class="ui">［初期状態］</span>（開いた時点）です。今の位置は太字と右向きの三角で出ます。</p></li>
+  <li><p>行をクリックすると、その時点の状態に戻ります（<kbd>Ctrl</kbd>+<kbd>Z</kbd> を何回か押したのと同じ）。</p>
+    <figure id="fig-09_undo_history"><a class="zoom" href="images/09_undo_history.png"><img src="images/09_undo_history.png" alt="変更履歴。3 番目の項目（［フィーチャの抑制］）まで戻したところ。後ろの行は灰色の斜体で、クリックでやり直せます。" width="256" height="130" loading="lazy"></a><figcaption><span class="figno">図 9-21</span> 変更履歴。3 番目の項目（<span class="ui">［フィーチャの抑制］</span>）まで戻したところ。後ろの行は灰色の斜体で、クリックでやり直せます。</figcaption></figure></li>
+</ol>
+<aside class="note" role="note"><p class="callout-title">注意</p><p>戻った状態で新しい操作をすると、灰色の（やり直せる）行は消えます。スケッチを編集している間は、編集を始める前の行は選べません。</p></aside>
+<aside class="try"><p class="callout-title">この機能を試す</p><p class="try-sample">題材: <code>samples/parametric_plate.mcad</code> （<a href="00_intro.html#samples">題材の一覧と開き方</a>）</p>
+  <p>ブラウザの<span class="ui">［パーツの終端］</span>を<span class="ui">［矩形状パターン1］</span>の上へドラッグし、穴が 1 つになることを確かめます。右クリックの<span class="ui">［パーツの終端を最後へ移動］</span>で戻します。次に<span class="ui doc">［中央の穴のスケッチ］</span>と<span class="ui doc">［中央の穴］</span>を選び、<span class="ui">［矩形状パターン1］</span>の上へドラッグします。<span class="ui">［穴1］</span>を<span class="ui doc">［穴の列のスケッチ］</span>の上へドラッグすると、禁止のカーソルになり、理由が出ます。<span class="ui">［穴1］</span>を右クリックして<span class="ui">［抑制］</span>にすると<span class="ui">［矩形状パターン1］</span>がエラーになります。<span class="ui">［抑制解除］</span>で戻します。最後に<span class="ui">［変更履歴］</span>を開き、行をクリックして戻ってみます。</p>
+</aside>
+<aside class="try"><p class="callout-title">この機能を試す</p><p class="try-sample">題材: <code>samples/plate_with_holes.mcad</code> （<a href="00_intro.html#samples">題材の一覧と開き方</a>）</p>
+  <p>参照の修復を試します。<span class="ui">［パーツの終端］</span>を<span class="ui">［フィレット1］</span>の上へドラッグし、<span class="ui">［面取り］</span>で縦のエッジ 4 本に C4 を付けて確定します。終端を最後へ戻すと、<span class="ui">［フィレット1］</span>が<span class="ui">［エラー］</span>になります。<span class="ui">［フィレット1］</span>を右クリックして<span class="ui">［参照を修復］</span>を開き、1 行ずつ候補を選んで<span class="ui">［こちらにする］</span>を押します。終わったら<span class="ui">［すべて更新］</span>を押します。試した後は <kbd>Ctrl</kbd>+<kbd>Z</kbd> で戻してください。</p>
+</aside>
+
+</article>
+<nav class="pager" aria-label="前後の章"><a class="prev" rel="prev" href="08_bodies.html"><span class="dir">前の章</span>第 8 章 ボディの操作</a><a class="next" rel="next" href="10_parameters.html"><span class="dir">次の章</span>第 10 章 パラメータと式</a></nav>
+<footer class="footer"><p>EMRM-Studio ユーザーマニュアル（日本語）・EMRM-Studio 0.1.0 ・ <a href="#main">このページの先頭へ</a></p></footer>
+</main>
+</div>
+</body>
+</html>

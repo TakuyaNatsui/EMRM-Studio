@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="generator" content="tools/build_manual.py">
+<title>第 5 章 作業フィーチャ - EMRM-Studio ユーザーマニュアル</title>
+<link rel="stylesheet" href="assets/manual.css">
+<script src="assets/search_index.js" charset="utf-8" defer></script>
+<script src="assets/manual.js" charset="utf-8" defer></script>
+</head>
+<body class="page">
+<header class="topbar">
+<a class="brand" href="index.html">EMRM-Studio ユーザーマニュアル</a>
+<button class="toc-toggle" type="button" aria-controls="toc" aria-expanded="false">目次</button>
+<form class="search" role="search" action="#" onsubmit="return false">
+<input id="q" type="search" placeholder="マニュアルを検索（/）" aria-label="マニュアルを検索" autocomplete="off">
+</form>
+</header>
+<div id="search-results" class="search-results" hidden></div>
+<div class="layout">
+<nav id="toc" class="toc" aria-label="目次">
+<details class="toc-box">
+<summary>目次</summary>
+<ol class="toc-chapters">
+<li class="toc-home"><a href="index.html">表紙・目次</a></li>
+<li><a href="00_intro.html">はじめに</a></li>
+<li class="toc-part" role="presentation">第 I 部　形状を作る（CAD）</li>
+<li><a href="01_screen.html"><span class="chno">第 1 章</span> 画面の構成</a></li>
+<li><a href="02_view.html"><span class="chno">第 2 章</span> 視点の操作</a></li>
+<li><a href="03_first_part.html"><span class="chno">第 3 章</span> はじめての部品</a></li>
+<li><a href="04_sketch.html"><span class="chno">第 4 章</span> スケッチ</a></li>
+<li class="current"><a href="05_work_features.html" aria-current="page"><span class="chno">第 5 章</span> 作業フィーチャ</a><ol class="toc-sections"><li><a href="05_work_features.html#overview"><span class="secno">5.1</span> 作業フィーチャとは</a></li><li><a href="05_work_features.html#plane"><span class="secno">5.2</span> 作業平面を作る</a></li><li><a href="05_work_features.html#axis"><span class="secno">5.3</span> 作業軸を作る</a></li><li><a href="05_work_features.html#point"><span class="secno">5.4</span> 作業点を作る</a></li><li><a href="05_work_features.html#ucs"><span class="secno">5.5</span> UCS を作る</a></li><li><a href="05_work_features.html#multiple"><span class="secno">5.6</span> オフセット平面を複数枚作る</a></li><li><a href="05_work_features.html#manage"><span class="secno">5.7</span> 作業フィーチャを管理する</a></li><li><a href="05_work_features.html#orientation"><span class="secno">5.8</span> 向きの決まり方</a></li><li><a href="05_work_features.html#use"><span class="secno">5.9</span> 作業フィーチャを使う機能</a></li><li><a href="05_work_features.html#limits"><span class="secno">5.10</span> できないこと・限界</a></li></ol></li>
+<li><a href="06_features_basic.html"><span class="chno">第 6 章</span> フィーチャ（押し出し・回転・穴・フィレットなど）</a></li>
+<li><a href="07_features_advanced.html"><span class="chno">第 7 章</span> フィーチャ（スイープ・ロフト・コイル・パターンなど）</a></li>
+<li><a href="08_bodies.html"><span class="chno">第 8 章</span> ボディの操作</a></li>
+<li><a href="09_browser.html"><span class="chno">第 9 章</span> ブラウザとフィーチャの管理</a></li>
+<li><a href="10_parameters.html"><span class="chno">第 10 章</span> パラメータと式</a></li>
+<li><a href="11_configurations.html"><span class="chno">第 11 章</span> 構成</a></li>
+<li><a href="12_inspect.html"><span class="chno">第 12 章</span> 検査</a></li>
+<li><a href="13_files.html"><span class="chno">第 13 章</span> ファイル</a></li>
+<li class="toc-part" role="presentation">第 II 部　電磁場解析</li>
+<li><a href="14_em_intro.html"><span class="chno">第 14 章</span> 電磁場解析のはじめに</a></li>
+<li><a href="15_em_first.html"><span class="chno">第 15 章</span> はじめての電磁場解析（ソレノイド）</a></li>
+<li><a href="16_em_setup.html"><span class="chno">第 16 章</span> スタディの共通の設定</a></li>
+<li><a href="17_em_results.html"><span class="chno">第 17 章</span> 結果の見方</a></li>
+<li><a href="18_em_magnetostatic.html"><span class="chno">第 18 章</span> 静磁場解析</a></li>
+<li><a href="19_em_coils.html"><span class="chno">第 19 章</span> 静磁場解析: コイル</a></li>
+<li><a href="20_em_dipole.html"><span class="chno">第 20 章</span> 静磁場解析の例題: H 型双極電磁石</a></li>
+<li><a href="21_em_eigenmode.html"><span class="chno">第 21 章</span> 共振モード解析</a></li>
+<li><a href="22_em_driven.html"><span class="chno">第 22 章</span> ポート解析</a></li>
+<li><a href="23_em_electrostatic.html"><span class="chno">第 23 章</span> 静電場解析</a></li>
+<li><a href="24_em_gun.html"><span class="chno">第 24 章</span> 電子銃解析</a></li>
+<li><a href="25_em_troubleshooting.html"><span class="chno">第 25 章</span> 電磁場解析で困ったとき</a></li>
+<li class="toc-part" role="presentation">第 III 部　連携・カスタマイズ・自動化</li>
+<li><a href="26_step_export.html"><span class="chno">第 26 章</span> 他の解析プログラムに形を渡す</a></li>
+<li><a href="27_customize.html"><span class="chno">第 27 章</span> カスタマイズ</a></li>
+<li><a href="28_automation.html"><span class="chno">第 28 章</span> 自動化</a></li>
+<li><a href="29_troubleshooting.html"><span class="chno">第 29 章</span> 困ったとき</a></li>
+<li class="toc-part" role="presentation">付録</li>
+<li class="appendix"><a href="appendix_a_commands.html"><span class="chno">付録 A</span> コマンド一覧</a></li>
+<li class="appendix"><a href="appendix_b_shortcuts.html"><span class="chno">付録 B</span> ショートカット一覧</a></li>
+<li class="appendix"><a href="appendix_c_feature_params.html"><span class="chno">付録 C</span> フィーチャのパラメータ一覧</a></li>
+<li class="appendix"><a href="appendix_d_glossary.html"><span class="chno">付録 D</span> 用語の対応表</a></li>
+</ol>
+</details>
+</nav>
+<main class="content" id="main">
+<article class="chapter ">
+<p class="chapter-label">第 5 章</p>
+<h1>作業フィーチャ</h1>
+<nav class="pagetoc" aria-label="この章の内容">
+<p class="pagetoc-title">この章の内容</p>
+<ol>
+<li><a href="#overview"><span class="secno">5.1</span> 作業フィーチャとは</a></li>
+<li class="sub"><a href="#overview-flow">作り方の流れ</a></li>
+<li><a href="#plane"><span class="secno">5.2</span> 作業平面を作る</a></li>
+<li class="sub"><a href="#plane-offset">オフセット平面を作る</a></li>
+<li class="sub"><a href="#plane-angle">エッジのまわりに傾けた平面を作る</a></li>
+<li class="sub"><a href="#plane-three-points">3 点を通る平面を作る</a></li>
+<li class="sub"><a href="#plane-tangent">円筒に接する平面を作る</a></li>
+<li class="sub"><a href="#plane-method">方法を変える</a></li>
+<li><a href="#axis"><span class="secno">5.3</span> 作業軸を作る</a></li>
+<li class="sub"><a href="#axis-revolved">円筒の軸を作る</a></li>
+<li><a href="#point"><span class="secno">5.4</span> 作業点を作る</a></li>
+<li class="sub"><a href="#point-center">円の中心に作業点を作る</a></li>
+<li><a href="#ucs"><span class="secno">5.5</span> UCS を作る</a></li>
+<li class="sub"><a href="#ucs-three-points">3 点で UCS を作る</a></li>
+<li><a href="#multiple"><span class="secno">5.6</span> オフセット平面を複数枚作る</a></li>
+<li><a href="#manage"><span class="secno">5.7</span> 作業フィーチャを管理する</a></li>
+<li class="sub"><a href="#manage-visibility">表示と非表示</a></li>
+<li class="sub"><a href="#manage-rename">名前の変更</a></li>
+<li class="sub"><a href="#manage-edit">編集</a></li>
+<li class="sub"><a href="#manage-delete">削除</a></li>
+<li class="sub"><a href="#manage-tooltip">参照と使用先</a></li>
+<li><a href="#orientation"><span class="secno">5.8</span> 向きの決まり方</a></li>
+<li class="sub"><a href="#orientation-reopen">以前のドキュメントを開き直したとき</a></li>
+<li><a href="#use"><span class="secno">5.9</span> 作業フィーチャを使う機能</a></li>
+<li class="sub"><a href="#use-sketch">作業平面・UCS にスケッチを置く</a></li>
+<li class="sub"><a href="#use-axis">作業軸をパターンの軸に使う</a></li>
+<li class="sub"><a href="#use-measure">計測の座標系に UCS を使う</a></li>
+<li><a href="#limits"><span class="secno">5.10</span> できないこと・限界</a></li>
+</ol>
+</nav>
+<p>この章では、作業フィーチャ（作業平面・作業軸・作業点・UCS）の作り方と使い方を説明します。読み終えると、面のない所にスケッチを置いたり、回転・パターンの軸や座標の基準を自分で用意したりできるようになります。</p>
+
+<h2 id="overview"><span class="secno">5.1</span> 作業フィーチャとは</h2>
+<p>作業フィーチャは、形を持たない基準です。面やエッジだけでは足りないときに、基準を自分で作ります。4 種類あります。</p>
+<ul>
+  <li><p><strong>作業平面</strong>: スケッチを置く面、ミラー・分割の面などに使います。</p></li>
+  <li><p><strong>作業軸</strong>: 回転・円形状パターンの軸などに使います。</p></li>
+  <li><p><strong>作業点</strong>: 平面・軸・UCS の基準、ロフトの先端などに使います。</p></li>
+  <li><p><strong>UCS</strong>: 原点と X・Y・Z の向きを持つ座標系です。計測の基準、スケッチの原点などに使います。</p></li>
+</ul>
+<p>作るコマンドは、リボンの<span class="ui">［3D モデル］</span>タブの<span class="ui">［作業フィーチャ］</span>パネルにあります。できた作業フィーチャは、ブラウザの履歴に<span class="ui">［平面1］</span>・<span class="ui">［軸1］</span>・<span class="ui">［点1］</span>・<span class="ui">［UCS1］</span>の名前で並び、<span class="ui">［作業フィーチャ］</span>フォルダにも集まります。</p>
+<figure id="fig-05_overview_window"><a class="zoom" href="images/05_overview_window.png"><img src="images/05_overview_window.png" alt="作業フィーチャの場所。① リボンの［作業フィーチャ］パネル、② ブラウザの［作業フィーチャ］フォルダ、③ ビューに出る作業平面（名前のラベルが付きます）。" width="1000" height="643" loading="lazy"></a><figcaption><span class="figno">図 5-1</span> 作業フィーチャの場所。① リボンの<span class="ui">［作業フィーチャ］</span>パネル、② ブラウザの<span class="ui">［作業フィーチャ］</span>フォルダ、③ ビューに出る作業平面（名前のラベルが付きます）。</figcaption></figure>
+<figure id="fig-05_ribbon_panel"><a class="zoom" href="images/05_ribbon_panel.png"><img src="images/05_ribbon_panel.png" alt="［作業フィーチャ］パネル。① 平面、② 軸、③ 点、④ UCS。①〜③は▼で方法の一覧が開く分割ボタンです。" width="149" height="116" loading="lazy"></a><figcaption><span class="figno">図 5-2</span> <span class="ui">［作業フィーチャ］</span>パネル。① 平面、② 軸、③ 点、④ UCS。①〜③は▼で方法の一覧が開く分割ボタンです。</figcaption></figure>
+<p>平面・軸・点は、▼のメニューから<strong>方法</strong>を選びます。方法の数は、作業平面が 12、作業軸が 7、作業点が 7 です。UCS は 1 つのボタンで、方法はフォームで選びます（3 つ）。</p>
+<div class="figrow">
+  <figure id="fig-05_menu_plane"><a class="zoom" href="images/05_menu_plane.png"><img src="images/05_menu_plane.png" alt="平面の▼。上が既定の［平面］で、その下に 12 の方法が並びます。" width="211" height="312" loading="lazy"></a><figcaption><span class="figno">図 5-3</span> 平面の▼。上が既定の<span class="ui">［平面］</span>で、その下に 12 の方法が並びます。</figcaption></figure>
+  <figure id="fig-05_menu_axis"><a class="zoom" href="images/05_menu_axis.png"><img src="images/05_menu_axis.png" alt="軸の▼。7 つの方法です。" width="270" height="192" loading="lazy"></a><figcaption><span class="figno">図 5-4</span> 軸の▼。7 つの方法です。</figcaption></figure>
+  <figure id="fig-05_menu_point"><a class="zoom" href="images/05_menu_point.png"><img src="images/05_menu_point.png" alt="点の▼。7 つの方法です。" width="177" height="192" loading="lazy"></a><figcaption><span class="figno">図 5-5</span> 点の▼。7 つの方法です。</figcaption></figure>
+</div>
+<p>▼で選んだ方法は、ボタンの表に出ます。次からは、ボタンを押すだけで同じ方法で始まります。キーを押すと、<span class="ui">［平面］</span>は <kbd>]</kbd> で<span class="ui">［平面からのオフセット］</span>、<span class="ui">［軸］</span>は <kbd>/</kbd> で<span class="ui">［線分またはエッジ上］</span>、<span class="ui">［点］</span>は <kbd>.</kbd> で<span class="ui">［固定点］</span>の方法で始まります。</p>
+<h3 id="overview-flow">作り方の流れ</h3>
+<p>どの作業フィーチャも、作り方は同じです。</p>
+<ol class="steps">
+  <li><p>リボンのコマンド（または▼の方法）をクリックします。プロパティ パネルにフォームが出ます。</p></li>
+  <li><p>選ぶものを、ビューかブラウザでクリックします。<span class="ui">［平面］</span>・<span class="ui">［エッジまたは軸］</span>・<span class="ui">［点］</span>などの欄に、順に入ります。欄の左の色の四角と同じ色で、選んだものがビューで光ります。</p></li>
+  <li><p>必要なら<span class="ui">［オフセット］</span>や<span class="ui">［角度］</span>に値を入れます。ビューに水色のプレビューが出ます。</p></li>
+  <li><p><span class="ui">［OK］</span>（<kbd>Enter</kbd>）で確定します。</p></li>
+</ol>
+<p>コマンドの前に、面・エッジ・点を選んでおいてもかまいません。選んだものが最初の欄に入ります。<span class="ui">［OK］</span>の右の<span class="ui">［+］</span>（<span class="ui">［適用して新規作成］</span>）は、確定して、同じ方法・同じ値でもう 1 つ作り始めます。選んだものは空になるので、次の面や点を選びます。</p>
+<aside class="tip" role="note"><p class="callout-title">ヒント</p><p>作業平面が面に重なって選びにくいときは、<kbd>Alt</kbd> を押しながらクリックして順に切り替えます。ブラウザの行をクリックしても選べます。半透明の作業平面があっても、ボディの面・エッジ・頂点が先に選ばれます。</p></aside>
+<aside class="note" role="note"><p class="callout-title">注意</p><p>新しい作業フィーチャは、<span class="ui">［パーツの終端］</span>の位置（ふつうは履歴の最後）に入ります。履歴で前にあるフィーチャの欄には、後から作った作業フィーチャは選べません（「…が履歴で後にある…を参照しています」と出ます）。途中に入れたいときは、先に<span class="ui">［パーツの終端］</span>をその位置へドラッグします（<a href="09_browser.html">第 9 章</a>）。</p></aside>
+<aside class="inventor" role="note"><p class="callout-title">Inventor との違い</p><p>4 種類とメニューの並びは Inventor と同じです。<span class="ui">［作業フィーチャ］</span>フォルダは、作業フィーチャをまとめて表示・非表示にする mcad 独自のフォルダです。</p></aside>
+
+<h2 id="plane"><span class="secno">5.2</span> 作業平面を作る</h2>
+<p>作業平面は、選んだものから位置と向きが決まります。方法は 12 あり、リボンの▼かフォームの<span class="ui">［方法］</span>欄で選びます。</p>
+<div class="table-wrap"><table>
+  <caption>作業平面の方法と、選ぶもの・平面の位置</caption>
+  <thead><tr><th>方法</th><th>選ぶもの（選ぶ順）</th><th>平面の位置</th></tr></thead>
+  <tbody>
+    <tr><th scope="row"><span class="ui">［平面からのオフセット］</span></th><td>平面（原点の平面・作業平面・平らな面）</td><td>基準の平面から法線の向きに<span class="ui">［オフセット］</span>の距離</td></tr>
+    <tr><th scope="row"><span class="ui">［点を通る平面に平行］</span></th><td>平面、点</td><td>点を通る</td></tr>
+    <tr><th scope="row"><span class="ui">［2 つの平面間の中点平面］</span></th><td>平面 2 つ</td><td>平行なら真ん中。交わるなら 2 つの面の間の二等分面</td></tr>
+    <tr><th scope="row"><span class="ui">［エッジ周囲の平面の角度］</span></th><td>平面、その平面に平行なエッジまたは軸</td><td>エッジを通る</td></tr>
+    <tr><th scope="row"><span class="ui">［3 点］</span></th><td>点 3 つ</td><td>3 点を通る</td></tr>
+    <tr><th scope="row"><span class="ui">［同一平面上にある 2 つのエッジ］</span></th><td>エッジまたは軸 2 つ（同一平面上）</td><td>2 つのエッジを含む</td></tr>
+    <tr><th scope="row"><span class="ui">［エッジと点］</span></th><td>エッジまたは軸、点</td><td>エッジと点を含む</td></tr>
+    <tr><th scope="row"><span class="ui">［エッジを通るサーフェスに正接］</span></th><td>円筒の面、円筒の軸に平行なエッジ</td><td>エッジを通り、円筒に接する</td></tr>
+    <tr><th scope="row"><span class="ui">［点を通るサーフェスに正接］</span></th><td>円筒の面、点</td><td>点を通り、円筒に接する</td></tr>
+    <tr><th scope="row"><span class="ui">［サーフェスに正接し、平面に平行］</span></th><td>平面（円筒の軸に平行）、円筒の面</td><td>円筒に接する</td></tr>
+    <tr><th scope="row"><span class="ui">［点を通る軸に垂直］</span></th><td>エッジまたは軸、点</td><td>点を通る</td></tr>
+    <tr><th scope="row"><span class="ui">［点上で曲線に垂直］</span></th><td>曲線（エッジかスケッチの曲線）、曲線の上の点（省略できます）</td><td>曲線の上の点。点を選ばないときは<span class="ui">［曲線上の位置］</span>（0 が始点、1 が終点）</td></tr>
+  </tbody>
+</table></div>
+<p>平面には向きがあります。<strong>法線</strong>（平面に垂直な向き）と、<strong>X 方向</strong>（この平面にスケッチを置いたときの横方向）です。</p>
+<div class="table-wrap"><table>
+  <caption>作業平面の向き</caption>
+  <thead><tr><th>方法</th><th>法線</th><th>X 方向</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">平面からのオフセット、点を通る平面に平行、サーフェスに正接し、平面に平行</th><td>基準の平面と同じ</td><td>基準の平面と同じ</td></tr>
+    <tr><th scope="row">2 つの平面間の中点平面</th><td>1 つ目の平面の側</td><td>1 つ目の平面の X 方向</td></tr>
+    <tr><th scope="row">エッジ周囲の平面の角度</th><td>基準の法線を、エッジのまわりに<span class="ui">［角度］</span>（既定 90°）だけ右ねじで回した向き</td><td>エッジの向き</td></tr>
+    <tr><th scope="row">3 点</th><td>1→2→3 の順に反時計回りに見える側</td><td>1 点目から 2 点目へ</td></tr>
+    <tr><th scope="row">同一平面上にある 2 つのエッジ</th><td>1 本目の向きから 2 本目の向きへ右ねじで回して進む向き</td><td>1 本目のエッジの向き</td></tr>
+    <tr><th scope="row">エッジと点</th><td>エッジの向きから点の側へ右ねじで回して進む向き</td><td>エッジの向き</td></tr>
+    <tr><th scope="row">エッジを通るサーフェスに正接</th><td>接する所の外向き</td><td>エッジの向き</td></tr>
+    <tr><th scope="row">点を通るサーフェスに正接</th><td>接する所の外向き</td><td>円筒の軸の向き</td></tr>
+    <tr><th scope="row">点を通る軸に垂直</th><td>軸の向き</td><td>軸から点へ向かう向き</td></tr>
+    <tr><th scope="row">点上で曲線に垂直</th><td>曲線の接線の向き（選んだ時の向き）</td><td>曲線の曲率中心の向き（直線は最も直交する全体軸）</td></tr>
+  </tbody>
+</table></div>
+<p><span class="ui">［方向を反転］</span>にチェックを付けると、<span class="ui">［平面からのオフセット］</span>は反対側へ平面を移します（法線は基準のままです）。接平面の 3 つの方法は、反対側で接する平面になります。ほかの方法は、法線が逆向きになります（位置と形は変わりません）。</p>
+<h3 id="plane-offset">オフセット平面を作る</h3>
+<p>面や平面から一定の距離だけ離れた平面を作ります。最もよく使う方法です。</p>
+<ol class="steps">
+  <li><p><span class="path">リボンの<span class="ui">［3D モデル］</span>タブ → <span class="ui">［作業フィーチャ］</span>パネル → <span class="ui">［作業平面］</span>の▼ → <span class="ui">［平面］</span></span>をクリックします（パネルの大きな<span class="ui">［平面］</span>ボタンを押してもかまいません）。</p></li>
+  <li><p>ブラウザの<span class="ui">［原点］</span>を開き、<span class="ui">［XY 平面（上面）］</span>をクリックします。<span class="ui">［平面］</span>の欄に入ります。ビューの平らな面をクリックしてもかまいません。</p></li>
+  <li><p><span class="ui">［オフセット］</span>に <code>15</code> と入力します。ビューにプレビューと、距離を変える矢印が出ます。</p>
+    <figure id="fig-05_plane_offset_form"><a class="zoom" href="images/05_plane_offset_form.png"><img src="images/05_plane_offset_form.png" alt="オフセット平面のフォーム。［方法］は［平面からのオフセット］です。一番下の［作成する数］は、複数枚を作るときに使います。" width="360" height="258" loading="lazy"></a><figcaption><span class="figno">図 5-6</span> オフセット平面のフォーム。<span class="ui">［方法］</span>は<span class="ui">［平面からのオフセット］</span>です。一番下の<span class="ui">［作成する数］</span>は、<a href="#multiple">複数枚を作る</a>ときに使います。</figcaption></figure>
+    <figure id="fig-05_plane_offset_view"><a class="zoom" href="images/05_plane_offset_view.png"><img src="images/05_plane_offset_view.png" alt="濃い青が選んだ平面、薄い青がプレビューです。矢印をドラッグしても距離を変えられます。図は housing.mcad です。" width="700" height="433" loading="lazy"></a><figcaption><span class="figno">図 5-7</span> 濃い青が選んだ平面、薄い青がプレビューです。矢印をドラッグしても距離を変えられます。図は housing.mcad です。</figcaption></figure></li>
+  <li><p><span class="ui">［OK］</span>で確定します。ブラウザに<span class="ui">［平面1］</span>ができます。</p></li>
+</ol>
+<p><span class="ui">［オフセット］</span>には式も入れられます（<a href="10_parameters.html">第 10 章</a>）。</p>
+<h3 id="plane-angle">エッジのまわりに傾けた平面を作る</h3>
+<ol class="steps">
+  <li><p><span class="path">リボンの<span class="ui">［3D モデル］</span>タブ → <span class="ui">［作業フィーチャ］</span>パネル → <span class="ui">［作業平面］</span>の▼ → <span class="ui">［エッジ周囲の平面の角度］</span></span>をクリックします。</p></li>
+  <li><p>ブラウザの<span class="ui">［XY 平面（上面）］</span>をクリックします。<span class="ui">［平面］</span>の欄に入ります。</p></li>
+  <li><p>ビューで、その平面に平行なエッジ（箱の底の手前のエッジ）をクリックします。<span class="ui">［エッジまたは軸］</span>の欄に入ります。</p></li>
+  <li><p><span class="ui">［角度］</span>に <code>30</code> と入力します。エッジのまわりに 30° 傾いたプレビューが出ます。</p>
+    <figure id="fig-05_plane_angle_form"><a class="zoom" href="images/05_plane_angle_form.png"><img src="images/05_plane_angle_form.png" alt="エッジ周囲の平面の角度のフォーム。" width="360" height="298" loading="lazy"></a><figcaption><span class="figno">図 5-8</span> エッジ周囲の平面の角度のフォーム。</figcaption></figure>
+    <figure id="fig-05_plane_angle_view"><a class="zoom" href="images/05_plane_angle_view.png"><img src="images/05_plane_angle_view.png" alt="水色の線がエッジです。平面がエッジのまわりに 30° 傾きます。円弧のハンドルをドラッグしても角度を変えられます。" width="700" height="433" loading="lazy"></a><figcaption><span class="figno">図 5-9</span> 水色の線がエッジです。平面がエッジのまわりに 30° 傾きます。円弧のハンドルをドラッグしても角度を変えられます。</figcaption></figure></li>
+  <li><p><span class="ui">［OK］</span>で確定します。</p></li>
+</ol>
+<aside class="note" role="note"><p class="callout-title">注意</p><p>エッジは、選んだ平面に平行な直線にします。そうでないと、パネルの上に「プレビュー: エッジまたは軸は平面に平行にしてください」と赤く出ます。</p></aside>
+<h3 id="plane-three-points">3 点を通る平面を作る</h3>
+<ol class="steps">
+  <li><p><span class="path">リボンの<span class="ui">［3D モデル］</span>タブ → <span class="ui">［作業フィーチャ］</span>パネル → <span class="ui">［作業平面］</span>の▼ → <span class="ui">［3 点］</span></span>をクリックします。</p></li>
+  <li><p>ビューで頂点を順に 3 つクリックします。<span class="ui">［点］</span>・<span class="ui">［2 点目］</span>・<span class="ui">［3 点目］</span>の欄に入ります。作業点・UCS の原点・スケッチの点も選べます。</p>
+    <figure id="fig-05_plane_three_points_form"><a class="zoom" href="images/05_plane_three_points_form.png"><img src="images/05_plane_three_points_form.png" alt="3 点のフォーム。3 つの欄が順に埋まります。" width="360" height="318" loading="lazy"></a><figcaption><span class="figno">図 5-10</span> 3 点のフォーム。3 つの欄が順に埋まります。</figcaption></figure>
+    <figure id="fig-05_plane_three_points_view"><a class="zoom" href="images/05_plane_three_points_view.png"><img src="images/05_plane_three_points_view.png" alt="選んだ 3 つの頂点（色の点）を通る平面のプレビューです。図は primitives.mcad です。" width="700" height="433" loading="lazy"></a><figcaption><span class="figno">図 5-11</span> 選んだ 3 つの頂点（色の点）を通る平面のプレビューです。図は primitives.mcad です。</figcaption></figure></li>
+  <li><p><span class="ui">［OK］</span>で確定します。</p></li>
+</ol>
+<p>点の順を入れ替えると、法線が逆向きになります。3 点が 1 本の直線の上にあると、「3 点が 1 本の直線の上にあります」と出て作れません。</p>
+<h3 id="plane-tangent">円筒に接する平面を作る</h3>
+<p>接平面の 3 つの方法は、<strong>円筒の面</strong>に接する平面を作ります。例として、<span class="ui">［サーフェスに正接し、平面に平行］</span>を使います。</p>
+<ol class="steps">
+  <li><p><span class="path">リボンの<span class="ui">［3D モデル］</span>タブ → <span class="ui">［作業フィーチャ］</span>パネル → <span class="ui">［作業平面］</span>の▼ → <span class="ui">［サーフェスに正接し、平面に平行］</span></span>をクリックします。</p></li>
+  <li><p>ブラウザの<span class="ui">［YZ 平面（右側面）］</span>をクリックします。<span class="ui">［平面］</span>の欄に入ります。</p></li>
+  <li><p>ビューで円筒の面（フランジのハブの側面）をクリックします。<span class="ui">［サーフェス］</span>の欄に入ります。</p>
+    <figure id="fig-05_plane_tangent_view"><a class="zoom" href="images/05_plane_tangent_view.png"><img src="images/05_plane_tangent_view.png" alt="YZ 平面に平行で、ハブの円筒に接する平面のプレビューです。図は flange.mcad です。" width="700" height="433" loading="lazy"></a><figcaption><span class="figno">図 5-12</span> YZ 平面に平行で、ハブの円筒に接する平面のプレビューです。図は flange.mcad です。</figcaption></figure></li>
+  <li><p><span class="ui">［OK］</span>で確定します。</p></li>
+</ol>
+<p>円筒に接する平面は、ふつう 2 つあります。最初に出るのは、選んだ時の円筒の軸のまわりに右ねじの側の 1 つです。<span class="ui">［方向を反転］</span>で、もう 1 つ（反対側）に替わります。</p>
+<aside class="inventor" role="note"><p class="callout-title">Inventor との違い</p><p>「2 つの平行平面間の中点平面」は、mcad では平行でない（交わる）2 つの平面にも使えます。このときは 2 つの面の間の二等分面ができます。</p></aside>
+<h3 id="plane-method">方法を変える</h3>
+<p>作る途中でも、作った後の編集でも、<span class="ui">［方法］</span>欄で方法を変えられます。フォームの欄と、選ぶものが変わります。使わなくなった欄に選んでいたものは、確定すると捨てられます。次に選ぶ欄は、自動で選択待ちになります。</p>
+<aside class="note" role="note"><p class="callout-title">注意</p><p><span class="ui">［平面］</span>ボタンは、先に選んだものから方法を自動で決めません。方法は、▼のメニューか<span class="ui">［方法］</span>欄で選びます（既定は<span class="ui">［平面からのオフセット］</span>です）。</p></aside>
+<aside class="inventor" role="note"><p class="callout-title">Inventor との違い</p><p>Inventor の<span class="ui">［平面］</span>コマンドは、選んだ面・エッジ・点の組み合わせから方法を推定します。mcad は推定せず、方法を明示します。</p></aside>
+
+<h2 id="axis"><span class="secno">5.3</span> 作業軸を作る</h2>
+<p>作業軸は、直線の位置と向きを作ります。方法は 7 つです。</p>
+<div class="table-wrap"><table>
+  <caption>作業軸の方法</caption>
+  <thead><tr><th>方法</th><th>選ぶもの</th><th>軸の位置</th><th>向き</th></tr></thead>
+  <tbody>
+    <tr><th scope="row"><span class="ui">［線分またはエッジ上］</span></th><td>直線のエッジ・スケッチの線・原点の軸</td><td>エッジの上</td><td>選んだ時のエッジの向き</td></tr>
+    <tr><th scope="row"><span class="ui">［点を通る線分に平行］</span></th><td>エッジまたは軸、点</td><td>点を通る</td><td>エッジの向き</td></tr>
+    <tr><th scope="row"><span class="ui">［2 点を通る］</span></th><td>点 2 つ</td><td>1 点目を通る</td><td>1 点目から 2 点目へ</td></tr>
+    <tr><th scope="row"><span class="ui">［2 つの平面の交線］</span></th><td>平面 2 つ</td><td>2 つの平面の交線</td><td>1 つ目の法線 × 2 つ目の法線の向き</td></tr>
+    <tr><th scope="row"><span class="ui">［点を通る平面に垂直］</span></th><td>平面、点</td><td>点を通る</td><td>平面の法線</td></tr>
+    <tr><th scope="row"><span class="ui">［円形エッジまたは楕円形エッジの中心を通る］</span></th><td>円・円弧・楕円のエッジ、スケッチの円・円弧</td><td>円の中心</td><td>円の軸（スケッチの円・円弧はスケッチの法線）</td></tr>
+    <tr><th scope="row"><span class="ui">［回転状の面またはフィーチャを通る］</span></th><td>円筒・円錐・トーラスの面</td><td>面の回転軸</td><td>選んだ時の軸の向き</td></tr>
+  </tbody>
+</table></div>
+<p><span class="ui">［方向を反転］</span>にチェックを付けると、軸の向きが逆になります。回転の軸や円形状パターンの軸に使うときは、回る向きが逆になります。</p>
+<h3 id="axis-revolved">円筒の軸を作る</h3>
+<p>円筒（穴・ハブ・軸）の中心線は、<span class="ui">［回転状の面またはフィーチャを通る］</span>で作れます。</p>
+<ol class="steps">
+  <li><p><span class="path">リボンの<span class="ui">［3D モデル］</span>タブ → <span class="ui">［作業フィーチャ］</span>パネル → <span class="ui">［作業軸］</span>の▼ → <span class="ui">［回転状の面またはフィーチャを通る］</span></span>をクリックします。</p></li>
+  <li><p>ビューで円筒の面（ハブの側面）をクリックします。<span class="ui">［回転状の面］</span>の欄に入ります。</p>
+    <figure id="fig-05_axis_form"><a class="zoom" href="images/05_axis_form.png"><img src="images/05_axis_form.png" alt="作業軸のフォーム。［方法］に応じて、選ぶ欄が変わります。" width="360" height="168" loading="lazy"></a><figcaption><span class="figno">図 5-13</span> 作業軸のフォーム。<span class="ui">［方法］</span>に応じて、選ぶ欄が変わります。</figcaption></figure>
+    <figure id="fig-05_axis_view"><a class="zoom" href="images/05_axis_view.png"><img src="images/05_axis_view.png" alt="ハブの中心を通る作業軸（青い線）。選んだ円筒の面が黄色で光ります。図は flange.mcad です。" width="700" height="433" loading="lazy"></a><figcaption><span class="figno">図 5-14</span> ハブの中心を通る作業軸（青い線）。選んだ円筒の面が黄色で光ります。図は flange.mcad です。</figcaption></figure></li>
+  <li><p><span class="ui">［OK］</span>で確定します。ブラウザに<span class="ui">［軸1］</span>ができます。</p></li>
+</ol>
+<p>作業軸は、ビューに線で出ます。線をクリックして選べます。カーソルを合わせると、ステータスバーに「軸: 軸1」のように名前が出ます。</p>
+
+<h2 id="point"><span class="secno">5.4</span> 作業点を作る</h2>
+<p>作業点は、空間の 1 点を作ります。方法は 7 つです。</p>
+<div class="table-wrap"><table>
+  <caption>作業点の方法</caption>
+  <thead><tr><th>方法</th><th>選ぶもの</th><th>点の位置</th></tr></thead>
+  <tbody>
+    <tr><th scope="row"><span class="ui">［固定点］</span></th><td>なし（<span class="ui">［X］</span>・<span class="ui">［Y］</span>・<span class="ui">［Z］</span>に座標を入力。<span class="ui">［座標系］</span>に UCS か平面を選ぶと、その座標系の座標）</td><td>入力した座標</td></tr>
+    <tr><th scope="row"><span class="ui">［頂点またはスケッチ点上］</span></th><td>頂点・スケッチの点・作業点・UCS の原点</td><td>その点</td></tr>
+    <tr><th scope="row"><span class="ui">［エッジの中点］</span></th><td>エッジ、スケッチの曲線</td><td>エッジの長さの中点</td></tr>
+    <tr><th scope="row"><span class="ui">［円・球・トーラスの中心点］</span></th><td>円・円弧・楕円のエッジ、スケッチの円・円弧、球・トーラスの面</td><td>中心</td></tr>
+    <tr><th scope="row"><span class="ui">［3 平面の交点］</span></th><td>平面 3 つ</td><td>3 つの平面が交わる点</td></tr>
+    <tr><th scope="row"><span class="ui">［2 線分の交点］</span></th><td>エッジまたは軸 2 つ</td><td>2 本が交わる点（交わらないと作れません）</td></tr>
+    <tr><th scope="row"><span class="ui">［平面と線分の交点］</span></th><td>平面、エッジまたは軸</td><td>平面と線が交わる点</td></tr>
+  </tbody>
+</table></div>
+<h3 id="point-center">円の中心に作業点を作る</h3>
+<ol class="steps">
+  <li><p><span class="path">リボンの<span class="ui">［3D モデル］</span>タブ → <span class="ui">［作業フィーチャ］</span>パネル → <span class="ui">［作業点］</span>の▼ → <span class="ui">［円・球・トーラスの中心点］</span></span>をクリックします。</p></li>
+  <li><p>ビューで円のエッジ（円柱の上の円）をクリックします。<span class="ui">［円・球・トーラス］</span>の欄に入ります。</p>
+    <figure id="fig-05_point_view"><a class="zoom" href="images/05_point_view.png"><img src="images/05_point_view.png" alt="円柱の上の円のエッジ（黄色）と、その中心にできる作業点（小さな青い点）です。図は primitives.mcad です。" width="700" height="433" loading="lazy"></a><figcaption><span class="figno">図 5-15</span> 円柱の上の円のエッジ（黄色）と、その中心にできる作業点（小さな青い点）です。図は primitives.mcad です。</figcaption></figure></li>
+  <li><p><span class="ui">［OK］</span>で確定します。ブラウザに<span class="ui">［点1］</span>ができます。</p></li>
+</ol>
+<p><span class="ui">［固定点］</span>では、ビューの X・Y・Z の矢印（ハンドル）をドラッグして、位置を動かせます。</p>
+
+<h2 id="ucs"><span class="secno">5.5</span> UCS を作る</h2>
+<p>UCS は、原点と X・Y・Z の向きを持つ座標系です。右手系（Z = X × Y）です。<span class="ui">［UCS］</span>のフォームの<span class="ui">［方法］</span>で、置き方を 3 つから選びます。</p>
+<div class="table-wrap"><table>
+  <caption>UCS の方法</caption>
+  <thead><tr><th>方法</th><th>選ぶもの・入力</th><th>向き</th></tr></thead>
+  <tbody>
+    <tr><th scope="row"><span class="ui">［オフセットと回転］</span></th><td><span class="ui">［基準の座標系］</span>（空ならワールド）、<span class="ui">［X］</span>・<span class="ui">［Y］</span>・<span class="ui">［Z］</span>の移動、<span class="ui">［X 軸まわりの回転］</span>・<span class="ui">［Y 軸まわりの回転］</span>・<span class="ui">［Z 軸まわりの回転］</span></td><td>基準の座標系の方向に移動し、X → Y → Z の順に、回した後の軸のまわりに右ねじで回す</td></tr>
+    <tr><th scope="row"><span class="ui">［原点と 2 方向］</span></th><td><span class="ui">［原点］</span>（点）、<span class="ui">［X 方向］</span>（エッジまたは軸）、<span class="ui">［Y の向き］</span>（省略できます）</td><td>X は 1 つ目の向き。Y は 2 つ目の向きの X に垂直な成分（省略すると、X に最も直交する全体軸）。<span class="ui">［X を反転］</span>・<span class="ui">［Y を反転］</span>で逆向き</td></tr>
+    <tr><th scope="row"><span class="ui">［3 点］</span></th><td><span class="ui">［原点］</span>、<span class="ui">［X 軸の点］</span>、<span class="ui">［XY 平面の点］</span>（点 3 つ）</td><td>X は原点から X 軸の点へ。Y は XY 平面の点の側</td></tr>
+  </tbody>
+</table></div>
+<h3 id="ucs-three-points">3 点で UCS を作る</h3>
+<ol class="steps">
+  <li><p><span class="path">リボンの<span class="ui">［3D モデル］</span>タブ → <span class="ui">［作業フィーチャ］</span>パネル → <span class="ui">［UCS］</span></span>をクリックします。</p></li>
+  <li><p><span class="ui">［方法］</span>を<span class="ui">［3 点］</span>にします。</p></li>
+  <li><p>ビューで頂点を 3 つ、原点・X 軸の点・XY 平面の点の順にクリックします。</p>
+    <figure id="fig-05_ucs_form"><a class="zoom" href="images/05_ucs_form.png"><img src="images/05_ucs_form.png" alt="3 点の UCS のフォーム。" width="360" height="328" loading="lazy"></a><figcaption><span class="figno">図 5-16</span> 3 点の UCS のフォーム。</figcaption></figure></li>
+  <li><p><span class="ui">［OK］</span>で確定します。ブラウザに<span class="ui">［UCS1］</span>ができます。</p>
+    <figure id="fig-05_ucs_view"><a class="zoom" href="images/05_ucs_view.png"><img src="images/05_ucs_view.png" alt="原点に UCS1 ができました。X・Y・Z が 3 本の線（赤・緑・青）で出て、名前が付きます。図は primitives.mcad です。" width="700" height="433" loading="lazy"></a><figcaption><span class="figno">図 5-17</span> 原点に UCS1 ができました。X・Y・Z が 3 本の線（赤・緑・青）で出て、名前が付きます。図は primitives.mcad です。</figcaption></figure></li>
+</ol>
+<p>UCS は、スケッチの置き場所、作業点の座標の基準、計測の座標系に使えます（<a href="#use">作業フィーチャを使う機能</a>）。</p>
+
+<h2 id="multiple"><span class="secno">5.6</span> オフセット平面を複数枚作る</h2>
+<p>同じ間隔のオフセット平面は、1 回の操作でまとめて作れます。</p>
+<ol class="steps">
+  <li><p><span class="path">リボンの<span class="ui">［3D モデル］</span>タブ → <span class="ui">［作業フィーチャ］</span>パネル → <span class="ui">［作業平面］</span>の▼ → <span class="ui">［平面からのオフセット］</span></span>をクリックし、基準の平面（<span class="ui">［XY 平面（上面）］</span>）を選びます。</p></li>
+  <li><p><span class="ui">［オフセット］</span>に <code>10</code>、<span class="ui">［作成する数］</span>に <code>3</code> と入力します。</p>
+    <figure id="fig-05_multiple_form"><a class="zoom" href="images/05_multiple_form.png"><img src="images/05_multiple_form.png" alt="［作成する数］は、フォームの一番下にあります。［方法］が［平面からのオフセット］のときだけ出ます。" width="360" height="258" loading="lazy"></a><figcaption><span class="figno">図 5-18</span> <span class="ui">［作成する数］</span>は、フォームの一番下にあります。<span class="ui">［方法］</span>が<span class="ui">［平面からのオフセット］</span>のときだけ出ます。</figcaption></figure></li>
+  <li><p><span class="ui">［OK］</span>で確定します。3 枚の平面ができます。</p>
+    <figure id="fig-05_multiple_done"><a class="zoom" href="images/05_multiple_done.png"><img src="images/05_multiple_done.png" alt="基準から 10・20・30 mm の位置に［平面1］〜［平面3］ができました。" width="700" height="433" loading="lazy"></a><figcaption><span class="figno">図 5-19</span> 基準から 10・20・30 mm の位置に<span class="ui">［平面1］</span>〜<span class="ui">［平面3］</span>ができました。</figcaption></figure></li>
+</ol>
+<p>1 枚目は基準の平面から、2 枚目からは<strong>前の平面から</strong>、同じオフセットで並びます。<span class="ui">［平面1］</span>の<span class="ui">［オフセット］</span>をあとで変えると、<span class="ui">［平面2］</span>・<span class="ui">［平面3］</span>が付いてきます。<span class="ui">［元に戻す］</span>は 1 回で 3 枚とも消えます。</p>
+<aside class="note" role="note"><p class="callout-title">注意</p><p>プレビューには、1 枚目だけが出ます。<span class="ui">［作成する数］</span>は作るときだけの設定で、保存されません。</p></aside>
+
+<h2 id="manage"><span class="secno">5.7</span> 作業フィーチャを管理する</h2>
+<h3 id="manage-visibility">表示と非表示</h3>
+<p>作業フィーチャは、作ると表示されます。表示は 3 つの方法で切り替えます。</p>
+<ul>
+  <li><p><strong>1 つずつ</strong>: ブラウザの行の左のチェックを付け外しします。</p></li>
+  <li><p><strong>まとめて</strong>: <span class="ui">［作業フィーチャ］</span>フォルダのチェックで、平面・軸・点・UCS を全部、出し入れします。</p></li>
+  <li><p><strong>種類ごと</strong>: リボンの<span class="ui">［表示］</span>タブ →<span class="ui">［表示設定］</span>パネル →<span class="ui">［オブジェクトの表示設定］</span>▼で切り替えます。項目は<span class="ui">［ユーザ作業平面］</span>・<span class="ui">［ユーザ作業軸］</span>・<span class="ui">［ユーザ作業点］</span>・<span class="ui">［ユーザ座標系（UCS）］</span>・<span class="ui">［すべての作業フィーチャ］</span>です。</p></li>
+</ul>
+<div class="figrow">
+  <figure id="fig-05_visibility_menu"><a class="zoom" href="images/05_visibility_menu.png"><img src="images/05_visibility_menu.png" alt="［オブジェクトの表示設定］のメニュー。作業フィーチャは、［すべての作業フィーチャ］と、「ユーザ」で始まる 4 項目です。" width="168" height="264" loading="lazy"></a><figcaption><span class="figno">図 5-20</span> <span class="ui">［オブジェクトの表示設定］</span>のメニュー。作業フィーチャは、<span class="ui">［すべての作業フィーチャ］</span>と、「ユーザ」で始まる 4 項目です。</figcaption></figure>
+  <figure id="fig-05_visibility_tree"><a class="zoom" href="images/05_visibility_tree.png"><img src="images/05_visibility_tree.png" alt="ブラウザ。［中間の平面］のチェックを外すと、ビューから消えます。" width="360" height="210" loading="lazy"></a><figcaption><span class="figno">図 5-21</span> ブラウザ。<span class="ui doc">［中間の平面］</span>のチェックを外すと、ビューから消えます。</figcaption></figure>
+</div>
+<p>種類ごとの設定は、1 つずつの設定より強く働きます。隠した作業フィーチャも、ブラウザでカーソルを合わせたり選んだりしている間は、一時的に出ます。ビューで選んでから<span class="ui">［非表示］</span>・<span class="ui">［表示］</span>でも切り替えられます（<a href="02_view.html#visibility">第 2 章</a>）。</p>
+<h3 id="manage-rename">名前の変更</h3>
+<p>ブラウザの行を選んで <kbd>F2</kbd> を押すと、<span class="ui">［新しい名前］</span>を入力するダイアログが出ます。名前を入れて <span class="ui">［OK］</span> を押します。</p>
+<h3 id="manage-edit">編集</h3>
+<p>ブラウザの行をダブルクリックすると、作ったときのフォームが開きます。<span class="ui">［方法］</span>・選んだもの・値を変えて、<span class="ui">［OK］</span>で確定します。選んだものは、欄をクリックして選び直します（<span class="ui">［外す］</span>で空にもできます）。</p>
+<figure id="fig-05_edit_window"><a class="zoom" href="images/05_edit_window.png"><img src="images/05_edit_window.png" alt="［中間の平面］の編集。ビューにプレビューとオフセットの矢印が出ます。ブラウザは、編集中のフィーチャより後ろがグレーになり、［ロールバック］と表示されます。" width="1000" height="643" loading="lazy"></a><figcaption><span class="figno">図 5-22</span> <span class="ui doc">［中間の平面］</span>の編集。ビューにプレビューとオフセットの矢印が出ます。ブラウザは、編集中のフィーチャより後ろがグレーになり、<span class="ui">［ロールバック］</span>と表示されます。</figcaption></figure>
+<p>編集中は、ビューのハンドルをドラッグして値を変えられます。作業平面は<span class="ui">［オフセット］</span>の矢印と<span class="ui">［角度］</span>の円弧です。作業点（固定点）は X・Y・Z の矢印、UCS（オフセットと回転）は移動と回転の X・Y・Z です。</p>
+<h3 id="manage-delete">削除</h3>
+<p>ブラウザの行を選び、<kbd>Del</kbd>（<span class="ui">［削除］</span>）を押します。ほかのフィーチャが使っていなければ、そのまま消えます。使っているフィーチャがあるときは、扱いを尋ねるダイアログが出ます。</p>
+<figure id="fig-05_delete_dialog"><a class="zoom" href="images/05_delete_dialog.png"><img src="images/05_delete_dialog.png" alt="［中間の平面］を使っているフィーチャの一覧。［子を残す］は、参照が見つからない状態で残します。［子も削除］は、一覧を全部削除します。" width="460" height="320" loading="lazy"></a><figcaption><span class="figno">図 5-23</span> <span class="ui doc">［中間の平面］</span>を使っているフィーチャの一覧。<span class="ui">［子を残す］</span>は、参照が見つからない状態で残します。<span class="ui">［子も削除］</span>は、一覧を全部削除します。</figcaption></figure>
+<p>削除は、<span class="ui">［元に戻す］</span>で戻せます。</p>
+<h3 id="manage-tooltip">参照と使用先</h3>
+<p>ブラウザの行にカーソルを合わせると、ツールチップが出ます。名前と状態のほか、「参照: …」（使っているもの）と「使用先: …」（この作業フィーチャを使っているフィーチャ）の行があります。削除の前に確かめます。</p>
+
+<h2 id="orientation"><span class="secno">5.8</span> 向きの決まり方</h2>
+<p>作業平面の法線・X 方向、作業軸の向き、UCS の X・Y・Z は、使う機能に効きます。スケッチの横方向、回転の向き、パターンの向き、押し出しの既定の側などです。</p>
+<ul>
+  <li><p><strong>選んだ時の向きを保ちます</strong>。エッジや円筒の向きは、選んだ時の向きの側に決まります。関係のない上流の変更では、反転しません。</p></li>
+  <li><p><strong>原点</strong>は、直線のエッジ・円筒・円錐の軸では、全体の原点から軸へ下ろした垂線の足です。円・楕円・トーラスでは中心です。</p></li>
+  <li><p><strong>反転</strong>は、<span class="ui">［方向を反転］</span>（UCS は<span class="ui">［X を反転］</span>・<span class="ui">［Y を反転］</span>）です。向きが逆なときは、これで直します。</p></li>
+  <li><p>編集で上流が変わり、エッジの向きが選んだ時と直交すると、「向きが決まりません: 選んだ時の向きと直交しています。参照を選び直してください」と出ます。参照を選び直します。</p></li>
+</ul>
+<h3 id="orientation-reopen">以前のドキュメントを開き直したとき</h3>
+<p>向きの基準を改めたため、以前のバージョンで作ったドキュメントを開くと、次の値が変わることがあります。形は変わりません。直すときは<span class="ui">［方向を反転］</span>を使います。</p>
+<ul>
+  <li><p>点上で曲線に垂直な平面（ボディのエッジ）: エッジの向きが逆だったときは、位置が反対の端から数えられ、法線が逆になります。</p></li>
+  <li><p>2 つのエッジ・エッジと点・エッジを通る接平面、エッジの作業軸: 原点が垂線の足へ動きます。平面・軸は同じですが、その座標系の作業点・UCS・計測の値が動きます。</p></li>
+  <li><p>交わる 2 つの平面の中点平面: X 方向と原点が変わります（その平面のスケッチは面内で回ります）。上下に重なる（ほぼ平行な）2 つの面は、垂直な平面から間の平面に変わります。</p></li>
+  <li><p>点・エッジを通る円筒の接平面: 円筒の軸が選んだ時と逆（上向きに押し出した円柱など）だと、既定の接平面が反対側になり、X 方向も逆です。</p></li>
+  <li><p>スケッチの向き: UCS に置いたスケッチは、UCS の X 軸の向きです。スケッチの円・円弧の中心の作業軸は、スケッチの法線の向きです。</p></li>
+</ul>
+
+<h2 id="use"><span class="secno">5.9</span> 作業フィーチャを使う機能</h2>
+<p>作業フィーチャは、次の欄に選べます。ビューでクリックするか、ブラウザの行を選びます。詳しい使い方は、各章にあります。</p>
+<div class="table-wrap"><table>
+  <caption>作業フィーチャを選べる主な欄</caption>
+  <thead><tr><th>機能</th><th>欄</th><th>選べるもの</th><th>章</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">スケッチ</th><td><span class="ui">［平面］</span></td><td>作業平面、UCS（XY 平面として）</td><td><a href="04_sketch.html">第 4 章</a></td></tr>
+    <tr><th scope="row">回転</th><td><span class="ui">［軸］</span></td><td>作業軸</td><td rowspan="3"><a href="06_features_basic.html">第 6 章</a></td></tr>
+    <tr><th scope="row">押し出し</th><td><span class="ui">［終点］</span></td><td>作業平面、作業点</td></tr>
+    <tr><th scope="row">勾配</th><td><span class="ui">［固定平面］</span></td><td>作業平面</td></tr>
+    <tr><th scope="row">矩形状パターン</th><td><span class="ui">［方向 1］</span>・<span class="ui">［方向 2］</span></td><td>作業軸、作業平面</td><td rowspan="4"><a href="07_features_advanced.html">第 7 章</a></td></tr>
+    <tr><th scope="row">円形状パターン</th><td><span class="ui">［回転軸］</span></td><td>作業軸</td></tr>
+    <tr><th scope="row">ミラー</th><td><span class="ui">［ミラー平面］</span></td><td>作業平面</td></tr>
+    <tr><th scope="row">ロフト</th><td><span class="ui">［始点］</span>・<span class="ui">［終点］</span></td><td>作業点</td></tr>
+    <tr><th scope="row">分割</th><td><span class="ui">［分割ツール］</span></td><td>作業平面</td><td rowspan="2"><a href="08_bodies.html">第 8 章</a></td></tr>
+    <tr><th scope="row">ボディを移動</th><td><span class="ui">［回転軸］</span></td><td>作業軸</td></tr>
+    <tr><th scope="row">計測</th><td><span class="ui">［座標系］</span></td><td>UCS</td><td><a href="12_inspect.html">第 12 章</a></td></tr>
+  </tbody>
+</table></div>
+<h3 id="use-sketch">作業平面・UCS にスケッチを置く</h3>
+<p>ブラウザで作業平面か UCS を選んでから、<span class="path">リボンの<span class="ui">［3D モデル］</span>タブ → <span class="ui">［スケッチ］</span>パネル → <span class="ui">［スケッチ］</span></span>をクリックします。その平面にスケッチが始まり、ビューが正対します。作業平面に置いたスケッチは、原点が全体の原点の射影、X 方向が作業平面の X 方向です。UCS に置くと、原点も X 方向も UCS のものになるので、UCS の座標でスケッチを描けます。</p>
+<p>作業平面の行を右クリックして<span class="ui">［新しいスケッチ］</span>を選んでも、その平面にスケッチが始まります（ビューの作業平面を右クリックしても同じです。何も選んでいなくても、右クリックした作業平面が選ばれてメニューが出ます。UCS・作業軸・作業点では出ません）。</p>
+<figure id="fig-05_use_sketch"><a class="zoom" href="images/05_use_sketch.png"><img src="images/05_use_sketch.png" alt="作業平面（［中間の平面］）に置いたスケッチ。図は housing.mcad です。" width="640" height="440" loading="lazy"></a><figcaption><span class="figno">図 5-24</span> 作業平面（<span class="ui doc">［中間の平面］</span>）に置いたスケッチ。図は housing.mcad です。</figcaption></figure>
+<h3 id="use-axis">作業軸をパターンの軸に使う</h3>
+<p><span class="path">リボンの<span class="ui">［3D モデル］</span>タブ → <span class="ui">［パターン］</span>パネル → <span class="ui">［円形状パターン］</span></span>の<span class="ui">［回転軸］</span>の欄をクリックし、ブラウザかビューで作業軸を選びます。回転の<span class="ui">［軸］</span>の欄も同じです。</p>
+<figure id="fig-05_use_axis_pattern"><a class="zoom" href="images/05_use_axis_pattern.png"><img src="images/05_use_axis_pattern.png" alt="円形状パターンの［回転軸］に、作業軸［軸1］を選んだところです。図は flange.mcad です。" width="360" height="363" loading="lazy"></a><figcaption><span class="figno">図 5-25</span> 円形状パターンの<span class="ui">［回転軸］</span>に、作業軸<span class="ui">［軸1］</span>を選んだところです。図は flange.mcad です。</figcaption></figure>
+<h3 id="use-measure">計測の座標系に UCS を使う</h3>
+<p>リボンの<span class="ui">［検査］</span>タブ →<span class="ui">［計測］</span>パネル →<span class="ui">［計測］</span>で計測する頂点などを選び、パネルの<span class="ui">［座標系］</span>を UCS にします。位置・中心・ΔX/ΔY/ΔZ が、UCS の座標で出ます。距離と角度は変わりません。</p>
+<figure id="fig-05_measure_ucs"><a class="zoom" href="images/05_measure_ucs.png"><img src="images/05_measure_ucs.png" alt="頂点の位置を UCS1 の座標で計測したところ（［座標系］が ［UCS1］）。図は primitives.mcad です。" width="274" height="260" loading="lazy"></a><figcaption><span class="figno">図 5-26</span> 頂点の位置を UCS1 の座標で計測したところ（<span class="ui">［座標系］</span>が <span class="ui">［UCS1］</span>）。図は primitives.mcad です。</figcaption></figure>
+
+<h2 id="limits"><span class="secno">5.10</span> できないこと・限界</h2>
+<ul>
+  <li><p>接平面は<strong>円筒の面だけ</strong>です。円錐・球・トーラスの接平面や、平らでない面に垂直な作業軸は作れません。</p></li>
+  <li><p><span class="ui">［円・球・トーラスの中心点］</span>は、円・円弧・楕円のエッジと、球・トーラスの面に使えます。それ以外のエッジのループの中心は作れません。</p></li>
+  <li><p>UCS の XY・XZ・YZ 平面と X・Y・Z 軸は、個別に選べません。UCS を選ぶと、平面の欄では XY 平面、軸の欄では Z 軸、点の欄では原点として使われます。</p></li>
+  <li><p>作業平面の大きさは、モデルの大きさに合わせて自動で決まり、変えられません。</p></li>
+  <li><p>作業軸・作業点には、名前のラベルは出ません（作業平面と UCS には出ます）。</p></li>
+  <li><p>選んだ作業フィーチャは、欄の色ではビューに強調されません（選択とカーソルを合わせたときの強調だけです）。</p></li>
+  <li><p>作業点・UCS のハンドルは、X・Y・Z を 1 つずつ動かす矢印と円弧です。3 軸をまとめて動かすハンドルはありません。</p></li>
+  <li><p>計測の<span class="ui">［座標系］</span>に選べるのは UCS だけです（作業平面・作業点は選べません）。</p></li>
+</ul>
+<p>作れないときは、パネルの上に理由が赤く出ます。主なものを挙げます。</p>
+<div class="table-wrap"><table>
+  <caption>作れないときの主な理由</caption>
+  <thead><tr><th>表示</th><th>直し方</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">エッジまたは軸は平面に平行にしてください</th><td>角度の方法で、選んだ平面に平行なエッジを選びます</td></tr>
+    <tr><th scope="row">3 点が 1 本の直線の上にあります</th><td>一直線上にない 3 点を選びます</td></tr>
+    <tr><th scope="row">2 つの平面が平行です</th><td>交わる 2 つの平面を選びます</td></tr>
+    <tr><th scope="row">2 本の線分が交わりません</th><td>交わる 2 本のエッジまたは軸を選びます</td></tr>
+    <tr><th scope="row">点が円筒の内側にあります</th><td>円筒の外側の点を選びます</td></tr>
+  </tbody>
+</table></div>
+
+<aside class="try"><p class="callout-title">この機能を試す</p><p class="try-sample">題材: <code>samples/housing.mcad</code> （<a href="00_intro.html#samples">題材の一覧と開き方</a>）</p>
+  <p>リボンの<span class="ui">［作業フィーチャ］</span>パネルの▼から、次を試します。</p>
+  <p>角度の作業平面: <span class="ui">［エッジ周囲の平面の角度］</span>で、ブラウザの<span class="ui">［XY 平面（上面）］</span>と、ビューで箱の底の手前のエッジを選び、<span class="ui">［角度］</span>を <code>30</code> にします。できた平面を選んで<span class="ui">［スケッチ］</span>を押すと、その平面にスケッチを置けます。</p>
+  <p>複数枚: <span class="ui">［平面からのオフセット］</span>で<span class="ui">［XY 平面（上面）］</span>を選び、<span class="ui">［オフセット］</span>を <code>10</code>、<span class="ui">［作成する数］</span>を <code>3</code> にして確定します。<kbd>Ctrl</kbd>+<kbd>Z</kbd> で 3 枚とも消えます。</p>
+</aside>
+<aside class="try"><p class="callout-title">この機能を試す</p><p class="try-sample">題材: <code>samples/l_bracket.mcad</code> （<a href="00_intro.html#samples">題材の一覧と開き方</a>）</p>
+  <p>3 点: <span class="ui">［3 点］</span>で、同じ面にない 3 つの頂点をクリックします。斜めの平面ができます。</p>
+  <p>中点平面: <span class="ui">［2 つの平面間の中点平面］</span>で、<span class="ui">［XY 平面（上面）］</span>と、ビューで端の面（z = 50）を選びます。<span class="ui doc">［ミラーの平面］</span>（z = 25）と同じ位置にできます。</p>
+  <p>軸: <span class="ui">［2 つの平面の交線］</span>で、ブラウザの<span class="ui doc">［リブの平面］</span>と<span class="ui">［YZ 平面（右側面）］</span>を選びます。</p>
+  <p>UCS: <span class="ui">［UCS］</span>の<span class="ui">［方法］</span>を<span class="ui">［3 点］</span>にし、端の面（z = 50）の内側の角と、その隣の頂点 2 つを順に選びます。リボンの<span class="ui">［検査］</span>タブ →<span class="ui">［計測］</span>で別の頂点を選び、<span class="ui">［座標系］</span>を<span class="ui">［UCS1］</span>にすると、位置が UCS 基準で出ます。</p>
+</aside>
+<aside class="try"><p class="callout-title">この機能を試す</p><p class="try-sample">題材: <code>samples/flange.mcad</code> （<a href="00_intro.html#samples">題材の一覧と開き方</a>）</p>
+  <p>接平面: <span class="ui">［サーフェスに正接し、平面に平行］</span>で、<span class="ui">［YZ 平面（右側面）］</span>とハブの円筒面を選びます。<span class="ui">［点を通るサーフェスに正接］</span>・<span class="ui">［エッジを通るサーフェスに正接］</span>も、同じ円筒面で試せます。</p>
+  <p>円筒の軸: <span class="ui">［回転状の面またはフィーチャを通る］</span>でハブの円筒面から作業軸を作ります。続けて、ディスクの上面（ハブの外側）に点のスケッチを描き、<span class="ui">［穴］</span>（φ5・貫通）で小さな穴を開けます。<span class="ui">［円形状パターン］</span>の<span class="ui">［回転軸］</span>には、その作業軸を選びます。</p>
+</aside>
+<aside class="try"><p class="callout-title">この機能を試す</p><p class="try-sample">題材: <code>samples/primitives.mcad</code> （<a href="00_intro.html#samples">題材の一覧と開き方</a>）</p>
+  <p>作業点: <span class="ui">［円・球・トーラスの中心点］</span>で円柱の上の円のエッジ、<span class="ui">［頂点またはスケッチ点上］</span>で直方体の頂点、<span class="ui">［エッジの中点］</span>でエッジを選びます（<span class="ui">［点］</span>▼から選びます）。</p>
+</aside>
+
+</article>
+<nav class="pager" aria-label="前後の章"><a class="prev" rel="prev" href="04_sketch.html"><span class="dir">前の章</span>第 4 章 スケッチ</a><a class="next" rel="next" href="06_features_basic.html"><span class="dir">次の章</span>第 6 章 フィーチャ（押し出し・回転・穴・フィレットなど）</a></nav>
+<footer class="footer"><p>EMRM-Studio ユーザーマニュアル（日本語）・EMRM-Studio 0.1.0 ・ <a href="#main">このページの先頭へ</a></p></footer>
+</main>
+</div>
+</body>
+</html>

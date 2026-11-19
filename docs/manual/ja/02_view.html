@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="generator" content="tools/build_manual.py">
+<title>第 2 章 視点の操作 - EMRM-Studio ユーザーマニュアル</title>
+<link rel="stylesheet" href="assets/manual.css">
+<script src="assets/search_index.js" charset="utf-8" defer></script>
+<script src="assets/manual.js" charset="utf-8" defer></script>
+</head>
+<body class="page">
+<header class="topbar">
+<a class="brand" href="index.html">EMRM-Studio ユーザーマニュアル</a>
+<button class="toc-toggle" type="button" aria-controls="toc" aria-expanded="false">目次</button>
+<form class="search" role="search" action="#" onsubmit="return false">
+<input id="q" type="search" placeholder="マニュアルを検索（/）" aria-label="マニュアルを検索" autocomplete="off">
+</form>
+</header>
+<div id="search-results" class="search-results" hidden></div>
+<div class="layout">
+<nav id="toc" class="toc" aria-label="目次">
+<details class="toc-box">
+<summary>目次</summary>
+<ol class="toc-chapters">
+<li class="toc-home"><a href="index.html">表紙・目次</a></li>
+<li><a href="00_intro.html">はじめに</a></li>
+<li class="toc-part" role="presentation">第 I 部　形状を作る（CAD）</li>
+<li><a href="01_screen.html"><span class="chno">第 1 章</span> 画面の構成</a></li>
+<li class="current"><a href="02_view.html" aria-current="page"><span class="chno">第 2 章</span> 視点の操作</a><ol class="toc-sections"><li><a href="02_view.html#mouse"><span class="secno">2.1</span> マウスの操作</a></li><li><a href="02_view.html#keys"><span class="secno">2.2</span> キーでの視点操作</a></li><li><a href="02_view.html#viewcube"><span class="secno">2.3</span> ViewCube</a></li><li><a href="02_view.html#std-views"><span class="secno">2.4</span> 標準ビューとホーム ビュー</a></li><li><a href="02_view.html#look-at"><span class="secno">2.5</span> ビュー面</a></li><li><a href="02_view.html#named-views"><span class="secno">2.6</span> 名前付きビュー</a></li><li><a href="02_view.html#zoom"><span class="secno">2.7</span> ズームと前後のビュー</a></li><li><a href="02_view.html#projection"><span class="secno">2.8</span> 投影法</a></li><li><a href="02_view.html#style"><span class="secno">2.9</span> ビジュアル スタイル</a></li><li><a href="02_view.html#section"><span class="secno">2.10</span> 断面図</a></li><li><a href="02_view.html#visibility"><span class="secno">2.11</span> 表示と非表示</a></li><li><a href="02_view.html#selection"><span class="secno">2.12</span> 選択の方法</a></li></ol></li>
+<li><a href="03_first_part.html"><span class="chno">第 3 章</span> はじめての部品</a></li>
+<li><a href="04_sketch.html"><span class="chno">第 4 章</span> スケッチ</a></li>
+<li><a href="05_work_features.html"><span class="chno">第 5 章</span> 作業フィーチャ</a></li>
+<li><a href="06_features_basic.html"><span class="chno">第 6 章</span> フィーチャ（押し出し・回転・穴・フィレットなど）</a></li>
+<li><a href="07_features_advanced.html"><span class="chno">第 7 章</span> フィーチャ（スイープ・ロフト・コイル・パターンなど）</a></li>
+<li><a href="08_bodies.html"><span class="chno">第 8 章</span> ボディの操作</a></li>
+<li><a href="09_browser.html"><span class="chno">第 9 章</span> ブラウザとフィーチャの管理</a></li>
+<li><a href="10_parameters.html"><span class="chno">第 10 章</span> パラメータと式</a></li>
+<li><a href="11_configurations.html"><span class="chno">第 11 章</span> 構成</a></li>
+<li><a href="12_inspect.html"><span class="chno">第 12 章</span> 検査</a></li>
+<li><a href="13_files.html"><span class="chno">第 13 章</span> ファイル</a></li>
+<li class="toc-part" role="presentation">第 II 部　電磁場解析</li>
+<li><a href="14_em_intro.html"><span class="chno">第 14 章</span> 電磁場解析のはじめに</a></li>
+<li><a href="15_em_first.html"><span class="chno">第 15 章</span> はじめての電磁場解析（ソレノイド）</a></li>
+<li><a href="16_em_setup.html"><span class="chno">第 16 章</span> スタディの共通の設定</a></li>
+<li><a href="17_em_results.html"><span class="chno">第 17 章</span> 結果の見方</a></li>
+<li><a href="18_em_magnetostatic.html"><span class="chno">第 18 章</span> 静磁場解析</a></li>
+<li><a href="19_em_coils.html"><span class="chno">第 19 章</span> 静磁場解析: コイル</a></li>
+<li><a href="20_em_dipole.html"><span class="chno">第 20 章</span> 静磁場解析の例題: H 型双極電磁石</a></li>
+<li><a href="21_em_eigenmode.html"><span class="chno">第 21 章</span> 共振モード解析</a></li>
+<li><a href="22_em_driven.html"><span class="chno">第 22 章</span> ポート解析</a></li>
+<li><a href="23_em_electrostatic.html"><span class="chno">第 23 章</span> 静電場解析</a></li>
+<li><a href="24_em_gun.html"><span class="chno">第 24 章</span> 電子銃解析</a></li>
+<li><a href="25_em_troubleshooting.html"><span class="chno">第 25 章</span> 電磁場解析で困ったとき</a></li>
+<li class="toc-part" role="presentation">第 III 部　連携・カスタマイズ・自動化</li>
+<li><a href="26_step_export.html"><span class="chno">第 26 章</span> 他の解析プログラムに形を渡す</a></li>
+<li><a href="27_customize.html"><span class="chno">第 27 章</span> カスタマイズ</a></li>
+<li><a href="28_automation.html"><span class="chno">第 28 章</span> 自動化</a></li>
+<li><a href="29_troubleshooting.html"><span class="chno">第 29 章</span> 困ったとき</a></li>
+<li class="toc-part" role="presentation">付録</li>
+<li class="appendix"><a href="appendix_a_commands.html"><span class="chno">付録 A</span> コマンド一覧</a></li>
+<li class="appendix"><a href="appendix_b_shortcuts.html"><span class="chno">付録 B</span> ショートカット一覧</a></li>
+<li class="appendix"><a href="appendix_c_feature_params.html"><span class="chno">付録 C</span> フィーチャのパラメータ一覧</a></li>
+<li class="appendix"><a href="appendix_d_glossary.html"><span class="chno">付録 D</span> 用語の対応表</a></li>
+</ol>
+</details>
+</nav>
+<main class="content" id="main">
+<article class="chapter ">
+<p class="chapter-label">第 2 章</p>
+<h1>視点の操作</h1>
+<nav class="pagetoc" aria-label="この章の内容">
+<p class="pagetoc-title">この章の内容</p>
+<ol>
+<li><a href="#mouse"><span class="secno">2.1</span> マウスの操作</a></li>
+<li class="sub"><a href="#mouse-preset">プリセットを切り替える</a></li>
+<li><a href="#keys"><span class="secno">2.2</span> キーでの視点操作</a></li>
+<li><a href="#viewcube"><span class="secno">2.3</span> ViewCube</a></li>
+<li><a href="#std-views"><span class="secno">2.4</span> 標準ビューとホーム ビュー</a></li>
+<li><a href="#look-at"><span class="secno">2.5</span> ビュー面</a></li>
+<li><a href="#named-views"><span class="secno">2.6</span> 名前付きビュー</a></li>
+<li><a href="#zoom"><span class="secno">2.7</span> ズームと前後のビュー</a></li>
+<li><a href="#projection"><span class="secno">2.8</span> 投影法</a></li>
+<li><a href="#style"><span class="secno">2.9</span> ビジュアル スタイル</a></li>
+<li><a href="#section"><span class="secno">2.10</span> 断面図</a></li>
+<li><a href="#visibility"><span class="secno">2.11</span> 表示と非表示</a></li>
+<li><a href="#selection"><span class="secno">2.12</span> 選択の方法</a></li>
+</ol>
+</nav>
+<p>この章では、3D ビューの視点を動かす方法と、見え方（投影・ビジュアル スタイル・断面図・表示と非表示）を変える方法を説明します。マウスの動きは、初回起動で選んだ「普段使っている CAD」に合わせてあります。この章は既定の<span class="ui">［Inventor 風］</span>で説明します。</p>
+
+<h2 id="mouse"><span class="secno">2.1</span> マウスの操作</h2>
+<p><span class="ui">［Inventor 風］</span>のマウス操作は次のとおりです。ほかのプリセットの割り当ては<a href="appendix_b_shortcuts.html#mouse">付録 B</a>にあります。</p>
+<div class="table-wrap"><table class="keys"><thead><tr><th>操作</th><th>動作</th></tr></thead><tbody><tr><td>左クリック</td><td>選択</td></tr><tr><td>左ドラッグ</td><td>範囲選択</td></tr><tr><td>右クリック</td><td>コンテキストメニュー</td></tr><tr><td>中ドラッグ</td><td>画面移動</td></tr><tr><td>Shift+中ドラッグ</td><td>オービット</td></tr><tr><td>中ダブルクリック</td><td>全体表示</td></tr><tr><td>F4+左ドラッグ</td><td>オービット</td></tr><tr><td>F2+左ドラッグ</td><td>画面移動</td></tr><tr><td>F3+左ドラッグ</td><td>ズーム</td></tr><tr><td>ホイール</td><td>ズーム（前に回すとズームアウト）</td></tr></tbody></table></div>
+<ul>
+  <li><p><strong>オービット</strong>（回転）は、<kbd>Shift</kbd> を押しながら中ドラッグします。回転の中心は、カーソルの下の点か、モデルの中心です。</p></li>
+  <li><p><strong>画面移動</strong>は、中ドラッグです。</p></li>
+  <li><p><strong>ズーム</strong>は、ホイールです。カーソルの位置を中心にズームします。ホイールを前（奥）に回すとズームアウトします。</p></li>
+  <li><p>中ボタンを<strong>ダブルクリック</strong>すると、全体表示になります。</p></li>
+  <li><p>マウスにホイールボタンがないときは、<kbd>F4</kbd>・<kbd>F2</kbd>・<kbd>F3</kbd> を<strong>押している間</strong>、左ドラッグでオービット・画面移動・ズームができます。</p></li>
+</ul>
+<aside class="tip" role="note"><p class="callout-title">ヒント</p><p><kbd>F2</kbd>〜<kbd>F4</kbd> は、ブラウザなどにフォーカスがあっても、カーソルが 3D ビューの上にあれば効きます（文字を入力する欄では効きません）。</p></aside>
+<aside class="inventor" role="note"><p class="callout-title">Inventor との違い</p><p>Inventor では右クリックでマーキング メニューが出ますが、mcad ではコンテキスト メニューが出ます。ほかの違いは、プリセットごとに付録 B の「このプリセットで変わるキー」にあります。</p></aside>
+
+<h3 id="mouse-preset">プリセットを切り替える</h3>
+<p>プリセットは 16 種類あります。初回起動で選んだものは、いつでも変えられます。</p>
+<ol class="steps">
+  <li><p>ステータスバーの右端のマウスのボタン（<code>マウス: Inventor 風</code>）を押して、一覧から選びます。ボタンの上にマウスを置くと、そのプリセットの早見表が出ます。</p>
+    <figure id="fig-02_status_mouse"><a class="zoom" href="images/02_status_mouse.png"><img src="images/02_status_mouse.png" alt="ステータスバーの右端。ここでプリセットを切り替えます。" width="400" height="28" loading="lazy"></a><figcaption><span class="figno">図 2-1</span> ステータスバーの右端。ここでプリセットを切り替えます。</figcaption></figure></li>
+  <li><p>または、<span class="path">リボンの<span class="ui">［ツール］</span>タブ → <span class="ui">［オプション］</span>パネル → <span class="ui">［オプション］</span></span>を開き、<span class="ui">［マウスと視点の操作］</span>のページで選びます。</p>
+    <figure id="fig-02_options_mouse"><a class="zoom" href="images/02_options_mouse.png"><img src="images/02_options_mouse.png" alt="［オプション］の［マウスと視点の操作］のページ。プリセットを選び、ホイールの向きや回転の速さなど共通の設定を変えられます。" width="760" height="532" loading="lazy"></a><figcaption><span class="figno">図 2-2</span> <span class="ui">［オプション］</span>の<span class="ui">［マウスと視点の操作］</span>のページ。プリセットを選び、ホイールの向きや回転の速さなど共通の設定を変えられます。</figcaption></figure></li>
+</ol>
+<p>プリセットを選ぶと、キーボードのショートカットもそのプリセットのものに替わります（たとえば <span class="ui">［Inventor 風］</span>では、全体表示が <kbd>Home</kbd>、フィレットが <kbd>F</kbd> です）。設定の詳しい説明は<a href="27_customize.html">第 27 章</a>にあります。</p>
+
+<h2 id="keys"><span class="secno">2.2</span> キーでの視点操作</h2>
+<div class="table-wrap"><table>
+  <thead><tr><th>キー</th><th>動作</th></tr></thead>
+  <tbody>
+    <tr><th scope="row"><kbd>Home</kbd></th><td><span class="ui">［全体表示］</span>。モデル全体が見えるようにします</td></tr>
+    <tr><th scope="row"><kbd>F6</kbd></th><td><span class="ui">［ホーム ビュー］</span></td></tr>
+    <tr><th scope="row"><kbd>F5</kbd>・<kbd>Shift</kbd>+<kbd>F5</kbd></th><td><span class="ui">［前のビューを表示］</span>・<span class="ui">［次のビューを表示］</span>（最大 20 回前まで）</td></tr>
+    <tr><th scope="row"><kbd>Ctrl</kbd>+<kbd>1</kbd>〜<kbd>Ctrl</kbd>+<kbd>7</kbd></th><td>標準ビュー（<span class="ui">［正面］</span>・<span class="ui">［背面］</span>・<span class="ui">［左］</span>・<span class="ui">［右］</span>・<span class="ui">［上］</span>・<span class="ui">［下］</span>・<span class="ui">［アイソメ ビュー］</span>）</td></tr>
+    <tr><th scope="row"><kbd>Ctrl</kbd>+<kbd>8</kbd></th><td><span class="ui">［ビュー面］</span>。選んだ面に正対します</td></tr>
+    <tr><th scope="row"><kbd>←</kbd>・<kbd>→</kbd>・<kbd>↑</kbd>・<kbd>↓</kbd></th><td>15° ずつオービットします（<kbd>Shift</kbd> を押しながらで 90°、<kbd>Ctrl</kbd> を押しながらで 5°）</td></tr>
+    <tr><th scope="row"><kbd>Alt</kbd>+<kbd>Left</kbd>・<kbd>Alt</kbd>+<kbd>Right</kbd></th><td>視線のまわりに 90° 回します（画面でモデルが反時計回り・時計回りに回ります）。正面に正対した後で、縦の Z 軸を横にするときなどに使います</td></tr>
+    <tr><th scope="row"><kbd>Shift</kbd>+<kbd>F3</kbd></th><td><span class="ui">［窓ズーム］</span>。ドラッグした枠に合わせてズームします</td></tr>
+  </tbody>
+</table></div>
+<p>操作はリボンの<span class="ui">［表示］</span>タブの<span class="ui">［ナビゲート］</span>パネルにも並んでいます。</p>
+<figure id="fig-02_ribbon_navigate"><a class="zoom" href="images/02_ribbon_navigate.png"><img src="images/02_ribbon_navigate.png" alt="［表示］タブの［ナビゲート］パネル。標準ビュー・ビュー面・ホーム ビュー・ズームなどがあります。" width="349" height="90" loading="lazy"></a><figcaption><span class="figno">図 2-3</span> <span class="ui">［表示］</span>タブの<span class="ui">［ナビゲート］</span>パネル。標準ビュー・ビュー面・ホーム ビュー・ズームなどがあります。</figcaption></figure>
+
+<h2 id="viewcube"><span class="secno">2.3</span> ViewCube</h2>
+<p>ビューの右上のキューブをクリックすると、その向きから見ます。面・エッジ・コーナーの 26 か所が押せて、0.2 秒ほどで滑らかに回ります。</p>
+<figure id="fig-02_viewcube_hover"><a class="zoom" href="images/02_viewcube_hover.png"><img src="images/02_viewcube_hover.png" alt="カーソルを合わせた面が光ります。カーソルが離れると、キューブは薄く出ます。" width="116" height="116" loading="lazy"></a><figcaption><span class="figno">図 2-4</span> カーソルを合わせた面が光ります。カーソルが離れると、キューブは薄く出ます。</figcaption></figure>
+<ul>
+  <li><p>キューブをドラッグすると、オービットします。</p></li>
+  <li><p>左上の<strong>家のボタン</strong>は、<span class="ui">［ホーム ビュー］</span>へ戻ります。</p></li>
+  <li><p>面を正面にしているときは、周りの三角形で隣の面へ移ります。右上の<strong>回転の矢印</strong>を押すと、モデルが矢印の向きに 90° 回ります（たとえば縦の Z 軸が横になります）。矢印はカーソルが離れていても薄く出ます。<kbd>Alt</kbd>+<kbd>Left</kbd>・<kbd>Alt</kbd>+<kbd>Right</kbd> でも同じように回せます（面を正面にしていなくても使えます）。</p></li>
+  <li><p>右クリックのメニューには、ホーム ビューの設定・ビューの回転・直交投影とパースの切り替え・表示モード・ビューの保存と復元があります。</p></li>
+</ul>
+<figure id="fig-02_viewcube_roll"><a class="zoom" href="images/02_viewcube_roll.png"><img src="images/02_viewcube_roll.png" alt="正面のビューの ViewCube。周りの三角形と、右上の 2 つの回転の矢印（左が反時計回り、右が時計回り）。カーソルを重ねた矢印が光ります。" width="116" height="116" loading="lazy"></a><figcaption><span class="figno">図 2-5</span> 正面のビューの ViewCube。周りの三角形と、右上の 2 つの回転の矢印（左が反時計回り、右が時計回り）。カーソルを重ねた矢印が光ります。</figcaption></figure>
+<p>ViewCube の表示・非表示は、<span class="ui">［表示］</span>タブの<span class="ui">［ウィンドウ］</span>パネルの<span class="ui">［ViewCube］</span>で切り替えます。</p>
+<aside class="inventor" role="note"><p class="callout-title">Inventor との違い</p><p>ViewCube のメニューは、Inventor のものの一部です（直交面でパース投影にする項目と、コンパス・大きさの設定はありません）。</p></aside>
+
+<h2 id="std-views"><span class="secno">2.4</span> 標準ビューとホーム ビュー</h2>
+<p>標準ビューは、<span class="ui">［表示］</span>タブの<span class="ui">［ナビゲート］</span>パネルの<span class="ui">［標準ビュー］</span>▼で選びます。キーは <kbd>Ctrl</kbd>+<kbd>1</kbd>〜<kbd>Ctrl</kbd>+<kbd>7</kbd> です。上方向は Inventor と同じです。</p>
+<div class="figrow">
+  <figure id="fig-02_view_iso"><a class="zoom" href="images/02_view_iso.png"><img src="images/02_view_iso.png" alt="［アイソメ ビュー］。" width="460" height="288" loading="lazy"></a><figcaption><span class="figno">図 2-6</span> <span class="ui">［アイソメ ビュー］</span>。</figcaption></figure>
+  <figure id="fig-02_view_front"><a class="zoom" href="images/02_view_front.png"><img src="images/02_view_front.png" alt="［正面］。" width="460" height="288" loading="lazy"></a><figcaption><span class="figno">図 2-7</span> <span class="ui">［正面］</span>。</figcaption></figure>
+  <figure id="fig-02_view_top"><a class="zoom" href="images/02_view_top.png"><img src="images/02_view_top.png" alt="［上］。" width="460" height="288" loading="lazy"></a><figcaption><span class="figno">図 2-8</span> <span class="ui">［上］</span>。</figcaption></figure>
+  <figure id="fig-02_view_right"><a class="zoom" href="images/02_view_right.png"><img src="images/02_view_right.png" alt="［右］。" width="460" height="288" loading="lazy"></a><figcaption><span class="figno">図 2-9</span> <span class="ui">［右］</span>。</figcaption></figure>
+</div>
+<p><span class="ui">［ホーム ビュー］</span>は、決めておいた「帰る視点」です（<kbd>F6</kbd>）。ホーム ビューは変えられます。</p>
+<ol class="steps">
+  <li><p>視点を決めます。</p></li>
+  <li><p>ViewCube の右クリックメニュー（か、<span class="ui">［ナビゲート］</span>パネルのドロップダウン）の<span class="ui">［現在のビューをホーム ビューに設定（ビューにフィット）］</span>か<span class="ui">［現在のビューをホーム ビューに設定（固定間隔）］</span>を選びます。</p></li>
+</ol>
+<p><span class="ui">［ホーム ビューをリセット］</span>で、初めのホーム ビュー（アイソメ）に戻ります。ホーム ビューはドキュメントに保存されます。</p>
+
+<h2 id="look-at"><span class="secno">2.5</span> ビュー面</h2>
+<p>選んだ面・平面に正対します。スケッチの前に、平らな面を真正面から見たいときに使います。</p>
+<ol class="steps">
+  <li><p>ビューで面をクリックして選びます（ブラウザで原点平面を選んでもかまいません）。</p></li>
+  <li><p><span class="path">リボンの<span class="ui">［表示］</span>タブ → <span class="ui">［ナビゲート］</span>パネル → <span class="ui">［ビュー面］</span></span>をクリックするか、<kbd>Ctrl</kbd>+<kbd>8</kbd> を押します。</p>
+    <div class="figrow">
+      <figure id="fig-02_look_at_before"><a class="zoom" href="images/02_look_at_before.png"><img src="images/02_look_at_before.png" alt="面を選ぶ前（アイソメ ビュー）。" width="460" height="288" loading="lazy"></a><figcaption><span class="figno">図 2-10</span> 面を選ぶ前（アイソメ ビュー）。</figcaption></figure>
+      <figure id="fig-02_look_at_after"><a class="zoom" href="images/02_look_at_after.png"><img src="images/02_look_at_after.png" alt="上面を選んで［ビュー面］を実行したところ。上面に正対します。" width="460" height="288" loading="lazy"></a><figcaption><span class="figno">図 2-11</span> 上面を選んで<span class="ui">［ビュー面］</span>を実行したところ。上面に正対します。</figcaption></figure>
+    </div></li>
+</ol>
+<p>もう一度実行すると、裏側から見ます。平面・面を選んだときは、スケッチの X が右、Y が上になる向きで正対します。エッジを選んだときは、エッジが画面に水平になります。</p>
+
+<h2 id="named-views"><span class="secno">2.6</span> 名前付きビュー</h2>
+<p>よく使う視点には名前を付けて保存できます。<span class="ui">［表示］</span>タブの<span class="ui">［ナビゲート］</span>パネルにあります。</p>
+<ol class="steps">
+  <li><p>見たい視点にして、<span class="path">リボンの<span class="ui">［表示］</span>タブ → <span class="ui">［ナビゲート］</span>パネル → <span class="ui">［ビューを保存］</span></span>をクリックし、名前を入力します。</p></li>
+  <li><p>戻すときは<span class="ui">［ビューを復元］</span>で名前を選びます。要らなくなったら<span class="ui">［ビューを削除］</span>で消します。</p></li>
+</ol>
+<p>保存した視点には、カメラと、そのときの断面図も入ります。名前付きビュー・ホーム ビュー・表示の設定は、ドキュメントを保存すると一緒に保存されます。視点を動かしただけでは、ドキュメントは未保存になりません。</p>
+<aside class="note" role="note"><p class="callout-title">注意</p><p>ビューの保存・断面図・ホーム ビューの変更は、<span class="ui">［元に戻す］</span>の対象ではありません。</p></aside>
+
+<h2 id="zoom"><span class="secno">2.7</span> ズームと前後のビュー</h2>
+<ul>
+  <li><p><span class="ui">［窓ズーム］</span>は、ドラッグした枠に合わせてズームします（<kbd>Shift</kbd>+<kbd>F3</kbd>）。</p></li>
+  <li><p><span class="ui">［選択範囲をズーム］</span>は、選んだ面・エッジ・ボディに合わせます。</p></li>
+  <li><p><span class="ui">［前のビューを表示］</span>（<kbd>F5</kbd>）と<span class="ui">［次のビューを表示］</span>（<kbd>Shift</kbd>+<kbd>F5</kbd>）で、視点の履歴をたどれます。</p></li>
+</ul>
+
+<h2 id="projection"><span class="secno">2.8</span> 投影法</h2>
+<p><span class="ui">［表示］</span>タブの<span class="ui">［外観］</span>パネルの<span class="ui">［投影］</span>で、<span class="ui">［直交投影］</span>と<span class="ui">［パース］</span>（透視）を切り替えます。どちらでも、カーソル位置のズームと全体表示が合います。<span class="ui">［パース］</span>でカーソル位置へズームすると、カーソルの下の形へ寄り、形の手前で止まります（形の中へは入りません）。</p>
+<div class="figrow">
+  <figure id="fig-02_proj_orthographic"><a class="zoom" href="images/02_proj_orthographic.png"><img src="images/02_proj_orthographic.png" alt="［直交投影］。平行な辺が平行に見えます。" width="460" height="288" loading="lazy"></a><figcaption><span class="figno">図 2-12</span> <span class="ui">［直交投影］</span>。平行な辺が平行に見えます。</figcaption></figure>
+  <figure id="fig-02_proj_perspective"><a class="zoom" href="images/02_proj_perspective.png"><img src="images/02_proj_perspective.png" alt="［パース］。奥が小さく見えます。" width="460" height="288" loading="lazy"></a><figcaption><span class="figno">図 2-13</span> <span class="ui">［パース］</span>。奥が小さく見えます。</figcaption></figure>
+</div>
+
+<h2 id="style"><span class="secno">2.9</span> ビジュアル スタイル</h2>
+<p><span class="ui">［表示］</span>タブの<span class="ui">［外観］</span>パネルの<span class="ui">［ビジュアル スタイル］</span>で、見え方を 6 種類から選びます。</p>
+<figure id="fig-02_ribbon_appearance"><a class="zoom" href="images/02_ribbon_appearance.png"><img src="images/02_ribbon_appearance.png" alt="［外観］パネル。ビジュアル スタイル・投影・透明・シルエット エッジ・断面図があります。" width="447" height="90" loading="lazy"></a><figcaption><span class="figno">図 2-14</span> <span class="ui">［外観］</span>パネル。ビジュアル スタイル・投影・透明・シルエット エッジ・断面図があります。</figcaption></figure>
+<div class="table-wrap"><table>
+  <thead><tr><th>スタイル</th><th>見え方</th></tr></thead>
+  <tbody>
+    <tr><th scope="row"><span class="ui">［シェーディング］</span></th><td>面を塗りつぶして表示します（エッジの線なし）</td></tr>
+    <tr><th scope="row"><span class="ui">［シェーディング、エッジ表示］</span></th><td>面を塗りつぶし、エッジの線も表示します（既定）</td></tr>
+    <tr><th scope="row"><span class="ui">［シェーディング、隠線エッジ表示］</span></th><td>面を塗りつぶし、隠れたエッジを灰色の破線で表示します</td></tr>
+    <tr><th scope="row"><span class="ui">［ワイヤフレーム］</span></th><td>エッジだけを表示します（隠れたエッジも実線）</td></tr>
+    <tr><th scope="row"><span class="ui">［ワイヤフレーム、隠線エッジ表示］</span></th><td>エッジだけを表示し、隠れたエッジは灰色の破線にします</td></tr>
+    <tr><th scope="row"><span class="ui">［ワイヤフレーム、表示エッジのみ］</span></th><td>見えているエッジだけを表示します</td></tr>
+  </tbody>
+</table></div>
+<div class="figrow">
+  <figure id="fig-02_style_shaded"><a class="zoom" href="images/02_style_shaded.png"><img src="images/02_style_shaded.png" alt="［シェーディング］。" width="340" height="212" loading="lazy"></a><figcaption><span class="figno">図 2-15</span> <span class="ui">［シェーディング］</span>。</figcaption></figure>
+  <figure id="fig-02_style_shaded_edges"><a class="zoom" href="images/02_style_shaded_edges.png"><img src="images/02_style_shaded_edges.png" alt="［シェーディング、エッジ表示］。" width="340" height="212" loading="lazy"></a><figcaption><span class="figno">図 2-16</span> <span class="ui">［シェーディング、エッジ表示］</span>。</figcaption></figure>
+  <figure id="fig-02_style_shaded_hidden"><a class="zoom" href="images/02_style_shaded_hidden.png"><img src="images/02_style_shaded_hidden.png" alt="［シェーディング、隠線エッジ表示］。" width="340" height="212" loading="lazy"></a><figcaption><span class="figno">図 2-17</span> <span class="ui">［シェーディング、隠線エッジ表示］</span>。</figcaption></figure>
+  <figure id="fig-02_style_wireframe"><a class="zoom" href="images/02_style_wireframe.png"><img src="images/02_style_wireframe.png" alt="［ワイヤフレーム］。" width="340" height="212" loading="lazy"></a><figcaption><span class="figno">図 2-18</span> <span class="ui">［ワイヤフレーム］</span>。</figcaption></figure>
+  <figure id="fig-02_style_hidden_line"><a class="zoom" href="images/02_style_hidden_line.png"><img src="images/02_style_hidden_line.png" alt="［ワイヤフレーム、隠線エッジ表示］。" width="340" height="212" loading="lazy"></a><figcaption><span class="figno">図 2-19</span> <span class="ui">［ワイヤフレーム、隠線エッジ表示］</span>。</figcaption></figure>
+  <figure id="fig-02_style_hidden_removed"><a class="zoom" href="images/02_style_hidden_removed.png"><img src="images/02_style_hidden_removed.png" alt="［ワイヤフレーム、表示エッジのみ］。" width="340" height="212" loading="lazy"></a><figcaption><span class="figno">図 2-20</span> <span class="ui">［ワイヤフレーム、表示エッジのみ］</span>。</figcaption></figure>
+</div>
+<p>同じパネルの<span class="ui">［透明］</span>はボディを半透明にし、<span class="ui">［シルエット エッジ］</span>は曲面の輪郭線を描きます。ワイヤフレーム系のスタイルでは、曲面の輪郭も描きます（視点を止めると更新します）。どのスタイルでも、同じ要素を選べます。ただしワイヤフレーム系では面は選べず、エッジと頂点を選びます。</p>
+
+<h2 id="section"><span class="secno">2.10</span> 断面図</h2>
+<p>モデルを平面で切って、中を見ます。Inventor と同じ 3 種類です。<span class="ui">［表示］</span>タブの<span class="ui">［外観］</span>パネルの<span class="ui">［断面図］</span>▼にあります。</p>
+<ul>
+  <li><p><span class="ui">［1/2 断面図］</span>: 平面の片側を取り去ります。</p></li>
+  <li><p><span class="ui">［1/4 断面図］</span>: 2 つの平面で、1/4 だけを残します。</p></li>
+  <li><p><span class="ui">［3/4 断面図］</span>: 1/4 の角だけを取り去ります。</p></li>
+</ul>
+<aside class="try"><p class="callout-title">この機能を試す</p><p class="try-sample">題材: <code>samples/plate_with_holes.mcad</code> （<a href="00_intro.html#samples">題材の一覧と開き方</a>）</p>
+  <p>題材を開き、断面図のツールを始めて、<span class="ui">［XZ 平面（正面）］</span>を選びます。矢印を材料の中へドラッグするか、<span class="ui">［オフセット］</span>に <code>-30 mm</code> と入力すると、板が半分に切れます。</p>
+</aside>
+<ol class="steps">
+  <li><p><span class="path">リボンの<span class="ui">［表示］</span>タブ → <span class="ui">［外観］</span>パネル → <span class="ui">［断面図］</span>の▼ → <span class="ui">［1/2 断面図］</span></span>をクリックします。</p></li>
+  <li><p>切る平面を選びます。ブラウザの原点の平面（<span class="ui">［XZ 平面（正面）］</span>など）か、ビューの平らな面を選べます。先に平面を選んでから始めてもかまいません。</p>
+    <figure id="fig-02_section_tool"><a class="zoom" href="images/02_section_tool.png"><img src="images/02_section_tool.png" alt="断面図のツール。平面の中央に橙の矢印が出て、ビューにオフセットの欄が出ます。" width="1000" height="643" loading="lazy"></a><figcaption><span class="figno">図 2-21</span> 断面図のツール。平面の中央に橙の矢印が出て、ビューにオフセットの欄が出ます。</figcaption></figure></li>
+  <li><p>橙の矢印を左ドラッグして平面を動かします（1・2・5 の刻みで動きます。<kbd>Shift</kbd> を押している間は刻みません）。矢印の先の欄の<span class="ui">［オフセット］</span>に、式（<code>10 mm + 2</code>）を入れてもかまいません。</p></li>
+  <li><p>取り去る側を変えるときは、<span class="ui">［反転］</span>にチェックを入れます。</p></li>
+  <li><p><span class="ui">［OK］</span>（<kbd>Enter</kbd>）で断面を残してツールを終えます。<kbd>Esc</kbd> で、始める前に戻ります。</p></li>
+</ol>
+<div class="figrow">
+  <figure id="fig-02_section_half"><a class="zoom" href="images/02_section_half.png"><img src="images/02_section_half.png" alt="［1/2 断面図］。" width="340" height="212" loading="lazy"></a><figcaption><span class="figno">図 2-22</span> <span class="ui">［1/2 断面図］</span>。</figcaption></figure>
+  <figure id="fig-02_section_quarter"><a class="zoom" href="images/02_section_quarter.png"><img src="images/02_section_quarter.png" alt="［1/4 断面図］。2 つの平面（XZ 平面と YZ 平面）で切ります。" width="340" height="212" loading="lazy"></a><figcaption><span class="figno">図 2-23</span> <span class="ui">［1/4 断面図］</span>。2 つの平面（XZ 平面と YZ 平面）で切ります。</figcaption></figure>
+  <figure id="fig-02_section_three_quarter"><a class="zoom" href="images/02_section_three_quarter.png"><img src="images/02_section_three_quarter.png" alt="［3/4 断面図］。" width="340" height="212" loading="lazy"></a><figcaption><span class="figno">図 2-24</span> <span class="ui">［3/4 断面図］</span>。</figcaption></figure>
+</div>
+<ul>
+  <li><p><span class="ui">［1/4 断面図］</span>・<span class="ui">［3/4 断面図］</span>は、2 つ目の平面も選びます（2 つは直交していなくてもかまいません）。2 つの平面のときは、欄で 1/4 と 3/4 を切り替えられます。</p></li>
+  <li><p>面を選んだ直後（オフセット 0）は、面の外側を取り去るので何も切れません。矢印を材料の中へ引くと切れます。</p></li>
+  <li><p>切り口は、ボディごとの色で塗られ（キャップ）、ハッチングと輪郭線が付きます。<span class="ui">［切断面を塗りつぶす］</span>と<span class="ui">［切断面のハッチング］</span>で切り替えます。キャップを消すと、切り口から中の面が見えます。</p></li>
+  <li><p>切り取った側と、キャップの奥に隠れた面・エッジは、クリックで選べません。</p></li>
+  <li><p>断面図を表示している間にもう一度コマンドを実行すると、その平面から編集します。<span class="ui">［断面を反転］</span>で全部の平面を反転できます。</p></li>
+  <li><p>元の表示に戻すには、<span class="ui">［断面図を終了］</span>です（<span class="ui">［外観］</span>パネルか、何も選んでいないときの右クリックメニュー）。</p></li>
+</ul>
+<p>フィーチャの編集・寸法の変更・元に戻すで形が変わっても、断面はそのままです。スケッチの編集中も断面は残ります（ほかのボディと同じく半透明）。</p>
+<aside class="note" role="note"><p class="callout-title">注意</p><p>断面図はドキュメントに保存され（保存していない印が付きます）、名前付きビューにも入りますが、<span class="ui">［元に戻す］</span>の対象ではありません。</p></aside>
+<aside class="tip" role="note"><p class="callout-title">ヒント</p><p>押し出しなどの入力の途中でも、断面図を始められます。断面のツールを閉じると、入力の続きに戻ります。</p></aside>
+
+<h2 id="visibility"><span class="secno">2.11</span> 表示と非表示</h2>
+<p>ボディ・スケッチ・作業フィーチャなどを、一時的に隠せます。<span class="ui">［表示］</span>タブの<span class="ui">［表示設定］</span>パネルにあります。</p>
+<figure id="fig-02_ribbon_visibility"><a class="zoom" href="images/02_ribbon_visibility.png"><img src="images/02_ribbon_visibility.png" alt="［表示設定］パネル。選んだものの表示・非表示、分離、種類ごとの表示の切り替えがあります。" width="219" height="90" loading="lazy"></a><figcaption><span class="figno">図 2-25</span> <span class="ui">［表示設定］</span>パネル。選んだものの表示・非表示、分離、種類ごとの表示の切り替えがあります。</figcaption></figure>
+<ul>
+  <li><p><span class="ui">［非表示］</span>・<span class="ui">［表示］</span>: 選んだボディ・スケッチなどを隠す・出す。ブラウザの行のチェックでも同じです。</p></li>
+  <li><p><span class="ui">［すべて表示］</span>・<span class="ui">［表示の反転］</span>: 全部出す・表示と非表示を入れ替える。</p></li>
+  <li><p><span class="ui">［分離］</span>: 選んだボディだけを表示します。<span class="ui">［分離を解除］</span>で戻ります（分離は保存されません）。</p></li>
+  <li><p><span class="ui">［オブジェクトの表示設定］</span>▼: 原点の平面・原点の軸・作業平面・スケッチ・寸法・ボディなど、種類ごとにまとめて出す・隠す。</p></li>
+</ul>
+<div class="figrow">
+  <figure id="fig-02_hide_before"><a class="zoom" href="images/02_hide_before.png"><img src="images/02_hide_before.png" alt="2 つのボディがある題材で、片方のボディを選んだところ。" width="460" height="288" loading="lazy"></a><figcaption><span class="figno">図 2-26</span> 2 つのボディがある題材で、片方のボディを選んだところ。</figcaption></figure>
+  <figure id="fig-02_hide_after"><a class="zoom" href="images/02_hide_after.png"><img src="images/02_hide_after.png" alt="［非表示］を実行して、選択を解除したところ。選んでいたボディが消えます。" width="460" height="288" loading="lazy"></a><figcaption><span class="figno">図 2-27</span> <span class="ui">［非表示］</span>を実行して、選択を解除したところ。選んでいたボディが消えます。</figcaption></figure>
+  <figure id="fig-02_hide_tree"><a class="zoom" href="images/02_hide_tree.png"><img src="images/02_hide_tree.png" alt="ブラウザ。隠したボディのチェックが外れます。" width="360" height="210" loading="lazy"></a><figcaption><span class="figno">図 2-28</span> ブラウザ。隠したボディのチェックが外れます。</figcaption></figure>
+</div>
+<p><span class="ui">［原点］</span>の平面は、初めは隠してあります（Inventor と同じ）。ブラウザの<span class="ui">［原点］</span>のチェックで、半透明の矩形と名前が 3D に出ます。ブラウザの行にカーソルを合わせると、その平面が一時的に出て光ります。新しいスケッチを始めて平面を選ぶ間は、3 つの平面が出るので、ビューで平面をクリックして選べます。</p>
+
+<h2 id="selection"><span class="secno">2.12</span> 選択の方法</h2>
+<ul>
+  <li><p><strong>クリック</strong>: 面・エッジ・頂点を選びます。<kbd>Ctrl</kbd> を押しながらで切り替え、<kbd>Shift</kbd> を押しながらで追加します。</p></li>
+  <li><p><strong>範囲選択</strong>: 何もない所から左ドラッグします。<strong>左から右</strong>に引くと、枠に全部入った要素を選びます（窓。実線の枠）。<strong>右から左</strong>に引くと、枠に掛かった要素も選びます（交差。破線の枠）。選ぶ種類は、クイック アクセス ツールバーの選択フィルタ（<span class="ui">［面を選択］</span>・<span class="ui">［エッジを選択］</span>・<span class="ui">［頂点を選択］</span>）に従います。</p></li>
+  <li><p><strong><kbd>Alt</kbd>+クリック</strong>: 重なった面・エッジ・平面を、手前から奥へ順に選びます。同じ所をもう一度クリックすると、次のものに替わります。</p></li>
+</ul>
+<aside class="try"><p class="callout-title">この機能を試す</p><p class="try-sample">題材: <code>samples/stepped_shaft.mcad</code> （<a href="00_intro.html#samples">題材の一覧と開き方</a>）</p>
+  <p>題材を開き、ホイールでズームし、<kbd>Shift</kbd> を押しながら中ドラッグでオービットして、軸の段を見ます。<kbd>Home</kbd> で全体表示に戻ります。</p>
+</aside>
+
+</article>
+<nav class="pager" aria-label="前後の章"><a class="prev" rel="prev" href="01_screen.html"><span class="dir">前の章</span>第 1 章 画面の構成</a><a class="next" rel="next" href="03_first_part.html"><span class="dir">次の章</span>第 3 章 はじめての部品</a></nav>
+<footer class="footer"><p>EMRM-Studio ユーザーマニュアル（日本語）・EMRM-Studio 0.1.0 ・ <a href="#main">このページの先頭へ</a></p></footer>
+</main>
+</div>
+</body>
+</html>

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="generator" content="tools/build_manual.py">
+<title>第 16 章 スタディの共通の設定 - EMRM-Studio ユーザーマニュアル</title>
+<link rel="stylesheet" href="assets/manual.css">
+<script src="assets/search_index.js" charset="utf-8" defer></script>
+<script src="assets/manual.js" charset="utf-8" defer></script>
+</head>
+<body class="page">
+<header class="topbar">
+<a class="brand" href="index.html">EMRM-Studio ユーザーマニュアル</a>
+<button class="toc-toggle" type="button" aria-controls="toc" aria-expanded="false">目次</button>
+<form class="search" role="search" action="#" onsubmit="return false">
+<input id="q" type="search" placeholder="マニュアルを検索（/）" aria-label="マニュアルを検索" autocomplete="off">
+</form>
+</header>
+<div id="search-results" class="search-results" hidden></div>
+<div class="layout">
+<nav id="toc" class="toc" aria-label="目次">
+<details class="toc-box">
+<summary>目次</summary>
+<ol class="toc-chapters">
+<li class="toc-home"><a href="index.html">表紙・目次</a></li>
+<li><a href="00_intro.html">はじめに</a></li>
+<li class="toc-part" role="presentation">第 I 部　形状を作る（CAD）</li>
+<li><a href="01_screen.html"><span class="chno">第 1 章</span> 画面の構成</a></li>
+<li><a href="02_view.html"><span class="chno">第 2 章</span> 視点の操作</a></li>
+<li><a href="03_first_part.html"><span class="chno">第 3 章</span> はじめての部品</a></li>
+<li><a href="04_sketch.html"><span class="chno">第 4 章</span> スケッチ</a></li>
+<li><a href="05_work_features.html"><span class="chno">第 5 章</span> 作業フィーチャ</a></li>
+<li><a href="06_features_basic.html"><span class="chno">第 6 章</span> フィーチャ（押し出し・回転・穴・フィレットなど）</a></li>
+<li><a href="07_features_advanced.html"><span class="chno">第 7 章</span> フィーチャ（スイープ・ロフト・コイル・パターンなど）</a></li>
+<li><a href="08_bodies.html"><span class="chno">第 8 章</span> ボディの操作</a></li>
+<li><a href="09_browser.html"><span class="chno">第 9 章</span> ブラウザとフィーチャの管理</a></li>
+<li><a href="10_parameters.html"><span class="chno">第 10 章</span> パラメータと式</a></li>
+<li><a href="11_configurations.html"><span class="chno">第 11 章</span> 構成</a></li>
+<li><a href="12_inspect.html"><span class="chno">第 12 章</span> 検査</a></li>
+<li><a href="13_files.html"><span class="chno">第 13 章</span> ファイル</a></li>
+<li class="toc-part" role="presentation">第 II 部　電磁場解析</li>
+<li><a href="14_em_intro.html"><span class="chno">第 14 章</span> 電磁場解析のはじめに</a></li>
+<li><a href="15_em_first.html"><span class="chno">第 15 章</span> はじめての電磁場解析（ソレノイド）</a></li>
+<li class="current"><a href="16_em_setup.html" aria-current="page"><span class="chno">第 16 章</span> スタディの共通の設定</a><ol class="toc-sections"><li><a href="16_em_setup.html#create"><span class="secno">16.1</span> スタディを作る</a></li><li><a href="16_em_setup.html#duplicate"><span class="secno">16.2</span> スタディを複製する</a></li><li><a href="16_em_setup.html#materials"><span class="secno">16.3</span> 材料と領域</a></li><li><a href="16_em_setup.html#symmetry"><span class="secno">16.4</span> 対称面と面の条件</a></li><li><a href="16_em_setup.html#mesh"><span class="secno">16.5</span> メッシュ</a></li><li><a href="16_em_setup.html#run"><span class="secno">16.6</span> チェックと解析の実行</a></li><li><a href="16_em_setup.html#storage"><span class="secno">16.7</span> 結果の保存場所</a></li></ol></li>
+<li><a href="17_em_results.html"><span class="chno">第 17 章</span> 結果の見方</a></li>
+<li><a href="18_em_magnetostatic.html"><span class="chno">第 18 章</span> 静磁場解析</a></li>
+<li><a href="19_em_coils.html"><span class="chno">第 19 章</span> 静磁場解析: コイル</a></li>
+<li><a href="20_em_dipole.html"><span class="chno">第 20 章</span> 静磁場解析の例題: H 型双極電磁石</a></li>
+<li><a href="21_em_eigenmode.html"><span class="chno">第 21 章</span> 共振モード解析</a></li>
+<li><a href="22_em_driven.html"><span class="chno">第 22 章</span> ポート解析</a></li>
+<li><a href="23_em_electrostatic.html"><span class="chno">第 23 章</span> 静電場解析</a></li>
+<li><a href="24_em_gun.html"><span class="chno">第 24 章</span> 電子銃解析</a></li>
+<li><a href="25_em_troubleshooting.html"><span class="chno">第 25 章</span> 電磁場解析で困ったとき</a></li>
+<li class="toc-part" role="presentation">第 III 部　連携・カスタマイズ・自動化</li>
+<li><a href="26_step_export.html"><span class="chno">第 26 章</span> 他の解析プログラムに形を渡す</a></li>
+<li><a href="27_customize.html"><span class="chno">第 27 章</span> カスタマイズ</a></li>
+<li><a href="28_automation.html"><span class="chno">第 28 章</span> 自動化</a></li>
+<li><a href="29_troubleshooting.html"><span class="chno">第 29 章</span> 困ったとき</a></li>
+<li class="toc-part" role="presentation">付録</li>
+<li class="appendix"><a href="appendix_a_commands.html"><span class="chno">付録 A</span> コマンド一覧</a></li>
+<li class="appendix"><a href="appendix_b_shortcuts.html"><span class="chno">付録 B</span> ショートカット一覧</a></li>
+<li class="appendix"><a href="appendix_c_feature_params.html"><span class="chno">付録 C</span> フィーチャのパラメータ一覧</a></li>
+<li class="appendix"><a href="appendix_d_glossary.html"><span class="chno">付録 D</span> 用語の対応表</a></li>
+</ol>
+</details>
+</nav>
+<main class="content" id="main">
+<article class="chapter ">
+<p class="chapter-label">第 16 章</p>
+<h1>スタディの共通の設定</h1>
+<nav class="pagetoc" aria-label="この章の内容">
+<p class="pagetoc-title">この章の内容</p>
+<ol>
+<li><a href="#create"><span class="secno">16.1</span> スタディを作る</a></li>
+<li><a href="#duplicate"><span class="secno">16.2</span> スタディを複製する</a></li>
+<li><a href="#materials"><span class="secno">16.3</span> 材料と領域</a></li>
+<li><a href="#symmetry"><span class="secno">16.4</span> 対称面と面の条件</a></li>
+<li><a href="#mesh"><span class="secno">16.5</span> メッシュ</a></li>
+<li><a href="#run"><span class="secno">16.6</span> チェックと解析の実行</a></li>
+<li><a href="#storage"><span class="secno">16.7</span> 結果の保存場所</a></li>
+</ol>
+</nav>
+<p>この章では、どのスタディにも共通の設定を説明します。スタディの作り方と複製、材料と領域、対称面と面の条件、メッシュ、チェックと解析の実行、結果の保存場所です。スタディごとの設定は、第 18〜23 章にあります。</p>
+
+<h2 id="create"><span class="secno">16.1</span> スタディを作る</h2>
+<p>スタディは<span class="ui">［物理］</span>タブで作ります。種類ごとにボタンがあります。リボンの右上の<span class="ui">［+］</span>のメニューと、スタディのブラウザの何もない所の右クリックのメニューからも作れます。</p>
+<div class="table-wrap"><table>
+  <caption>新しいスタディのコマンド</caption>
+  <thead><tr><th>コマンド</th><th>最初から入っている項目</th></tr></thead>
+  <tbody>
+    <tr><th scope="row"><span class="ui">［新しい静磁場スタディ］</span></th><td>材料「空気」・解析領域・メッシュ・解析の設定</td></tr>
+    <tr><th scope="row"><span class="ui">［新しい共振モードスタディ］</span></th><td>材料「真空」・メッシュ・解析の設定・ビーム軸</td></tr>
+    <tr><th scope="row"><span class="ui">［新しいポート解析スタディ］</span></th><td>材料「真空」・メッシュ・解析の設定</td></tr>
+    <tr><th scope="row"><span class="ui">［新しい静電場スタディ］</span></th><td>材料「空気」・解析領域・メッシュ・解析の設定</td></tr>
+  </tbody>
+</table></div>
+<p>作ったスタディが、リボンの右上の<span class="ui">［スタディ］</span>の欄で選ばれます。リボンのコマンドは、選んでいるスタディ（アクティブなスタディ）に働きます。スタディの種類に合わないコマンド（共振モードのスタディでの<span class="ui">［コイル］</span>など）は押せません。</p>
+<figure id="fig-16_em_study_tree"><a class="zoom" href="images/16_em_study_tree.png"><img src="images/16_em_study_tree.png" alt="スタディのブラウザ。フォルダは材料・領域・条件・対称・メッシュ・解析の設定・結果。種類によってフォルダが変わります。" width="360" height="397" loading="lazy"></a><figcaption><span class="figno">図 16-1</span> スタディのブラウザ。フォルダは材料・領域・条件・対称・メッシュ・解析の設定・結果。種類によってフォルダが変わります。</figcaption></figure>
+<ul>
+  <li><p>スタディのブラウザの行を選ぶと、プロパティ パネルでその項目を編集できます。値を変えたら<span class="ui">［適用］</span>を押します（未適用の変更があると、パネルの下に青い文で知らせます）。</p></li>
+  <li><p>フォルダや行を右クリックすると、そのフォルダの項目を足す・編集するコマンドが出ます（リボンと同じ）。</p></li>
+  <li><p>項目を消すには、行を選んで <kbd>Del</kbd> を押すか、右クリックの<span class="ui">［削除］</span>を選びます。</p></li>
+  <li><p>スタディの名前は、スタディの行をダブルクリックして変えます。</p></li>
+</ul>
+
+<h2 id="duplicate"><span class="secno">16.2</span> スタディを複製する</h2>
+<p>スタディの行の右クリックの<span class="ui">［複製］</span>で、同じ種類のスタディを写せます。条件を少し変えて比べるときに使います。</p>
+<p>種類を替えて写すこともできます。共振モードのスタディの右クリックの<span class="ui">［ポート解析のスタディとして複製］</span>（逆向きの<span class="ui">［共振モードのスタディとして複製］</span>もあります）は、材料・壁・対称面・メッシュを写し、ポート解析に要る項目（解析の設定）を足します。写せない項目（その種類で使えない材料や条件）は写しません。</p>
+
+<h2 id="materials"><span class="secno">16.3</span> 材料と領域</h2>
+<p>スタディの<strong>材料</strong>は「どんな物質か」、<strong>領域</strong>は「どのボディがどの材料か」です。同じ鉄でできたボディがいくつあっても、材料「鉄」を 1 つ定義して、各ボディで選ぶだけで済みます。</p>
+<ol class="steps">
+  <li><p>3D ビューでボディを選んで、<span class="path">リボンの<span class="ui">［物理］</span>タブ → <span class="ui">［材料］</span>パネル → <span class="ui">［材料］</span></span>をクリックします。新しい材料ができ、選んでいたボディに割り当てられます。</p></li>
+  <li><p>プロパティ パネルで名前・種類・値を入れて、<span class="ui">［適用］</span>を押します。</p></li>
+</ol>
+<p>材料の種類は、スタディによって違います。</p>
+<div class="table-wrap"><table>
+  <caption>スタディと材料の種類</caption>
+  <thead><tr><th>スタディ</th><th>材料の種類</th><th>説明</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">静磁場</th><td>空気・磁性体・導体（コイル）</td><td>磁性体は比透磁率か B-H 曲線（<a href="18_em_magnetostatic.html#materials">第 18 章</a>）</td></tr>
+    <tr><th scope="row">共振モード・ポート解析</th><td>真空・誘電体</td><td>誘電体は比誘電率・比透磁率・誘電正接 tanδ（<a href="21_em_eigenmode.html#materials">第 21 章</a>）</td></tr>
+    <tr><th scope="row">静電場</th><td>空気・誘電体</td><td>誘電体は比誘電率だけ（<a href="23_em_electrostatic.html#materials">第 23 章</a>）</td></tr>
+    <tr><th scope="row">電子銃</th><td>空気・誘電体</td><td>静電場と同じ。コイル・鉄は解析から除く（<a href="24_em_gun.html#overview">第 24 章</a>）</td></tr>
+  </tbody>
+</table></div>
+<p>どの材料にも<span class="ui">［メッシュの大きさ（0 = 全体の値）］</span>（この材料のボディの中の要素の大きさ。0 なら全体の値）と色があります。</p>
+<ul>
+  <li><p>スタディのブラウザの<span class="ui">［領域］</span>には、形状のソリッド ボディが全部、ブラウザと同じ名前で並びます。行を選ぶと、プロパティ パネルで材料を選べます。<kbd>Shift</kbd>・<kbd>Ctrl</kbd> で複数の行を選べば、まとめて同じ材料にできます。</p></li>
+  <li><p>3D ビューで選んだボディに、今の材料を割り当てるには、<span class="path">リボンの<span class="ui">［物理］</span>タブ → <span class="ui">［材料］</span>パネル → <span class="ui">［割り当て］</span></span>をクリックします。</p></li>
+  <li><p>材料を選んでいないボディは、そのスタディの背景の材料（静磁場・静電場・電子銃は空気、共振モードとポート解析は真空）です。</p></li>
+  <li><p>材料の選択肢の最後の<span class="ui">［（除外）］</span>は、解析に入れないボディ（ねじ・架台など）です。メッシュにも入りません。</p></li>
+  <li><p>材料を消すと、その材料だったボディは背景の材料に戻ります。</p></li>
+</ul>
+<aside class="tip" role="note"><p class="callout-title">ヒント</p><p>スタディのブラウザで材料・領域・条件を選ぶと、当てはまるボディだけが濃く、ほかは薄く表示されます。どのボディが割り当てられているかを 3D で確かめられます。</p></aside>
+
+<h2 id="symmetry"><span class="secno">16.4</span> 対称面と面の条件</h2>
+<p><span class="path">リボンの<span class="ui">［物理］</span>タブ → <span class="ui">［解析領域］</span>パネル → <span class="ui">［対称面］</span></span>で XY・YZ・ZX の平面を足すと、その平面でモデルを切り、<strong>座標が大きい側（+ 側）</strong>だけを解きます。<span class="ui">［オフセット］</span>で平面をずらせます。対称面 1 つで計算は約半分になり、結果は自動で全体に折り返して表示されます。</p>
+<p>切り口の境界の種類は、スタディによって違います。</p>
+<div class="table-wrap"><table>
+  <caption>対称面の境界</caption>
+  <thead><tr><th>スタディ</th><th>境界の種類</th><th>選び方</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">静磁場</th><td>磁束平行・磁束垂直・自動</td><td>自動はコイルの軸から決める（<a href="18_em_magnetostatic.html#symmetry">第 18 章</a>）</td></tr>
+    <tr><th scope="row">共振モード・ポート解析</th><td>電気壁・磁気壁</td><td>求めたいモードの対称に合わせる（<a href="21_em_eigenmode.html#walls">第 21 章</a>）</td></tr>
+    <tr><th scope="row">静電場</th><td>電荷ゼロ（電位が対称）・接地（電位が反対称）</td><td>面の向こうの電極の電位で選ぶ（<a href="23_em_electrostatic.html#symmetry">第 23 章</a>）</td></tr>
+  </tbody>
+</table></div>
+<aside class="note" role="note"><p class="callout-title">注意</p><p>今の版は、形状と励振がその面について本当に対称かどうかを確かめません。対称でないモデルを対称面で切ると、間違った結果になります。</p></aside>
+<p>面に条件を付けるときは、3D ビューで面を選んでから、条件のコマンド（<span class="ui">［磁束平行］</span>・<span class="ui">［磁束垂直］</span>・<span class="ui">［電気壁］</span>・<span class="ui">［磁気壁］</span>・<span class="ui">［ポート］</span>・<span class="ui">［電極］</span>）をクリックします。面を選ばずに押すと、フォームの<span class="ui">［3D で選ぶ］</span>が押された状態で開き、面をクリックするたびに入れる・外すを切り替えます。</p>
+<p><span class="ui">［物理］</span>・<span class="ui">［メッシュ］</span>・<span class="ui">［解析］</span>のタブでは、条件を付けた面を種類の色で塗ります。対称面の板も同じ色です。</p>
+<div class="table-wrap"><table>
+  <caption>面の条件の色</caption>
+  <thead><tr><th>色</th><th>条件</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">赤</th><td>電気壁（E-short）</td></tr>
+    <tr><th scope="row">紫</th><td>磁気壁（M-short）</td></tr>
+    <tr><th scope="row">緑</th><td>磁束平行</td></tr>
+    <tr><th scope="row">青</th><td>磁束垂直</td></tr>
+    <tr><th scope="row">橙</th><td>ポート</td></tr>
+    <tr><th scope="row">真鍮の色</th><td>電極（面の電極。電極のボディもこの色で塗ります）</td></tr>
+    <tr><th scope="row">青緑・灰色</th><td>静電場の対称面の電荷ゼロ・接地</td></tr>
+  </tbody>
+</table></div>
+<p>対称面の板と解析領域の枠は、<span class="ui">［対称面を表示］</span>・<span class="ui">［解析領域を表示］</span>で表示を切り替えます。</p>
+<figure id="fig-16_em_symmetry_planes"><a class="zoom" href="images/16_em_symmetry_planes.png"><img src="images/16_em_symmetry_planes.png" alt="双極電磁石の 1/8 モデル。解析領域の枠（濃い所が実際に解く範囲）と、対称面の板（緑が磁束平行、青が磁束垂直）。" width="700" height="710" loading="lazy"></a><figcaption><span class="figno">図 16-2</span> 双極電磁石の 1/8 モデル。解析領域の枠（濃い所が実際に解く範囲）と、対称面の板（緑が磁束平行、青が磁束垂直）。</figcaption></figure>
+
+<h2 id="mesh"><span class="secno">16.5</span> メッシュ</h2>
+<p>形状は、2 次の四面体のメッシュに分けて解きます。要素が小さいほど精度が上がり、時間がかかります。</p>
+<ul>
+  <li><p><span class="path">リボンの<span class="ui">［メッシュ］</span>タブ → <span class="ui">［設定］</span>パネル → <span class="ui">［メッシュの設定］</span></span>で、全体の<span class="ui">［要素の大きさ］</span>と次数（2 次が既定）を決めます。</p></li>
+  <li><p>ボディごとの大きさは、材料の<span class="ui">［メッシュの大きさ（0 = 全体の値）］</span>で決めます（例: 銅 3 mm、鉄 12 mm）。</p></li>
+  <li><p><span class="path">リボンの<span class="ui">［メッシュ］</span>タブ → <span class="ui">［生成］</span>パネル → <span class="ui">［メッシュ生成］</span></span>で、メッシュだけを作って表示します（解かない）。解析や電流分布のプレビューのときも作ります。形状とメッシュの設定が変わらなければ前のメッシュを使い回すので、メッシュを確かめてから解析しても、二度は作りません。</p></li>
+  <li><p><span class="ui">［メッシュ］</span>タブでは、最新のメッシュのボディの表面を、材料の色と要素の辺で表示します（自動の空気は描きません）。節点と四面体の数は、終わったときの知らせとジョブのログに出ます。<span class="ui">［メッシュを表示］</span>で表示を切り替えます。</p></li>
+  <li><p>メッシュに効く設定（形状、材料の割り当て、メッシュの大きさ、解析領域、対称面など）を変えると、そのメッシュは古いので表示を消します。文書のパラメータの値だけを変えたときは、古いと分からないので作り直してください。</p></li>
+</ul>
+<figure id="fig-16_em_mesh_view"><a class="zoom" href="images/16_em_mesh_view.png"><img src="images/16_em_mesh_view.png" alt="メッシュの表示（双極電磁石の 1/8 モデル。ヨーク・コイル・ギャップの空気のボディ）。" width="700" height="710" loading="lazy"></a><figcaption><span class="figno">図 16-3</span> メッシュの表示（双極電磁石の 1/8 モデル。ヨーク・コイル・ギャップの空気のボディ）。</figcaption></figure>
+<aside class="tip" role="note"><p class="callout-title">ヒント</p><p>場が変わる所（コイル・鉄の角・ギャップ・空洞の鼻）を細かくし、遠くは粗くします。見たい所の空気・真空が粗いときは、そこに別のボディを置き、小さいメッシュの材料を割り当てます。結果がメッシュでどれだけ変わるかを、大きさを変えて確かめると安心です。</p></aside>
+
+<h2 id="run"><span class="secno">16.6</span> チェックと解析の実行</h2>
+<ol class="steps">
+  <li><p><span class="path">リボンの<span class="ui">［物理］</span>タブ → <span class="ui">［チェック］</span>パネル → <span class="ui">［チェック］</span></span>をクリックします。右の<span class="ui">［チェック］</span>に、設定の誤り（エラー）と注意（警告）が出ます。行をクリックすると、当てはまる項目が開きます。エラーがあると解析は始まりません。</p></li>
+  <li><p><span class="path">リボンの<span class="ui">［解析］</span>タブ → <span class="ui">［設定］</span>パネル → <span class="ui">［解析の設定］</span></span>で、スタディの解析の設定（第 18〜24 章）を確かめます。</p></li>
+  <li><p><span class="path">リボンの<span class="ui">［解析］</span>タブ → <span class="ui">［実行］</span>パネル → <span class="ui">［実行］</span></span>をクリックします。形状を書き出し、別のプロセスでメッシュを作って解きます。下の<span class="ui">［ジョブ］</span>に進み具合とログが出ます。</p>
+    <figure id="fig-16_em_job"><a class="zoom" href="images/16_em_job.png"><img src="images/16_em_job.png" alt="ジョブのドック。段（メッシュ・組み立て・求解・後処理）の進み具合と、ログ。" width="1400" height="126" loading="lazy"></a><figcaption><span class="figno">図 16-4</span> ジョブのドック。段（メッシュ・組み立て・求解・後処理）の進み具合と、ログ。</figcaption></figure></li>
+  <li><p>終わると<span class="ui">［結果］</span>タブに切り替わり、結果を表示します（<a href="17_em_results.html">第 17 章</a>）。</p></li>
+</ol>
+<p>解析は別のプロセスで動くので、その間もウィンドウを操作できます。<span class="path">リボンの<span class="ui">［解析］</span>タブ → <span class="ui">［実行］</span>パネル → <span class="ui">［停止］</span></span>で、区切りのよい所で止めます。解析が失敗したときは、ジョブのログに理由が出ます（<a href="25_em_troubleshooting.html">第 25 章</a>）。</p>
+
+<h2 id="storage"><span class="secno">16.7</span> 結果の保存場所</h2>
+<p>解析の結果は、文書のデータのフォルダ <code>&lt;文書名&gt;.emrm.data\runs\&lt;スタディ&gt;\</code> に、解析ごとのフォルダ（<code>0001-magnetostatic</code> など）として残ります。中には、解析の入力（<code>job.json</code>）・メッシュ・結果（<code>result.h5</code>）・ログ（<code>log.txt</code>）があります。文書を閉じて開き直しても、前の結果を見られます（<a href="17_em_results.html#past">第 17 章</a>）。</p>
+<aside class="note" role="note"><p class="callout-title">注意</p><p>保存していない文書の結果は、一時フォルダに置かれます。一時フォルダは消えることがあるので、残したい結果は、文書を保存してから解析してください。</p></aside>
+
+</article>
+<nav class="pager" aria-label="前後の章"><a class="prev" rel="prev" href="15_em_first.html"><span class="dir">前の章</span>第 15 章 はじめての電磁場解析（ソレノイド）</a><a class="next" rel="next" href="17_em_results.html"><span class="dir">次の章</span>第 17 章 結果の見方</a></nav>
+<footer class="footer"><p>EMRM-Studio ユーザーマニュアル（日本語）・EMRM-Studio 0.1.0 ・ <a href="#main">このページの先頭へ</a></p></footer>
+</main>
+</div>
+</body>
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="generator" content="tools/build_manual.py">
+<title>第 17 章 結果の見方 - EMRM-Studio ユーザーマニュアル</title>
+<link rel="stylesheet" href="assets/manual.css">
+<script src="assets/search_index.js" charset="utf-8" defer></script>
+<script src="assets/manual.js" charset="utf-8" defer></script>
+</head>
+<body class="page">
+<header class="topbar">
+<a class="brand" href="index.html">EMRM-Studio ユーザーマニュアル</a>
+<button class="toc-toggle" type="button" aria-controls="toc" aria-expanded="false">目次</button>
+<form class="search" role="search" action="#" onsubmit="return false">
+<input id="q" type="search" placeholder="マニュアルを検索（/）" aria-label="マニュアルを検索" autocomplete="off">
+</form>
+</header>
+<div id="search-results" class="search-results" hidden></div>
+<div class="layout">
+<nav id="toc" class="toc" aria-label="目次">
+<details class="toc-box">
+<summary>目次</summary>
+<ol class="toc-chapters">
+<li class="toc-home"><a href="index.html">表紙・目次</a></li>
+<li><a href="00_intro.html">はじめに</a></li>
+<li class="toc-part" role="presentation">第 I 部　形状を作る（CAD）</li>
+<li><a href="01_screen.html"><span class="chno">第 1 章</span> 画面の構成</a></li>
+<li><a href="02_view.html"><span class="chno">第 2 章</span> 視点の操作</a></li>
+<li><a href="03_first_part.html"><span class="chno">第 3 章</span> はじめての部品</a></li>
+<li><a href="04_sketch.html"><span class="chno">第 4 章</span> スケッチ</a></li>
+<li><a href="05_work_features.html"><span class="chno">第 5 章</span> 作業フィーチャ</a></li>
+<li><a href="06_features_basic.html"><span class="chno">第 6 章</span> フィーチャ（押し出し・回転・穴・フィレットなど）</a></li>
+<li><a href="07_features_advanced.html"><span class="chno">第 7 章</span> フィーチャ（スイープ・ロフト・コイル・パターンなど）</a></li>
+<li><a href="08_bodies.html"><span class="chno">第 8 章</span> ボディの操作</a></li>
+<li><a href="09_browser.html"><span class="chno">第 9 章</span> ブラウザとフィーチャの管理</a></li>
+<li><a href="10_parameters.html"><span class="chno">第 10 章</span> パラメータと式</a></li>
+<li><a href="11_configurations.html"><span class="chno">第 11 章</span> 構成</a></li>
+<li><a href="12_inspect.html"><span class="chno">第 12 章</span> 検査</a></li>
+<li><a href="13_files.html"><span class="chno">第 13 章</span> ファイル</a></li>
+<li class="toc-part" role="presentation">第 II 部　電磁場解析</li>
+<li><a href="14_em_intro.html"><span class="chno">第 14 章</span> 電磁場解析のはじめに</a></li>
+<li><a href="15_em_first.html"><span class="chno">第 15 章</span> はじめての電磁場解析（ソレノイド）</a></li>
+<li><a href="16_em_setup.html"><span class="chno">第 16 章</span> スタディの共通の設定</a></li>
+<li class="current"><a href="17_em_results.html" aria-current="page"><span class="chno">第 17 章</span> 結果の見方</a><ol class="toc-sections"><li><a href="17_em_results.html#display"><span class="secno">17.1</span> 表示する量と表示の仕方</a></li><li><a href="17_em_results.html#overlays"><span class="secno">17.2</span> 重ねるものと色</a></li><li><a href="17_em_results.html#evaluate"><span class="secno">17.3</span> 評価と書き出し</a></li><li><a href="17_em_results.html#past"><span class="secno">17.4</span> 前の解析の結果を見る</a></li></ol></li>
+<li><a href="18_em_magnetostatic.html"><span class="chno">第 18 章</span> 静磁場解析</a></li>
+<li><a href="19_em_coils.html"><span class="chno">第 19 章</span> 静磁場解析: コイル</a></li>
+<li><a href="20_em_dipole.html"><span class="chno">第 20 章</span> 静磁場解析の例題: H 型双極電磁石</a></li>
+<li><a href="21_em_eigenmode.html"><span class="chno">第 21 章</span> 共振モード解析</a></li>
+<li><a href="22_em_driven.html"><span class="chno">第 22 章</span> ポート解析</a></li>
+<li><a href="23_em_electrostatic.html"><span class="chno">第 23 章</span> 静電場解析</a></li>
+<li><a href="24_em_gun.html"><span class="chno">第 24 章</span> 電子銃解析</a></li>
+<li><a href="25_em_troubleshooting.html"><span class="chno">第 25 章</span> 電磁場解析で困ったとき</a></li>
+<li class="toc-part" role="presentation">第 III 部　連携・カスタマイズ・自動化</li>
+<li><a href="26_step_export.html"><span class="chno">第 26 章</span> 他の解析プログラムに形を渡す</a></li>
+<li><a href="27_customize.html"><span class="chno">第 27 章</span> カスタマイズ</a></li>
+<li><a href="28_automation.html"><span class="chno">第 28 章</span> 自動化</a></li>
+<li><a href="29_troubleshooting.html"><span class="chno">第 29 章</span> 困ったとき</a></li>
+<li class="toc-part" role="presentation">付録</li>
+<li class="appendix"><a href="appendix_a_commands.html"><span class="chno">付録 A</span> コマンド一覧</a></li>
+<li class="appendix"><a href="appendix_b_shortcuts.html"><span class="chno">付録 B</span> ショートカット一覧</a></li>
+<li class="appendix"><a href="appendix_c_feature_params.html"><span class="chno">付録 C</span> フィーチャのパラメータ一覧</a></li>
+<li class="appendix"><a href="appendix_d_glossary.html"><span class="chno">付録 D</span> 用語の対応表</a></li>
+</ol>
+</details>
+</nav>
+<main class="content" id="main">
+<article class="chapter ">
+<p class="chapter-label">第 17 章</p>
+<h1>結果の見方</h1>
+<nav class="pagetoc" aria-label="この章の内容">
+<p class="pagetoc-title">この章の内容</p>
+<ol>
+<li><a href="#display"><span class="secno">17.1</span> 表示する量と表示の仕方</a></li>
+<li><a href="#overlays"><span class="secno">17.2</span> 重ねるものと色</a></li>
+<li><a href="#evaluate"><span class="secno">17.3</span> 評価と書き出し</a></li>
+<li><a href="#past"><span class="secno">17.4</span> 前の解析の結果を見る</a></li>
+</ol>
+</nav>
+<p>この章では、解析の結果を見る操作を説明します。表示する量と表示の仕方（断面・表面・3D の矢印）、重ねるもの（矢印・力線・等値線）、色、評価と書き出し、前の結果の開き方です。操作はどのスタディでも同じで、量の名前だけが違います。</p>
+
+<h2 id="display"><span class="secno">17.1</span> 表示する量と表示の仕方</h2>
+<p>解析が終わると、結果は 3D ビューに断面で表示されます。表示の仕方は、右の<span class="ui">［結果の表示］</span>のパネル（<span class="ui">［結果］</span>タブを開くと前に出ます。<span class="ui">［表示の設定］</span>でも開きます）でまとめて変えます。リボンのボタンは、よく使う切り替えの近道です。</p>
+<figure id="fig-17_em_display_panel"><a class="zoom" href="images/17_em_display_panel.png"><img src="images/17_em_display_panel.png" alt="結果の表示のパネル。量・表示・断面・重ねるもの・色をまとめて変えます。" width="260" height="453" loading="lazy"></a><figcaption><span class="figno">図 17-1</span> 結果の表示のパネル。量・表示・断面・重ねるもの・色をまとめて変えます。</figcaption></figure>
+<div class="table-wrap"><table>
+  <caption>表示する量</caption>
+  <thead><tr><th>スタディ</th><th>量</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">静磁場</th><td>|B| 磁束密度、Bx・By・Bz、|H| 磁界の強さ、実効の比透磁率 μr、飽和度 M/Ms（飽和のある材料のときだけ）</td></tr>
+    <tr><th scope="row">共振モード・ポート解析</th><td>|E| 電界の強さ、Ex・Ey・Ez、|H|、Hx・Hy・Hz、|Js| 表面電流（壁）</td></tr>
+    <tr><th scope="row">静電場</th><td>φ 電位、|E| 電界の強さ、Ex・Ey・Ez、|D| 電束密度、比誘電率 εr</td></tr>
+    <tr><th scope="row">電子銃</th><td>静電場の量と、ρ 空間電荷密度、|B| 外部磁場、|B| ビームの自己磁場。軌道を重ねて描く（<a href="24_em_gun.html#results">第 24 章</a>）</td></tr>
+  </tbody>
+</table></div>
+<p>成分（Bx など）は正負のある量で、0 を白にした青・白・赤で表示します。矢印と力線は、量のベクトル（B・E・H）で描きます。</p>
+<div class="table-wrap"><table>
+  <caption>表示の仕方</caption>
+  <thead><tr><th>表示</th><th>内容</th></tr></thead>
+  <tbody>
+    <tr><th scope="row"><span class="ui">［場の表示］</span>（断面）</th><td>座標面（XY・YZ・ZX）の断面の色分け。<span class="ui">［位置］</span>のスライダで断面を動かせます。<span class="ui">［断面に正対］</span>で断面を正面から見ます。形状は断面でカメラの側を取り去ります。共振モード・ポート解析では、空洞の中だけを描きます</td></tr>
+    <tr><th scope="row"><span class="ui">［表面］</span></th><td>ボディ（自動の空気を除く）の表面を量で色分けします。鉄の飽和や、磁極の端・空洞の鼻の場の集中を見るのに向きます</td></tr>
+    <tr><th scope="row"><span class="ui">［3D の矢印］</span></th><td>形状のまわりの格子の点のベクトルの矢印（量で色分け）。形状は半透明になります</td></tr>
+  </tbody>
+</table></div>
+<div class="figrow">
+  <figure id="fig-17_em_component"><a class="zoom" href="images/17_em_component.png"><img src="images/17_em_component.png" alt="成分 By（正負）の断面。" width="340" height="345" loading="lazy"></a><figcaption><span class="figno">図 17-2</span> 成分 By（正負）の断面。</figcaption></figure>
+  <figure id="fig-17_em_surface"><a class="zoom" href="images/17_em_surface.png"><img src="images/17_em_surface.png" alt="表面: ボディの表面の |B|。" width="340" height="345" loading="lazy"></a><figcaption><span class="figno">図 17-3</span> 表面: ボディの表面の |B|。</figcaption></figure>
+  <figure id="fig-17_em_arrows3d"><a class="zoom" href="images/17_em_arrows3d.png"><img src="images/17_em_arrows3d.png" alt="3D の矢印（形状は半透明）。" width="340" height="345" loading="lazy"></a><figcaption><span class="figno">図 17-4</span> 3D の矢印（形状は半透明）。</figcaption></figure>
+</div>
+
+<h2 id="overlays"><span class="secno">17.2</span> 重ねるものと色</h2>
+<div class="table-wrap"><table>
+  <caption>重ねるもの</caption>
+  <thead><tr><th>設定</th><th>内容</th></tr></thead>
+  <tbody>
+    <tr><th scope="row"><span class="ui">［矢印］</span></th><td>断面の上のベクトルの矢印。<span class="ui">［数］</span>（長い辺の本数）と長さの倍率を変えられます。<span class="ui">［長さを一定にする（強さは色で表す）］</span>にすると、矢印の長さはすべて同じになり、強さは色だけで表します（場の弱い所でも向きがよく見えます）</td></tr>
+    <tr><th scope="row"><span class="ui">［Field Lines］</span></th><td>断面の上の力線（白。静磁場は磁力線、静電場は電気力線、共振モードとポート解析は量のベクトルの力線）。断面を横切る束が等しくなるように始点を並べます。対称面・中央の面では本当の力線、それ以外の面ではベクトルの面内成分をたどった線です</td></tr>
+    <tr><th scope="row"><span class="ui">［等値線］</span></th><td>表示している量の等値線（黒）。本数を変えられます</td></tr>
+    <tr><th scope="row"><span class="ui">［断面の色分け（ヒートマップ）］</span>を外す</th><td>色分けを描かず、矢印と等値線を量で色分けします（凡例も付きます）。何も重ねていないときに外すと、矢印が自動で出ます</td></tr>
+  </tbody>
+</table></div>
+<figure id="fig-17_em_contours"><a class="zoom" href="images/17_em_contours.png"><img src="images/17_em_contours.png" alt="断面（XY、正対）に力線（白）と等値線（黒）を重ねたところ。" width="700" height="710" loading="lazy"></a><figcaption><span class="figno">図 17-5</span> 断面（XY、正対）に力線（白）と等値線（黒）を重ねたところ。</figcaption></figure>
+<ul>
+  <li><p><strong>色の範囲</strong>: <span class="ui">［範囲を自動］</span>では、大きさの量は 0〜99 パーセンタイル（角の特異点で全体が暗くならないように）、成分は ±99 パーセンタイル、電位と比透磁率・比誘電率は最小〜最大です。自動を外すと最小・最大を入れられます。<span class="ui">［対数］</span>で対数の目盛りにします。</p></li>
+  <li><p><strong>色表</strong>: 虹色・viridis・plasma・暖色・青・白・赤・灰色から選びます。</p></li>
+  <li><p><strong>格子の点の数</strong>: 断面の格子の細かさ（長い辺の点の数）。細かいほど滑らかで、時間がかかります。</p></li>
+</ul>
+<figure id="fig-17_em_arrows_only"><a class="zoom" href="images/17_em_arrows_only.png"><img src="images/17_em_arrows_only.png" alt="断面の色分けを外し、長さ一定の矢印だけを |B| で色分けした表示。" width="700" height="710" loading="lazy"></a><figcaption><span class="figno">図 17-6</span> 断面の色分けを外し、長さ一定の矢印だけを |B| で色分けした表示。</figcaption></figure>
+
+<h2 id="evaluate"><span class="secno">17.3</span> 評価と書き出し</h2>
+<div class="table-wrap"><table>
+  <caption>評価と書き出しのコマンド</caption>
+  <thead><tr><th>コマンド</th><th>内容</th></tr></thead>
+  <tbody>
+    <tr><th scope="row"><span class="ui">［2D 断面図］</span></th><td>今の断面を 2D の図（色分け・等値線・力線・カラーバー）にして中央のタブに出します。マウスを載せた点の座標と値を、図の下に表示します</td></tr>
+    <tr><th scope="row"><span class="ui">［線上のグラフ］</span></th><td>始点・終点 [mm] と点の数を入れると、その線に沿った成分と大きさのグラフを出します。タブの<span class="ui">［CSV に保存］</span>で値を書き出せます</td></tr>
+    <tr><th scope="row"><span class="ui">［フィールドマップ］</span></th><td>規則格子（各軸の最小・最大・間隔 [mm]）の場を CSV か HDF5 に書き出します。ビームの軌道計算などに使います</td></tr>
+  </tbody>
+</table></div>
+<p>スタディごとの評価（静磁場の多極成分・インダクタンス、共振モードの軸上の場・表面電流、ポート解析の S パラメータ・Touchstone、静電場の電荷・容量・表面の最大電界）は、それぞれの章にあります。</p>
+<figure id="fig-17_em_slice2d"><a class="zoom" href="images/17_em_slice2d.png"><img src="images/17_em_slice2d.png" alt="2D 断面図。マウスを載せると、図の下にその点の値が出ます。" width="1000" height="781" loading="lazy"></a><figcaption><span class="figno">図 17-7</span> 2D 断面図。マウスを載せると、図の下にその点の値が出ます。</figcaption></figure>
+<p>右の<span class="ui">［結果］</span>の表には、スタディの主な値（静磁場ならエネルギー・インダクタンス、共振モードならモードの値、ポート解析なら共振探索の値、静電場なら電荷・容量）と、要素数・自由度・計算時間が出ます。</p>
+
+<h2 id="past"><span class="secno">17.4</span> 前の解析の結果を見る</h2>
+<p>解析の結果は解析ごとに残り、文書を閉じて開き直しても見られます（<a href="16_em_setup.html#storage">第 16 章</a>）。</p>
+<ul>
+  <li><p>スタディのブラウザの<span class="ui">［結果］</span>の下に、そのスタディの解析が新しい順に並びます（<code>0003  2026-11-01 14:23</code> のように番号と終わった時刻）。表示中の結果は太字です。</p></li>
+  <li><p>行を<strong>ダブルクリック</strong>するか、右クリックの<span class="ui">［この結果を表示］</span>で、その結果を読み込んで表示します。<span class="ui">［結果］</span>の行の右クリックの<span class="ui">［最新の結果を表示］</span>でも開けます。<span class="ui">［フォルダを開く］</span>で、結果のファイルの場所を開きます。</p></li>
+  <li><p>開き直した文書で、結果がまだ無いまま<span class="ui">［結果］</span>タブを開くと、アクティブなスタディの最新の結果を自動で読み込みます。</p></li>
+  <li><p>結果は、解析したときの形状と設定のものです。後で形状や設定を変えても、古い結果はそのまま表示されます。</p></li>
+</ul>
+
+</article>
+<nav class="pager" aria-label="前後の章"><a class="prev" rel="prev" href="16_em_setup.html"><span class="dir">前の章</span>第 16 章 スタディの共通の設定</a><a class="next" rel="next" href="18_em_magnetostatic.html"><span class="dir">次の章</span>第 18 章 静磁場解析</a></nav>
+<footer class="footer"><p>EMRM-Studio ユーザーマニュアル（日本語）・EMRM-Studio 0.1.0 ・ <a href="#main">このページの先頭へ</a></p></footer>
+</main>
+</div>
+</body>
+</html>

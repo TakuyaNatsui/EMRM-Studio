@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="generator" content="tools/build_manual.py">
+<title>第 3 章 はじめての部品 - EMRM-Studio ユーザーマニュアル</title>
+<link rel="stylesheet" href="assets/manual.css">
+<script src="assets/search_index.js" charset="utf-8" defer></script>
+<script src="assets/manual.js" charset="utf-8" defer></script>
+</head>
+<body class="page">
+<header class="topbar">
+<a class="brand" href="index.html">EMRM-Studio ユーザーマニュアル</a>
+<button class="toc-toggle" type="button" aria-controls="toc" aria-expanded="false">目次</button>
+<form class="search" role="search" action="#" onsubmit="return false">
+<input id="q" type="search" placeholder="マニュアルを検索（/）" aria-label="マニュアルを検索" autocomplete="off">
+</form>
+</header>
+<div id="search-results" class="search-results" hidden></div>
+<div class="layout">
+<nav id="toc" class="toc" aria-label="目次">
+<details class="toc-box">
+<summary>目次</summary>
+<ol class="toc-chapters">
+<li class="toc-home"><a href="index.html">表紙・目次</a></li>
+<li><a href="00_intro.html">はじめに</a></li>
+<li class="toc-part" role="presentation">第 I 部　形状を作る（CAD）</li>
+<li><a href="01_screen.html"><span class="chno">第 1 章</span> 画面の構成</a></li>
+<li><a href="02_view.html"><span class="chno">第 2 章</span> 視点の操作</a></li>
+<li class="current"><a href="03_first_part.html" aria-current="page"><span class="chno">第 3 章</span> はじめての部品</a><ol class="toc-sections"><li><a href="03_first_part.html#goal"><span class="secno">3.1</span> 作るもの</a></li><li><a href="03_first_part.html#new"><span class="secno">3.2</span> 新しいドキュメントを作る</a></li><li><a href="03_first_part.html#sketch"><span class="secno">3.3</span> 板のスケッチを描く</a></li><li><a href="03_first_part.html#extrude"><span class="secno">3.4</span> 押し出して板にする</a></li><li><a href="03_first_part.html#hole"><span class="secno">3.5</span> 穴を開ける</a></li><li><a href="03_first_part.html#pattern"><span class="secno">3.6</span> 穴を 4 つに増やす</a></li><li><a href="03_first_part.html#fillet"><span class="secno">3.7</span> 縦の角を丸める</a></li><li><a href="03_first_part.html#chamfer"><span class="secno">3.8</span> 上面の外周を面取りする</a></li><li><a href="03_first_part.html#material"><span class="secno">3.9</span> 材料を割り当てる</a></li><li><a href="03_first_part.html#mass"><span class="secno">3.10</span> 質量を確かめる</a></li><li><a href="03_first_part.html#save"><span class="secno">3.11</span> 保存する</a></li><li><a href="03_first_part.html#export"><span class="secno">3.12</span> STEP に書き出す</a></li><li><a href="03_first_part.html#next"><span class="secno">3.13</span> 次に読む章</a></li></ol></li>
+<li><a href="04_sketch.html"><span class="chno">第 4 章</span> スケッチ</a></li>
+<li><a href="05_work_features.html"><span class="chno">第 5 章</span> 作業フィーチャ</a></li>
+<li><a href="06_features_basic.html"><span class="chno">第 6 章</span> フィーチャ（押し出し・回転・穴・フィレットなど）</a></li>
+<li><a href="07_features_advanced.html"><span class="chno">第 7 章</span> フィーチャ（スイープ・ロフト・コイル・パターンなど）</a></li>
+<li><a href="08_bodies.html"><span class="chno">第 8 章</span> ボディの操作</a></li>
+<li><a href="09_browser.html"><span class="chno">第 9 章</span> ブラウザとフィーチャの管理</a></li>
+<li><a href="10_parameters.html"><span class="chno">第 10 章</span> パラメータと式</a></li>
+<li><a href="11_configurations.html"><span class="chno">第 11 章</span> 構成</a></li>
+<li><a href="12_inspect.html"><span class="chno">第 12 章</span> 検査</a></li>
+<li><a href="13_files.html"><span class="chno">第 13 章</span> ファイル</a></li>
+<li class="toc-part" role="presentation">第 II 部　電磁場解析</li>
+<li><a href="14_em_intro.html"><span class="chno">第 14 章</span> 電磁場解析のはじめに</a></li>
+<li><a href="15_em_first.html"><span class="chno">第 15 章</span> はじめての電磁場解析（ソレノイド）</a></li>
+<li><a href="16_em_setup.html"><span class="chno">第 16 章</span> スタディの共通の設定</a></li>
+<li><a href="17_em_results.html"><span class="chno">第 17 章</span> 結果の見方</a></li>
+<li><a href="18_em_magnetostatic.html"><span class="chno">第 18 章</span> 静磁場解析</a></li>
+<li><a href="19_em_coils.html"><span class="chno">第 19 章</span> 静磁場解析: コイル</a></li>
+<li><a href="20_em_dipole.html"><span class="chno">第 20 章</span> 静磁場解析の例題: H 型双極電磁石</a></li>
+<li><a href="21_em_eigenmode.html"><span class="chno">第 21 章</span> 共振モード解析</a></li>
+<li><a href="22_em_driven.html"><span class="chno">第 22 章</span> ポート解析</a></li>
+<li><a href="23_em_electrostatic.html"><span class="chno">第 23 章</span> 静電場解析</a></li>
+<li><a href="24_em_gun.html"><span class="chno">第 24 章</span> 電子銃解析</a></li>
+<li><a href="25_em_troubleshooting.html"><span class="chno">第 25 章</span> 電磁場解析で困ったとき</a></li>
+<li class="toc-part" role="presentation">第 III 部　連携・カスタマイズ・自動化</li>
+<li><a href="26_step_export.html"><span class="chno">第 26 章</span> 他の解析プログラムに形を渡す</a></li>
+<li><a href="27_customize.html"><span class="chno">第 27 章</span> カスタマイズ</a></li>
+<li><a href="28_automation.html"><span class="chno">第 28 章</span> 自動化</a></li>
+<li><a href="29_troubleshooting.html"><span class="chno">第 29 章</span> 困ったとき</a></li>
+<li class="toc-part" role="presentation">付録</li>
+<li class="appendix"><a href="appendix_a_commands.html"><span class="chno">付録 A</span> コマンド一覧</a></li>
+<li class="appendix"><a href="appendix_b_shortcuts.html"><span class="chno">付録 B</span> ショートカット一覧</a></li>
+<li class="appendix"><a href="appendix_c_feature_params.html"><span class="chno">付録 C</span> フィーチャのパラメータ一覧</a></li>
+<li class="appendix"><a href="appendix_d_glossary.html"><span class="chno">付録 D</span> 用語の対応表</a></li>
+</ol>
+</details>
+</nav>
+<main class="content" id="main">
+<article class="chapter ">
+<p class="chapter-label">第 3 章</p>
+<h1>はじめての部品</h1>
+<nav class="pagetoc" aria-label="この章の内容">
+<p class="pagetoc-title">この章の内容</p>
+<ol>
+<li><a href="#goal"><span class="secno">3.1</span> 作るもの</a></li>
+<li><a href="#new"><span class="secno">3.2</span> 新しいドキュメントを作る</a></li>
+<li><a href="#sketch"><span class="secno">3.3</span> 板のスケッチを描く</a></li>
+<li class="sub"><a href="#sketch-plane">平面を選んでスケッチを始める</a></li>
+<li class="sub"><a href="#sketch-rect">長方形を描く</a></li>
+<li class="sub"><a href="#sketch-dim">寸法で大きさを決める</a></li>
+<li class="sub"><a href="#sketch-finish">スケッチを終了する</a></li>
+<li><a href="#extrude"><span class="secno">3.4</span> 押し出して板にする</a></li>
+<li><a href="#hole"><span class="secno">3.5</span> 穴を開ける</a></li>
+<li class="sub"><a href="#hole-sketch">穴の位置のスケッチ</a></li>
+<li class="sub"><a href="#hole-feature">穴のフィーチャ</a></li>
+<li><a href="#pattern"><span class="secno">3.6</span> 穴を 4 つに増やす</a></li>
+<li><a href="#fillet"><span class="secno">3.7</span> 縦の角を丸める</a></li>
+<li><a href="#chamfer"><span class="secno">3.8</span> 上面の外周を面取りする</a></li>
+<li><a href="#material"><span class="secno">3.9</span> 材料を割り当てる</a></li>
+<li><a href="#mass"><span class="secno">3.10</span> 質量を確かめる</a></li>
+<li><a href="#save"><span class="secno">3.11</span> 保存する</a></li>
+<li><a href="#export"><span class="secno">3.12</span> STEP に書き出す</a></li>
+<li><a href="#next"><span class="secno">3.13</span> 次に読む章</a></li>
+</ol>
+</nav>
+<p>この章では、穴付きの板を一から作ります。スケッチ → 押し出し → 穴 → パターン → フィレットと面取り → 材料 → 保存 → STEP の書き出し、という部品づくりの一通りの流れを、写真を見ながら順に操作します。所要時間は 20〜30 分です。</p>
+
+<h2 id="goal"><span class="secno">3.1</span> 作るもの</h2>
+<p>100 × 60 × 10 mm の板に、φ10 の貫通穴を 4 つ開け、外周の縦の角を R5 で丸め、上面の外周を C1 で面取りします。材料は鋼です。<code>samples/plate_with_holes.mcad</code> と同じ形になります。</p>
+<figure id="fig-03_result"><a class="zoom" href="images/03_result.png"><img src="images/03_result.png" alt="できあがりの形。次の手順で、この板を作ります。" width="700" height="433" loading="lazy"></a><figcaption><span class="figno">図 3-1</span> できあがりの形。次の手順で、この板を作ります。</figcaption></figure>
+<div class="table-wrap"><table>
+  <caption>使うコマンド（この順に操作します）</caption>
+  <thead><tr><th>節</th><th>コマンド</th><th>キー</th></tr></thead>
+  <tbody>
+    <tr><th scope="row"><a href="#sketch">スケッチ</a>・<a href="#extrude">押し出し</a></th><td>スケッチ、長方形、寸法、スケッチを終了、押し出し</td><td><kbd>S</kbd>・<kbd>E</kbd></td></tr>
+    <tr><th scope="row"><a href="#hole">穴</a>・<a href="#pattern">パターン</a></th><td>点のスケッチ、穴、矩形状パターン</td><td><kbd>H</kbd></td></tr>
+    <tr><th scope="row"><a href="#fillet">フィレット</a>・<a href="#chamfer">面取り</a></th><td>フィレット、面取り</td><td><kbd>F</kbd>・<kbd>C</kbd></td></tr>
+    <tr><th scope="row"><a href="#material">材料</a>〜<a href="#export">エクスポート</a></th><td>材料、物理プロパティ、保存、エクスポート</td><td><kbd>Ctrl</kbd>+<kbd>S</kbd></td></tr>
+  </tbody>
+</table></div>
+<aside class="tip" role="note"><p class="callout-title">ヒント</p><p>途中で間違えたら、<kbd>Ctrl</kbd>+<kbd>Z</kbd>（元に戻す）で 1 つ前に戻れます。やり直しは <kbd>Ctrl</kbd>+<kbd>Y</kbd> です。ブラウザの行をダブルクリックすると、できたフィーチャを編集し直せます。</p></aside>
+<aside class="try"><p class="callout-title">この機能を試す</p><p class="try-sample">題材: <code>samples/plate_with_holes.mcad</code> （<a href="00_intro.html#samples">題材の一覧と開き方</a>）</p>
+  <p>先に完成した板を開き、ブラウザのフィーチャを上から順に選んで、どのフィーチャがどの形を作っているかを確かめます。</p>
+</aside>
+
+<h2 id="new"><span class="secno">3.2</span> 新しいドキュメントを作る</h2>
+<p>アプリを起動すると、空のドキュメント（<span class="ui doc">［無題 1］</span>）が開いています。別のドキュメントが開いているときは、<span class="path">クイック アクセス ツールバーの<span class="ui">［新規］</span></span>（<kbd>Ctrl</kbd>+<kbd>N</kbd>）で新しく作ります。単位は mm です（変えるときは<span class="path">リボンの<span class="ui">［ツール］</span>タブ → <span class="ui">［オプション］</span>パネル → <span class="ui">［単位と精度］</span></span>）。</p>
+<p>ブラウザの<span class="ui">［原点］</span>の左の三角をクリックして開き、<span class="ui">［XY 平面（上面）］</span>・<span class="ui">［XZ 平面（正面）］</span>・<span class="ui">［YZ 平面（右側面）］</span>の 3 つの平面があることを確かめます。</p>
+
+<h2 id="sketch"><span class="secno">3.3</span> 板のスケッチを描く</h2>
+<h3 id="sketch-plane">平面を選んでスケッチを始める</h3>
+<ol class="steps">
+  <li><p>ブラウザの<span class="ui">［XY 平面（上面）］</span>をクリックして選びます。ビューに半透明の平面が出ます。</p></li>
+  <li><p><span class="path">リボンの<span class="ui">［3D モデル］</span>タブ → <span class="ui">［スケッチ］</span>パネル → <span class="ui">［スケッチ］</span></span>をクリックします（<kbd>S</kbd> でも始められます）。先にスケッチを始めてから平面を選んでもかまいません。</p>
+    <figure id="fig-03_select_plane"><a class="zoom" href="images/03_select_plane.png"><img src="images/03_select_plane.png" alt="平面を選んでから、［スケッチ］を押します（枠のボタン）。" width="1000" height="643" loading="lazy"></a><figcaption><span class="figno">図 3-2</span> 平面を選んでから、<span class="ui">［スケッチ］</span>を押します（枠のボタン）。</figcaption></figure></li>
+  <li><p>スケッチのモードに入ります。ビューが平面に正対し、グリッドが出て、リボンに緑色の<span class="ui">［スケッチ］</span>タブが出ます。右に<span class="ui">［スケッチの診断］</span>と<span class="ui">［拘束マネージャ］</span>のドックも出ます。</p>
+    <figure id="fig-03_sketch_mode"><a class="zoom" href="images/03_sketch_mode.png"><img src="images/03_sketch_mode.png" alt="スケッチのモード。ビューの右上の［OK］がスケッチの終了です。" width="1000" height="643" loading="lazy"></a><figcaption><span class="figno">図 3-3</span> スケッチのモード。ビューの右上の<span class="ui">［OK］</span>がスケッチの終了です。</figcaption></figure></li>
+</ol>
+
+<h3 id="sketch-rect">長方形を描く</h3>
+<ol class="steps">
+  <li><p>リボンの<span class="ui">［スケッチ］</span>タブ →<span class="ui">［作成］</span>パネル →<span class="ui">［長方形］</span>▼ の<span class="ui">［2 点長方形］</span>をクリックします。</p></li>
+  <li><p>ビューで、原点（座標軸が交わる点）の近くをクリックします。原点に吸い付いて、一致の拘束が付きます。</p></li>
+  <li><p>右上の離れた所（板の対角）をクリックします。長方形ができます。<kbd>Esc</kbd> でツールを終えます。</p>
+    <figure id="fig-03_sketch_rect"><a class="zoom" href="images/03_sketch_rect.png"><img src="images/03_sketch_rect.png" alt="長方形。線の横の H・V・C は、水平・垂直・一致の拘束の印です。" width="640" height="440" loading="lazy"></a><figcaption><span class="figno">図 3-4</span> 長方形。線の横の <code>H</code>・<code>V</code>・<code>C</code> は、水平・垂直・一致の拘束の印です。</figcaption></figure></li>
+</ol>
+<p>長方形の線は青色の細い線です。青は、寸法がまだ決まっていない（動かせる）線を表します。</p>
+
+<h3 id="sketch-dim">寸法で大きさを決める</h3>
+<ol class="steps">
+  <li><p><span class="path">リボンの<span class="ui">［スケッチ］</span>タブ → <span class="ui">［拘束］</span>パネル → <span class="ui">［寸法］</span></span>をクリックします（<kbd>D</kbd>）。</p></li>
+  <li><p>下の線をクリックし、寸法を置く位置（線の下）をクリックします。ビューに値の欄（HUD）が出るので、<code>100</code> と入力します。</p>
+    <figure id="fig-03_sketch_dim_hud"><a class="zoom" href="images/03_sketch_dim_hud.png"><img src="images/03_sketch_dim_hud.png" alt="寸法の欄。［種類］は自動で決まります。" width="640" height="440" loading="lazy"></a><figcaption><span class="figno">図 3-5</span> 寸法の欄。<span class="ui">［種類］</span>は自動で決まります。</figcaption></figure></li>
+  <li><p><kbd>Enter</kbd> で確定します。続けて右の線をクリックし、線の右に置いて <code>60</code> と入力し、<kbd>Enter</kbd> を押します。<kbd>Esc</kbd> でツールを終えます。</p></li>
+</ol>
+<p>2 つの寸法が付くと、線が黒い太線になります。黒は「完全定義」（形が全部決まった）という意味です。ステータスバーにも<span class="ui">［完全定義］</span>と出ます。</p>
+<figure id="fig-03_sketch_dims"><a class="zoom" href="images/03_sketch_dims.png"><img src="images/03_sketch_dims.png" alt="完全定義の長方形。寸法 100.00 mm と 60.00 mm が付きました。" width="640" height="440" loading="lazy"></a><figcaption><span class="figno">図 3-6</span> 完全定義の長方形。寸法 <code>100.00 mm</code> と <code>60.00 mm</code> が付きました。</figcaption></figure>
+<aside class="inventor" role="note"><p class="callout-title">Inventor との違い</p><p>寸法の欄に、数値のほかに式（<code>W / 2</code>）も書けます。パラメータの名前も使えます（<a href="10_parameters.html">第 10 章</a>）。</p></aside>
+
+<h3 id="sketch-finish">スケッチを終了する</h3>
+<p>リボンの<span class="ui">［スケッチ］</span>タブ →<span class="ui">［終了］</span>パネル →<span class="ui">［2D スケッチを終了］</span>をクリックします（ビュー右上の<span class="ui">［OK］</span>でも終了します）。パーツのモードに戻り、ブラウザに<span class="ui">［スケッチ1］</span>ができます。</p>
+
+<h2 id="extrude"><span class="secno">3.4</span> 押し出して板にする</h2>
+<ol class="steps">
+  <li><p><span class="path">リボンの<span class="ui">［3D モデル］</span>タブ → <span class="ui">［作成］</span>パネル → <span class="ui">［押し出し］</span></span>をクリックします（<kbd>E</kbd>）。スケッチの閉領域が 1 つだけなので、<span class="ui">［プロファイル］</span>には自動で入ります。</p></li>
+  <li><p>プロパティ パネルの<span class="ui">［距離 A］</span>に <code>10</code> と入力します。ビューに、結果のプレビューが半透明で出ます。</p>
+    <figure id="fig-03_extrude_form"><a class="zoom" href="images/03_extrude_form.png"><img src="images/03_extrude_form.png" alt="押し出しのフォーム。［入力ジオメトリ］・［動作］・［出力］の順に並びます。最初の押し出しなので、出力は［新規ソリッド］です。" width="1000" height="643" loading="lazy"></a><figcaption><span class="figno">図 3-7</span> 押し出しのフォーム。<span class="ui">［入力ジオメトリ］</span>・<span class="ui">［動作］</span>・<span class="ui">［出力］</span>の順に並びます。最初の押し出しなので、出力は<span class="ui">［新規ソリッド］</span>です。</figcaption></figure></li>
+  <li><p><span class="ui">［OK］</span>（<kbd>Enter</kbd>）で確定します。</p>
+    <figure id="fig-03_extrude_done"><a class="zoom" href="images/03_extrude_done.png"><img src="images/03_extrude_done.png" alt="板ができました。ブラウザに［押し出し1］が増えました。" width="1000" height="643" loading="lazy"></a><figcaption><span class="figno">図 3-8</span> 板ができました。ブラウザに<span class="ui">［押し出し1］</span>が増えました。</figcaption></figure></li>
+</ol>
+<p>ブラウザの<span class="ui">［ソリッド ボディ］</span>に、新しいボディができます。<span class="ui">［状態］</span>が<span class="ui">［OK］</span>になっていることを確かめます。</p>
+
+<h2 id="hole"><span class="secno">3.5</span> 穴を開ける</h2>
+<p>穴は「位置を決めるスケッチ」と「穴のフィーチャ」の 2 段階で作ります。ここでは穴を 1 つ開け、パターンで 4 つに増やします。</p>
+<h3 id="hole-sketch">穴の位置のスケッチ</h3>
+<ol class="steps">
+  <li><p><span class="path">リボンの<span class="ui">［3D モデル］</span>タブ → <span class="ui">［スケッチ］</span>パネル → <span class="ui">［スケッチ］</span></span>をクリックし、板の上面をクリックします。上面にスケッチが始まります（上面の外周は自動で投影されます）。</p></li>
+  <li><p>リボンの<span class="ui">［スケッチ］</span>タブ →<span class="ui">［作成］</span>パネル →<span class="ui">［点］</span>で、板の左下の近くをクリックして点を置き、<kbd>Esc</kbd> で終えます。</p></li>
+  <li><p><span class="ui">［寸法］</span>で、原点と点を順にクリックし、置く位置をクリックします。HUD の<span class="ui">［種類］</span>を<span class="ui">［水平距離］</span>にして <code>15</code> と入力し、<kbd>Enter</kbd> を押します。同じように、<span class="ui">［垂直距離］</span>で <code>15</code> を入れます。</p>
+    <figure id="fig-03_hole_sketch"><a class="zoom" href="images/03_hole_sketch.png"><img src="images/03_hole_sketch.png" alt="穴の位置のスケッチ。点が原点から横 15・縦 15 の位置に決まりました。" width="640" height="440" loading="lazy"></a><figcaption><span class="figno">図 3-9</span> 穴の位置のスケッチ。点が原点から横 15・縦 15 の位置に決まりました。</figcaption></figure></li>
+  <li><p><span class="ui">［2D スケッチを終了］</span>をクリックします。ブラウザに<span class="ui">［スケッチ2］</span>ができます。</p></li>
+</ol>
+<h3 id="hole-feature">穴のフィーチャ</h3>
+<ol class="steps">
+  <li><p><span class="path">リボンの<span class="ui">［3D モデル］</span>タブ → <span class="ui">［修正］</span>パネル → <span class="ui">［穴］</span></span>をクリックします（<kbd>H</kbd>）。</p></li>
+  <li><p>ビューで、さっきの点をクリックします。<span class="ui">［位置］</span>の欄に入ります（ブラウザでスケッチを選んでも、そのスケッチの全部の点が入ります）。</p></li>
+  <li><p><span class="ui">［直径］</span>に <code>10</code> と入力し、<span class="ui">［終了条件］</span>を<span class="ui">［貫通］</span>にします。<span class="ui">［穴の種類］</span>は<span class="ui">［単純穴］</span>のままにします。</p>
+    <figure id="fig-03_hole_form"><a class="zoom" href="images/03_hole_form.png"><img src="images/03_hole_form.png" alt="穴のフォーム。プレビューは、穴を開ける位置を上から見たところです。" width="1000" height="643" loading="lazy"></a><figcaption><span class="figno">図 3-10</span> 穴のフォーム。プレビューは、穴を開ける位置を上から見たところです。</figcaption></figure></li>
+  <li><p><span class="ui">［OK］</span>で確定します。ブラウザに<span class="ui">［穴1］</span>が増えます。</p></li>
+</ol>
+
+<h2 id="pattern"><span class="secno">3.6</span> 穴を 4 つに増やす</h2>
+<ol class="steps">
+  <li><p>リボンの<span class="ui">［3D モデル］</span>タブ →<span class="ui">［パターン］</span>パネル →<span class="ui">［矩形状パターン］</span>をクリックします。</p></li>
+  <li><p>ブラウザの<span class="ui">［穴1］</span>をクリックします。<span class="ui">［フィーチャ］</span>の欄に入ります。</p></li>
+  <li><p><span class="ui">［方向 1］</span>の欄をクリックし、ブラウザの<span class="ui">［原点］</span>の<span class="ui">［X 軸］</span>をクリックします。<span class="ui">［個数］</span>に <code>2</code>、<span class="ui">［長さ］</span>に <code>70</code> と入力します（<span class="ui">［長さの種類］</span>は<span class="ui">［間隔］</span>のままです）。</p></li>
+  <li><p><span class="ui">［方向 2］</span>の欄をクリックし、<span class="ui">［Y 軸］</span>を選びます。<span class="ui">［個数］</span>に <code>2</code>、<span class="ui">［長さ］</span>に <code>30</code> と入力します。</p>
+    <figure id="fig-03_pattern_form"><a class="zoom" href="images/03_pattern_form.png"><img src="images/03_pattern_form.png" alt="矩形状パターンのフォーム。ビューに、4 つ分のプレビューが出ます。" width="1000" height="643" loading="lazy"></a><figcaption><span class="figno">図 3-11</span> 矩形状パターンのフォーム。ビューに、4 つ分のプレビューが出ます。</figcaption></figure></li>
+  <li><p><span class="ui">［OK］</span>で確定します。</p>
+    <figure id="fig-03_holes_done"><a class="zoom" href="images/03_holes_done.png"><img src="images/03_holes_done.png" alt="穴が 4 つになりました。" width="700" height="433" loading="lazy"></a><figcaption><span class="figno">図 3-12</span> 穴が 4 つになりました。</figcaption></figure></li>
+</ol>
+<p>穴は (15, 15)・(85, 15)・(15, 45)・(85, 45) の位置にできます。</p>
+
+<h2 id="fillet"><span class="secno">3.7</span> 縦の角を丸める</h2>
+<ol class="steps">
+  <li><p><span class="path">リボンの<span class="ui">［3D モデル］</span>タブ → <span class="ui">［修正］</span>パネル → <span class="ui">［フィレット］</span></span>をクリックします（<kbd>F</kbd>）。</p></li>
+  <li><p>板の縦のエッジ（角の稜線）を、1 本ずつクリックします。奥のエッジは見えないので、ViewCube などでビューを回しながら、4 本とも選びます。選んだエッジは色が付きます。</p></li>
+  <li><p><span class="ui">［半径］</span>に <code>5</code> と入力します。</p>
+    <figure id="fig-03_fillet_form"><a class="zoom" href="images/03_fillet_form.png"><img src="images/03_fillet_form.png" alt="フィレットのフォーム。選んだ 4 本のエッジと、半径 5 のプレビューです。" width="1000" height="643" loading="lazy"></a><figcaption><span class="figno">図 3-13</span> フィレットのフォーム。選んだ 4 本のエッジと、半径 5 のプレビューです。</figcaption></figure></li>
+  <li><p><span class="ui">［OK］</span>で確定します。ブラウザに<span class="ui">［フィレット1］</span>が増えます。</p></li>
+</ol>
+<aside class="note" role="note"><p class="callout-title">注意</p><p>半径が大きすぎるなどで失敗する値にすると、パネルの上に理由が赤く出て、失敗したエッジがビューで赤くなります。値を直せば戻ります。</p></aside>
+
+<h2 id="chamfer"><span class="secno">3.8</span> 上面の外周を面取りする</h2>
+<ol class="steps">
+  <li><p><span class="path">リボンの<span class="ui">［3D モデル］</span>タブ → <span class="ui">［修正］</span>パネル → <span class="ui">［面取り］</span></span>をクリックします（<kbd>C</kbd>）。</p></li>
+  <li><p>上面の手前のエッジを 1 本クリックします。接線でつながるエッジ（外周のすべて）が、自動でまとめて選ばれます。</p></li>
+  <li><p><span class="ui">［距離］</span>に <code>1</code> と入力し、<span class="ui">［OK］</span>で確定します。</p>
+    <figure id="fig-03_chamfer_form"><a class="zoom" href="images/03_chamfer_form.png"><img src="images/03_chamfer_form.png" alt="面取りのフォーム。1 本をクリックすると、上面の外周が全部選ばれます。" width="1000" height="643" loading="lazy"></a><figcaption><span class="figno">図 3-14</span> 面取りのフォーム。1 本をクリックすると、上面の外周が全部選ばれます。</figcaption></figure></li>
+</ol>
+
+<h2 id="material"><span class="secno">3.9</span> 材料を割り当てる</h2>
+<ol class="steps">
+  <li><p>リボンの<span class="ui">［ツール］</span>タブ →<span class="ui">［材料と外観］</span>パネル →<span class="ui">［材料］</span>をクリックします。</p></li>
+  <li><p>一覧から<span class="ui">［鋼］</span>を選び、<span class="ui">［選択範囲に割り当て］</span>を押します。何も選んでいないので、パーツに割り当てられます（ボディを選んでいれば、そのボディだけです）。ダイアログは開いたまま、ブラウザやビューを操作できます。ボディを選ぶと、割り当て先がそのボディに替わります。</p>
+    <figure id="fig-03_material_dialog"><a class="zoom" href="images/03_material_dialog.png"><img src="images/03_material_dialog.png" alt="材料のダイアログ。左の一覧で選ぶと、右に密度などの物性が出ます。" width="474" height="380" loading="lazy"></a><figcaption><span class="figno">図 3-15</span> 材料のダイアログ。左の一覧で選ぶと、右に密度などの物性が出ます。</figcaption></figure></li>
+  <li><p><span class="ui">［閉じる］</span>でダイアログを閉じます。</p></li>
+</ol>
+
+<h2 id="mass"><span class="secno">3.10</span> 質量を確かめる</h2>
+<ol class="steps">
+  <li><p>リボンの<span class="ui">［検査］</span>タブ →<span class="ui">［計測］</span>パネル →<span class="ui">［物理プロパティ］</span>をクリックします。</p></li>
+  <li><p>質量・面積・体積・重心・慣性が出ます。値が古いときは<span class="ui">［更新］</span>を押します。</p>
+    <figure id="fig-03_mass_dialog"><a class="zoom" href="images/03_mass_dialog.png"><img src="images/03_mass_dialog.png" alt="物理プロパティ。鋼（密度 7.85 g/cm³）の板で、質量は約 0.443 kg、体積は約 56 489 mm³ です。" width="364" height="713" loading="lazy"></a><figcaption><span class="figno">図 3-16</span> 物理プロパティ。鋼（密度 7.85 g/cm³）の板で、質量は約 0.443 kg、体積は約 56 489 mm³ です。</figcaption></figure></li>
+</ol>
+<p>重心は X = 50 mm・Y = 30 mm です（板の中央）。Z は、面取りの分だけ板の厚さの半分（5 mm）より少し下になります。</p>
+
+<h2 id="save"><span class="secno">3.11</span> 保存する</h2>
+<ol class="steps">
+  <li><p><span class="path">クイック アクセス ツールバーの<span class="ui">［保存］</span></span>（<kbd>Ctrl</kbd>+<kbd>S</kbd>）を押します。初めての保存なので、保存先とファイル名（拡張子は <code>.mcad</code>）を決めるダイアログが出ます。<code>my_plate</code> と入力して保存します。</p></li>
+  <li><p>保存すると、ドキュメントのタブの名前が <span class="ui doc">［my_plate］</span> になり、未保存の印（<code>*</code>）が消えます。右下に保存の知らせが出ます。</p>
+    <figure id="fig-03_saved"><a class="zoom" href="images/03_saved.png"><img src="images/03_saved.png" alt="保存したあとのタブ。名前が変わり、* が消えました。" width="254" height="32" loading="lazy"></a><figcaption><span class="figno">図 3-17</span> 保存したあとのタブ。名前が変わり、<code>*</code> が消えました。</figcaption></figure></li>
+</ol>
+<p>保存したドキュメントは、リボンの<span class="ui">［ファイル］</span>の<span class="ui">［最近使ったドキュメント］</span>に入ります。次に開くときは、そこから選べます（<a href="01_screen.html#qat-recent">第 1 章</a>）。編集中の内容は、一定の間隔で自動回復用にも書かれます（<a href="13_files.html">第 13 章</a>）。</p>
+
+<h2 id="export"><span class="secno">3.12</span> STEP に書き出す</h2>
+<p>他の CAD や解析のソフトに渡すときは、STEP に書き出します。</p>
+<ol class="steps">
+  <li><p>リボンの<span class="ui">［管理］</span>タブ →<span class="ui">［挿入］</span>パネル →<span class="ui">［エクスポート］</span>をクリックします。</p></li>
+  <li><p><span class="ui">［形式］</span>が<span class="ui">［STEP］</span>のまま、<span class="ui">［ファイル］</span>の欄に保存先を入れるか、<span class="ui">［参照］</span>で選びます。</p></li>
+  <li><p><span class="ui">［アプリケーション プロトコル］</span>（<span class="ui">［AP 214 - 自動車設計］</span>が既定）と<span class="ui">［単位］</span>（<span class="ui">［ミリメートル］</span>）を確かめ、<span class="ui">［エクスポート］</span>を押します。</p>
+    <figure id="fig-03_export_dialog"><a class="zoom" href="images/03_export_dialog.png"><img src="images/03_export_dialog.png" alt="エクスポートのダイアログ。下の［名前付き STEP（部品名 = 領域名）］の表に、書き出す部品の名前が出ます。" width="520" height="724" loading="lazy"></a><figcaption><span class="figno">図 3-18</span> エクスポートのダイアログ。下の<span class="ui">［名前付き STEP（部品名 = 領域名）］</span>の表に、書き出す部品の名前が出ます。</figcaption></figure></li>
+</ol>
+<p>書き出しは別のプロセスで行うので、大きな部品でもウィンドウは止まりません。終わると、右下に知らせが出ます。名前付き STEP の使い方は<a href="26_step_export.html">第 26 章</a>にあります。</p>
+
+<h2 id="next"><span class="secno">3.13</span> 次に読む章</h2>
+<ul>
+  <li><p>スケッチの描き方・拘束・寸法をもっと知りたいとき: <a href="04_sketch.html">第 4 章 スケッチ</a></p></li>
+  <li><p>押し出し・穴・フィレットの設定を知りたいとき: <a href="06_features_basic.html">第 6 章 フィーチャ</a></p></li>
+  <li><p>寸法を変えると形が付いてくる様子を見たいとき: <a href="10_parameters.html">第 10 章 パラメータと式</a></p></li>
+</ul>
+<aside class="try"><p class="callout-title">この機能を試す</p><p class="try-sample">題材: <code>samples/plate_with_holes.mcad</code> （<a href="00_intro.html#samples">題材の一覧と開き方</a>）</p>
+  <p>ブラウザの<span class="ui">［フィレット1］</span>をダブルクリックし、半径の矢印をドラッグします。ビューのプレビューが、半径に合わせて更新されます。<kbd>Esc</kbd> で取り消します。</p>
+</aside>
+
+</article>
+<nav class="pager" aria-label="前後の章"><a class="prev" rel="prev" href="02_view.html"><span class="dir">前の章</span>第 2 章 視点の操作</a><a class="next" rel="next" href="04_sketch.html"><span class="dir">次の章</span>第 4 章 スケッチ</a></nav>
+<footer class="footer"><p>EMRM-Studio ユーザーマニュアル（日本語）・EMRM-Studio 0.1.0 ・ <a href="#main">このページの先頭へ</a></p></footer>
+</main>
+</div>
+</body>
+</html>

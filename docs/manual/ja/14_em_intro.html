@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="generator" content="tools/build_manual.py">
+<title>第 14 章 電磁場解析のはじめに - EMRM-Studio ユーザーマニュアル</title>
+<link rel="stylesheet" href="assets/manual.css">
+<script src="assets/search_index.js" charset="utf-8" defer></script>
+<script src="assets/manual.js" charset="utf-8" defer></script>
+</head>
+<body class="page">
+<header class="topbar">
+<a class="brand" href="index.html">EMRM-Studio ユーザーマニュアル</a>
+<button class="toc-toggle" type="button" aria-controls="toc" aria-expanded="false">目次</button>
+<form class="search" role="search" action="#" onsubmit="return false">
+<input id="q" type="search" placeholder="マニュアルを検索（/）" aria-label="マニュアルを検索" autocomplete="off">
+</form>
+</header>
+<div id="search-results" class="search-results" hidden></div>
+<div class="layout">
+<nav id="toc" class="toc" aria-label="目次">
+<details class="toc-box">
+<summary>目次</summary>
+<ol class="toc-chapters">
+<li class="toc-home"><a href="index.html">表紙・目次</a></li>
+<li><a href="00_intro.html">はじめに</a></li>
+<li class="toc-part" role="presentation">第 I 部　形状を作る（CAD）</li>
+<li><a href="01_screen.html"><span class="chno">第 1 章</span> 画面の構成</a></li>
+<li><a href="02_view.html"><span class="chno">第 2 章</span> 視点の操作</a></li>
+<li><a href="03_first_part.html"><span class="chno">第 3 章</span> はじめての部品</a></li>
+<li><a href="04_sketch.html"><span class="chno">第 4 章</span> スケッチ</a></li>
+<li><a href="05_work_features.html"><span class="chno">第 5 章</span> 作業フィーチャ</a></li>
+<li><a href="06_features_basic.html"><span class="chno">第 6 章</span> フィーチャ（押し出し・回転・穴・フィレットなど）</a></li>
+<li><a href="07_features_advanced.html"><span class="chno">第 7 章</span> フィーチャ（スイープ・ロフト・コイル・パターンなど）</a></li>
+<li><a href="08_bodies.html"><span class="chno">第 8 章</span> ボディの操作</a></li>
+<li><a href="09_browser.html"><span class="chno">第 9 章</span> ブラウザとフィーチャの管理</a></li>
+<li><a href="10_parameters.html"><span class="chno">第 10 章</span> パラメータと式</a></li>
+<li><a href="11_configurations.html"><span class="chno">第 11 章</span> 構成</a></li>
+<li><a href="12_inspect.html"><span class="chno">第 12 章</span> 検査</a></li>
+<li><a href="13_files.html"><span class="chno">第 13 章</span> ファイル</a></li>
+<li class="toc-part" role="presentation">第 II 部　電磁場解析</li>
+<li class="current"><a href="14_em_intro.html" aria-current="page"><span class="chno">第 14 章</span> 電磁場解析のはじめに</a><ol class="toc-sections"><li><a href="14_em_intro.html#overview"><span class="secno">14.1</span> 形状とスタディ</a></li><li><a href="14_em_intro.html#studies"><span class="secno">14.2</span> スタディの種類</a></li><li><a href="14_em_intro.html#choose"><span class="secno">14.3</span> スタディの選び方</a></li><li><a href="14_em_intro.html#flow"><span class="secno">14.4</span> 解析の流れ</a></li><li><a href="14_em_intro.html#screen"><span class="secno">14.5</span> 電磁場解析の画面</a></li><li><a href="14_em_intro.html#examples"><span class="secno">14.6</span> 例題</a></li></ol></li>
+<li><a href="15_em_first.html"><span class="chno">第 15 章</span> はじめての電磁場解析（ソレノイド）</a></li>
+<li><a href="16_em_setup.html"><span class="chno">第 16 章</span> スタディの共通の設定</a></li>
+<li><a href="17_em_results.html"><span class="chno">第 17 章</span> 結果の見方</a></li>
+<li><a href="18_em_magnetostatic.html"><span class="chno">第 18 章</span> 静磁場解析</a></li>
+<li><a href="19_em_coils.html"><span class="chno">第 19 章</span> 静磁場解析: コイル</a></li>
+<li><a href="20_em_dipole.html"><span class="chno">第 20 章</span> 静磁場解析の例題: H 型双極電磁石</a></li>
+<li><a href="21_em_eigenmode.html"><span class="chno">第 21 章</span> 共振モード解析</a></li>
+<li><a href="22_em_driven.html"><span class="chno">第 22 章</span> ポート解析</a></li>
+<li><a href="23_em_electrostatic.html"><span class="chno">第 23 章</span> 静電場解析</a></li>
+<li><a href="24_em_gun.html"><span class="chno">第 24 章</span> 電子銃解析</a></li>
+<li><a href="25_em_troubleshooting.html"><span class="chno">第 25 章</span> 電磁場解析で困ったとき</a></li>
+<li class="toc-part" role="presentation">第 III 部　連携・カスタマイズ・自動化</li>
+<li><a href="26_step_export.html"><span class="chno">第 26 章</span> 他の解析プログラムに形を渡す</a></li>
+<li><a href="27_customize.html"><span class="chno">第 27 章</span> カスタマイズ</a></li>
+<li><a href="28_automation.html"><span class="chno">第 28 章</span> 自動化</a></li>
+<li><a href="29_troubleshooting.html"><span class="chno">第 29 章</span> 困ったとき</a></li>
+<li class="toc-part" role="presentation">付録</li>
+<li class="appendix"><a href="appendix_a_commands.html"><span class="chno">付録 A</span> コマンド一覧</a></li>
+<li class="appendix"><a href="appendix_b_shortcuts.html"><span class="chno">付録 B</span> ショートカット一覧</a></li>
+<li class="appendix"><a href="appendix_c_feature_params.html"><span class="chno">付録 C</span> フィーチャのパラメータ一覧</a></li>
+<li class="appendix"><a href="appendix_d_glossary.html"><span class="chno">付録 D</span> 用語の対応表</a></li>
+</ol>
+</details>
+</nav>
+<main class="content" id="main">
+<article class="chapter ">
+<p class="chapter-label">第 14 章</p>
+<h1>電磁場解析のはじめに</h1>
+<nav class="pagetoc" aria-label="この章の内容">
+<p class="pagetoc-title">この章の内容</p>
+<ol>
+<li><a href="#overview"><span class="secno">14.1</span> 形状とスタディ</a></li>
+<li><a href="#studies"><span class="secno">14.2</span> スタディの種類</a></li>
+<li class="sub"><a href="#study-magnetostatic">静磁場</a></li>
+<li class="sub"><a href="#study-eigenmode">共振モード</a></li>
+<li class="sub"><a href="#study-driven">ポート解析</a></li>
+<li class="sub"><a href="#study-electrostatic">静電場</a></li>
+<li class="sub"><a href="#study-gun">電子銃</a></li>
+<li><a href="#choose"><span class="secno">14.3</span> スタディの選び方</a></li>
+<li><a href="#flow"><span class="secno">14.4</span> 解析の流れ</a></li>
+<li><a href="#screen"><span class="secno">14.5</span> 電磁場解析の画面</a></li>
+<li><a href="#examples"><span class="secno">14.6</span> 例題</a></li>
+</ol>
+</nav>
+<p>この章では、EMRM-Studio の電磁場解析のしくみ（形状とスタディ）、スタディの種類と選び方、解析の流れ、電磁場解析で使う画面の部品、例題を説明します。読み終えると、解きたいものに合うスタディを選び、例題を開いて解けるようになります。</p>
+
+<h2 id="overview"><span class="secno">14.1</span> 形状とスタディ</h2>
+<p>EMRM-Studio では、形状を CAD（第 I 部）で作り、その形状の上に<strong>スタディ</strong>を作って解きます。スタディは、材料・条件・メッシュ・解析の設定をまとめた<strong>解析の設定一式</strong>です。</p>
+<ul>
+  <li><p>形状は 1 つで、スタディはいくつでも作れます。同じ空洞の形で、共振モードのスタディとポート解析のスタディを並べることもできます。</p></li>
+  <li><p><strong>ボディ 1 つが、材料 1 つの領域</strong>です。鉄・コイル・真空など、材料の違う部分は別のボディにします。ボディの名前が領域の名前になります（<a href="08_bodies.html#names">第 8 章</a>）。</p></li>
+  <li><p>スタディは文書（<code>.emrm</code>）に保存されます。解析の結果とメッシュは、文書の隣の <code>&lt;文書名&gt;.emrm.data</code> フォルダに、解析ごとに残ります。</p></li>
+  <li><p>形状を変えても、スタディの設定は残ります。形状のパラメータを変えて、同じスタディで解き直せます。</p></li>
+</ul>
+
+<h2 id="studies"><span class="secno">14.2</span> スタディの種類</h2>
+<p>今の版のスタディは 4 種類です。種類によって、使える材料・条件・解析の設定と、結果の表示が変わります。</p>
+<div class="table-wrap"><table>
+  <caption>スタディの種類</caption>
+  <thead><tr><th>スタディ</th><th>求めるもの</th><th>主な結果</th><th>章</th></tr></thead>
+  <tbody>
+    <tr><th scope="row"><span class="badge-study study-magnetostatic">静磁場</span></th><td>コイルの電流がつくる磁場</td><td>B・H、磁気エネルギー、インダクタンス、多極成分、鉄の飽和</td><td><a href="18_em_magnetostatic.html">第 18〜20 章</a></td></tr>
+    <tr><th scope="row"><span class="badge-study study-eigenmode">共振モード</span></th><td>空洞の固有モード（周波数の低い順）</td><td>周波数、Q0、E・H、加速電圧・T・R/Q・Epk/Eacc・Bpk/Eacc、表面電流</td><td><a href="21_em_eigenmode.html">第 21 章</a></td></tr>
+    <tr><th scope="row"><span class="badge-study study-driven">ポート解析</span></th><td>導波管・同軸のポートから入射したときの周波数応答</td><td>S パラメータ、共振の f0・Qe・Q0・QL・β、周波数ごとの場</td><td><a href="22_em_driven.html">第 22 章</a></td></tr>
+    <tr><th scope="row"><span class="badge-study study-electrostatic">静電場</span></th><td>電極の電位がつくる電場</td><td>φ・E・D、電極の電荷・電極間の容量、表面の最大電界</td><td><a href="23_em_electrostatic.html">第 23 章</a></td></tr>
+    <tr><th scope="row"><span class="badge-study study-trajectory">電子銃</span></th><td>陰極から出るビーム（空間電荷と自己磁場を含む）</td><td>ビーム電流、パービアンス、軌道、ρ、包絡線、エミッタンス</td><td><a href="24_em_gun.html">第 24 章</a></td></tr>
+  </tbody>
+</table></div>
+
+<h3 id="study-magnetostatic">静磁場</h3>
+<p>電磁石・ソレノイド・ステアリングなど、<strong>直流の電流がつくる磁場</strong>を解きます。鉄（磁性体）は比透磁率一定でも、B-H 曲線の飽和ありでも扱えます。形状のまわりの空気は自動で作ります（解析領域）。コイルは、軸のまわりを回るループ・断面で決めるループ・端子付きの導体で指定します。</p>
+<figure id="fig-14_em_thumb_magnet"><a class="zoom" href="images/14_em_thumb_magnet.png"><img src="images/14_em_thumb_magnet.png" alt="静磁場の結果の例（第 20 章の H 型双極電磁石）。ヨークの断面の |B| と磁力線。" width="340" height="345" loading="lazy"></a><figcaption><span class="figno">図 14-1</span> 静磁場の結果の例（第 20 章の H 型双極電磁石）。ヨークの断面の |B| と磁力線。</figcaption></figure>
+
+<h3 id="study-eigenmode">共振モード</h3>
+<p>加速空洞などの<strong>固有モード</strong>を、周波数の低い順に求めます。形状は空洞の内側（真空・誘電体）をボディで作り、ボディの外面が導体の壁になります。壁の損失から無負荷 Q を、ビーム軸の上の場から加速電圧・走行時間因子・R/Q などの加速器の指標を求めます。</p>
+<figure id="fig-14_em_thumb_eigen"><a class="zoom" href="images/14_em_thumb_eigen.png"><img src="images/14_em_thumb_eigen.png" alt="共振モードの結果の例（第 21 章のピルボックス空洞）。加速モード TM010 の |E| と E の矢印。" width="340" height="267" loading="lazy"></a><figcaption><span class="figno">図 14-2</span> 共振モードの結果の例（第 21 章のピルボックス空洞）。加速モード TM010 の |E| と E の矢印。</figcaption></figure>
+
+<h3 id="study-driven">ポート解析</h3>
+<p>導波管・同軸のポートから入射したときの<strong>周波数応答</strong>を求めます。周波数をスイープして S パラメータを出し、空洞なら共振点の f0 と外部 Q（Qe）・内部 Q（Q0）・負荷 Q（QL）・結合係数 β を求めます。カプラー空洞のような 1 ポートでも、入力と出力のある 2 ポート以上でも使えます。</p>
+<figure id="fig-14_em_thumb_driven"><a class="zoom" href="images/14_em_thumb_driven.png"><img src="images/14_em_thumb_driven.png" alt="ポート解析の結果の例（第 22 章のカプラー空洞）。S パラメータの大きさと位相。" width="340" height="267" loading="lazy"></a><figcaption><span class="figno">図 14-3</span> ポート解析の結果の例（第 22 章のカプラー空洞）。S パラメータの大きさと位相。</figcaption></figure>
+
+<h3 id="study-electrostatic">静電場</h3>
+<p>電子銃の電極・静電偏向器など、<strong>電極の電位がつくる電場</strong>を解きます。電極にするボディ（または面）に電位を与え、絶縁物は比誘電率の誘電体にします。静磁場と同じく、形状のまわりの空気は自動で作ります。電極ごとの電荷と電極間の容量、電極の表面の最大電界を求めます。</p>
+<figure id="fig-14_em_thumb_es"><a class="zoom" href="images/14_em_thumb_es.png"><img src="images/14_em_thumb_es.png" alt="静電場の結果の例（第 23 章の電子銃の電極）。電位 φ と等電位線・電気力線。" width="340" height="267" loading="lazy"></a><figcaption><span class="figno">図 14-4</span> 静電場の結果の例（第 23 章の電子銃の電極）。電位 φ と等電位線・電気力線。</figcaption></figure>
+
+<h3 id="study-gun">電子銃</h3>
+<p>熱陰極の電子銃の<strong>ビーム</strong>を解きます。静電場の電極に放出面を足したもので、陰極から出る空間電荷制限の電流と電子の軌道を、ビームの空間電荷とビームがつくる自己磁場とともに、収束するまで繰り返し解きます。集束の磁場は、静磁場のスタディの結果を参照できます（<a href="24_em_gun.html">第 24 章</a>）。</p>
+<figure id="fig-14_em_thumb_gun"><a class="zoom" href="images/14_em_thumb_gun.png"><img src="images/14_em_thumb_gun.png" alt="電子銃の結果の例（第 24 章）。電位 φ と等電位線、電子の軌道。" width="340" height="267" loading="lazy"></a><figcaption><span class="figno">図 14-5</span> 電子銃の結果の例（第 24 章）。電位 φ と等電位線、電子の軌道。</figcaption></figure>
+
+<h2 id="choose"><span class="secno">14.3</span> スタディの選び方</h2>
+<p>設計したいものから、使うスタディを選びます。</p>
+<div class="table-wrap"><table>
+  <caption>設計したいものとスタディ</caption>
+  <thead><tr><th>設計したいもの</th><th>スタディ</th><th>見る結果</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">電磁石のギャップの磁場・場の質</th><td>静磁場</td><td>断面の B、線上のグラフ、多極成分</td></tr>
+    <tr><th scope="row">コイルのインダクタンス・コイルどうしの結合</th><td>静磁場</td><td>インダクタンス、インダクタンス行列</td></tr>
+    <tr><th scope="row">鉄の飽和・励磁曲線</th><td>静磁場（B-H 曲線の飽和あり）</td><td>飽和度、増分インダクタンス</td></tr>
+    <tr><th scope="row">空洞の共振周波数・Q・R/Q</th><td>共振モード</td><td>モード表、軸上の場、表面電流</td></tr>
+    <tr><th scope="row">カプラーの結合の強さ（Qe・β）</th><td>ポート解析（共振探索）</td><td>f0・Qe・Q0・QL・β、U/P_inc</td></tr>
+    <tr><th scope="row">導波管の部品・結合空洞の通過特性</th><td>ポート解析</td><td>S パラメータ（大きさ・位相）</td></tr>
+    <tr><th scope="row">電子銃・高電圧の電極の電場、放電の起きやすい所</th><td>静電場</td><td>断面の φ・E、電極の表面の電界、表面の最大電界</td></tr>
+    <tr><th scope="row">電極間のコンデンサの容量</th><td>静電場</td><td>電極間の容量 C(a–b)・C(a–接地)</td></tr>
+    <tr><th scope="row">電子銃のビーム電流・ビームの大きさ・エミッタンス</th><td>電子銃</td><td>ビーム電流、パービアンス、軌道、包絡線、断面の統計</td></tr>
+  </tbody>
+</table></div>
+<aside class="tip" role="note"><p class="callout-title">ヒント</p><p>カプラー空洞は、先に共振モードのスタディで周波数の目安を求め、スタディを<strong>ポート解析のスタディとして複製</strong>してから、ポートを足してスイープの範囲を決めると早く進みます（<a href="16_em_setup.html#duplicate">第 16 章</a>）。材料・壁・対称面・メッシュの設定は複製で写ります。</p></aside>
+
+<h2 id="flow"><span class="secno">14.4</span> 解析の流れ</h2>
+<p>どのスタディも、次の順に進めます。リボンのタブも、この順に並んでいます。</p>
+<ol class="flow">
+  <li><b>形状</b>材料ごとに別のボディを作る（<span class="ui">［3D モデル］</span>）</li>
+  <li><b>スタディ</b>種類を選んで作る（<span class="ui">［物理］</span>）</li>
+  <li><b>材料と領域</b>材料を定義して、ボディに割り当てる</li>
+  <li><b>条件</b>コイル・電極・放出面・電気壁・磁気壁・ポート・ビーム軸</li>
+  <li><b>対称面・メッシュ</b>必要なら対称面で切り、要素の大きさを決める（<span class="ui">［メッシュ］</span>）</li>
+  <li><b>チェック</b>設定の誤りと注意を確かめる</li>
+  <li><b>実行</b>子プロセスで解く（<span class="ui">［解析］</span>）</li>
+  <li><b>結果</b>断面・表面・矢印・グラフ・表（<span class="ui">［結果］</span>）</li>
+</ol>
+<p>次のことを守ると、つまずきません。</p>
+<ul>
+  <li><p>ボディどうしを重ねません。重なった所は、体積の小さいボディの領域になります。</p></li>
+  <li><p>プロパティ パネルで値を変えたら、<span class="ui">［適用］</span>を押します。押さないと、スタディの設定に入りません。</p></li>
+  <li><p>長さは mm、電流は A です。欄には <code>100 A</code>・<code>5 mm</code>・<code>1.3 GHz</code> のように単位を付けて書けます。文書のパラメータを使った式（<code>2*I_main</code>）も書けます（<a href="10_parameters.html">第 10 章</a>）。</p></li>
+  <li><p>静磁場・静電場・電子銃では、まわりの空気は自動で作ります（自分で作らない）。共振モードとポート解析では、空洞の内側（真空）をボディで作ります。</p></li>
+</ul>
+
+<h2 id="screen"><span class="secno">14.5</span> 電磁場解析の画面</h2>
+<p>電磁場解析では、CAD の画面（<a href="01_screen.html">第 1 章</a>）に、スタディのための部品が加わります。</p>
+<figure id="fig-14_em_screen"><a class="zoom" href="images/14_em_screen.png"><img src="images/14_em_screen.png" alt="双極電磁石を解いた後の画面。左にスタディのブラウザ、右にチェック・結果の表示・結果、下にジョブ、中央に断面の結果。" width="1000" height="781" loading="lazy"></a><figcaption><span class="figno">図 14-6</span> 双極電磁石を解いた後の画面。左にスタディのブラウザ、右にチェック・結果の表示・結果、下にジョブ、中央に断面の結果。</figcaption></figure>
+<div class="table-wrap"><table>
+  <caption>電磁場解析の部品</caption>
+  <thead><tr><th>場所</th><th>内容</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">リボンのタブ</th><td><span class="ui">［物理］</span>・<span class="ui">［メッシュ］</span>・<span class="ui">［解析］</span>・<span class="ui">［結果］</span>。作業の順に並びます。スタディの種類に合わないコマンドは押せません</td></tr>
+    <tr><th scope="row">スタディの選択（リボンの右上）</th><td>今の作業の対象のスタディ。<span class="ui">［+］</span>のメニューから新しいスタディを作ります</td></tr>
+    <tr><th scope="row">スタディのブラウザ（左）</th><td>スタディの項目のツリー（材料・領域・条件・対称・メッシュ・解析の設定・結果）。行を選ぶと、プロパティ パネルで編集できます。右クリックで項目を足せます</td></tr>
+    <tr><th scope="row">チェック・結果の表示（右上）</th><td>タブで切り替えます。<span class="ui">［チェック］</span>は設定の誤りと注意、<span class="ui">［結果の表示］</span>は量・断面・色などの表示の設定です</td></tr>
+    <tr><th scope="row">結果（右下）</th><td>数値の表。共振モードではモード表、ポート解析では場を保存した周波数の表が上に出ます</td></tr>
+    <tr><th scope="row">ジョブ（下）</th><td>実行中の解析の進み具合・<span class="ui">［停止］</span>・ログ</td></tr>
+    <tr><th scope="row">中央のタブ</th><td>3D ビューのほか、グラフ（線上のグラフ・多極成分・S パラメータなど）のタブが増えます</td></tr>
+  </tbody>
+</table></div>
+<p><span class="ui">［物理］</span>・<span class="ui">［メッシュ］</span>・<span class="ui">［解析］</span>のタブでは、ボディを材料の色で塗り、スタディで選んだ項目のボディだけを濃く表示します。<span class="ui">［3D モデル］</span>のタブに戻ると、ふだんの表示に戻ります。パネルの出し入れと初期配置は、CAD と同じです（<a href="01_screen.html">第 1 章</a>）。</p>
+
+<h2 id="examples"><span class="secno">14.6</span> 例題</h2>
+<p>リポジトリの <code>examples/</code> フォルダに、形状と設定の済んだ例題があります。開いて<span class="path">リボンの<span class="ui">［解析］</span>タブ → <span class="ui">［実行］</span>パネル → <span class="ui">［実行］</span></span>を押すだけで解けます。</p>
+<div class="table-wrap"><table>
+  <caption>電磁場解析の例題</caption>
+  <thead><tr><th>ファイル</th><th>内容</th><th>章</th><th>解析の時間</th></tr></thead>
+  <tbody>
+    <tr><th scope="row"><code>solenoid.emrm</code></th><td>厚いソレノイド（内径 40・外径 60・長さ 50 mm、50 ターン × 100 A）。静磁場、1/8 モデル</td><td><a href="15_em_first.html">第 15 章</a></td><td>約 10 秒</td></tr>
+    <tr><th scope="row"><code>dipole_h.emrm</code></th><td>H 型双極電磁石（鉄のヨーク、ギャップ 50 mm、レーストラックのコイル 2 つ）。静磁場、1/8 モデル</td><td><a href="20_em_dipole.html">第 20 章</a></td><td>約 20 秒</td></tr>
+    <tr><th scope="row"><code>pillbox_cavity.emrm</code></th><td>ビームパイプ付きのピルボックス空洞（直径 200・長さ 100 mm）。共振モード、1/8 モデル、4 モード</td><td><a href="21_em_eigenmode.html">第 21 章</a></td><td>約 15 秒</td></tr>
+    <tr><th scope="row"><code>coupler_cavity.emrm</code></th><td>直方体の空洞にアイリスで導波管をつないだカプラー空洞。ポート解析、1 ポート、適応スイープと共振探索</td><td><a href="22_em_driven.html">第 22 章</a></td><td>約 30 秒</td></tr>
+    <tr><th scope="row"><code>electron_gun.emrm</code></th><td>電子銃の電極（陰極・ウェーネルト・陽極）。静電場、1/4 モデル、外面は接地</td><td><a href="23_em_electrostatic.html#example">第 23 章</a></td><td>約 10 秒</td></tr>
+    <tr><th scope="row"><code>electron_gun_beam.emrm</code></th><td>電子銃（陰極・ウェーネルト・陽極と放出面）。電子銃、1/4 モデル、外面は接地</td><td><a href="24_em_gun.html#example">第 24 章</a></td><td>約 1 分</td></tr>
+  </tbody>
+</table></div>
+<p>例題は、リボンの<span class="ui">［ファイル］</span>の<span class="ui">［開く］</span>か、起動のときの <code>--open</code> で開きます。</p>
+<pre><code>python -m emrm --open examples\solenoid.emrm</code></pre>
+<aside class="tip" role="note"><p class="callout-title">ヒント</p><p>例題を書き換えて試すときは、先に<span class="ui">［名前を付けて保存］</span>で別の場所に写しておくと、元の例題が残ります。結果は文書の隣の <code>&lt;文書名&gt;.emrm.data</code> フォルダに保存されます。</p></aside>
+
+</article>
+<nav class="pager" aria-label="前後の章"><a class="prev" rel="prev" href="13_files.html"><span class="dir">前の章</span>第 13 章 ファイル</a><a class="next" rel="next" href="15_em_first.html"><span class="dir">次の章</span>第 15 章 はじめての電磁場解析（ソレノイド）</a></nav>
+<footer class="footer"><p>EMRM-Studio ユーザーマニュアル（日本語）・EMRM-Studio 0.1.0 ・ <a href="#main">このページの先頭へ</a></p></footer>
+</main>
+</div>
+</body>
+</html>

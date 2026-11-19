@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="generator" content="tools/build_manual.py">
+<title>第 7 章 フィーチャ（スイープ・ロフト・コイル・パターンなど） - EMRM-Studio ユーザーマニュアル</title>
+<link rel="stylesheet" href="assets/manual.css">
+<script src="assets/search_index.js" charset="utf-8" defer></script>
+<script src="assets/manual.js" charset="utf-8" defer></script>
+</head>
+<body class="page">
+<header class="topbar">
+<a class="brand" href="index.html">EMRM-Studio ユーザーマニュアル</a>
+<button class="toc-toggle" type="button" aria-controls="toc" aria-expanded="false">目次</button>
+<form class="search" role="search" action="#" onsubmit="return false">
+<input id="q" type="search" placeholder="マニュアルを検索（/）" aria-label="マニュアルを検索" autocomplete="off">
+</form>
+</header>
+<div id="search-results" class="search-results" hidden></div>
+<div class="layout">
+<nav id="toc" class="toc" aria-label="目次">
+<details class="toc-box">
+<summary>目次</summary>
+<ol class="toc-chapters">
+<li class="toc-home"><a href="index.html">表紙・目次</a></li>
+<li><a href="00_intro.html">はじめに</a></li>
+<li class="toc-part" role="presentation">第 I 部　形状を作る（CAD）</li>
+<li><a href="01_screen.html"><span class="chno">第 1 章</span> 画面の構成</a></li>
+<li><a href="02_view.html"><span class="chno">第 2 章</span> 視点の操作</a></li>
+<li><a href="03_first_part.html"><span class="chno">第 3 章</span> はじめての部品</a></li>
+<li><a href="04_sketch.html"><span class="chno">第 4 章</span> スケッチ</a></li>
+<li><a href="05_work_features.html"><span class="chno">第 5 章</span> 作業フィーチャ</a></li>
+<li><a href="06_features_basic.html"><span class="chno">第 6 章</span> フィーチャ（押し出し・回転・穴・フィレットなど）</a></li>
+<li class="current"><a href="07_features_advanced.html" aria-current="page"><span class="chno">第 7 章</span> フィーチャ（スイープ・ロフト・コイル・パターンなど）</a><ol class="toc-sections"><li><a href="07_features_advanced.html#sweep"><span class="secno">7.1</span> スイープ</a></li><li><a href="07_features_advanced.html#loft"><span class="secno">7.2</span> ロフト</a></li><li><a href="07_features_advanced.html#coil"><span class="secno">7.3</span> コイル</a></li><li><a href="07_features_advanced.html#helix"><span class="secno">7.4</span> ヘリカル曲線</a></li><li><a href="07_features_advanced.html#thread"><span class="secno">7.5</span> ねじ</a></li><li><a href="07_features_advanced.html#pattern"><span class="secno">7.6</span> パターン（矩形状・円形状・スケッチ駆動）</a></li><li><a href="07_features_advanced.html#mirror"><span class="secno">7.7</span> ミラー</a></li><li><a href="07_features_advanced.html#next"><span class="secno">7.8</span> 次に読む章</a></li></ol></li>
+<li><a href="08_bodies.html"><span class="chno">第 8 章</span> ボディの操作</a></li>
+<li><a href="09_browser.html"><span class="chno">第 9 章</span> ブラウザとフィーチャの管理</a></li>
+<li><a href="10_parameters.html"><span class="chno">第 10 章</span> パラメータと式</a></li>
+<li><a href="11_configurations.html"><span class="chno">第 11 章</span> 構成</a></li>
+<li><a href="12_inspect.html"><span class="chno">第 12 章</span> 検査</a></li>
+<li><a href="13_files.html"><span class="chno">第 13 章</span> ファイル</a></li>
+<li class="toc-part" role="presentation">第 II 部　電磁場解析</li>
+<li><a href="14_em_intro.html"><span class="chno">第 14 章</span> 電磁場解析のはじめに</a></li>
+<li><a href="15_em_first.html"><span class="chno">第 15 章</span> はじめての電磁場解析（ソレノイド）</a></li>
+<li><a href="16_em_setup.html"><span class="chno">第 16 章</span> スタディの共通の設定</a></li>
+<li><a href="17_em_results.html"><span class="chno">第 17 章</span> 結果の見方</a></li>
+<li><a href="18_em_magnetostatic.html"><span class="chno">第 18 章</span> 静磁場解析</a></li>
+<li><a href="19_em_coils.html"><span class="chno">第 19 章</span> 静磁場解析: コイル</a></li>
+<li><a href="20_em_dipole.html"><span class="chno">第 20 章</span> 静磁場解析の例題: H 型双極電磁石</a></li>
+<li><a href="21_em_eigenmode.html"><span class="chno">第 21 章</span> 共振モード解析</a></li>
+<li><a href="22_em_driven.html"><span class="chno">第 22 章</span> ポート解析</a></li>
+<li><a href="23_em_electrostatic.html"><span class="chno">第 23 章</span> 静電場解析</a></li>
+<li><a href="24_em_gun.html"><span class="chno">第 24 章</span> 電子銃解析</a></li>
+<li><a href="25_em_troubleshooting.html"><span class="chno">第 25 章</span> 電磁場解析で困ったとき</a></li>
+<li class="toc-part" role="presentation">第 III 部　連携・カスタマイズ・自動化</li>
+<li><a href="26_step_export.html"><span class="chno">第 26 章</span> 他の解析プログラムに形を渡す</a></li>
+<li><a href="27_customize.html"><span class="chno">第 27 章</span> カスタマイズ</a></li>
+<li><a href="28_automation.html"><span class="chno">第 28 章</span> 自動化</a></li>
+<li><a href="29_troubleshooting.html"><span class="chno">第 29 章</span> 困ったとき</a></li>
+<li class="toc-part" role="presentation">付録</li>
+<li class="appendix"><a href="appendix_a_commands.html"><span class="chno">付録 A</span> コマンド一覧</a></li>
+<li class="appendix"><a href="appendix_b_shortcuts.html"><span class="chno">付録 B</span> ショートカット一覧</a></li>
+<li class="appendix"><a href="appendix_c_feature_params.html"><span class="chno">付録 C</span> フィーチャのパラメータ一覧</a></li>
+<li class="appendix"><a href="appendix_d_glossary.html"><span class="chno">付録 D</span> 用語の対応表</a></li>
+</ol>
+</details>
+</nav>
+<main class="content" id="main">
+<article class="chapter ">
+<p class="chapter-label">第 7 章</p>
+<h1>フィーチャ（スイープ・ロフト・コイル・パターンなど）</h1>
+<nav class="pagetoc" aria-label="この章の内容">
+<p class="pagetoc-title">この章の内容</p>
+<ol>
+<li><a href="#sweep"><span class="secno">7.1</span> スイープ</a></li>
+<li class="sub"><a href="#sweep-options">向き・テーパー・ねじれ</a></li>
+<li class="sub"><a href="#sweep-edge">エッジをパスにする</a></li>
+<li class="sub"><a href="#sweep-error">よくある失敗と直し方</a></li>
+<li><a href="#loft"><span class="secno">7.2</span> ロフト</a></li>
+<li class="sub"><a href="#loft-options">線織・閉じたループ・始点の対応</a></li>
+<li class="sub"><a href="#loft-point">点で終わるロフト</a></li>
+<li class="sub"><a href="#loft-error">よくある失敗と直し方</a></li>
+<li><a href="#coil"><span class="secno">7.3</span> コイル</a></li>
+<li class="sub"><a href="#coil-outline">長方形などの形に巻く</a></li>
+<li class="sub"><a href="#coil-outline-curves">コイルの輪郭の曲線を選ぶ（投影したジオメトリ）</a></li>
+<li class="sub"><a href="#coil-outline-offset">コイルを輪郭から離して巻く</a></li>
+<li class="sub"><a href="#coil-outline-sharp">尖った角のコアに巻く</a></li>
+<li><a href="#helix"><span class="secno">7.4</span> ヘリカル曲線</a></li>
+<li><a href="#thread"><span class="secno">7.5</span> ねじ</a></li>
+<li><a href="#pattern"><span class="secno">7.6</span> パターン（矩形状・円形状・スケッチ駆動）</a></li>
+<li class="sub"><a href="#pattern-linear">矩形状パターン</a></li>
+<li class="sub"><a href="#pattern-circular">円形状パターン</a></li>
+<li class="sub"><a href="#pattern-points">スケッチ駆動パターン</a></li>
+<li class="sub"><a href="#pattern-occurrence">オカレンスの省略・個数にパラメータ</a></li>
+<li><a href="#mirror"><span class="secno">7.7</span> ミラー</a></li>
+<li><a href="#next"><span class="secno">7.8</span> 次に読む章</a></li>
+</ol>
+</nav>
+<p>この章では、曲がった形やくり返しの形を作るフィーチャを説明します。スイープ・ロフト・コイル・ヘリカル曲線・ねじ・矩形状パターン・円形状パターン・スケッチ駆動パターン・ミラーの作り方、フォームの欄の意味、失敗したときの直し方がわかります。押し出し・穴・フィレットなどの基本のフィーチャと、プレビュー・ハンドル・HUD の共通の操作は<a href="06_features_basic.html">第 6 章</a>です。</p>
+
+<div class="table-wrap"><table>
+  <caption>この章で説明するコマンド（リボンの［3D モデル］タブ）</caption>
+  <thead><tr><th>節</th><th>コマンド</th></tr></thead>
+  <tbody>
+    <tr><th scope="row"><a href="#sweep">スイープ</a></th><td><span class="ui">［スイープ］</span></td></tr>
+    <tr><th scope="row"><a href="#loft">ロフト</a></th><td><span class="ui">［ロフト］</span></td></tr>
+    <tr><th scope="row"><a href="#coil">コイル</a></th><td><span class="ui">［コイル］</span></td></tr>
+    <tr><th scope="row"><a href="#helix">ヘリカル曲線</a></th><td><span class="ui">［ヘリカル曲線］</span></td></tr>
+    <tr><th scope="row"><a href="#thread">ねじ</a></th><td><span class="ui">［ねじ］</span></td></tr>
+    <tr><th scope="row"><a href="#pattern">パターン</a></th><td><span class="ui">［矩形状パターン］</span>・<span class="ui">［円形状パターン］</span>・<span class="ui">［スケッチ駆動パターン］</span></td></tr>
+    <tr><th scope="row"><a href="#mirror">ミラー</a></th><td><span class="ui">［ミラー］</span></td></tr>
+  </tbody>
+</table></div>
+
+<p>失敗の理由は、作成・編集の途中は「プレビュー: 」で始まります（<a href="06_features_basic.html#common-error">第 6 章</a>）。各節の「よくある失敗」の表は、「プレビュー: 」を除いた文を挙げています。</p>
+
+<h2 id="sweep"><span class="secno">7.1</span> スイープ</h2>
+<p>プロファイル（断面）を、パスに沿って動かして、ソリッドを作ります。パイプ・ケーブル・レールなどの曲がった棒を作れます。パスには、スケッチの曲線の連なりか、らせんなどのエッジを使います。</p>
+<ol class="steps">
+  <li><p>パスのスケッチと、断面のスケッチを描きます。断面は、パスの始点に、パスに垂直な平面で描きます（<a href="05_work_features.html">第 5 章</a>の作業平面を使います）。</p></li>
+  <li><p><span class="path">リボンの<span class="ui">［3D モデル］</span>タブ → <span class="ui">［作成］</span>パネル → <span class="ui">［スイープ］</span></span>をクリックします。ビューで断面の領域をクリックします。<span class="ui">［プロファイル］</span>に入ります。</p></li>
+  <li><p><span class="ui">［パスの元］</span>を選びます。<span class="ui">［スケッチの曲線］</span>は、スケッチの曲線を<span class="ui">［パス］</span>に選びます。続けてクリックして、つながる曲線を順に足します。<span class="ui">［エッジ］</span>は、ボディのエッジやヘリカル曲線を<span class="ui">［パスのエッジ］</span>に選びます。</p></li>
+  <li><p><span class="ui">［向き］</span>・<span class="ui">［テーパー角］</span>・<span class="ui">［ねじれ角］</span>を決めます（次の節）。</p></li>
+  <li><p><span class="ui">［ブール演算］</span>を選び、<span class="ui">［OK］</span>で確定します。</p></li>
+</ol>
+<div class="figrow">
+  <figure id="fig-07_sweep_form"><a class="zoom" href="images/07_sweep_form.png"><img src="images/07_sweep_form.png" alt="スイープのフォーム。［パス］に、スケッチの 3 つの曲線（直線・円弧・直線）が入っています。" width="360" height="490" loading="lazy"></a><figcaption><span class="figno">図 7-1</span> スイープのフォーム。<span class="ui">［パス］</span>に、スケッチの 3 つの曲線（直線・円弧・直線）が入っています。</figcaption></figure>
+  <figure id="fig-07_sweep_view"><a class="zoom" href="images/07_sweep_view.png"><img src="images/07_sweep_view.png" alt="ビューのプレビュー。パスが紫の線で見え、ねじれ角とテーパー角の HUD が出ます。" width="460" height="329" loading="lazy"></a><figcaption><span class="figno">図 7-2</span> ビューのプレビュー。パスが紫の線で見え、ねじれ角とテーパー角の HUD が出ます。</figcaption></figure>
+</div>
+<figure id="fig-07_sweep_result"><a class="zoom" href="images/07_sweep_result.png"><img src="images/07_sweep_result.png" alt="完成したパイプ（pipe_sweep.mcad）。外径の円を掃引してから、内径の円でカットして、肉厚 2 mm にしています。" width="700" height="447" loading="lazy"></a><figcaption><span class="figno">図 7-3</span> 完成したパイプ（<code>pipe_sweep.mcad</code>）。外径の円を掃引してから、内径の円でカットして、肉厚 2 mm にしています。</figcaption></figure>
+
+<h3 id="sweep-options">向き・テーパー・ねじれ</h3>
+<div class="table-wrap"><table>
+  <caption>スイープの動作の欄</caption>
+  <thead><tr><th>欄</th><th>意味</th></tr></thead>
+  <tbody>
+    <tr><th scope="row"><span class="ui">［向き］</span></th><td><span class="ui">［パス］</span>は、断面をパスに対する角度のまま保って動かします。<span class="ui">［平行］</span>は、断面を回さずに平行に動かすだけです。パスが断面と平行になる部分では、体積ができません。</td></tr>
+    <tr><th scope="row"><span class="ui">［テーパー角］</span></th><td>正の角度にすると、断面がパスに沿って広がります。断面全体を拡大・縮小します。</td></tr>
+    <tr><th scope="row"><span class="ui">［ねじれ角］</span></th><td>断面がパスの全長にわたって、パスのまわりに回る角度です。</td></tr>
+  </tbody>
+</table></div>
+<p>パスに鋭い角があるときは、ねじれ角を使えません。パスの角を丸めます。</p>
+<figure id="fig-07_sweep_taper"><a class="zoom" href="images/07_sweep_taper.png"><img src="images/07_sweep_taper.png" alt="テーパー角を 3° にしたプレビュー。パスの先ほど太くなります。" width="700" height="447" loading="lazy"></a><figcaption><span class="figno">図 7-4</span> テーパー角を 3° にしたプレビュー。パスの先ほど太くなります。</figcaption></figure>
+<aside class="tip" role="note"><p class="callout-title">ヒント</p><p>管のような肉厚のある形は、外形のスイープ（<span class="ui">［新規ソリッド］</span>）を作ってから、内側の断面のスイープを<span class="ui">［カット］</span>で重ねます。</p></aside>
+
+<h3 id="sweep-edge">エッジをパスにする</h3>
+<p><span class="ui">［パスの元］</span>を<span class="ui">［エッジ］</span>にすると、ボディのエッジを順にクリックして、パスにできます。<a href="#helix">ヘリカル曲線</a>のエッジも選べます。らせんのばねや、板の縁に沿った帯を作るときに使います。</p>
+<div class="figrow">
+  <figure id="fig-07_sweep_edge_form"><a class="zoom" href="images/07_sweep_edge_form.png"><img src="images/07_sweep_edge_form.png" alt="パスの元がエッジのフォーム。［パスのエッジ］にヘリカル曲線が入っています。" width="360" height="458" loading="lazy"></a><figcaption><span class="figno">図 7-5</span> パスの元がエッジのフォーム。<span class="ui">［パスのエッジ］</span>にヘリカル曲線が入っています。</figcaption></figure>
+  <figure id="fig-07_sweep_edge_view"><a class="zoom" href="images/07_sweep_edge_view.png"><img src="images/07_sweep_edge_view.png" alt="ヘリカル曲線をパスにした内側のばね（青）。外側のばねはコイルで作ったものです。" width="460" height="519" loading="lazy"></a><figcaption><span class="figno">図 7-6</span> ヘリカル曲線をパスにした内側のばね（青）。外側のばねはコイルで作ったものです。</figcaption></figure>
+</div>
+
+<h3 id="sweep-error">よくある失敗と直し方</h3>
+<div class="table-wrap"><table>
+  <caption>スイープの失敗</caption>
+  <thead><tr><th>表示される文</th><th>原因と直し方</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">スイープが自分と交差しています: パスの全長の 60.3 % の位置で、断面がパスの曲げの半径より大きくなっています</th><td>曲げの半径が断面の半径より小さく、折れています。曲げの半径を大きくするか、断面を小さくします。</td></tr>
+    <tr><th scope="row">スイープが自分と交差しています: パスの全長の … % と … % の部分が … mm しか離れておらず、断面の大きさ（… mm）より近くなっています</th><td>パスの離れた部分が、断面の大きさより近づいています。パスの間隔を広げます。</td></tr>
+    <tr><th scope="row">ねじれのあるスイープには、鋭い角のないパスが必要です。パスの角を丸めてください</th><td>ねじれ角を 0° にするか、パスの角を丸めます。</td></tr>
+    <tr><th scope="row">テーパーのため、パスの終わりより前に断面が消えてしまいます</th><td><span class="ui">［テーパー角］</span>を小さくします。89° 未満にします。</td></tr>
+  </tbody>
+</table></div>
+<figure id="fig-07_sweep_error"><a class="zoom" href="images/07_sweep_error.png"><img src="images/07_sweep_error.png" alt="曲げ半径を 8 mm にしたスイープ（pipe_sweep.mcad）。上に理由が赤く出ます。" width="360" height="528" loading="lazy"></a><figcaption><span class="figno">図 7-7</span> 曲げ半径を 8 mm にしたスイープ（<code>pipe_sweep.mcad</code>）。上に理由が赤く出ます。</figcaption></figure>
+<aside class="inventor" role="note"><p class="callout-title">Inventor との違い</p><p>パスをガイド レールやガイド サーフェスで制御する指定はありません。テーパーは断面全体の拡大・縮小で、Inventor のオフセット方式のテーパーと、円・正多角形以外の断面では形が違います。</p></aside>
+<aside class="try"><p class="callout-title">この機能を試す</p><p class="try-sample">題材: <code>samples/pipe_sweep.mcad</code> （<a href="00_intro.html#samples">題材の一覧と開き方</a>）</p>
+  <p>ブラウザの<span class="ui">［スイープ1］</span>をダブルクリックし、<span class="ui">［テーパー角］</span>を 2° にします（パスの先ほど太くなります）。<kbd>Esc</kbd> で取り消します。<span class="path">リボンの<span class="ui">［管理］</span>タブ → <span class="ui">［パラメータ］</span>パネル → <span class="ui">［パラメータ］</span></span>で<code>bend_r</code>を 40 から 8 にすると、<span class="ui">［スイープ1］</span>が自己交差の誤りになり、<span class="ui">［スイープ2］</span>も続けて誤りになります。<code>bend_r</code>を 40 に戻すと直ります。</p>
+</aside>
+
+<h2 id="loft"><span class="secno">7.2</span> ロフト</h2>
+<p>2 つ以上の断面を、順につないで、ソリッドを作ります。角ダクトから丸ダクトへの継ぎ手のように、形が変わっていく部品を作れます。</p>
+<ol class="steps">
+  <li><p>断面になるスケッチを、別々の平面（作業平面など）に描きます。</p></li>
+  <li><p><span class="path">リボンの<span class="ui">［3D モデル］</span>タブ → <span class="ui">［作成］</span>パネル → <span class="ui">［ロフト］</span></span>をクリックします。</p></li>
+  <li><p>ビューで、断面の領域を、つなぎたい順にクリックします。<span class="ui">［断面］</span>の一覧に、選んだ順に並びます。もう一度クリックすると外れます。続けて選べます。</p></li>
+  <li><p><span class="ui">［動作］</span>の欄を決めます（次の節）。</p></li>
+  <li><p><span class="ui">［ブール演算］</span>を選び、<span class="ui">［OK］</span>で確定します。</p></li>
+</ol>
+<div class="figrow">
+  <figure id="fig-07_loft_form"><a class="zoom" href="images/07_loft_form.png"><img src="images/07_loft_form.png" alt="ロフトのフォーム。［断面］に、角・丸・継ぎ口の 3 つの断面が選んだ順に入っています。" width="360" height="575" loading="lazy"></a><figcaption><span class="figno">図 7-8</span> ロフトのフォーム。<span class="ui">［断面］</span>に、角・丸・継ぎ口の 3 つの断面が選んだ順に入っています。</figcaption></figure>
+  <figure id="fig-07_loft_view"><a class="zoom" href="images/07_loft_view.png"><img src="images/07_loft_view.png" alt="ロフトのプレビュー。下の長方形から、丸い 2 つの断面へつながります。" width="460" height="519" loading="lazy"></a><figcaption><span class="figno">図 7-9</span> ロフトのプレビュー。下の長方形から、丸い 2 つの断面へつながります。</figcaption></figure>
+</div>
+
+<h3 id="loft-options">線織・閉じたループ・始点の対応</h3>
+<div class="table-wrap"><table>
+  <caption>ロフトの動作の欄</caption>
+  <thead><tr><th>欄</th><th>意味</th></tr></thead>
+  <tbody>
+    <tr><th scope="row"><span class="ui">［線織］</span></th><td>断面どうしを、滑らかな曲面ではなく直線でつなぎます。チェックを外すと（既定）、断面を通る滑らかな曲面になります。</td></tr>
+    <tr><th scope="row"><span class="ui">［閉じたループ］</span></th><td>最後の断面から最初の断面へ戻って、輪の形につなぎます。断面が 3 つ以上のときに使えます。</td></tr>
+    <tr><th scope="row"><span class="ui">［始点を自動で対応付ける］</span></th><td>ねじれが最小になるように、断面の始点を対応付けます（既定）。チェックを外すと、手で対応付けます。</td></tr>
+    <tr><th scope="row"><span class="ui">［始点のずらし］</span></th><td>手で対応付けるときに使います。k 番目の断面の始点を、この数のエッジ分の k 倍だけずらします。</td></tr>
+  </tbody>
+</table></div>
+<div class="figrow">
+  <figure id="fig-07_loft_smooth"><a class="zoom" href="images/07_loft_smooth.png"><img src="images/07_loft_smooth.png" alt="線織を切った（既定の）滑らかなロフト。" width="460" height="519" loading="lazy"></a><figcaption><span class="figno">図 7-10</span> 線織を切った（既定の）滑らかなロフト。</figcaption></figure>
+  <figure id="fig-07_loft_ruled"><a class="zoom" href="images/07_loft_ruled.png"><img src="images/07_loft_ruled.png" alt="線織にしたロフト。断面の間が直線でつながります。" width="460" height="519" loading="lazy"></a><figcaption><span class="figno">図 7-11</span> 線織にしたロフト。断面の間が直線でつながります。</figcaption></figure>
+</div>
+<p>断面の数が違う（角は 4 辺、丸は 1 辺）ロフトは、自動の対応付けのままにします。手で対応付けるときは、断面のエッジの数をそろえます。断面に穴（内側の輪郭）を含められません。</p>
+
+<h3 id="loft-point">点で終わるロフト</h3>
+<p><span class="ui">［始点］</span>・<span class="ui">［終点］</span>に作業点や頂点を選ぶと、ロフトの端が 1 点に絞られます。最後の断面の先に、その点へ向かって閉じる形ができます。<span class="ui">［閉じたループ］</span>のときは、終点を指定できません。</p>
+<p>点は、ロフトより前のフィーチャでなければ選べません。ロフトのあとに作った作業点を<span class="ui">［終点］</span>に選ぶと、「参照ジオメトリ 点1 が使えません」となります。そこで、パーツの終端（ロールバック）を戻して、ロフトより前に点を作ります。題材 <code>loft_transition.mcad</code> で試す手順です。</p>
+<ol class="steps">
+  <li><p>ブラウザで<span class="ui doc">［ロフト2］</span>（内側をくり抜くカット）を右クリックして、<span class="ui">［抑制］</span>を選びます。</p></li>
+  <li><p>最後の断面のスケッチ<span class="ui doc">［継ぎ口のスケッチ］</span>を右クリックして、<span class="ui">［ここまでロールバック］</span>を選びます。ブラウザの<span class="ui">［パーツの終端］</span>が<span class="ui doc">［継ぎ口のスケッチ］</span>の直後（<span class="ui">［ロフト1］</span>の前）に移り、それより後ろは計算されなくなります。</p></li>
+  <li><p><span class="path">リボンの<span class="ui">［3D モデル］</span>タブ → <span class="ui">［作業フィーチャ］</span>パネル → <span class="ui">［作業点］</span>の▼ → <span class="ui">［固定点］</span></span>で、先端にしたい位置（例: Z = 120 mm）に作業点を作ります（<a href="05_work_features.html">第 5 章</a>）。新しい作業点は、<span class="ui">［ロフト1］</span>より前に入ります。</p></li>
+  <li><p><span class="ui">［パーツの終端］</span>を右クリックして、<span class="ui">［パーツの終端を最後へ移動］</span>を選びます。後ろのフィーチャが計算されるようになります。</p></li>
+  <li><p><span class="ui">［ロフト1］</span>をダブルクリックし、<span class="ui">［終点］</span>の欄に作業点を選びます。先が尖った形になります。</p></li>
+</ol>
+<p><span class="ui doc">［ロフト2］</span>を抑制しないままにすると、点へ向かう外形に内側の曲面が合わず、壁が切れて別のボディになります。</p>
+<div class="figrow">
+  <figure id="fig-07_loft_point_form"><a class="zoom" href="images/07_loft_point_form.png"><img src="images/07_loft_point_form.png" alt="終点に作業点を選んだフォーム。" width="360" height="569" loading="lazy"></a><figcaption><span class="figno">図 7-12</span> 終点に作業点を選んだフォーム。</figcaption></figure>
+  <figure id="fig-07_loft_point_view"><a class="zoom" href="images/07_loft_point_view.png"><img src="images/07_loft_point_view.png" alt="最後の断面の先が、作業点で尖ります。" width="460" height="519" loading="lazy"></a><figcaption><span class="figno">図 7-13</span> 最後の断面の先が、作業点で尖ります。</figcaption></figure>
+</div>
+
+<h3 id="loft-error">よくある失敗と直し方</h3>
+<div class="table-wrap"><table>
+  <caption>ロフトの失敗</caption>
+  <thead><tr><th>表示される文</th><th>原因と直し方</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">始点を手動で対応付けるときは、断面のエッジの数をそろえてください</th><td>断面のエッジの数が違います。<span class="ui">［始点を自動で対応付ける］</span>に戻します。</td></tr>
+    <tr><th scope="row">ロフトには 2 つ以上の断面が必要です</th><td>断面を 2 つ以上選びます。</td></tr>
+    <tr><th scope="row">ロフトの 2 つの断面が同じ位置にあります</th><td>断面の平面の位置をずらします。</td></tr>
+    <tr><th scope="row">ロフトの断面に穴を含めることはできません</th><td>内側の輪郭をスケッチから除きます。</td></tr>
+    <tr><th scope="row">閉じたループのロフトが自分と交差しています: …</th><td>断面が一直線に並んでいます。断面を輪になるように置くか、<span class="ui">［閉じたループ］</span>を外します。</td></tr>
+  </tbody>
+</table></div>
+<figure id="fig-07_loft_error"><a class="zoom" href="images/07_loft_error.png"><img src="images/07_loft_error.png" alt="始点の自動の対応付けを切ったロフト（loft_transition.mcad）。断面のエッジの数が違うため、理由が赤く出ます。" width="360" height="613" loading="lazy"></a><figcaption><span class="figno">図 7-14</span> 始点の自動の対応付けを切ったロフト（<code>loft_transition.mcad</code>）。断面のエッジの数が違うため、理由が赤く出ます。</figcaption></figure>
+<aside class="inventor" role="note"><p class="callout-title">Inventor との違い</p><p>レール・中心線・端の条件（接線・曲率の指定）はありません。肉厚の管のような形は、外形のロフトと、内側の断面のロフト（<span class="ui">［カット］</span>）を重ねて作ります。矩形から円へのロフトは、シェルで肉厚を付けられません。</p></aside>
+<aside class="try"><p class="callout-title">この機能を試す</p><p class="try-sample">題材: <code>samples/loft_transition.mcad</code> （<a href="00_intro.html#samples">題材の一覧と開き方</a>）</p>
+  <p>ブラウザの<span class="ui">［ロフト1］</span>と<span class="ui">［ロフト2］</span>の両方で、<span class="ui">［線織］</span>にチェックを入れます。継ぎ口が直線でつながり、肉厚が一様のままです。片方だけにすると、内側と外側が平行でなくなります。<span class="ui">［ロフト1］</span>の<span class="ui">［始点を自動で対応付ける］</span>を外すと、エッジの数の誤りが出ます。</p>
+</aside>
+
+<h2 id="coil"><span class="secno">7.3</span> コイル</h2>
+<p>断面を、軸のまわりにらせん状に掃引して、ばねやねじ山のような形を作ります。</p>
+<ol class="steps">
+  <li><p>軸を含む平面（例: XZ 平面）に、ばねの線材の断面（円）を、軸から離して描きます。</p></li>
+  <li><p><span class="path">リボンの<span class="ui">［3D モデル］</span>タブ → <span class="ui">［作成］</span>パネル → <span class="ui">［コイル］</span>の▼ → <span class="ui">［コイル］</span></span>をクリックします。</p></li>
+  <li><p><span class="ui">［プロファイル］</span>に断面を、<span class="ui">［軸］</span>に軸（作業軸・直線のエッジ・スケッチの線）を選びます。</p></li>
+  <li><p><span class="ui">［回転方向］</span>（<span class="ui">［時計回り］</span>・<span class="ui">［反時計回り］</span>）を選びます。<span class="ui">［方向を反転］</span>で、巻く向きを軸に沿って逆にできます。</p></li>
+  <li><p><span class="ui">［コイルの大きさ］</span>を選び、ピッチ・回転数・高さを入力します。</p></li>
+  <li><p><span class="ui">［ブール演算］</span>を選び、<span class="ui">［OK］</span>で確定します。</p></li>
+</ol>
+<div class="figrow">
+  <figure id="fig-07_coil_form"><a class="zoom" href="images/07_coil_form.png"><img src="images/07_coil_form.png" alt="コイルのフォーム。［コイルの形状］・［コイルの大きさ］・［出力］です。" width="360" height="516" loading="lazy"></a><figcaption><span class="figno">図 7-15</span> コイルのフォーム。<span class="ui">［コイルの形状］</span>・<span class="ui">［コイルの大きさ］</span>・<span class="ui">［出力］</span>です。</figcaption></figure>
+  <figure id="fig-07_coil_view"><a class="zoom" href="images/07_coil_view.png"><img src="images/07_coil_view.png" alt="ピッチ 10 mm・回転数 6 のプレビュー。ピッチの矢印のハンドルと、HUD が出ます。" width="460" height="519" loading="lazy"></a><figcaption><span class="figno">図 7-16</span> ピッチ 10 mm・回転数 6 のプレビュー。ピッチの矢印のハンドルと、HUD が出ます。</figcaption></figure>
+</div>
+<div class="table-wrap"><table>
+  <caption>コイルの大きさの指定</caption>
+  <thead><tr><th><span class="ui">［コイルの大きさ］</span></th><th>入力する欄</th></tr></thead>
+  <tbody>
+    <tr><th scope="row"><span class="ui">［ピッチと回転数］</span>（既定）</th><td><span class="ui">［ピッチ］</span>・<span class="ui">［回転数］</span></td></tr>
+    <tr><th scope="row"><span class="ui">［回転数と高さ］</span></th><td><span class="ui">［回転数］</span>・<span class="ui">［高さ］</span></td></tr>
+    <tr><th scope="row"><span class="ui">［ピッチと高さ］</span></th><td><span class="ui">［ピッチ］</span>・<span class="ui">［高さ］</span></td></tr>
+  </tbody>
+</table></div>
+<p><span class="ui">［回転数］</span>には、5.5 のような小数も入力できます。<span class="ui">［テーパー］</span>に正の角度を入れると、半径が軸に沿って大きくなる円錐のばねになります。</p>
+<div class="figrow">
+  <figure id="fig-07_coil_taper"><a class="zoom" href="images/07_coil_taper.png"><img src="images/07_coil_taper.png" alt="テーパーを 5° にしたプレビュー。上へ向かって半径が大きくなります。" width="460" height="519" loading="lazy"></a><figcaption><span class="figno">図 7-17</span> テーパーを 5° にしたプレビュー。上へ向かって半径が大きくなります。</figcaption></figure>
+  <figure id="fig-07_springs"><a class="zoom" href="images/07_springs.png"><img src="images/07_springs.png" alt="完成した二重ばね（coil_spring.mcad）。外側が［コイル］、内側がヘリカル曲線のスイープです。" width="460" height="519" loading="lazy"></a><figcaption><span class="figno">図 7-18</span> 完成した二重ばね（<code>coil_spring.mcad</code>）。外側が<span class="ui">［コイル］</span>、内側がヘリカル曲線のスイープです。</figcaption></figure>
+</div>
+<div class="table-wrap"><table>
+  <caption>コイルの失敗</caption>
+  <thead><tr><th>表示される文</th><th>原因と直し方</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">コイルが自分と交差しています: 断面の軸方向の幅（11.0 mm）がピッチ（10.0 mm）より大きくなっています</th><td>線材が隣の巻きと重なります。ピッチを大きくするか、断面を小さくします。</td></tr>
+    <tr><th scope="row">コイルの断面が軸をまたいでいます</th><td>断面を軸の片側に描き直します。</td></tr>
+    <tr><th scope="row">コイルの断面が軸に接しています</th><td>断面を軸から離します。</td></tr>
+  </tbody>
+</table></div>
+<figure id="fig-07_coil_error"><a class="zoom" href="images/07_coil_error.png"><img src="images/07_coil_error.png" alt="線材の直径をピッチより大きい 11 mm にしたコイル。理由が赤く出ます。" width="360" height="554" loading="lazy"></a><figcaption><span class="figno">図 7-19</span> 線材の直径をピッチより大きい 11 mm にしたコイル。理由が赤く出ます。</figcaption></figure>
+<aside class="note" role="note"><p class="callout-title">注意</p><p>回転数が多いと、プレビューと再計算に時間がかかります（目安: 40 回転で約 3 秒、200 回転で約 40 秒）。</p></aside>
+<aside class="inventor" role="note"><p class="callout-title">Inventor との違い</p><p>コイルの端の処理（研磨端など）とスパイラル（平面のうずまき）はありません。Inventor のコイルのダイアログでは曲線と断面を同時に作りますが、mcad ではヘリカル曲線とコイルを別のフィーチャにしてあります。</p></aside>
+<aside class="try"><p class="callout-title">この機能を試す</p><p class="try-sample">題材: <code>samples/coil_spring.mcad</code> （<a href="00_intro.html#samples">題材の一覧と開き方</a>）</p>
+  <p>ブラウザの<span class="ui">［コイル1］</span>をダブルクリックし、<span class="ui">［ピッチ］</span>を 10 から 14 にします（ばねが伸びます）。<span class="ui">［回転方向］</span>を<span class="ui">［反時計回り］</span>にし、<span class="ui">［テーパー］</span>を 5° にします。<span class="ui">［コイルの大きさ］</span>を<span class="ui">［回転数と高さ］</span>にすると、<span class="ui">［高さ］</span>の欄が出ます。<span class="path">リボンの<span class="ui">［管理］</span>タブ → <span class="ui">［パラメータ］</span>パネル → <span class="ui">［パラメータ］</span></span>で<code>wire_d</code>を 11 mm にすると、自己交差の誤りになります（10 mm に戻すと直ります）。</p>
+</aside>
+
+<h3 id="coil-outline">長方形などの形に巻く</h3>
+<p>電磁石のように、長方形のコアに線材を巻くときは、<span class="ui">［巻き方］</span>を<span class="ui">［スケッチの輪郭］</span>にします。線材の中心が通る道すじを、軸に垂直な平面に描いた閉じた輪郭（長方形・角丸長方形・スロット・円弧と線の組み合わせ・スプライン）で決めます。線材は、1 周ごとに<span class="ui">［ピッチ］</span>だけ軸の向きへ上がりながら、輪郭に沿って巻かれます。</p>
+<ol class="steps">
+  <li><p>コアの軸に垂直な平面（例: XY 平面）に、閉じた輪郭を描きます。輪郭は線材の<strong>中心</strong>の通り道です。コアの面から、線材の太さの半分だけ外に離します。</p></li>
+  <li><p><span class="path">リボンの<span class="ui">［スケッチ］</span>タブ → <span class="ui">［作成］</span>パネル → <span class="ui">［フィレット］</span>の▼ → <span class="ui">［フィレット］</span></span>で、輪郭の角を丸めます。断面の中心を輪郭の上に置くときは、<strong>尖った角のある輪郭には巻けません。</strong>角の半径は、断面の半分より大きくします（コアの角が丸いときは、コアの半径に線材の太さの半分を足した値です）。断面を輪郭から外へ離して巻くときは、尖った角のままでも巻けます（<a href="#coil-outline-sharp">尖った角のコアに巻く</a>）。</p></li>
+  <li><p>軸を含む平面（例: XZ 平面）に、線材の断面を描きます。断面の中心は輪郭の辺の上に置くか、そこから離した所に置きます（離れていれば、輪郭を<a href="#coil-outline-offset">平行にずらして巻きます</a>）。断面の平面は、断面の中心に最も近い輪郭の点で、輪郭に垂直になるようにします。輪郭の辺が Y 軸に平行なら、XZ 平面が垂直です。</p></li>
+  <li><p><span class="path">リボンの<span class="ui">［3D モデル］</span>タブ → <span class="ui">［作成］</span>パネル → <span class="ui">［コイル］</span>の▼ → <span class="ui">［コイル］</span></span>をクリックし、<span class="ui">［プロファイル］</span>に断面を選びます。</p></li>
+  <li><p><span class="ui">［巻き方］</span>を<span class="ui">［スケッチの輪郭］</span>にします。<span class="ui">［軸］</span>の欄が隠れ、<span class="ui">［輪郭の選び方］</span>と<span class="ui">［輪郭］</span>の欄が出ます。<span class="ui">［輪郭の選び方］</span>が<span class="ui">［領域］</span>（既定）のときは、ビューで輪郭の内側をクリックして、輪郭の領域を選びます。領域の<strong>外周</strong>が輪郭になります。輪郭の内側にほかの曲線（コアの穴の円など）があって領域に穴があいていても、穴は無視します。ほかの曲線が輪郭を横切って領域が分かれているときは、<a href="#coil-outline-curves">曲線で選びます</a>。軸は、輪郭の平面の法線になります（<span class="ui">［方向を反転］</span>で逆向きです）。</p>
+    <figure id="fig-07_coil_outline_form"><a class="zoom" href="images/07_coil_outline_form.png"><img src="images/07_coil_outline_form.png" alt="巻き方がスケッチの輪郭のコイルのフォーム。軸の代わりに輪郭の選び方と輪郭の欄があります。" width="360" height="584" loading="lazy"></a><figcaption><span class="figno">図 7-20</span> 巻き方がスケッチの輪郭のコイルのフォーム。軸の代わりに輪郭の選び方と輪郭の欄があります。</figcaption></figure></li>
+  <li><p>ピッチと回転数（または高さ）、<span class="ui">［回転方向］</span>を決めて、<span class="ui">［OK］</span>で確定します。<span class="ui">［回転方向］</span>が<span class="ui">［時計回り］</span>（既定）のときは、巻き始めから軸の向きを見て時計回りに輪郭をたどる右ねじです。<span class="ui">［反時計回り］</span>は左ねじです。</p></li>
+</ol>
+<div class="figrow">
+  <figure id="fig-07_coil_outline_view"><a class="zoom" href="images/07_coil_outline_view.png"><img src="images/07_coil_outline_view.png" alt="コアにコイルを巻くプレビュー。ピッチの矢印のハンドルが出ます。" width="460" height="329" loading="lazy"></a><figcaption><span class="figno">図 7-21</span> コアにコイルを巻くプレビュー。ピッチの矢印のハンドルが出ます。</figcaption></figure>
+  <figure id="fig-07_rect_coil"><a class="zoom" href="images/07_rect_coil.png"><img src="images/07_rect_coil.png" alt="完成した巻線（rect_coil.mcad）。コア（鋼）に長方形の断面の巻線（銅）を 8 回巻いています。" width="460" height="329" loading="lazy"></a><figcaption><span class="figno">図 7-22</span> 完成した巻線（<code>rect_coil.mcad</code>）。コア（鋼）に長方形の断面の巻線（銅）を 8 回巻いています。</figcaption></figure>
+</div>
+<p>巻き始めは、断面の中心に最も近い輪郭の点です。断面は、軸を含む平面に立ったまま輪郭に沿って運ばれます。ピッチの分だけ傾けたり、巻くごとにねじれたりしません。<span class="ui">［テーパー］</span>が 0 で断面の中心が輪郭の上のときの体積は、断面積 × 輪郭の周長 × 回転数です。</p>
+<p><strong>上へ行くほど広げる（テーパー）。</strong>パルストランスの高圧巻線のように、高電圧側の口径を大きくとるときは、<span class="ui">［テーパー］</span>に角度を入れます。巻き始めからの高さ z の所で、輪郭を外向き（輪郭が囲む領域の外）に z × tan（角度）だけ<strong>一様に動かした線</strong>の上を巻きます。正の角度は広がり、負の角度は狭まります。直線の部分は平行に外へ移り、長さは変わりません。角の円弧は、半径が（輪郭の角の半径 ± z × tan（角度））になります。ピッチは 1 周ごとに変わりません。</p>
+<div class="figrow">
+  <figure id="fig-07_pulse_coil_flat"><a class="zoom" href="images/07_pulse_coil_flat.png"><img src="images/07_pulse_coil_flat.png" alt="テーパーが 0° の巻線（pulse_transformer_coil.mcad）。輪郭と同じ大きさで上へ巻かれます。" width="460" height="329" loading="lazy"></a><figcaption><span class="figno">図 7-23</span> テーパーが 0° の巻線（<code>pulse_transformer_coil.mcad</code>）。輪郭と同じ大きさで上へ巻かれます。</figcaption></figure>
+  <figure id="fig-07_pulse_coil"><a class="zoom" href="images/07_pulse_coil.png"><img src="images/07_pulse_coil.png" alt="テーパーを 8° にした巻線。上（高電圧側）へ行くほど外へ広がります。" width="460" height="329" loading="lazy"></a><figcaption><span class="figno">図 7-24</span> テーパーを 8° にした巻線。上（高電圧側）へ行くほど外へ広がります。</figcaption></figure>
+</div>
+<ol class="steps">
+  <li><p>コイルのフォームの<span class="ui">［テーパー］</span>に、広げたい角度（例: <code>8</code>）を入れます。ビューにテーパーのハンドルも出ます。軸の向きから輪郭の外向きへ倒す円弧で、ドラッグでも変えられます。</p>
+    <figure id="fig-07_pulse_coil_form"><a class="zoom" href="images/07_pulse_coil_form.png"><img src="images/07_pulse_coil_form.png" alt="テーパーを 8° にした［高圧巻線］のフォーム。［テーパー］の欄があります。" width="360" height="637" loading="lazy"></a><figcaption><span class="figno">図 7-25</span> テーパーを 8° にした<span class="ui doc">［高圧巻線］</span>のフォーム。<span class="ui">［テーパー］</span>の欄があります。</figcaption></figure></li>
+  <li><p>断面の中心が輪郭の上なら、巻き始めの高さでは輪郭と同じ大きさで、そこから上へ行くほど広がります。輪郭から離した断面では、離した距離にテーパーの分を足してずらします（<a href="#coil-outline-offset">コイルを輪郭から離して巻く</a>）。</p></li>
+</ol>
+<p>体積は、高さ z の所の輪郭の周長（周長 + 2π × z × tan（角度））を高さで足し合わせた値の、断面積倍です。整数の回転数なら、断面積 × 回転数 ×（周長 + π × tan（角度）× 高さ）です。<code>pulse_transformer_coil.mcad</code>では、周長 186.3 mm・高さ 42 mm・8° で、テーパー 0 の 15 799.6 mm³ が 17 372.5 mm³ になります。</p>
+<p>次のときは、巻く前に調べて誤りにします。</p>
+<ul>
+  <li><p>角の円弧の半径が、線材の断面の張り出し（曲がりの中心の側）以下になるところまで狭まると、巻線が自分と重なります。負の角度、または凹んだ角で広げるときに起こります。どの角・どの高さかが出ます。</p></li>
+  <li><p>細い首のある輪郭を狭めて、動かした輪郭が自分と交わるときも誤りです。</p></li>
+  <li><p>直線と角のつなぎ目では、巻線がわずかに折れます（角の部分の巻線の長さが、動かした分だけ変わるため）。折れが 0.5° 以上になると誤りです（掃引が正しいソリッドになりません）。広げるときは、tan（角度）× ピッチ ÷ 周長 が 0.0087 より小さければ起こりません（周長 150 mm・ピッチ 5 mm なら 14.6° まで）。それより急なときと、狭めて角の半径が小さくなるときは、高さが大きくなると起こります。</p></li>
+  <li><p>テーパーは −89° より大きく、89° より小さくします。</p></li>
+</ul>
+<div class="table-wrap"><table>
+  <caption>輪郭に巻くコイルの失敗</caption>
+  <thead><tr><th>表示される文</th><th>原因と直し方</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">輪郭に尖った角が 4 か所あります（最初の角は (30, -20, 0) mm）。尖った角が自動で丸められるのは、断面を輪郭から角の外側（凸の角では輪郭の外、凹んだ角では輪郭の内）へ離して置いたときだけです。そうでなければ、スケッチでフィレットを付けて丸めてください（角の半径は断面の半分の大きさより大きくします）</th><td>輪郭の角が尖っていて、断面の中心が輪郭の上（または角の内側）にあります。スケッチでフィレットを付けるか、断面を輪郭から角の外へ離します（<a href="#coil-outline-sharp">尖った角のコアに巻く</a>）。L 字の輪郭のように凹んだ尖った角があると、外へ離しても凹んだ角は丸められないので、その角にフィレットを付けます。</td></tr>
+    <tr><th scope="row">(20.0, 15.0, 0.0) mm の輪郭の尖った角は、断面の輪郭からの距離（1.0 mm）を半径にして丸めますが、それが断面の角の側の張り出し（2.0 mm）以下なので、巻線が自分と交わります。断面を輪郭からもっと離すか、スケッチで角にフィレットを付けてください</th><td>尖った角を回る円弧の半径（断面の中心と輪郭の距離）が、線材の半分より小さくなっています。断面を輪郭からもっと離すか、スケッチで角にフィレットを付けます。</td></tr>
+    <tr><th scope="row">断面が (20.0, 15.0, 0.0) mm の輪郭の尖った角の斜め外にあります（断面の中心に最も近い輪郭の点が角そのものです）。これでは巻き始めが決まりません。断面は輪郭の直線か曲線の部分の横に、輪郭に垂直に置いてください</th><td>断面の中心が、尖った角の斜め外（どちらの辺の真横でもない所）にあります。断面を辺の真横（辺の法線の上）へ動かします。</td></tr>
+    <tr><th scope="row">スイープが自分と交差しています: パスの全長の 1.2 % の位置で、断面がパスの曲げの半径より大きくなっています</th><td>角の半径が断面より小さいので、線材の内側が角でつぶれます。角の半径を大きくするか、断面を小さくします。</td></tr>
+    <tr><th scope="row">(27.657, -17.657, 0.0) mm 付近の輪郭の角（半径 8.0 mm）が、輪郭から 6.5 mm 離れた断面に対して小さすぎます。そこで巻線の曲がりの半径が 1.5 mm になり、断面の張り出し（2.0 mm）以下なので、巻線が自分と交わります。断面を輪郭に近づけるか、角の半径を大きくしてください</th><td>輪郭から離れた断面のために輪郭をずらすと、角の半径が線材より小さくなります。断面を輪郭に近づけるか、スケッチで角の半径を大きくします。</td></tr>
+    <tr><th scope="row">断面が輪郭から 5.2 mm 離れていて、輪郭をその距離だけ動かすと自分と交わります。輪郭が細すぎるか、凹んだ部分が狭すぎます。断面を輪郭に近づけてください</th><td>細い輪郭を内へずらすと、ずらした輪郭が自分と交わります。断面を輪郭に近づけます。</td></tr>
+    <tr><th scope="row">輪郭の曲線がループを閉じていません（端が 11.314 mm 離れています）。1 つの閉じたループの曲線を全部選んでください</th><td><span class="ui">［輪郭の曲線］</span>の欄に、ループの曲線が足りません。残りの曲線をクリックします。</td></tr>
+    <tr><th scope="row">チェーンが分岐しています</th><td><span class="ui">［輪郭の曲線］</span>の欄に、ループの角から出る別の曲線が入っています。その曲線をクリックして外します。</td></tr>
+    <tr><th scope="row">輪郭の曲線が互いに交わっています。自分と交わらない 1 つのループの曲線を選んでください</th><td>選んだ曲線が 8 の字のように交わっています。1 つのループになる曲線だけを選びます。</td></tr>
+    <tr><th scope="row">コイルの断面は、軸を含む平面（輪郭の平面に垂直な平面）に描いてください</th><td>断面を、輪郭の平面に平行な平面に描いています。軸（輪郭の平面の法線）を含む平面に描き直します。</td></tr>
+    <tr><th scope="row">コイルの断面は、始点で輪郭に垂直にしてください（30 度ずれています）。輪郭に垂直な平面に描いてください</th><td>断面の平面が、巻き始めの輪郭の辺に垂直ではありません。辺に垂直な平面（作業平面）に描き直します。</td></tr>
+    <tr><th scope="row">コイルが自分と交差しています: 断面の軸方向の幅（4.0 mm）がピッチ（3.5 mm）より大きくなっています</th><td>線材が隣の巻きと重なります。ピッチを大きくするか、断面の軸方向の幅を小さくします。</td></tr>
+    <tr><th scope="row">(27.657, -17.657, 0.0) mm 付近の輪郭の角（半径 8.0 mm）が、断面に対して小さすぎます。巻き始めから 31.038 mm 上がった所から、巻線の曲がりの半径が断面の張り出し（1.5 mm）以下になり、巻線が自分と交わります。テーパーか高さを小さくするか、角の半径を大きくしてください</th><td>狭めるテーパーで、角の半径が線材より小さくなります。テーパーか高さを小さくするか、スケッチで角の半径を大きくします。</td></tr>
+    <tr><th scope="row">テーパーがピッチと輪郭に対して急すぎます。(-40.09, 12.0, 15.025) mm の、直線部と角のつなぎ目で巻線が 0.504 度折れます（上限は 0.5 度）。テーパーかピッチを小さくするか、輪郭の角の半径を大きくしてください</th><td>直線と角のつなぎ目で巻線が折れすぎます。テーパーかピッチを小さくするか、角の半径を大きくします。</td></tr>
+    <tr><th scope="row">テーパーのせいで、輪郭が自分と交わります（巻き始めから 40.0 mm 上がった所で、輪郭から 5.2 mm 動きます）。輪郭が細すぎるか、凹んだ部分がこのテーパーに対して狭すぎます。テーパーか高さを小さくしてください</th><td>動かした輪郭が自分と交わります（細い首など）。テーパーか高さを小さくします。</td></tr>
+    <tr><th scope="row">輪郭の領域を 1 つだけ選んでください</th><td>輪郭には、閉じた領域を 1 つだけ選びます。領域が 2 つ以上あるときは、必要な 1 つにします。</td></tr>
+  </tbody>
+</table></div>
+<figure id="fig-07_coil_outline_error"><a class="zoom" href="images/07_coil_outline_error.png"><img src="images/07_coil_outline_error.png" alt="角の半径を 1.5 mm（断面の半分の 2 mm より小さい）にしたコイル。理由が赤く出ます。" width="360" height="624" loading="lazy"></a><figcaption><span class="figno">図 7-26</span> 角の半径を 1.5 mm（断面の半分の 2 mm より小さい）にしたコイル。理由が赤く出ます。</figcaption></figure>
+<aside class="note" role="note"><p class="callout-title">注意</p><p>回転数が多いと、輪郭の区間の数 × 回転数だけ辺ができます。60 回転の角丸長方形（約 480 区間）で、再計算に 2〜3 秒かかります。側面も、区間ごと・回ごとに別の面になります。</p><p>側面の名前は、巻き始めの区間（断面の中心がある辺・円弧）と、その区間をたどる向きを含みます。断面を別の区間へ動かす、巻き始めの区間を分ける線や点を巻き始めをまたいで動かす、<span class="ui">［回転方向］</span>や<span class="ui">［方向を反転］</span>を変えると、巻線の側面への参照は失われます（1 周ずれた別の巻きの面には付きません）。始端・終端の面への参照は残ります。</p></aside>
+<aside class="inventor" role="note"><p class="callout-title">Inventor との違い</p><p>Inventor のコイルは、円筒か円錐のらせんだけです。輪郭に沿って巻く機能は mcad にあります。断面の中心が輪郭の上のときは、輪郭の角を自動では丸めません。スケッチでフィレットを付けてください（実際の巻線も、コアの角の半径に沿って曲がります）。断面を輪郭から外へ離したときは、尖った角を自動で円弧にして回ります（<a href="#coil-outline-sharp">尖った角のコアに巻く</a>）。</p></aside>
+<aside class="try"><p class="callout-title">この機能を試す</p><p class="try-sample">題材: <code>samples/rect_coil.mcad</code> （<a href="00_intro.html#samples">題材の一覧と開き方</a>）</p>
+  <p>ブラウザの<span class="ui">［コイル1］</span>をダブルクリックし、<span class="ui">［ピッチ］</span>を 3.5 から 5 にします（巻線の間があきます）。<span class="ui">［回転方向］</span>を<span class="ui">［反時計回り］</span>にすると、左巻きになります。<span class="path">リボンの<span class="ui">［管理］</span>タブ → <span class="ui">［パラメータ］</span>パネル → <span class="ui">［パラメータ］</span></span>で<code>wire_h</code>（断面の高さ）を 4 mm にすると巻きの重なりの誤りに、<code>corner_r</code>（輪郭の角の半径）を 1.5 mm にすると曲げの半径の誤りになります（元の値に戻すと直ります）。<code>wire_w</code>（断面の幅）を 6 mm にすると断面の中心が輪郭から 1 mm 外へ離れ、輪郭を 1 mm 外へずらして巻きます。<span class="ui">［輪郭の選び方］</span>を<span class="ui">［スケッチの曲線］</span>にして輪郭の辺を 1 本クリックすると、8 本のループが入ります。</p>
+</aside>
+<aside class="try"><p class="callout-title">この機能を試す</p><p class="try-sample">題材: <code>samples/pulse_transformer_coil.mcad</code> （<a href="00_intro.html#samples">題材の一覧と開き方</a>）</p>
+  <p>ブラウザの<span class="ui doc">［高圧巻線］</span>をダブルクリックし、<span class="ui">［テーパー］</span>を 0° にすると円筒状に、−8° にすると上へ行くほど狭まります（8° に戻すと広がります）。<span class="path">リボンの<span class="ui">［管理］</span>タブ → <span class="ui">［パラメータ］</span>パネル → <span class="ui">［パラメータ］</span></span>で<code>coil_taper</code>を −12° にすると角の半径の誤りに、40° にすると折れすぎの誤りになります。<code>wire_d</code>を 5 mm にすると巻きの重なりの誤りです（元の値に戻すと直ります）。</p>
+</aside>
+
+<h3 id="coil-outline-curves">コイルの輪郭の曲線を選ぶ（投影したジオメトリ）</h3>
+<p>コアの断面を<span class="path">リボンの<span class="ui">［スケッチ］</span>タブ → <span class="ui">［作成］</span>パネル → <span class="ui">［投影］</span>の▼ → <span class="ui">［ジオメトリを投影］</span></span>でスケッチに投影すると、ほかの投影した曲線（線材の断面・別の部品の外形など）もスケッチに入り、輪郭を横切ったり、輪郭に重なったりします。このときは輪郭の内側が 1 つの領域にならないので、<span class="ui">［輪郭の選び方］</span>を<span class="ui">［スケッチの曲線］</span>にして、輪郭の曲線を選びます。選んだ曲線だけを使い、スケッチのほかの曲線は無視します。</p>
+<ol class="steps">
+  <li><p><span class="ui">［輪郭の選び方］</span>の<span class="ui">［スケッチの曲線］</span>を押します。<span class="ui">［輪郭］</span>の欄の代わりに<span class="ui">［輪郭の曲線］</span>の欄が出ます。</p>
+    <figure id="fig-07_coil_curves_form"><a class="zoom" href="images/07_coil_curves_form.png"><img src="images/07_coil_curves_form.png" alt="輪郭の選び方がスケッチの曲線のコイルのフォーム（projected_core_coil.mcad）。輪郭の曲線の欄に、投影したループの 8 本が入っています。" width="360" height="615" loading="lazy"></a><figcaption><span class="figno">図 7-27</span> 輪郭の選び方がスケッチの曲線のコイルのフォーム（<code>projected_core_coil.mcad</code>）。輪郭の曲線の欄に、投影したループの 8 本が入っています。</figcaption></figure></li>
+  <li><p>ビューで、輪郭のループの曲線を 1 本クリックします。端点でつながる曲線が一通りに決まれば（ループの角から別の曲線が出ていなければ）、<strong>ループ全体</strong>が入ります。投影した曲線は一致の拘束を持たないので、端点の位置が一致するか（0.000001 mm 以内）でつながりを見ます。輪郭を横切る曲線・輪郭の途中に触れる曲線は、つながりに数えません。</p></li>
+  <li><p>ループの角から別の曲線が出ていて決められないときは、クリックした 1 本だけが入ります。残りの曲線を 1 本ずつクリックして、閉じたループにします。入っている曲線をクリックすると、その 1 本だけが外れます。</p></li>
+</ol>
+<div class="figrow">
+  <figure id="fig-07_coil_curves"><a class="zoom" href="images/07_coil_curves.png"><img src="images/07_coil_curves.png" alt="投影したコアの断面に、0.5 mm の隙間をあけて巻いた巻線（projected_core_coil.mcad）。投影したスケッチには、コアを横切る線と、辺に重なる円もあります。" width="460" height="329" loading="lazy"></a><figcaption><span class="figno">図 7-28</span> 投影したコアの断面に、0.5 mm の隙間をあけて巻いた巻線（<code>projected_core_coil.mcad</code>）。投影したスケッチには、コアを横切る線と、辺に重なる円もあります。</figcaption></figure>
+</div>
+<p>選んだ曲線は、端点でつながって閉じ、軸に垂直な 1 つの平面の上にあり、自分と交わらないループにします。角は、領域のときと同じく、断面の中心が輪郭の上ならフィレットで丸めます（断面を角の外へ離せば、尖った角のままで巻けます。<a href="#coil-outline-sharp">尖った角のコアに巻く</a>）。側面の名前は選んだスケッチの曲線から作るので、あとでほかの曲線をスケッチに描き足しても、巻線への参照は変わりません。</p>
+
+<h3 id="coil-outline-offset">コイルを輪郭から離して巻く</h3>
+<p>断面の中心が輪郭の上にないときは、輪郭を基準の形にして、断面を描いた位置のまま巻きます。断面の中心から輪郭までの距離 d だけ、輪郭を外（断面が輪郭の外のとき）か内（内のとき）へ<strong>平行にずらした線</strong>の上を巻きます。直線の部分は平行に移り、角の円弧は半径が（輪郭の角の半径 ± d）になります。投影したコアの断面を輪郭にして、コアから隙間をあけて巻くときに使います（断面の中心を、コアの面から 隙間 + 線材の半径 だけ離します）。</p>
+<p>体積は、断面積 × ずらした輪郭の周長 × 回転数です。角を丸めた凸の輪郭なら、ずらした輪郭の周長は 周長 + 2π × d（内なら d は負）です。<code>projected_core_coil.mcad</code>では、コアの周長 173.7 mm・d = 2 mm・φ3・10 回転で 13 166.3 mm³ です。<span class="ui">［テーパー］</span>と組み合わせると、ずらす量は d + z × tan（角度）になります。</p>
+<p>ずらした線の角の半径が、線材の断面の張り出し（曲がりの中心の側）以下になるとき（内へずらして凸の角が小さくなる・外へずらして凹んだ角が小さくなる）と、ずらした輪郭が自分と交わるとき（細い輪郭を内へずらす）は、巻く前に誤りにします。断面を輪郭に近づけるか、角の半径を大きくします。</p>
+<aside class="try"><p class="callout-title">この機能を試す</p><p class="try-sample">題材: <code>samples/projected_core_coil.mcad</code> （<a href="00_intro.html#samples">題材の一覧と開き方</a>）</p>
+  <p>ブラウザの<span class="ui doc">［巻線］</span>をダブルクリックします。<span class="ui">［輪郭の曲線］</span>の欄の項目を全部外し、ビューで投影したコアの辺を 1 本クリックすると、8 本のループが全部入ります（横切る線・重なる円は入りません）。<span class="path">リボンの<span class="ui">［管理］</span>タブ → <span class="ui">［パラメータ］</span>パネル → <span class="ui">［パラメータ］</span></span>で<code>wire_x</code>を 31 mm にすると隙間が広がり、21 mm（断面がコアの内側 7 mm）にすると角の半径の誤りになります（30 mm に戻すと直ります）。<code>core_h</code>を 40 mm にすると、投影した曲線と巻線がコアに付いていきます。</p>
+</aside>
+
+<h3 id="coil-outline-sharp">尖った角のコアに巻く</h3>
+<p>投影したコアの断面が、角の尖った長方形のこともあります。このときも、断面の中心を輪郭から<strong>外へ離して</strong>置けば、尖った角のまま巻けます。巻線は、辺の部分では輪郭を距離 d だけ平行にずらした線の上を通り、尖った角では、<strong>角の頂点を中心にした半径 d の円弧</strong>で角を回ります（角の半径が 0 の輪郭を d だけずらした形です）。スケッチでフィレットを付ける必要はありません。</p>
+<ol class="steps">
+  <li><p>軸に垂直な平面のスケッチに、<span class="path">リボンの<span class="ui">［スケッチ］</span>タブ → <span class="ui">［作成］</span>パネル → <span class="ui">［投影］</span>の▼ → <span class="ui">［ジオメトリを投影］</span></span>でコアの断面（例: 角の尖った箱の下面）を投影します。</p></li>
+  <li><p>軸を含む平面に、線材の断面を描きます。断面の中心は、コアの辺の<strong>真横</strong>（辺の法線の上）に、コアの面から 隙間 + 線材の半分 だけ離して置きます。</p></li>
+  <li><p><span class="path">リボンの<span class="ui">［3D モデル］</span>タブ → <span class="ui">［作成］</span>パネル → <span class="ui">［コイル］</span>の▼ → <span class="ui">［コイル］</span></span>で<span class="ui">［巻き方］</span>を<span class="ui">［スケッチの輪郭］</span>、<span class="ui">［輪郭の選び方］</span>を<span class="ui">［スケッチの曲線］</span>にして、投影した辺を 1 本クリックします（ループ全体が入ります）。<span class="ui">［輪郭の選び方］</span>が<span class="ui">［領域］</span>でも、コアの断面の内側をクリックすれば同じです。</p></li>
+</ol>
+<div class="figrow">
+  <figure id="fig-07_coil_sharp"><a class="zoom" href="images/07_coil_sharp.png"><img src="images/07_coil_sharp.png" alt="角の尖ったコア（40 × 30）に、1 mm の隙間をあけて巻いた角線の巻線（sharp_core_coil.mcad）。巻線は、コアの角の頂点を中心にした円弧で角を回ります。" width="460" height="329" loading="lazy"></a><figcaption><span class="figno">図 7-29</span> 角の尖ったコア（40 × 30）に、1 mm の隙間をあけて巻いた角線の巻線（<code>sharp_core_coil.mcad</code>）。巻線は、コアの角の頂点を中心にした円弧で角を回ります。</figcaption></figure>
+</div>
+<p>角を回る円弧の間は、巻線は上がりません。上がるのは辺の部分だけで、1 周でちょうど<span class="ui">［ピッチ］</span>だけ上がります（ピッチ・回転数の意味は角を丸めた輪郭と同じです）。体積は 断面積 × （周長 + 2π × d）× 回転数です。<code>sharp_core_coil.mcad</code>では、40 × 30 の尖ったコア・4 × 4 の角線・d = 3 mm（隙間 1 mm）・7 回転で 16 ×（140 + 6π）× 7 ≒ 17 791.2 mm³ です。</p>
+<p>次のときは、巻く前に誤りにします。</p>
+<ul>
+  <li><p>断面の中心が輪郭の上にあるとき・輪郭の内側にあるとき。尖った角を自動で丸めるのは、断面が角の外側（凸の角では輪郭の外、凹んだ角では輪郭の内）に離れているときだけです。L 字のように凹んだ尖った角のある輪郭を外へ離すと、凹んだ角は丸められないので誤りです（その角にスケッチでフィレットを付けます）。</p></li>
+  <li><p>角を回る円弧の半径 d（断面の中心と輪郭の距離）が、線材の断面の角の側の張り出し（4 × 4 の角線なら 2 mm）以下のとき。断面をもっと離します。</p></li>
+  <li><p>断面の中心が、尖った角の斜め外（どちらの辺の真横でもない所）にあるとき。巻き始めが決まらないので、辺の真横へ動かします。</p></li>
+  <li><p><span class="ui">［テーパー］</span>と組み合わせると、辺と角の円弧のつなぎ目で巻線が tan（角度）× ピッチ ÷ 周長 の角度だけ折れます。0.5° を超えると誤りです（周長 140 mm・ピッチ 10 mm なら約 7° まで）。より急なテーパーにするときは、角にフィレットを付けます。</p></li>
+</ul>
+<aside class="try"><p class="callout-title">この機能を試す</p><p class="try-sample">題材: <code>samples/sharp_core_coil.mcad</code> （<a href="00_intro.html#samples">題材の一覧と開き方</a>）</p>
+  <p>ブラウザの<span class="ui doc">［巻線］</span>をダブルクリックします。<span class="ui">［輪郭の曲線］</span>の欄に、投影したコアの 4 本の線が入っています。ビューで、巻線の角がコアの角のまわりの円弧になっていることを見ます。<span class="path">リボンの<span class="ui">［管理］</span>タブ → <span class="ui">［パラメータ］</span>パネル → <span class="ui">［パラメータ］</span></span>で<code>wire_x</code>（断面の左の辺の位置）を 25 mm にすると隙間が 5 mm に広がり、角の円弧の半径も大きくなります。19 mm（断面の中心が輪郭から 1 mm）にすると角を回る円弧の半径の誤りに、15 mm（断面がコアの内側）にすると尖った角の誤りになります（21 mm に戻すと直ります）。<code>core_h</code>を 36 mm にすると、投影した線と巻線がコアに付いていきます。</p>
+</aside>
+
+<h2 id="helix"><span class="secno">7.4</span> ヘリカル曲線</h2>
+<p>らせん状の曲線を作ります。体積のない曲線（ワイヤ ボディ）で、スイープのパスや、曲線に垂直な作業平面の基準に使います。</p>
+<ol class="steps">
+  <li><p>作業点を、らせんの始まりの位置に作ります（<a href="05_work_features.html">第 5 章</a>）。軸からの距離が、らせんの半径になります。</p></li>
+  <li><p><span class="path">リボンの<span class="ui">［3D モデル］</span>タブ → <span class="ui">［作成］</span>パネル → <span class="ui">［コイル］</span>の▼ → <span class="ui">［ヘリカル曲線］</span></span>をクリックします。</p></li>
+  <li><p><span class="ui">［軸］</span>に軸を、<span class="ui">［始点］</span>に作業点（頂点・スケッチの点・UCS も選べます）を選びます。</p></li>
+  <li><p><span class="ui">［コイルの大きさ］</span>・<span class="ui">［ピッチ］</span>・<span class="ui">［回転数］</span>・<span class="ui">［高さ］</span>・<span class="ui">［テーパー］</span>・<span class="ui">［回転方向］</span>は、コイルと同じです。<span class="ui">［OK］</span>で確定します。</p></li>
+</ol>
+<div class="figrow">
+  <figure id="fig-07_helix_form"><a class="zoom" href="images/07_helix_form.png"><img src="images/07_helix_form.png" alt="ヘリカル曲線のフォーム。出力のブール演算はありません。" width="360" height="387" loading="lazy"></a><figcaption><span class="figno">図 7-30</span> ヘリカル曲線のフォーム。出力のブール演算はありません。</figcaption></figure>
+  <figure id="fig-07_helix_view"><a class="zoom" href="images/07_helix_view.png"><img src="images/07_helix_view.png" alt="らせんの曲線（青）のプレビュー。" width="460" height="519" loading="lazy"></a><figcaption><span class="figno">図 7-31</span> らせんの曲線（青）のプレビュー。</figcaption></figure>
+</div>
+<p>ブラウザの<span class="ui">［ワイヤ ボディ］</span>に、曲線が入ります。ヘリカル曲線のフィーチャを選んで、行頭のチェックを入れると、曲線が見えます。</p>
+<p>ヘリカル曲線をパスにしたスイープでばねを作る流れです。</p>
+<ol class="steps">
+  <li><p>始点の作業点と、ヘリカル曲線を作ります。</p></li>
+  <li><p>リボンの［3D モデル］タブ →［作業フィーチャ］パネル →［平面］▼ の<span class="ui">［点上で曲線に垂直］</span>で、曲線の始点でパスに垂直な作業平面を作ります。</p></li>
+  <li><p>その平面に、線材の断面（円）を描きます。</p></li>
+  <li><p><span class="path">リボンの<span class="ui">［3D モデル］</span>タブ → <span class="ui">［作成］</span>パネル → <span class="ui">［スイープ］</span></span>で、<span class="ui">［パスの元］</span>を<span class="ui">［エッジ］</span>にして、ヘリカル曲線を選びます。</p></li>
+</ol>
+<div class="table-wrap"><table>
+  <caption>ヘリカル曲線の失敗</caption>
+  <thead><tr><th>表示される文</th><th>原因と直し方</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">ヘリカル曲線の始点が軸の上にあります</th><td>始点を軸から離します（離した距離が半径です）。</td></tr>
+    <tr><th scope="row">ヘリカル曲線のテーパー角は 89 度より小さくしてください</th><td><span class="ui">［テーパー］</span>を小さくします。</td></tr>
+    <tr><th scope="row">テーパーのため、ヘリカル曲線の半径が終わりより前にゼロになります</th><td><span class="ui">［テーパー］</span>の角度を小さくするか、<span class="ui">［高さ］</span>を短くします。</td></tr>
+  </tbody>
+</table></div>
+<aside class="try"><p class="callout-title">この機能を試す</p><p class="try-sample">題材: <code>samples/coil_spring.mcad</code> （<a href="00_intro.html#samples">題材の一覧と開き方</a>）</p>
+  <p>ブラウザの<span class="ui">［ヘリカル曲線1］</span>をダブルクリックして、<span class="ui">［コイルの大きさ］</span>を<span class="ui">［回転数と高さ］</span>にします。ヘリカル曲線の行頭のチェックを入れて、曲線を見ます。内側のばね（<span class="ui">［スイープ1］</span>）の<span class="ui">［パスのエッジ］</span>が、この曲線です。</p>
+</aside>
+
+<h2 id="thread"><span class="secno">7.5</span> ねじ</h2>
+<p>円筒面にコスメティックねじ（ねじの印）を付けます。形（ソリッド）は変えません。ビューにらせん状の線と終わりの輪で、ねじの範囲を示します。穴の壁と軸の外周に付けられます。穴の作成の中で付けるタップ穴は、<a href="06_features_basic.html#hole">第 6 章の穴</a>にあります。</p>
+<ol class="steps">
+  <li><p><span class="path">リボンの<span class="ui">［3D モデル］</span>タブ → <span class="ui">［修正］</span>パネル → <span class="ui">［ねじ］</span></span>をクリックします。</p></li>
+  <li><p>ビューで、ねじを付ける円筒面（穴の壁か軸の側面）をクリックします。<span class="ui">［面］</span>に入ります。</p></li>
+  <li><p><span class="ui">［規格］</span>で、<span class="ui">［ねじの種類］</span>・<span class="ui">［指定］</span>・<span class="ui">［等級］</span>・<span class="ui">［方向］</span>を選びます。<span class="ui">［ねじの種類］</span>は、メートル並目・メートル細目・管用平行ねじ G・管用テーパねじ Rc です。サイズの選択肢は、穴と同じです（<a href="06_features_basic.html#hole-standard">第 6 章</a>）。</p></li>
+  <li><p><span class="ui">［全ねじ］</span>にチェックを入れると、面の全長に付きます。外すと、<span class="ui">［ねじの深さ］</span>が出ます。</p></li>
+  <li><p><span class="ui">［位置］</span>の<span class="ui">［オフセット］</span>で、面の端からのずらしを指定します。<span class="ui">［方向を反転］</span>で、ねじの始まりを反対の端にできます。</p></li>
+  <li><p><span class="ui">［OK］</span>で確定します。ねじの線は、確定したあとに出ます。</p></li>
+</ol>
+<div class="figrow">
+  <figure id="fig-07_thread_form"><a class="zoom" href="images/07_thread_form.png"><img src="images/07_thread_form.png" alt="ねじのフォーム。軸の側面に M10×1.5（深さ 15 mm・オフセット 2 mm）を付けています。" width="360" height="432" loading="lazy"></a><figcaption><span class="figno">図 7-32</span> ねじのフォーム。軸の側面に M10×1.5（深さ 15 mm・オフセット 2 mm）を付けています。</figcaption></figure>
+  <figure id="fig-07_thread_view"><a class="zoom" href="images/07_thread_view.png"><img src="images/07_thread_view.png" alt="確定したあとのねじ。軸の外周に青いらせんの線が出ます。" width="460" height="329" loading="lazy"></a><figcaption><span class="figno">図 7-33</span> 確定したあとのねじ。軸の外周に青いらせんの線が出ます。</figcaption></figure>
+</div>
+<div class="table-wrap"><table>
+  <caption>ねじの失敗</caption>
+  <thead><tr><th>表示される文</th><th>原因と直し方</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">ねじの長さ 19.0 mm が面の残り（18.0 mm）より長くなっています</th><td>面の長さからオフセットを引いた長さが、ねじの深さより短いです。<span class="ui">［ねじの深さ］</span>かオフセットを小さくします。</td></tr>
+    <tr><th scope="row">ねじには円筒面が必要です（穴の壁または軸の外側）</th><td>円筒でない面を選んでいます。円筒面を選びます。</td></tr>
+  </tbody>
+</table></div>
+<aside class="inventor" role="note"><p class="callout-title">Inventor との違い</p><p>ねじの形（らせんの溝）は作りません。表示だけの印です。</p></aside>
+<aside class="try"><p class="callout-title">この機能を試す</p><p class="try-sample">題材: <code>samples/jis_holes.mcad</code> （<a href="00_intro.html#samples">題材の一覧と開き方</a>）</p>
+  <p>ブラウザの<span class="ui doc">［軸のねじ M10×1.5］</span>をダブルクリックし、<span class="ui">［ねじの深さ］</span>を 19 mm にします（軸の長さ 20 mm からオフセット 2 mm を引いた 18 mm を超えるので、誤りになります）。<span class="ui">［方向を反転］</span>で、ねじの始まりが反対の端に移ります。</p>
+</aside>
+
+<h2 id="pattern"><span class="secno">7.6</span> パターン（矩形状・円形状・スケッチ駆動）</h2>
+<p>フィーチャやソリッドを、規則的に並べて複製します。複製された形を「オカレンス」と呼びます。元になるフィーチャを「シード」と呼びます。同じ穴を並べるときなどに使います。</p>
+<p>3 つのパターンは、共通の欄を持ちます。</p>
+<div class="table-wrap"><table>
+  <caption>パターンの共通の欄</caption>
+  <thead><tr><th>欄</th><th>意味</th></tr></thead>
+  <tbody>
+    <tr><th scope="row"><span class="ui">［パターンの種類］</span></th><td><span class="ui">［フィーチャを個別にパターン］</span>は、選んだフィーチャの形を並べます。<span class="ui">［ソリッドをパターン］</span>は、ボディ全体を並べます。</td></tr>
+    <tr><th scope="row"><span class="ui">［フィーチャ］</span></th><td>並べるフィーチャです。ブラウザの行か、ビューのフィーチャの面をクリックして選びます。続けて複数選べます。</td></tr>
+    <tr><th scope="row"><span class="ui">［ソリッド］</span></th><td>ソリッドをパターンするとき、並べるボディです。</td></tr>
+    <tr><th scope="row"><span class="ui">［省略したオカレンス］</span></th><td>作らないオカレンスです。ビューの点をクリックして切り替えます。</td></tr>
+    <tr><th scope="row"><span class="ui">［作成方法］</span>（<span class="ui">［詳細］</span>の中）</th><td><span class="ui">［同一］</span>は、シードの結果をそのまま複製します。<span class="ui">［調整］</span>は、オカレンスごとにフィーチャの範囲（貫通・次へなど）を計算し直します。遅くなります。</td></tr>
+    <tr><th scope="row"><span class="ui">［ソリッド演算］</span></th><td>ソリッドをパターンするとき、<span class="ui">［結合］</span>か<span class="ui">［新規ボディを作成］</span>を選びます。</td></tr>
+  </tbody>
+</table></div>
+<p>並べられるのは、スケッチから作ったフィーチャ（押し出し・回転・スイープ・ロフト・コイル・リブなど）と穴です。フィレット・面取り・作業フィーチャはシードにできません。パターンのパターン、パターンのミラーはできます。</p>
+
+<h3 id="pattern-linear">矩形状パターン</h3>
+<p>1 方向か 2 方向に、等間隔に並べます。</p>
+<ol class="steps">
+  <li><p><span class="path">リボンの<span class="ui">［3D モデル］</span>タブ → <span class="ui">［パターン］</span>パネル → <span class="ui">［矩形状パターン］</span></span>をクリックします。</p></li>
+  <li><p>ブラウザの穴など、並べるフィーチャをクリックします。<span class="ui">［フィーチャ］</span>に入ります。</p></li>
+  <li><p><span class="ui">［方向 1］</span>の欄をクリックし、方向にする軸・エッジ・スケッチの線を選びます（例: ブラウザの<span class="ui">［原点］</span>の<span class="ui">［X 軸］</span>）。</p></li>
+  <li><p><span class="ui">［個数］</span>・<span class="ui">［長さ］</span>・<span class="ui">［長さの種類］</span>を入力します。ビューにプレビューが出て、矢印のハンドルで長さを変えられます。</p></li>
+  <li><p>2 方向に並べるときは、<span class="ui">［方向 2］</span>も同じように指定します。<span class="ui">［OK］</span>で確定します。</p></li>
+</ol>
+<div class="table-wrap"><table>
+  <caption>矩形状パターンの欄（方向ごと）</caption>
+  <thead><tr><th>欄</th><th>意味</th></tr></thead>
+  <tbody>
+    <tr><th scope="row"><span class="ui">［反転］</span></th><td>方向を逆にします。</td></tr>
+    <tr><th scope="row"><span class="ui">［個数］</span></th><td>シードを含む個数です（1〜5000）。</td></tr>
+    <tr><th scope="row"><span class="ui">［長さ］</span></th><td><span class="ui">［長さの種類］</span>で意味が変わります。</td></tr>
+    <tr><th scope="row"><span class="ui">［長さの種類］</span></th><td><span class="ui">［間隔］</span>は、隣り合うオカレンスの間隔です。<span class="ui">［距離］</span>は、最初から最後までの全体の長さです。</td></tr>
+    <tr><th scope="row"><span class="ui">［中間平面］</span></th><td>シードを中心に、両側へ並べます。偶数個の余りは、正の側です（<span class="ui">［反転］</span>で負の側）。</td></tr>
+  </tbody>
+</table></div>
+<div class="figrow">
+  <figure id="fig-07_lin_form"><a class="zoom" href="images/07_lin_form.png"><img src="images/07_lin_form.png" alt="矩形状パターンのフォーム。［個数］にパラメータの名前 n、［長さ］に式を入れています。" width="360" height="738" loading="lazy"></a><figcaption><span class="figno">図 7-34</span> 矩形状パターンのフォーム。<span class="ui">［個数］</span>にパラメータの名前 <code>n</code>、<span class="ui">［長さ］</span>に式を入れています。</figcaption></figure>
+  <figure id="fig-07_lin_view"><a class="zoom" href="images/07_lin_view.png"><img src="images/07_lin_view.png" alt="プレビュー。緑がシードの穴、赤が複製です。HUD に長さの式が出ます。" width="460" height="329" loading="lazy"></a><figcaption><span class="figno">図 7-35</span> プレビュー。緑がシードの穴、赤が複製です。HUD に長さの式が出ます。</figcaption></figure>
+</div>
+<p>方向 2 の<span class="ui">［個数］</span>は、既定が 1（並べない）です。2 以上にすると、格子状に並びます。方向 1 だけ指定すれば、1 列の並びです。</p>
+
+<h3 id="pattern-circular">円形状パターン</h3>
+<p>軸のまわりに、円に沿って並べます。</p>
+<ol class="steps">
+  <li><p><span class="path">リボンの<span class="ui">［3D モデル］</span>タブ → <span class="ui">［パターン］</span>パネル → <span class="ui">［円形状パターン］</span></span>をクリックします。</p></li>
+  <li><p>並べるフィーチャをクリックします。</p></li>
+  <li><p><span class="ui">［回転軸］</span>に、軸を選びます。作業軸・直線のエッジ・スケッチの線のほか、円筒の面（その軸）も選べます。</p></li>
+  <li><p><span class="ui">［個数］</span>と<span class="ui">［角度］</span>を入力します。円弧のハンドルをドラッグしても、角度を変えられます。<span class="ui">［OK］</span>で確定します。</p></li>
+</ol>
+<div class="table-wrap"><table>
+  <caption>円形状パターンの欄</caption>
+  <thead><tr><th>欄</th><th>意味</th></tr></thead>
+  <tbody>
+    <tr><th scope="row"><span class="ui">［反転］</span></th><td>回る向きを逆にします。</td></tr>
+    <tr><th scope="row"><span class="ui">［個数］</span>・<span class="ui">［角度］</span></th><td>シードを含む個数と、並べる角度です（既定は 6 個・360°）。</td></tr>
+    <tr><th scope="row"><span class="ui">［中間平面］</span></th><td>シードを中心に、両側へ並べます。</td></tr>
+    <tr><th scope="row"><span class="ui">［配置方法］</span></th><td><span class="ui">［フィット］</span>は、<span class="ui">［角度］</span>の中に<span class="ui">［個数］</span>を収めます（360° のときは等分）。<span class="ui">［増分］</span>は、<span class="ui">［角度］</span>を隣り合うオカレンスの間の角度にします。</td></tr>
+    <tr><th scope="row"><span class="ui">［向き］</span></th><td><span class="ui">［回転］</span>は、オカレンスの向きも軸のまわりに回します。<span class="ui">［固定］</span>は、向きを変えずに位置だけを回します。</td></tr>
+  </tbody>
+</table></div>
+<div class="figrow">
+  <figure id="fig-07_circ_form"><a class="zoom" href="images/07_circ_form.png"><img src="images/07_circ_form.png" alt="円形状パターンのフォーム。省略したオカレンスが無いので、［オカレンスを復元］は灰色です。" width="360" height="511" loading="lazy"></a><figcaption><span class="figno">図 7-36</span> 円形状パターンのフォーム。省略したオカレンスが無いので、<span class="ui">［オカレンスを復元］</span>は灰色です。</figcaption></figure>
+  <figure id="fig-07_circ_view"><a class="zoom" href="images/07_circ_view.png"><img src="images/07_circ_view.png" alt="フランジのボルト穴。シード（緑）のまわりに 5 つの複製（赤）が並びます。青い点が、オカレンスの位置です。" width="460" height="329" loading="lazy"></a><figcaption><span class="figno">図 7-37</span> フランジのボルト穴。シード（緑）のまわりに 5 つの複製（赤）が並びます。青い点が、オカレンスの位置です。</figcaption></figure>
+</div>
+<div class="figrow">
+  <figure id="fig-07_circ_fit"><a class="zoom" href="images/07_circ_fit.png"><img src="images/07_circ_fit.png" alt="フィットで、個数 4・角度 180°。180° の中に 4 つが収まります。" width="460" height="329" loading="lazy"></a><figcaption><span class="figno">図 7-38</span> フィットで、個数 4・角度 180°。180° の中に 4 つが収まります。</figcaption></figure>
+  <figure id="fig-07_circ_incr"><a class="zoom" href="images/07_circ_incr.png"><img src="images/07_circ_incr.png" alt="増分で、角度 45°・個数 5。45° ずつ並びます。" width="460" height="329" loading="lazy"></a><figcaption><span class="figno">図 7-39</span> 増分で、角度 45°・個数 5。45° ずつ並びます。</figcaption></figure>
+</div>
+
+<h3 id="pattern-points">スケッチ駆動パターン</h3>
+<p>スケッチの点の位置に、シードを複製します。不規則な位置に同じ穴を開けるときに使います。</p>
+<ol class="steps">
+  <li><p>複製する位置に点を置いた、スケッチを描きます。</p></li>
+  <li><p><span class="path">リボンの<span class="ui">［3D モデル］</span>タブ → <span class="ui">［パターン］</span>パネル → <span class="ui">［スケッチ駆動パターン］</span></span>をクリックし、並べるフィーチャをクリックします。</p></li>
+  <li><p><span class="ui">［スケッチの点］</span>の欄をクリックし、ビューで点をクリックします。ブラウザでスケッチを選ぶと、そのスケッチの全部の点が入ります。</p></li>
+  <li><p><span class="ui">［基準点］</span>は省けます。省くと、シードの外接箱の中心を、点のスケッチの平面に投影した点（穴は穴の中心）を基準に、各点へ移します。</p></li>
+  <li><p><span class="ui">［OK］</span>で確定します。</p></li>
+</ol>
+<div class="figrow">
+  <figure id="fig-07_points_form"><a class="zoom" href="images/07_points_form.png"><img src="images/07_points_form.png" alt="スケッチ駆動パターンのフォーム。" width="360" height="364" loading="lazy"></a><figcaption><span class="figno">図 7-40</span> スケッチ駆動パターンのフォーム。</figcaption></figure>
+  <figure id="fig-07_points_view"><a class="zoom" href="images/07_points_view.png"><img src="images/07_points_view.png" alt="3 つの点に、穴（緑）が複製（赤）されたプレビュー。" width="460" height="329" loading="lazy"></a><figcaption><span class="figno">図 7-41</span> 3 つの点に、穴（緑）が複製（赤）されたプレビュー。</figcaption></figure>
+</div>
+<p>基準点と同じ位置の点には、複製を作りません（シード自身です）。点を足したり消したりしても、ほかの点のオカレンスはそのまま付いてきます。</p>
+
+<h3 id="pattern-occurrence">オカレンスの省略・個数にパラメータ</h3>
+<p>編集の間、ビューの各オカレンスの位置に、小さな点が出ます。作る点は青、省略した点は赤です。点をクリックすると、そのオカレンスを省略します。もう一度クリックすると、また作ります。省略した全部を一度に戻すには、<span class="ui">［オカレンスを復元］</span>を押します。省略したオカレンスが 1 つも無いときは、このボタンは灰色です。点をクリックして省略すると、すぐに押せるようになります。</p>
+<div class="figrow">
+  <figure id="fig-07_circ_skip"><a class="zoom" href="images/07_circ_skip.png"><img src="images/07_circ_skip.png" alt="点をクリックして、1 つのオカレンスを省略した円形状パターン。省略した位置に、赤い点だけが残ります。" width="460" height="329" loading="lazy"></a><figcaption><span class="figno">図 7-42</span> 点をクリックして、1 つのオカレンスを省略した円形状パターン。省略した位置に、赤い点だけが残ります。</figcaption></figure>
+  <figure id="fig-07_circ_skip_form"><a class="zoom" href="images/07_circ_skip_form.png"><img src="images/07_circ_skip_form.png" alt="［省略したオカレンス］の欄に、省略したオカレンスの番号（2.1）が入り、［オカレンスを復元］が押せるようになります。" width="360" height="511" loading="lazy"></a><figcaption><span class="figno">図 7-43</span> <span class="ui">［省略したオカレンス］</span>の欄に、省略したオカレンスの番号（<code>2.1</code>）が入り、<span class="ui">［オカレンスを復元］</span>が押せるようになります。</figcaption></figure>
+</div>
+<p>ブラウザに、オカレンスごとの行はありません。省略は、ビューの点と、この欄で行います。</p>
+<p><span class="ui">［個数］</span>の欄は、数のほかに、式とパラメータの名前（<code>n</code>・<code>n + 1</code>）も入力できます。名前を付けた整数のパラメータ（<a href="10_parameters.html">第 10 章</a>）を入れておくと、パラメータの表や構成（<a href="11_configurations.html">第 11 章</a>）で、個数を変えられます。個数は 1 から 5000 の整数です。</p>
+<figure id="fig-07_circ_more_form"><a class="zoom" href="images/07_circ_more_form.png"><img src="images/07_circ_more_form.png" alt="［詳細］を開いたフォーム。［作成方法］が出ます。" width="360" height="542" loading="lazy"></a><figcaption><span class="figno">図 7-44</span> <span class="ui">［詳細］</span>を開いたフォーム。<span class="ui">［作成方法］</span>が出ます。</figcaption></figure>
+<div class="table-wrap"><table>
+  <caption>パターンの失敗</caption>
+  <thead><tr><th>表示される文</th><th>原因と直し方</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">作成するオカレンスがありません（個数が 1 か、すべてのオカレンスが省略されています）</th><td><span class="ui">［個数］</span>を 2 以上にするか、省略したオカレンスを復元します。個数にパラメータを使っているときは、値が 1 になっていないか確かめます。</td></tr>
+    <tr><th scope="row">一部のオカレンスはボディに触れていません。結果は 2 個の別々のソリッドになります</th><td>警告です。間隔が大きく、オカレンスがボディから離れています。間隔を小さくします。</td></tr>
+    <tr><th scope="row">パターンでオカレンスが … 個できてしまいます（上限は 5000 個）</th><td>個数を減らします（2 方向のときは、個数 1 × 個数 2 が 5000 以下です）。</td></tr>
+    <tr><th scope="row">オカレンス … は作成できないため飛ばします: …</th><td>作成方法が<span class="ui">［調整］</span>のとき、一部のオカレンスで範囲を計算できませんでした。警告です。ほかのオカレンスも、そろえて省かれます。<span class="ui">［同一］</span>に戻すか、配置を変えます。</td></tr>
+    <tr><th scope="row">選んだフィーチャはどれもパターン化できません</th><td>フィレット・面取り・作業フィーチャなどを選んでいます。穴・押し出しなどのフィーチャを選びます。</td></tr>
+  </tbody>
+</table></div>
+<aside class="inventor" role="note"><p class="callout-title">Inventor との違い</p><p>作成方法は<span class="ui">［同一］</span>と<span class="ui">［調整］</span>の 2 つです（Inventor の「最適化」はありません）。面そのもののパターン、曲線に沿った並び、座標の表からのスケッチ駆動はありません。オカレンスのブラウザの行もありません。</p></aside>
+<aside class="try"><p class="callout-title">この機能を試す</p><p class="try-sample">題材: <code>samples/flange.mcad</code> <code>samples/parametric_plate.mcad</code> （<a href="00_intro.html#samples">題材の一覧と開き方</a>）</p>
+  <p><code>flange.mcad</code>で、ブラウザの<span class="ui">［円形状パターン1］</span>をダブルクリックします。<span class="ui">［個数］</span>を 8 にします。<span class="ui">［角度］</span>を 180° にして<span class="ui">［個数］</span>を 4 にします。<span class="ui">［配置方法］</span>を<span class="ui">［増分］</span>にして、角度 45°・個数 5 にします。ビューの青い点をクリックして、オカレンスを省略し、<span class="ui">［オカレンスを復元］</span>で戻します。<code>parametric_plate.mcad</code>では、<span class="ui">［矩形状パターン1］</span>の<span class="ui">［個数］</span>の欄が、パラメータ <code>n</code> を読んでいます。<span class="path">リボンの<span class="ui">［管理］</span>タブ → <span class="ui">［パラメータ］</span>パネル → <span class="ui">［パラメータ］</span></span>で、ユーザー パラメータ <code>n</code> を 6 にします。穴が 6 つになります。<code>n</code> を 1 にすると、長さの式が 0 で割れて誤りになります。</p>
+</aside>
+
+<h2 id="mirror"><span class="secno">7.7</span> ミラー</h2>
+<p>平面を対称面にして、フィーチャやソリッドを反対側へ複製します。左右対称の部品の半分だけを作って、ミラーで完成できます。</p>
+<ol class="steps">
+  <li><p><span class="path">リボンの<span class="ui">［3D モデル］</span>タブ → <span class="ui">［パターン］</span>パネル → <span class="ui">［ミラー］</span></span>をクリックします。</p></li>
+  <li><p><span class="ui">［パターンの種類］</span>を選びます。<span class="ui">［フィーチャを個別にミラー］</span>は、選んだフィーチャの形を反対側にも作ります。<span class="ui">［ソリッドをミラー］</span>は、ボディ全体を反対側へ複製します。</p></li>
+  <li><p><span class="ui">［フィーチャ］</span>（またはボディの<span class="ui">［ソリッド］</span>）を選びます。ソリッドをミラーするときに<span class="ui">［ソリッド］</span>を空のままにすると、ボディが 1 つなら、そのボディです。</p></li>
+  <li><p><span class="ui">［ミラー平面］</span>に、対称面にする面か作業平面を選びます。</p></li>
+  <li><p><span class="ui">［OK］</span>で確定します。</p></li>
+</ol>
+<div class="figrow">
+  <figure id="fig-07_mirror_form"><a class="zoom" href="images/07_mirror_form.png"><img src="images/07_mirror_form.png" alt="ソリッドをミラーするフォーム。" width="360" height="309" loading="lazy"></a><figcaption><span class="figno">図 7-45</span> ソリッドをミラーするフォーム。</figcaption></figure>
+  <figure id="fig-07_mirror_view"><a class="zoom" href="images/07_mirror_view.png"><img src="images/07_mirror_view.png" alt="L ブラケットの半分を、作業平面（［ミラーの平面］）で反対側へミラーしたプレビュー。" width="460" height="329" loading="lazy"></a><figcaption><span class="figno">図 7-46</span> L ブラケットの半分を、作業平面（<span class="ui doc">［ミラーの平面］</span>）で反対側へミラーしたプレビュー。</figcaption></figure>
+</div>
+<div class="table-wrap"><table>
+  <caption>ミラーの欄</caption>
+  <thead><tr><th>欄</th><th>意味</th></tr></thead>
+  <tbody>
+    <tr><th scope="row"><span class="ui">［ソリッド演算］</span></th><td><span class="ui">［結合］</span>は、元のボディに足して 1 つにします。<span class="ui">［新規ソリッド］</span>は、別のボディにします。</td></tr>
+    <tr><th scope="row"><span class="ui">［元のボディを削除］</span></th><td>ソリッドをミラーするとき、元のボディを消して、反対側の複製だけを残します。</td></tr>
+    <tr><th scope="row"><span class="ui">［作成方法］</span>（<span class="ui">［詳細］</span>の中）</th><td>パターンと同じです（<span class="ui">［同一］</span>・<span class="ui">［調整］</span>）。</td></tr>
+  </tbody>
+</table></div>
+<figure id="fig-07_mirror_feature_form"><a class="zoom" href="images/07_mirror_feature_form.png"><img src="images/07_mirror_feature_form.png" alt="フィーチャを個別にミラーするフォーム。［フィーチャ］に、ミラーするフィーチャを選びます。" width="360" height="286" loading="lazy"></a><figcaption><span class="figno">図 7-47</span> フィーチャを個別にミラーするフォーム。<span class="ui">［フィーチャ］</span>に、ミラーするフィーチャを選びます。</figcaption></figure>
+<aside class="note" role="note"><p class="callout-title">注意</p><p>ミラー平面から離れていて、ボディに触れないときは、警告「一部のオカレンスはボディに触れていません。結果は 2 個の別々のソリッドになります」が出ます。ミラー平面の位置を確かめます。</p></aside>
+<aside class="inventor" role="note"><p class="callout-title">Inventor との違い</p><p>面のミラーはありません。フィレット・面取りと作業フィーチャは、フィーチャのミラーの対象にできません。</p></aside>
+<aside class="try"><p class="callout-title">この機能を試す</p><p class="try-sample">題材: <code>samples/l_bracket.mcad</code> （<a href="00_intro.html#samples">題材の一覧と開き方</a>）</p>
+  <p>ブラウザの<span class="ui">［ミラー1］</span>をダブルクリックします。<span class="ui">［ソリッド演算］</span>を<span class="ui">［新規ソリッド］</span>にして確定すると、ボディが 2 つ（半分ずつ）になります。もう一度編集して<span class="ui">［元のボディを削除］</span>にチェックを入れると、反対側の半分だけが残ります（<span class="ui">［結合］</span>に戻してからチェックを外します）。作業平面<span class="ui doc">［ミラーの平面］</span>の<span class="ui">［オフセット］</span>を 25 から 30 にすると、警告が出て、結果が 2 個の別々のソリッドになります。</p>
+</aside>
+
+<h2 id="next"><span class="secno">7.8</span> 次に読む章</h2>
+<ul>
+  <li><p>押し出し・回転・穴・フィレットなどの基本のフィーチャ: <a href="06_features_basic.html">第 6 章 フィーチャ（押し出し・回転・穴・フィレットなど）</a></p></li>
+  <li><p>結合・分割・ボディの移動: <a href="08_bodies.html">第 8 章 ボディの操作</a></p></li>
+  <li><p>個数や寸法をパラメータで結ぶ: <a href="10_parameters.html">第 10 章 パラメータと式</a></p></li>
+</ul>
+
+</article>
+<nav class="pager" aria-label="前後の章"><a class="prev" rel="prev" href="06_features_basic.html"><span class="dir">前の章</span>第 6 章 フィーチャ（押し出し・回転・穴・フィレットなど）</a><a class="next" rel="next" href="08_bodies.html"><span class="dir">次の章</span>第 8 章 ボディの操作</a></nav>
+<footer class="footer"><p>EMRM-Studio ユーザーマニュアル（日本語）・EMRM-Studio 0.1.0 ・ <a href="#main">このページの先頭へ</a></p></footer>
+</main>
+</div>
+</body>
+</html>

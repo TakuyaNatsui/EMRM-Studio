@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="generator" content="tools/build_manual.py">
+<title>付録 B ショートカット一覧 - EMRM-Studio ユーザーマニュアル</title>
+<link rel="stylesheet" href="assets/manual.css">
+<script src="assets/search_index.js" charset="utf-8" defer></script>
+<script src="assets/manual.js" charset="utf-8" defer></script>
+</head>
+<body class="page">
+<header class="topbar">
+<a class="brand" href="index.html">EMRM-Studio ユーザーマニュアル</a>
+<button class="toc-toggle" type="button" aria-controls="toc" aria-expanded="false">目次</button>
+<form class="search" role="search" action="#" onsubmit="return false">
+<input id="q" type="search" placeholder="マニュアルを検索（/）" aria-label="マニュアルを検索" autocomplete="off">
+</form>
+</header>
+<div id="search-results" class="search-results" hidden></div>
+<div class="layout">
+<nav id="toc" class="toc" aria-label="目次">
+<details class="toc-box">
+<summary>目次</summary>
+<ol class="toc-chapters">
+<li class="toc-home"><a href="index.html">表紙・目次</a></li>
+<li><a href="00_intro.html">はじめに</a></li>
+<li class="toc-part" role="presentation">第 I 部　形状を作る（CAD）</li>
+<li><a href="01_screen.html"><span class="chno">第 1 章</span> 画面の構成</a></li>
+<li><a href="02_view.html"><span class="chno">第 2 章</span> 視点の操作</a></li>
+<li><a href="03_first_part.html"><span class="chno">第 3 章</span> はじめての部品</a></li>
+<li><a href="04_sketch.html"><span class="chno">第 4 章</span> スケッチ</a></li>
+<li><a href="05_work_features.html"><span class="chno">第 5 章</span> 作業フィーチャ</a></li>
+<li><a href="06_features_basic.html"><span class="chno">第 6 章</span> フィーチャ（押し出し・回転・穴・フィレットなど）</a></li>
+<li><a href="07_features_advanced.html"><span class="chno">第 7 章</span> フィーチャ（スイープ・ロフト・コイル・パターンなど）</a></li>
+<li><a href="08_bodies.html"><span class="chno">第 8 章</span> ボディの操作</a></li>
+<li><a href="09_browser.html"><span class="chno">第 9 章</span> ブラウザとフィーチャの管理</a></li>
+<li><a href="10_parameters.html"><span class="chno">第 10 章</span> パラメータと式</a></li>
+<li><a href="11_configurations.html"><span class="chno">第 11 章</span> 構成</a></li>
+<li><a href="12_inspect.html"><span class="chno">第 12 章</span> 検査</a></li>
+<li><a href="13_files.html"><span class="chno">第 13 章</span> ファイル</a></li>
+<li class="toc-part" role="presentation">第 II 部　電磁場解析</li>
+<li><a href="14_em_intro.html"><span class="chno">第 14 章</span> 電磁場解析のはじめに</a></li>
+<li><a href="15_em_first.html"><span class="chno">第 15 章</span> はじめての電磁場解析（ソレノイド）</a></li>
+<li><a href="16_em_setup.html"><span class="chno">第 16 章</span> スタディの共通の設定</a></li>
+<li><a href="17_em_results.html"><span class="chno">第 17 章</span> 結果の見方</a></li>
+<li><a href="18_em_magnetostatic.html"><span class="chno">第 18 章</span> 静磁場解析</a></li>
+<li><a href="19_em_coils.html"><span class="chno">第 19 章</span> 静磁場解析: コイル</a></li>
+<li><a href="20_em_dipole.html"><span class="chno">第 20 章</span> 静磁場解析の例題: H 型双極電磁石</a></li>
+<li><a href="21_em_eigenmode.html"><span class="chno">第 21 章</span> 共振モード解析</a></li>
+<li><a href="22_em_driven.html"><span class="chno">第 22 章</span> ポート解析</a></li>
+<li><a href="23_em_electrostatic.html"><span class="chno">第 23 章</span> 静電場解析</a></li>
+<li><a href="24_em_gun.html"><span class="chno">第 24 章</span> 電子銃解析</a></li>
+<li><a href="25_em_troubleshooting.html"><span class="chno">第 25 章</span> 電磁場解析で困ったとき</a></li>
+<li class="toc-part" role="presentation">第 III 部　連携・カスタマイズ・自動化</li>
+<li><a href="26_step_export.html"><span class="chno">第 26 章</span> 他の解析プログラムに形を渡す</a></li>
+<li><a href="27_customize.html"><span class="chno">第 27 章</span> カスタマイズ</a></li>
+<li><a href="28_automation.html"><span class="chno">第 28 章</span> 自動化</a></li>
+<li><a href="29_troubleshooting.html"><span class="chno">第 29 章</span> 困ったとき</a></li>
+<li class="toc-part" role="presentation">付録</li>
+<li class="appendix"><a href="appendix_a_commands.html"><span class="chno">付録 A</span> コマンド一覧</a></li>
+<li class="current appendix"><a href="appendix_b_shortcuts.html" aria-current="page"><span class="chno">付録 B</span> ショートカット一覧</a><ol class="toc-sections"><li><a href="appendix_b_shortcuts.html#keys"><span class="secno">B.1</span> キーボードショートカット</a></li><li><a href="appendix_b_shortcuts.html#mouse"><span class="secno">B.2</span> マウス操作のプリセット</a></li></ol></li>
+<li class="appendix"><a href="appendix_c_feature_params.html"><span class="chno">付録 C</span> フィーチャのパラメータ一覧</a></li>
+<li class="appendix"><a href="appendix_d_glossary.html"><span class="chno">付録 D</span> 用語の対応表</a></li>
+</ol>
+</details>
+</nav>
+<main class="content" id="main">
+<article class="chapter appendix">
+<p class="chapter-label">付録 B</p>
+<h1>ショートカット一覧</h1>
+<nav class="pagetoc" aria-label="この章の内容">
+<p class="pagetoc-title">この章の内容</p>
+<ol>
+<li><a href="#keys"><span class="secno">B.1</span> キーボードショートカット</a></li>
+<li class="sub"><a href="#keys-global">どこでも</a></li>
+<li class="sub"><a href="#keys-viewport">ビューの上</a></li>
+<li class="sub"><a href="#keys-sketch">スケッチの中</a></li>
+<li class="sub"><a href="#keys-tree">ブラウザの上</a></li>
+<li class="sub"><a href="#keys-tools">ツールを使っている間のキー</a></li>
+<li><a href="#mouse"><span class="secno">B.2</span> マウス操作のプリセット</a></li>
+<li class="sub"><a href="#mouse-solidworks">SOLIDWORKS 風</a></li>
+<li class="sub"><a href="#mouse-inventor">Inventor 風（既定）</a></li>
+<li class="sub"><a href="#mouse-fusion">Fusion 風</a></li>
+<li class="sub"><a href="#mouse-creo">Creo 風</a></li>
+<li class="sub"><a href="#mouse-nx">NX 風</a></li>
+<li class="sub"><a href="#mouse-solid_edge">Solid Edge 風</a></li>
+<li class="sub"><a href="#mouse-catia">CATIA 風</a></li>
+<li class="sub"><a href="#mouse-onshape">Onshape 風</a></li>
+<li class="sub"><a href="#mouse-freecad_cad">FreeCAD（CAD スタイル）</a></li>
+<li class="sub"><a href="#mouse-freecad_gesture">FreeCAD（Gesture スタイル）</a></li>
+<li class="sub"><a href="#mouse-blender">Blender 風</a></li>
+<li class="sub"><a href="#mouse-rhino">Rhino 風</a></li>
+<li class="sub"><a href="#mouse-sketchup">SketchUp 風</a></li>
+<li class="sub"><a href="#mouse-tinkercad">Tinkercad 風</a></li>
+<li class="sub"><a href="#mouse-maya">Maya・Alias 風（Alt＋ボタン）</a></li>
+<li class="sub"><a href="#mouse-touchpad">タッチパッド・ノート PC</a></li>
+</ol>
+</nav>
+<p>既定のキーの一覧です。コマンドの定義から自動で作ります。マウス操作のプリセットを替えるとキーも替わります（ここでは既定の<strong>Inventor 風</strong>のキーを載せます）。キーは第 17 章の方法で変えられます。</p>
+<h2 id="keys"><span class="secno">B.1</span> キーボードショートカット</h2>
+<h3 id="keys-global">どこでも</h3>
+<div class="table-wrap"><table class="keys">
+<thead><tr><th>キー</th><th>コマンド</th><th>リボンの場所</th></tr></thead>
+<tbody>
+<tr><td><kbd>Ctrl</kbd>+<kbd>F1</kbd></td><th scope="row"><a href="appendix_a_commands.html#cmd-view-ribbon-toggle">リボンを最小化</a></th><td>表示 → ウィンドウ</td></tr>
+<tr><td><kbd>F11</kbd></td><th scope="row"><a href="appendix_a_commands.html#cmd-window-fullscreen">全画面表示</a></th><td>表示 → ウィンドウ</td></tr>
+<tr><td><kbd>Ctrl</kbd>+<kbd>Tab</kbd></td><th scope="row"><a href="appendix_a_commands.html#cmd-window-next_document">次のドキュメント</a></th><td>表示 → ウィンドウ</td></tr>
+<tr><td><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Tab</kbd></td><th scope="row"><a href="appendix_a_commands.html#cmd-window-previous_document">前のドキュメント</a></th><td>表示 → ウィンドウ</td></tr>
+<tr><td><kbd>Alt</kbd>+<kbd>F11</kbd></td><th scope="row"><a href="appendix_a_commands.html#cmd-app-console">Python コンソール</a></th><td>ツール → マクロ</td></tr>
+<tr><td><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd></td><th scope="row"><a href="appendix_a_commands.html#cmd-app-command_palette">コマンド検索</a></th><td></td></tr>
+<tr><td><kbd>F1</kbd></td><th scope="row"><a href="appendix_a_commands.html#cmd-app-help">ヘルプ</a></th><td></td></tr>
+<tr><td><kbd>Ctrl</kbd>+<kbd>Q</kbd></td><th scope="row"><a href="appendix_a_commands.html#cmd-app-quit">終了</a></th><td></td></tr>
+<tr><td><kbd>Ctrl</kbd>+<kbd>Y</kbd></td><th scope="row"><a href="appendix_a_commands.html#cmd-edit-redo">やり直し</a></th><td></td></tr>
+<tr><td><kbd>Ctrl</kbd>+<kbd>Z</kbd></td><th scope="row"><a href="appendix_a_commands.html#cmd-edit-undo">元に戻す</a></th><td></td></tr>
+<tr><td><kbd>Ctrl</kbd>+<kbd>W</kbd></td><th scope="row"><a href="appendix_a_commands.html#cmd-file-close">閉じる</a></th><td></td></tr>
+<tr><td><kbd>Ctrl</kbd>+<kbd>N</kbd></td><th scope="row"><a href="appendix_a_commands.html#cmd-file-new">新規</a></th><td></td></tr>
+<tr><td><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>N</kbd></td><th scope="row"><a href="appendix_a_commands.html#cmd-file-new_from_template">テンプレートから新規作成</a></th><td></td></tr>
+<tr><td><kbd>Ctrl</kbd>+<kbd>O</kbd></td><th scope="row"><a href="appendix_a_commands.html#cmd-file-open">開く</a></th><td></td></tr>
+<tr><td><kbd>Ctrl</kbd>+<kbd>S</kbd></td><th scope="row"><a href="appendix_a_commands.html#cmd-file-save">保存</a></th><td></td></tr>
+<tr><td><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>S</kbd></td><th scope="row"><a href="appendix_a_commands.html#cmd-file-save_as">名前を付けて保存</a></th><td></td></tr>
+</tbody>
+</table></div>
+<h3 id="keys-viewport">ビューの上</h3>
+<div class="table-wrap"><table class="keys">
+<thead><tr><th>キー</th><th>コマンド</th><th>リボンの場所</th></tr></thead>
+<tbody>
+<tr><td><kbd>S</kbd></td><th scope="row"><a href="appendix_a_commands.html#cmd-sketch-new">スケッチ</a></th><td>3D モデル → スケッチ</td></tr>
+<tr><td><kbd>E</kbd></td><th scope="row"><a href="appendix_a_commands.html#cmd-feature-create-part-extrude">押し出し</a></th><td>3D モデル → 作成</td></tr>
+<tr><td><kbd>R</kbd></td><th scope="row"><a href="appendix_a_commands.html#cmd-feature-create-part-revolve">回転</a></th><td>3D モデル → 作成</td></tr>
+<tr><td><kbd>H</kbd></td><th scope="row"><a href="appendix_a_commands.html#cmd-feature-create-part-hole">穴</a></th><td>3D モデル → 修正</td></tr>
+<tr><td><kbd>F</kbd></td><th scope="row"><a href="appendix_a_commands.html#cmd-feature-create-part-fillet">フィレット</a></th><td>3D モデル → 修正</td></tr>
+<tr><td><kbd>C</kbd></td><th scope="row"><a href="appendix_a_commands.html#cmd-feature-create-part-chamfer">面取り</a></th><td>3D モデル → 修正</td></tr>
+<tr><td><kbd>D</kbd></td><th scope="row"><a href="appendix_a_commands.html#cmd-feature-create-part-draft">勾配</a></th><td>3D モデル → 修正</td></tr>
+<tr><td><kbd>]</kbd></td><th scope="row"><a href="appendix_a_commands.html#cmd-feature-create-part-datum_plane">平面</a></th><td>3D モデル → 作業フィーチャ → 作業平面</td></tr>
+<tr><td><kbd>/</kbd></td><th scope="row"><a href="appendix_a_commands.html#cmd-feature-create-part-datum_axis">軸</a></th><td>3D モデル → 作業フィーチャ → 作業軸</td></tr>
+<tr><td><kbd>.</kbd></td><th scope="row"><a href="appendix_a_commands.html#cmd-feature-create-part-datum_point">点</a></th><td>3D モデル → 作業フィーチャ → 作業点</td></tr>
+<tr><td><kbd>Home</kbd></td><th scope="row"><a href="appendix_a_commands.html#cmd-view-fit_all">全体表示</a></th><td>表示 → ナビゲート</td></tr>
+<tr><td><kbd>Ctrl</kbd>+<kbd>1</kbd></td><th scope="row"><a href="appendix_a_commands.html#cmd-view-std-front">正面</a></th><td>表示 → ナビゲート → 標準ビュー</td></tr>
+<tr><td><kbd>Ctrl</kbd>+<kbd>2</kbd></td><th scope="row"><a href="appendix_a_commands.html#cmd-view-std-back">背面</a></th><td>表示 → ナビゲート → 標準ビュー</td></tr>
+<tr><td><kbd>Ctrl</kbd>+<kbd>3</kbd></td><th scope="row"><a href="appendix_a_commands.html#cmd-view-std-left">左</a></th><td>表示 → ナビゲート → 標準ビュー</td></tr>
+<tr><td><kbd>Ctrl</kbd>+<kbd>4</kbd></td><th scope="row"><a href="appendix_a_commands.html#cmd-view-std-right">右</a></th><td>表示 → ナビゲート → 標準ビュー</td></tr>
+<tr><td><kbd>Ctrl</kbd>+<kbd>5</kbd></td><th scope="row"><a href="appendix_a_commands.html#cmd-view-std-top">上</a></th><td>表示 → ナビゲート → 標準ビュー</td></tr>
+<tr><td><kbd>Ctrl</kbd>+<kbd>6</kbd></td><th scope="row"><a href="appendix_a_commands.html#cmd-view-std-bottom">下</a></th><td>表示 → ナビゲート → 標準ビュー</td></tr>
+<tr><td><kbd>Ctrl</kbd>+<kbd>7</kbd></td><th scope="row"><a href="appendix_a_commands.html#cmd-view-std-iso">アイソメ ビュー</a></th><td>表示 → ナビゲート → 標準ビュー</td></tr>
+<tr><td><kbd>Ctrl</kbd>+<kbd>8</kbd></td><th scope="row"><a href="appendix_a_commands.html#cmd-view-normal_to">ビュー面</a></th><td>表示 → ナビゲート</td></tr>
+<tr><td><kbd>F6</kbd></td><th scope="row"><a href="appendix_a_commands.html#cmd-view-home">ホーム ビュー</a></th><td>表示 → ナビゲート</td></tr>
+<tr><td><kbd>F5</kbd></td><th scope="row"><a href="appendix_a_commands.html#cmd-view-previous">前のビューを表示</a></th><td>表示 → ナビゲート</td></tr>
+<tr><td><kbd>Shift</kbd>+<kbd>F5</kbd></td><th scope="row"><a href="appendix_a_commands.html#cmd-view-next">次のビューを表示</a></th><td>表示 → ナビゲート</td></tr>
+<tr><td><kbd>Shift</kbd>+<kbd>F3</kbd></td><th scope="row"><a href="appendix_a_commands.html#cmd-view-zoom_window">窓ズーム</a></th><td>表示 → ナビゲート → ズーム</td></tr>
+<tr><td><kbd>Left</kbd></td><th scope="row"><a href="appendix_a_commands.html#cmd-view-rotate-left">左へオービット</a></th><td>表示 → ナビゲート</td></tr>
+<tr><td><kbd>Right</kbd></td><th scope="row"><a href="appendix_a_commands.html#cmd-view-rotate-right">右へオービット</a></th><td>表示 → ナビゲート</td></tr>
+<tr><td><kbd>Up</kbd></td><th scope="row"><a href="appendix_a_commands.html#cmd-view-rotate-up">上へオービット</a></th><td>表示 → ナビゲート</td></tr>
+<tr><td><kbd>Down</kbd></td><th scope="row"><a href="appendix_a_commands.html#cmd-view-rotate-down">下へオービット</a></th><td>表示 → ナビゲート</td></tr>
+<tr><td><kbd>Alt</kbd>+<kbd>Left</kbd></td><th scope="row"><a href="appendix_a_commands.html#cmd-view-rotate-ccw">ビューを反時計回りに回転</a></th><td>表示 → ナビゲート</td></tr>
+<tr><td><kbd>Alt</kbd>+<kbd>Right</kbd></td><th scope="row"><a href="appendix_a_commands.html#cmd-view-rotate-cw">ビューを時計回りに回転</a></th><td>表示 → ナビゲート</td></tr>
+<tr><td><kbd>Shift</kbd>+<kbd>Down</kbd></td><th scope="row"><a href="appendix_a_commands.html#cmd-view-rotate-down-big">下へオービット</a></th><td></td></tr>
+<tr><td><kbd>Ctrl</kbd>+<kbd>Down</kbd></td><th scope="row"><a href="appendix_a_commands.html#cmd-view-rotate-down-fine">下へオービット</a></th><td></td></tr>
+<tr><td><kbd>Shift</kbd>+<kbd>Left</kbd></td><th scope="row"><a href="appendix_a_commands.html#cmd-view-rotate-left-big">左へオービット</a></th><td></td></tr>
+<tr><td><kbd>Ctrl</kbd>+<kbd>Left</kbd></td><th scope="row"><a href="appendix_a_commands.html#cmd-view-rotate-left-fine">左へオービット</a></th><td></td></tr>
+<tr><td><kbd>Shift</kbd>+<kbd>Right</kbd></td><th scope="row"><a href="appendix_a_commands.html#cmd-view-rotate-right-big">右へオービット</a></th><td></td></tr>
+<tr><td><kbd>Ctrl</kbd>+<kbd>Right</kbd></td><th scope="row"><a href="appendix_a_commands.html#cmd-view-rotate-right-fine">右へオービット</a></th><td></td></tr>
+<tr><td><kbd>Shift</kbd>+<kbd>Up</kbd></td><th scope="row"><a href="appendix_a_commands.html#cmd-view-rotate-up-big">上へオービット</a></th><td></td></tr>
+<tr><td><kbd>Ctrl</kbd>+<kbd>Up</kbd></td><th scope="row"><a href="appendix_a_commands.html#cmd-view-rotate-up-fine">上へオービット</a></th><td></td></tr>
+</tbody>
+</table></div>
+<h3 id="keys-sketch">スケッチの中</h3>
+<div class="table-wrap"><table class="keys">
+<thead><tr><th>キー</th><th>コマンド</th><th>リボンの場所</th></tr></thead>
+<tbody>
+<tr><td><kbd>L</kbd></td><th scope="row"><a href="appendix_a_commands.html#cmd-sketch-tool-line">線</a></th><td>スケッチ → 作成</td></tr>
+<tr><td><kbd>C</kbd></td><th scope="row"><a href="appendix_a_commands.html#cmd-sketch-tool-circle">中心点円</a></th><td>スケッチ → 作成 → 円</td></tr>
+<tr><td><kbd>T</kbd></td><th scope="row"><a href="appendix_a_commands.html#cmd-sketch-tool-text">テキスト</a></th><td>スケッチ → 作成</td></tr>
+<tr><td><kbd>P</kbd></td><th scope="row"><a href="appendix_a_commands.html#cmd-sketch-tool-project">ジオメトリを投影</a></th><td>スケッチ → 作成 → 投影</td></tr>
+<tr><td><kbd>Ctrl</kbd>+<kbd>C</kbd></td><th scope="row"><a href="appendix_a_commands.html#cmd-sketch-copy">コピー</a></th><td>スケッチ → 修正</td></tr>
+<tr><td><kbd>Ctrl</kbd>+<kbd>X</kbd></td><th scope="row"><a href="appendix_a_commands.html#cmd-sketch-cut">切り取り</a></th><td>スケッチ → 修正</td></tr>
+<tr><td><kbd>Ctrl</kbd>+<kbd>V</kbd></td><th scope="row"><a href="appendix_a_commands.html#cmd-sketch-paste">貼り付け</a></th><td>スケッチ → 修正</td></tr>
+<tr><td><kbd>D</kbd></td><th scope="row"><a href="appendix_a_commands.html#cmd-sketch-tool-dimension">寸法</a></th><td>スケッチ → 拘束</td></tr>
+<tr><td><kbd>F7</kbd></td><th scope="row"><a href="appendix_a_commands.html#cmd-sketch-slice_graphics">スライス表示</a></th><td>スケッチ → 形式</td></tr>
+</tbody>
+</table></div>
+<h3 id="keys-tree">ブラウザの上</h3>
+<div class="table-wrap"><table class="keys">
+<thead><tr><th>キー</th><th>コマンド</th><th>リボンの場所</th></tr></thead>
+<tbody>
+<tr><td><kbd>Del</kbd></td><th scope="row"><a href="appendix_a_commands.html#cmd-edit-delete">削除</a></th><td>3D モデル → 修正</td></tr>
+<tr><td><kbd>F2</kbd></td><th scope="row"><a href="appendix_a_commands.html#cmd-edit-rename">名前の変更</a></th><td>3D モデル → 修正</td></tr>
+</tbody>
+</table></div>
+<h3 id="keys-tools">ツールを使っている間のキー</h3>
+<div class="table-wrap"><table class="keys">
+<thead><tr><th>キー</th><th>動作</th></tr></thead>
+<tbody>
+<tr><td><kbd>Enter</kbd> / <kbd>Ctrl</kbd>+<kbd>Enter</kbd></td><td>ツールを確定する（［OK］と同じ）</td></tr>
+<tr><td><kbd>Esc</kbd></td><td>ツール・入力を取り消す。何もしていなければ選択を解除する</td></tr>
+<tr><td><kbd>Tab</kbd></td><td>ビューの数値入力（HUD）で次の欄へ進む</td></tr>
+<tr><td>数字キー</td><td>ビューの数値入力（HUD）の最初の欄に入力する</td></tr>
+</tbody>
+</table></div>
+<h2 id="mouse"><span class="secno">B.2</span> マウス操作のプリセット</h2>
+<p>画面の移動・回転・ズームのマウス操作は、普段使っている CAD に合わせて 16 種類から選べます（第 2 章・第 17 章）。どのプリセットでも、左クリックは選択、右クリックはコンテキスト メニュー、ナビゲーション中の <kbd>Esc</kbd> は取り消しです。</p>
+<h3 id="mouse-solidworks">SOLIDWORKS 風</h3>
+<p>中ドラッグでオービット、Ctrl＋中で画面移動、Shift＋中でズーム、ホイールはカーソル位置ズーム（前に回すと縮小）。mcad の既定（ADR-001）。</p>
+<div class="table-wrap"><table class="keys">
+<thead><tr><th>操作</th><th>動作</th></tr></thead>
+<tbody>
+<tr><td>左クリック</td><td>選択</td></tr>
+<tr><td>左ドラッグ</td><td>範囲選択</td></tr>
+<tr><td>右クリック</td><td>コンテキストメニュー</td></tr>
+<tr><td>中ドラッグ</td><td>オービット</td></tr>
+<tr><td>Ctrl+中ドラッグ</td><td>画面移動</td></tr>
+<tr><td>Shift+中ドラッグ</td><td>ズーム</td></tr>
+<tr><td>Alt+中ドラッグ</td><td>ロール</td></tr>
+<tr><td>中クリック (要素の上)</td><td>オービットの中心を設定</td></tr>
+<tr><td>中クリック (空白)</td><td>オービットの中心を設定</td></tr>
+<tr><td>中ダブルクリック</td><td>全体表示</td></tr>
+<tr><td>右ドラッグ</td><td>マーキングメニュー</td></tr>
+<tr><td>ホイール</td><td>ズーム（前に回すとズームアウト）</td></tr>
+</tbody>
+</table></div>
+<p>このプリセットで変わるキー: 全体表示 = <kbd>F</kbd>、ビュー面 = <kbd>Ctrl</kbd>+<kbd>8</kbd></p>
+<h3 id="mouse-inventor">Inventor 風（既定）</h3>
+<p>中ドラッグで画面移動、Shift＋中でオービット、ホイールでズーム（前に回すと縮小）。F2・F3・F4 を押したまま左ドラッグで画面移動・ズーム・オービット。</p>
+<div class="table-wrap"><table class="keys">
+<thead><tr><th>操作</th><th>動作</th></tr></thead>
+<tbody>
+<tr><td>左クリック</td><td>選択</td></tr>
+<tr><td>左ドラッグ</td><td>範囲選択</td></tr>
+<tr><td>右クリック</td><td>コンテキストメニュー</td></tr>
+<tr><td>中ドラッグ</td><td>画面移動</td></tr>
+<tr><td>Shift+中ドラッグ</td><td>オービット</td></tr>
+<tr><td>中ダブルクリック</td><td>全体表示</td></tr>
+<tr><td>F4+左ドラッグ</td><td>オービット</td></tr>
+<tr><td>F2+左ドラッグ</td><td>画面移動</td></tr>
+<tr><td>F3+左ドラッグ</td><td>ズーム</td></tr>
+<tr><td>ホイール</td><td>ズーム（前に回すとズームアウト）</td></tr>
+</tbody>
+</table></div>
+<p>このプリセットで変わるキー: 全体表示 = <kbd>Home</kbd>、前のビューを表示 = <kbd>F5</kbd>、ホーム ビュー = <kbd>F6</kbd>、フィレット = <kbd>F</kbd>、勾配 = <kbd>D</kbd>、平面 = <kbd>]</kbd>、軸 = <kbd>/</kbd>、点 = <kbd>.</kbd>、中心点円 = <kbd>C</kbd>、テキスト = <kbd>T</kbd></p>
+<h3 id="mouse-fusion">Fusion 風</h3>
+<p>Fusion の既定プリセット: 中ドラッグで画面移動、Shift＋中でオービット、ホイールまたは Ctrl＋Shift＋中でズーム、中ダブルクリックで全体表示。</p>
+<div class="table-wrap"><table class="keys">
+<thead><tr><th>操作</th><th>動作</th></tr></thead>
+<tbody>
+<tr><td>左クリック</td><td>選択</td></tr>
+<tr><td>左ドラッグ</td><td>範囲選択</td></tr>
+<tr><td>右クリック</td><td>コンテキストメニュー</td></tr>
+<tr><td>中ドラッグ</td><td>画面移動</td></tr>
+<tr><td>Shift+中ドラッグ</td><td>オービット</td></tr>
+<tr><td>Ctrl+Shift+中ドラッグ</td><td>ズーム</td></tr>
+<tr><td>中ダブルクリック</td><td>全体表示</td></tr>
+<tr><td>ホイール</td><td>ズーム（前に回すとズームイン）</td></tr>
+</tbody>
+</table></div>
+<p>このプリセットで変わるキー: 全体表示 = <kbd>F6</kbd></p>
+<h3 id="mouse-creo">Creo 風</h3>
+<p>中ドラッグでオービット（Spin）、Shift＋中で画面移動、Ctrl＋中の縦でズーム・横でロール（Turn）、ホイールはポインタ位置ズーム（Shift で細かく、Ctrl で粗く）。</p>
+<div class="table-wrap"><table class="keys">
+<thead><tr><th>操作</th><th>動作</th></tr></thead>
+<tbody>
+<tr><td>左クリック</td><td>選択</td></tr>
+<tr><td>左ドラッグ</td><td>範囲選択</td></tr>
+<tr><td>右クリック</td><td>コンテキストメニュー</td></tr>
+<tr><td>中ドラッグ</td><td>オービット</td></tr>
+<tr><td>Shift+中ドラッグ</td><td>画面移動</td></tr>
+<tr><td>Ctrl+中ドラッグ (縦)</td><td>ズーム</td></tr>
+<tr><td>Ctrl+中ドラッグ (横)</td><td>ロール</td></tr>
+<tr><td>ホイール</td><td>ズーム（前に回すとズームイン）</td></tr>
+<tr><td>Shift+ホイール</td><td>ズーム（前に回すとズームイン）</td></tr>
+<tr><td>Ctrl+ホイール</td><td>ズーム（前に回すとズームイン）</td></tr>
+</tbody>
+</table></div>
+<p>このプリセットで変わるキー: アイソメ ビュー = <kbd>Ctrl</kbd>+<kbd>D</kbd></p>
+<h3 id="mouse-nx">NX 風</h3>
+<p>中ドラッグでカーソル下の点のまわりにオービット、Shift＋中または中＋右で画面移動、Ctrl＋中または中＋左でズーム、ホイールは前に回すと拡大（NX 10 以降）。</p>
+<div class="table-wrap"><table class="keys">
+<thead><tr><th>操作</th><th>動作</th></tr></thead>
+<tbody>
+<tr><td>左クリック</td><td>選択</td></tr>
+<tr><td>左ドラッグ</td><td>範囲選択</td></tr>
+<tr><td>右クリック</td><td>コンテキストメニュー</td></tr>
+<tr><td>中ドラッグ</td><td>オービット</td></tr>
+<tr><td>Shift+中ドラッグ</td><td>画面移動</td></tr>
+<tr><td>中→右ドラッグ</td><td>画面移動</td></tr>
+<tr><td>Ctrl+中ドラッグ</td><td>ズーム</td></tr>
+<tr><td>中→左ドラッグ</td><td>ズーム</td></tr>
+<tr><td>ホイール</td><td>ズーム（前に回すとズームイン）</td></tr>
+</tbody>
+</table></div>
+<p>このプリセットで変わるキー: 全体表示 = <kbd>Ctrl</kbd>+<kbd>F</kbd>、アイソメ ビュー = <kbd>Home</kbd>、ビュー面 = <kbd>F8</kbd></p>
+<h3 id="mouse-solid_edge">Solid Edge 風</h3>
+<p>中ドラッグでオービット（モデル範囲の中心、または中クリックした頂点・エッジのまわり）、Shift＋中で画面移動、Ctrl＋中で滑らかにズーム、Alt＋中で領域ズーム、中ダブルクリックで全体表示。</p>
+<div class="table-wrap"><table class="keys">
+<thead><tr><th>操作</th><th>動作</th></tr></thead>
+<tbody>
+<tr><td>左クリック</td><td>選択</td></tr>
+<tr><td>左ドラッグ</td><td>範囲選択</td></tr>
+<tr><td>右クリック</td><td>コンテキストメニュー</td></tr>
+<tr><td>中ドラッグ</td><td>オービット</td></tr>
+<tr><td>Shift+中ドラッグ</td><td>画面移動</td></tr>
+<tr><td>Ctrl+中ドラッグ</td><td>ズーム</td></tr>
+<tr><td>Alt+中ドラッグ</td><td>窓ズーム</td></tr>
+<tr><td>中クリック (要素の上)</td><td>オービットの中心を設定</td></tr>
+<tr><td>中クリック (空白)</td><td>オービットの中心を設定</td></tr>
+<tr><td>中ダブルクリック</td><td>全体表示</td></tr>
+<tr><td>ホイール</td><td>ズーム（前に回すとズームイン）</td></tr>
+<tr><td>Ctrl+ホイール</td><td>ズーム（前に回すとズームイン）</td></tr>
+</tbody>
+</table></div>
+<p>このプリセットで変わるキー: 全体表示 = <kbd>Ctrl</kbd>+<kbd>F</kbd></p>
+<h3 id="mouse-catia">CATIA 風</h3>
+<p>中ドラッグで画面移動、中を押したまま左（または右）も押し続けてオービット、中を押したまま左（または右）を 1 回押して離しドラッグでズーム、Ctrl＋中でズーム、中クリックでその点を画面中心に。</p>
+<div class="table-wrap"><table class="keys">
+<thead><tr><th>操作</th><th>動作</th></tr></thead>
+<tbody>
+<tr><td>左クリック</td><td>選択</td></tr>
+<tr><td>左ドラッグ</td><td>範囲選択</td></tr>
+<tr><td>右クリック</td><td>コンテキストメニュー</td></tr>
+<tr><td>中ドラッグ</td><td>画面移動</td></tr>
+<tr><td>中→左ドラッグ</td><td>オービット</td></tr>
+<tr><td>中→右ドラッグ</td><td>オービット</td></tr>
+<tr><td>中+左タップドラッグ</td><td>ズーム</td></tr>
+<tr><td>中+右タップドラッグ</td><td>ズーム</td></tr>
+<tr><td>Ctrl+中ドラッグ</td><td>ズーム</td></tr>
+<tr><td>中クリック</td><td>点を中心に</td></tr>
+<tr><td>ホイール</td><td>ズーム（前に回すとズームイン）</td></tr>
+</tbody>
+</table></div>
+<h3 id="mouse-onshape">Onshape 風</h3>
+<p>右ドラッグでオービット（Alt で拘束オービット）、中ドラッグまたは Ctrl＋右ドラッグで画面移動、ホイールを上へ回すとカーソルへ向かって拡大。右クリックはコンテキストメニュー。</p>
+<div class="table-wrap"><table class="keys">
+<thead><tr><th>操作</th><th>動作</th></tr></thead>
+<tbody>
+<tr><td>左クリック</td><td>選択</td></tr>
+<tr><td>左ドラッグ</td><td>範囲選択</td></tr>
+<tr><td>右クリック</td><td>コンテキストメニュー</td></tr>
+<tr><td>右ドラッグ</td><td>オービット</td></tr>
+<tr><td>Alt+右ドラッグ</td><td>オービット</td></tr>
+<tr><td>中ドラッグ</td><td>画面移動</td></tr>
+<tr><td>Ctrl+右ドラッグ</td><td>画面移動</td></tr>
+<tr><td>ホイール</td><td>ズーム（前に回すとズームイン）</td></tr>
+<tr><td>タッチパッドスクロール</td><td>ズーム</td></tr>
+<tr><td>タッチパッドピンチ</td><td>ズーム</td></tr>
+<tr><td>Ctrl+ホイール</td><td>ズーム（前に回すとズームイン）</td></tr>
+</tbody>
+</table></div>
+<p>このプリセットで変わるキー: 全体表示 = <kbd>F</kbd>、ビュー面 = <kbd>N</kbd>、正面 = <kbd>Shift</kbd>+<kbd>1</kbd>、アイソメ ビュー = <kbd>Shift</kbd>+<kbd>7</kbd>、左へオービット = <kbd>Left</kbd></p>
+<h3 id="mouse-freecad_cad">FreeCAD（CAD スタイル）</h3>
+<p>FreeCAD の既定スタイル: 中ドラッグで画面移動、中＋左または中＋右ドラッグでオービット、ホイールでカーソル位置ズーム、中クリックでその点を画面中心に。</p>
+<div class="table-wrap"><table class="keys">
+<thead><tr><th>操作</th><th>動作</th></tr></thead>
+<tbody>
+<tr><td>左クリック</td><td>選択</td></tr>
+<tr><td>左ドラッグ</td><td>範囲選択</td></tr>
+<tr><td>右クリック</td><td>コンテキストメニュー</td></tr>
+<tr><td>中ドラッグ</td><td>画面移動</td></tr>
+<tr><td>中→左ドラッグ</td><td>オービット</td></tr>
+<tr><td>中→右ドラッグ</td><td>オービット</td></tr>
+<tr><td>中クリック</td><td>点を中心に</td></tr>
+<tr><td>Shift+右 tap-move</td><td>オービット</td></tr>
+<tr><td>Ctrl+右 tap-move</td><td>画面移動</td></tr>
+<tr><td>Ctrl+Shift+右 tap-move</td><td>ズーム</td></tr>
+<tr><td>ホイール</td><td>ズーム（前に回すとズームイン）</td></tr>
+</tbody>
+</table></div>
+<p>このプリセットで変わるキー: 全体表示 = <kbd>V, F</kbd>、アイソメ ビュー = <kbd>0</kbd>、正面 = <kbd>1</kbd>、上 = <kbd>2</kbd>、右 = <kbd>3</kbd></p>
+<h3 id="mouse-freecad_gesture">FreeCAD（Gesture スタイル）</h3>
+<p>左ドラッグでオービット（スケッチ中は Alt＋左）、右ドラッグで画面移動、ホイールまたはピンチでズーム、Shift＋左ドラッグで範囲選択、中クリックでオービットの中心を設定。中ボタンがなくても使える。</p>
+<div class="table-wrap"><table class="keys">
+<thead><tr><th>操作</th><th>動作</th></tr></thead>
+<tbody>
+<tr><td>左クリック</td><td>選択</td></tr>
+<tr><td>Shift+左ドラッグ</td><td>範囲選択</td></tr>
+<tr><td>右クリック</td><td>コンテキストメニュー</td></tr>
+<tr><td>左ドラッグ</td><td>オービット</td></tr>
+<tr><td>左長押し</td><td>画面移動</td></tr>
+<tr><td>右ドラッグ</td><td>画面移動</td></tr>
+<tr><td>左+右ドラッグ (横)</td><td>ロール</td></tr>
+<tr><td>中クリック</td><td>オービットの中心を設定</td></tr>
+<tr><td>ホイール</td><td>ズーム（前に回すとズームイン）</td></tr>
+<tr><td>タッチパッドピンチ</td><td>ズーム</td></tr>
+<tr><td>Ctrl+ホイール</td><td>ズーム（前に回すとズームイン）</td></tr>
+<tr><td>タッチパッドスクロール</td><td>画面移動</td></tr>
+</tbody>
+</table></div>
+<h3 id="mouse-blender">Blender 風</h3>
+<p>中ドラッグでオービット（画面中心まわりのターンテーブル）、Shift＋中で画面移動、Ctrl＋中またはホイールでズーム、Alt＋中クリックでクリックした点を注目点（画面中心）にする、Shift＋ホイールで画面移動。</p>
+<div class="table-wrap"><table class="keys">
+<thead><tr><th>操作</th><th>動作</th></tr></thead>
+<tbody>
+<tr><td>左クリック</td><td>選択</td></tr>
+<tr><td>左ドラッグ</td><td>範囲選択</td></tr>
+<tr><td>右クリック</td><td>コンテキストメニュー</td></tr>
+<tr><td>中ドラッグ</td><td>オービット</td></tr>
+<tr><td>Alt+中ドラッグ</td><td>オービット</td></tr>
+<tr><td>Alt+中クリック</td><td>点を中心に</td></tr>
+<tr><td>Shift+中ドラッグ</td><td>画面移動</td></tr>
+<tr><td>Ctrl+中ドラッグ</td><td>ズーム</td></tr>
+<tr><td>Ctrl+Shift+中ドラッグ</td><td>ズーム</td></tr>
+<tr><td>ホイール</td><td>ズーム（前に回すとズームイン）</td></tr>
+<tr><td>Shift+ホイール</td><td>垂直に画面移動</td></tr>
+<tr><td>Shift+横ホイール</td><td>水平に画面移動</td></tr>
+</tbody>
+</table></div>
+<p>このプリセットで変わるキー: 全体表示 = <kbd>Home</kbd>、正面 = <kbd>Numpad 1</kbd>、右 = <kbd>Numpad 3</kbd>、上 = <kbd>Numpad 7</kbd></p>
+<h3 id="mouse-rhino">Rhino 風</h3>
+<p>右ドラッグでワールド軸まわりにオービット、Shift＋右で画面移動、Ctrl＋右でズーム、Ctrl＋Shift＋右でカーソル下の物体のまわりにオービット、ホイールでズーム。右クリックはコンテキストメニュー（変更点）。</p>
+<div class="table-wrap"><table class="keys">
+<thead><tr><th>操作</th><th>動作</th></tr></thead>
+<tbody>
+<tr><td>左クリック</td><td>選択</td></tr>
+<tr><td>左ドラッグ</td><td>範囲選択</td></tr>
+<tr><td>右クリック</td><td>コンテキストメニュー</td></tr>
+<tr><td>右ドラッグ</td><td>オービット</td></tr>
+<tr><td>Shift+右ドラッグ</td><td>画面移動</td></tr>
+<tr><td>Ctrl+右ドラッグ</td><td>ズーム</td></tr>
+<tr><td>Ctrl+Shift+右ドラッグ</td><td>オービット</td></tr>
+<tr><td>中ドラッグ</td><td>画面移動</td></tr>
+<tr><td>Alt+中ドラッグ</td><td>オービット</td></tr>
+<tr><td>ホイール</td><td>ズーム（前に回すとズームイン）</td></tr>
+<tr><td>Ctrl+ホイール</td><td>ズーム（前に回すとズームイン）</td></tr>
+</tbody>
+</table></div>
+<h3 id="mouse-sketchup">SketchUp 風</h3>
+<p>中ドラッグでオービット（重力付き）、Shift＋中または中＋左で画面移動、ホイールを上へ回すとカーソル位置で拡大、中ダブルクリックでその点を画面中心に。</p>
+<div class="table-wrap"><table class="keys">
+<thead><tr><th>操作</th><th>動作</th></tr></thead>
+<tbody>
+<tr><td>左クリック</td><td>選択</td></tr>
+<tr><td>左ドラッグ</td><td>範囲選択</td></tr>
+<tr><td>右クリック</td><td>コンテキストメニュー</td></tr>
+<tr><td>中ドラッグ</td><td>オービット</td></tr>
+<tr><td>Shift+中ドラッグ</td><td>画面移動</td></tr>
+<tr><td>中+左ドラッグ</td><td>画面移動</td></tr>
+<tr><td>Ctrl+中ドラッグ</td><td>オービット</td></tr>
+<tr><td>中ダブルクリック</td><td>点を中心に</td></tr>
+<tr><td>ホイール</td><td>ズーム（前に回すとズームイン）</td></tr>
+</tbody>
+</table></div>
+<p>このプリセットで変わるキー: 全体表示 = <kbd>Shift</kbd>+<kbd>Z</kbd></p>
+<h3 id="mouse-tinkercad">Tinkercad 風</h3>
+<p>右ドラッグでオービット、中ドラッグで画面移動、ホイールまたは Ctrl＋Shift＋中でズーム。右クリックはコンテキストメニュー。</p>
+<div class="table-wrap"><table class="keys">
+<thead><tr><th>操作</th><th>動作</th></tr></thead>
+<tbody>
+<tr><td>左クリック</td><td>選択</td></tr>
+<tr><td>左ドラッグ</td><td>範囲選択</td></tr>
+<tr><td>右クリック</td><td>コンテキストメニュー</td></tr>
+<tr><td>右ドラッグ</td><td>オービット</td></tr>
+<tr><td>中ドラッグ</td><td>画面移動</td></tr>
+<tr><td>Ctrl+Shift+中ドラッグ</td><td>ズーム</td></tr>
+<tr><td>ホイール</td><td>ズーム（前に回すとズームイン）</td></tr>
+</tbody>
+</table></div>
+<h3 id="mouse-maya">Maya・Alias 風（Alt＋ボタン）</h3>
+<p>Alt＋左ドラッグでオービット、Alt＋中ドラッグで画面移動、Alt＋右ドラッグでズーム、ホイールでズーム。Alt＋左クリックは隠れた要素の選択のまま。</p>
+<div class="table-wrap"><table class="keys">
+<thead><tr><th>操作</th><th>動作</th></tr></thead>
+<tbody>
+<tr><td>左クリック</td><td>選択</td></tr>
+<tr><td>左ドラッグ</td><td>範囲選択</td></tr>
+<tr><td>右クリック</td><td>コンテキストメニュー</td></tr>
+<tr><td>Alt+左ドラッグ</td><td>オービット</td></tr>
+<tr><td>Alt+中ドラッグ</td><td>画面移動</td></tr>
+<tr><td>Alt+右ドラッグ</td><td>ズーム</td></tr>
+<tr><td>Alt+左+右ドラッグ (横)</td><td>ロール</td></tr>
+<tr><td>Shift+Alt+左ドラッグ</td><td>オービット</td></tr>
+<tr><td>Shift+Alt+中ドラッグ</td><td>画面移動</td></tr>
+<tr><td>Shift+Alt+右ドラッグ</td><td>ズーム</td></tr>
+<tr><td>中ドラッグ</td><td>画面移動</td></tr>
+<tr><td>ホイール</td><td>ズーム（前に回すとズームイン）</td></tr>
+</tbody>
+</table></div>
+<h3 id="mouse-touchpad">タッチパッド・ノート PC</h3>
+<p>タッチパッドや中ボタンの無いマウス向け: 2 本指スクロールで画面移動、Shift＋スクロールでオービット、ピンチでズーム、右ボタン（2 本指クリック）ドラッグでオービット、Shift＋右ドラッグで画面移動、Ctrl＋右ドラッグでズーム。</p>
+<div class="table-wrap"><table class="keys">
+<thead><tr><th>操作</th><th>動作</th></tr></thead>
+<tbody>
+<tr><td>左クリック</td><td>選択</td></tr>
+<tr><td>左ドラッグ</td><td>範囲選択</td></tr>
+<tr><td>右クリック</td><td>コンテキストメニュー</td></tr>
+<tr><td>タッチパッドスクロール</td><td>画面移動</td></tr>
+<tr><td>Shift+タッチパッドスクロール</td><td>オービット</td></tr>
+<tr><td>Ctrl+タッチパッドスクロール</td><td>ズーム</td></tr>
+<tr><td>タッチパッドピンチ</td><td>ズーム</td></tr>
+<tr><td>タッチパッド回転</td><td>ロール</td></tr>
+<tr><td>右ドラッグ</td><td>オービット</td></tr>
+<tr><td>Shift+右ドラッグ</td><td>画面移動</td></tr>
+<tr><td>Ctrl+右ドラッグ</td><td>ズーム</td></tr>
+<tr><td>中ドラッグ</td><td>画面移動</td></tr>
+<tr><td>中ダブルクリック</td><td>全体表示</td></tr>
+<tr><td>ホイール</td><td>ズーム（前に回すとズームイン）</td></tr>
+<tr><td>Ctrl+ホイール</td><td>ズーム（前に回すとズームイン）</td></tr>
+</tbody>
+</table></div>
+</article>
+<nav class="pager" aria-label="前後の章"><a class="prev" rel="prev" href="appendix_a_commands.html"><span class="dir">前の章</span>付録 A コマンド一覧</a><a class="next" rel="next" href="appendix_c_feature_params.html"><span class="dir">次の章</span>付録 C フィーチャのパラメータ一覧</a></nav>
+<footer class="footer"><p>EMRM-Studio ユーザーマニュアル（日本語）・EMRM-Studio 0.1.0 ・ <a href="#main">このページの先頭へ</a></p></footer>
+</main>
+</div>
+</body>
+</html>

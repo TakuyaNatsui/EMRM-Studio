@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="generator" content="tools/build_manual.py">
+<title>第 13 章 ファイル - EMRM-Studio ユーザーマニュアル</title>
+<link rel="stylesheet" href="assets/manual.css">
+<script src="assets/search_index.js" charset="utf-8" defer></script>
+<script src="assets/manual.js" charset="utf-8" defer></script>
+</head>
+<body class="page">
+<header class="topbar">
+<a class="brand" href="index.html">EMRM-Studio ユーザーマニュアル</a>
+<button class="toc-toggle" type="button" aria-controls="toc" aria-expanded="false">目次</button>
+<form class="search" role="search" action="#" onsubmit="return false">
+<input id="q" type="search" placeholder="マニュアルを検索（/）" aria-label="マニュアルを検索" autocomplete="off">
+</form>
+</header>
+<div id="search-results" class="search-results" hidden></div>
+<div class="layout">
+<nav id="toc" class="toc" aria-label="目次">
+<details class="toc-box">
+<summary>目次</summary>
+<ol class="toc-chapters">
+<li class="toc-home"><a href="index.html">表紙・目次</a></li>
+<li><a href="00_intro.html">はじめに</a></li>
+<li class="toc-part" role="presentation">第 I 部　形状を作る（CAD）</li>
+<li><a href="01_screen.html"><span class="chno">第 1 章</span> 画面の構成</a></li>
+<li><a href="02_view.html"><span class="chno">第 2 章</span> 視点の操作</a></li>
+<li><a href="03_first_part.html"><span class="chno">第 3 章</span> はじめての部品</a></li>
+<li><a href="04_sketch.html"><span class="chno">第 4 章</span> スケッチ</a></li>
+<li><a href="05_work_features.html"><span class="chno">第 5 章</span> 作業フィーチャ</a></li>
+<li><a href="06_features_basic.html"><span class="chno">第 6 章</span> フィーチャ（押し出し・回転・穴・フィレットなど）</a></li>
+<li><a href="07_features_advanced.html"><span class="chno">第 7 章</span> フィーチャ（スイープ・ロフト・コイル・パターンなど）</a></li>
+<li><a href="08_bodies.html"><span class="chno">第 8 章</span> ボディの操作</a></li>
+<li><a href="09_browser.html"><span class="chno">第 9 章</span> ブラウザとフィーチャの管理</a></li>
+<li><a href="10_parameters.html"><span class="chno">第 10 章</span> パラメータと式</a></li>
+<li><a href="11_configurations.html"><span class="chno">第 11 章</span> 構成</a></li>
+<li><a href="12_inspect.html"><span class="chno">第 12 章</span> 検査</a></li>
+<li class="current"><a href="13_files.html" aria-current="page"><span class="chno">第 13 章</span> ファイル</a><ol class="toc-sections"><li><a href="13_files.html#overview"><span class="secno">13.1</span> ファイルの形式</a></li><li><a href="13_files.html#new"><span class="secno">13.2</span> 新規作成とテンプレート</a></li><li><a href="13_files.html#open"><span class="secno">13.3</span> 開く</a></li><li><a href="13_files.html#save"><span class="secno">13.4</span> 保存する</a></li><li><a href="13_files.html#close"><span class="secno">13.5</span> 閉じる・終了する</a></li><li><a href="13_files.html#import"><span class="secno">13.6</span> インポート</a></li><li><a href="13_files.html#repair"><span class="secno">13.7</span> 形状チェックと修復</a></li><li><a href="13_files.html#export"><span class="secno">13.8</span> エクスポート</a></li><li><a href="13_files.html#recovery"><span class="secno">13.9</span> 自動回復</a></li><li><a href="13_files.html#lock"><span class="secno">13.10</span> ファイルのロック</a></li><li><a href="13_files.html#storage"><span class="secno">13.11</span> 同梱キャッシュと外部の格納先</a></li></ol></li>
+<li class="toc-part" role="presentation">第 II 部　電磁場解析</li>
+<li><a href="14_em_intro.html"><span class="chno">第 14 章</span> 電磁場解析のはじめに</a></li>
+<li><a href="15_em_first.html"><span class="chno">第 15 章</span> はじめての電磁場解析（ソレノイド）</a></li>
+<li><a href="16_em_setup.html"><span class="chno">第 16 章</span> スタディの共通の設定</a></li>
+<li><a href="17_em_results.html"><span class="chno">第 17 章</span> 結果の見方</a></li>
+<li><a href="18_em_magnetostatic.html"><span class="chno">第 18 章</span> 静磁場解析</a></li>
+<li><a href="19_em_coils.html"><span class="chno">第 19 章</span> 静磁場解析: コイル</a></li>
+<li><a href="20_em_dipole.html"><span class="chno">第 20 章</span> 静磁場解析の例題: H 型双極電磁石</a></li>
+<li><a href="21_em_eigenmode.html"><span class="chno">第 21 章</span> 共振モード解析</a></li>
+<li><a href="22_em_driven.html"><span class="chno">第 22 章</span> ポート解析</a></li>
+<li><a href="23_em_electrostatic.html"><span class="chno">第 23 章</span> 静電場解析</a></li>
+<li><a href="24_em_gun.html"><span class="chno">第 24 章</span> 電子銃解析</a></li>
+<li><a href="25_em_troubleshooting.html"><span class="chno">第 25 章</span> 電磁場解析で困ったとき</a></li>
+<li class="toc-part" role="presentation">第 III 部　連携・カスタマイズ・自動化</li>
+<li><a href="26_step_export.html"><span class="chno">第 26 章</span> 他の解析プログラムに形を渡す</a></li>
+<li><a href="27_customize.html"><span class="chno">第 27 章</span> カスタマイズ</a></li>
+<li><a href="28_automation.html"><span class="chno">第 28 章</span> 自動化</a></li>
+<li><a href="29_troubleshooting.html"><span class="chno">第 29 章</span> 困ったとき</a></li>
+<li class="toc-part" role="presentation">付録</li>
+<li class="appendix"><a href="appendix_a_commands.html"><span class="chno">付録 A</span> コマンド一覧</a></li>
+<li class="appendix"><a href="appendix_b_shortcuts.html"><span class="chno">付録 B</span> ショートカット一覧</a></li>
+<li class="appendix"><a href="appendix_c_feature_params.html"><span class="chno">付録 C</span> フィーチャのパラメータ一覧</a></li>
+<li class="appendix"><a href="appendix_d_glossary.html"><span class="chno">付録 D</span> 用語の対応表</a></li>
+</ol>
+</details>
+</nav>
+<main class="content" id="main">
+<article class="chapter ">
+<p class="chapter-label">第 13 章</p>
+<h1>ファイル</h1>
+<nav class="pagetoc" aria-label="この章の内容">
+<p class="pagetoc-title">この章の内容</p>
+<ol>
+<li><a href="#overview"><span class="secno">13.1</span> ファイルの形式</a></li>
+<li><a href="#new"><span class="secno">13.2</span> 新規作成とテンプレート</a></li>
+<li><a href="#open"><span class="secno">13.3</span> 開く</a></li>
+<li><a href="#save"><span class="secno">13.4</span> 保存する</a></li>
+<li><a href="#close"><span class="secno">13.5</span> 閉じる・終了する</a></li>
+<li><a href="#import"><span class="secno">13.6</span> インポート</a></li>
+<li class="sub"><a href="#import-options">インポートのオプション</a></li>
+<li class="sub"><a href="#import-source">元のファイルを消しても開ける</a></li>
+<li><a href="#repair"><span class="secno">13.7</span> 形状チェックと修復</a></li>
+<li><a href="#export"><span class="secno">13.8</span> エクスポート</a></li>
+<li class="sub"><a href="#export-options">形式ごとのオプション</a></li>
+<li class="sub"><a href="#export-range">範囲と座標系</a></li>
+<li><a href="#recovery"><span class="secno">13.9</span> 自動回復</a></li>
+<li><a href="#lock"><span class="secno">13.10</span> ファイルのロック</a></li>
+<li><a href="#storage"><span class="secno">13.11</span> 同梱キャッシュと外部の格納先</a></li>
+<li class="sub"><a href="#storage-cache">同梱キャッシュと「未検証」</a></li>
+<li class="sub"><a href="#storage-external">外部の格納先</a></li>
+</ol>
+</nav>
+<p>この章では、ドキュメントを作る・開く・保存する操作と、STEP などの他の形式のインポート・エクスポート、取り込んだ形状の修復を説明します。異常終了や同時に開いたときに作業を守る仕組み（自動回復・ロック）と、ファイルの中身（同梱キャッシュ・外部の格納先）も説明します。読み終えると、他の CAD のデータを取り込んで直し、編集して書き出せるようになります。</p>
+
+<h2 id="overview"><span class="secno">13.1</span> ファイルの形式</h2>
+<p>mcad のドキュメントは、拡張子 <code>.mcad</code> の 1 つのファイルです。中にはフィーチャの定義・パラメータ・結果の要約・サムネイルのほか、取り込んだ形状のデータと計算結果のキャッシュが入ります。フォルダの検索パスやプロジェクトの設定は要りません。ファイルを渡せば、相手も同じ形を開けます。</p>
+<div class="table-wrap"><table>
+  <caption>取り込める形式と書き出せる形式</caption>
+  <thead><tr><th>形式</th><th>拡張子</th><th>インポート</th><th>エクスポート</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">STEP</th><td><code>.step</code> <code>.stp</code></td><td>○</td><td>○（AP 214・AP 242。名前付き STEP）</td></tr>
+    <tr><th scope="row">IGES</th><td><code>.iges</code> <code>.igs</code></td><td>○</td><td>○</td></tr>
+    <tr><th scope="row">BREP</th><td><code>.brep</code></td><td>○</td><td>○</td></tr>
+    <tr><th scope="row">STL</th><td><code>.stl</code></td><td>○</td><td>○（バイナリ・ASCII）</td></tr>
+    <tr><th scope="row">OBJ</th><td><code>.obj</code></td><td>○</td><td>○</td></tr>
+    <tr><th scope="row">PLY</th><td><code>.ply</code></td><td>○</td><td>○（バイナリ・ASCII）</td></tr>
+    <tr><th scope="row">3MF</th><td><code>.3mf</code></td><td>○</td><td>○</td></tr>
+    <tr><th scope="row">画像（PNG・JPEG）</th><td><code>.png</code> <code>.jpg</code></td><td>—</td><td>○（3D ビューの画像）</td></tr>
+  </tbody>
+</table></div>
+<p>STEP・IGES・BREP は形状（面と辺をもつ B-rep）で、STL・OBJ・PLY・3MF は三角形のメッシュです。メッシュは、形を表す面のかたまりとして取り込みます（編集の制限は<a href="#import-options">インポートのオプション</a>にあります）。</p>
+<aside class="inventor" role="note"><p class="callout-title">Inventor との違い</p><p>Inventor のプロジェクト ファイル（<code>.ipj</code>）に当たるものはありません。mcad のドキュメントは単独のファイルです。</p></aside>
+
+<h2 id="new"><span class="secno">13.2</span> 新規作成とテンプレート</h2>
+<p>ドキュメントは、テンプレート（出発点になる空のドキュメント）から作ります。組み込みのテンプレートは<span class="ui">［標準（mm）］</span>と<span class="ui">［標準（in）］</span>で、違いは長さの単位だけです。</p>
+<ol class="steps">
+  <li><p><span class="path">クイック アクセス ツールバーの<span class="ui">［新規］</span></span>（<kbd>Ctrl</kbd>+<kbd>N</kbd>）を押すと、既定のテンプレートで新しいドキュメントが開きます。名前は<span class="ui doc">［無題 1］</span>、<span class="ui doc">［無題 2］</span>… の順です。</p></li>
+  <li><p>テンプレートを選びたいときは、<span class="path">メニューの<span class="ui">［ファイル］</span> → <span class="ui">［テンプレートから新規作成］</span></span>（<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>N</kbd>）を押します。一覧からテンプレートを選び、<span class="ui">［作成］</span>を押します。</p>
+    <figure id="fig-13_new_document"><a class="zoom" href="images/13_new_document.png"><img src="images/13_new_document.png" alt="テンプレートの一覧。選んだテンプレートの説明が下に出ます。［既定に設定］を押すと、&lt;kbd&gt;Ctrl&lt;/kbd&gt;+&lt;kbd&gt;N&lt;/kbd&gt; で使うテンプレートになります。" width="460" height="340" loading="lazy"></a><figcaption><span class="figno">図 13-1</span> テンプレートの一覧。選んだテンプレートの説明が下に出ます。<span class="ui">［既定に設定］</span>を押すと、<kbd>Ctrl</kbd>+<kbd>N</kbd> で使うテンプレートになります。</figcaption></figure></li>
+</ol>
+<p>自分のテンプレートは、設定済みのドキュメントから作ります。単位・パラメータ・スケッチ・フィーチャを入れたドキュメントを開き、<span class="path">メニューの<span class="ui">［ファイル］</span> → <span class="ui">［テンプレートとして保存］</span></span>を押してテンプレート名を入力します。保存したテンプレートは、設定のフォルダの <code>templates</code> に <code>.mcad</code> として置かれ、次から一覧に出ます。<span class="ui">［テンプレートのフォルダを開く］</span>で、そのフォルダを開けます。</p>
+<aside class="note" role="note"><p class="callout-title">注意</p><p>テンプレートから作ったドキュメントは、新しい無題のドキュメントです。保存先は無く、テンプレートのファイルは変わりません。計算結果のキャッシュは持ち込みません。作成者は、オプションの<span class="ui">［新しいドキュメントの作成者］</span>です（空なら、このコンピュータのユーザー名）。</p></aside>
+
+<h2 id="open"><span class="secno">13.3</span> 開く</h2>
+<ol class="steps">
+  <li><p><span class="path">クイック アクセス ツールバーの<span class="ui">［開く］</span></span>（<kbd>Ctrl</kbd>+<kbd>O</kbd>）を押します。ファイルのダイアログが開きます。種類の既定は<span class="ui">［対応しているすべてのファイル］</span>です。</p></li>
+  <li><p>ドキュメント（<code>.mcad</code>）を選ぶと、新しいタブに開きます。STEP などを選ぶと、新しいドキュメントを作って<a href="#import">インポート</a>のダイアログが出ます。</p></li>
+</ol>
+<p>複数のドキュメントはタブで切り替えます（<span class="path">リボンの<span class="ui">［表示］</span>タブ → <span class="ui">［ウィンドウ］</span>パネル → <span class="ui">［次のドキュメント］</span></span>は <kbd>Ctrl</kbd>+<kbd>Tab</kbd>、<span class="path">リボンの<span class="ui">［表示］</span>タブ → <span class="ui">［ウィンドウ］</span>パネル → <span class="ui">［前のドキュメント］</span></span>は <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Tab</kbd>）。すでに開いているファイルをもう一度開くと、新しく開かず、そのタブが前に出ます。開けなかったときは、右下の知らせに理由が出ます（<a href="29_troubleshooting.html#open-fail">第 29 章</a>）。</p>
+<aside class="note" role="note"><p class="callout-title">注意</p><p>ほかのソフトや手作業で作られた、UTF-16 の対にならない半端な文字（サロゲート）が名前や文字に入っているドキュメントは、そのままでは保存できません。そのため、その文字を <code>U+FFFD</code>（置き換えの文字）に置き換えて開き、右下の知らせに「…の不正な文字 n 個を U+FFFD に置き換えました」と出します。保存すると、置き換えた文字で書かれます。</p></aside>
+<p>最近のドキュメントは、リボンの<span class="ui">［ファイル］</span>のメニューの<span class="ui">［最近使ったドキュメント］</span>に、新しい順に 10 件まで並びます。選ぶと開きます。</p>
+<figure id="fig-13_file_recent"><a class="zoom" href="images/13_file_recent.png"><img src="images/13_file_recent.png" alt="［最近使ったドキュメント］のサブメニュー。ファイルの名前が、新しい順に並びます。" width="179" height="72" loading="lazy"></a><figcaption><span class="figno">図 13-2</span> <span class="ui">［最近使ったドキュメント］</span>のサブメニュー。ファイルの名前が、新しい順に並びます。</figcaption></figure>
+<ul>
+  <li><p>開いたドキュメントのほかに、保存したドキュメントも並びます。メニューには名前だけが出ます。項目にマウスを合わせると、フォルダを含むパスが出ます。</p></li>
+  <li><p>移動や削除でファイルが無くなった項目は、灰色になって選べません。最近のドキュメントが 1 つも無いときは、灰色の<span class="ui">［（最近使ったドキュメントはありません）］</span>が 1 行だけ出ます。</p></li>
+  <li><p>メニュー バーにも、同じ<span class="ui">［最近使ったドキュメント］</span>があります。メニュー バーは、<span class="ui">［オプション］</span>の<span class="ui">［画面］</span>ページで<span class="ui">［リボンの上にメニュー バーも表示］</span>を入れて、mcad を起動し直すと出ます。</p></li>
+</ul>
+<aside class="try"><p class="callout-title">この機能を試す</p><p class="try-sample">題材: <code>samples/plate_with_holes.mcad</code> （<a href="00_intro.html#samples">題材の一覧と開き方</a>）</p>
+  <p>題材を開き、タブの名前を右クリックします。<span class="ui">［保存］</span>・<span class="ui">［名前を付けて保存］</span>・<span class="ui">［閉じる］</span>・<span class="ui">［ほかのドキュメントを閉じる］</span>・<span class="ui">［すべてのドキュメントを閉じる］</span>・<span class="ui">［ファイル パスをコピー］</span>が出ます。</p>
+</aside>
+
+<h2 id="save"><span class="secno">13.4</span> 保存する</h2>
+<p>ファイルの操作は、リボンの左上の<span class="ui">［ファイル］</span>のメニューにまとまっています。</p>
+<figure id="fig-13_file_menu"><a class="zoom" href="images/13_file_menu.png"><img src="images/13_file_menu.png" alt="［ファイル］のメニュー。新規・開く・最近使ったドキュメント・保存・インポート・エクスポート・終了があります。" width="289" height="294" loading="lazy"></a><figcaption><span class="figno">図 13-3</span> <span class="ui">［ファイル］</span>のメニュー。新規・開く・最近使ったドキュメント・保存・インポート・エクスポート・終了があります。</figcaption></figure>
+<div class="table-wrap"><table>
+  <thead><tr><th>コマンド</th><th>動作</th></tr></thead>
+  <tbody>
+    <tr><th scope="row"><span class="ui">［保存］</span>（<kbd>Ctrl</kbd>+<kbd>S</kbd>）</th><td>今のファイルに上書きします。まだ保存していないドキュメントは、名前と場所を尋ねます</td></tr>
+    <tr><th scope="row"><span class="ui">［名前を付けて保存］</span>（<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>S</kbd>）</th><td>別の名前で保存します。以後の保存先と、タブの名前が新しいものになります</td></tr>
+    <tr><th scope="row"><span class="ui">［コピーを保存］</span></th><td>開いているドキュメントは変えずに、コピーを書きます</td></tr>
+  </tbody>
+</table></div>
+<p>保存すると、タブの名前の <code>*</code>（未保存の印）が消えて、右下に<code>…に保存しました</code>と出ます。保存は、一時ファイルに書いてから置き換えるので、途中で止まっても元のファイルは壊れません。保存のときに、前の版を <code>名前.mcad.bak</code> として残します（<span class="ui">［保存時に残すバックアップの数］</span>を増やすと <code>.bak2</code>… も残ります。1〜9）。</p>
+<p>保存できないとき（読み取り専用・ディスクが一杯・パスが長すぎるなど）は、理由が知らせに出ます（<a href="29_troubleshooting.html#save-fail">第 29 章</a>）。</p>
+
+<h2 id="close"><span class="secno">13.5</span> 閉じる・終了する</h2>
+<p><span class="path">メニューの<span class="ui">［ファイル］</span> → <span class="ui">［閉じる］</span></span>（<kbd>Ctrl</kbd>+<kbd>W</kbd>）か、タブの <strong>×</strong> で、ドキュメントを閉じます。保存していない変更があると、「…には保存していない変更があります。保存しますか?」と確認が出ます。<span class="ui">［保存］</span>・<span class="ui">［破棄］</span>・<span class="ui">［キャンセル］</span>から選びます。<span class="path">メニューの<span class="ui">［ファイル］</span> → <span class="ui">［終了］</span></span>（<kbd>Ctrl</kbd>+<kbd>Q</kbd>）でアプリを終えるときも、開いているドキュメントごとに同じ確認が出ます。</p>
+
+<h2 id="import"><span class="secno">13.6</span> インポート</h2>
+<p>他の CAD のデータは、<strong>インポート</strong>でドキュメントに取り込みます。ファイルは一度だけ読まれ、形状はドキュメントの中に保存されます。取り込んだあとは、元のファイルを消しても、開き直せて再計算もできます。</p>
+<ol class="steps">
+  <li><p>開いているパーツに取り込むときは、<span class="path">リボンの<span class="ui">［管理］</span>タブ → <span class="ui">［挿入］</span>パネル → <span class="ui">［インポート］</span></span>をクリックします。<span class="ui">［インポート］</span>のダイアログが出ます。</p></li>
+  <li><p><span class="ui">［ファイル］</span>に取り込むファイルを入力するか、<span class="ui">［参照］</span>で選びます。<span class="ui">［形式］</span>は拡張子で自動で選ばれます。</p>
+    <figure id="fig-13_import_dialog"><a class="zoom" href="images/13_import_dialog.png"><img src="images/13_import_dialog.png" alt="［インポート］のダイアログ。［インポート先］は今のパーツです。［オプション］は形式によって変わります。" width="480" height="339" loading="lazy"></a><figcaption><span class="figno">図 13-4</span> <span class="ui">［インポート］</span>のダイアログ。<span class="ui">［インポート先］</span>は今のパーツです。<span class="ui">［オプション］</span>は形式によって変わります。</figcaption></figure></li>
+  <li><p><span class="ui">［オプション］</span>を決めます（次の表）。<span class="ui">［インポート］</span>を押します。</p></li>
+  <li><p>読み込みは別のプロセスで行うので、大きなファイルでもウィンドウは止まりません。終わると、ブラウザに<span class="ui">［インポート1］</span>のフィーチャとボディが増え、「…からインポートしました」と知らせが出ます。</p>
+    <figure id="fig-13_import_browser"><a class="zoom" href="images/13_import_browser.png"><img src="images/13_import_browser.png" alt="取り込み後のブラウザ。ソリッドとサーフェスのボディが分かれて並び、最後に［インポート1］があります。" width="360" height="272" loading="lazy"></a><figcaption><span class="figno">図 13-5</span> 取り込み後のブラウザ。ソリッドとサーフェスのボディが分かれて並び、最後に<span class="ui">［インポート1］</span>があります。</figcaption></figure></li>
+</ol>
+<p><span class="path">クイック アクセス ツールバーの<span class="ui">［開く］</span></span>で STEP などを選んだときは、<span class="ui">［インポート先］</span>が<span class="ui">［新しいドキュメント］</span>になります。<span class="ui">［キャンセル］</span>を押すと、その新しいドキュメントも閉じます。</p>
+<figure id="fig-13_import_open_step"><a class="zoom" href="images/13_import_open_step.png"><img src="images/13_import_open_step.png" alt="［ファイル］→［開く］から STEP を選んだときのダイアログ。取り込んだ形状は、新しいドキュメントに入ります。" width="480" height="339" loading="lazy"></a><figcaption><span class="figno">図 13-6</span> <span class="ui">［ファイル］</span>→<span class="ui">［開く］</span>から STEP を選んだときのダイアログ。取り込んだ形状は、新しいドキュメントに入ります。</figcaption></figure>
+
+<h3 id="import-options">インポートのオプション</h3>
+<div class="table-wrap"><table>
+  <caption>形式ごとのオプション</caption>
+  <thead><tr><th>形式</th><th>オプション</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">STEP・IGES</th><td><span class="ui">［ボディ］</span>（<span class="ui">［ボディごとに分ける］</span> / <span class="ui">［ソリッドを 1 つのボディにまとめる］</span>）、<span class="ui">［修復］</span>（<span class="ui">［なし］</span> / <span class="ui">［自動で修復］</span>）</td></tr>
+    <tr><th scope="row">BREP</th><td>上の 2 つと、<span class="ui">［単位］</span>（<span class="ui">［ミリメートル］</span>・<span class="ui">［センチメートル］</span>・<span class="ui">［メートル］</span>・<span class="ui">［インチ］</span>）。BREP には単位が書かれていません</td></tr>
+    <tr><th scope="row">STL・OBJ・PLY</th><td><span class="ui">［単位］</span>と<span class="ui">［ファセット角］</span>（既定 <code>1 deg</code>。0〜45°）</td></tr>
+    <tr><th scope="row">3MF</th><td><span class="ui">［ファセット角］</span>（単位はファイルに書かれています）</td></tr>
+  </tbody>
+</table></div>
+<figure id="fig-13_import_dialog_stl"><a class="zoom" href="images/13_import_dialog_stl.png"><img src="images/13_import_dialog_stl.png" alt="STL のオプション。メッシュには［単位］と［ファセット角］があります。" width="480" height="339" loading="lazy"></a><figcaption><span class="figno">図 13-7</span> STL のオプション。メッシュには<span class="ui">［単位］</span>と<span class="ui">［ファセット角］</span>があります。</figcaption></figure>
+<ul>
+  <li><p><span class="ui">［ファセット角］</span>は、法線の差がこの角度より小さい隣り合う三角形を 1 つの面にまとめる角度です。箱なら 6 つの面になります。</p></li>
+  <li><p>STEP のアセンブリは、配置済みの部品を平らにしたボディとして取り込みます。名前・色・レイヤー（層）も取り込みます。名前はブラウザの<span class="ui">［ソリッド ボディ］</span>のボディ名になります（<kbd>F2</kbd> で変えられます）。IGES の色と層は読みません。</p></li>
+  <li><p>メッシュのボディは<span class="ui">［メッシュ ボディ］</span>に入ります。体積は三角形から計算します。閉じていないメッシュは、体積が信頼できないと知らせます。メッシュのボディには、フィレットなどの編集はできません。STEP・IGES・BREP にも書き出せません（STL・OBJ・PLY・3MF には書き出せます）。</p></li>
+  <li><p>形状として妥当でないボディは、警告付きで取り込まれます（知らせに「…は正しくありません。エラーを検索して修復してください」と出ます）。</p></li>
+</ul>
+
+<h3 id="import-source">元のファイルを消しても開ける</h3>
+<p>ブラウザの<span class="ui">［インポート1］</span>をダブルクリックすると、プロパティ パネルの<span class="ui">［元データ］</span>に、取り込んだファイルの名前と、ドキュメントが持つデータの大きさ・チェックサム（先頭 8 桁）が出ます。読み取り専用です。形状のデータはドキュメントの中にあるので、元のファイルを移動・削除しても影響しません。</p>
+<figure id="fig-13_import_source"><a class="zoom" href="images/13_import_source.png"><img src="images/13_import_source.png" alt="取り込んだデータの情報。名前・大きさ・チェックサムを確認できます。大きさは、元のファイル（この例では 56.5 KB）ではなく、ドキュメントが持つデータのものです。" width="360" height="100" loading="lazy"></a><figcaption><span class="figno">図 13-8</span> 取り込んだデータの情報。名前・大きさ・チェックサムを確認できます。大きさは、元のファイル（この例では 56.5 KB）ではなく、ドキュメントが持つデータのものです。</figcaption></figure>
+
+<h2 id="repair"><span class="secno">13.7</span> 形状チェックと修復</h2>
+<p>他の CAD の形状には、隙間・面の向きの誤り・微小な辺などの欠陥があることがあります。欠陥があるとソリッドにならず、穴やフィレットが足せません。<strong>調べる → 直す</strong>の順で対処します。</p>
+<ol class="steps">
+  <li><p>取り込んだあとのブラウザで、<span class="ui">［ソリッド ボディ］</span>と<span class="ui">［サーフェス ボディ］</span>の数を見ます。閉じたソリッドになっていない面は、<span class="ui">［サーフェス ボディ］</span>に入ります。</p></li>
+  <li><p><span class="path">リボンの<span class="ui">［検査］</span>タブ → <span class="ui">［解析］</span>パネル → <span class="ui">［エラーを検索］</span></span>をクリックし、<span class="ui">［検索］</span>を押します。表に、問題の<span class="ui">［重大度］</span>・<span class="ui">［問題］</span>・<span class="ui">［要素］</span>・<span class="ui">［ボディ］</span>が並びます。</p>
+    <figure id="fig-13_check_dialog"><a class="zoom" href="images/13_check_dialog.png"><img src="images/13_check_dialog.png" alt="エラーを検索の結果。隙間のあるシートと、微小エッジ・スライバー面（細すぎる面）が警告として出ます。" width="760" height="360" loading="lazy"></a><figcaption><span class="figno">図 13-9</span> エラーを検索の結果。隙間のあるシートと、微小エッジ・スライバー面（細すぎる面）が警告として出ます。</figcaption></figure>
+    <p>このダイアログは開いたまま、ビューとブラウザを操作できます（インポート・エクスポート・新規作成・オプションのダイアログは、閉じるまでほかの操作ができません）。検索が終わった時点では、問題のあるボディ・面・エッジのすべてが選ばれます。表の行を選ぶと、その要素だけが選ばれます。</p></li>
+  <li><p>ビューの何も無い所をクリックして、選択を解除します。検索の結果が選ばれたままだと、修復は、選ばれたボディ（この例では<span class="ui doc">［gap_1］</span>）だけが対象になります。</p></li>
+  <li><p><span class="path">リボンの<span class="ui">［3D モデル］</span>タブ → <span class="ui">［修正］</span>パネル → <span class="ui">［修復］</span></span>をクリックします。ボディを選ばずに始めると、すべてのソリッドとサーフェスが対象です。ボディを選んでから始めると、そのボディだけを直します。</p>
+    <figure id="fig-13_heal_form"><a class="zoom" href="images/13_heal_form.png"><img src="images/13_heal_form.png" alt="修復のフォーム。［許容差］の範囲で、［縫合］（隙間を閉じてばらばらの面をつなぐ）・［面の向きを揃える］・［小さいエッジを削除］を行います。" width="360" height="265" loading="lazy"></a><figcaption><span class="figno">図 13-10</span> 修復のフォーム。<span class="ui">［許容差］</span>の範囲で、<span class="ui">［縫合］</span>（隙間を閉じてばらばらの面をつなぐ）・<span class="ui">［面の向きを揃える］</span>・<span class="ui">［小さいエッジを削除］</span>を行います。</figcaption></figure></li>
+  <li><p><span class="ui">［OK］</span>で確定します。ブラウザに<span class="ui">［修復1］</span>が増え、閉じたシェルはソリッドになります。</p>
+    <figure id="fig-13_heal_done"><a class="zoom" href="images/13_heal_done.png"><img src="images/13_heal_done.png" alt="修復の後。隙間のあったシートが 1 つのソリッドにまとまります。" width="360" height="172" loading="lazy"></a><figcaption><span class="figno">図 13-11</span> 修復の後。隙間のあったシートが 1 つのソリッドにまとまります。</figcaption></figure></li>
+  <li><p>検索のダイアログを開いたままなら、<span class="ui">［検索］</span>をもう一度押して、結果を確かめます。</p></li>
+</ol>
+<p>この例では、修復のあとに<code>ギャップ: 許容差 0.00525 mm</code>の警告が出ます。縫合した縁の許容差が、しきい値（既定 <code>0.001 mm</code>）より大きいためです。<span class="ui">［ギャップ（許容差）がこれより大きい］</span>を <code>0.01 mm</code> にして調べ直すと、<code>問題は見つかりませんでした。</code>と出ます。</p>
+<p>修復したあとは、普通のソリッドと同じに、穴・フィレットなどを足せます。取り込んだボディの面にかけた参照は、保存して開き直しても同じ面に付きます。</p>
+<p>インポートの<span class="ui">［修復］</span>を<span class="ui">［自動で修復］</span>にすると、取り込みと同時に直ります。隙間が<span class="ui">［許容差］</span>（既定 <code>0.01 mm</code>）より大きいときは縫合されません。許容差を大きくして、もう一度試します。</p>
+<aside class="note" role="note"><p class="callout-title">注意</p><p>STEP を読むときに、面の向きの誤りは自動で直って入ることがあります。その場合は警告が出ません。開いたシートと微小な辺は、取り込みでは警告にならないので、必ず<span class="ui">［エラーを検索］</span>で調べます。</p></aside>
+<aside class="try"><p class="callout-title">この機能を試す</p><p class="try-sample">題材: <code>samples/import/defective.step</code> （<a href="00_intro.html#samples">題材の一覧と開き方</a>）</p>
+  <p><span class="ui">［ファイル］</span>→<span class="ui">［開く］</span>で <code>defective.step</code> を選び、修復を<span class="ui">［なし］</span>のまま取り込みます。<span class="ui">［エラーを検索］</span>で診断し、<span class="ui">［修復］</span>で直します。ほかの題材は <code>samples/README.md</code> にあります。</p>
+</aside>
+
+<h2 id="export"><span class="secno">13.8</span> エクスポート</h2>
+<ol class="steps">
+  <li><p><span class="path">リボンの<span class="ui">［管理］</span>タブ → <span class="ui">［挿入］</span>パネル → <span class="ui">［エクスポート］</span></span>をクリックします。<span class="ui">［エクスポート］</span>のダイアログが出ます。</p></li>
+  <li><p><span class="ui">［形式］</span>を選び、<span class="ui">［ファイル］</span>に保存先を入力するか、<span class="ui">［参照］</span>で選びます。<span class="ui">［オプション］</span>・<span class="ui">［範囲と座標系］</span>を決めます。</p>
+    <figure id="fig-13_export_named"><a class="zoom" href="images/13_export_named.png"><img src="images/13_export_named.png" alt="STEP のエクスポート。［範囲と座標系］でボディを選び、［名前付き STEP（部品名 = 領域名）］の表で、STEP に書かれる部品名を確かめます。" width="520" height="724" loading="lazy"></a><figcaption><span class="figno">図 13-12</span> STEP のエクスポート。<span class="ui">［範囲と座標系］</span>でボディを選び、<span class="ui">［名前付き STEP（部品名 = 領域名）］</span>の表で、STEP に書かれる部品名を確かめます。</figcaption></figure></li>
+  <li><p>下の<span class="ui">［エクスポートする前の確認］</span>を見ます。問題がなければ<span class="ui">［エクスポート］</span>を押します。</p></li>
+</ol>
+<p>書き出しは別のプロセスで行うので、ウィンドウは止まりません。終わると「…にエクスポートしました」と知らせが出ます。同じ名前のファイルがあると、「…は既にあります。置き換えますか?」と確認します。スケッチを編集している間は、エクスポートできません（スケッチを終了するかキャンセルします）。</p>
+
+<h3 id="export-options">形式ごとのオプション</h3>
+<div class="table-wrap"><table>
+  <caption>エクスポートのオプション</caption>
+  <thead><tr><th>形式</th><th>オプション</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">STEP</th><td><span class="ui">［アプリケーション プロトコル］</span>（<span class="ui">［AP 214 - 自動車設計］</span>が既定、<span class="ui">［AP 242 - 管理されたモデルベース 3D エンジニアリング］</span>）、<span class="ui">［単位］</span></td></tr>
+    <tr><th scope="row">IGES・BREP</th><td><span class="ui">［単位］</span></td></tr>
+    <tr><th scope="row">STL・PLY</th><td><span class="ui">［形式］</span>（<span class="ui">［バイナリ］</span> / <span class="ui">［ASCII］</span>）、<span class="ui">［解像度］</span>、<span class="ui">［単位］</span></td></tr>
+    <tr><th scope="row">3MF・OBJ</th><td><span class="ui">［解像度］</span>、<span class="ui">［単位］</span></td></tr>
+    <tr><th scope="row">PNG 画像</th><td><span class="ui">［画像サイズ］</span>（<span class="ui">［ビューと同じ］</span>・<span class="ui">［幅 1920 px］</span>・<span class="ui">［幅 3840 px］</span>）、<span class="ui">［背景］</span>（<span class="ui">［ビューと同じ］</span>・<span class="ui">［白］</span>・<span class="ui">［透明］</span>）</td></tr>
+    <tr><th scope="row">JPEG 画像</th><td><span class="ui">［画像サイズ］</span>（背景は透明にできません）</td></tr>
+  </tbody>
+</table></div>
+<figure id="fig-13_export_stl"><a class="zoom" href="images/13_export_stl.png"><img src="images/13_export_stl.png" alt="STL のオプション。［解像度］が［カスタム］のときだけ、［サーフェス偏差］と［法線偏差］の欄が出ます。" width="520" height="497" loading="lazy"></a><figcaption><span class="figno">図 13-13</span> STL のオプション。<span class="ui">［解像度］</span>が<span class="ui">［カスタム］</span>のときだけ、<span class="ui">［サーフェス偏差］</span>と<span class="ui">［法線偏差］</span>の欄が出ます。</figcaption></figure>
+<ul>
+  <li><p><span class="ui">［解像度］</span>は、曲面を三角形にする細かさです。<span class="ui">［高］</span>はサーフェス偏差 0.01 mm、<span class="ui">［中］</span>は 0.03 mm（法線偏差 17°）、<span class="ui">［低］</span>は 0.1 mm です。<span class="ui">［カスタム］</span>で値を直接決められます。</p></li>
+  <li><p><span class="ui">［単位］</span>は、書き込む数値の単位です（<span class="ui">［ミリメートル］</span>・<span class="ui">［センチメートル］</span>・<span class="ui">［メートル］</span>・<span class="ui">［インチ］</span>）。受け取る側の単位に合わせます。</p></li>
+  <li><p>画像は、画面に出ている 3D ビューをそのまま撮ります。ビューが小さいと、小さい画像になります。</p></li>
+</ul>
+
+<h3 id="export-range">範囲と座標系</h3>
+<p><span class="ui">［範囲と座標系］</span>では、書き出すボディと、書き出しの原点・軸を決めます。</p>
+<ul>
+  <li><p><span class="ui">［ボディ］</span>の一覧のチェックを外したボディは書き出しません。STEP・IGES・BREP では、メッシュのボディにはチェックを付けられません。</p></li>
+  <li><p><span class="ui">［座標系］</span>は<span class="ui">［ワールド座標系］</span>が既定です。パーツに UCS があれば、一覧から選べます。選ぶと、その UCS の原点と軸で座標を書きます（<a href="05_work_features.html">第 5 章</a>）。</p></li>
+</ul>
+<p><span class="ui">［エクスポートする前の確認］</span>には、失敗したフィーチャと、見つからない参照（参照エラー）が出ます。失敗したフィーチャがあっても書き出せますが、書き出す形はそのフィーチャの前の状態です。先にエラーを直します。</p>
+<figure id="fig-13_export_image"><a class="zoom" href="images/13_export_image.png"><img src="images/13_export_image.png" alt="画像のエクスポート。［範囲と座標系］は出ません。" width="520" height="280" loading="lazy"></a><figcaption><span class="figno">図 13-14</span> 画像のエクスポート。<span class="ui">［範囲と座標系］</span>は出ません。</figcaption></figure>
+<p>STEP の<span class="ui">［名前付き STEP（部品名 = 領域名）］</span>の表の<span class="ui">［部品名］</span>は、STEP に書かれる部品の名前です。名前を付けたボディは、その名前で書かれます。名前のないボディは、パーツの名前で書かれます（パーツにボディが複数あるときは、<code>パーツ名_1</code>・<code>パーツ名_2</code>… の形です）。名前を変えるには、ブラウザでボディかパーツの行を選んで <kbd>F2</kbd> を押します。表の使い方は、<a href="26_step_export.html#names">第 26 章</a>にあります。構成ごとに一度に書き出す方法は<a href="11_configurations.html">第 11 章</a>と<a href="26_step_export.html#config">第 26 章</a>にあります。</p>
+<aside class="try"><p class="callout-title">この機能を試す</p><p class="try-sample">題材: <code>samples/split_bodies.mcad</code> （<a href="00_intro.html#samples">題材の一覧と開き方</a>）</p>
+  <p>題材を開き、<span class="ui">［エクスポート］</span>で<span class="ui">［STL］</span>を選びます。<span class="ui">［解像度］</span>を<span class="ui">［高］</span>と<span class="ui">［低］</span>で書き出して、ファイルの大きさを比べます。</p>
+</aside>
+
+<h2 id="recovery"><span class="secno">13.9</span> 自動回復</h2>
+<p>保存していない変更があるドキュメントは、一定の間隔で回復用の写しに自動で書かれます。mcad が異常終了（強制終了・停電など）したあと、次の起動で写しから作業を取り戻せます。</p>
+<ul>
+  <li><p>間隔は、<span class="ui">［オプション］</span>の<span class="ui">［自動回復］</span>ページの<span class="ui">［自動回復の間隔（秒）］</span>です（既定 120 秒。0 で書きません）。<span class="ui">［ドキュメントごとに保持する回復用の写しの数］</span>（既定 3）だけ、古い版も残ります。</p></li>
+  <li><p>正常に保存した・閉じたドキュメントの写しは、消えます。</p></li>
+</ul>
+<ol class="steps">
+  <li><p>異常終了のあとに mcad を起動すると、<span class="ui">［ドキュメントの復旧］</span>のダイアログが出ます。復旧するドキュメントにチェックを付けます。</p></li>
+  <li><p>一覧の行を選び、<span class="ui">［復旧方法］</span>を選びます。<span class="ui">［未保存のドキュメントとして開く］</span>は、写しを新しいタブに開きます。<span class="ui">［元のファイルを上書きする］</span>は、元のファイルに書き戻します（前の版は <code>.bak</code> に残ります）。<span class="ui">［別の名前で保存］</span>は、<span class="ui">［保存先］</span>に書きます。</p>
+    <figure id="fig-13_recovery_dialog"><a class="zoom" href="images/13_recovery_dialog.png"><img src="images/13_recovery_dialog.png" alt="復旧のダイアログ。写しが複数あるときは、［版］で最新か古い版を選べます。" width="707" height="250" loading="lazy"></a><figcaption><span class="figno">図 13-15</span> 復旧のダイアログ。写しが複数あるときは、<span class="ui">［版］</span>で最新か古い版を選べます。</figcaption></figure></li>
+  <li><p><span class="ui">［チェックしたものを開く］</span>を押します。チェックを外した写しと、<span class="ui">［すべて破棄］</span>を押したときの写しは捨てられます。</p></li>
+</ol>
+<aside class="note" role="note"><p class="callout-title">注意</p><p>ダイアログを <kbd>Esc</kbd> や × で閉じると、何もせず、写しは次の起動まで残ります。<span class="ui">［元のファイルを上書きする］</span>は、写しを取ったあとで元のファイルが変わっていた場合と、別のプログラムが使用中の場合は、上書きせずに開くだけにします。</p></aside>
+<p>尋ねずに決めて起動するには、起動のオプション <code>--recover</code> を使います（<a href="27_customize.html#startup">第 27 章</a>）。</p>
+
+<h2 id="lock"><span class="secno">13.10</span> ファイルのロック</h2>
+<p>ドキュメントを開いている間、同じフォルダに <code>名前.mcad.lock</code> という小さなファイルを置きます。別のプロセスや別の人が同じドキュメントを開こうとすると、このファイルを見て、<strong>読み取り専用</strong>で開きます。</p>
+<figure id="fig-13_readonly_tab"><a class="zoom" href="images/13_readonly_tab.png"><img src="images/13_readonly_tab.png" alt="読み取り専用で開いたドキュメントのタブ。名前の後ろに [読み取り専用] が付き、ウィンドウの題名にも付きます。" width="640" height="32" loading="lazy"></a><figcaption><span class="figno">図 13-16</span> 読み取り専用で開いたドキュメントのタブ。名前の後ろに <code>[読み取り専用]</code> が付き、ウィンドウの題名にも付きます。</figcaption></figure>
+<ul>
+  <li><p>読み取り専用のドキュメントは、編集はできますが、そのファイルには保存できません。<span class="ui">［保存］</span>を押すと「…は読み取り専用のため上書きできません。名前を付けて保存しますか?」と尋ね、<span class="ui">［名前を付けて保存］</span>で別のファイルに保存できます。</p></li>
+  <li><p>前のプログラムが異常終了してロックが残っているときは、「…のロックが残ったままです（プログラムが異常終了しました）。ロックを引き継いで、編集用に開きますか?」と尋ねます。<span class="ui">［ロックを引き継いで開く］</span>か<span class="ui">［読み取り専用で開く］</span>を選びます。別のコンピュータが開いたまま長く更新がないときも、同じ確認が出ます。</p></li>
+  <li><p>ロックのファイルを作れないとき（読み取り専用のフォルダなど）は、開けますが、「他の利用者には警告されません」と知らせます。フォルダに余分なファイルを置きたくないときは、<span class="ui">［オプション］</span>の<span class="ui">［ファイル］</span>ページで<span class="ui">［開いているドキュメントをロックする］</span>を切ります。</p></li>
+</ul>
+<aside class="note" role="note"><p class="callout-title">注意</p><p>ロックは、同時に開いたことを知らせる仕組みです。ネットワーク ドライブや同期フォルダでの動作は、実際の環境では確認していません。複数人で使うときは、同時に編集しない運用にします。</p></aside>
+
+<h2 id="storage"><span class="secno">13.11</span> 同梱キャッシュと外部の格納先</h2>
+<p>ドキュメントを保存するとき、計算結果の形状（キャッシュ）を同梱します。開くときに再計算が要らず、すぐに表示されます。大きなインポートデータは、ドキュメントの外のフォルダに置けます。設定は<span class="ui">［オプション］</span>の<span class="ui">［ファイル］</span>ページにあります。</p>
+<figure id="fig-13_options_file"><a class="zoom" href="images/13_options_file.png"><img src="images/13_options_file.png" alt="［オプション］の［ファイル］ページ。同梱キャッシュ・外部の格納先・バックアップ・ロック・テンプレートの設定があります。" width="760" height="532" loading="lazy"></a><figcaption><span class="figno">図 13-17</span> <span class="ui">［オプション］</span>の<span class="ui">［ファイル］</span>ページ。同梱キャッシュ・外部の格納先・バックアップ・ロック・テンプレートの設定があります。</figcaption></figure>
+
+<h3 id="storage-cache">同梱キャッシュと「未検証」</h3>
+<p>同梱したキャッシュで開いたドキュメントは、まだ計算し直していない結果なので、ステータスバーに<span class="ui">［未検証の保存済み結果］</span>と出ます。ツールチップには、ファイルに保存されたキャッシュから読み取ったフィーチャの数が出ます。</p>
+<figure id="fig-13_unverified_status"><a class="zoom" href="images/13_unverified_status.png"><img src="images/13_unverified_status.png" alt="ステータスバーのエンジンの状態。保存した結果で表示している間、後ろに［未検証の保存済み結果］が付きます。" width="229" height="23" loading="lazy"></a><figcaption><span class="figno">図 13-18</span> ステータスバーのエンジンの状態。保存した結果で表示している間、後ろに<span class="ui">［未検証の保存済み結果］</span>が付きます。</figcaption></figure>
+<figure id="fig-13_unverified_tip"><a class="zoom" href="images/13_unverified_tip.png"><img src="images/13_unverified_tip.png" alt="エンジンの状態にマウスを合わせたときのツールチップ。保存したキャッシュから読み取ったフィーチャの数が出ます。" width="670" height="38" loading="lazy"></a><figcaption><span class="figno">図 13-19</span> エンジンの状態にマウスを合わせたときのツールチップ。保存したキャッシュから読み取ったフィーチャの数が出ます。</figcaption></figure>
+<ul>
+  <li><p>フィーチャを編集すると、先端までを計算し直し、<span class="ui">［未検証の保存済み結果］</span>が消えます。エクスポートは同梱の結果を使わず、計算し直してから書きます。</p></li>
+  <li><p>図面のビューも、保存したビューからすぐに表示します。計算し直して確かめるまで、ブラウザのビューの行とキャンバスのビューの左上に小さく<span class="ui">［未確認］</span>と出ます。操作の手が空くと数秒で確かめて消えます。保存したビューが計算し直したビューと違っていたら（ファイルが mcad の外で変更されたなど）、計算し直したビューに置き換えて通知します。印刷とエクスポートは、確かめてから書きます。</p></li>
+  <li><p>ファイルを小さくしたいときは、<span class="ui">［形状のキャッシュをドキュメントに保存する］</span>を切ります。出どころの分からないドキュメントは、<span class="ui">［形状キャッシュ］</span>ページの<span class="ui">［ドキュメントに同梱されたキャッシュを使う］</span>を切ると、必ず計算し直して開きます。</p></li>
+</ul>
+
+<h3 id="storage-external">外部の格納先</h3>
+<p><span class="ui">［これより大きいインポートデータはドキュメントの外に保存（MB）］</span>を 1 以上にすると、その大きさ以上のインポートデータは、ドキュメントの隣の <code>名前.mcadsim</code> フォルダに置かれます。ドキュメントには、チェックサムだけが入ります。既定の 0 は、すべてをドキュメントの中に入れます。</p>
+<ul>
+  <li><p>設定は、<span class="ui">［OK］</span>か<span class="ui">［適用］</span>を押すとすぐに効きます。mcad を起動し直す必要はありません。効くのは、設定を変えたあとに取り込むデータです。すでに取り込んだデータの置き場所は変わりません。</p></li>
+  <li><p>基準になる大きさは、取り込んだあとにドキュメントが持つデータの大きさです（<a href="#import-source">元のファイルを消しても開ける</a>で見る、プロパティ パネルの<span class="ui">［元データ］</span>の大きさ）。元のファイルより小さいことがあります。</p></li>
+  <li><p>ドキュメントを別の場所へコピーするときは、<code>名前.mcadsim</code> フォルダも一緒にコピーします。<span class="ui">［名前を付けて保存］</span>では、格納先も一緒に写されます。</p></li>
+  <li><p>格納先を移動・改名しても、同じフォルダにある <code>.mcadsim</code> フォルダのうち、そのドキュメントのものが見つかります。見つからないと、そのデータを使う<span class="ui">［インポート］</span>のフィーチャが「データ … が見つかりませんでした」のエラーになります。ドキュメントは開けます。</p></li>
+</ul>
+<aside class="note" role="note"><p class="callout-title">注意</p><p>外部の格納先の整理（使われなくなったデータを消す画面）はまだありません。</p></aside>
+
+</article>
+<nav class="pager" aria-label="前後の章"><a class="prev" rel="prev" href="12_inspect.html"><span class="dir">前の章</span>第 12 章 検査</a><a class="next" rel="next" href="14_em_intro.html"><span class="dir">次の章</span>第 14 章 電磁場解析のはじめに</a></nav>
+<footer class="footer"><p>EMRM-Studio ユーザーマニュアル（日本語）・EMRM-Studio 0.1.0 ・ <a href="#main">このページの先頭へ</a></p></footer>
+</main>
+</div>
+</body>
+</html>

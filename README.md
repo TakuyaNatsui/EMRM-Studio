@@ -4,33 +4,44 @@
 
 EMRM-Studio (Electric, Magnetic, Resonant Mode) is a Windows desktop application for designing accelerator
 magnets, electron guns and RF cavities. Build the geometry in a full parametric 3D CAD, assign materials, coils and
-boundary conditions, and compute **magnetostatic fields, resonant modes and port analysis (S-parameters)** in one
-window.
+boundary conditions, and compute **magnetostatic and electrostatic fields, electron guns, resonant modes and port analysis
+(S-parameters)** in one window.
 
-The solvers use the finite element method: edge elements for the magnetic vector potential, and **second-order
+The solvers use the finite element method: edge elements for the magnetic vector potential, nodal elements for the electric potential, and **second-order
 Nédélec elements on curved tetrahedra** for resonant modes and port analysis, which give high accuracy with few
 elements.
 
-This repository hosts the **downloads and the issue tracker** of EMRM-Studio. It does not contain the source code.
+This repository hosts the **downloads, the user manual and the issue tracker** of EMRM-Studio. It does not contain
+the source code.
+
+**User manual (HTML, Japanese): https://takuyanatsui.github.io/EMRM-Studio/** (in the application: Help -> User manual, F1)
 
 > **Trial edition:** all features are available, but the number of mesh elements (tetrahedra) that can be analyzed
-> is limited (**10,000** for eigenmode and port analysis, **30,000** for magnetostatics). See
+> is limited (**30,000** for eigenmode and port analysis, **100,000** for magnetostatics, electrostatics and electron
+> guns). See
 > [Trial limitation](#trial-limitation).
 
 ## Features
 
 - **3D CAD**: constrained and dimensioned sketches, extrude / revolve / sweep / loft, Booleans, fillets and chamfers,
   patterns and mirrors, parameters. STEP / IGES import and export
-- **Studies**: any number of magnetostatic, eigenmode and port-analysis studies on one model
+- **Studies**: any number of magnetostatic, electrostatic, electron-gun, eigenmode and port-analysis studies on one
+  model
 - **Magnetostatics**: iron (linear or saturating with a B-H curve), coils (conductors with a current inlet and outlet,
   toroidal coils, coils wound along a sketch profile), symmetry planes, field lines, color maps, 2D slices and
   multipole expansion
+- **Electrostatics**: electrode potentials (bodies and faces), dielectrics, grounded / zero-charge / symmetry
+  boundaries, charges, capacitances between electrodes and the maximum surface field
+- **Electron guns**: space-charge-limited emission from the cathode, electron trajectories, self-consistent iteration
+  of the space charge and the self magnetic field, external fields from a magnetostatic study, beam current,
+  perveance and emittance
 - **Resonant modes**: frequencies, fields, Q from wall and dielectric losses, R/Q, accelerating voltage, surface
   currents
 - **Port analysis**: waveguide and coaxial ports, S-parameters (magnitude and phase), adaptive sweep, resonance
   search (f0, Qe, Q0, QL), fields at any frequency, Touchstone export
 - **Display**: slices, arrows, color maps, field lines and 2D plots. Results are saved in the project
-- Japanese and English user interface. HTML user manual included (Help -> User manual, F1; currently Japanese)
+- Japanese and English user interface. HTML user manual included (Help -> User manual, F1; currently Japanese),
+  also [on the web](https://takuyanatsui.github.io/EMRM-Studio/)
 
 ## Requirements
 
@@ -63,8 +74,8 @@ Version: run `EMRM-Studio.exe version` in a command prompt.
 
 | Analysis | Mesh elements that can be analyzed |
 |---|---|
-| Eigenmode and port analysis | up to 10,000 |
-| Magnetostatics (including the air region) | up to 30,000 |
+| Eigenmode and port analysis | up to 30,000 |
+| Magnetostatics (including the air region), electrostatics and electron guns | up to 100,000 |
 
 - Larger meshes can still be generated and inspected; the analysis stops with a message before solving. Use a larger
   mesh size to reduce the number of elements. The current-distribution preview is not limited.

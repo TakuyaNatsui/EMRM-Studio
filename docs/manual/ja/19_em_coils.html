@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="generator" content="tools/build_manual.py">
+<title>第 19 章 静磁場解析: コイル - EMRM-Studio ユーザーマニュアル</title>
+<link rel="stylesheet" href="assets/manual.css">
+<script src="assets/search_index.js" charset="utf-8" defer></script>
+<script src="assets/manual.js" charset="utf-8" defer></script>
+</head>
+<body class="page">
+<header class="topbar">
+<a class="brand" href="index.html">EMRM-Studio ユーザーマニュアル</a>
+<button class="toc-toggle" type="button" aria-controls="toc" aria-expanded="false">目次</button>
+<form class="search" role="search" action="#" onsubmit="return false">
+<input id="q" type="search" placeholder="マニュアルを検索（/）" aria-label="マニュアルを検索" autocomplete="off">
+</form>
+</header>
+<div id="search-results" class="search-results" hidden></div>
+<div class="layout">
+<nav id="toc" class="toc" aria-label="目次">
+<details class="toc-box">
+<summary>目次</summary>
+<ol class="toc-chapters">
+<li class="toc-home"><a href="index.html">表紙・目次</a></li>
+<li><a href="00_intro.html">はじめに</a></li>
+<li class="toc-part" role="presentation">第 I 部　形状を作る（CAD）</li>
+<li><a href="01_screen.html"><span class="chno">第 1 章</span> 画面の構成</a></li>
+<li><a href="02_view.html"><span class="chno">第 2 章</span> 視点の操作</a></li>
+<li><a href="03_first_part.html"><span class="chno">第 3 章</span> はじめての部品</a></li>
+<li><a href="04_sketch.html"><span class="chno">第 4 章</span> スケッチ</a></li>
+<li><a href="05_work_features.html"><span class="chno">第 5 章</span> 作業フィーチャ</a></li>
+<li><a href="06_features_basic.html"><span class="chno">第 6 章</span> フィーチャ（押し出し・回転・穴・フィレットなど）</a></li>
+<li><a href="07_features_advanced.html"><span class="chno">第 7 章</span> フィーチャ（スイープ・ロフト・コイル・パターンなど）</a></li>
+<li><a href="08_bodies.html"><span class="chno">第 8 章</span> ボディの操作</a></li>
+<li><a href="09_browser.html"><span class="chno">第 9 章</span> ブラウザとフィーチャの管理</a></li>
+<li><a href="10_parameters.html"><span class="chno">第 10 章</span> パラメータと式</a></li>
+<li><a href="11_configurations.html"><span class="chno">第 11 章</span> 構成</a></li>
+<li><a href="12_inspect.html"><span class="chno">第 12 章</span> 検査</a></li>
+<li><a href="13_files.html"><span class="chno">第 13 章</span> ファイル</a></li>
+<li class="toc-part" role="presentation">第 II 部　電磁場解析</li>
+<li><a href="14_em_intro.html"><span class="chno">第 14 章</span> 電磁場解析のはじめに</a></li>
+<li><a href="15_em_first.html"><span class="chno">第 15 章</span> はじめての電磁場解析（ソレノイド）</a></li>
+<li><a href="16_em_setup.html"><span class="chno">第 16 章</span> スタディの共通の設定</a></li>
+<li><a href="17_em_results.html"><span class="chno">第 17 章</span> 結果の見方</a></li>
+<li><a href="18_em_magnetostatic.html"><span class="chno">第 18 章</span> 静磁場解析</a></li>
+<li class="current"><a href="19_em_coils.html" aria-current="page"><span class="chno">第 19 章</span> 静磁場解析: コイル</a><ol class="toc-sections"><li><a href="19_em_coils.html#fields"><span class="secno">19.1</span> コイルの欄</a></li><li><a href="19_em_coils.html#loop"><span class="secno">19.2</span> ループのコイル</a></li><li><a href="19_em_coils.html#section"><span class="secno">19.3</span> 断面で決めるループ（任意の形）</a></li><li><a href="19_em_coils.html#turns"><span class="secno">19.4</span> 巻数・電流・向き・巻き方</a></li><li><a href="19_em_coils.html#terminal"><span class="secno">19.5</span> 端子付きのコイル</a></li><li><a href="19_em_coils.html#inductance"><span class="secno">19.6</span> インダクタンスと複数のコイル</a></li></ol></li>
+<li><a href="20_em_dipole.html"><span class="chno">第 20 章</span> 静磁場解析の例題: H 型双極電磁石</a></li>
+<li><a href="21_em_eigenmode.html"><span class="chno">第 21 章</span> 共振モード解析</a></li>
+<li><a href="22_em_driven.html"><span class="chno">第 22 章</span> ポート解析</a></li>
+<li><a href="23_em_electrostatic.html"><span class="chno">第 23 章</span> 静電場解析</a></li>
+<li><a href="24_em_gun.html"><span class="chno">第 24 章</span> 電子銃解析</a></li>
+<li><a href="25_em_troubleshooting.html"><span class="chno">第 25 章</span> 電磁場解析で困ったとき</a></li>
+<li class="toc-part" role="presentation">第 III 部　連携・カスタマイズ・自動化</li>
+<li><a href="26_step_export.html"><span class="chno">第 26 章</span> 他の解析プログラムに形を渡す</a></li>
+<li><a href="27_customize.html"><span class="chno">第 27 章</span> カスタマイズ</a></li>
+<li><a href="28_automation.html"><span class="chno">第 28 章</span> 自動化</a></li>
+<li><a href="29_troubleshooting.html"><span class="chno">第 29 章</span> 困ったとき</a></li>
+<li class="toc-part" role="presentation">付録</li>
+<li class="appendix"><a href="appendix_a_commands.html"><span class="chno">付録 A</span> コマンド一覧</a></li>
+<li class="appendix"><a href="appendix_b_shortcuts.html"><span class="chno">付録 B</span> ショートカット一覧</a></li>
+<li class="appendix"><a href="appendix_c_feature_params.html"><span class="chno">付録 C</span> フィーチャのパラメータ一覧</a></li>
+<li class="appendix"><a href="appendix_d_glossary.html"><span class="chno">付録 D</span> 用語の対応表</a></li>
+</ol>
+</details>
+</nav>
+<main class="content" id="main">
+<article class="chapter ">
+<p class="chapter-label">第 19 章</p>
+<h1>静磁場解析: コイル</h1>
+<nav class="pagetoc" aria-label="この章の内容">
+<p class="pagetoc-title">この章の内容</p>
+<ol>
+<li><a href="#fields"><span class="secno">19.1</span> コイルの欄</a></li>
+<li><a href="#loop"><span class="secno">19.2</span> ループのコイル</a></li>
+<li><a href="#section"><span class="secno">19.3</span> 断面で決めるループ（任意の形）</a></li>
+<li><a href="#turns"><span class="secno">19.4</span> 巻数・電流・向き・巻き方</a></li>
+<li><a href="#terminal"><span class="secno">19.5</span> 端子付きのコイル</a></li>
+<li class="sub"><a href="#hairpin">例: U 字の導体（ヘアピン）</a></li>
+<li><a href="#inductance"><span class="secno">19.6</span> インダクタンスと複数のコイル</a></li>
+<li class="sub"><a href="#pair">例: 同軸の 2 つのコイル</a></li>
+</ol>
+</nav>
+<p><span class="badge-study study-magnetostatic">静磁場</span> この章では、静磁場のスタディのコイルの設定を詳しく説明します。コイルの形（ループ・断面で決めるループ・端子付き）、巻数と電流、向き、巻き方、複数のコイルのインダクタンス行列です。</p>
+
+<h2 id="fields"><span class="secno">19.1</span> コイルの欄</h2>
+<p>コイルは「どのボディに」「どの路で」「どれだけ」電流を流すかの設定です。<span class="path">リボンの<span class="ui">［物理］</span>タブ → <span class="ui">［励磁］</span>パネル → <span class="ui">［コイル］</span></span>で作り、プロパティ パネルで次の欄を入れます。</p>
+<div class="table-wrap"><table>
+  <caption>コイルの欄</caption>
+  <thead><tr><th>欄</th><th>内容</th></tr></thead>
+  <tbody>
+    <tr><th scope="row"><span class="ui">［ボディ］</span></th><td>電流を流すボディ（複数可）。一覧のチェックか、<span class="ui">［3D で選ぶ］</span>の間の 3D ビューのクリックで入れる・外す</td></tr>
+    <tr><th scope="row"><span class="ui">［コイルの形］</span></th><td><span class="ui">［ループ（軸と向き）］</span>・<span class="ui">［ループ（断面と電流の向き）］</span>・<span class="ui">［端子付き］</span></td></tr>
+    <tr><th scope="row"><span class="ui">［巻き方］</span></th><td><span class="ui">［多数巻き（stranded）］</span>・<span class="ui">［一体導体（solid）］</span></td></tr>
+    <tr><th scope="row"><span class="ui">［巻数］</span>・<span class="ui">［1 ターンの電流］</span></th><td>巻線の断面を貫くターン数（モデル全体の値）と、導線 1 本の電流（<code>100 A</code>・<code>2*I_main</code> など）</td></tr>
+    <tr><th scope="row"><span class="ui">［向き］</span>・<span class="ui">［コイルの軸］</span></th><td>ループのとき。右ねじか逆、軸の向き（X・Y・Z・任意の向き）と、軸が通る点</td></tr>
+  </tbody>
+</table></div>
+
+<h2 id="loop"><span class="secno">19.2</span> ループのコイル</h2>
+<p>ソレノイド・パンケーキ・レーストラックのように、電流が軸のまわりを一周して閉じるコイルです。入口・出口はありません。コイルのボディの中で軸のまわりを一周する電流の路を、自動で求めます（導電の問題を解き、その向きに電流を流します）。そのため、<strong>軸がボディの穴を通ること</strong>が条件です。</p>
+<p>軸の向きは X・Y・Z か<span class="ui">［任意の向き］</span>を選び、軸の点で位置を決めます（軸の点は穴の中のどこでもかまいません）。四極電磁石の 45° 傾いたコイルのように、座標軸に平行でない軸も使えます。</p>
+<p><span class="ui">［3D で軸を取る］</span>を押してから、3D ビューで次のどれかをクリックすると、その軸が欄に入ります（文書は<span class="ui">［適用］</span>で変わります）。</p>
+<ul>
+  <li><p>円・円弧・楕円のエッジ: 中心を通り、円の面に垂直な軸</p></li>
+  <li><p>直線のエッジ（作業軸も）: その直線</p></li>
+  <li><p>円柱・円錐・トーラスの面: その軸</p></li>
+  <li><p>平らな面: 面の重心を通り、面に垂直な軸（レーストラックの上の面など）</p></li>
+</ul>
+<p>コイルを編集している間は、物理のタブに軸がマゼンタの線で、電流の回る向きが円弧の矢印で出ます（まだ適用していない値でも出ます）。形状を動かしても軸はついて行かないので、取り直してください。</p>
+<aside class="note" role="note"><p class="callout-title">注意</p><p>軸が穴を通らないと、チェックで「…が軸のまわりを一周していません」の警告が出ます。軸が導体を貫くときも警告が出ます。レーストラックの軸も、コイルの中央の穴を通るように置きます。</p></aside>
+
+<h2 id="section"><span class="secno">19.3</span> 断面で決めるループ（任意の形）</h2>
+<p>サドル型のコイルや曲がったコイルのように、穴を通るまっすぐな軸を決めにくいループは、<span class="ui">［コイルの形］</span>を<span class="ui">［ループ（断面と電流の向き）］</span>にして、<strong>電流が横切る断面とその向き</strong>で指定します。断面は、<span class="ui">［断面の点 X］</span>〜<span class="ui">［Z］</span>を通り<span class="ui">［電流の向き X］</span>〜<span class="ui">［Z］</span> の向きに垂直な平面とコイルの交わりのうち、点に最も近いものです。電流はこの断面を、向きの側へ横切ります。</p>
+<ul>
+  <li><p><span class="ui">［3D で断面を取る］</span>を押して、電流に沿うコイルのエッジ（直線・円・円弧）をクリックすると、エッジの中点でエッジに垂直な断面が入ります。向きはエッジの向きです。逆なら<span class="ui">［向きを反転］</span>を押します。</p></li>
+  <li><p>コイルを編集している間は、断面がマゼンタで塗られ、断面の重心から電流の向きの矢印が出ます。</p></li>
+  <li><p>点は導体の上か中に置きます。断面は電流に垂直でなくてもかまいません（導体を 1 回横切れば同じ結果になります）。</p></li>
+  <li><p>1 つの条件に複数のボディを入れたときは、ボディごとに点に最も近い交わりを使います（ダブルパンケーキなど）。</p></li>
+  <li><p>軸が無いので、対称面の境界の<span class="ui">［自動］</span>は決められません。対称面の種類（磁束平行・磁束垂直）を選んでください。</p></li>
+</ul>
+<aside class="note" role="note"><p class="callout-title">注意</p><p>断面が電流に沿う向き（環の中央の面など）だと、ループを切らないので「ループの電流が 0 です」のエラーになります。チェックでは、断面がボディを切らないとエラー、点が導体から遠いと警告が出ます。</p></aside>
+
+<h2 id="turns"><span class="secno">19.4</span> 巻数・電流・向き・巻き方</h2>
+<ul>
+  <li><p><strong>起磁力</strong> = 巻数 × 1 ターンの電流 [A·turn]。磁場を決めるのはこの積です。</p></li>
+  <li><p><strong>巻数はモデル全体の値</strong>で入れます。対称面で切って解くとき、磁束垂直の対称面がコイルの断面を切るごとに、モデルの中の巻数は自動で 1/2 になります（ログにも換算が出ます）。</p></li>
+  <li><p>1 つのコイルの条件に複数のボディを入れると、各ボディが同じ巻数・電流を持ちます（直列のコイルと同じ）。巻数や電流が違うコイルは、別のコイルの条件にします。</p></li>
+  <li><p><span class="ui">［右ねじ（+軸）］</span>は、<strong>右ねじを軸の + 向きに進めるときに回す向き</strong>に電流が流れる、という意味です。軸が z なら、+z の側から見て反時計回りに電流が回り、コイルの中の磁場は +z を向きます。迷ったら<span class="path">リボンの<span class="ui">［物理］</span>タブ → <span class="ui">［励磁］</span>パネル → <span class="ui">［電流分布］</span></span>で矢印の向きを確かめます。</p></li>
+</ul>
+<div class="table-wrap"><table>
+  <caption>巻き方</caption>
+  <thead><tr><th>巻き方</th><th>電流の分布</th><th>向くもの</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">多数巻き（stranded）</th><td>細い導線を多数巻いたコイル。電流密度の大きさは断面で一様（|J| = N·I / 断面積）、向きは導電の解の向き</td><td>ふつうの電磁石のコイル</td></tr>
+    <tr><th scope="row">一体の導体（solid）</th><td>1 つの導体に電流を流したときの分布そのまま。曲がりの内側に電流が寄る</td><td>ブスバー・1 ターンの導体</td></tr>
+  </tbody>
+</table></div>
+
+<h2 id="terminal"><span class="secno">19.5</span> 端子付きのコイル</h2>
+<p>電流の入口と出口がある導体です。電流は<strong>入口の端子面から入り、導体の中を通って出口の端子面から出ます</strong>。導体の中の電流の路は、ループと同じく導電の問題を解いて求めます。</p>
+<div class="table-wrap"><table>
+  <caption>コイルの形の選び方</caption>
+  <thead><tr><th>形</th><th>使うコイルの形</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">ソレノイド・パンケーキ・レーストラック（軸のまわりを一周する）</th><td>ループ。対称面（磁束平行）で切っても、切り口は自動で端子になるので、ループのままでよい</td></tr>
+    <tr><th scope="row">閉じているが、1 本の軸のまわりを回るとは言えない形（サドル型など）</th><td>ループ（断面と電流の向き）</td></tr>
+    <tr><th scope="row">U 字の導体（ヘアピン）・ブスバー</th><td>端子付き。導体の両端を磁束平行の対称面に置き、対称面の向こうの鏡像と合わせて閉じた路にする</td></tr>
+  </tbody>
+</table></div>
+<ul>
+  <li><p><strong>端子面</strong>は、コイルのボディの面のうち<strong>磁束平行の面（解析領域の外面か、磁束平行の対称面）に乗った面</strong>です。自動で見つかります。</p></li>
+  <li><p>入口は<span class="ui">［入口の決め方］</span>で決めます。<span class="ui">［入口の点］</span>（点に近い方の端子面が入口）か、<span class="ui">［断面と電流の向き］</span>（断面を電流の向きに通るほうの端子面が入口）です。</p></li>
+  <li><p>端子を置く対称面の境界は、<span class="ui">［自動］</span>ではなく<span class="ui">［磁束平行］</span>を選びます。</p></li>
+  <li><p>対称面の向こうには、導体と電流の<strong>鏡像</strong>があるものとして解きます。エネルギー・インダクタンスは鏡像を含めた全体の値です。</p></li>
+</ul>
+<h3 id="hairpin">例: U 字の導体（ヘアピン）</h3>
+<p>断面 20 × 20 mm の U 字の銅の導体に 1000 A を流します。導体の両端は x = 0 の面（YZ の対称面）に乗せ、鏡像と合わせた全体は、中心線で 180 × 100 mm の長方形の 1 ターンのループになります。設定の済んだものは <code>examples/hairpin_coil.emrm</code> です。</p>
+<ol class="steps">
+  <li><p>コイルを作り、<span class="ui">［コイルの形］</span>を<span class="ui">［端子付き］</span>、<span class="ui">［巻き方］</span>を<span class="ui">［一体導体（solid）］</span>、巻数 <code>1</code>・電流 <code>1000 A</code>、<span class="ui">［入口の点］</span>を <code>0 0 50</code>（上の脚の端の中心）にします。</p>
+    <figure id="fig-19_em_hp_coil"><a class="zoom" href="images/19_em_hp_coil.png"><img src="images/19_em_hp_coil.png" alt="U 字の導体と、端子付きのコイルのフォーム。" width="1000" height="671" loading="lazy"></a><figcaption><span class="figno">図 19-1</span> U 字の導体と、端子付きのコイルのフォーム。</figcaption></figure></li>
+  <li><p><span class="path">リボンの<span class="ui">［物理］</span>タブ → <span class="ui">［解析領域］</span>パネル → <span class="ui">［対称面］</span></span>で YZ の対称面を作り、境界を<span class="ui">［磁束平行］</span>にします。</p></li>
+  <li><p><span class="path">リボンの<span class="ui">［物理］</span>タブ → <span class="ui">［励磁］</span>パネル → <span class="ui">［電流分布］</span></span>で確かめます。表の<span class="ui">［電流の路］</span>が端子、起磁力が 1000 / 1000 になります。対称面の向こうの鏡像の電流も矢印で出ます。</p>
+    <figure id="fig-19_em_hp_preview"><a class="zoom" href="images/19_em_hp_preview.png"><img src="images/19_em_hp_preview.png" alt="電流分布。左は対称面（x = 0）の向こうの鏡像の電流。曲がりの内側の角で |J| が大きくなります。" width="700" height="549" loading="lazy"></a><figcaption><span class="figno">図 19-2</span> 電流分布。左は対称面（x = 0）の向こうの鏡像の電流。曲がりの内側の角で |J| が大きくなります。</figcaption></figure></li>
+  <li><p><span class="path">リボンの<span class="ui">［解析］</span>タブ → <span class="ui">［実行］</span>パネル → <span class="ui">［実行］</span></span>で解きます。ループの中心の By は 8.99 mT（細い長方形のループのビオ・サバールの式で 9.15 mT）、インダクタンスは 0.215 μH（長方形のループの式で 0.213 μH）です。</p></li>
+</ol>
+<aside class="note" role="note"><p class="callout-title">注意</p><p>解析領域は自動で余白を取って作るので、導体の端を解析領域の外面に届かせることはできません。今の版で端子付きのコイルが使えるのは、<strong>導体の両端が磁束平行の対称面に乗る形</strong>だけです。空気の中で途切れる導線には電流を流せません。</p></aside>
+
+<h2 id="inductance"><span class="secno">19.6</span> インダクタンスと複数のコイル</h2>
+<p>コイルの条件 1 つが、電源の 1 つの回路です（条件に入れたボディは、同じ電流で直列につながっているものとして扱います）。結果の表に出る回路の量は次のとおりです。値はどれも対称の倍数を掛けた全体の値で、巻数を含みます（L ∝ N²）。</p>
+<div class="table-wrap"><table>
+  <caption>回路の量</caption>
+  <thead><tr><th>量</th><th>出るとき・意味</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">インダクタンス L</th><td>コイルの条件が 1 つのとき。L = 2W / I² = Ψ / I</td></tr>
+    <tr><th scope="row">磁束鎖交 Ψ [Wb]</th><td>コイルの条件ごと。線形なら Ψ = L I</td></tr>
+    <tr><th scope="row">インダクタンス行列 L<sub>jk</sub></th><td>コイルの条件が 2 つ以上で、<span class="path">リボンの<span class="ui">［解析］</span>タブ → <span class="ui">［設定］</span>パネル → <span class="ui">［解析の設定］</span></span>の<span class="ui">［相互インダクタンスを求める］</span>にチェックを入れたとき。対角が自己、それ以外が相互インダクタンス</td></tr>
+    <tr><th scope="row">結合係数 k</th><td>k = M / √(L<sub>1</sub> L<sub>2</sub>)（行列を求めたとき）</td></tr>
+    <tr><th scope="row">増分インダクタンス L<sub>d</sub></th><td>飽和のある材料があるとき。L<sub>d</sub> = dΨ/dI</td></tr>
+  </tbody>
+</table></div>
+<ul>
+  <li><p>行列を求めたときは、右の<span class="ui">［結果］</span>の表の下に<span class="ui">［インダクタンス行列］</span>の表が出ます。<span class="ui">［コピー］</span>で、タブ区切りの文としてクリップボードに置けます（表計算ソフトにそのまま貼れます）。</p></li>
+  <li><p>行列のための追加の解析は要りません。コイルごとの 1 A あたりの右辺を、全体と同じ分解で一緒に解きます。</p></li>
+  <li><p>電流を <code>0 A</code> にしたコイルの条件も行列に入ります（相互インダクタンスだけを求めたい検出コイル）。チェックは「検出コイルとして扱う」という情報を出します。</p></li>
+  <li><p>対称面の向こうのコイルは、残す側のコイルの鏡像として、同じ条件（同じ回路）に入ります。鏡像の位置のコイルを別の条件にしたいときは、その対称面を使いません。</p></li>
+  <li><p>飽和があるときは重ね合わせができないので、行列は解いた電流の組での増分インダクタンス ∂Ψ<sub>j</sub>/∂I<sub>k</sub> です。</p></li>
+</ul>
+<h3 id="pair">例: 同軸の 2 つのコイル</h3>
+<p>z 軸のまわりの 2 つのコイル（A: 半径 20〜26 mm・z = −15〜−5 mm・100 ターン × 2 A、B: 半径 30〜34 mm・z = 5〜13 mm・50 ターン × 0 A の検出コイル）です。対称面は YZ と ZX（2 つのコイルは z = 0 について対称でないので XY は使わない）、<span class="ui">［相互インダクタンスを求める］</span>にチェックを入れます。設定の済んだものは <code>examples/coil_pair.emrm</code> です。</p>
+<figure id="fig-19_em_lm_result"><a class="zoom" href="images/19_em_lm_result.png"><img src="images/19_em_lm_result.png" alt="結果（ZX の断面の |B|）と、右下のインダクタンス行列の表。" width="1000" height="671" loading="lazy"></a><figcaption><span class="figno">図 19-3</span> 結果（ZX の断面の |B|）と、右下のインダクタンス行列の表。</figcaption></figure>
+<div class="table-wrap"><table>
+  <caption>同軸の 2 つのコイルの検証</caption>
+  <thead><tr><th>量</th><th>解析</th><th>Maxwell の式</th><th>差</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">L<sub>A</sub>（自己）</th><td>564.2 μH</td><td>567.4 μH</td><td>−0.57%</td></tr>
+    <tr><th scope="row">L<sub>B</sub>（自己）</th><td>255.3 μH</td><td>258.0 μH</td><td>−1.0%</td></tr>
+    <tr><th scope="row">M（相互）</th><td>95.95 μH</td><td>96.16 μH</td><td>−0.22%</td></tr>
+    <tr><th scope="row">結合係数 k</th><td>0.2528</td><td>0.2513</td><td></td></tr>
+  </tbody>
+</table></div>
+<p>Maxwell の式は、矩形断面の一様電流のコイルについて、同軸の円電流の相互インダクタンス（完全楕円積分）を断面で数値積分した値です。</p>
+
+</article>
+<nav class="pager" aria-label="前後の章"><a class="prev" rel="prev" href="18_em_magnetostatic.html"><span class="dir">前の章</span>第 18 章 静磁場解析</a><a class="next" rel="next" href="20_em_dipole.html"><span class="dir">次の章</span>第 20 章 静磁場解析の例題: H 型双極電磁石</a></nav>
+<footer class="footer"><p>EMRM-Studio ユーザーマニュアル（日本語）・EMRM-Studio 0.1.0 ・ <a href="#main">このページの先頭へ</a></p></footer>
+</main>
+</div>
+</body>
+</html>

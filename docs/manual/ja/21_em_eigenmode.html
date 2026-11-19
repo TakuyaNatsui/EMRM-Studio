@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="generator" content="tools/build_manual.py">
+<title>第 21 章 共振モード解析 - EMRM-Studio ユーザーマニュアル</title>
+<link rel="stylesheet" href="assets/manual.css">
+<script src="assets/search_index.js" charset="utf-8" defer></script>
+<script src="assets/manual.js" charset="utf-8" defer></script>
+</head>
+<body class="page">
+<header class="topbar">
+<a class="brand" href="index.html">EMRM-Studio ユーザーマニュアル</a>
+<button class="toc-toggle" type="button" aria-controls="toc" aria-expanded="false">目次</button>
+<form class="search" role="search" action="#" onsubmit="return false">
+<input id="q" type="search" placeholder="マニュアルを検索（/）" aria-label="マニュアルを検索" autocomplete="off">
+</form>
+</header>
+<div id="search-results" class="search-results" hidden></div>
+<div class="layout">
+<nav id="toc" class="toc" aria-label="目次">
+<details class="toc-box">
+<summary>目次</summary>
+<ol class="toc-chapters">
+<li class="toc-home"><a href="index.html">表紙・目次</a></li>
+<li><a href="00_intro.html">はじめに</a></li>
+<li class="toc-part" role="presentation">第 I 部　形状を作る（CAD）</li>
+<li><a href="01_screen.html"><span class="chno">第 1 章</span> 画面の構成</a></li>
+<li><a href="02_view.html"><span class="chno">第 2 章</span> 視点の操作</a></li>
+<li><a href="03_first_part.html"><span class="chno">第 3 章</span> はじめての部品</a></li>
+<li><a href="04_sketch.html"><span class="chno">第 4 章</span> スケッチ</a></li>
+<li><a href="05_work_features.html"><span class="chno">第 5 章</span> 作業フィーチャ</a></li>
+<li><a href="06_features_basic.html"><span class="chno">第 6 章</span> フィーチャ（押し出し・回転・穴・フィレットなど）</a></li>
+<li><a href="07_features_advanced.html"><span class="chno">第 7 章</span> フィーチャ（スイープ・ロフト・コイル・パターンなど）</a></li>
+<li><a href="08_bodies.html"><span class="chno">第 8 章</span> ボディの操作</a></li>
+<li><a href="09_browser.html"><span class="chno">第 9 章</span> ブラウザとフィーチャの管理</a></li>
+<li><a href="10_parameters.html"><span class="chno">第 10 章</span> パラメータと式</a></li>
+<li><a href="11_configurations.html"><span class="chno">第 11 章</span> 構成</a></li>
+<li><a href="12_inspect.html"><span class="chno">第 12 章</span> 検査</a></li>
+<li><a href="13_files.html"><span class="chno">第 13 章</span> ファイル</a></li>
+<li class="toc-part" role="presentation">第 II 部　電磁場解析</li>
+<li><a href="14_em_intro.html"><span class="chno">第 14 章</span> 電磁場解析のはじめに</a></li>
+<li><a href="15_em_first.html"><span class="chno">第 15 章</span> はじめての電磁場解析（ソレノイド）</a></li>
+<li><a href="16_em_setup.html"><span class="chno">第 16 章</span> スタディの共通の設定</a></li>
+<li><a href="17_em_results.html"><span class="chno">第 17 章</span> 結果の見方</a></li>
+<li><a href="18_em_magnetostatic.html"><span class="chno">第 18 章</span> 静磁場解析</a></li>
+<li><a href="19_em_coils.html"><span class="chno">第 19 章</span> 静磁場解析: コイル</a></li>
+<li><a href="20_em_dipole.html"><span class="chno">第 20 章</span> 静磁場解析の例題: H 型双極電磁石</a></li>
+<li class="current"><a href="21_em_eigenmode.html" aria-current="page"><span class="chno">第 21 章</span> 共振モード解析</a><ol class="toc-sections"><li><a href="21_em_eigenmode.html#overview"><span class="secno">21.1</span> 共振モードのスタディ</a></li><li><a href="21_em_eigenmode.html#materials"><span class="secno">21.2</span> 材料と壁</a></li><li><a href="21_em_eigenmode.html#settings"><span class="secno">21.3</span> 解析の設定とビーム軸</a></li><li><a href="21_em_eigenmode.html#results"><span class="secno">21.4</span> 結果の見方</a></li><li><a href="21_em_eigenmode.html#accuracy"><span class="secno">21.5</span> 精度の目安</a></li></ol></li>
+<li><a href="22_em_driven.html"><span class="chno">第 22 章</span> ポート解析</a></li>
+<li><a href="23_em_electrostatic.html"><span class="chno">第 23 章</span> 静電場解析</a></li>
+<li><a href="24_em_gun.html"><span class="chno">第 24 章</span> 電子銃解析</a></li>
+<li><a href="25_em_troubleshooting.html"><span class="chno">第 25 章</span> 電磁場解析で困ったとき</a></li>
+<li class="toc-part" role="presentation">第 III 部　連携・カスタマイズ・自動化</li>
+<li><a href="26_step_export.html"><span class="chno">第 26 章</span> 他の解析プログラムに形を渡す</a></li>
+<li><a href="27_customize.html"><span class="chno">第 27 章</span> カスタマイズ</a></li>
+<li><a href="28_automation.html"><span class="chno">第 28 章</span> 自動化</a></li>
+<li><a href="29_troubleshooting.html"><span class="chno">第 29 章</span> 困ったとき</a></li>
+<li class="toc-part" role="presentation">付録</li>
+<li class="appendix"><a href="appendix_a_commands.html"><span class="chno">付録 A</span> コマンド一覧</a></li>
+<li class="appendix"><a href="appendix_b_shortcuts.html"><span class="chno">付録 B</span> ショートカット一覧</a></li>
+<li class="appendix"><a href="appendix_c_feature_params.html"><span class="chno">付録 C</span> フィーチャのパラメータ一覧</a></li>
+<li class="appendix"><a href="appendix_d_glossary.html"><span class="chno">付録 D</span> 用語の対応表</a></li>
+</ol>
+</details>
+</nav>
+<main class="content" id="main">
+<article class="chapter ">
+<p class="chapter-label">第 21 章</p>
+<h1>共振モード解析</h1>
+<nav class="pagetoc" aria-label="この章の内容">
+<p class="pagetoc-title">この章の内容</p>
+<ol>
+<li><a href="#overview"><span class="secno">21.1</span> 共振モードのスタディ</a></li>
+<li><a href="#materials"><span class="secno">21.2</span> 材料と壁</a></li>
+<li class="sub"><a href="#walls">対称面の選び方</a></li>
+<li><a href="#settings"><span class="secno">21.3</span> 解析の設定とビーム軸</a></li>
+<li><a href="#results"><span class="secno">21.4</span> 結果の見方</a></li>
+<li><a href="#accuracy"><span class="secno">21.5</span> 精度の目安</a></li>
+</ol>
+</nav>
+<p><span class="badge-study study-eigenmode">共振モード</span> この章では、加速空洞などの<strong>共振モード</strong>（固有モード）を求めるスタディを説明します。形状とスタディ、材料と壁、対称面の選び方、解析の設定とビーム軸、モード表と加速器の指標、表面電流と軸上の場です。題材は <code>examples/pillbox_cavity.emrm</code>（ビームパイプ付きのピルボックス空洞）です。</p>
+
+<h2 id="overview"><span class="secno">21.1</span> 共振モードのスタディ</h2>
+<p>計算は Cav3D-Studio の 3 次元共振モード解析（2 次の曲線 Nédélec 要素、shift-invert の固有値計算）と同じです。周波数・無負荷 Q に加えて、ビーム軸の上の加速電圧・走行時間因子・R/Q・シャント インピーダンス・表面の最大の場の比を求めます。</p>
+<ul>
+  <li><p><strong>形状は空洞の内側（真空）をボディで作ります。</strong>ボディの外面が導体の壁になります（金属の厚みは作りません）。ビームパイプは空洞のボディに結合します。パイプの端の面も壁になります（遮断周波数より低いモードでは影響しません）。</p></li>
+  <li><p><span class="path">リボンの<span class="ui">［物理］</span>タブ → <span class="ui">［スタディ］</span>パネル → <span class="ui">［新しい共振モードスタディ］</span></span>で作ります。最初から材料「真空」・メッシュ・解析の設定・ビーム軸が入っています。静磁場と違って、解析領域（空気）はありません。</p></li>
+  <li><p>スタディのブラウザのフォルダは、材料・領域・境界条件・対称・ビーム軸・メッシュ・解析の設定・結果です。共振モードでは、<span class="ui">［電気壁］</span>・<span class="ui">［磁気壁］</span>・<span class="ui">［ビーム軸］</span>・<span class="ui">［軸上の場］</span>・<span class="ui">［表面電流］</span>が押せます。</p></li>
+</ul>
+<figure id="fig-21_em_pillbox_beam"><a class="zoom" href="images/21_em_pillbox_beam.png"><img src="images/21_em_pillbox_beam.png" alt="ピルボックス空洞の 1/8 モデル。対称面の板は磁気壁が紫、電気壁が赤。左はビーム軸のフォーム。" width="1000" height="671" loading="lazy"></a><figcaption><span class="figno">図 21-1</span> ピルボックス空洞の 1/8 モデル。対称面の板は磁気壁が紫、電気壁が赤。左はビーム軸のフォーム。</figcaption></figure>
+
+<h2 id="materials"><span class="secno">21.2</span> 材料と壁</h2>
+<div class="table-wrap"><table>
+  <caption>共振モードの材料と面</caption>
+  <thead><tr><th>項目</th><th>内容</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">材料</th><td>真空（割り当てていないボディ）と誘電体（比誘電率 εr・比透磁率 μr・誘電正接 tanδ）。誘電体の損失は摂動で Q に入れます（一様な充填なら Q_diel = 1/tanδ）</td></tr>
+    <tr><th scope="row">壁（既定）</th><td>ボディの外面のうち、面の条件と対称面の切り口でない面。導体の壁（E の接線成分 = 0）で、損失は解析の設定の壁の損失で決めます</td></tr>
+    <tr><th scope="row">電気壁（E-short）</th><td>選んだ面で n×E = 0（電場は面に垂直）。壁と同じ拘束ですが、損失を数えません（対称面に使います）</td></tr>
+    <tr><th scope="row">磁気壁（M-short）</th><td>選んだ面で n×H = 0（磁場は面に垂直）</td></tr>
+    <tr><th scope="row">対称面</th><td>XY・YZ・ZX 面でモデルを切り、切り口を電気壁か磁気壁にします（既定は磁気壁）</td></tr>
+  </tbody>
+</table></div>
+
+<h3 id="walls">対称面の選び方</h3>
+<p>対称面の組み合わせで、求まるモードが変わります（求まるのは、その対称を持つモードだけです）。加速モード TM010 のときは、次のようにします。</p>
+<ul>
+  <li><p>ビーム軸を含む面 → <strong>磁気壁</strong>（E は面に沿い、H は面に垂直）。</p></li>
+  <li><p>ビーム軸に垂直なセルの中央の面 → <strong>電気壁</strong>（E は面に垂直、H は面に沿う）。ここを磁気壁にすると、TM010 は求まりません。</p></li>
+</ul>
+<aside class="tip" role="note"><p class="callout-title">ヒント</p><p>ほかの対称のモードも見たいときは、壁の種類を変えたスタディを複製して並べるか、対称面を使わずに全体で解きます。</p></aside>
+
+<h2 id="settings"><span class="secno">21.3</span> 解析の設定とビーム軸</h2>
+<div class="table-wrap"><table>
+  <caption>共振モードの解析の設定</caption>
+  <thead><tr><th>欄</th><th>内容</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">モードの数</th><td>求めるモードの数（周波数の低い順）</td></tr>
+    <tr><th scope="row">探す周波数の目安</th><td>この周波数の近くから探します（例 <code>1.3 GHz</code>）。空欄なら自動（最大の寸法の半波長の周波数から始め、モードが足りなければ 1.4 倍にして解き直します）</td></tr>
+    <tr><th scope="row">壁の損失</th><td>導電率（例 <code>5.8e7 S/m</code>）・表面抵抗（超伝導。例 <code>10 nohm</code>）・なし（完全導体。Q を求めない）</td></tr>
+  </tbody>
+</table></div>
+<p><span class="path">リボンの<span class="ui">［物理］</span>タブ → <span class="ui">［励磁］</span>パネル → <span class="ui">［ビーム軸］</span></span>で、ビーム軸の向き（X・Y・Z・任意）と軸の上の点、粒子の速さ β = v/c、積分の範囲（既定は軸と空洞の交わりの全体）、Eacc の加速長 L（0 なら βλ/2）を決めます。</p>
+<p>求める量は、各モードを蓄積エネルギー U = 1 J に規格化して求めます（対称面で切ったモデルは全体に換算します）。</p>
+<div class="table-wrap"><table>
+  <caption>共振モードで求める量</caption>
+  <thead><tr><th>量</th><th>定義</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">無負荷 Q（Q0）</th><td>ωU / (P_wall + P_diel)。P_wall = (Rs/2)∮|H_t|² dS（壁だけ）</td></tr>
+    <tr><th scope="row">加速電圧 V</th><td>V = |∫ E_s(s) e<sup>jωs/(βc)</sup> ds|（E_s は軸の向きの成分）</td></tr>
+    <tr><th scope="row">走行時間因子 T</th><td>T = V / ∫|E_s| ds</td></tr>
+    <tr><th scope="row">R/Q</th><td>V² / (ωU) [Ω]（加速器の規約。回路の規約はこの半分）</td></tr>
+    <tr><th scope="row">シャント インピーダンス Rsh</th><td>(R/Q)·Q0</td></tr>
+    <tr><th scope="row">Epk/Eacc・Bpk/Eacc</th><td>壁の上の最大の |E|・|B| と Eacc = V/L の比（Bpk/Eacc は mT/(MV/m)）</td></tr>
+  </tbody>
+</table></div>
+
+<h2 id="results"><span class="secno">21.4</span> 結果の見方</h2>
+<ul>
+  <li><p>右の<span class="ui">［結果］</span>のドックに<strong>モード表</strong>（#・f・Q0・R/Q・T・Epk/Eacc・Bpk/Eacc）が出ます。行をクリックするとそのモードを表示し、下の表がそのモードの値になります。どのタブにいても選べます。</p></li>
+  <li><p>結果の表示の操作は静磁場と同じです（<a href="17_em_results.html">第 17 章</a>）。量は |E|・Ex・Ey・Ez・|H|・Hx・Hy・Hz・|Js|。断面は空洞の中だけに描きます。</p></li>
+  <li><p>場は振幅の分布です（E と H は時間で 90° ずれます）。値は全体の蓄積エネルギーが 1 J のときです。</p></li>
+  <li><p>固有値の残差と η（物理モードは 1）で、疑わしいモードを見分けられます（モード表の行のツールチップ）。</p></li>
+</ul>
+<figure id="fig-21_em_mode_slice"><a class="zoom" href="images/21_em_mode_slice.png"><img src="images/21_em_mode_slice.png" alt="TM010 の |E|（ZX の断面）と E の矢印。右下はモード表と、選んだモードの値。" width="1000" height="671" loading="lazy"></a><figcaption><span class="figno">図 21-2</span> TM010 の |E|（ZX の断面）と E の矢印。右下はモード表と、選んだモードの値。</figcaption></figure>
+<ul>
+  <li><p><span class="path">リボンの<span class="ui">［結果］</span>タブ → <span class="ui">［表示］</span>パネル → <span class="ui">［表面電流］</span></span>で、壁を表面電流 |Js| = |n×H| で色分けし、Js の向きの矢印を出します。壁の損失の分布（P = (Rs/2)∮|Js|² dS）が分かります。電気壁・磁気壁の面には値がありません。</p></li>
+  <li><p><span class="path">リボンの<span class="ui">［結果］</span>タブ → <span class="ui">［評価］</span>パネル → <span class="ui">［軸上の場］</span></span>で、ビーム軸の上の E_s のグラフを出します（全部のモードを重ねます）。</p></li>
+</ul>
+<div class="figrow">
+  <figure id="fig-21_em_surface_current"><a class="zoom" href="images/21_em_surface_current.png"><img src="images/21_em_surface_current.png" alt="表面電流: 壁の |Js| と Js の矢印（端板では放射の向き、側面では軸の向き）。" width="460" height="361" loading="lazy"></a><figcaption><span class="figno">図 21-3</span> 表面電流: 壁の |Js| と Js の矢印（端板では放射の向き、側面では軸の向き）。</figcaption></figure>
+  <figure id="fig-21_em_axis_plot"><a class="zoom" href="images/21_em_axis_plot.png"><img src="images/21_em_axis_plot.png" alt="軸上の場: ビーム軸の上の E_s（U = 1 J）。TM010 と TM011 に加速の成分があります。" width="460" height="361" loading="lazy"></a><figcaption><span class="figno">図 21-4</span> 軸上の場: ビーム軸の上の E_s（U = 1 J）。TM010 と TM011 に加速の成分があります。</figcaption></figure>
+</div>
+
+<h2 id="accuracy"><span class="secno">21.5</span> 精度の目安</h2>
+<p>ピルボックス（半径 100 mm・長さ 100 mm・銅、要素 15 mm の 2 次。1/8 モデル）の TM010 です。</p>
+<div class="table-wrap"><table>
+  <caption>ピルボックスの TM010 の検証</caption>
+  <thead><tr><th>量</th><th>計算</th><th>解析解</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">周波数</th><td>1147.43 MHz</td><td>1147.43 MHz</td></tr>
+    <tr><th scope="row">Q0</th><td>25500</td><td>25629</td></tr>
+    <tr><th scope="row">R/Q</th><td>222.75 Ω</td><td>222.75 Ω</td></tr>
+    <tr><th scope="row">T</th><td>0.77586</td><td>0.77587</td></tr>
+  </tbody>
+</table></div>
+
+</article>
+<nav class="pager" aria-label="前後の章"><a class="prev" rel="prev" href="20_em_dipole.html"><span class="dir">前の章</span>第 20 章 静磁場解析の例題: H 型双極電磁石</a><a class="next" rel="next" href="22_em_driven.html"><span class="dir">次の章</span>第 22 章 ポート解析</a></nav>
+<footer class="footer"><p>EMRM-Studio ユーザーマニュアル（日本語）・EMRM-Studio 0.1.0 ・ <a href="#main">このページの先頭へ</a></p></footer>
+</main>
+</div>
+</body>
+</html>

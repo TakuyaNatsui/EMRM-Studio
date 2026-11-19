@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="generator" content="tools/build_manual.py">
+<title>第 18 章 静磁場解析 - EMRM-Studio ユーザーマニュアル</title>
+<link rel="stylesheet" href="assets/manual.css">
+<script src="assets/search_index.js" charset="utf-8" defer></script>
+<script src="assets/manual.js" charset="utf-8" defer></script>
+</head>
+<body class="page">
+<header class="topbar">
+<a class="brand" href="index.html">EMRM-Studio ユーザーマニュアル</a>
+<button class="toc-toggle" type="button" aria-controls="toc" aria-expanded="false">目次</button>
+<form class="search" role="search" action="#" onsubmit="return false">
+<input id="q" type="search" placeholder="マニュアルを検索（/）" aria-label="マニュアルを検索" autocomplete="off">
+</form>
+</header>
+<div id="search-results" class="search-results" hidden></div>
+<div class="layout">
+<nav id="toc" class="toc" aria-label="目次">
+<details class="toc-box">
+<summary>目次</summary>
+<ol class="toc-chapters">
+<li class="toc-home"><a href="index.html">表紙・目次</a></li>
+<li><a href="00_intro.html">はじめに</a></li>
+<li class="toc-part" role="presentation">第 I 部　形状を作る（CAD）</li>
+<li><a href="01_screen.html"><span class="chno">第 1 章</span> 画面の構成</a></li>
+<li><a href="02_view.html"><span class="chno">第 2 章</span> 視点の操作</a></li>
+<li><a href="03_first_part.html"><span class="chno">第 3 章</span> はじめての部品</a></li>
+<li><a href="04_sketch.html"><span class="chno">第 4 章</span> スケッチ</a></li>
+<li><a href="05_work_features.html"><span class="chno">第 5 章</span> 作業フィーチャ</a></li>
+<li><a href="06_features_basic.html"><span class="chno">第 6 章</span> フィーチャ（押し出し・回転・穴・フィレットなど）</a></li>
+<li><a href="07_features_advanced.html"><span class="chno">第 7 章</span> フィーチャ（スイープ・ロフト・コイル・パターンなど）</a></li>
+<li><a href="08_bodies.html"><span class="chno">第 8 章</span> ボディの操作</a></li>
+<li><a href="09_browser.html"><span class="chno">第 9 章</span> ブラウザとフィーチャの管理</a></li>
+<li><a href="10_parameters.html"><span class="chno">第 10 章</span> パラメータと式</a></li>
+<li><a href="11_configurations.html"><span class="chno">第 11 章</span> 構成</a></li>
+<li><a href="12_inspect.html"><span class="chno">第 12 章</span> 検査</a></li>
+<li><a href="13_files.html"><span class="chno">第 13 章</span> ファイル</a></li>
+<li class="toc-part" role="presentation">第 II 部　電磁場解析</li>
+<li><a href="14_em_intro.html"><span class="chno">第 14 章</span> 電磁場解析のはじめに</a></li>
+<li><a href="15_em_first.html"><span class="chno">第 15 章</span> はじめての電磁場解析（ソレノイド）</a></li>
+<li><a href="16_em_setup.html"><span class="chno">第 16 章</span> スタディの共通の設定</a></li>
+<li><a href="17_em_results.html"><span class="chno">第 17 章</span> 結果の見方</a></li>
+<li class="current"><a href="18_em_magnetostatic.html" aria-current="page"><span class="chno">第 18 章</span> 静磁場解析</a><ol class="toc-sections"><li><a href="18_em_magnetostatic.html#overview"><span class="secno">18.1</span> 静磁場のスタディ</a></li><li><a href="18_em_magnetostatic.html#materials"><span class="secno">18.2</span> 材料</a></li><li><a href="18_em_magnetostatic.html#region"><span class="secno">18.3</span> 解析領域</a></li><li><a href="18_em_magnetostatic.html#symmetry"><span class="secno">18.4</span> 対称面の境界</a></li><li><a href="18_em_magnetostatic.html#results"><span class="secno">18.5</span> 静磁場の結果</a></li><li><a href="18_em_magnetostatic.html#accuracy"><span class="secno">18.6</span> 精度の目安</a></li></ol></li>
+<li><a href="19_em_coils.html"><span class="chno">第 19 章</span> 静磁場解析: コイル</a></li>
+<li><a href="20_em_dipole.html"><span class="chno">第 20 章</span> 静磁場解析の例題: H 型双極電磁石</a></li>
+<li><a href="21_em_eigenmode.html"><span class="chno">第 21 章</span> 共振モード解析</a></li>
+<li><a href="22_em_driven.html"><span class="chno">第 22 章</span> ポート解析</a></li>
+<li><a href="23_em_electrostatic.html"><span class="chno">第 23 章</span> 静電場解析</a></li>
+<li><a href="24_em_gun.html"><span class="chno">第 24 章</span> 電子銃解析</a></li>
+<li><a href="25_em_troubleshooting.html"><span class="chno">第 25 章</span> 電磁場解析で困ったとき</a></li>
+<li class="toc-part" role="presentation">第 III 部　連携・カスタマイズ・自動化</li>
+<li><a href="26_step_export.html"><span class="chno">第 26 章</span> 他の解析プログラムに形を渡す</a></li>
+<li><a href="27_customize.html"><span class="chno">第 27 章</span> カスタマイズ</a></li>
+<li><a href="28_automation.html"><span class="chno">第 28 章</span> 自動化</a></li>
+<li><a href="29_troubleshooting.html"><span class="chno">第 29 章</span> 困ったとき</a></li>
+<li class="toc-part" role="presentation">付録</li>
+<li class="appendix"><a href="appendix_a_commands.html"><span class="chno">付録 A</span> コマンド一覧</a></li>
+<li class="appendix"><a href="appendix_b_shortcuts.html"><span class="chno">付録 B</span> ショートカット一覧</a></li>
+<li class="appendix"><a href="appendix_c_feature_params.html"><span class="chno">付録 C</span> フィーチャのパラメータ一覧</a></li>
+<li class="appendix"><a href="appendix_d_glossary.html"><span class="chno">付録 D</span> 用語の対応表</a></li>
+</ol>
+</details>
+</nav>
+<main class="content" id="main">
+<article class="chapter ">
+<p class="chapter-label">第 18 章</p>
+<h1>静磁場解析</h1>
+<nav class="pagetoc" aria-label="この章の内容">
+<p class="pagetoc-title">この章の内容</p>
+<ol>
+<li><a href="#overview"><span class="secno">18.1</span> 静磁場のスタディ</a></li>
+<li><a href="#materials"><span class="secno">18.2</span> 材料</a></li>
+<li class="sub"><a href="#saturation">磁性体の飽和（B-H 曲線）</a></li>
+<li><a href="#region"><span class="secno">18.3</span> 解析領域</a></li>
+<li><a href="#symmetry"><span class="secno">18.4</span> 対称面の境界</a></li>
+<li><a href="#results"><span class="secno">18.5</span> 静磁場の結果</a></li>
+<li class="sub"><a href="#multipoles">多極成分</a></li>
+<li><a href="#accuracy"><span class="secno">18.6</span> 精度の目安</a></li>
+</ol>
+</nav>
+<p><span class="badge-study study-magnetostatic">静磁場</span> この章では、静磁場のスタディの設定と結果を説明します。材料（空気・磁性体・導体）と鉄の飽和、解析領域、対称面の境界、磁気エネルギー・インダクタンス・多極成分です。コイルの設定は<a href="19_em_coils.html">第 19 章</a>、例題は<a href="15_em_first.html">第 15 章</a>（ソレノイド）と<a href="20_em_dipole.html">第 20 章</a>（H 型双極電磁石）にあります。</p>
+
+<h2 id="overview"><span class="secno">18.1</span> 静磁場のスタディ</h2>
+<p>コイルの直流の電流がつくる磁場を、ベクトル ポテンシャル A の有限要素法（2 次の辺要素）で解きます。形状のまわりの空気は自動で作るので、自分で作るのは鉄・コイルなどのボディだけです。</p>
+<ul>
+  <li><p><span class="path">リボンの<span class="ui">［物理］</span>タブ → <span class="ui">［スタディ］</span>パネル → <span class="ui">［新しい静磁場スタディ］</span></span>で作ります。最初から材料「空気」・解析領域・メッシュ・解析の設定が入っています。</p></li>
+  <li><p>スタディのブラウザのフォルダは、材料・領域・コイル・境界条件・解析領域・対称・メッシュ・解析の設定・結果です。</p></li>
+  <li><p>静磁場のスタディで使えるコマンドは、<span class="ui">［コイル］</span>・<span class="ui">［電流分布］</span>・<span class="ui">［磁束平行］</span>・<span class="ui">［磁束垂直］</span>・<span class="ui">［解析領域］</span>・<span class="ui">［多極成分］</span>などです。</p></li>
+</ul>
+
+<h2 id="materials"><span class="secno">18.2</span> 材料</h2>
+<div class="table-wrap"><table>
+  <caption>静磁場の材料の欄</caption>
+  <thead><tr><th>欄</th><th>内容</th></tr></thead>
+  <tbody>
+    <tr><th scope="row"><span class="ui">［種類］</span></th><td>空気・磁性体・導体（コイル）</td></tr>
+    <tr><th scope="row"><span class="ui">［B-H 曲線］</span></th><td>（磁性体のとき）線形（比透磁率一定）・飽和あり（Fröhlich–Kennelly）・B-H の表（<a href="#saturation">下</a>）</td></tr>
+    <tr><th scope="row"><span class="ui">［比透磁率］</span></th><td>μr（磁性体のときだけ。空気・導体は 1）。飽和ありでは初期比透磁率</td></tr>
+    <tr><th scope="row"><span class="ui">［メッシュの大きさ（0 = 全体の値）］</span></th><td>この材料のボディの中の要素の大きさ。0 なら全体の値</td></tr>
+  </tbody>
+</table></div>
+<ul>
+  <li><p><strong>空気</strong>: μr = 1。メッシュを細かくしたい空気の場所（ギャップなど）に、別の名前の空気の材料を作って使います。</p></li>
+  <li><p><strong>磁性体</strong>: 鉄など。強い磁場で飽和するなら、B-H 曲線を飽和ありか B-H の表にします。</p></li>
+  <li><p><strong>導体（コイル）</strong>: コイルのボディ用（μr = 1）。電流はコイルの設定で流します（<a href="19_em_coils.html">第 19 章</a>）。</p></li>
+</ul>
+<p>永久磁石は、まだ材料の種類にありません。</p>
+
+<h3 id="saturation">磁性体の飽和（B-H 曲線）</h3>
+<p>鉄は強い磁場で飽和し、比透磁率が下がります。磁性体の材料の<span class="ui">［B-H 曲線］</span>で次から選びます。</p>
+<div class="table-wrap"><table>
+  <caption>B-H 曲線の種類</caption>
+  <thead><tr><th>B-H 曲線</th><th>入れる値</th><th>使う所</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">線形（比透磁率一定）</th><td>比透磁率 μr</td><td>飽和しない弱い磁場。計算が 1 回で済みます</td></tr>
+    <tr><th scope="row">飽和あり（Fröhlich–Kennelly）</th><td>初期比透磁率 μi と飽和磁化 Js [T]（純鉄で約 2.1 T）</td><td>材料のデータが無いときの目安</td></tr>
+    <tr><th scope="row">B-H の表</th><td>1 行に「H [A/m]  B [T]」（空白・カンマ・タブ区切り。<code>#</code> から後は注釈）。H・B はどちらも増える順</td><td>鋼材のカタログ値など</td></tr>
+  </tbody>
+</table></div>
+<ul>
+  <li><p>フォームの<span class="ui">［B-H 曲線］</span>のボタンで、今の値の曲線を中央のグラフのタブに描けます（<span class="ui">［適用］</span>の前でも描けます）。</p></li>
+  <li><p>表の最後の点より先は、傾き μ0（空気と同じ増え方）で延ばします。表は飽和まで（2 T 付近まで）書いてください。</p></li>
+  <li><p>飽和のある材料があると、解析はニュートン法の反復になります（ジョブのログに 1 回ごとの残差が出ます）。収束の判定と反復の上限は、<span class="path">リボンの<span class="ui">［解析］</span>タブ → <span class="ui">［設定］</span>パネル → <span class="ui">［解析の設定］</span></span>で変えられます。</p></li>
+  <li><p>結果の表に、非線形の反復回数と最大の飽和度 M/Ms（1 に近いほど飽和）が出ます。</p></li>
+</ul>
+<figure id="fig-18_em_bh"><a class="zoom" href="images/18_em_bh.png"><img src="images/18_em_bh.png" alt="飽和ありにした鉄のフォームと、［B-H 曲線］のタブ。" width="1000" height="781" loading="lazy"></a><figcaption><span class="figno">図 18-1</span> 飽和ありにした鉄のフォームと、<span class="ui">［B-H 曲線］</span>のタブ。</figcaption></figure>
+<figure id="fig-18_em_saturation"><a class="zoom" href="images/18_em_saturation.png"><img src="images/18_em_saturation.png" alt="飽和ありの鉄（双極電磁石を 400 A にしたもの）の表面の飽和度 M/Ms。赤い所が飽和しています。" width="700" height="710" loading="lazy"></a><figcaption><span class="figno">図 18-2</span> 飽和ありの鉄（双極電磁石を 400 A にしたもの）の表面の飽和度 M/Ms。赤い所が飽和しています。</figcaption></figure>
+<aside class="tip" role="note"><p class="callout-title">ヒント</p><p>双極電磁石の例題（<a href="20_em_dipole.html">第 20 章</a>）の鉄を、飽和あり・比透磁率 <code>1000</code>・Js <code>2.0</code> にし、コイルの電流を <code>400 A</code> にすると、ギャップの By は線形の 1.96 T ではなく約 1.22 T になります（磁極が飽和します）。</p></aside>
+
+<h2 id="region"><span class="secno">18.3</span> 解析領域</h2>
+<p>形状のまわりの空気は自動で作られます。<span class="path">リボンの<span class="ui">［物理］</span>タブ → <span class="ui">［解析領域］</span>パネル → <span class="ui">［解析領域］</span></span>で、形（箱・円柱）と大きさを変えられます。外面は磁束平行です。外面が近すぎると、磁場が押し込められてエネルギー・インダクタンスが大きめになるので、余白はモデルの大きさの 2〜3 倍以上にします。</p>
+<div class="table-wrap"><table>
+  <caption>解析領域の大きさの決め方</caption>
+  <thead><tr><th>サイズ</th><th>箱</th><th>円柱</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">モデルの大きさに対する比</th><td colspan="2">モデルの外接箱の最も長い辺 × 比 を、各方向に足す（既定 3）</td></tr>
+    <tr><th scope="row">方向ごとの余白</th><td>余白 −X・+X・−Y・+Y・−Z・+Z [mm]</td><td>余白 R（半径方向）と軸方向の余白 [mm]</td></tr>
+    <tr><th scope="row">座標</th><td>X・Y・Z の最小・最大 [mm]</td><td>半径 R と軸方向の最小・最大 [mm]</td></tr>
+  </tbody>
+</table></div>
+<ul>
+  <li><p>円柱の軸は、自動（最初のループのコイルの軸）か、X・Y・Z を選びます。</p></li>
+  <li><p><span class="ui">［外側の要素の大きさ（0 = 自動）］</span>は、外面の要素の大きさです（0 は自動）。モデルの外では、全体の要素の大きさからこの大きさへ、だんだん粗くなります。</p></li>
+  <li><p><span class="ui">［今の大きさを座標に写す］</span>で、今の範囲を座標の欄に入れられます。そこから面ごとに動かせます。</p></li>
+  <li><p>解析領域はモデルの数倍の大きさなので、全体表示はモデルだけに合わせます。<span class="ui">［解析領域の全体表示］</span>で、領域の全体が入るようにズームします。</p></li>
+</ul>
+
+<h2 id="symmetry"><span class="secno">18.4</span> 対称面の境界</h2>
+<div class="table-wrap"><table>
+  <caption>静磁場の対称面の境界</caption>
+  <thead><tr><th>境界</th><th>意味</th><th>使う所</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">磁束平行（n×A = 0）</th><td>磁力線が面に沿う。電流は面を垂直に横切る</td><td>コイルの軸を含む面</td></tr>
+    <tr><th scope="row">磁束垂直（n×H = 0）</th><td>磁力線が面を垂直に横切る。電流は面に沿う</td><td>コイルの軸に垂直な中央の面</td></tr>
+    <tr><th scope="row">自動</th><td>コイルの軸から上の規則で決める</td><td>すべてのコイルがループで、軸が平行、向きがそろうとき</td></tr>
+  </tbody>
+</table></div>
+<p>対称面の板は、境界の種類で色が変わります（緑が磁束平行、青が磁束垂直）。<span class="ui">［自動］</span>で決められないときは橙になります（そのまま実行するとエラー）。そのときは境界を手で選びます。</p>
+<p>面の境界条件（<span class="ui">［磁束平行］</span>・<span class="ui">［磁束垂直］</span>）は、選んだ面に同じ境界を付けます。ふつうは対称面と解析領域で足りるので、使う必要はありません。</p>
+
+<h2 id="results"><span class="secno">18.5</span> 静磁場の結果</h2>
+<p>結果の表示の操作は<a href="17_em_results.html">第 17 章</a>のとおりです。静磁場の結果の表には、次の値が出ます。値はどれも、対称の倍数を掛けたモデル全体の値です。</p>
+<div class="table-wrap"><table>
+  <caption>静磁場の結果の表</caption>
+  <thead><tr><th>量</th><th>内容</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">磁気エネルギー W [J]</th><td>モデル全体のエネルギー</td></tr>
+    <tr><th scope="row">インダクタンス L</th><td>コイルが 1 つのとき。L = 2W / I² = Ψ / I（単位は H・mH・μH・nH を値に合わせて選びます）</td></tr>
+    <tr><th scope="row">磁束鎖交 Ψ [Wb]</th><td>コイルの条件ごと</td></tr>
+    <tr><th scope="row">インダクタンス行列・結合係数</th><td>コイルの条件が 2 つ以上で、求める設定にしたとき（<a href="19_em_coils.html#inductance">第 19 章</a>）</td></tr>
+    <tr><th scope="row">反復回数・最大の飽和度</th><td>飽和のある材料があるとき</td></tr>
+  </tbody>
+</table></div>
+<h3 id="multipoles">多極成分</h3>
+<p><span class="path">リボンの<span class="ui">［結果］</span>タブ → <span class="ui">［評価］</span>パネル → <span class="ui">［多極成分］</span></span>をクリックし、参照半径（例 <code>20</code> mm）を入れます。モデルの中心の XY 面の円の上で B を求め、B<sub>y</sub> + iB<sub>x</sub> = Σ (B<sub>n</sub> + iA<sub>n</sub>)(z/R<sub>ref</sub>)<sup>n−1</sup> に分けて、主成分を 10000 とした単位（units）で表とグラフに出します。ビームの軸は z です。</p>
+<p>コイルに使った電流の分布は、<span class="path">リボンの<span class="ui">［結果］</span>タブ → <span class="ui">［表示］</span>パネル → <span class="ui">［電流］</span></span>で矢印で見られます（ボディは透明になります）。</p>
+
+<h2 id="accuracy"><span class="secno">18.6</span> 精度の目安</h2>
+<div class="table-wrap"><table>
+  <caption>静磁場の検証</caption>
+  <thead><tr><th>問題</th><th>計算</th><th>解析解・見積もり</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">厚いソレノイドの中心の Bz（<a href="15_em_first.html">第 15 章</a>）</th><td>0.088〜0.090 T</td><td>0.0890 T</td></tr>
+    <tr><th scope="row">H 型双極電磁石のギャップの By（<a href="20_em_dipole.html">第 20 章</a>）</th><td>0.491 T</td><td>μ0NI/g = 0.503 T（鉄の μr が無限大・漏れなし）</td></tr>
+    <tr><th scope="row">同軸の 2 つのコイルの相互インダクタンス（<a href="19_em_coils.html#inductance">第 19 章</a>）</th><td>95.95 μH</td><td>Maxwell の式 96.16 μH</td></tr>
+  </tbody>
+</table></div>
+
+</article>
+<nav class="pager" aria-label="前後の章"><a class="prev" rel="prev" href="17_em_results.html"><span class="dir">前の章</span>第 17 章 結果の見方</a><a class="next" rel="next" href="19_em_coils.html"><span class="dir">次の章</span>第 19 章 静磁場解析: コイル</a></nav>
+<footer class="footer"><p>EMRM-Studio ユーザーマニュアル（日本語）・EMRM-Studio 0.1.0 ・ <a href="#main">このページの先頭へ</a></p></footer>
+</main>
+</div>
+</body>
+</html>

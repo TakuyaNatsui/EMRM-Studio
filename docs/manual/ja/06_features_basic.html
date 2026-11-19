@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="generator" content="tools/build_manual.py">
+<title>第 6 章 フィーチャ（押し出し・回転・穴・フィレットなど） - EMRM-Studio ユーザーマニュアル</title>
+<link rel="stylesheet" href="assets/manual.css">
+<script src="assets/search_index.js" charset="utf-8" defer></script>
+<script src="assets/manual.js" charset="utf-8" defer></script>
+</head>
+<body class="page">
+<header class="topbar">
+<a class="brand" href="index.html">EMRM-Studio ユーザーマニュアル</a>
+<button class="toc-toggle" type="button" aria-controls="toc" aria-expanded="false">目次</button>
+<form class="search" role="search" action="#" onsubmit="return false">
+<input id="q" type="search" placeholder="マニュアルを検索（/）" aria-label="マニュアルを検索" autocomplete="off">
+</form>
+</header>
+<div id="search-results" class="search-results" hidden></div>
+<div class="layout">
+<nav id="toc" class="toc" aria-label="目次">
+<details class="toc-box">
+<summary>目次</summary>
+<ol class="toc-chapters">
+<li class="toc-home"><a href="index.html">表紙・目次</a></li>
+<li><a href="00_intro.html">はじめに</a></li>
+<li class="toc-part" role="presentation">第 I 部　形状を作る（CAD）</li>
+<li><a href="01_screen.html"><span class="chno">第 1 章</span> 画面の構成</a></li>
+<li><a href="02_view.html"><span class="chno">第 2 章</span> 視点の操作</a></li>
+<li><a href="03_first_part.html"><span class="chno">第 3 章</span> はじめての部品</a></li>
+<li><a href="04_sketch.html"><span class="chno">第 4 章</span> スケッチ</a></li>
+<li><a href="05_work_features.html"><span class="chno">第 5 章</span> 作業フィーチャ</a></li>
+<li class="current"><a href="06_features_basic.html" aria-current="page"><span class="chno">第 6 章</span> フィーチャ（押し出し・回転・穴・フィレットなど）</a><ol class="toc-sections"><li><a href="06_features_basic.html#common"><span class="secno">6.1</span> フィーチャの作り方（共通）</a></li><li><a href="06_features_basic.html#extrude"><span class="secno">6.2</span> 押し出し</a></li><li><a href="06_features_basic.html#revolve"><span class="secno">6.3</span> 回転</a></li><li><a href="06_features_basic.html#hole"><span class="secno">6.4</span> 穴</a></li><li><a href="06_features_basic.html#fillet"><span class="secno">6.5</span> フィレット</a></li><li><a href="06_features_basic.html#chamfer"><span class="secno">6.6</span> 面取り</a></li><li><a href="06_features_basic.html#shell"><span class="secno">6.7</span> シェル</a></li><li><a href="06_features_basic.html#draft"><span class="secno">6.8</span> 勾配</a></li><li><a href="06_features_basic.html#rib"><span class="secno">6.9</span> リブ</a></li><li><a href="06_features_basic.html#primitives"><span class="secno">6.10</span> プリミティブ</a></li><li><a href="06_features_basic.html#next"><span class="secno">6.11</span> 次に読む章</a></li></ol></li>
+<li><a href="07_features_advanced.html"><span class="chno">第 7 章</span> フィーチャ（スイープ・ロフト・コイル・パターンなど）</a></li>
+<li><a href="08_bodies.html"><span class="chno">第 8 章</span> ボディの操作</a></li>
+<li><a href="09_browser.html"><span class="chno">第 9 章</span> ブラウザとフィーチャの管理</a></li>
+<li><a href="10_parameters.html"><span class="chno">第 10 章</span> パラメータと式</a></li>
+<li><a href="11_configurations.html"><span class="chno">第 11 章</span> 構成</a></li>
+<li><a href="12_inspect.html"><span class="chno">第 12 章</span> 検査</a></li>
+<li><a href="13_files.html"><span class="chno">第 13 章</span> ファイル</a></li>
+<li class="toc-part" role="presentation">第 II 部　電磁場解析</li>
+<li><a href="14_em_intro.html"><span class="chno">第 14 章</span> 電磁場解析のはじめに</a></li>
+<li><a href="15_em_first.html"><span class="chno">第 15 章</span> はじめての電磁場解析（ソレノイド）</a></li>
+<li><a href="16_em_setup.html"><span class="chno">第 16 章</span> スタディの共通の設定</a></li>
+<li><a href="17_em_results.html"><span class="chno">第 17 章</span> 結果の見方</a></li>
+<li><a href="18_em_magnetostatic.html"><span class="chno">第 18 章</span> 静磁場解析</a></li>
+<li><a href="19_em_coils.html"><span class="chno">第 19 章</span> 静磁場解析: コイル</a></li>
+<li><a href="20_em_dipole.html"><span class="chno">第 20 章</span> 静磁場解析の例題: H 型双極電磁石</a></li>
+<li><a href="21_em_eigenmode.html"><span class="chno">第 21 章</span> 共振モード解析</a></li>
+<li><a href="22_em_driven.html"><span class="chno">第 22 章</span> ポート解析</a></li>
+<li><a href="23_em_electrostatic.html"><span class="chno">第 23 章</span> 静電場解析</a></li>
+<li><a href="24_em_gun.html"><span class="chno">第 24 章</span> 電子銃解析</a></li>
+<li><a href="25_em_troubleshooting.html"><span class="chno">第 25 章</span> 電磁場解析で困ったとき</a></li>
+<li class="toc-part" role="presentation">第 III 部　連携・カスタマイズ・自動化</li>
+<li><a href="26_step_export.html"><span class="chno">第 26 章</span> 他の解析プログラムに形を渡す</a></li>
+<li><a href="27_customize.html"><span class="chno">第 27 章</span> カスタマイズ</a></li>
+<li><a href="28_automation.html"><span class="chno">第 28 章</span> 自動化</a></li>
+<li><a href="29_troubleshooting.html"><span class="chno">第 29 章</span> 困ったとき</a></li>
+<li class="toc-part" role="presentation">付録</li>
+<li class="appendix"><a href="appendix_a_commands.html"><span class="chno">付録 A</span> コマンド一覧</a></li>
+<li class="appendix"><a href="appendix_b_shortcuts.html"><span class="chno">付録 B</span> ショートカット一覧</a></li>
+<li class="appendix"><a href="appendix_c_feature_params.html"><span class="chno">付録 C</span> フィーチャのパラメータ一覧</a></li>
+<li class="appendix"><a href="appendix_d_glossary.html"><span class="chno">付録 D</span> 用語の対応表</a></li>
+</ol>
+</details>
+</nav>
+<main class="content" id="main">
+<article class="chapter ">
+<p class="chapter-label">第 6 章</p>
+<h1>フィーチャ（押し出し・回転・穴・フィレットなど）</h1>
+<nav class="pagetoc" aria-label="この章の内容">
+<p class="pagetoc-title">この章の内容</p>
+<ol>
+<li><a href="#common"><span class="secno">6.1</span> フィーチャの作り方（共通）</a></li>
+<li class="sub"><a href="#common-flow">作成の流れ</a></li>
+<li class="sub"><a href="#common-preview">プレビュー・ハンドル・HUD</a></li>
+<li class="sub"><a href="#common-edit">編集</a></li>
+<li class="sub"><a href="#common-error">失敗したとき</a></li>
+<li><a href="#extrude"><span class="secno">6.2</span> 押し出し</a></li>
+<li class="sub"><a href="#extrude-profile">プロファイルを選ぶ</a></li>
+<li class="sub"><a href="#extrude-direction">方向</a></li>
+<li class="sub"><a href="#extrude-extent">範囲</a></li>
+<li class="sub"><a href="#extrude-boolean">ブール演算</a></li>
+<li class="sub"><a href="#extrude-more">詳細</a></li>
+<li class="sub"><a href="#extrude-error">よくある失敗と直し方</a></li>
+<li><a href="#revolve"><span class="secno">6.3</span> 回転</a></li>
+<li><a href="#hole"><span class="secno">6.4</span> 穴</a></li>
+<li class="sub"><a href="#hole-position">位置を決める</a></li>
+<li class="sub"><a href="#hole-type">穴の種類</a></li>
+<li class="sub"><a href="#hole-standard">規格のサイズ・はめあい・等級</a></li>
+<li class="sub"><a href="#hole-shape">穴の形状（ザグリ・皿穴・スポットフェース）</a></li>
+<li class="sub"><a href="#hole-end">終了条件</a></li>
+<li class="sub"><a href="#hole-error">よくある失敗と直し方</a></li>
+<li><a href="#fillet"><span class="secno">6.5</span> フィレット</a></li>
+<li class="sub"><a href="#fillet-const">一定の半径</a></li>
+<li class="sub"><a href="#fillet-select">エッジの選び方（選択の意図）</a></li>
+<li class="sub"><a href="#fillet-variable">可変半径</a></li>
+<li class="sub"><a href="#fillet-error">よくある失敗と直し方</a></li>
+<li><a href="#chamfer"><span class="secno">6.6</span> 面取り</a></li>
+<li><a href="#shell"><span class="secno">6.7</span> シェル</a></li>
+<li><a href="#draft"><span class="secno">6.8</span> 勾配</a></li>
+<li class="sub"><a href="#draft-analysis">勾配の確認</a></li>
+<li><a href="#rib"><span class="secno">6.9</span> リブ</a></li>
+<li><a href="#primitives"><span class="secno">6.10</span> プリミティブ</a></li>
+<li><a href="#next"><span class="secno">6.11</span> 次に読む章</a></li>
+</ol>
+</nav>
+<p>この章では、部品の基本の形を作るフィーチャを説明します。押し出し・回転・穴・フィレット・面取り・シェル・勾配・リブ・プリミティブの作り方、フォームの欄の意味、ビューのドラッグと数値の入力、失敗したときの直し方がわかります。スイープ・ロフト・コイル・ねじ・パターン・ミラーは<a href="07_features_advanced.html">第 7 章</a>です。</p>
+
+<div class="table-wrap"><table>
+  <caption>この章で説明するコマンド（リボンの［3D モデル］タブ）</caption>
+  <thead><tr><th>節</th><th>コマンド</th><th>キー</th></tr></thead>
+  <tbody>
+    <tr><th scope="row"><a href="#extrude">押し出し</a></th><td><span class="ui">［押し出し］</span></td><td><kbd>E</kbd></td></tr>
+    <tr><th scope="row"><a href="#revolve">回転</a></th><td><span class="ui">［回転］</span></td><td><kbd>R</kbd></td></tr>
+    <tr><th scope="row"><a href="#hole">穴</a></th><td><span class="ui">［穴］</span></td><td><kbd>H</kbd></td></tr>
+    <tr><th scope="row"><a href="#fillet">フィレット</a></th><td><span class="ui">［フィレット］</span></td><td><kbd>F</kbd></td></tr>
+    <tr><th scope="row"><a href="#chamfer">面取り</a></th><td><span class="ui">［面取り］</span></td><td><kbd>C</kbd></td></tr>
+    <tr><th scope="row"><a href="#shell">シェル</a></th><td><span class="ui">［シェル］</span></td><td></td></tr>
+    <tr><th scope="row"><a href="#draft">勾配</a></th><td><span class="ui">［勾配］</span></td><td><kbd>D</kbd></td></tr>
+    <tr><th scope="row"><a href="#rib">リブ</a></th><td><span class="ui">［リブ］</span></td><td></td></tr>
+    <tr><th scope="row"><a href="#primitives">プリミティブ</a></th><td><span class="ui">［直方体］</span>・<span class="ui">［円柱］</span>・<span class="ui">［球］</span>・<span class="ui">［トーラス］</span>・<span class="ui">［円錐］</span>・<span class="ui">［くさび］</span></td><td></td></tr>
+  </tbody>
+</table></div>
+<aside class="note" role="note"><p class="callout-title">注意</p><p>この章で説明しない 3D モデルのコマンドは、別の章にあります。作業平面・作業軸・作業点・UCS は<a href="05_work_features.html">第 5 章</a>、結合・分割・ボディを移動・ボディを削除・修復は<a href="08_bodies.html">第 8 章</a>、抑制・ロールバック・名前の変更などの［修正］パネルの▼のコマンドは<a href="09_browser.html">第 9 章</a>です。</p></aside>
+
+<h2 id="common"><span class="secno">6.1</span> フィーチャの作り方（共通）</h2>
+<p>この章のフィーチャは、どれも同じ流れで作ります。コマンドを押し、プロパティ パネルのフォームに入力し、ビューのプレビューを見ながら整え、<span class="ui">［OK］</span>で確定します。</p>
+<figure id="fig-06_extrude_screen"><a class="zoom" href="images/06_extrude_screen.png"><img src="images/06_extrude_screen.png" alt="押し出しを作っている途中の画面です。① 入力する欄のフォーム（プロパティ パネル）、② 結果のプレビュー、③ ドラッグできる矢印（ハンドル）、④ 数値の欄（HUD）、⑤ 確定のボタン（［OK］・［+］・［キャンセル］）です。" width="1000" height="786" loading="lazy"></a><figcaption><span class="figno">図 6-1</span> 押し出しを作っている途中の画面です。① 入力する欄のフォーム（プロパティ パネル）、② 結果のプレビュー、③ ドラッグできる矢印（ハンドル）、④ 数値の欄（HUD）、⑤ 確定のボタン（<span class="ui">［OK］</span>・<span class="ui">［+］</span>・<span class="ui">［キャンセル］</span>）です。</figcaption></figure>
+
+<h3 id="common-flow">作成の流れ</h3>
+<ol class="steps">
+  <li><p>リボンの［3D モデル］タブのコマンドを押します（例: <span class="path">リボンの<span class="ui">［3D モデル］</span>タブ → <span class="ui">［作成］</span>パネル → <span class="ui">［押し出し］</span></span>）。プロパティ パネルにフォームが出ます。</p></li>
+  <li><p>色付きの四角が付いた欄は、ビューやブラウザで選ぶ欄です。ビューのものをクリックすると、いま有効な欄に入り、同じ色で表示されます。必須の欄を選び終えると、次の必須の欄に進みます。</p></li>
+  <li><p>数値の欄に値を入れます。長さ・角度の欄には、式（<code>W / 2</code>）やパラメータの名前も入力できます（<a href="10_parameters.html">第 10 章</a>）。欄の右に、計算した値（<code>= 10.00 mm</code>）が出ます。</p></li>
+  <li><p>ビューに、結果のプレビューが半透明で出ます。値を変えるたびに、プレビューが更新されます。</p></li>
+  <li><p><span class="ui">［OK］</span>（<kbd>Enter</kbd>。<kbd>Ctrl</kbd>+<kbd>Enter</kbd> でも確定します）を押します。フィーチャがブラウザに増え、ボディが更新されます。やめるときは<span class="ui">［キャンセル］</span>（<kbd>Esc</kbd>）です。</p></li>
+</ol>
+<p>ビューで選んだものを外すときは、欄の一覧の行を選んで<span class="ui">［外す］</span>を押します。プロファイルのように、もう一度クリックすると外れる欄もあります。</p>
+<p>パネルとビュー右上の確認コーナーに、<span class="ui">［OK］</span>と<span class="ui">［キャンセル］</span>の間の<span class="ui">［+］</span>（適用して新規作成）があります。いまのフィーチャを確定して、同じ種類のフィーチャの作成を、同じ値のまま続けて始めます（選ぶ欄は空から始まります）。使ったスケッチは見えたままなので、同じスケッチの別の領域を続けて押し出せます。編集のときは出ません。</p>
+
+<h3 id="common-preview">プレビュー・ハンドル・HUD</h3>
+<p>プレビューは、結果の種類で色が変わります。結合は黄、カットは赤、新規ソリッドは青です。元のボディは薄く表示されます。フィレットと面取りは、できる面が黄で出ます。</p>
+<div class="figrow">
+  <figure id="fig-06_preview_join"><a class="zoom" href="images/06_preview_join.png"><img src="images/06_preview_join.png" alt="結合は黄色で出ます。" width="340" height="261" loading="lazy"></a><figcaption><span class="figno">図 6-2</span> 結合は黄色で出ます。</figcaption></figure>
+  <figure id="fig-06_preview_cut"><a class="zoom" href="images/06_preview_cut.png"><img src="images/06_preview_cut.png" alt="カットは赤です。" width="340" height="261" loading="lazy"></a><figcaption><span class="figno">図 6-3</span> カットは赤です。</figcaption></figure>
+  <figure id="fig-06_preview_new"><a class="zoom" href="images/06_preview_new.png"><img src="images/06_preview_new.png" alt="新規ソリッドは青です。" width="340" height="261" loading="lazy"></a><figcaption><span class="figno">図 6-4</span> 新規ソリッドは青です。</figcaption></figure>
+</div>
+<p>距離や角度の欄があるフィーチャは、ビューに矢印（距離）か円弧（角度）のハンドルが出ます。ドラッグすると値が変わり、プレビューが追いかけます。値は、画面で約 6 ピクセルに当たる量を 1・2・5 の系列で刻みます。ズームすると刻みが細かくなります。<kbd>Shift</kbd> を押しながらドラッグすると、刻まずに動かせます。</p>
+<p>ハンドルの横に、数値の欄（HUD）が出ます。ビューで数字を打つと、最初の欄に入ります。<kbd>Tab</kbd> で次の欄、<kbd>Enter</kbd> で確定、<kbd>Esc</kbd> で取り消しです。式も打てます。</p>
+
+<h3 id="common-edit">編集</h3>
+<p>できたフィーチャは、ブラウザの行をダブルクリックすると編集し直せます。ビューの面やエッジを右クリックして<span class="ui">［フィーチャの編集］</span>を選ぶと、その面・エッジを作ったフィーチャを編集できます。フォームとハンドルは作成のときと同じです。編集の間、そのフィーチャより後ろのフィーチャは計算されず、ブラウザで灰色の<span class="ui">［ロールバック］</span>になります。<span class="ui">［OK］</span>で確定すると、後ろのフィーチャが計算し直されます。</p>
+
+<h3 id="common-error">失敗したとき</h3>
+<p>寸法が大きすぎるなど、結果が作れない値にすると、パネルの上に理由が赤い字で出て、プレビューが消えます。理由が欄に結び付くときは、その欄にも赤い字が出ます。値を直すとプレビューが戻ります。確定したあとで失敗したフィーチャは、ブラウザの<span class="ui">［状態］</span>に印が出て、行にマウスを置くと理由のツールチップが出ます。そのフィーチャをダブルクリックすると、パネルに理由が出ます。値を戻すか、<kbd>Ctrl</kbd>+<kbd>Z</kbd> で直前の操作を元に戻します。</p>
+<p>作成・編集の途中（プレビュー）の失敗は、理由が「プレビュー: 」で始まります。以下の各節の「よくある失敗」は、実際に出る文を、「プレビュー: 」を除いて挙げています。後ろのフィーチャが前のフィーチャの面やエッジを使っているときの「見つかりませんでした」の扱いは、<a href="09_browser.html">第 9 章</a>にあります。</p>
+
+<h2 id="extrude"><span class="secno">6.2</span> 押し出し</h2>
+<p>スケッチの閉じた領域（プロファイル）を、法線の方向に押し出して、ソリッドを作ります。既存のボディに足す（結合）、削る（カット）、共通部分だけ残す（交差）、別のボディにする（新規ソリッド）の 4 つの結果を選べます。開いた曲線に厚みを付ける薄肉も作れます。</p>
+
+<h3 id="extrude-profile">プロファイルを選ぶ</h3>
+<ol class="steps">
+  <li><p><span class="path">リボンの<span class="ui">［3D モデル］</span>タブ → <span class="ui">［作成］</span>パネル → <span class="ui">［押し出し］</span></span>をクリックします（<kbd>E</kbd>）。見えていて、まだ使っていない最後のスケッチに閉じた領域がちょうど 1 つだけあるときは、<span class="ui">［プロファイル］</span>に自動で入ります。</p></li>
+  <li><p>自動で入らないときは、ビューでスケッチの領域をクリックします。クリックした領域が選ばれ、色が付きます。複数の領域を続けて選べます。隣り合う領域は 1 つのボディになります。もう一度クリックすると外れます。</p></li>
+  <li><p>ブラウザでスケッチを選ぶか、<span class="ui">［全部の領域］</span>を押すと、そのスケッチの全部の領域が入ります。</p></li>
+</ol>
+<aside class="tip" role="note"><p class="callout-title">ヒント</p><p>面の上に描いたスケッチは、面の外周が自動で投影されています。円などの領域をクリックするときは、円の中をクリックします。</p></aside>
+<aside class="tip" role="note"><p class="callout-title">ヒント</p><p>離れた 2 つの領域を別々のボディにするときは、1 つ目の領域を選んで<span class="ui">［+］</span>を押し、続けて 2 つ目の領域を選んで<span class="ui">［OK］</span>を押します。</p></aside>
+<figure id="fig-06_extrude_form"><a class="zoom" href="images/06_extrude_form.png"><img src="images/06_extrude_form.png" alt="押し出しのフォーム。上から［入力ジオメトリ］・［動作］・［出力］の順です。［詳細］は畳まれています。［ブール演算］の［結合］の点線の枠は、予測を表します。" width="360" height="461" loading="lazy"></a><figcaption><span class="figno">図 6-5</span> 押し出しのフォーム。上から<span class="ui">［入力ジオメトリ］</span>・<span class="ui">［動作］</span>・<span class="ui">［出力］</span>の順です。<span class="ui">［詳細］</span>は畳まれています。<span class="ui">［ブール演算］</span>の<span class="ui">［結合］</span>の点線の枠は、予測を表します。</figcaption></figure>
+
+<figure id="fig-06_extrude_preview"><a class="zoom" href="images/06_extrude_preview.png"><img src="images/06_extrude_preview.png" alt="円の領域を選んで距離 15 mm にしたプレビュー。箱に触れるので、結合の黄色で出ます。矢印がハンドル、右の欄が HUD です。" width="700" height="479" loading="lazy"></a><figcaption><span class="figno">図 6-6</span> 円の領域を選んで距離 15 mm にしたプレビュー。箱に触れるので、結合の黄色で出ます。矢印がハンドル、右の欄が HUD です。</figcaption></figure>
+
+<h3 id="extrude-direction">方向</h3>
+<p><span class="ui">［動作］</span>の<span class="ui">［方向］</span>のボタンで、押し出す側を選びます。</p>
+<div class="table-wrap"><table>
+  <caption>方向のボタン</caption>
+  <thead><tr><th>ボタン</th><th>押し出す側</th></tr></thead>
+  <tbody>
+    <tr><th scope="row"><span class="ui">［既定］</span></th><td>スケッチの法線の側です。カットは材料の側へ進みます。</td></tr>
+    <tr><th scope="row"><span class="ui">［反転方向］</span></th><td>反対の側です。</td></tr>
+    <tr><th scope="row"><span class="ui">［対称］</span></th><td>スケッチの両側に、距離 A の半分ずつです。</td></tr>
+    <tr><th scope="row"><span class="ui">［非対称］</span></th><td>片側に距離 A、反対側に距離 B です。<span class="ui">［距離 B］</span>と<span class="ui">［側を反転］</span>の欄が出ます。</td></tr>
+  </tbody>
+</table></div>
+<div class="figrow">
+  <figure id="fig-06_dir_default"><a class="zoom" href="images/06_dir_default.png"><img src="images/06_dir_default.png" alt="既定。スケッチの面から上へ押し出します。" width="460" height="329" loading="lazy"></a><figcaption><span class="figno">図 6-7</span> 既定。スケッチの面から上へ押し出します。</figcaption></figure>
+  <figure id="fig-06_dir_flipped"><a class="zoom" href="images/06_dir_flipped.png"><img src="images/06_dir_flipped.png" alt="反転方向。下へ押し出します。" width="460" height="329" loading="lazy"></a><figcaption><span class="figno">図 6-8</span> 反転方向。下へ押し出します。</figcaption></figure>
+  <figure id="fig-06_dir_symmetric"><a class="zoom" href="images/06_dir_symmetric.png"><img src="images/06_dir_symmetric.png" alt="対称。面の上下に半分ずつです。" width="460" height="329" loading="lazy"></a><figcaption><span class="figno">図 6-9</span> 対称。面の上下に半分ずつです。</figcaption></figure>
+  <figure id="fig-06_dir_asymmetric"><a class="zoom" href="images/06_dir_asymmetric.png"><img src="images/06_dir_asymmetric.png" alt="非対称。上に距離 A、下に距離 B です。" width="460" height="329" loading="lazy"></a><figcaption><span class="figno">図 6-10</span> 非対称。上に距離 A、下に距離 B です。</figcaption></figure>
+</div>
+<figure id="fig-06_dir_asym_form"><a class="zoom" href="images/06_dir_asym_form.png"><img src="images/06_dir_asym_form.png" alt="非対称のフォーム。［距離 A］・［距離 B］と［側を反転］が出ます。" width="360" height="432" loading="lazy"></a><figcaption><span class="figno">図 6-11</span> 非対称のフォーム。<span class="ui">［距離 A］</span>・<span class="ui">［距離 B］</span>と<span class="ui">［側を反転］</span>が出ます。</figcaption></figure>
+
+<h3 id="extrude-extent">範囲</h3>
+<p><span class="ui">［範囲］</span>のコンボで、どこまで押し出すかを選びます。</p>
+<div class="table-wrap"><table>
+  <caption>範囲の種類</caption>
+  <thead><tr><th>範囲</th><th>動作</th><th>追加の欄</th></tr></thead>
+  <tbody>
+    <tr><th scope="row"><span class="ui">［距離］</span></th><td>指定した距離だけ押し出します。</td><td><span class="ui">［距離 A］</span>（非対称は<span class="ui">［距離 B］</span>も）</td></tr>
+    <tr><th scope="row"><span class="ui">［貫通］</span></th><td>すべてのソリッドを貫いて押し出します。</td><td>なし</td></tr>
+    <tr><th scope="row"><span class="ui">［次へ］</span></th><td>押し出しの向きの次の面まで押し出します。</td><td>なし</td></tr>
+    <tr><th scope="row"><span class="ui">［終点］</span></th><td>面、作業平面、頂点、作業点のいずれかまで押し出します。</td><td><span class="ui">［終点］</span>・<span class="ui">［オフセット］</span></td></tr>
+    <tr><th scope="row"><span class="ui">［ボディ］</span></th><td>選んだソリッドの面まで押し出します。</td><td><span class="ui">［ソリッド］</span></td></tr>
+  </tbody>
+</table></div>
+<p><span class="ui">［終点］</span>の<span class="ui">［オフセット］</span>は、終わりの面を押し出しの向きに動かします。負の値にすると、面の手前で止まります。</p>
+<figure id="fig-06_extrude_to_form"><a class="zoom" href="images/06_extrude_to_form.png"><img src="images/06_extrude_to_form.png" alt="範囲を［終点］にしたフォーム。［終点］の欄に面か作業平面を選び、［オフセット］で位置を調整します。" width="360" height="547" loading="lazy"></a><figcaption><span class="figno">図 6-12</span> 範囲を<span class="ui">［終点］</span>にしたフォーム。<span class="ui">［終点］</span>の欄に面か作業平面を選び、<span class="ui">［オフセット］</span>で位置を調整します。</figcaption></figure>
+<p><span class="ui">［方向］</span>と<span class="ui">［範囲］</span>には、組み合わせられないものがあります。その選択肢は灰色になり、押せません。<span class="ui">［貫通］</span>は<span class="ui">［非対称］</span>と、<span class="ui">［次へ］</span>・<span class="ui">［終点］</span>・<span class="ui">［ボディ］</span>は<span class="ui">［対称］</span>・<span class="ui">［非対称］</span>と組み合わせられません。ボディがまだ無いときは、<span class="ui">［貫通］</span>も灰色です。</p>
+<p>押せない理由は、灰色の選択肢にカーソルを合わせると、ツールチップの 1 行目に出ます。<span class="ui">［範囲］</span>は、リストを開いて、灰色の項目にカーソルを合わせます。2 行目は、その選択肢の説明です。</p>
+<div class="table-wrap"><table>
+  <caption>押せない理由の文（ツールチップの 1 行目）</caption>
+  <thead><tr><th>押せない選択肢</th><th>理由の文</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">ボディが無いときの、<span class="ui">［範囲］</span>の<span class="ui">［貫通］</span></th><td>貫通させるボディがありません</td></tr>
+    <tr><th scope="row"><span class="ui">［方向］</span>が<span class="ui">［非対称］</span>のときの、<span class="ui">［範囲］</span>の<span class="ui">［貫通］</span>・<span class="ui">［次へ］</span>・<span class="ui">［終点］</span>・<span class="ui">［ボディ］</span></th><td>方向: 非対称 とは組み合わせられません</td></tr>
+    <tr><th scope="row"><span class="ui">［範囲］</span>が<span class="ui">［貫通］</span>のときの、<span class="ui">［方向］</span>の<span class="ui">［非対称］</span></th><td>範囲: 貫通 とは組み合わせられません</td></tr>
+  </tbody>
+</table></div>
+<figure id="fig-06_extrude_tip_extent"><a class="zoom" href="images/06_extrude_tip_extent.png"><img src="images/06_extrude_tip_extent.png" alt="ボディがまだ無いときの、［範囲］の［貫通］のツールチップです。1 行目が理由です。" width="179" height="38" loading="lazy"></a><figcaption><span class="figno">図 6-13</span> ボディがまだ無いときの、<span class="ui">［範囲］</span>の<span class="ui">［貫通］</span>のツールチップです。1 行目が理由です。</figcaption></figure>
+<p><span class="ui">［次へ］</span>の例です。箱の中ほどの作業平面にスケッチした円を、下の床まで押し出します。</p>
+<ol class="steps">
+  <li><p>作業平面にスケッチして円を描き、<span class="path">リボンの<span class="ui">［3D モデル］</span>タブ → <span class="ui">［作成］</span>パネル → <span class="ui">［押し出し］</span></span>を押します。</p></li>
+  <li><p><span class="ui">［ブール演算］</span>を<span class="ui">［結合］</span>、<span class="ui">［方向］</span>を<span class="ui">［反転方向］</span>、<span class="ui">［範囲］</span>を<span class="ui">［次へ］</span>にします。プレビューが、床までの柱になります。</p>
+    <div class="figrow">
+      <figure id="fig-06_extrude_next_form"><a class="zoom" href="images/06_extrude_next_form.png"><img src="images/06_extrude_next_form.png" alt="範囲を［次へ］にしたフォーム。" width="360" height="431" loading="lazy"></a><figcaption><span class="figno">図 6-14</span> 範囲を<span class="ui">［次へ］</span>にしたフォーム。</figcaption></figure>
+      <figure id="fig-06_extrude_next_view"><a class="zoom" href="images/06_extrude_next_view.png"><img src="images/06_extrude_next_view.png" alt="中間の平面の円が、床の面まで伸びるプレビュー。" width="460" height="329" loading="lazy"></a><figcaption><span class="figno">図 6-15</span> 中間の平面の円が、床の面まで伸びるプレビュー。</figcaption></figure>
+    </div></li>
+</ol>
+
+<h3 id="extrude-boolean">ブール演算</h3>
+<p><span class="ui">［出力］</span>の<span class="ui">［ブール演算］</span>は、押し出した形を既存のボディとどう組み合わせるかを決めます。</p>
+<div class="table-wrap"><table>
+  <caption>ブール演算のボタン</caption>
+  <thead><tr><th>ボタン</th><th>結果</th></tr></thead>
+  <tbody>
+    <tr><th scope="row"><span class="ui">［結合］</span></th><td>触れているボディに足します。</td></tr>
+    <tr><th scope="row"><span class="ui">［カット］</span></th><td>ボディから削ります。</td></tr>
+    <tr><th scope="row"><span class="ui">［交差］</span></th><td>ボディと重なる部分だけ残します。</td></tr>
+    <tr><th scope="row"><span class="ui">［新規ソリッド］</span></th><td>別のボディを作ります。</td></tr>
+  </tbody>
+</table></div>
+<p>ボディがまだ無いときは、<span class="ui">［新規ソリッド］</span>だけが選べます。<span class="ui">［結合］</span>・<span class="ui">［カット］</span>・<span class="ui">［交差］</span>は灰色で、カーソルを合わせると理由が出ます（次の図）。ボディがあるときは、押し出す形がボディに触れるかどうかで、mcad が結果を予測してボタンに点線の枠を付けます。ボディに触れていれば<span class="ui">［結合］</span>、離れていれば<span class="ui">［新規ソリッド］</span>です。ボタンを自分で押すと、以後は予測しません。<span class="ui">［ソリッド］</span>の欄で、結合・カット・交差の相手のボディを選べます（空のときは、触れているすべてのボディです）。</p>
+<figure id="fig-06_extrude_tip_boolean"><a class="zoom" href="images/06_extrude_tip_boolean.png"><img src="images/06_extrude_tip_boolean.png" alt="ボディがまだ無いときの、［カット］のツールチップです。［結合］・［交差］も同じ文です。" width="425" height="22" loading="lazy"></a><figcaption><span class="figno">図 6-16</span> ボディがまだ無いときの、<span class="ui">［カット］</span>のツールチップです。<span class="ui">［結合］</span>・<span class="ui">［交差］</span>も同じ文です。</figcaption></figure>
+
+<h3 id="extrude-more">詳細</h3>
+<p><span class="ui">［詳細］</span>を開くと、次の欄が出ます。</p>
+<figure id="fig-06_extrude_more_form"><a class="zoom" href="images/06_extrude_more_form.png"><img src="images/06_extrude_more_form.png" alt="詳細を開いたフォーム。" width="360" height="660" loading="lazy"></a><figcaption><span class="figno">図 6-17</span> 詳細を開いたフォーム。</figcaption></figure>
+<div class="table-wrap"><table>
+  <caption>詳細の欄</caption>
+  <thead><tr><th>欄</th><th>意味</th></tr></thead>
+  <tbody>
+    <tr><th scope="row"><span class="ui">［開いたプロファイル］</span></th><td>開いたスケッチ曲線を使います。<span class="ui">［曲線］</span>の欄に曲線を選び、<span class="ui">［薄肉］</span>で厚みを付けます。</td></tr>
+    <tr><th scope="row"><span class="ui">［テーパ A］</span></th><td>正の角度にすると、押し出しの向きに沿って断面が広がります。</td></tr>
+    <tr><th scope="row"><span class="ui">［薄肉］</span></th><td>壁だけにします。<span class="ui">［壁の厚さ］</span>と<span class="ui">［壁の位置］</span>（<span class="ui">［内側］</span>・<span class="ui">［外側］</span>・<span class="ui">［中央］</span>）を指定します。開いたプロファイルでは、内側は曲線の左側、外側は右側です。</td></tr>
+    <tr><th scope="row"><span class="ui">［開始オフセット］</span></th><td>押し出しの開始位置を、押し出しの向きに動かします。</td></tr>
+    <tr><th scope="row"><span class="ui">［開始］</span></th><td>面か作業平面を選ぶと、そこから押し出しを始めます。</td></tr>
+    <tr><th scope="row"><span class="ui">［方向］</span></th><td>軸・エッジ・スケッチの線を選ぶと、その方向に押し出します。距離はその方向に測ります。</td></tr>
+  </tbody>
+</table></div>
+<div class="figrow">
+  <figure id="fig-06_extrude_taper"><a class="zoom" href="images/06_extrude_taper.png"><img src="images/06_extrude_taper.png" alt="テーパ A を 10° にした押し出し。上へ向かって広がります。" width="460" height="329" loading="lazy"></a><figcaption><span class="figno">図 6-18</span> テーパ A を 10° にした押し出し。上へ向かって広がります。</figcaption></figure>
+  <figure id="fig-06_extrude_thin"><a class="zoom" href="images/06_extrude_thin.png"><img src="images/06_extrude_thin.png" alt="薄肉（壁の厚さ 3 mm）にした押し出し。中が空いた壁になります。" width="460" height="329" loading="lazy"></a><figcaption><span class="figno">図 6-19</span> 薄肉（壁の厚さ 3 mm）にした押し出し。中が空いた壁になります。</figcaption></figure>
+</div>
+
+<h3 id="extrude-error">よくある失敗と直し方</h3>
+<div class="table-wrap"><table>
+  <caption>押し出しの失敗</caption>
+  <thead><tr><th>表示される文</th><th>原因と直し方</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">演算が体積を変えませんでした</th><td>カットが材料に届いていません（反転方向のカットなど）。<span class="ui">［方向］</span>を戻すか、距離を長くします。</td></tr>
+    <tr><th scope="row">押し出しが面に届きません</th><td><span class="ui">［次へ］</span>の向きに、止める面がありません。<span class="ui">［方向］</span>を<span class="ui">［反転方向］</span>にするか、<span class="ui">［範囲］</span>を<span class="ui">［距離］</span>にします。</td></tr>
+    <tr><th scope="row">「貫通」には貫くボディが要ります</th><td>貫く相手がありません。ボディのある側へ押し出します。</td></tr>
+    <tr><th scope="row">結果にソリッドがありません。断面（プロファイル）を確かめてください。</th><td>内側の輪郭が外側の輪郭の外にあるか、形が自分と交差しています。スケッチを直します。</td></tr>
+  </tbody>
+</table></div>
+<figure id="fig-06_extrude_cut_error"><a class="zoom" href="images/06_extrude_cut_error.png"><img src="images/06_extrude_cut_error.png" alt="反転方向のカットを選んだフォーム。上に理由が赤く出ています。" width="360" height="483" loading="lazy"></a><figcaption><span class="figno">図 6-20</span> 反転方向のカットを選んだフォーム。上に理由が赤く出ています。</figcaption></figure>
+<aside class="inventor" role="note"><p class="callout-title">Inventor との違い</p><p>フォームの並び（入力ジオメトリ・動作・出力）・方向の 4 つのボタン・ブール演算の予測・<span class="ui">［+］</span>は、Inventor に合わせてあります。Inventor の押し出しには薄肉が無く、開いたプロファイルはサーフェスになります。mcad はサーフェスを作らないので、<span class="ui">［詳細］</span>の<span class="ui">［薄肉］</span>で厚みを付けます。Inventor の間隔（2 つの面の間）は、<span class="ui">［開始］</span>と<span class="ui">［終点］</span>で指定します。マッチ シェイプはありません。</p></aside>
+<aside class="try"><p class="callout-title">この機能を試す</p><p class="try-sample">題材: <code>samples/primitives.mcad</code> <code>samples/housing.mcad</code> （<a href="00_intro.html#samples">題材の一覧と開き方</a>）</p>
+  <p><code>primitives.mcad</code>を開きます。直方体の上面の空いている所に新しいスケッチを始め、円を描いて終了します。<span class="path">リボンの<span class="ui">［3D モデル］</span>タブ → <span class="ui">［作成］</span>パネル → <span class="ui">［押し出し］</span></span>で円の中をクリックし、<span class="ui">［結合］</span>が点線の枠で予測されることを確かめます。<span class="ui">［詳細］</span>の<span class="ui">［薄肉］</span>と<span class="ui">［テーパ A］</span>を試します。<code>housing.mcad</code>では、作業平面<span class="ui doc">［中間の平面］</span>の円を、<span class="ui">［反転方向］</span>と<span class="ui">［次へ］</span>で床まで押し出します。</p>
+</aside>
+
+<h2 id="revolve"><span class="secno">6.3</span> 回転</h2>
+<p>スケッチのプロファイルを、軸のまわりに回して、軸対称の形（軸・円板・リングなど）を作ります。</p>
+<ol class="steps">
+  <li><p>回転軸にする線（中心線）を含むスケッチを描きます。<span class="path">リボンの<span class="ui">［3D モデル］</span>タブ → <span class="ui">［作成］</span>パネル → <span class="ui">［回転］</span></span>をクリックします（<kbd>R</kbd>）。閉領域が 1 つだけのときは、<span class="ui">［プロファイル］</span>に自動で入ります。</p></li>
+  <li><p><span class="ui">［軸］</span>の欄で、回転軸にする直線を選びます。スケッチの線・作業軸・直線のエッジを選べます。</p></li>
+  <li><p><span class="ui">［角度 A］</span>に角度を入力します。既定は 360° です。円弧のハンドルをドラッグして変えることもできます。</p>
+    <figure id="fig-06_revolve_form"><a class="zoom" href="images/06_revolve_form.png"><img src="images/06_revolve_form.png" alt="回転のフォーム。［入力ジオメトリ］に［プロファイル］と［軸］があります。" width="360" height="425" loading="lazy"></a><figcaption><span class="figno">図 6-21</span> 回転のフォーム。<span class="ui">［入力ジオメトリ］</span>に<span class="ui">［プロファイル］</span>と<span class="ui">［軸］</span>があります。</figcaption></figure>
+    <figure id="fig-06_revolve_view"><a class="zoom" href="images/06_revolve_view.png"><img src="images/06_revolve_view.png" alt="プレビューと、軸のまわりの円弧のハンドルです。" width="700" height="447" loading="lazy"></a><figcaption><span class="figno">図 6-22</span> プレビューと、軸のまわりの円弧のハンドルです。</figcaption></figure></li>
+  <li><p><span class="ui">［方向］</span>と<span class="ui">［ブール演算］</span>は押し出しと同じ並びです。<span class="ui">［非対称］</span>では<span class="ui">［角度 B］</span>が出ます。<span class="ui">［OK］</span>で確定します。</p>
+    <figure id="fig-06_revolve_270"><a class="zoom" href="images/06_revolve_270.png"><img src="images/06_revolve_270.png" alt="角度を 270° にした回転。四分の一が欠けた形になります。" width="700" height="447" loading="lazy"></a><figcaption><span class="figno">図 6-23</span> 角度を 270° にした回転。四分の一が欠けた形になります。</figcaption></figure></li>
+</ol>
+<p><span class="ui">［詳細］</span>に、<span class="ui">［開いたプロファイル］</span>・<span class="ui">［薄肉］</span>・<span class="ui">［壁の厚さ］</span>・<span class="ui">［壁の位置］</span>があります。押し出しと同じ使い方です。</p>
+<div class="table-wrap"><table>
+  <caption>回転の失敗</caption>
+  <thead><tr><th>表示される文</th><th>原因と直し方</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">360 deg 以下にしてください</th><td><span class="ui">［角度 A］</span>の欄に出ます。360° 以下にします。</td></tr>
+    <tr><th scope="row">結果にソリッドがありません。断面（プロファイル）を確かめてください。…</th><td>内側の輪郭が外側の輪郭の外にあるか、プロファイルが自分と交差しています。スケッチを直します。</td></tr>
+  </tbody>
+</table></div>
+<aside class="inventor" role="note"><p class="callout-title">Inventor との違い</p><p>回転の範囲は<span class="ui">［角度 A］</span>だけです（全周は 360°）。Inventor の「終点」「次へ」「間隔」の範囲はありません。</p></aside>
+<aside class="try"><p class="callout-title">この機能を試す</p><p class="try-sample">題材: <code>samples/stepped_shaft.mcad</code> （<a href="00_intro.html#samples">題材の一覧と開き方</a>）</p>
+  <p>ブラウザの<span class="ui">［回転1］</span>をダブルクリックします。円弧のハンドルをドラッグして、角度を 270° にします。ビューに、欠けた形のプレビューが出ます。<kbd>Esc</kbd> で取り消します。</p>
+</aside>
+
+<h2 id="hole"><span class="secno">6.4</span> 穴</h2>
+<p>スケッチの点を位置にして、穴を開けます。単純穴のほか、規格（JIS）の表から径を引くクリアランス穴、下穴を開けてねじを示すタップ穴・テーパ タップ穴を作れます。ザグリ・皿穴・スポットフェースの座も付けられます。</p>
+
+<h3 id="hole-position">位置を決める</h3>
+<p>穴の位置は、スケッチの点です。穴を開ける面に新しいスケッチを始めて点を置き、寸法で位置を決めて、スケッチを終了します（手順は<a href="03_first_part.html#hole">第 3 章</a>にあります）。</p>
+<ol class="steps">
+  <li><p><span class="path">リボンの<span class="ui">［3D モデル］</span>タブ → <span class="ui">［修正］</span>パネル → <span class="ui">［穴］</span></span>をクリックします（<kbd>H</kbd>）。</p></li>
+  <li><p>ビューで、スケッチの点をクリックします。<span class="ui">［位置］</span>の欄に入ります。ブラウザでスケッチを選ぶか<span class="ui">［全部の点］</span>を押すと、そのスケッチの全部の点が入ります。あとでスケッチに足した点にも、穴が開きます。円や円弧の中心も位置に使えます。</p></li>
+  <li><p>穴の種類（次の小節）と、<span class="ui">［終了条件］</span>を選びます。</p></li>
+  <li><p><span class="ui">［OK］</span>で確定します。</p></li>
+</ol>
+<p><span class="ui">［開始面］</span>は省けます。面か作業平面を選ぶと、点を穴の向きにその平面へ移してから掘ります。材料の中のスケッチ平面から掘る穴に使います。</p>
+<aside class="note" role="note"><p class="callout-title">注意</p><p>穴の向きは、スケッチの面の法線の逆（材料の側）です。向きが逆のときは、<span class="ui">［終了条件］</span>の下の<span class="ui">［方向を反転］</span>にチェックを入れます。</p></aside>
+
+<h3 id="hole-type">穴の種類</h3>
+<p><span class="ui">［穴の種類］</span>で、穴の作り方を選びます。選ぶと、規格の欄が出入りします。</p>
+<div class="table-wrap"><table>
+  <caption>穴の種類</caption>
+  <thead><tr><th>穴の種類</th><th>径の決まり方</th><th>出る欄</th></tr></thead>
+  <tbody>
+    <tr><th scope="row"><span class="ui">［単純穴］</span></th><td><span class="ui">［直径］</span>に入力した値です。</td><td><span class="ui">［直径］</span></td></tr>
+    <tr><th scope="row"><span class="ui">［クリアランス穴］</span></th><td>JIS B 1001 の表から、<span class="ui">［サイズ］</span>と<span class="ui">［はめあい］</span>で決まります。</td><td><span class="ui">［サイズ］</span>・<span class="ui">［はめあい］</span></td></tr>
+    <tr><th scope="row"><span class="ui">［タップ穴］</span></th><td>JIS B 1004 の表から、ねじの呼びの下穴径で決まります。</td><td><span class="ui">［ねじの種類］</span>・<span class="ui">［指定］</span>・<span class="ui">［等級］</span>・<span class="ui">［方向］</span>・<span class="ui">［全ねじ］</span>・<span class="ui">［ねじの深さ］</span></td></tr>
+    <tr><th scope="row"><span class="ui">［テーパ タップ穴］</span></th><td>Rc（管用テーパねじ）の呼びで決まります。</td><td><span class="ui">［指定］</span>・<span class="ui">［等級］</span>・<span class="ui">［方向］</span>・<span class="ui">［全ねじ］</span></td></tr>
+  </tbody>
+</table></div>
+<div class="figrow">
+  <figure id="fig-06_hole_simple_form"><a class="zoom" href="images/06_hole_simple_form.png"><img src="images/06_hole_simple_form.png" alt="単純穴。［穴の形状］の［直径］に入力します。" width="360" height="570" loading="lazy"></a><figcaption><span class="figno">図 6-24</span> 単純穴。<span class="ui">［穴の形状］</span>の<span class="ui">［直径］</span>に入力します。</figcaption></figure>
+  <figure id="fig-06_hole_clearance_form"><a class="zoom" href="images/06_hole_clearance_form.png"><img src="images/06_hole_clearance_form.png" alt="クリアランス穴。［サイズ］と［はめあい］を選びます。直径の欄は出ません。" width="360" height="627" loading="lazy"></a><figcaption><span class="figno">図 6-25</span> クリアランス穴。<span class="ui">［サイズ］</span>と<span class="ui">［はめあい］</span>を選びます。直径の欄は出ません。</figcaption></figure>
+  <figure id="fig-06_hole_tapped_form"><a class="zoom" href="images/06_hole_tapped_form.png"><img src="images/06_hole_tapped_form.png" alt="タップ穴。［ねじ］の欄が出ます。" width="360" height="774" loading="lazy"></a><figcaption><span class="figno">図 6-26</span> タップ穴。<span class="ui">［ねじ］</span>の欄が出ます。</figcaption></figure>
+  <figure id="fig-06_hole_taper_form"><a class="zoom" href="images/06_hole_taper_form.png"><img src="images/06_hole_taper_form.png" alt="テーパ タップ穴。呼びは Rc です。" width="360" height="744" loading="lazy"></a><figcaption><span class="figno">図 6-27</span> テーパ タップ穴。呼びは Rc です。</figcaption></figure>
+</div>
+
+<h3 id="hole-standard">規格のサイズ・はめあい・等級</h3>
+<div class="table-wrap"><table>
+  <caption>穴の規格の選択肢</caption>
+  <thead><tr><th>欄</th><th>選択肢</th></tr></thead>
+  <tbody>
+    <tr><th scope="row"><span class="ui">［サイズ］</span>（クリアランス穴）</th><td>M1.6・M2・M2.5・M3・M4・M5・M6・M8・M10・M12・M14・M16・M18・M20・M22・M24・M30 の 17 種です。</td></tr>
+    <tr><th scope="row"><span class="ui">［はめあい］</span></th><td><span class="ui">［1 級（精級）］</span>・<span class="ui">［2 級（中級）］</span>・<span class="ui">［3 級（粗級）］</span>です。鋳抜き穴の 4 級はありません。</td></tr>
+    <tr><th scope="row"><span class="ui">［ねじの種類］</span>（タップ穴）</th><td><span class="ui">［メートル並目（JIS B 0205）］</span>（M1×0.25〜M36×4 の 26 種）、<span class="ui">［メートル細目（JIS B 0205）］</span>（18 種）、<span class="ui">［管用平行ねじ G（JIS B 0202）］</span>（G 1/16〜G 2 の 14 種）です。</td></tr>
+    <tr><th scope="row"><span class="ui">［指定］</span>（テーパ タップ穴）</th><td>Rc 1/16〜Rc 1 1/2 の 9 種です。</td></tr>
+    <tr><th scope="row"><span class="ui">［等級］</span></th><td>6H・5H・7H・6g・6h・6e です。管用ねじの等級は、穴の情報として持つだけで、寸法には効きません。</td></tr>
+    <tr><th scope="row"><span class="ui">［方向］</span></th><td><span class="ui">［右ねじ］</span>・<span class="ui">［左ねじ］</span>です。</td></tr>
+  </tbody>
+</table></div>
+<p><span class="ui">［全ねじ］</span>にチェックを入れると、ねじが穴の全長に付きます。外すと<span class="ui">［ねじの深さ］</span>が出て、ねじを切る長さを指定できます。ねじの形そのものは作らず、穴の壁にらせん状の線で示します（コスメティックねじ）。この線は、確定したあとに出ます。作成中のプレビューには出ません。テーパ タップ穴は、下穴径のまっすぐな穴で作り、テーパは持ちません。</p>
+<aside class="note" role="note"><p class="callout-title">注意</p><p>穴の径は、規格の数値を表にして内蔵したものです。ねじの下穴径（JIS B 1004）の表は二次資料から作ったもので、規格の本文とは照合していません。製図に使うときは、お手元の規格で確かめてください。穴の寸法やねじの呼びは、穴のフィーチャの出力（<code>hole.instances</code>）と穴の面の属性として保存されます。ビューに呼びの注記（コールアウト）は出ません。スクリプトで読み出せます（<a href="28_automation.html">第 28 章</a>）。</p></aside>
+
+<h3 id="hole-shape">穴の形状（ザグリ・皿穴・スポットフェース）</h3>
+<p><span class="ui">［穴の形状］</span>の<span class="ui">［種類］</span>で、穴の入口の座を選びます。</p>
+<div class="table-wrap"><table>
+  <caption>穴の形状の種類</caption>
+  <thead><tr><th>種類</th><th>出る欄</th></tr></thead>
+  <tbody>
+    <tr><th scope="row"><span class="ui">［単純］</span></th><td>なし</td></tr>
+    <tr><th scope="row"><span class="ui">［ザグリ］</span></th><td><span class="ui">［ザグリの直径］</span>・<span class="ui">［ザグリの深さ］</span>。クリアランス穴では、<span class="ui">［規格からザグリの直径を決める］</span>がチェックされていて、直径は JIS B 1001 の表から決まります。</td></tr>
+    <tr><th scope="row"><span class="ui">［皿穴］</span></th><td><span class="ui">［皿穴の直径］</span>・<span class="ui">［皿穴の角度］</span>（既定 90°）。</td></tr>
+    <tr><th scope="row"><span class="ui">［スポットフェース］</span></th><td><span class="ui">［スポットフェースの直径］</span>・<span class="ui">［スポットフェースの深さ］</span>（既定 1 mm）。</td></tr>
+  </tbody>
+</table></div>
+<p>ザグリの深さは規格の表にないので、自分で入力します。ザグリの直径の表（JIS B 1001）は M2〜M24 の 14 種で、M1.6・M2.5・M30 はありません。六角穴付きボルトの頭を沈める深ザグリも、<span class="ui">［ザグリの深さ］</span>をボルトの頭の高さに合わせて作ります。<span class="ui">［規格からザグリの直径を決める］</span>のチェックを外すと、<span class="ui">［ザグリの直径］</span>の欄が出て、直径を入力できます。</p>
+<div class="figrow">
+  <figure id="fig-06_hole_cbore_form"><a class="zoom" href="images/06_hole_cbore_form.png"><img src="images/06_hole_cbore_form.png" alt="単純穴にザグリを付けたフォーム。［ザグリ］の欄が出ます。" width="360" height="657" loading="lazy"></a><figcaption><span class="figno">図 6-28</span> 単純穴にザグリを付けたフォーム。<span class="ui">［ザグリ］</span>の欄が出ます。</figcaption></figure>
+  <figure id="fig-06_hole_jis_form"><a class="zoom" href="images/06_hole_jis_form.png"><img src="images/06_hole_jis_form.png" alt="クリアランス穴の M6 にザグリを付けたフォーム。径は表から決まり、［ザグリの深さ］だけを入力します。" width="360" height="711" loading="lazy"></a><figcaption><span class="figno">図 6-29</span> クリアランス穴の M6 にザグリを付けたフォーム。径は表から決まり、<span class="ui">［ザグリの深さ］</span>だけを入力します。</figcaption></figure>
+</div>
+
+<h3 id="hole-end">終了条件</h3>
+<div class="table-wrap"><table>
+  <caption>穴の終了条件</caption>
+  <thead><tr><th>終了条件</th><th>動作</th></tr></thead>
+  <tbody>
+    <tr><th scope="row"><span class="ui">［距離］</span></th><td><span class="ui">［深さ］</span>の止まり穴です。<span class="ui">［先端角］</span>（118°・135°・<span class="ui">［平坦］</span>）を選べます。</td></tr>
+    <tr><th scope="row"><span class="ui">［貫通］</span></th><td>すべてのソリッドを貫通します。</td></tr>
+    <tr><th scope="row"><span class="ui">［次へ］</span></th><td>次の面まで開けます。</td></tr>
+  </tbody>
+</table></div>
+<p>穴の深さのハンドル（矢印）をドラッグしても、深さを変えられます。</p>
+<figure id="fig-06_jis_holes_view"><a class="zoom" href="images/06_jis_holes_view.png"><img src="images/06_jis_holes_view.png" alt="穴の例（jis_holes.mcad）。ザグリ付きのクリアランス穴、タップ穴、テーパ タップ穴と、軸のコスメティックねじ（青いらせんの線）です。" width="700" height="447" loading="lazy"></a><figcaption><span class="figno">図 6-30</span> 穴の例（<code>jis_holes.mcad</code>）。ザグリ付きのクリアランス穴、タップ穴、テーパ タップ穴と、軸のコスメティックねじ（青いらせんの線）です。</figcaption></figure>
+
+<h3 id="hole-error">よくある失敗と直し方</h3>
+<div class="table-wrap"><table>
+  <caption>穴の失敗</caption>
+  <thead><tr><th>表示される文</th><th>原因と直し方</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">配置点 1 で、ねじの深さ 16.0 mm が穴の壁（15.0 mm）より長くなっています</th><td>ねじの深さが穴の深さを超えています。<span class="ui">［ねじの深さ］</span>を短くするか、<span class="ui">［深さ］</span>を長くします。</td></tr>
+    <tr><th scope="row">M30 はザグリの表 ザグリの直径（JIS B 1001） にありません。ザグリの直径を自分で入力してください</th><td>規格の表にないサイズ（M1.6・M2.5・M30）です。<span class="ui">［規格からザグリの直径を決める］</span>のチェックを外し、直径を入力します。</td></tr>
+    <tr><th scope="row">ザグリの深さ は穴の深さより小さくしてください</th><td><span class="ui">［ザグリの深さ］</span>が穴の深さ以上です。<span class="ui">［ザグリの深さ］</span>を短くするか、<span class="ui">［深さ］</span>を長くします。</td></tr>
+    <tr><th scope="row">皿穴の直径 は穴の直径より大きくしてください</th><td><span class="ui">［皿穴の直径］</span>を<span class="ui">［直径］</span>より大きくします。ザグリ・スポットフェースも同じで、「ザグリの直径」「スポットフェースの直径」の文が出ます。</td></tr>
+  </tbody>
+</table></div>
+<figure id="fig-06_hole_error"><a class="zoom" href="images/06_hole_error.png"><img src="images/06_hole_error.png" alt="［ザグリ穴 M6］の［サイズ］を M30 にしたフォーム。上に理由が赤く出ます。" width="360" height="745" loading="lazy"></a><figcaption><span class="figno">図 6-31</span> <span class="ui doc">［ザグリ穴 M6］</span>の<span class="ui">［サイズ］</span>を M30 にしたフォーム。上に理由が赤く出ます。</figcaption></figure>
+<aside class="inventor" role="note"><p class="callout-title">Inventor との違い</p><p>穴の位置は、スケッチの点だけです。Inventor の線形・同心などの配置はありません。穴の呼びのコールアウト（注記）もありません。mcad の<span class="ui">［終了条件］</span>は、Inventor の終端です。テーパ タップ穴の形は、まっすぐです。</p></aside>
+<aside class="try"><p class="callout-title">この機能を試す</p><p class="try-sample">題材: <code>samples/jis_holes.mcad</code> （<a href="00_intro.html#samples">題材の一覧と開き方</a>）</p>
+  <p>ブラウザの<span class="ui doc">［ザグリ穴 M6］</span>をダブルクリックし、<span class="ui">［サイズ］</span>を M8 に、<span class="ui">［はめあい］</span>を<span class="ui">［1 級（精級）］</span>・<span class="ui">［3 級（粗級）］</span>に切り替えます。径が表から変わります。<span class="ui doc">［タップ穴 M6×1］</span>では、<span class="ui">［ねじの種類］</span>を<span class="ui">［メートル細目（JIS B 0205）］</span>に、<span class="ui">［方向］</span>を<span class="ui">［左ねじ］</span>にします。<span class="ui">［ねじの深さ］</span>を穴の深さより長くすると、誤りになります。</p>
+</aside>
+
+<h2 id="fillet"><span class="secno">6.5</span> フィレット</h2>
+<p>エッジを丸めます。半径が一定のフィレットと、エッジの途中で半径が変わる可変半径のフィレットを作れます。凸の稜線も、凹の内隅も丸められます。</p>
+
+<h3 id="fillet-const">一定の半径</h3>
+<ol class="steps">
+  <li><p><span class="path">リボンの<span class="ui">［3D モデル］</span>タブ → <span class="ui">［修正］</span>パネル → <span class="ui">［フィレット］</span></span>をクリックします（<kbd>F</kbd>）。</p></li>
+  <li><p>ビューで、丸めるエッジをクリックします。クリックしたエッジが緑色で表示されます。続けて何本でも選べます。</p></li>
+  <li><p><span class="ui">［半径］</span>に値を入力します。矢印のハンドルをドラッグしても変えられます。プレビューが黄色で出ます。</p>
+    <div class="figrow">
+      <figure id="fig-06_fillet_form"><a class="zoom" href="images/06_fillet_form.png"><img src="images/06_fillet_form.png" alt="フィレットのフォーム。［種類］・［半径］・［エッジ］の一覧です。" width="360" height="276" loading="lazy"></a><figcaption><span class="figno">図 6-32</span> フィレットのフォーム。<span class="ui">［種類］</span>・<span class="ui">［半径］</span>・<span class="ui">［エッジ］</span>の一覧です。</figcaption></figure>
+      <figure id="fig-06_fillet_preview"><a class="zoom" href="images/06_fillet_preview.png"><img src="images/06_fillet_preview.png" alt="縦の 4 本のエッジを選んで半径 5 を入力した状態。" width="460" height="329" loading="lazy"></a><figcaption><span class="figno">図 6-33</span> 縦の 4 本のエッジを選んで半径 5 を入力した状態。</figcaption></figure>
+    </div></li>
+  <li><p><span class="ui">［OK］</span>で確定します。</p></li>
+</ol>
+<p>面をクリックすると、その面の縁の全部のエッジが入ります。もう一度クリックすると外れます。</p>
+
+<h3 id="fillet-select">エッジの選び方（選択の意図）</h3>
+<p><span class="ui">［エッジ］</span>の欄の上のコンボで、クリックしたエッジの追加のしかたを選びます。既定は<span class="ui">［エッジ（接線チェーン）］</span>です。</p>
+<div class="table-wrap"><table>
+  <caption>エッジの選び方</caption>
+  <thead><tr><th>選び方</th><th>クリックしたとき入るもの</th></tr></thead>
+  <tbody>
+    <tr><th scope="row"><span class="ui">［エッジ（接線チェーン）］</span></th><td>クリックしたエッジと、接線でつながるエッジです。</td></tr>
+    <tr><th scope="row"><span class="ui">［エッジ（単独）］</span></th><td>クリックした 1 本だけです。</td></tr>
+    <tr><th scope="row"><span class="ui">［ループ］</span></th><td>面の縁の全部のエッジです。</td></tr>
+    <tr><th scope="row"><span class="ui">［フィーチャ］</span></th><td>そのフィーチャの全エッジです。</td></tr>
+  </tbody>
+</table></div>
+<p>接線チェーン・ループ・フィーチャで選んだエッジは、規則として保存されます。上流の変更でエッジが増えても、同じ規則で付いていきます。</p>
+<div class="figrow">
+  <figure id="fig-06_fillet_chain_form"><a class="zoom" href="images/06_fillet_chain_form.png"><img src="images/06_fillet_chain_form.png" alt="接線チェーンのフィレットの編集。" width="360" height="228" loading="lazy"></a><figcaption><span class="figno">図 6-34</span> 接線チェーンのフィレットの編集。</figcaption></figure>
+  <figure id="fig-06_fillet_chain_view"><a class="zoom" href="images/06_fillet_chain_view.png"><img src="images/06_fillet_chain_view.png" alt="エッジを 1 本クリックすると、接線でつながる外周の 7 本が入ります。" width="460" height="329" loading="lazy"></a><figcaption><span class="figno">図 6-35</span> エッジを 1 本クリックすると、接線でつながる外周の 7 本が入ります。</figcaption></figure>
+</div>
+
+<h3 id="fillet-variable">可変半径</h3>
+<p><span class="ui">［種類］</span>を<span class="ui">［可変］</span>にすると、<span class="ui">［半径の点］</span>の表が出ます。エッジの途中の位置ごとに半径を指定します。</p>
+<ol class="steps">
+  <li><p><span class="ui">［種類］</span>を<span class="ui">［可変］</span>にして、<span class="ui">［エッジ］</span>に 1 本のエッジを選びます。</p></li>
+  <li><p><span class="ui">［半径の点］</span>の表に、<span class="ui">［エッジ］</span>・<span class="ui">［位置］</span>・<span class="ui">［半径］</span>の行を作ります。位置は 0（エッジの始まり）から 1（終わり）までの、弧長の割合です。<span class="ui">［追加］</span>を押すと、選んだ行のコピーが加わります。位置と半径を直します。</p></li>
+  <li><p>点の間を滑らかにつなぐときは、<span class="ui">［半径の滑らかな遷移］</span>にチェックを入れます。外すと、半径が直線的に変わります。</p></li>
+</ol>
+<div class="figrow">
+  <figure id="fig-06_fillet_variable_form"><a class="zoom" href="images/06_fillet_variable_form.png"><img src="images/06_fillet_variable_form.png" alt="可変半径のフォーム。位置 0 で 2 mm、位置 1 で 6 mm です。" width="360" height="497" loading="lazy"></a><figcaption><span class="figno">図 6-36</span> 可変半径のフォーム。位置 0 で 2 mm、位置 1 で 6 mm です。</figcaption></figure>
+  <figure id="fig-06_fillet_variable_view"><a class="zoom" href="images/06_fillet_variable_view.png"><img src="images/06_fillet_variable_view.png" alt="縦のエッジの下端が R2、上端が R6 になるプレビュー。" width="460" height="329" loading="lazy"></a><figcaption><span class="figno">図 6-37</span> 縦のエッジの下端が R2、上端が R6 になるプレビュー。</figcaption></figure>
+</div>
+<p>可変のときは、半径のハンドルはありません。表で直します。</p>
+
+<h3 id="fillet-error">よくある失敗と直し方</h3>
+<div class="table-wrap"><table>
+  <caption>フィレットの失敗</caption>
+  <thead><tr><th>表示される文</th><th>原因と直し方</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">半径 50 mm のフィレットを作れませんでした: 半径が隣り合う面に対して大きすぎる可能性があります。半径を小さくしてください</th><td><span class="ui">［半径］</span>を小さくします。失敗したエッジが、ビューで赤くなります。</td></tr>
+    <tr><th scope="row">2 つの半径の点が同じ位置にあります（1.0）</th><td><span class="ui">［追加］</span>で足した行の<span class="ui">［位置］</span>を、別の位置にします。</td></tr>
+    <tr><th scope="row">フィレットの 2 つのエッジが会う所で半径が違います</th><td>共有する頂点では、同じ半径にします。</td></tr>
+  </tbody>
+</table></div>
+<aside class="inventor" role="note"><p class="callout-title">Inventor との違い</p><p>Inventor の「すべてのフィレット」「すべての丸め」はありません。エッジの選び方は、接線チェーン・単独・ループ・フィーチャの 4 つです。可変半径は表（エッジ・位置・半径）で指定し、ハンドルでは操作できません。</p></aside>
+<aside class="try"><p class="callout-title">この機能を試す</p><p class="try-sample">題材: <code>samples/plate_with_holes.mcad</code> <code>samples/jis_holes.mcad</code> （<a href="00_intro.html#samples">題材の一覧と開き方</a>）</p>
+  <p><code>plate_with_holes.mcad</code>で、ブラウザの<span class="ui">［フィレット1］</span>をダブルクリックし、<span class="ui">［半径］</span>を <code>50</code> にします。理由が赤く出て、プレビューが消えます。<code>5</code> に戻すと直ります。<code>jis_holes.mcad</code>では、<span class="ui doc">［可変半径のフィレット］</span>の表の半径を変え、<span class="ui doc">［接線チェーンのフィレット］</span>で、<span class="ui">［エッジ］</span>の選び方を替えて底面のエッジをクリックします。</p>
+</aside>
+
+<h2 id="chamfer"><span class="secno">6.6</span> 面取り</h2>
+<p>エッジの角を斜めに削ります。距離の指定のしかたが 3 つあります。</p>
+<ol class="steps">
+  <li><p><span class="path">リボンの<span class="ui">［3D モデル］</span>タブ → <span class="ui">［修正］</span>パネル → <span class="ui">［面取り］</span></span>をクリックします（<kbd>C</kbd>）。</p></li>
+  <li><p>ビューで、面取りするエッジをクリックします。フィレットと同じ選び方（接線チェーンなど）が使えます。</p></li>
+  <li><p><span class="ui">［種類］</span>を選び、<span class="ui">［距離］</span>などを入力します。矢印のハンドルをドラッグしても、距離を変えられます。</p></li>
+  <li><p><span class="ui">［OK］</span>で確定します。</p></li>
+</ol>
+<div class="table-wrap"><table>
+  <caption>面取りの種類</caption>
+  <thead><tr><th>種類</th><th>入力する欄</th></tr></thead>
+  <tbody>
+    <tr><th scope="row"><span class="ui">［等距離］</span></th><td><span class="ui">［距離］</span>（両側に同じ距離）</td></tr>
+    <tr><th scope="row"><span class="ui">［2 距離］</span></th><td><span class="ui">［距離］</span>（基準面の上で測ります）と<span class="ui">［距離 2］</span>（もう一方の面の上で測ります）</td></tr>
+    <tr><th scope="row"><span class="ui">［距離と角度］</span></th><td><span class="ui">［距離］</span>（基準面の上で測ります）と<span class="ui">［角度］</span>（基準面とのなす角です）</td></tr>
+  </tbody>
+</table></div>
+<p>2 距離と距離と角度では、<span class="ui">［面］</span>の欄が出ます。基準にする面を選びます。<span class="ui">［方向を反転］</span>にチェックを入れると、基準の面が、エッジに接するもう一方の面に替わります。</p>
+<div class="figrow">
+  <figure id="fig-06_chamfer_form"><a class="zoom" href="images/06_chamfer_form.png"><img src="images/06_chamfer_form.png" alt="等距離のフォーム。" width="360" height="228" loading="lazy"></a><figcaption><span class="figno">図 6-38</span> 等距離のフォーム。</figcaption></figure>
+  <figure id="fig-06_chamfer_two_form"><a class="zoom" href="images/06_chamfer_two_form.png"><img src="images/06_chamfer_two_form.png" alt="2 距離のフォーム。［面］の欄が出ます。" width="360" height="365" loading="lazy"></a><figcaption><span class="figno">図 6-39</span> 2 距離のフォーム。<span class="ui">［面］</span>の欄が出ます。</figcaption></figure>
+  <figure id="fig-06_chamfer_angle_form"><a class="zoom" href="images/06_chamfer_angle_form.png"><img src="images/06_chamfer_angle_form.png" alt="距離と角度のフォーム。" width="360" height="365" loading="lazy"></a><figcaption><span class="figno">図 6-40</span> 距離と角度のフォーム。</figcaption></figure>
+</div>
+<figure id="fig-06_chamfer_preview"><a class="zoom" href="images/06_chamfer_preview.png"><img src="images/06_chamfer_preview.png" alt="上面の手前のエッジを 1 本クリックすると、接線でつながる外周の全部が選ばれます（縦の角を先にフィレットした箱）。" width="700" height="479" loading="lazy"></a><figcaption><span class="figno">図 6-41</span> 上面の手前のエッジを 1 本クリックすると、接線でつながる外周の全部が選ばれます（縦の角を先にフィレットした箱）。</figcaption></figure>
+<div class="table-wrap"><table>
+  <caption>面取りの失敗</caption>
+  <thead><tr><th>表示される文</th><th>原因と直し方</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">距離が隣り合う面に対して大きすぎる可能性があります。距離か角度を小さくしてください。</th><td><span class="ui">［距離］</span>か<span class="ui">［角度］</span>を小さくします。</td></tr>
+    <tr><th scope="row">89 deg 以下にしてください</th><td><span class="ui">［角度］</span>の欄に出ます。89° 以下にします。</td></tr>
+  </tbody>
+</table></div>
+<aside class="try"><p class="callout-title">この機能を試す</p><p class="try-sample">題材: <code>samples/plate_with_holes.mcad</code> （<a href="00_intro.html#samples">題材の一覧と開き方</a>）</p>
+  <p>ブラウザの<span class="ui">［面取り1］</span>をダブルクリックして、<span class="ui">［種類］</span>を<span class="ui">［2 距離］</span>・<span class="ui">［距離と角度］</span>に替えます。<span class="ui">［面］</span>の欄に基準の面を選び、<span class="ui">［方向を反転］</span>で基準の面を替えます。</p>
+</aside>
+
+<h2 id="shell"><span class="secno">6.7</span> シェル</h2>
+<p>ソリッドの内側をくり抜いて、薄い壁の容器にします。取り除く面（開口）と、壁の厚さを指定します。</p>
+<ol class="steps">
+  <li><p><span class="path">リボンの<span class="ui">［3D モデル］</span>タブ → <span class="ui">［修正］</span>パネル → <span class="ui">［シェル］</span></span>をクリックします。</p></li>
+  <li><p>ビューで、取り除く面をクリックします。<span class="ui">［削除する面］</span>に入ります。<span class="ui">［面のチェーンを自動で選ぶ］</span>にチェックがあると、選んだ面に接する面も選ばれます。複数の面を取り除けます。</p></li>
+  <li><p><span class="ui">［厚さ］</span>に壁の厚さを入力します。矢印のハンドルをドラッグしても変えられます。</p></li>
+  <li><p><span class="ui">［方向］</span>を選びます。<span class="ui">［内側］</span>は、元の外形のまま内側をくり抜きます。<span class="ui">［外側］</span>は、元の形を内側にして外へ厚みを足します。<span class="ui">［両側］</span>は、面の両側に厚みを付けます。</p></li>
+  <li><p><span class="ui">［OK］</span>で確定します。</p></li>
+</ol>
+<div class="figrow">
+  <figure id="fig-06_shell_form"><a class="zoom" href="images/06_shell_form.png"><img src="images/06_shell_form.png" alt="シェルのフォーム。" width="360" height="339" loading="lazy"></a><figcaption><span class="figno">図 6-42</span> シェルのフォーム。</figcaption></figure>
+  <figure id="fig-06_shell_preview"><a class="zoom" href="images/06_shell_preview.png"><img src="images/06_shell_preview.png" alt="上面を取り除く面にして厚さ 3 のプレビュー。" width="460" height="329" loading="lazy"></a><figcaption><span class="figno">図 6-43</span> 上面を取り除く面にして厚さ 3 のプレビュー。</figcaption></figure>
+</div>
+<p><span class="ui">［削除する面］</span>を選ばないと、開口の無い中空のソリッドになります。<span class="ui">［ソリッド］</span>の欄で、シェルするボディを選べます。<span class="ui">［詳細］</span>の<span class="ui">［角の種類］</span>（<span class="ui">［自動］</span>・<span class="ui">［シャープ］</span>・<span class="ui">［丸み］</span>）で、壁の角の形を選べます。</p>
+<div class="table-wrap"><table>
+  <caption>シェルの失敗</caption>
+  <thead><tr><th>表示される文</th><th>原因と直し方</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">演算が形状を変えませんでした。厚さが壁に対して大きすぎる可能性があります（最も薄い部分の半分より小さくする必要があります）。厚さを小さくするか、取り除く面を確かめてください。</th><td><span class="ui">［厚さ］</span>を小さくします。取り除く面が合っているかも確かめます。</td></tr>
+    <tr><th scope="row">この形はシェルできません: エッジが片方の端で尖り、もう一方の端で接線になっています…</th><td>矩形から円へのロフトの側面などです。内側の形をカットして作ります。</td></tr>
+  </tbody>
+</table></div>
+<figure id="fig-06_shell_error"><a class="zoom" href="images/06_shell_error.png"><img src="images/06_shell_error.png" alt="厚さを 30 mm にした箱（幅 50 mm）。上に理由が赤く出て、厚さの欄にも赤い字が出ます。" width="360" height="407" loading="lazy"></a><figcaption><span class="figno">図 6-44</span> 厚さを 30 mm にした箱（幅 50 mm）。上に理由が赤く出て、厚さの欄にも赤い字が出ます。</figcaption></figure>
+<aside class="inventor" role="note"><p class="callout-title">Inventor との違い</p><p>Inventor の「個別の厚さ」（面ごとに厚さを変える指定）はありません。壁の厚さは全体で 1 つです。</p></aside>
+<aside class="try"><p class="callout-title">この機能を試す</p><p class="try-sample">題材: <code>samples/housing.mcad</code> （<a href="00_intro.html#samples">題材の一覧と開き方</a>）</p>
+  <p>ブラウザの<span class="ui">［シェル1］</span>をダブルクリックし、<span class="ui">［厚さ］</span>を 2 から 3 に、<span class="ui">［方向］</span>を<span class="ui">［外側］</span>・<span class="ui">［内側］</span>と切り替えます。<span class="ui">［厚さ］</span>を 45 にすると理由が赤く出ます。<span class="ui">［両側］</span>にすると外側の面が作り直されるので、後ろの勾配とフィレットの参照が切れて赤くなります。<span class="ui">［内側］</span>に戻すと直ります。</p>
+</aside>
+
+<h2 id="draft"><span class="secno">6.8</span> 勾配</h2>
+<p>面に抜き勾配を付けます。固定平面（動かさない面）と抜き方向を決め、勾配を付ける面を選びます。</p>
+<ol class="steps">
+  <li><p><span class="path">リボンの<span class="ui">［3D モデル］</span>タブ → <span class="ui">［修正］</span>パネル → <span class="ui">［勾配］</span></span>をクリックします（<kbd>D</kbd>）。</p></li>
+  <li><p><span class="ui">［固定平面］</span>に、動かさない平面（面か作業平面）を選びます。この平面にある稜線は動きません。</p></li>
+  <li><p><span class="ui">［抜き方向］</span>は省けます。省くと、固定平面の法線の方向です。エッジ・作業軸・スケッチの線を選ぶと、その方向になります。</p></li>
+  <li><p><span class="ui">［面］</span>の欄で、勾配を付ける面を続けてクリックします。<span class="ui">［面のチェーンを自動で選ぶ］</span>にチェックがあると、接線でつながる面にも付きます。</p></li>
+  <li><p><span class="ui">［勾配角］</span>に角度を入力します。正の角度にすると、抜き方向に沿って面が内側へ傾きます。<span class="ui">［方向を反転］</span>で、抜き方向を逆にできます。<span class="ui">［OK］</span>で確定します。</p></li>
+</ol>
+<div class="figrow">
+  <figure id="fig-06_draft_form"><a class="zoom" href="images/06_draft_form.png"><img src="images/06_draft_form.png" alt="勾配のフォーム。" width="360" height="436" loading="lazy"></a><figcaption><span class="figno">図 6-45</span> 勾配のフォーム。</figcaption></figure>
+  <figure id="fig-06_draft_preview"><a class="zoom" href="images/06_draft_preview.png"><img src="images/06_draft_preview.png" alt="箱の底面を固定平面にして、4 側面に 5° を付けたプレビュー。" width="460" height="329" loading="lazy"></a><figcaption><span class="figno">図 6-46</span> 箱の底面を固定平面にして、4 側面に 5° を付けたプレビュー。</figcaption></figure>
+</div>
+<h3 id="draft-analysis">勾配の確認</h3>
+<p><span class="ui">［面］</span>の欄の<span class="ui">［勾配の解析］</span>を押すと、ビューの面が、勾配の角度で色分けされます。右に凡例（<span class="ui">［勾配角（度）］</span>）が出ます。正の勾配は赤〜橙、0° は灰色、負の勾配（型から抜けないアンダーカット）は青です。±10° を超える角度は、端の色になります。抜き方向に垂直な上面・底面は、端の色です。フォームを閉じると、色は消えます。</p>
+<figure id="fig-06_draft_analysis"><a class="zoom" href="images/06_draft_analysis.png"><img src="images/06_draft_analysis.png" alt="勾配の確認の色。側面が橙（正の勾配）、上面が青です。右が凡例です。" width="700" height="621" loading="lazy"></a><figcaption><span class="figno">図 6-47</span> 勾配の確認の色。側面が橙（正の勾配）、上面が青です。右が凡例です。</figcaption></figure>
+<div class="table-wrap"><table>
+  <caption>勾配の失敗</caption>
+  <thead><tr><th>表示される文</th><th>原因と直し方</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">勾配角を 0 にすることはできません／89 deg 以下にしてください</th><td><span class="ui">［勾配角］</span>の欄に出ます。0° より大きく、89° 以下にします。</td></tr>
+    <tr><th scope="row">引き抜き方向と勾配の角度を確かめてください。引き抜き方向と平行な面には勾配を付けられません。</th><td>抜き方向に平行な面は、勾配を付けられません。<span class="ui">［抜き方向］</span>や<span class="ui">［面］</span>を確かめます。</td></tr>
+  </tbody>
+</table></div>
+<aside class="inventor" role="note"><p class="callout-title">Inventor との違い</p><p>固定平面による勾配だけです。Inventor の固定エッジとパーティング ラインはありません。</p></aside>
+<aside class="try"><p class="callout-title">この機能を試す</p><p class="try-sample">題材: <code>samples/housing.mcad</code> （<a href="00_intro.html#samples">題材の一覧と開き方</a>）</p>
+  <p>ブラウザの<span class="ui">［勾配1］</span>をダブルクリックし、<span class="ui">［勾配角］</span>を 2° から 5° にします。<span class="ui">［勾配の解析］</span>で面ごとの勾配角を色で見ます。<span class="ui">［方向を反転］</span>にすると壁が薄くなり、後ろのフィレットが成立しなくなって赤くなります（戻せば直ります）。</p>
+</aside>
+
+<h2 id="rib"><span class="secno">6.9</span> リブ</h2>
+<p>スケッチの線（開いた曲線）から、補強の板（リブ）を作ります。リブはボディに結合されます。</p>
+<ol class="steps">
+  <li><p>リブの断面の線を、ボディの内側の平面（作業平面など）にスケッチします。<span class="path">リボンの<span class="ui">［3D モデル］</span>タブ → <span class="ui">［作成］</span>パネル → <span class="ui">［リブ］</span></span>をクリックします。</p></li>
+  <li><p><span class="ui">［プロファイル］</span>の欄で、スケッチの線を選びます。</p></li>
+  <li><p><span class="ui">［方向］</span>を選びます。<span class="ui">［スケッチ平面に垂直］</span>は、線を平面に垂直な向きに押し出す板です。<span class="ui">［スケッチ平面に平行］</span>は、平面に平行な向きです。</p></li>
+  <li><p><span class="ui">［厚さ］</span>と、<span class="ui">［厚さの方向］</span>（<span class="ui">［対称］</span>・<span class="ui">［方向 1］</span>・<span class="ui">［方向 2］</span>）を決めます。</p></li>
+  <li><p><span class="ui">［範囲］</span>を選びます。<span class="ui">［次へ］</span>は、次の面まで伸びます。<span class="ui">［距離指定］</span>は、<span class="ui">［距離］</span>の高さです。</p></li>
+  <li><p><span class="ui">［プロファイルを延長］</span>にチェックがあると、線の両端が壁に届くまで延びます。<span class="ui">［方向を反転］</span>で、リブを立ち上げる向きを逆にします。<span class="ui">［OK］</span>で確定します。</p></li>
+</ol>
+<div class="figrow">
+  <figure id="fig-06_rib_form"><a class="zoom" href="images/06_rib_form.png"><img src="images/06_rib_form.png" alt="リブのフォーム。" width="360" height="420" loading="lazy"></a><figcaption><span class="figno">図 6-48</span> リブのフォーム。</figcaption></figure>
+  <figure id="fig-06_rib_preview"><a class="zoom" href="images/06_rib_preview.png"><img src="images/06_rib_preview.png" alt="ハウジングの中のリブ。厚さのハンドルが出ます。" width="460" height="329" loading="lazy"></a><figcaption><span class="figno">図 6-49</span> ハウジングの中のリブ。厚さのハンドルが出ます。</figcaption></figure>
+</div>
+<div class="table-wrap"><table>
+  <caption>リブの失敗</caption>
+  <thead><tr><th>表示される文</th><th>原因と直し方</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">リブがソリッドに届きません</th><td>リブがボディに触れていません。スケッチの位置か、<span class="ui">［範囲］</span>・<span class="ui">［方向を反転］</span>を確かめます。</td></tr>
+    <tr><th scope="row">閉じた曲線には、リブを掃引する向きがありません</th><td>閉じた曲線は使えません。開いた線にします。</td></tr>
+  </tbody>
+</table></div>
+<aside class="try"><p class="callout-title">この機能を試す</p><p class="try-sample">題材: <code>samples/housing.mcad</code> （<a href="00_intro.html#samples">題材の一覧と開き方</a>）</p>
+  <p>ブラウザの<span class="ui">［リブ1］</span>をダブルクリックし、<span class="ui">［厚さ］</span>を 3 から 5 に、<span class="ui">［範囲］</span>を<span class="ui">［距離指定］</span>にして<span class="ui">［距離］</span>を 8 にします。<span class="ui">［プロファイルを延長］</span>を切ると、壁に届かなくなります。作業平面<span class="ui doc">［中間の平面］</span>の<span class="ui">［オフセット］</span>を 60 にすると、リブがボディの外になり、「リブがソリッドに届きません」の誤りになります。</p>
+</aside>
+
+<h2 id="primitives"><span class="secno">6.10</span> プリミティブ</h2>
+<p>スケッチを描かずに、寸法だけで基本の形を作ります。<span class="ui">［直方体］</span>・<span class="ui">［円柱］</span>・<span class="ui">［球］</span>・<span class="ui">［トーラス］</span>・<span class="ui">［円錐］</span>・<span class="ui">［くさび］</span>の 6 つがあります。</p>
+<ol class="steps">
+  <li><p><span class="path">リボンの<span class="ui">［3D モデル］</span>タブ → <span class="ui">［作成］</span>パネル → <span class="ui">［プリミティブ］</span>の▼ → <span class="ui">［直方体］</span></span>をクリックします。同じ分割ボタンの▼から、ほかの形を選べます。</p></li>
+  <li><p>寸法を入力します。形によって欄が違います（下の表）。</p></li>
+  <li><p>置く平面を指定するときは、<span class="ui">［平面］</span>の欄で、面か作業平面をクリックします。空のときは XY 平面です。<span class="ui">［位置 X］</span>・<span class="ui">［位置 Y］</span>で、平面の上の位置を指定します。</p></li>
+  <li><p><span class="ui">［方向を反転］</span>で、平面の法線の逆向きに作れます。<span class="ui">［ブール演算］</span>は押し出しと同じです。<span class="ui">［OK］</span>で確定します。</p></li>
+</ol>
+<div class="figrow">
+  <figure id="fig-06_primitive_form"><a class="zoom" href="images/06_primitive_form.png"><img src="images/06_primitive_form.png" alt="直方体のフォーム。［配置］の［平面］・［位置 X］・［位置 Y］があります。" width="360" height="382" loading="lazy"></a><figcaption><span class="figno">図 6-50</span> 直方体のフォーム。<span class="ui">［配置］</span>の<span class="ui">［平面］</span>・<span class="ui">［位置 X］</span>・<span class="ui">［位置 Y］</span>があります。</figcaption></figure>
+  <figure id="fig-06_primitive_preview"><a class="zoom" href="images/06_primitive_preview.png"><img src="images/06_primitive_preview.png" alt="矢印のハンドルで、寸法をドラッグできます。" width="460" height="329" loading="lazy"></a><figcaption><span class="figno">図 6-51</span> 矢印のハンドルで、寸法をドラッグできます。</figcaption></figure>
+</div>
+<div class="table-wrap"><table>
+  <caption>プリミティブの寸法と位置</caption>
+  <thead><tr><th>形</th><th>寸法の欄</th><th>位置 X・Y が指す点</th></tr></thead>
+  <tbody>
+    <tr><th scope="row"><span class="ui">［直方体］</span></th><td><span class="ui">［長さ］</span>・<span class="ui">［幅］</span>・<span class="ui">［高さ］</span></td><td>底面の中心</td></tr>
+    <tr><th scope="row"><span class="ui">［円柱］</span></th><td><span class="ui">［直径］</span>・<span class="ui">［高さ］</span></td><td>底面の中心</td></tr>
+    <tr><th scope="row"><span class="ui">［球］</span></th><td><span class="ui">［直径］</span></td><td>球の中心（平面の上）</td></tr>
+    <tr><th scope="row"><span class="ui">［トーラス］</span></th><td><span class="ui">［リングの直径］</span>・<span class="ui">［チューブの直径］</span></td><td>中心（平面の上。軸は法線）</td></tr>
+    <tr><th scope="row"><span class="ui">［円錐］</span></th><td><span class="ui">［底面の直径］</span>・<span class="ui">［上面の直径］</span>（0 で頂点）・<span class="ui">［高さ］</span></td><td>底面の中心</td></tr>
+    <tr><th scope="row"><span class="ui">［くさび］</span></th><td><span class="ui">［長さ］</span>・<span class="ui">［幅］</span>・<span class="ui">［高さ］</span>・<span class="ui">［上面の長さ］</span>・<span class="ui">［上面の幅］</span>（0 で稜線・頂点）</td><td>底面の中心</td></tr>
+  </tbody>
+</table></div>
+<figure id="fig-06_primitives_all"><a class="zoom" href="images/06_primitives_all.png"><img src="images/06_primitives_all.png" alt="6 つのプリミティブ。左から直方体・円柱・球・トーラス・円錐・くさびです。" width="700" height="327" loading="lazy"></a><figcaption><span class="figno">図 6-52</span> 6 つのプリミティブ。左から直方体・円柱・球・トーラス・円錐・くさびです。</figcaption></figure>
+<div class="table-wrap"><table>
+  <caption>プリミティブの失敗</caption>
+  <thead><tr><th>表示される文</th><th>原因と直し方</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">チューブの直径はリングの直径より小さくしてください</th><td><span class="ui">［チューブの直径］</span>を<span class="ui">［リングの直径］</span>より小さくします。</td></tr>
+    <tr><th scope="row">上面は底面より大きくできません</th><td>くさびの<span class="ui">［上面の長さ］</span>・<span class="ui">［上面の幅］</span>を、<span class="ui">［長さ］</span>・<span class="ui">［幅］</span>以下にします。</td></tr>
+    <tr><th scope="row">カットがどのボディにも触れていません。カットする形状の位置と深さを確かめて、材料と重なるようにしてください。</th><td><span class="ui">［ブール演算］</span>が<span class="ui">［カット］</span>のとき、位置が材料から離れています。位置を直します。</td></tr>
+  </tbody>
+</table></div>
+<aside class="inventor" role="note"><p class="callout-title">Inventor との違い</p><p>Inventor のプリミティブは、箱・円柱・球・トーラスです。mcad は、円錐とくさびを足してあります。</p></aside>
+<aside class="try"><p class="callout-title">この機能を試す</p><p class="try-sample">題材: <code>samples/primitives.mcad</code> （<a href="00_intro.html#samples">題材の一覧と開き方</a>）</p>
+  <p>ブラウザの<span class="ui">［円柱1］</span>をダブルクリックし、<span class="ui">［ブール演算］</span>を<span class="ui">［カット］</span>にします（穴になります）。<span class="ui">［球1］</span>を<span class="ui">［結合］</span>にします（こぶになります）。<span class="ui">［方向を反転］</span>で向きを逆にします。<span class="ui">［直方体1］</span>の<span class="ui">［長さ］</span>を 80 にしても、円柱と球は平面の上の位置のまま付いてきます。</p>
+</aside>
+
+<h2 id="next"><span class="secno">6.11</span> 次に読む章</h2>
+<ul>
+  <li><p>スイープ・ロフト・コイル・パターン・ミラー: <a href="07_features_advanced.html">第 7 章 フィーチャ（スイープ・ロフト・コイル・パターンなど）</a></p></li>
+  <li><p>ブラウザでのフィーチャの管理: <a href="09_browser.html">第 9 章 ブラウザとフィーチャの管理</a></p></li>
+  <li><p>寸法を式やパラメータで結ぶ: <a href="10_parameters.html">第 10 章 パラメータと式</a></p></li>
+</ul>
+
+</article>
+<nav class="pager" aria-label="前後の章"><a class="prev" rel="prev" href="05_work_features.html"><span class="dir">前の章</span>第 5 章 作業フィーチャ</a><a class="next" rel="next" href="07_features_advanced.html"><span class="dir">次の章</span>第 7 章 フィーチャ（スイープ・ロフト・コイル・パターンなど）</a></nav>
+<footer class="footer"><p>EMRM-Studio ユーザーマニュアル（日本語）・EMRM-Studio 0.1.0 ・ <a href="#main">このページの先頭へ</a></p></footer>
+</main>
+</div>
+</body>
+</html>

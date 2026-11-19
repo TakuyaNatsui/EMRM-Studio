@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="generator" content="tools/build_manual.py">
+<title>第 24 章 電子銃解析 - EMRM-Studio ユーザーマニュアル</title>
+<link rel="stylesheet" href="assets/manual.css">
+<script src="assets/search_index.js" charset="utf-8" defer></script>
+<script src="assets/manual.js" charset="utf-8" defer></script>
+</head>
+<body class="page">
+<header class="topbar">
+<a class="brand" href="index.html">EMRM-Studio ユーザーマニュアル</a>
+<button class="toc-toggle" type="button" aria-controls="toc" aria-expanded="false">目次</button>
+<form class="search" role="search" action="#" onsubmit="return false">
+<input id="q" type="search" placeholder="マニュアルを検索（/）" aria-label="マニュアルを検索" autocomplete="off">
+</form>
+</header>
+<div id="search-results" class="search-results" hidden></div>
+<div class="layout">
+<nav id="toc" class="toc" aria-label="目次">
+<details class="toc-box">
+<summary>目次</summary>
+<ol class="toc-chapters">
+<li class="toc-home"><a href="index.html">表紙・目次</a></li>
+<li><a href="00_intro.html">はじめに</a></li>
+<li class="toc-part" role="presentation">第 I 部　形状を作る（CAD）</li>
+<li><a href="01_screen.html"><span class="chno">第 1 章</span> 画面の構成</a></li>
+<li><a href="02_view.html"><span class="chno">第 2 章</span> 視点の操作</a></li>
+<li><a href="03_first_part.html"><span class="chno">第 3 章</span> はじめての部品</a></li>
+<li><a href="04_sketch.html"><span class="chno">第 4 章</span> スケッチ</a></li>
+<li><a href="05_work_features.html"><span class="chno">第 5 章</span> 作業フィーチャ</a></li>
+<li><a href="06_features_basic.html"><span class="chno">第 6 章</span> フィーチャ（押し出し・回転・穴・フィレットなど）</a></li>
+<li><a href="07_features_advanced.html"><span class="chno">第 7 章</span> フィーチャ（スイープ・ロフト・コイル・パターンなど）</a></li>
+<li><a href="08_bodies.html"><span class="chno">第 8 章</span> ボディの操作</a></li>
+<li><a href="09_browser.html"><span class="chno">第 9 章</span> ブラウザとフィーチャの管理</a></li>
+<li><a href="10_parameters.html"><span class="chno">第 10 章</span> パラメータと式</a></li>
+<li><a href="11_configurations.html"><span class="chno">第 11 章</span> 構成</a></li>
+<li><a href="12_inspect.html"><span class="chno">第 12 章</span> 検査</a></li>
+<li><a href="13_files.html"><span class="chno">第 13 章</span> ファイル</a></li>
+<li class="toc-part" role="presentation">第 II 部　電磁場解析</li>
+<li><a href="14_em_intro.html"><span class="chno">第 14 章</span> 電磁場解析のはじめに</a></li>
+<li><a href="15_em_first.html"><span class="chno">第 15 章</span> はじめての電磁場解析（ソレノイド）</a></li>
+<li><a href="16_em_setup.html"><span class="chno">第 16 章</span> スタディの共通の設定</a></li>
+<li><a href="17_em_results.html"><span class="chno">第 17 章</span> 結果の見方</a></li>
+<li><a href="18_em_magnetostatic.html"><span class="chno">第 18 章</span> 静磁場解析</a></li>
+<li><a href="19_em_coils.html"><span class="chno">第 19 章</span> 静磁場解析: コイル</a></li>
+<li><a href="20_em_dipole.html"><span class="chno">第 20 章</span> 静磁場解析の例題: H 型双極電磁石</a></li>
+<li><a href="21_em_eigenmode.html"><span class="chno">第 21 章</span> 共振モード解析</a></li>
+<li><a href="22_em_driven.html"><span class="chno">第 22 章</span> ポート解析</a></li>
+<li><a href="23_em_electrostatic.html"><span class="chno">第 23 章</span> 静電場解析</a></li>
+<li class="current"><a href="24_em_gun.html" aria-current="page"><span class="chno">第 24 章</span> 電子銃解析</a><ol class="toc-sections"><li><a href="24_em_gun.html#overview"><span class="secno">24.1</span> 電子銃のスタディ</a></li><li><a href="24_em_gun.html#emitter"><span class="secno">24.2</span> 放出面</a></li><li><a href="24_em_gun.html#particles"><span class="secno">24.3</span> 粒子の終わり方</a></li><li><a href="24_em_gun.html#symmetry"><span class="secno">24.4</span> 対称面</a></li><li><a href="24_em_gun.html#magnetic-field"><span class="secno">24.5</span> 磁場</a></li><li><a href="24_em_gun.html#self-field"><span class="secno">24.6</span> 空間電荷と自己磁場</a></li><li><a href="24_em_gun.html#mesh"><span class="secno">24.7</span> メッシュ</a></li><li><a href="24_em_gun.html#results"><span class="secno">24.8</span> 結果</a></li><li><a href="24_em_gun.html#example"><span class="secno">24.9</span> 例題</a></li><li><a href="24_em_gun.html#accuracy"><span class="secno">24.10</span> 精度の目安</a></li><li><a href="24_em_gun.html#limits"><span class="secno">24.11</span> 今の版でできないこと</a></li></ol></li>
+<li><a href="25_em_troubleshooting.html"><span class="chno">第 25 章</span> 電磁場解析で困ったとき</a></li>
+<li class="toc-part" role="presentation">第 III 部　連携・カスタマイズ・自動化</li>
+<li><a href="26_step_export.html"><span class="chno">第 26 章</span> 他の解析プログラムに形を渡す</a></li>
+<li><a href="27_customize.html"><span class="chno">第 27 章</span> カスタマイズ</a></li>
+<li><a href="28_automation.html"><span class="chno">第 28 章</span> 自動化</a></li>
+<li><a href="29_troubleshooting.html"><span class="chno">第 29 章</span> 困ったとき</a></li>
+<li class="toc-part" role="presentation">付録</li>
+<li class="appendix"><a href="appendix_a_commands.html"><span class="chno">付録 A</span> コマンド一覧</a></li>
+<li class="appendix"><a href="appendix_b_shortcuts.html"><span class="chno">付録 B</span> ショートカット一覧</a></li>
+<li class="appendix"><a href="appendix_c_feature_params.html"><span class="chno">付録 C</span> フィーチャのパラメータ一覧</a></li>
+<li class="appendix"><a href="appendix_d_glossary.html"><span class="chno">付録 D</span> 用語の対応表</a></li>
+</ol>
+</details>
+</nav>
+<main class="content" id="main">
+<article class="chapter ">
+<p class="chapter-label">第 24 章</p>
+<h1>電子銃解析</h1>
+<nav class="pagetoc" aria-label="この章の内容">
+<p class="pagetoc-title">この章の内容</p>
+<ol>
+<li><a href="#overview"><span class="secno">24.1</span> 電子銃のスタディ</a></li>
+<li><a href="#emitter"><span class="secno">24.2</span> 放出面</a></li>
+<li><a href="#particles"><span class="secno">24.3</span> 粒子の終わり方</a></li>
+<li><a href="#symmetry"><span class="secno">24.4</span> 対称面</a></li>
+<li><a href="#magnetic-field"><span class="secno">24.5</span> 磁場</a></li>
+<li><a href="#self-field"><span class="secno">24.6</span> 空間電荷と自己磁場</a></li>
+<li class="sub"><a href="#closure">ビームの電流の閉じ方</a></li>
+<li><a href="#mesh"><span class="secno">24.7</span> メッシュ</a></li>
+<li><a href="#results"><span class="secno">24.8</span> 結果</a></li>
+<li class="sub"><a href="#tracks">軌道の表示</a></li>
+<li class="sub"><a href="#table">結果の表</a></li>
+<li class="sub"><a href="#graphs">グラフ</a></li>
+<li><a href="#example"><span class="secno">24.9</span> 例題</a></li>
+<li><a href="#accuracy"><span class="secno">24.10</span> 精度の目安</a></li>
+<li><a href="#limits"><span class="secno">24.11</span> 今の版でできないこと</a></li>
+</ol>
+</nav>
+<p><span class="badge-study study-trajectory">電子銃</span> この章では、<strong>電子銃</strong>のスタディを説明します。熱陰極から出る空間電荷制限のビームを、ビーム自身の電場と磁場とともに解き、ビーム電流・パービアンス・軌道・包絡線・エミッタンスを求めます。</p>
+
+<h2 id="overview"><span class="secno">24.1</span> 電子銃のスタディ</h2>
+<p>静電場のスタディ（<a href="23_em_electrostatic.html">第 23 章</a>）に、放出面と磁場を足したものです。電極・誘電体・解析領域・対称面・メッシュの作り方は静電場と同じです。計算は次の順に進み、電流が変わらなくなるまで 3〜6 を繰り返します。</p>
+<ol class="flow">
+  <li><b>磁場</b>外部磁場をメッシュの節点へ写す（無くてもよい）</li>
+  <li><b>電位</b>空間電荷なしの電位を解く</li>
+  <li><b>放出</b>陰極の面の前の電位から電流を決める</li>
+  <li><b>軌道</b>電場と磁場の中で電子を追う</li>
+  <li><b>電荷と電流</b>軌道から空間電荷と電流を積む</li>
+  <li><b>更新</b>電位と自己磁場を解き直す</li>
+</ol>
+<ul>
+  <li><p><span class="path">リボンの<span class="ui">［物理］</span>タブ → <span class="ui">［スタディ］</span>パネル → <span class="ui">［新しい電子銃スタディ］</span></span>で作ります。静電場のスタディを右クリックして<span class="ui">［電子銃のスタディとして複製］</span>を選ぶと、電極・領域・対称面・メッシュを写して作れます。</p></li>
+  <li><p>スタディのブラウザのフォルダは、材料・領域・電極・放出面・磁場・解析領域・対称・メッシュ・解析の設定・結果です。</p></li>
+  <li><p>電極は静電場と同じです（<a href="23_em_electrostatic.html#electrodes">第 23 章</a>）。コイルと鉄は電子銃のスタディでは解析から除き（<a href="16_em_setup.html#materials">第 16 章</a>）、磁場は静磁場のスタディで解きます。</p></li>
+</ul>
+<figure id="fig-24_em_gun_setup"><a class="zoom" href="images/24_em_gun_setup.png"><img src="images/24_em_gun_setup.png" alt="例題の設定。陰極の上面が放出面（赤）で、左は放出面のフォーム。" width="1000" height="671" loading="lazy"></a><figcaption><span class="figno">図 24-1</span> 例題の設定。陰極の上面が放出面（赤）で、左は放出面のフォーム。</figcaption></figure>
+
+<h2 id="emitter"><span class="secno">24.2</span> 放出面</h2>
+<p>放出面は、電子が出る陰極の面です。面の電流は、面の前方（仮想アノード）の電位から Child-Langmuir 則で決まります（空間電荷制限）。</p>
+<ol class="steps">
+  <li><p>陰極のボディを電極にします（<span class="ui">［電極］</span>）。</p></li>
+  <li><p>3D ビューで放出する面を選びます（<kbd>Ctrl</kbd> で複数）。</p></li>
+  <li><p><span class="path">リボンの<span class="ui">［物理］</span>タブ → <span class="ui">［励磁］</span>パネル → <span class="ui">［放出面］</span></span>をクリックします。選んだ面の放出面ができ、プロパティ パネルにフォームが出ます。</p></li>
+  <li><p>必要なら欄を変えて、<span class="ui">［適用］</span>を押します。</p></li>
+</ol>
+<div class="table-wrap"><table>
+  <caption>放出面の欄</caption>
+  <thead><tr><th>欄</th><th>内容</th><th>目安</th></tr></thead>
+  <tbody>
+    <tr><th scope="row"><span class="ui">［仮想アノードの距離（要素の倍数）］</span></th><td>電位を読む点の、面からの距離（面の三角形の大きさの倍数）</td><td>既定の 2 のままで使います</td></tr>
+    <tr><th scope="row"><span class="ui">［三角形の分割数 n（n × n 本）］</span></th><td>面の 1 つの三角形から出す粒子の本数</td><td>1。断面の図や統計の点を増やすときに 2〜3</td></tr>
+    <tr><th scope="row"><span class="ui">［面の近くのメッシュ（0 = 全体）］</span></th><td>放出面の近くの要素の大きさ。面から離れると全体の大きさへ大きくなります</td><td>陰極の半径の 1/5 以下</td></tr>
+  </tbody>
+</table></div>
+<ul>
+  <li><p>放出面の電位は、面のボディの電極の電位です。電極の上に無い面は、解析がエラーになります。</p></li>
+  <li><p>面が曲がっていれば、電流は面の曲率で補正されます（電子が広がる凸の面で増え、集まる凹の面で減ります）。</p></li>
+  <li><p>陰極の放出しない面（側面など）には、放出面を付けません。陰極とウェーネルトが同じ電位でも、放出面にした面だけから電子が出ます。</p></li>
+  <li><p>面の前の電位が陰極より低い所からは、電子は出ません。ウェーネルトを負にしていくと、放出する範囲が狭くなります。</p></li>
+</ul>
+
+<h2 id="particles"><span class="secno">24.3</span> 粒子の終わり方</h2>
+<div class="table-wrap"><table>
+  <caption>粒子の終わり方</caption>
+  <thead><tr><th>当たる所</th><th>扱い</th><th>結果の表</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">電極（ボディ・面）</th><td>着地して止まる</td><td>電極ごとの<span class="ui">［着地の電流］</span></td></tr>
+    <tr><th scope="row">誘電体</th><td>当たって止まる（帯電は考えません）</td><td><span class="ui">［誘電体に当たる電流］</span></td></tr>
+    <tr><th scope="row">それ以外の外面</th><td>出ていく</td><td><span class="ui">［外面から出る電流］</span></td></tr>
+    <tr><th scope="row">対称面</th><td>鏡で反射する（鏡像の粒子が入ってくるのと同じ）</td><td>—</td></tr>
+  </tbody>
+</table></div>
+
+<h2 id="symmetry"><span class="secno">24.4</span> 対称面</h2>
+<p>電子銃の対称面は、<strong>電荷ゼロ</strong>の面だけです。接地の面は、鏡像の電極が逆の電位になり、鏡像の電子と辻褄が合わないので使えません。</p>
+<p>軌道が面について鏡像になるには、面の上で磁場が面に垂直でなければなりません。<strong>ソレノイドの磁場は軸を含む面に沿うので、ソレノイドを使うときは対称面で切れません。</strong>電子が磁場で回転するためです。解析の開始のときに面の上の磁場を確かめ、面に沿っていればエラーで止めます。このときは対称面を消して全体で解きます。</p>
+
+<h2 id="magnetic-field"><span class="secno">24.5</span> 磁場</h2>
+<p>ビームにかける外部磁場は、<span class="path">リボンの<span class="ui">［物理］</span>タブ → <span class="ui">［励磁］</span>パネル → <span class="ui">［磁場］</span></span>で選びます。外部磁場はビームの影響を受けないとして、最初に一度だけメッシュの節点へ写します。</p>
+<div class="table-wrap"><table>
+  <caption>磁場の<span class="ui">［出典］</span></caption>
+  <thead><tr><th>出典</th><th>内容</th></tr></thead>
+  <tbody>
+    <tr><th scope="row"><span class="ui">［なし］</span></th><td>外部磁場なし（既定）</td></tr>
+    <tr><th scope="row"><span class="ui">［静磁場のスタディ］</span></th><td>同じ文書の静磁場のスタディの最新の結果。座標は同じです。<span class="ui">［倍率］</span>で磁場を定数倍できます（鉄が飽和するときは、電流を変えて解き直します）</td></tr>
+    <tr><th scope="row"><span class="ui">［軸上の磁場（表）］</span></th><td>軸の上の磁場の表から、2 次の近軸の展開で軸のまわりの磁場を作ります。<span class="ui">［軸］</span>と軸の点を選び、表には 1 行に位置 [mm] と B [T] を書きます</td></tr>
+  </tbody>
+</table></div>
+<ul>
+  <li><p>選んだ静磁場のスタディに結果が無ければ、<span class="ui">［実行］</span>が先に静磁場を解いてから、電子銃を解きます。</p></li>
+  <li><p>結果があるときは、その最新の結果をそのまま使います。コイルの電流などを変えたら、静磁場のスタディを解き直してください。</p></li>
+  <li><p>電子銃のメッシュの節点のうち、静磁場の解析領域の外の節点の磁場は 0 になります（ログに出ます）。</p></li>
+</ul>
+
+<h2 id="self-field"><span class="secno">24.6</span> 空間電荷と自己磁場</h2>
+<p>ビームの電荷は電位を押し下げ（空間電荷）、ビームの電流は磁場をつくります（自己磁場）。どちらも<span class="path">リボンの<span class="ui">［解析］</span>タブ → <span class="ui">［設定］</span>パネル → <span class="ui">［解析の設定］</span></span>で切り替えられます。</p>
+<div class="table-wrap"><table>
+  <caption>解析の設定</caption>
+  <thead><tr><th>欄</th><th>内容</th></tr></thead>
+  <tbody>
+    <tr><th scope="row"><span class="ui">［外面の境界］</span></th><td>静電場と同じ（電荷ゼロ / 接地）</td></tr>
+    <tr><th scope="row"><span class="ui">［空間電荷］</span></th><td>切ると、空間電荷なしの電場で軌道を 1 回だけ追います（電流は空間電荷なしの値で、大きく出ます。形の確認用）</td></tr>
+    <tr><th scope="row"><span class="ui">［ビームの自己磁場］</span></th><td>2 次（既定）・1 次（軽い）・なし。電子銃のメッシュで解きます。メモリは 2 次が多く使います（<a href="#accuracy">精度の目安</a>）</td></tr>
+    <tr><th scope="row"><span class="ui">［緩和係数］</span></th><td>反復で新しい値に置き換える割合。発散しそうなら自動で半分にします。放出面の近くの要素が小さいほど小さな値が要ります（目安: 0.5 mm で 0.4、0.25 mm で 0.2、0.1 mm で 0.1）</td></tr>
+    <tr><th scope="row"><span class="ui">［反復の上限］</span>・<span class="ui">［収束の判定（電流）］</span></th><td>放出の電流の変化がこの値より小さく、電荷密度の変化が 1 % より小さい状態が 3 回続いたら止めます。放出の電流が落ち着いても、ビームの通り道（出口の電流など）はしばらく動くからです</td></tr>
+    <tr><th scope="row"><span class="ui">［時間刻みの係数］</span>・<span class="ui">［粒子ごとの歩数の上限］</span></th><td>軌道の追跡の設定。ふつうは変えません</td></tr>
+  </tbody>
+</table></div>
+<p>自己磁場の磁気力は、空間電荷の電気の反発力の β² 倍です（β は電子の速さと光速の比。20 kV で 0.07、250 kV で 0.55）。低い電圧では切っても結果はほとんど変わりません。</p>
+<h3 id="closure">ビームの電流の閉じ方</h3>
+<p>磁場を解くには、電流が閉じていなければなりません。ビームの電流は次のように閉じます。</p>
+<ul>
+  <li><p><strong>外面から出る電流</strong>: そのまま外面を通り抜け、戻りの電流は外面を流れます（導体の管の中のビームと同じ）。自己磁場の外面の境界は磁束平行です。</p></li>
+  <li><p><strong>陰極と、電極に着地した電流</strong>: 電極のボディの中を導体として流れ、外面へ抜けます。陰極の給電の棒をボディにして外面まで伸ばせば、実際の電流の路になります。</p></li>
+  <li><p><strong>導体で外面につながっていない電極</strong>: 電流は真空を通って閉じます。この電極の近くの自己磁場は弱くなります（陰極のすぐ前で半分ほど）。電流の 5 % より多く真空を通ると、解析の後に注意を出します。外面につながった電極でも、放出面のメッシュが粗いと（粒子の出発点が面から離れるので）この注意が出ることがあります。</p></li>
+</ul>
+<aside class="note" role="note"><p class="callout-title">注意</p><p>陰極の近くは電子が遅く、磁気力はとても小さいので、真空で閉じても電流と軌道はほとんど変わりません。例題も陰極が宙に浮いているので注意が出ます。高い電圧でビームが太いとき、正確にするなら給電の棒を足します。</p></aside>
+
+<h2 id="mesh"><span class="secno">24.7</span> メッシュ</h2>
+<ul>
+  <li><p>放出の電流は、陰極の面の前の電位で決まるので、<strong>放出面の近くのメッシュ</strong>がいちばん効きます。<span class="ui">［面の近くのメッシュ（0 = 全体）］</span>で細かくし、全体は粗くします。</p></li>
+  <li><p>ビームの通る所の要素が粗いと、空間電荷の分布が粗くなります。ビームのまわりに空気のボディを作ってメッシュの大きさを決めると、そこだけ細かくできます。</p></li>
+  <li><p>メッシュを細かくして電流が変わらなくなることを確かめてください。面の近くの大きさを半分にすると、反復の<span class="ui">［緩和係数］</span>も小さくします。</p></li>
+</ul>
+
+<h2 id="results"><span class="secno">24.8</span> 結果</h2>
+<p>解析の間は、中央に<span class="ui">［反復の履歴］</span>のタブが開き、電流と残差のグラフが反復ごとに伸びます。解析が終わると、結果の表と断面が出ます。</p>
+<figure id="fig-24_em_gun_potential"><a class="zoom" href="images/24_em_gun_potential.png"><img src="images/24_em_gun_potential.png" alt="電位 φ の断面と等電位線、断面の近くの軌道（黒）。" width="1000" height="671" loading="lazy"></a><figcaption><span class="figno">図 24-2</span> 電位 φ の断面と等電位線、断面の近くの軌道（黒）。</figcaption></figure>
+<h3 id="tracks">軌道の表示</h3>
+<p>軌道は、断面・表面・3D の矢印のどの表示にも重なります。<span class="path">リボンの<span class="ui">［結果］</span>タブ → <span class="ui">［表示］</span>パネル → <span class="ui">［軌道］</span></span>か、<span class="ui">［結果の表示］</span>パネルで変えます。</p>
+<ul>
+  <li><p><span class="ui">［断面の近くだけ］</span>（既定）: 断面の表示では、出発点が断面の近くの軌道だけを描きます。切ると全部を描きます。</p></li>
+  <li><p><span class="ui">［色］</span>: 一色・エネルギー・電流・着地先の電極。断面の色分けを切ると、軌道の色の凡例が出ます。</p></li>
+  <li><p><span class="ui">［本数の上限］</span>: 描く軌道の本数の上限（対称面の鏡像も数えます）。</p></li>
+</ul>
+<div class="figrow">
+  <figure id="fig-24_em_gun_rho"><a class="zoom" href="images/24_em_gun_rho.png"><img src="images/24_em_gun_rho.png" alt="空間電荷密度 ρ の断面。陰極の近くは電子が遅いので、密度が大きくなります。" width="460" height="361" loading="lazy"></a><figcaption><span class="figno">図 24-3</span> 空間電荷密度 ρ の断面。陰極の近くは電子が遅いので、密度が大きくなります。</figcaption></figure>
+  <figure id="fig-24_em_gun_energy"><a class="zoom" href="images/24_em_gun_energy.png"><img src="images/24_em_gun_energy.png" alt="全部の軌道をエネルギーで色分けしたもの。" width="460" height="361" loading="lazy"></a><figcaption><span class="figno">図 24-4</span> 全部の軌道をエネルギーで色分けしたもの。</figcaption></figure>
+</div>
+<p><span class="ui">［結果の表示］</span>の<span class="ui">［量］</span>には、静電場の量（φ・|E|・成分・|D|・εr）のほかに、ρ 空間電荷密度、|B| 外部磁場、|B| ビームの自己磁場があります。</p>
+
+<h3 id="table">結果の表</h3>
+<figure id="fig-24_em_gun_table"><a class="zoom" href="images/24_em_gun_table.png"><img src="images/24_em_gun_table.png" alt="例題の結果の表。" width="470" height="790" loading="lazy"></a><figcaption><span class="figno">図 24-5</span> 例題の結果の表。</figcaption></figure>
+<div class="table-wrap"><table>
+  <caption>結果の表の主な行（値は全体。対称モデルは対称面の数の分だけ倍にした値）</caption>
+  <thead><tr><th>行</th><th>内容</th></tr></thead>
+  <tbody>
+    <tr><th scope="row"><span class="ui">［ビーム電流］</span></th><td>放出の全電流</td></tr>
+    <tr><th scope="row"><span class="ui">［パービアンス [µP]］</span></th><td>ビーム電流 / V<sup>3/2</sup>。V は<span class="ui">［加速電圧 [V]］</span>（最も高い電極と陰極の電位の差）</td></tr>
+    <tr><th scope="row"><span class="ui">［放出の電流密度の最大 [A/cm²]］</span></th><td>陰極の面の電流密度の最大</td></tr>
+    <tr><th scope="row"><span class="ui">［外面から出る電流］</span>・<span class="ui">［着地の電流］</span></th><td>どこへ行ったか。合計はビーム電流です</td></tr>
+    <tr><th scope="row"><span class="ui">［終点の平均のエネルギー [keV]］</span></th><td>粒子の終点の運動エネルギーの電流の重みの平均</td></tr>
+    <tr><th scope="row"><span class="ui">［表面の最大電界 |E| [MV/m]］</span>（電極ごと）</th><td>空間電荷を含む電場の、電極の表面の最大</td></tr>
+    <tr><th scope="row"><span class="ui">［終点の近くの rms 半径 [mm]］</span>・<span class="ui">［終点の近くの rms エミッタンス [mm mrad]］</span></th><td>軌道の終点の近くの断面の値</td></tr>
+    <tr><th scope="row"><span class="ui">［反復の回数］</span>・<span class="ui">［収束］</span></th><td>収束しなければ、電流は確かではありません</td></tr>
+  </tbody>
+</table></div>
+
+<h3 id="graphs">グラフ</h3>
+<div class="figrow">
+  <figure id="fig-24_em_gun_envelope"><a class="zoom" href="images/24_em_gun_envelope.png"><img src="images/24_em_gun_envelope.png" alt="［包絡線］: ビームの軸に沿う半径（最大・rms）と通過電流。" width="460" height="361" loading="lazy"></a><figcaption><span class="figno">図 24-6</span> <span class="ui">［包絡線］</span>: ビームの軸に沿う半径（最大・rms）と通過電流。</figcaption></figure>
+  <figure id="fig-24_em_gun_plane"><a class="zoom" href="images/24_em_gun_plane.png"><img src="images/24_em_gun_plane.png" alt="［断面のビーム］: 断面の位相空間と統計（電流・エネルギー・rms 半径・エミッタンス）。" width="460" height="361" loading="lazy"></a><figcaption><span class="figno">図 24-7</span> <span class="ui">［断面のビーム］</span>: 断面の位相空間と統計（電流・エネルギー・rms 半径・エミッタンス）。</figcaption></figure>
+</div>
+<div class="figrow">
+  <figure id="fig-24_em_gun_emission"><a class="zoom" href="images/24_em_gun_emission.png"><img src="images/24_em_gun_emission.png" alt="［放出の電流密度］: 陰極の電流密度をビームの軸からの距離に対して描いたもの。" width="460" height="361" loading="lazy"></a><figcaption><span class="figno">図 24-8</span> <span class="ui">［放出の電流密度］</span>: 陰極の電流密度をビームの軸からの距離に対して描いたもの。</figcaption></figure>
+  <figure id="fig-24_em_gun_iterations"><a class="zoom" href="images/24_em_gun_iterations.png"><img src="images/24_em_gun_iterations.png" alt="［反復の履歴］: 反復の電流と残差。" width="460" height="361" loading="lazy"></a><figcaption><span class="figno">図 24-9</span> <span class="ui">［反復の履歴］</span>: 反復の電流と残差。</figcaption></figure>
+</div>
+<p>どれも<span class="ui">［結果］</span>タブの<span class="ui">［評価］</span>パネルのコマンドです（<span class="path">リボンの<span class="ui">［結果］</span>タブ → <span class="ui">［評価］</span>パネル → <span class="ui">［包絡線］</span></span>・<span class="path">リボンの<span class="ui">［結果］</span>タブ → <span class="ui">［評価］</span>パネル → <span class="ui">［断面のビーム］</span></span>・<span class="path">リボンの<span class="ui">［結果］</span>タブ → <span class="ui">［評価］</span>パネル → <span class="ui">［放出の電流密度］</span></span>・<span class="path">リボンの<span class="ui">［結果］</span>タブ → <span class="ui">［評価］</span>パネル → <span class="ui">［反復の履歴］</span></span>）。</p>
+<ul>
+  <li><p>ビームの軸は、放出の電流の重心を通り、放出の平均の法線の向きです（対称面があれば対称面の上）。</p></li>
+  <li><p>エミッタンスはトレース空間の rms（x-x'・y-y'）です。電子の熱速度は入っていません。磁場の中ではビームの回転の分を含みます（断面のビームの題の「4D」は回転の分を含まない値です）。メッシュの雑音の分があるので、小さな値の比較にはメッシュを細かくします。</p></li>
+  <li><p>φ・E の断面、線上のグラフ、フィールドマップの書き出しは、静電場と同じです（<a href="23_em_electrostatic.html#results">第 23 章</a>）。</p></li>
+</ul>
+
+<h2 id="example"><span class="secno">24.9</span> 例題</h2>
+<p>例題 <code>examples/electron_gun_beam.emrm</code> は、φ10 mm の陰極、ウェーネルト、φ12 mm の穴のある陽極の電子銃です。</p>
+<div class="table-wrap"><table>
+  <caption>例題の設定</caption>
+  <tbody>
+    <tr><th scope="row">陰極</th><td>φ10 × 5 mm（z = 0〜5 mm）、−20 kV。上面（z = 5 mm）が放出面</td></tr>
+    <tr><th scope="row">ウェーネルト</th><td>外径 40・内径 13 mm（z = −5〜6 mm）、−20.5 kV</td></tr>
+    <tr><th scope="row">陽極</th><td>φ60 × 5 mm（z = 25〜30 mm）、穴 φ12 mm、0 V</td></tr>
+    <tr><th scope="row">モデル</th><td>1/4（YZ・ZX の電荷ゼロの対称面）。外面は接地。全体のメッシュ 2 mm、放出面の近く 1 mm</td></tr>
+  </tbody>
+</table></div>
+<ol class="steps">
+  <li><p>例題を開いて<span class="path">リボンの<span class="ui">［解析］</span>タブ → <span class="ui">［実行］</span>パネル → <span class="ui">［実行］</span></span>を押します（約 1 分。自己磁場の行列の組み立てが半分ほどです）。</p></li>
+  <li><p>結果の表で、ビーム電流が約 1.67 A、パービアンスが約 0.59 µP、全部の電流が陽極の穴を抜けることを確かめます。</p></li>
+  <li><p><span class="ui">［包絡線］</span>で包絡線を見ます。陽極の穴（負のレンズ）の後でビームは広がります。</p></li>
+</ol>
+<aside class="note" role="note"><p class="callout-title">注意</p><p>例題の陰極と陽極は宙に浮いているので、真空を通る電流の注意が出ます（<a href="#closure">ビームの電流の閉じ方</a>）。</p></aside>
+
+<h2 id="accuracy"><span class="secno">24.10</span> 精度の目安</h2>
+<div class="table-wrap"><table>
+  <caption>検証の例</caption>
+  <thead><tr><th>問題</th><th>基準</th><th>結果</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">平板ダイオード（10 mm、10 kV）</th><td>Child-Langmuir 則の電流</td><td>要素 0.25〜2 mm で ±0.5 %</td></tr>
+    <tr><th scope="row">球面ダイオード（半径 10・25 mm、5 kV、1/8 モデル）</th><td>Langmuir-Blodgett の電流</td><td>凸の陰極 −1.0 %（要素 1.2 mm）・0.0 %（0.8 mm）、凹の陰極 −0.5 %</td></tr>
+    <tr><th scope="row">DGUN の例（球面の陰極、−250 kV、1/4 モデル、磁場なし）</th><td>DGUN の電流 55.30 A</td><td>要素 0.7〜1.5 mm で −0.2〜+0.6 %（要素 1.2〜3.3 万）</td></tr>
+    <tr><th scope="row">同じ例（全体、ソレノイドの軸上の磁場と自己磁場、5.5 万要素）</th><td>DGUN の電流・包絡線</td><td>電流 −0.4 %、包絡線の差の中央値 1.8 %、ウェスト 3.91 mm（DGUN 3.93 mm）</td></tr>
+    <tr><th scope="row">TGUN の例（平板の陰極、10 kV、ソレノイド 1000 A·turn を静磁場で解く）</th><td>TGUN の結果（電流 1.83 A、出口の半径 平均 0.65・最大 0.93 mm）</td><td>電流 1.79 A、平均 0.69 mm、最大 0.93 mm</td></tr>
+    <tr><th scope="row">アンペールの法則（電流の閉じ方）</th><td>通り抜け・給電の棒・着地で ∮B·dl = μ<sub>0</sub>I</td><td>0.04 % 以内</td></tr>
+  </tbody>
+</table></div>
+<p>電流の誤差は放出面の近くのメッシュで決まります。自己磁場の 1 次は 2 次の 1/8 のメモリで解けますが、ビームの中の磁場の誤差は 3 % ほどです（ビームの縁で 13 %）。</p>
+
+<h2 id="limits"><span class="secno">24.11</span> 今の版でできないこと</h2>
+<ul>
+  <li><p>温度制限の放出（放出は空間電荷制限だけです）</p></li>
+  <li><p>電子の熱速度（熱エミッタンス）、二次電子、反射した電子の扱い</p></li>
+  <li><p>誘電体の帯電（当たった電子は消えるだけです）</p></li>
+  <li><p>自己磁場の鉄の影響（自己磁場は μr = 1 で解きます。外部磁場の鉄は静磁場のスタディで扱えます）</p></li>
+  <li><p>回転対称の周期のモデル（ソレノイドのときは全体で解きます）</p></li>
+</ul>
+
+</article>
+<nav class="pager" aria-label="前後の章"><a class="prev" rel="prev" href="23_em_electrostatic.html"><span class="dir">前の章</span>第 23 章 静電場解析</a><a class="next" rel="next" href="25_em_troubleshooting.html"><span class="dir">次の章</span>第 25 章 電磁場解析で困ったとき</a></nav>
+<footer class="footer"><p>EMRM-Studio ユーザーマニュアル（日本語）・EMRM-Studio 0.1.0 ・ <a href="#main">このページの先頭へ</a></p></footer>
+</main>
+</div>
+</body>
+</html>

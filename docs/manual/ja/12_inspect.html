@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="generator" content="tools/build_manual.py">
+<title>第 12 章 検査 - EMRM-Studio ユーザーマニュアル</title>
+<link rel="stylesheet" href="assets/manual.css">
+<script src="assets/search_index.js" charset="utf-8" defer></script>
+<script src="assets/manual.js" charset="utf-8" defer></script>
+</head>
+<body class="page">
+<header class="topbar">
+<a class="brand" href="index.html">EMRM-Studio ユーザーマニュアル</a>
+<button class="toc-toggle" type="button" aria-controls="toc" aria-expanded="false">目次</button>
+<form class="search" role="search" action="#" onsubmit="return false">
+<input id="q" type="search" placeholder="マニュアルを検索（/）" aria-label="マニュアルを検索" autocomplete="off">
+</form>
+</header>
+<div id="search-results" class="search-results" hidden></div>
+<div class="layout">
+<nav id="toc" class="toc" aria-label="目次">
+<details class="toc-box">
+<summary>目次</summary>
+<ol class="toc-chapters">
+<li class="toc-home"><a href="index.html">表紙・目次</a></li>
+<li><a href="00_intro.html">はじめに</a></li>
+<li class="toc-part" role="presentation">第 I 部　形状を作る（CAD）</li>
+<li><a href="01_screen.html"><span class="chno">第 1 章</span> 画面の構成</a></li>
+<li><a href="02_view.html"><span class="chno">第 2 章</span> 視点の操作</a></li>
+<li><a href="03_first_part.html"><span class="chno">第 3 章</span> はじめての部品</a></li>
+<li><a href="04_sketch.html"><span class="chno">第 4 章</span> スケッチ</a></li>
+<li><a href="05_work_features.html"><span class="chno">第 5 章</span> 作業フィーチャ</a></li>
+<li><a href="06_features_basic.html"><span class="chno">第 6 章</span> フィーチャ（押し出し・回転・穴・フィレットなど）</a></li>
+<li><a href="07_features_advanced.html"><span class="chno">第 7 章</span> フィーチャ（スイープ・ロフト・コイル・パターンなど）</a></li>
+<li><a href="08_bodies.html"><span class="chno">第 8 章</span> ボディの操作</a></li>
+<li><a href="09_browser.html"><span class="chno">第 9 章</span> ブラウザとフィーチャの管理</a></li>
+<li><a href="10_parameters.html"><span class="chno">第 10 章</span> パラメータと式</a></li>
+<li><a href="11_configurations.html"><span class="chno">第 11 章</span> 構成</a></li>
+<li class="current"><a href="12_inspect.html" aria-current="page"><span class="chno">第 12 章</span> 検査</a><ol class="toc-sections"><li><a href="12_inspect.html#overview"><span class="secno">12.1</span> 検査のコマンド</a></li><li><a href="12_inspect.html#measure"><span class="secno">12.2</span> 計測</a></li><li><a href="12_inspect.html#mass"><span class="secno">12.3</span> 物理プロパティ</a></li><li><a href="12_inspect.html#material"><span class="secno">12.4</span> 材料</a></li><li><a href="12_inspect.html#appearance"><span class="secno">12.5</span> 外観（色と透明度）</a></li><li><a href="12_inspect.html#errors"><span class="secno">12.6</span> エラーを検索</a></li><li><a href="12_inspect.html#region"><span class="secno">12.7</span> 領域のプロパティ</a></li><li><a href="12_inspect.html#section"><span class="secno">12.8</span> 断面で内側を確かめる</a></li><li><a href="12_inspect.html#next"><span class="secno">12.9</span> 次に読む章</a></li></ol></li>
+<li><a href="13_files.html"><span class="chno">第 13 章</span> ファイル</a></li>
+<li class="toc-part" role="presentation">第 II 部　電磁場解析</li>
+<li><a href="14_em_intro.html"><span class="chno">第 14 章</span> 電磁場解析のはじめに</a></li>
+<li><a href="15_em_first.html"><span class="chno">第 15 章</span> はじめての電磁場解析（ソレノイド）</a></li>
+<li><a href="16_em_setup.html"><span class="chno">第 16 章</span> スタディの共通の設定</a></li>
+<li><a href="17_em_results.html"><span class="chno">第 17 章</span> 結果の見方</a></li>
+<li><a href="18_em_magnetostatic.html"><span class="chno">第 18 章</span> 静磁場解析</a></li>
+<li><a href="19_em_coils.html"><span class="chno">第 19 章</span> 静磁場解析: コイル</a></li>
+<li><a href="20_em_dipole.html"><span class="chno">第 20 章</span> 静磁場解析の例題: H 型双極電磁石</a></li>
+<li><a href="21_em_eigenmode.html"><span class="chno">第 21 章</span> 共振モード解析</a></li>
+<li><a href="22_em_driven.html"><span class="chno">第 22 章</span> ポート解析</a></li>
+<li><a href="23_em_electrostatic.html"><span class="chno">第 23 章</span> 静電場解析</a></li>
+<li><a href="24_em_gun.html"><span class="chno">第 24 章</span> 電子銃解析</a></li>
+<li><a href="25_em_troubleshooting.html"><span class="chno">第 25 章</span> 電磁場解析で困ったとき</a></li>
+<li class="toc-part" role="presentation">第 III 部　連携・カスタマイズ・自動化</li>
+<li><a href="26_step_export.html"><span class="chno">第 26 章</span> 他の解析プログラムに形を渡す</a></li>
+<li><a href="27_customize.html"><span class="chno">第 27 章</span> カスタマイズ</a></li>
+<li><a href="28_automation.html"><span class="chno">第 28 章</span> 自動化</a></li>
+<li><a href="29_troubleshooting.html"><span class="chno">第 29 章</span> 困ったとき</a></li>
+<li class="toc-part" role="presentation">付録</li>
+<li class="appendix"><a href="appendix_a_commands.html"><span class="chno">付録 A</span> コマンド一覧</a></li>
+<li class="appendix"><a href="appendix_b_shortcuts.html"><span class="chno">付録 B</span> ショートカット一覧</a></li>
+<li class="appendix"><a href="appendix_c_feature_params.html"><span class="chno">付録 C</span> フィーチャのパラメータ一覧</a></li>
+<li class="appendix"><a href="appendix_d_glossary.html"><span class="chno">付録 D</span> 用語の対応表</a></li>
+</ol>
+</details>
+</nav>
+<main class="content" id="main">
+<article class="chapter ">
+<p class="chapter-label">第 12 章</p>
+<h1>検査</h1>
+<nav class="pagetoc" aria-label="この章の内容">
+<p class="pagetoc-title">この章の内容</p>
+<ol>
+<li><a href="#overview"><span class="secno">12.1</span> 検査のコマンド</a></li>
+<li class="sub"><a href="#quick">ステータスバーの簡易測定</a></li>
+<li><a href="#measure"><span class="secno">12.2</span> 計測</a></li>
+<li class="sub"><a href="#measure-modes">距離の測り方を切り替える</a></li>
+<li class="sub"><a href="#measure-frame">座標系を指定する</a></li>
+<li class="sub"><a href="#measure-keep">計測をブラウザに残す</a></li>
+<li><a href="#mass"><span class="secno">12.3</span> 物理プロパティ</a></li>
+<li class="sub"><a href="#mass-density">密度を上書きする</a></li>
+<li><a href="#material"><span class="secno">12.4</span> 材料</a></li>
+<li class="sub"><a href="#material-edit">ドキュメントの材料を編集する</a></li>
+<li><a href="#appearance"><span class="secno">12.5</span> 外観（色と透明度）</a></li>
+<li><a href="#errors"><span class="secno">12.6</span> エラーを検索</a></li>
+<li><a href="#region"><span class="secno">12.7</span> 領域のプロパティ</a></li>
+<li><a href="#section"><span class="secno">12.8</span> 断面で内側を確かめる</a></li>
+<li><a href="#next"><span class="secno">12.9</span> 次に読む章</a></li>
+</ol>
+</nav>
+<p>この章では、できあがった形を確かめる機能を説明します。距離・角度・面積を測り、質量と重心を求め、材料と色を割り当て、形状の欠陥を見つけられるようになります。この章の写真は、<code>samples/measure_and_material.mcad</code>（左が鋼の板、右がアルミの箱）と、<code>samples/plate_with_holes.mcad</code> で撮りました。</p>
+
+<h2 id="overview"><span class="secno">12.1</span> 検査のコマンド</h2>
+<p>検査のコマンドは、リボンの<span class="ui">［検査］</span>タブと<span class="ui">［ツール］</span>タブにあります。</p>
+<div class="table-wrap"><table>
+  <caption>この章のコマンド</caption>
+  <thead><tr><th>コマンド</th><th>場所</th><th>できること</th><th>節</th></tr></thead>
+  <tbody>
+    <tr><th scope="row"><span class="ui">［計測］</span></th><td><span class="ui">［検査］</span>タブ →<span class="ui">［計測］</span>パネル</td><td>距離・角度・長さ・面積・半径を測る</td><td><a href="#measure">計測</a></td></tr>
+    <tr><th scope="row"><span class="ui">［物理プロパティ］</span></th><td><span class="ui">［検査］</span>タブ →<span class="ui">［計測］</span>パネル</td><td>質量・体積・重心・慣性を求める</td><td><a href="#mass">物理プロパティ</a></td></tr>
+    <tr><th scope="row"><span class="ui">［領域のプロパティ］</span></th><td><span class="ui">［検査］</span>タブ →<span class="ui">［計測］</span>パネル</td><td>スケッチの閉領域・平らな面の断面の特性を求める</td><td><a href="#region">領域のプロパティ</a></td></tr>
+    <tr><th scope="row"><span class="ui">［エラーを検索］</span></th><td><span class="ui">［検査］</span>タブ →<span class="ui">［解析］</span>パネル</td><td>形状の欠陥を探す</td><td><a href="#errors">エラーを検索</a></td></tr>
+    <tr><th scope="row"><span class="ui">［材料］</span></th><td><span class="ui">［ツール］</span>タブ →<span class="ui">［材料と外観］</span>パネル</td><td>材料を割り当てる</td><td><a href="#material">材料</a></td></tr>
+    <tr><th scope="row"><span class="ui">［外観］</span>・<span class="ui">［外観をクリア］</span></th><td><span class="ui">［ツール］</span>タブ →<span class="ui">［材料と外観］</span>パネル</td><td>面・ボディの色と透明度を付ける・消す</td><td><a href="#appearance">外観</a></td></tr>
+  </tbody>
+</table></div>
+<p>クイック アクセス ツールバーの<span class="ui">［材料］</span>・<span class="ui">［外観］</span>は、<span class="ui">［ツール］</span>タブの同じダイアログを開きます。断面で内側を確かめるには、<a href="02_view.html#section">第 2 章の断面図</a>を使います。</p>
+<p><span class="ui">［物理プロパティ］</span>・<span class="ui">［エラーを検索］</span>・<span class="ui">［領域のプロパティ］</span>・<span class="ui">［材料］</span>・<span class="ui">［外観］</span>のダイアログは、開いたまま、3D ビューとブラウザを操作できます（モードレス）。同じダイアログをもう一度開くと、新しくは開かず、開いているダイアログが前に出ます。複数のダイアログを同時に開くこともできます。</p>
+<h3 id="quick">ステータスバーの簡易測定</h3>
+<p>何も計測のコマンドを使わなくても、ビューで要素を選ぶと、ステータスバーの右に値が出ます。面なら面積、エッジなら長さ、頂点を 2 つ選ぶと距離、複数の面やエッジを選ぶと合計です。</p>
+<figure id="fig-12_status_quick"><a class="zoom" href="images/12_status_quick.png"><img src="images/12_status_quick.png" alt="板の上面を選んだところ。選択: 1 | 面積: 1199.8 mm² と出ます。" width="820" height="28" loading="lazy"></a><figcaption><span class="figno">図 12-1</span> 板の上面を選んだところ。<code>選択: 1 | 面積: 1199.8 mm²</code> と出ます。</figcaption></figure>
+<p>ステータスバーの値は目安です。正確な値は、<a href="#measure">計測</a>で測ります。</p>
+
+<h2 id="measure"><span class="secno">12.2</span> 計測</h2>
+<p>計測のツールで、面・エッジ・頂点・作業フィーチャを 1 つか 2 つ選び、値を調べます。</p>
+<ol class="steps">
+  <li><p>リボンの<span class="ui">［検査］</span>タブ →<span class="ui">［計測］</span>パネル →<span class="ui">［計測］</span>をクリックします。右に<span class="ui">［計測］</span>のドックが出ます。</p></li>
+  <li><p>ビューで、1 つ目の面・エッジ・頂点をクリックします。ドックの<span class="ui">［選択 1］</span>に名前が入り、その要素の値が出ます。</p></li>
+  <li><p>2 つ目の要素をクリックします。<span class="ui">［選択 2］</span>に入り、2 つの間の値が出ます。</p>
+    <figure id="fig-12_measure_view"><a class="zoom" href="images/12_measure_view.png"><img src="images/12_measure_view.png" alt="2 つの面を選んだところ。［選択 1］（左の板の上面）が緑、［選択 2］（右の箱の上面）が赤紫です。2 つの間に最小距離の線と値が出ます。" width="700" height="435" loading="lazy"></a><figcaption><span class="figno">図 12-2</span> 2 つの面を選んだところ。<span class="ui">［選択 1］</span>（左の板の上面）が緑、<span class="ui">［選択 2］</span>（右の箱の上面）が赤紫です。2 つの間に最小距離の線と値が出ます。</figcaption></figure>
+    <figure id="fig-12_measure_dock"><a class="zoom" href="images/12_measure_dock.png"><img src="images/12_measure_dock.png" alt="［計測］のドック。上に選んだ要素、下に値の表があります。" width="274" height="610" loading="lazy"></a><figcaption><span class="figno">図 12-3</span> <span class="ui">［計測］</span>のドック。上に選んだ要素、下に値の表があります。</figcaption></figure></li>
+  <li><p>別の要素か何も無い所をクリックすると、新しい計測が始まります。同じ計測をやり直すときは<span class="ui">［再実行］</span>、終わるときは<span class="ui">［完了］</span>（ビューの右上の<span class="ui">［OK］</span>でも同じです）を押します。</p></li>
+</ol>
+<div class="table-wrap"><table>
+  <caption>1 つの要素を選んだときの値</caption>
+  <thead><tr><th>選んだ要素</th><th>出る値</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">頂点</th><td>X・Y・Z の位置</td></tr>
+    <tr><th scope="row">エッジ</th><td>長さ。円・円弧のエッジは、半径・直径・円弧の長さも</td></tr>
+    <tr><th scope="row">面</th><td>面積・周長。円筒面・球・トーラス・円錐の面は、半径・直径も</td></tr>
+    <tr><th scope="row">ボディ全体</th><td>体積・面積など</td></tr>
+  </tbody>
+</table></div>
+<div class="table-wrap"><table>
+  <caption>2 つの要素を選んだときの値</caption>
+  <thead><tr><th>値</th><th>内容</th></tr></thead>
+  <tbody>
+    <tr><th scope="row"><span class="ui">［最小距離］</span></th><td>2 つの要素の間の最短の距離</td></tr>
+    <tr><th scope="row"><span class="ui">［X の増減値］</span>・<span class="ui">［Y の増減値］</span>・<span class="ui">［Z の増減値］</span></th><td>距離の 2 点の座標の差（X・Y・Z の成分）。ビューには X が赤、Y が緑、Z が青の線で出ます</td></tr>
+    <tr><th scope="row"><span class="ui">［最大距離］</span></th><td>2 つの要素の間の最も離れた距離</td></tr>
+    <tr><th scope="row"><span class="ui">［平行距離］</span></th><td>平行な 2 つの面（直線）の間の距離</td></tr>
+    <tr><th scope="row"><span class="ui">［角度］</span>・<span class="ui">［補角］</span></th><td>2 つの要素の間の角度と、180° との差（線と線・線と面・面と面・軸）</td></tr>
+  </tbody>
+</table></div>
+<h3 id="measure-modes">距離の測り方を切り替える</h3>
+<p>ドックの<span class="ui">［最小距離］</span>・<span class="ui">［中心合わせ］</span>・<span class="ui">［最大距離］</span>の切り替えで、ビューに描く距離の線と、増減値の元になる 2 点を替えます。<span class="ui">［中心合わせ］</span>は、円・円筒・球の中心どうし、<span class="ui">［最大距離］</span>は最も離れた点の組です。</p>
+<figure id="fig-12_measure_max"><a class="zoom" href="images/12_measure_max.png"><img src="images/12_measure_max.png" alt="［最大距離］に切り替えたところ。線の位置と、ドックの［最大距離］の値（123.886 mm）が替わりました。" width="700" height="435" loading="lazy"></a><figcaption><span class="figno">図 12-4</span> <span class="ui">［最大距離］</span>に切り替えたところ。線の位置と、ドックの<span class="ui">［最大距離］</span>の値（<code>123.886 mm</code>）が替わりました。</figcaption></figure>
+<h3 id="measure-frame">座標系を指定する</h3>
+<p>位置と増減値は、ドックの<span class="ui">［座標系］</span>で、<span class="ui">［ワールド］</span>か、作った UCS（ユーザー座標系）の値にできます。UCS は、リボンの<span class="ui">［3D モデル］</span>タブ →<span class="ui">［作業フィーチャ］</span>パネル →<span class="ui">［UCS］</span>で作ります（<a href="05_work_features.html">第 5 章</a>）。UCS が無いときは、<span class="ui">［ワールド］</span>だけです。</p>
+<div class="figrow">
+  <figure id="fig-12_measure_ucs_world"><a class="zoom" href="images/12_measure_ucs_world.png"><img src="images/12_measure_ucs_world.png" alt="［ワールド］の座標。右の箱の頂点が、X = 120・Y = 30・Z = 15 です。" width="274" height="280" loading="lazy"></a><figcaption><span class="figno">図 12-5</span> <span class="ui">［ワールド］</span>の座標。右の箱の頂点が、<code>X = 120</code>・<code>Y = 30</code>・<code>Z = 15</code> です。</figcaption></figure>
+  <figure id="fig-12_measure_ucs_ucs"><a class="zoom" href="images/12_measure_ucs_ucs.png"><img src="images/12_measure_ucs_ucs.png" alt="原点を (90, 10, 0) に置いた ［UCS1］ の座標では、同じ頂点が X = 30・Y = 20・Z = 15 です。" width="274" height="280" loading="lazy"></a><figcaption><span class="figno">図 12-6</span> 原点を <code>(90, 10, 0)</code> に置いた <span class="ui">［UCS1］</span> の座標では、同じ頂点が <code>X = 30</code>・<code>Y = 20</code>・<code>Z = 15</code> です。</figcaption></figure>
+</div>
+<h3 id="measure-keep">計測をブラウザに残す</h3>
+<p>計測の値は、ブラウザに残せます。残した計測は、モデルを変えると値が更新されます。</p>
+<ol class="steps">
+  <li><p>ドックの下の<span class="ui">［ブラウザに残す］</span>の左のコンボボックスで、残す値（<span class="ui">［平行距離］</span>など）を選びます。</p></li>
+  <li><p><span class="ui">［ブラウザに残す］</span>を押します。</p></li>
+  <li><p>ブラウザのパーツの下の<span class="ui">［計測］</span>フォルダに、<span class="ui">［計測1］</span> のような行が増えます。種類の列に値の種類、状態の列に今の値が出ます。</p>
+    <figure id="fig-12_measure_kept"><a class="zoom" href="images/12_measure_kept.png"><img src="images/12_measure_kept.png" alt="［計測］フォルダ。題材に入っている 3 つの計測と、今残した［計測1］（［平行距離］）が並びます。" width="360" height="302" loading="lazy"></a><figcaption><span class="figno">図 12-7</span> <span class="ui">［計測］</span>フォルダ。題材に入っている 3 つの計測と、今残した<span class="ui">［計測1］</span>（<span class="ui">［平行距離］</span>）が並びます。</figcaption></figure></li>
+</ol>
+<ul>
+  <li><p>押し出しの距離などを変えると、残した計測の値が自動で更新されます。</p></li>
+  <li><p>測った面やエッジが無くなったときは、値が<span class="ui">［見つかりません］</span>の警告になって残ります。計測は削除されません。</p></li>
+  <li><p>名前は、行を選んで <kbd>F2</kbd> で変えます。削除は、行を選んで <kbd>Del</kbd>、または右クリックの<span class="ui">［計測を削除］</span>です。</p></li>
+  <li><p>ボディ全体と作業フィーチャの計測は、ブラウザに残せません。</p></li>
+  <li><p>残した計測は、ドキュメントに保存されます。</p></li>
+</ul>
+<figure id="fig-12_measure_edge"><a class="zoom" href="images/12_measure_edge.png"><img src="images/12_measure_edge.png" alt="エッジを 1 つ選んだとき。値は［長さ］だけです。［選択 2］に 2 つ目を選ぶと、距離や角度が増えます。" width="274" height="280" loading="lazy"></a><figcaption><span class="figno">図 12-8</span> エッジを 1 つ選んだとき。値は<span class="ui">［長さ］</span>だけです。<span class="ui">［選択 2］</span>に 2 つ目を選ぶと、距離や角度が増えます。</figcaption></figure>
+<ul>
+  <li><p><span class="ui">［すべてコピー］</span>は、ドックの内容をテキストでクリップボードに写します。</p></li>
+  <li><p>値の単位は、ドキュメントの単位です（<span class="ui">［単位と精度］</span>）。</p></li>
+</ul>
+<aside class="note" role="note"><p class="callout-title">注意</p><p>計測のツールは、パーツのモードで使います。スケッチを編集している間は使えません。残した計測を、ビューに常に描く設定はありません（値はブラウザの<span class="ui">［計測］</span>に出ます）。</p></aside>
+
+<h2 id="mass"><span class="secno">12.3</span> 物理プロパティ</h2>
+<p><span class="ui">［物理プロパティ］</span>は、パーツの質量・面積・体積・重心・慣性を求めます。質量は、材料の密度を掛けた値です。</p>
+<ol class="steps">
+  <li><p>リボンの<span class="ui">［検査］</span>タブ →<span class="ui">［計測］</span>パネル →<span class="ui">［物理プロパティ］</span>をクリックします。ダイアログが開きます。</p></li>
+  <li><p>値が古いとき（形を変えたあと）は、<span class="ui">［更新］</span>を押します。ダイアログを開いたまま形を変えると、「<code>モデルが変わりました。[更新]を押してください。</code>」と出て、値は<span class="ui">［N/A］</span>になります。</p>
+    <figure id="fig-12_mass_bodies"><a class="zoom" href="images/12_mass_bodies.png"><img src="images/12_mass_bodies.png" alt="物理プロパティ。左が鋼、右がアルミの 2 つのボディなので、［密度］はボディごとに異なると出て、下の表にボディごとの値が並びます。" width="480" height="713" loading="lazy"></a><figcaption><span class="figno">図 12-9</span> 物理プロパティ。左が鋼、右がアルミの 2 つのボディなので、<span class="ui">［密度］</span>は<code>ボディごとに異なる</code>と出て、下の表にボディごとの値が並びます。</figcaption></figure></li>
+</ol>
+<div class="table-wrap"><table>
+  <caption>ダイアログの項目</caption>
+  <thead><tr><th>項目</th><th>内容</th></tr></thead>
+  <tbody>
+    <tr><th scope="row"><span class="ui">［材料］</span>・<span class="ui">［密度］</span></th><td>パーツの材料と密度。コンボボックスで材料を替えられます。材料が無いときは<span class="ui">［（既定の材料）］</span>で、密度は 1 g/cm³ です</td></tr>
+    <tr><th scope="row"><span class="ui">［要求される精度］</span></th><td>計算の精度。<code>非常に高い（相対誤差 1e-12）</code>に固定です。選べません</td></tr>
+    <tr><th scope="row"><span class="ui">［質量］</span>・<span class="ui">［面積］</span>・<span class="ui">［体積］</span></th><td>パーツ全体の値</td></tr>
+    <tr><th scope="row"><span class="ui">［重心］</span></th><td>ワールドの原点から見た重心の X・Y・Z</td></tr>
+    <tr><th scope="row"><span class="ui">［境界ボックス］</span>・<span class="ui">［向き付き境界ボックス］</span></th><td>軸に平行な外接箱と、最小の外接箱（向きつき）の大きさ</td></tr>
+    <tr><th scope="row"><span class="ui">［慣性プロパティ］</span></th><td><span class="ui">［主慣性モーメント］</span>（主軸まわり）・<span class="ui">［グローバル］</span>（ワールドの原点まわり）・<span class="ui">［重心］</span>（重心まわり）を切り替えます。主軸と回転半径も出ます</td></tr>
+    <tr><th scope="row"><span class="ui">［慣性プロパティの計算に負の積分を使用］</span></th><td>慣性乗積の符号の決め方です。既定はオンです</td></tr>
+    <tr><th scope="row">下の表</th><td>ボディごとの材料・密度・質量・体積（ボディが複数のとき）</td></tr>
+  </tbody>
+</table></div>
+<h3 id="mass-density">密度を上書きする</h3>
+<ol class="steps">
+  <li><p>材料を選んだ状態で、<span class="ui">［密度］</span>の右の欄に密度を入力します（<code>8</code> のように単位を省くと、<code>g/cm³</code> です。<code>8000 kg/m^3</code> のような単位付きも書けます）。</p></li>
+  <li><p><span class="ui">［密度を上書き］</span>を押します。<span class="ui">［更新］</span>を押すと、新しい質量になります。</p>
+    <figure id="fig-12_mass_override"><a class="zoom" href="images/12_mass_override.png"><img src="images/12_mass_override.png" alt="鋼の板の密度を 8 g/cm³ に上書きしたあと。材料の表示が鋼（変更）になり、質量は 0.451913 kg に変わりました。" width="364" height="463" loading="lazy"></a><figcaption><span class="figno">図 12-10</span> 鋼の板の密度を <code>8 g/cm³</code> に上書きしたあと。材料の表示が<code>鋼（変更）</code>になり、質量は <code>0.451913 kg</code> に変わりました。</figcaption></figure></li>
+</ol>
+<aside class="note" role="note"><p class="callout-title">注意</p><p>上書きは、ドキュメントの中の材料の値を変えます（同梱のライブラリは変わりません）。材料の無いパーツでは、先に材料を選びます。ボディごとに材料が違うときは、<a href="#material">材料</a>のダイアログで変えます。</p></aside>
+<ul>
+  <li><p><span class="ui">［クリップボード］</span>は、値をテキストでコピーします。</p></li>
+  <li><p>質量の単位（<code>kg</code>・<code>g</code>）は、リボンの<span class="ui">［ツール］</span>タブ →<span class="ui">［オプション］</span>パネル →<span class="ui">［単位と精度］</span>で決めます。</p></li>
+  <li><p>材料や外観を替えても、形は再計算されません。質量だけが、新しい密度で求め直されます。</p></li>
+  <li><p>構成のメンバーが材料を上書きしているときは、そのメンバーの材料で計算します（<a href="11_configurations.html">第 11 章</a>）。</p></li>
+</ul>
+<aside class="inventor" role="note"><p class="callout-title">Inventor との違い</p><p>Inventor の iProperty の<span class="ui">［物理］</span>タブに当たります。要求される精度は選べません。mass() などの値を iProperties のプロパティにリンクする方法は<a href="10_parameters.html#iproperties">第 10 章</a>にあります。</p></aside>
+
+<h2 id="material"><span class="secno">12.4</span> 材料</h2>
+<p>材料は、密度・ヤング率・ポアソン比などの物性と、既定の色を持ちます。質量は材料の密度で決まります。</p>
+<ol class="steps">
+  <li><p>パーツ全体に割り当てるときは、何も選ばない状態にします。ボディだけに割り当てるときは、ブラウザかビューでボディを選びます。ダイアログを開いたあとでも選び直せて、上の行（割り当て先）が、選択に合わせて変わります。</p></li>
+  <li><p>リボンの<span class="ui">［ツール］</span>タブ →<span class="ui">［材料と外観］</span>パネル →<span class="ui">［材料］</span>をクリックします。</p></li>
+  <li><p>左の一覧で材料を選びます。右に、その材料の物性と出典が出ます。</p>
+    <figure id="fig-12_material_dialog"><a class="zoom" href="images/12_material_dialog.png"><img src="images/12_material_dialog.png" alt="材料のダイアログ。上の行に、割り当て先（ボディに割り当て: 押し出し2 のボディ）が出ます。［黄銅 C26000］を選んだところです。" width="489" height="428" loading="lazy"></a><figcaption><span class="figno">図 12-11</span> 材料のダイアログ。上の行に、割り当て先（<code>ボディに割り当て: 押し出し2 のボディ</code>）が出ます。<span class="ui">［黄銅 C26000］</span>を選んだところです。</figcaption></figure></li>
+  <li><p><span class="ui">［選択範囲に割り当て］</span>を押します。ダイアログは開いたままなので、ほかのボディを選んで続けて割り当てられます。終わったら<span class="ui">［閉じる］</span>で閉じます。</p>
+    <figure id="fig-12_material_assigned"><a class="zoom" href="images/12_material_assigned.png"><img src="images/12_material_assigned.png" alt="割り当てた後。ブラウザでボディを選ぶと、プロパティ パネルの［材料］が［黄銅 C26000］になり、色も黄銅色です。" width="361" height="753" loading="lazy"></a><figcaption><span class="figno">図 12-12</span> 割り当てた後。ブラウザでボディを選ぶと、プロパティ パネルの<span class="ui">［材料］</span>が<span class="ui">［黄銅 C26000］</span>になり、色も黄銅色です。</figcaption></figure></li>
+</ol>
+<ul>
+  <li><p>一覧の分類は<span class="ui">［ドキュメント材料］</span>（このドキュメントが持つ材料）と、同梱のライブラリです。ライブラリには、<span class="ui">［一般］</span>・<span class="ui">［鋼］</span>・<span class="ui">［ステンレス鋼 304］</span>・<span class="ui">［アルミニウム 6061］</span>・<span class="ui">［銅 C11000］</span>・<span class="ui">［焼なまし銅（IACS）］</span>・<span class="ui">［黄銅 C26000］</span>・<span class="ui">［真空］</span>があります。物性の値ごとに、出典が書かれています。</p></li>
+  <li><p>割り当てると、ライブラリの材料の値がドキュメントに写されます。ライブラリが後で変わっても、ドキュメントの値は変わりません。「<code>ライブラリにこの材料の新しい値があります。</code>」と知らせます。</p></li>
+  <li><p><span class="ui">［割り当てを解除］</span>は、ボディの材料を外してパーツの材料に戻し、パーツの材料を外して既定の材料（<span class="ui">［一般］</span>、1 g/cm³）に戻します。</p></li>
+  <li><p>密度の優先順位は、ボディの材料 → パーツの材料 → 既定の材料です。</p></li>
+</ul>
+<h3 id="material-edit">ドキュメントの材料を編集する</h3>
+<p>右下の<span class="ui">［ドキュメント材料の編集］</span>で、ドキュメントが持つ材料の<span class="ui">［名前］</span>・<span class="ui">［密度］</span>・<span class="ui">［ヤング率］</span>・<span class="ui">［ポアソン比］</span>を書き換えて、<span class="ui">［変更を適用］</span>を押します。ライブラリの材料を選んだ状態で編集すると、先にドキュメントに写されます。</p>
+<aside class="note" role="note"><p class="callout-title">注意</p><p>利用者のライブラリ（材料の追加・保存）はありません。値を変えたいときは、ドキュメントの材料を編集します。<span class="ui">［焼なまし銅（IACS）］</span>と<span class="ui">［真空］</span>は、電磁場解析の物性（導電率・比誘電率・比透磁率）を持ちます（<a href="26_step_export.html">第 26 章</a>）。</p></aside>
+
+<h2 id="appearance"><span class="secno">12.5</span> 外観（色と透明度）</h2>
+<p>面やボディに、色と透明度を付けます。色は、ビューの表示と、STEP のエクスポートに効きます。</p>
+<ol class="steps">
+  <li><p>色を付ける面・ボディを選びます。何も選ばないと、パーツの全部のボディが対象です。ダイアログを開いたあとでも選び直せて、上の対象の表示（<code>面: 1</code> など）が、選択に合わせて変わります。</p></li>
+  <li><p>リボンの<span class="ui">［ツール］</span>タブ →<span class="ui">［材料と外観］</span>パネル →<span class="ui">［外観］</span>をクリックします。</p></li>
+  <li><p>色の見本をクリックします。もっと細かく選ぶときは<span class="ui">［色］</span>を押して色を決めます。</p></li>
+  <li><p><span class="ui">［透明度］</span>のスライダーで 0〜100 % を決めます。</p>
+    <figure id="fig-12_appearance_dialog"><a class="zoom" href="images/12_appearance_dialog.png"><img src="images/12_appearance_dialog.png" alt="外観のダイアログ。上に対象（面: 1）、色の見本（よく使う色と、材料の色）、［透明度］です。" width="288" height="198" loading="lazy"></a><figcaption><span class="figno">図 12-13</span> 外観のダイアログ。上に対象（<code>面: 1</code>）、色の見本（よく使う色と、材料の色）、<span class="ui">［透明度］</span>です。</figcaption></figure></li>
+  <li><p><span class="ui">［適用］</span>を押します。</p>
+    <figure id="fig-12_appearance_view"><a class="zoom" href="images/12_appearance_view.png"><img src="images/12_appearance_view.png" alt="箱の前の面に、青で透明度 30 % を適用したところ。ほかの面と、赤い上面はそのままです。" width="700" height="438" loading="lazy"></a><figcaption><span class="figno">図 12-14</span> 箱の前の面に、青で透明度 30 % を適用したところ。ほかの面と、赤い上面はそのままです。</figcaption></figure></li>
+</ol>
+<ul>
+  <li><p>色は、<strong>面 → ボディ → 材料</strong>の順に優先されます。面に付けた色が、ボディの色に勝ちます。</p></li>
+  <li><p><span class="ui">［クリア］</span>（か<span class="ui">［外観をクリア］</span>）は、選んだ面・ボディに付けた色を消して、材料の色に戻します。</p></li>
+  <li><p>外観の変更は、1 回が 1 つの Undo の項目で、ドキュメントに保存されます。形は再計算されません。</p></li>
+  <li><p>STEP にエクスポートすると、ボディと面の色が入ります。読み戻しても同じ色になります。</p></li>
+</ul>
+<aside class="note" role="note"><p class="callout-title">注意</p><p>フィーチャ単位の外観（フィーチャが作った面すべてに色を付ける）と、Inventor の「調整」のようなスポイトの操作、テクスチャや反射の設定はありません。</p></aside>
+
+<h2 id="errors"><span class="secno">12.6</span> エラーを検索</h2>
+<p><span class="ui">［エラーを検索］</span>は、ボディの形状の欠陥を探します。取り込んだ形（STEP など）や、極端な寸法で作った形を確かめるときに使います。</p>
+<ol class="steps">
+  <li><p>リボンの<span class="ui">［検査］</span>タブ →<span class="ui">［解析］</span>パネル →<span class="ui">［エラーを検索］</span>をクリックします。</p></li>
+  <li><p>必要なら、しきい値を変えます。<span class="ui">［微小エッジの長さがこれより短い］</span>（既定 <code>0.001 mm</code>）・<span class="ui">［スライバー面の幅がこれより小さい］</span>（<code>0.01 mm</code>）・<span class="ui">［ギャップ（許容差）がこれより大きい］</span>（<code>0.001 mm</code>）と、<span class="ui">［自己交差を調べる］</span>のチェックです。</p></li>
+  <li><p><span class="ui">［検索］</span>を押します。検査の間は、ボタンが<span class="ui">［停止］</span>になり、押すと中止できます。</p></li>
+  <li><p>結果が表に並びます。下に「<code>エラー 0 件と警告 1 件が見つかりました。</code>」のように件数が出ます。</p>
+    <figure id="fig-12_errors_dialog"><a class="zoom" href="images/12_errors_dialog.png"><img src="images/12_errors_dialog.png" alt="題材の左の板の、幅 0.005 mm の細い面を見つけたところ。［重大度］は［警告］、［問題］はスライバー面（幅 0.004999 mm）です。" width="582" height="386" loading="lazy"></a><figcaption><span class="figno">図 12-15</span> 題材の左の板の、幅 0.005 mm の細い面を見つけたところ。<span class="ui">［重大度］</span>は<span class="ui">［警告］</span>、<span class="ui">［問題］</span>は<code>スライバー面（幅 0.004999 mm）</code>です。</figcaption></figure></li>
+  <li><p>表の行を選ぶと、ビューでその要素（面・エッジ・頂点）が選択の色で強調されます。検索が終わった時点では、問題のあるすべての要素が選ばれます。ダイアログは開いたままなので、ビューを回したり拡大したりして、強調された要素を確かめられます。</p></li>
+</ol>
+<p>問題が無いときは「<code>問題は見つかりませんでした。</code>」と出ます。</p>
+<div class="table-wrap"><table>
+  <caption>調べる項目</caption>
+  <thead><tr><th>重大度</th><th>出る文</th><th>内容</th></tr></thead>
+  <tbody>
+    <tr><th scope="row"><span class="ui">［エラー］</span></th><td><code>不正なトポロジまたはジオメトリ（…）</code></td><td>形のデータが矛盾しています</td></tr>
+    <tr><th scope="row"><span class="ui">［エラー］</span></th><td><code>自己交差</code></td><td>面や稜線が自分自身と交わっています</td></tr>
+    <tr><th scope="row"><span class="ui">［エラー］</span></th><td><code>エッジの曲線が面に乗っていません（…）</code></td><td>エッジと面がずれています</td></tr>
+    <tr><th scope="row"><span class="ui">［エラー］</span></th><td><code>ソリッドのシェルが閉じていません</code>・<code>フリー エッジ: 1 つの面だけが使っています</code></td><td>開いた面（穴の空いたソリッド）です</td></tr>
+    <tr><th scope="row"><span class="ui">［エラー］</span></th><td><code>面の向きが揃っていません（向きが逆の面があります）</code></td><td>面の向きが食い違っています</td></tr>
+    <tr><th scope="row"><span class="ui">［警告］</span></th><td><code>微小エッジ（… mm）</code></td><td>しきい値より短いエッジです</td></tr>
+    <tr><th scope="row"><span class="ui">［警告］</span></th><td><code>スライバー面（幅 … mm）</code></td><td>しきい値より細い面です</td></tr>
+    <tr><th scope="row"><span class="ui">［警告］</span></th><td><code>ギャップ: 許容差 … mm</code></td><td>許容差がしきい値より大きい頂点・エッジです</td></tr>
+    <tr><th scope="row"><span class="ui">［警告］</span></th><td><code>… 個の開いたシートが互いに接しており、縫合できます</code></td><td>開いたシートどうしが接しています</td></tr>
+  </tbody>
+</table></div>
+<aside class="note" role="note"><p class="callout-title">注意</p><p>穴の多い大きな部品では、<span class="ui">［自己交差を調べる］</span>に時間がかかります（穴 1,600 個の板で約 16 秒）。その間もほかの操作はできますが、再計算は待たされます。急ぐときはチェックを外すか、<span class="ui">［停止］</span>を押します。</p></aside>
+<aside class="note" role="note"><p class="callout-title">注意</p><p>見つけた欠陥を直す機能は、この画面にはありません。取り込んだ形の欠陥は、<span class="ui">［修復］</span>コマンドで直します（<a href="13_files.html">第 13 章</a>）。</p></aside>
+
+<h2 id="region"><span class="secno">12.7</span> 領域のプロパティ</h2>
+<p><span class="ui">［領域のプロパティ］</span>は、スケッチの閉じた領域か、平らな面の断面の特性（面積・図心・断面二次モーメントなど）を求めます。梁の断面の強度計算に使います。</p>
+<ol class="steps">
+  <li><p>ブラウザのスケッチを選びます（スケッチを編集中なら、そのスケッチです）。平らな面の断面を知りたいときは、ビューでその面を選びます。</p></li>
+  <li><p>リボンの<span class="ui">［検査］</span>タブ →<span class="ui">［計測］</span>パネル →<span class="ui">［領域のプロパティ］</span>をクリックします。</p></li>
+  <li><p><span class="ui">［スケッチ］</span>のコンボボックスで対象を選びます。閉じた領域が一覧に並びます。計算に入れる領域にチェックを入れます（合計が出ます）。</p></li>
+  <li><p><span class="ui">［計算］</span>を押します。</p>
+    <figure id="fig-12_region_dialog"><a class="zoom" href="images/12_region_dialog.png"><img src="images/12_region_dialog.png" alt="板の外形のスケッチ（領域 1、6000 mm²）の計算結果。［クリップボード］で値をコピーできます。" width="278" height="562" loading="lazy"></a><figcaption><span class="figno">図 12-16</span> 板の外形のスケッチ（<code>領域 1</code>、6000 mm²）の計算結果。<span class="ui">［クリップボード］</span>で値をコピーできます。</figcaption></figure></li>
+</ol>
+<ul>
+  <li><p>値は、<span class="ui">［面積］</span>・<span class="ui">［周長］</span>・<span class="ui">［図心位置］</span>・<span class="ui">［スケッチ原点に関する慣性］</span>（<code>Ixx</code>・<code>Iyy</code>・<code>Ixy</code>）・<span class="ui">［極慣性モーメント（原点）］</span>・<span class="ui">［図心に関する慣性］</span>・<span class="ui">［主慣性モーメント］</span>・<span class="ui">［Z 軸回りの回転角度］</span>・<span class="ui">［回転半径］</span>です。値はスケッチの座標系で出ます（Inventor と同じです）。</p></li>
+  <li><p>平らな面を選んだときは、<code>選択した面</code>の項目が出ます。値は、図心を原点にした面の座標系で出て、<span class="ui">［断面係数］</span>も出ます。</p></li>
+  <li><p>円弧の領域も、近似せずに厳密に計算します。穴のある領域は、穴を引いた値です。</p></li>
+</ul>
+
+<h2 id="section"><span class="secno">12.8</span> 断面で内側を確かめる</h2>
+<p>ボディの中の形（内側の穴・肉厚）は、断面図で確かめます。コマンドはリボンの<span class="ui">［表示］</span>タブ →<span class="ui">［外観］</span>パネルにあります。</p>
+<ol class="steps">
+  <li><p><span class="ui">［1/2 断面図］</span>・<span class="ui">［1/4 断面図］</span>・<span class="ui">［3/4 断面図］</span>のどれかを押し、ブラウザで切る平面（原点の平面か作業平面）を選びます。オフセットで切る位置を決めます。</p></li>
+  <li><p><span class="ui">［断面を反転］</span>で残す側を替えます。<span class="ui">［切断面を塗りつぶす］</span>は切断面を塗りつぶし（ボディごとの色）、<span class="ui">［切断面のハッチング］</span>は切断面に斜線を引きます。</p></li>
+  <li><p><span class="ui">［断面図を終了］</span>で、断面を終えます。</p></li>
+</ol>
+<p>断面図は表示だけで、ボディは切りません。ボディを切るには<a href="08_bodies.html#split">分割</a>を使います。詳しい手順と写真は<a href="02_view.html#section">第 2 章</a>にあります。切り口の面積・断面二次モーメントは、<a href="#region">領域のプロパティ</a>で求められます。</p>
+
+<h2 id="next"><span class="secno">12.9</span> 次に読む章</h2>
+<ul>
+  <li><p>ボディごとの材料・名前を付けるとき: <a href="08_bodies.html">第 8 章 ボディの操作</a></p></li>
+  <li><p>質量や体積をプロパティにリンクするとき: <a href="10_parameters.html#iproperties">第 10 章 パラメータと式</a></p></li>
+  <li><p>STEP に色や名前を付けて書き出すとき: <a href="13_files.html">第 13 章 ファイル</a>・<a href="26_step_export.html">第 26 章 他の解析プログラムに形を渡す</a></p></li>
+</ul>
+<aside class="try"><p class="callout-title">この機能を試す</p><p class="try-sample">題材: <code>samples/measure_and_material.mcad</code> （<a href="00_intro.html#samples">題材の一覧と開き方</a>）</p>
+  <p>ブラウザの<span class="ui">［計測］</span>の行を選んで <kbd>F2</kbd>（名前の変更）・<kbd>Del</kbd>（削除）を試します。押し出しの距離を変えると、計測の値が更新されます。<span class="ui">［計測］</span>で、左の板の上面と右の箱の上面を選び、<span class="ui">［最小距離］</span>・<span class="ui">［最大距離］</span>を切り替えて、<span class="ui">［平行距離］</span>を<span class="ui">［ブラウザに残す］</span>と、<span class="ui">［計測］</span>フォルダに増えます。<span class="ui">［物理プロパティ］</span>を開いて<span class="ui">［更新］</span>を押すと、ボディごとの質量（左が鋼・右がアルミ）の表が出ます。<span class="ui">［材料］</span>で右のボディの材料を替えて、質量が変わることを確かめます。<span class="ui">［外観］</span>で面に色を付けて<span class="ui">［適用］</span>します。<span class="ui">［エラーを検索］</span>で<span class="ui">［検索］</span>を押すと、左の板の細い面の<span class="ui">［警告］</span>が出ます。行を選ぶと、ビューで強調されます。</p>
+</aside>
+<aside class="try"><p class="callout-title">この機能を試す</p><p class="try-sample">題材: <code>samples/plate_with_holes.mcad</code> （<a href="00_intro.html#samples">題材の一覧と開き方</a>）</p>
+  <p>ブラウザの<span class="ui">［スケッチ1］</span>を選んで<span class="ui">［領域のプロパティ］</span>を開き、<span class="ui">［計算］</span>を押します。<span class="ui">［物理プロパティ］</span>で<span class="ui">［密度を上書き］</span>に <code>8</code> と入力し、<span class="ui">［更新］</span>を押すと、質量が <code>0.4519 kg</code> に変わります。</p>
+</aside>
+
+</article>
+<nav class="pager" aria-label="前後の章"><a class="prev" rel="prev" href="11_configurations.html"><span class="dir">前の章</span>第 11 章 構成</a><a class="next" rel="next" href="13_files.html"><span class="dir">次の章</span>第 13 章 ファイル</a></nav>
+<footer class="footer"><p>EMRM-Studio ユーザーマニュアル（日本語）・EMRM-Studio 0.1.0 ・ <a href="#main">このページの先頭へ</a></p></footer>
+</main>
+</div>
+</body>
+</html>

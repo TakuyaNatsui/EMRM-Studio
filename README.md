@@ -21,6 +21,14 @@ the source code.
 > guns). See
 > [Trial limitation](#trial-limitation).
 
+## Videos
+
+Walkthroughs of the workflow on YouTube (in Japanese; click an image to open the video).
+
+| <a href="https://youtu.be/OmWEB7HpHyk"><img src="https://i.ytimg.com/vi/OmWEB7HpHyk/hqdefault.jpg" width="260" alt="Resonant-mode analysis"></a> | <a href="https://youtu.be/W-GMfiD06UM"><img src="https://i.ytimg.com/vi/W-GMfiD06UM/hqdefault.jpg" width="260" alt="Port analysis example (coupler cavity)"></a> | <a href="https://youtu.be/-Z4kdWiCBX0"><img src="https://i.ytimg.com/vi/-Z4kdWiCBX0/hqdefault.jpg" width="260" alt="Quadrupole magnet (Q-magnet) example"></a> |
+|:---:|:---:|:---:|
+| [Resonant-mode analysis](https://youtu.be/OmWEB7HpHyk) | [Port analysis example (coupler cavity)](https://youtu.be/W-GMfiD06UM) | [Quadrupole magnet (Q-magnet) example](https://youtu.be/-Z4kdWiCBX0) |
+
 ## Features
 
 - **3D CAD**: constrained and dimensioned sketches, extrude / revolve / sweep / loft, Booleans, fillets and chamfers,

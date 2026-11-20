@@ -17,6 +17,14 @@ Windows 用デスクトップアプリです。本格的なパラメトリック
 > **試用版:** すべての機能を使えますが、解析できるメッシュの要素数（四面体の数）に上限があります
 > （共振モード・ポート解析は **30,000**、静磁場・静電場・電子銃は **100,000**）。[試用版の制限](#試用版の制限) を参照してください。
 
+## 説明動画
+
+YouTube で操作と計算の流れを紹介しています（画像を押すと動画が開きます）。
+
+| <a href="https://youtu.be/OmWEB7HpHyk"><img src="https://i.ytimg.com/vi/OmWEB7HpHyk/hqdefault.jpg" width="260" alt="共振モード解析"></a> | <a href="https://youtu.be/W-GMfiD06UM"><img src="https://i.ytimg.com/vi/W-GMfiD06UM/hqdefault.jpg" width="260" alt="ポート解析の計算例（カプラー空洞）"></a> | <a href="https://youtu.be/-Z4kdWiCBX0"><img src="https://i.ytimg.com/vi/-Z4kdWiCBX0/hqdefault.jpg" width="260" alt="四重極電磁石（Q-magnet）の計算例"></a> |
+|:---:|:---:|:---:|
+| [共振モード解析](https://youtu.be/OmWEB7HpHyk) | [ポート解析の計算例（カプラー空洞）](https://youtu.be/W-GMfiD06UM) | [四重極電磁石（Q-magnet）の計算例](https://youtu.be/-Z4kdWiCBX0) |
+
 ## できること
 
 - **3D CAD**: 拘束と寸法つきのスケッチ、押し出し・回転・スイープ・ロフト、ブーリアン、フィレット・面取り、
